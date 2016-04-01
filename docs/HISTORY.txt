@@ -3,6 +3,10 @@ Changelog
 
 13.9.dev0 - (unreleased)
 ------------------------
+* Change: consolidated eea_flexible_tooltip into a single function called
+  for each tooltip type as well as in other places where we want to
+  add tooltips after page load
+  [ichimdav refs #69487]
 
 13.8 - (2016-03-15)
 -------------------
