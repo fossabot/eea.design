@@ -11,7 +11,7 @@ version = open(join(*path)).read().strip()
 setup(name=name,
       version=version,
       description="Plone4 theme for EEA",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.md").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
         "Framework :: Plone",
