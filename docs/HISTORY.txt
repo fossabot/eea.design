@@ -3,8 +3,10 @@ Changelog
 
 13.9.dev0 - (unreleased)
 ------------------------
+* Bug fix: show reply to comment button 
+  [demarant refs #70675]
 * Change: airs Briefings now display the first table above the fiche-summary
-  [ichim-david]
+  [ichimdav]
 * Change: consolidated eea_flexible_tooltip into a single function called
   for each tooltip type as well as in other places where we want to
   add tooltips after page load

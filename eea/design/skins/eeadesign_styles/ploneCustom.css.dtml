@@ -1,9 +1,10 @@
 /* <dtml-with base_properties> (do not remove this :) */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
-/* TODO HACK demarant removed description from promo-gallery for the launch of soer2015 */
-.frontpage .promo-item-desc {
-  display: none;
+/* #70675 show reply to comment button */
+
+.reply-to-comment-button {
+    display: inline !important;
 }
 
 /* columns.css slider-definitions modification */
