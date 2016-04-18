@@ -44,8 +44,8 @@
                 <thead>
                     <tr>
                         <th class="nosort"><input type="checkbox" name="select_all" onclick="toggleSelect(this, 'paths:list')" /></th>
-                        <th>Key</th>
-                        <th>Value</th>
+                        <th i18n:translate="">Key</th>
+                        <th i18n:translate="">Value</th>
                     </tr>
                 </thead>
                 <tbody>

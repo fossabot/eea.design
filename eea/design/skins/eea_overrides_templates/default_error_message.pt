@@ -16,7 +16,7 @@
                         url python:actual_url.split('/')[-1].lower();
                         pdfdownload python:actual_url.startswith(context.portal_url()+'/downloads');">
 
-    <tal:comment tal:replace="nothing">
+    <tal:comment replace="nothing">
         #20972 custom 404 message for PDF/ePub download
     </tal:comment>
 
@@ -27,7 +27,7 @@
                                  uuid python:paths[0].lower() if len(paths) else '';
                                  redirect_url python:context.portal_url()+'/resolveuid/'+uuid;
                                  download_type python:actual_url.split('.')[-1].upper();
-                                 download_type python:download_type if len(download_type) <= 4 else 'File';">
+                                 download_type python:download_type if not len(download_type) > 4 else 'File';">
 
         <tal:missing condition="not:nocall:inprogress">
             <h1 class="documentFirstHeading" i18n:translate="">
@@ -56,7 +56,7 @@
 
     </tal:pdfdownload>
 
-    <tal:comment tal:replace="nothing">
+    <tal:comment replace="nothing">
         #17812 avoid redirection logic and other computed logic if link ends with rss
         in order to avoid expensive computation on these links which can be called many
         times by bots or RSS clients
