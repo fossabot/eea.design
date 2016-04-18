@@ -1,8 +1,8 @@
 Changelog
 =========
 
-13.9.dev0 - (unreleased)
-------------------------
+13.9 - (2016-04-18)
+-------------------
 * Bug fix: show reply to comment button 
   [demarant refs #70675]
 * Change: airs Briefings now display the first table above the fiche-summary
