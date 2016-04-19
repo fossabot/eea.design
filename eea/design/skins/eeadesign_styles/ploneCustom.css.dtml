@@ -1108,6 +1108,12 @@ a.moreLink {
     content: '';
 }
 
+/* #70786 global id should be on the same line with the indicator codes */
+.portaltype-specification #version-global-id,
+.portaltype-assessment #version-global-id {
+    float: left;
+    margin-right: 1em;
+}
 
 /* Batch selector */
 .listingBar {
