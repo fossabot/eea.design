@@ -45,12 +45,12 @@
                 The <tal:dtype replace="download_type" i18n:name="download_type">PDF</tal:dtype> file will be available in a few moments &hellip;
             </h1>
 
-            <div class="portalMessage smileyMessage" i18n:translate=""
+            <div class="portalMessage smileyMessage"
                  tal:define="object_data python:context.portal_catalog(UID=uuid);
                              object_url python:object_data[0].getURL() if object_data else redirect_url;
                              object_title python:object_data[0].Title if object_data else 'Un-published page'">
-                We are preparing the <tal:dtype replace="download_type" i18n:name="download_type">PDF</tal:dtype> for "<span tal:replace="object_title" />" (<span class="discreet" tal:content="object_url" />). It will be available soon.<br />
-                <strong>We will notify you via email when it is ready or try to refresh this page in a few moments.</strong>
+                <span tal:omit-tag="" i18n:translate="">We are preparing the <tal:dtype replace="download_type" i18n:name="download_type">PDF</tal:dtype> for</span> "<span tal:replace="object_title" />" (<span class="discreet" tal:content="object_url" />). <span tal:omit-tag="" i18n:translate="">It will be available soon.</span><br />
+                <strong i18n:translate="">We will notify you via email when it is ready or try to refresh this page in a few moments.</strong>
             </div>
         </tal:inprogress>
 
