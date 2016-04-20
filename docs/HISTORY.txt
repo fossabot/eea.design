@@ -7,6 +7,10 @@ Changelog
   fixed errors in templates
   [chiridra refs #69753]
 
+* Fix user and groups popup -
+  updated the userandgroupselect_popup template
+  [chiridra refs #71467]
+
 13.9 - (2016-04-18)
 -------------------
 * Bug fix: show reply to comment button 
