@@ -1,6 +1,14 @@
 /* <dtml-with base_properties> (do not remove this :) */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
+/* #50513 hide global filter for document register
+* so that users cannot remove it.
+*/
+
+#c4_option_c4_public-administrative-document {
+   display: none !important;
+}
+
 /* #70675 show reply to comment button */
 
 .reply-to-comment-button {
