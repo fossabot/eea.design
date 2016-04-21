@@ -3,11 +3,14 @@ Changelog
 
 14.0.dev0 - (unreleased)
 ------------------------
-* Update eea.translations with the latest translation strings -
+* Change: global filter for document register.
+  [demarant refs #50513]
+
+* Bug fix: Update eea.translations with the latest translation strings -
   fixed errors in templates
   [chiridra refs #69753]
 
-* Fix user and groups popup -
+* Bug fix: fix user and groups popup -
   updated the userandgroupselect_popup template
   [chiridra refs #71467]
 
