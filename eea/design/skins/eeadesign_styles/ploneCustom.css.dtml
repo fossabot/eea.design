@@ -608,6 +608,11 @@ input.standalone:hover {
 #content-core {
     clear:both;
 }
+
+/* 70523 set callout to a base of 12px in order to normalize googlechart notes size  */
+#content .callout {
+   font-size: 12px;
+}
 /* related styles amd flowplayer videos style */
 
 .media-player {
