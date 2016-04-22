@@ -5,14 +5,16 @@ Changelog
 ------------------------
 * Change: global filter for document register.
   [demarant refs #50513]
-
 * Bug fix: Update eea.translations with the latest translation strings -
   fixed errors in templates
   [chiridra refs #69753]
-
 * Bug fix: fix user and groups popup -
   updated the userandgroupselect_popup template
   [chiridra refs #71467]
+* Feature: html body field for daviz and gis application
+    - added new field "body"
+    - modified the view template
+  [chiridra refs #70146]
 
 13.9 - (2016-04-18)
 -------------------

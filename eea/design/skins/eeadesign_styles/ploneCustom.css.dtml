@@ -1398,6 +1398,10 @@ body .ploneSkin .mce_formatPreview a {
     height: 85px;
 }
 
+#davizvisualization-base-edit table.mceLayout {
+    width:100%!important;
+}
+
 /* #18086: Improvements to the tinymce fullscreen mode
 **  center editor since we have a fixed width layout
 */
