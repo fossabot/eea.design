@@ -7,6 +7,8 @@ from Products.CMFCore.utils import _checkPermission
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from eea.versions.interfaces import IGetVersions
+from eea.versions.versions import get_version_prefix
 from plone.app.layout.links import viewlets as links
 from plone.app.layout.viewlets import common, content
 from plone.app.layout.viewlets.content import DocumentBylineViewlet as \
@@ -125,6 +127,30 @@ class DocumentBylineViewlet(content.DocumentBylineViewlet):
         context = aq_inner(self.context)
         portal_type = getattr(context, 'portal_type', None)
         return portal_type in self.prefs_properties.allowed_types_rights
+
+    def version_id(self):
+        return IGetVersions(self.context).versionId
+
+    def get_version_object(self, version):
+        """ Retrieve portal_version object if found
+        """
+        vtool = self.context.portal_eea_versions
+        res = vtool.get(version.split('-')[0])
+        if not res:
+            return get_version_prefix(self.context)
+        return res
+
+    def available(self):
+        """ Available
+        """
+        import pdb; pdb.set_trace()
+        version_id = self.version_id()
+        if not version_id:
+            return ''
+        if '-' not in version_id:
+            return ''
+        version_obj = self.get_version_object(version_id)
+        return version_obj.show_version_id if version_obj else ''
 
 
 class FooterPortletsViewlet(common.ViewletBase):
