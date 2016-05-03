@@ -1403,7 +1403,7 @@ body .ploneSkin .mce_formatPreview a {
     height: 85px;
 }
 
-#davizvisualization-base-edit table.mceLayout {
+#davizvisualization-base-edit table.mceLayout, #gis_application-base-edit table.mceLayout {
     width:100%!important;
 }
 
