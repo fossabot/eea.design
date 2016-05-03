@@ -40,12 +40,11 @@ setup(name=name,
           'eea.promotion',
           'eea.themecentre',
           'eea.translations',
+          'eea.versions',
 
           'setuptools',
           'valentine.linguaflow',
 
-          #'selenium',
-          #'gocept.selenium[plone]',
 
           # -*- Extra requirements: -*-
           'plone.app.async'
