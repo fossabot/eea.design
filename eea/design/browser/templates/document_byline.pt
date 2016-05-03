@@ -24,6 +24,14 @@
                                allow_labeling_blacklist view/labelBlacklist"
                     metal:define-macro="publishdate">
             <span class="portalType" tal:content="friendly_type" tal:condition="not:allow_labeling_blacklist"></span>
+
+            <div class="inline-block" id="version-global-id" tal:condition="view/available">
+                —
+                <strong i18n:translate="">Global ID:</strong>
+                <span tal:content="view/version_id">Version id</span>
+                —
+            </div>
+
             <tal:expired tal:condition="view/isExpired">
                 —
                 <span class="state-expired"
