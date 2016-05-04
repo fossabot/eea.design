@@ -35,6 +35,7 @@
             <tal:indicator-codes tal:condition="exists:context/getCodes">
                 <div tal:define="codes context/getCodes; version_id view/available" class="inline-block" id="indicator-codes">
                     <strong i18n:translate="" tal:condition="version_id">Also known as:</strong>
+                    <span class="byline-separator" tal:condition="not:version_id"></span>
                     <strong i18n:translate="" tal:condition="not:version_id">Indicator codes:</strong>
                      <span tal:repeat="code codes">
                      <span tal:replace="string:${code/set} ${code/code}" />
