@@ -9,6 +9,7 @@
         <dependency>profile-eea.facetednavigation:default</dependency>
         <dependency>profile-eea.promotion:default</dependency>
         <dependency>profile-eea.themecentre:default</dependency>
+        <dependency>profile-eea.versions:default</dependency>
         <dependency>profile-eea.translations:default</dependency>
         <dependency>profile-valentine.linguaflow:default</dependency>
     </dependencies>
