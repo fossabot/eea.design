@@ -1107,10 +1107,6 @@ a.moreLink {
     font-weight: bold;
 }
 
-.documentByLine .docDate {
-    padding-right: 0.5em;
-}
-
 .documentByLineAuthor:nth-child(2) span:after,
 .documentByLineAuthor a:after, .documentByLineContributor a:after {
     content: ',';
@@ -1119,13 +1115,6 @@ a.moreLink {
 .documentByLineAuthor:nth-child(2) a:after,
 .documentByLineAuthor:last-child a:after, .documentByLineContributor:last-child a:after {
     content: '';
-}
-
-/* #70786 global id should be on the same line with the indicator codes */
-.portaltype-specification #version-global-id,
-.portaltype-assessment #version-global-id {
-    float: left;
-    margin-right: 1em;
 }
 
 /* Batch selector */

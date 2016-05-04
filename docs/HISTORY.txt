@@ -3,6 +3,12 @@ Changelog
 
 14.0.dev0 - (unreleased)
 ------------------------
+* Feature: added global id version info viewlet info within documentByLine
+  [ichim-david refs #70786]
+* Change: documentByLine is now splitted by dashes instead of commas
+  [ichim-david refs #70786]
+* Change: moved getCodes info from eea.indicators into documentByLine
+  [ichim-david refs #70786]
 * Change: global filter for document register.
   [demarant refs #50513]
 * Bug fix: Update eea.translations with the latest translation strings -

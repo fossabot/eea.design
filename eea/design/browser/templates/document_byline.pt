@@ -26,14 +26,26 @@
             <span class="portalType" tal:content="friendly_type" tal:condition="not:allow_labeling_blacklist"></span>
 
             <div class="inline-block" id="version-global-id" tal:condition="view/available">
-                —
+                <span class="byline-separator"></span>
                 <strong i18n:translate="">Global ID:</strong>
                 <span tal:content="view/version_id">Version id</span>
-                —
+                <span class="byline-separator"></span>
             </div>
 
+            <tal:indicator-codes tal:condition="exists:context/getCodes">
+                <div tal:define="codes context/getCodes; version_id view/available" class="inline-block" id="indicator-codes">
+                    <strong i18n:translate="" tal:condition="version_id">Also known as:</strong>
+                    <strong i18n:translate="" tal:condition="not:version_id">Indicator codes:</strong>
+                     <span tal:repeat="code codes">
+                     <span tal:replace="string:${code/set} ${code/code}" />
+                     <span tal:condition="not:repeat/code/end" tal:replace="string:, " />
+                     </span>
+                    <span class="byline-separator"></span>
+                </div>
+            </tal:indicator-codes>
+
             <tal:expired tal:condition="view/isExpired">
-                —
+                <span class="byline-separator"></span>
                 <span class="state-expired"
                       i18n:translate="">expired</span>
             </tal:expired>
@@ -43,9 +55,11 @@
                 </tal:published><span tal:replace="python:' %s' % plone_view.toLocalizedTime(here.CreationDate())"> August 16, 2001 at 23:35:59</span>
             </span>
             <span class="docDate publishDate" tal:condition="python:allow_showpubdate and here.getEffectiveDate()">
+                <span class="byline-separator"></span>
                 <tal:published i18n:translate="">
                     Published
                 </tal:published><span tal:replace="python:' %s' % plone_view.toLocalizedTime(here.getEffectiveDate())"> August 16, 2001 at 23:35:59</span>
+                <span class="byline-separator" tal:condition="isAnon"></span>
             </span>
             <span class="docDate modificationDate" tal:condition="python:isAnon and allow_showmoddate">
                    <tal:modified i18n:translate="">
@@ -71,6 +85,7 @@
                         <tal:i18n i18n:translate="">
                             <a href="#"
                             tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator}"
+
                             tal:content="python:view.authorname(creator)"
                             tal:omit-tag="python:view.author(creator) is None"
                             i18n:name="author">Roland Barthes</a>
@@ -109,7 +124,7 @@
 
                 <span class="contentHistory"
                       tal:condition="view/show_history"
-                      id="content-history"> —
+                      id="content-history">
                       <a href="#"
                          tal:attributes="href string:${here/absolute_url}/@@historyview"
                          i18n:translate="">History</a>
