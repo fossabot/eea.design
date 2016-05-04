@@ -12,7 +12,7 @@ from Products.PloneTestCase.layer import PloneSite
 ptc.setupPloneSite()
 
 import eea.design
-
+import eea.versions
 
 class TestCase(ptc.PloneTestCase):
     """ Test Case
@@ -26,6 +26,7 @@ class TestCase(ptc.PloneTestCase):
             """
             fiveconfigure.debug_mode = True
             ztc.installPackage(eea.design)
+            ztc.installPackage(eea.versions)
             fiveconfigure.debug_mode = False
 
         @classmethod
