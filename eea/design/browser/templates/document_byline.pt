@@ -59,7 +59,6 @@
                 <tal:published i18n:translate="">
                     Published
                 </tal:published><span tal:replace="python:' %s' % plone_view.toLocalizedTime(here.getEffectiveDate())"> August 16, 2001 at 23:35:59</span>
-                <span class="byline-separator" tal:condition="isAnon"></span>
             </span>
             <span class="docDate modificationDate" tal:condition="python:isAnon and allow_showmoddate">
                    <span class="byline-separator"></span>
