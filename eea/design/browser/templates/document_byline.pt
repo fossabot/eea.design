@@ -29,19 +29,17 @@
                 <span class="byline-separator"></span>
                 <strong i18n:translate="">Global ID:</strong>
                 <span tal:content="view/version_id">Version id</span>
-                <span class="byline-separator"></span>
             </div>
 
             <tal:indicator-codes tal:condition="exists:context/getCodes">
                 <div tal:define="codes context/getCodes; version_id view/available" class="inline-block" id="indicator-codes">
-                    <strong i18n:translate="" tal:condition="version_id">Also known as:</strong>
                     <span class="byline-separator" tal:condition="not:version_id"></span>
+                    <strong i18n:translate="" tal:condition="version_id">Also known as:</strong>
                     <strong i18n:translate="" tal:condition="not:version_id">Indicator codes:</strong>
                      <span tal:repeat="code codes">
                      <span tal:replace="string:${code/set} ${code/code}" />
                      <span tal:condition="not:repeat/code/end" tal:replace="string:, " />
                      </span>
-                    <span class="byline-separator"></span>
                 </div>
             </tal:indicator-codes>
 
@@ -51,6 +49,7 @@
                       i18n:translate="">expired</span>
             </tal:expired>
             <span class="docDate creationDate" tal:condition="allow_showcredate">
+                <span class="byline-separator"></span>
                 <tal:published i18n:translate="">
                     Created
                 </tal:published><span tal:replace="python:' %s' % plone_view.toLocalizedTime(here.CreationDate())"> August 16, 2001 at 23:35:59</span>
@@ -63,6 +62,7 @@
                 <span class="byline-separator" tal:condition="isAnon"></span>
             </span>
             <span class="docDate modificationDate" tal:condition="python:isAnon and allow_showmoddate">
+                   <span class="byline-separator"></span>
                    <tal:modified i18n:translate="">
                     Last modified
                    </tal:modified><span tal:replace="python:' %s' % plone_view.toLocalizedTime(here.ModificationDate(),long_format=1)"> August 16, 2001 at 23:35:59</span>
