@@ -1,6 +1,9 @@
 Changelog
 =========
 
+14.1.dev0 - (unreleased)
+------------------------
+
 14.0 - (2016-05-05)
 -------------------
 * Change: folder_summary_view now shows the item type by default
