@@ -27,7 +27,9 @@
 
             <div class="inline-block" id="version-global-id" tal:condition="view/available">
                 <span class="byline-separator"></span>
-                <strong i18n:translate="">Global ID:</strong>
+                <tal:id tal:define="version_id_name siteprops/version_id_name|string:Global ID:">
+                    <strong tal:content="python: context.translate(version_id_name)"></strong>
+                </tal:id>
                 <span tal:content="view/version_id">Version id</span>
             </div>
 
