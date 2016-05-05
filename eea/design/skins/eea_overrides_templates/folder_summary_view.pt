@@ -17,7 +17,7 @@
                     <metal:entry fill-slot="entry">
                 <div class="tileItem visualIEFloatFix"
                      tal:define="item_type_class python: 'visualIcon contenttype-' + normalizeString(item_type);
-                                 item_type_title_display item_type_title_display|python: False;
+                                 item_type_title_display item_type_title_display|python: True;
                                  item_css_class urlview/css_class;">
                     <a class="tileImage"
                        tal:attributes="href item_url;
