@@ -210,6 +210,7 @@ jQuery(document).ready(function($) {
         self.find(settings.linkSelector).click(function(){
           var context = $(this);
           var oldCSS = context.attr('class');
+            settings.linkCSS = oldCSS.split(' ').slice(0,2).join(' ') + settings.linkCSS;
           context.removeClass();
           context.addClass(settings.linkCSS);
 
@@ -228,7 +229,7 @@ jQuery(document).ready(function($) {
     $('.documentActions .action-items').avoidMultipleClicks();
     $document_actions.avoidMultipleClicks({
       linkSelector: '.eea-icon',
-      linkCSS: 'eea-icon eea-icon-3x eea-icon-download eea-icon-anim-burst animated'
+      linkCSS: ' eea-icon-download eea-icon-anim-burst animated'
     });
 
 

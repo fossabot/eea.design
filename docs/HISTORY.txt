@@ -3,6 +3,10 @@ Changelog
 
 14.1.dev0 - (unreleased)
 ------------------------
+* Change: modified avoidMultipleClicks in order to preserve the initial
+  eea-icon and eea-icon-x size, this way we can use something other than
+  eea-icon-3x
+  [ichimdav refs #70717]
 
 14.0 - (2016-05-05)
 -------------------
