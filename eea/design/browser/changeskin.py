@@ -1,5 +1,6 @@
 """ Change skins
 """
+import logging
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from eea.design.browser.interfaces import IEEADesignPublic, IEEADesignCMS
@@ -10,7 +11,6 @@ from zope.interface import directlyProvidedBy
 from zope.interface import directlyProvides
 from zope.publisher.interfaces.browser import IBrowserSkinType
 
-import logging
 logger = logging.getLogger("eea.design")
 
 class TestSkin(BrowserView):

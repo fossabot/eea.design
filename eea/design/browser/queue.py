@@ -4,6 +4,8 @@
 from Products.Five import BrowserView
 
 class JobsView(BrowserView):
+    """ Async Jobs BrowserView
+    """
 
     def js(self, timeout=30000):
         """Returns the javascript code for async call

@@ -1,8 +1,8 @@
 """ Installer
 """
-from setuptools import setup, find_packages
 from os.path import join
 import os
+from setuptools import setup, find_packages
 
 name = 'eea.design'
 path = name.split('.') + ['version.txt']

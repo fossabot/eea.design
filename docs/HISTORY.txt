@@ -7,6 +7,8 @@ Changelog
   eea-icon and eea-icon-x size, this way we can use something other than
   eea-icon-3x
   [ichimdav refs #70717]
+* Bug fix: Fix pylint warnings
+  [chiridra refs #71940]
 
 14.0 - (2016-05-05)
 -------------------

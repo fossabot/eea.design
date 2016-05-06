@@ -103,7 +103,7 @@ class SoerTopicSearch(BrowserView):
         """ Country environment
         """
         topic = self.request.get('topic', None)
-        if topic == None or topic not in PARTC_TOPIC_MAP.keys():
+        if topic is None or topic not in PARTC_TOPIC_MAP.keys():
             return []
 
         countries = getattr(self.soer, 'countries', None)
