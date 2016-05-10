@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object>
+    <order manager="plone.portaltop" skinname="*">
+        <viewlet name="eea.path_bar" insert-after="*" />
+    </order>
+    <!-- abovecontenttitle hiddenmanagers -->
+    <hidden manager="plone.abovecontent" skinname="*">
+        <viewlet name="plone.path_bar" />
+    </hidden>
+</object>

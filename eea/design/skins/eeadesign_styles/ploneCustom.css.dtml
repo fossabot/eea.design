@@ -1983,4 +1983,74 @@ h4.figureHeading {
     margin: 0;
 }
 
+
+/* refs #71260 - portal-breadcrumbs refactory */
+#portal-breadcrumbs{
+    margin: 0;
+    background-color: #e6e4e4;
+    font-size: 110%;
+}
+#portal-breadcrumbs .container{
+    max-width: 1024px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#portal-breadcrumbs ol {
+    display: inline-block;
+    padding: 8px 0;
+    list-style: none;
+    margin: 0;
+}
+#portal-breadcrumbs ol > li {
+    font-weight: 400;
+    display: inline-block;
+    line-height: 0;
+    position: relative;
+    padding: 0 30px 0 0;
+}
+#portal-breadcrumbs ol > li + li:after {
+    content: "";
+    position: absolute;
+    padding: 0 5px;
+    color: #e6e4e4;
+    border-left: 5px solid;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    left: -21px;
+    top: -15px;
+    padding: 0 !important;
+}
+#portal-breadcrumbs ol > li + li:before {
+    content: "";
+    position: absolute;
+    padding: 0 5px;
+    color: #cccccc;
+    border-left: 5px solid;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    left: -20px;
+    top: -15px;
+    padding: 0 !important;
+}
+#portal-breadcrumbs a {
+    color: #086ca3;
+}
+#portal-breadcrumbs li#breadcrumbs-home i{
+    font-size: 1.5em;
+    position: relative;
+    top: 2px;
+    color: #666;
+}
+#portal-breadcrumbs > #breadcrumbs-current {
+    color: #666;
+}
+#portal-breadcrumbs .breadcrumbSeparator,
+#portal-breadcrumbs #breadcrumbs-you-are-here{
+    display: none;
+}
+#header-holder #portal-breadcrumbs {
+    box-shadow: 0 1px 10px #e6e4e4;
+    border: 0;
+}
 /* </dtml-with> */

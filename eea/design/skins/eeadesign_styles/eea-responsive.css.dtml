@@ -451,7 +451,11 @@
   .eea-tabs-panel .eea-accordion-title {
     display: none; }
   .eea-tabs-panel .pane {
-    display: block !important; } }
+    display: block !important; }
+  #header-holder .navbar {
+    box-shadow: none;
+    border: 0;
+}}
 @media screen and (min-width: 768px) and (max-width: 800px) {
   #portaltab-europe {
     padding-right: 95px;

@@ -154,6 +154,11 @@ class DocumentBylineViewlet(content.DocumentBylineViewlet):
         return version_obj.show_version_id if version_obj else ''
 
 
+class PathBarViewlet(common.PathBarViewlet):
+    """A modified breadcrumbs viewlet
+    """
+    render = ViewPageTemplateFile('templates/path_bar.pt')
+    
 class FooterPortletsViewlet(common.ViewletBase):
     """A modified footer viewlet to contain portlet information
     """

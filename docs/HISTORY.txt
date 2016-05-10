@@ -9,6 +9,11 @@ Changelog
   [ichimdav refs #70717]
 * Bug fix: Fix pylint warnings
   [chiridra refs #71940]
+* Feature: Improve breadcrumb design
+  [lucas refs #71260]
+* Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
+  available for eea.design
+  [lucas refs #71260]
 
 14.0 - (2016-05-05)
 -------------------

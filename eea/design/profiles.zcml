@@ -129,14 +129,14 @@
         directory="profiles/upgrades/to_122"
         description='EEA Design upgrade profile for v12.2'
         provides="Products.GenericSetup.interfaces.EXTENSION" />
-    
+
     <genericsetup:registerProfile
         name="upgrade123"
         title="EEA Design upgrade profile for v12.3"
         directory="profiles/upgrades/to_123"
         description='EEA Design upgrade profile for v12.3'
         provides="Products.GenericSetup.interfaces.EXTENSION" />
-    
+
     <genericsetup:registerProfile
         name="upgrade124"
         title="EEA Design upgrade profile for v12.4"
@@ -150,19 +150,26 @@
         directory="profiles/upgrades/to_129"
         description='EEA Design upgrade profile for v12.9'
         provides="Products.GenericSetup.interfaces.EXTENSION" />
-    
+
     <genericsetup:registerProfile
         name="upgrade130"
         title="EEA Design upgrade profile for v13.0"
         directory="profiles/upgrades/to_130"
         description='EEA Design upgrade profile for v13.0'
         provides="Products.GenericSetup.interfaces.EXTENSION" />
-    
+
     <genericsetup:registerProfile
         name="upgrade131"
         title="EEA Design upgrade profile for v13.1"
         directory="profiles/upgrades/to_131"
         description='EEA Design upgrade profile for v13.1'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+    <genericsetup:registerProfile
+        name="upgrade141"
+        title="EEA Design upgrade profile for v14.1"
+        directory="profiles/upgrades/to_141"
+        description='EEA Design upgrade profile for v14.1'
         provides="Products.GenericSetup.interfaces.EXTENSION" />
 
 </configure>
