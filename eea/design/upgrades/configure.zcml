@@ -11,7 +11,7 @@
 
         <genericsetup:upgradeDepends
             title="Import all steps from eea.design profile upgrade 14.1"
-            description="move path_bar viewlet from abovecontenttitle to header"
+            description="move path_bar viewlet from abovecontenttitle to header. Added breadcrumbs configuration in site_properties"
             import_profile="eea.design:upgrade141"
             />
 

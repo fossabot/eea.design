@@ -1,30 +1,41 @@
 <nav id="portal-breadcrumbs" class="plone-breadcrumb"
          i18n:domain="plone"
-         tal:define="breadcrumbs view/breadcrumbs">
+         tal:define="breadcrumbs view/breadcrumbs;
+                     depth python:len(breadcrumbs) -1;
+                     plone_view context/@@plone;
+                     site_properties context/portal_properties/site_properties;
+                     desc_ellipsis site_properties/ellipsis;
+                     max_depth site_properties/breadcrumbs_max_depth|python: 2;
+                     croplink site_properties/breadcrumbs_link_length|python: 20;
+                     cropcurrent site_properties/breadcrumbs_current_length|python: 100;
+                     "
+          tal:condition="python:depth > 1">
   <div class="container">
     <span id="breadcrumbs-you-are-here" class="hiddenStructure"
             i18n:translate="you_are_here">You are here:</span>
     <ol aria-labelledby="breadcrumbs-you-are-here">
       <li id="breadcrumbs-home">
-        <a tal:attributes="href view/navigation_root_url">
+        <a tal:attributes="href view/navigation_root_url"
+           title="Home">
             <i class="eea-icon eea-icon-home"></i>
         </a>
       </li>
       <li tal:repeat="crumb breadcrumbs"
           tal:attributes="id string:breadcrumbs-${repeat/crumb/number};">
         <tal:item tal:define="is_last repeat/crumb/end;
-                                url crumb/absolute_url;
-                                title crumb/Title">
+                              count repeat/crumb/index;
+                              url crumb/absolute_url;
+                              title crumb/Title">
           <a href="#"
               tal:omit-tag="not: url"
               tal:condition="python:not is_last"
-              tal:attributes="href url"
-              tal:content="title">
+              tal:attributes="href url; title title"
+              tal:content="python:(depth > max_depth and count < max_depth) and desc_ellipsis or plone_view.cropText(title, croplink, desc_ellipsis)">
                   crumb
           </a>
           <span id="breadcrumbs-current"
                 tal:condition="is_last"
-                tal:content="title">crumb</span>
+                tal:content="python: plone_view.cropText(title, cropcurrent, desc_ellipsis)">crumb</span>
         </tal:item>
       </li>
     </ol>

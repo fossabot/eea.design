@@ -1993,8 +1993,8 @@ h4.figureHeading {
 #portal-breadcrumbs .container{
     max-width: 1024px;
     width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0;
+    padding-right: 0;
 }
 #portal-breadcrumbs ol {
     display: inline-block;

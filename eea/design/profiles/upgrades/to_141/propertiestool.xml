@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<object name="portal_properties" meta_type="Plone Properties Tool">
+ <object name="site_properties" meta_type="Plone Property Sheet">
+  <property name="breadcrumbs_max_depth" type="int">2</property>
+  <property name="breadcrumbs_link_length" type="int">20</property>
+  <property name="breadcrumbs_current_length" type="int">100</property>
+ </object>
+</object>
