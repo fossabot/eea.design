@@ -135,3 +135,8 @@ class ILanguages(Interface):
 class IBelowEditContentTitle(IViewletManager):
     """A viewlet manager that sits below the content title in edit templates
     """
+
+
+class IAboveColumnsManager(IViewletManager):
+    """A viewlet manager that sits above columns
+    """

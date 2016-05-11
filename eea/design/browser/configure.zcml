@@ -267,15 +267,6 @@
         permission="zope2.View"
         />
 
-    <!-- The breadcrumbs -->
-    <browser:viewlet
-        name="eea.path_bar"
-        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
-        class=".viewlets.PathBarViewlet"
-        permission="zope2.View"
-        layer=".interfaces.IEEACommonLayer"
-        />
-
     <!-- Browser pages -->
 
     <browser:page
@@ -425,6 +416,23 @@
 
 
      <!--Viewlets-->
+
+    <browser:viewletManager
+        name="eea.abovecolumns"
+        provides=".interfaces.IAboveColumnsManager"
+        permission="zope2.View"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        layer=".interfaces.IEEACommonLayer"
+        />
+
+    <!-- The breadcrumbs -->
+    <browser:viewlet
+        name="eea.path_bar"
+        manager=".interfaces.IAboveColumnsManager"
+        class=".viewlets.PathBarViewlet"
+        permission="zope2.View"
+        layer=".interfaces.IEEACommonLayer"
+        />
 
     <browser:viewletManager
         name="eea.below_edit_contenttitle"

@@ -14,10 +14,9 @@ from plone.app.layout.viewlets import common, content
 from plone.app.layout.viewlets.content import DocumentBylineViewlet as \
     BaseBelowContentTitleViewlet
 from zope.component import getMultiAdapter
-
 from eea.design.browser.interfaces import ISubFoldersListing
-
 from plone.memoize.instance import memoize
+from Products.NavigationManager.browser import breadcrumbs
 
 
 class LogoViewlet(common.LogoViewlet):
@@ -154,11 +153,12 @@ class DocumentBylineViewlet(content.DocumentBylineViewlet):
         return version_obj.show_version_id if version_obj else ''
 
 
-class PathBarViewlet(common.PathBarViewlet):
+class PathBarViewlet(breadcrumbs.BreadcrumbsViewlet):
     """A modified breadcrumbs viewlet
     """
-    render = ViewPageTemplateFile('templates/path_bar.pt')
-    
+    index = ViewPageTemplateFile('templates/path_bar.pt')
+
+
 class FooterPortletsViewlet(common.ViewletBase):
     """A modified footer viewlet to contain portlet information
     """

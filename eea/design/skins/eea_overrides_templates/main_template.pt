@@ -144,7 +144,7 @@
         </div>
     </div>
 </div>
-
+<div id="eea-above-columns" tal:content="structure provider:eea.abovecolumns" />
 <div id="visual-portal-wrapper">
 
         <div id="portal-columns" class="row">

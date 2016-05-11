@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <object>
-    <order manager="plone.portaltop" skinname="*">
+    <order manager="eea.abovecolumns" skinname="*">
         <viewlet name="eea.path_bar" insert-after="*" />
     </order>
     <!-- abovecontenttitle hiddenmanagers -->
