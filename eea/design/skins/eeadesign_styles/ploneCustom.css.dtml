@@ -2057,24 +2057,4 @@ h4.figureHeading {
     box-shadow: 0 1px 10px #e6e4e4;
     border: 0;
 }
-
-/* refs #71262 - top navigation must have a selected style */
-#globalnav-holder .hiddenStructure{
-    height: 0px;
-}
-#portal-globalnav .current{
-    position: relative;
-}
-#portal-globalnav .current :after {
-    top: 0;
-    left: 50%;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border: 10px solid transparent;
-    border-top-color: #fff;
-    margin-left: -10px;
-}
 /* </dtml-with> */

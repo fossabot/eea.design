@@ -35,7 +35,7 @@
     white-space: nowrap;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 #portal-globalnav li a  {
@@ -83,7 +83,27 @@
 }
 
 #portal-globalnav .en_icon {
-    background: url(&dtml-portal_url;/en_icon.png) no-repeat scroll right -2px transparent;
+    background: url(&dtml-portal_url;/en_icon.png) no-repeat scroll right -1px transparent;
+}
+
+/* refs #71262 - top navigation must have a selected style */
+#globalnav-holder .hiddenStructure{
+    height: 0px;
+}
+#portal-globalnav .current{
+    position: relative;
+}
+#portal-globalnav .current :after {
+    top: 0;
+    left: 50%;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border: 10px solid transparent;
+    border-top-color: #fff;
+    margin-left: -10px;
 }
 
 /* </dtml-with> */
