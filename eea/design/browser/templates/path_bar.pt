@@ -9,7 +9,7 @@
                      croplink site_properties/breadcrumbs_link_length|python: 20;
                      cropcurrent site_properties/breadcrumbs_current_length|python: 100;
                      "
-          tal:condition="python:depth > 1">
+          tal:condition="breadcrumbs">
   <div class="container">
     <span id="breadcrumbs-you-are-here" class="hiddenStructure"
             i18n:translate="you_are_here">You are here:</span>

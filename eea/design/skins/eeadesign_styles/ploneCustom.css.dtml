@@ -1985,34 +1985,35 @@ h4.figureHeading {
 
 
 /* refs #71260 - portal-breadcrumbs refactory */
-#eea-above-columns{
+#eea-above-columns #portal-breadcrumbs.plone-breadcrumb{
     margin-top: -17px;
+    margin-bottom: 17px;
 }
-#portal-breadcrumbs{
+#portal-breadcrumbs.plone-breadcrumb{
     margin: 0;
     background-color: #e6e4e4;
     font-size: 110%;
 }
-#portal-breadcrumbs .container{
+#portal-breadcrumbs.plone-breadcrumb .container{
     max-width: 1024px;
     width: 100%;
     padding-left: 0;
     padding-right: 0;
 }
-#portal-breadcrumbs ol {
+#portal-breadcrumbs.plone-breadcrumb ol {
     display: inline-block;
-    padding: 8px 0;
+    padding: 8px 5px;
     list-style: none;
     margin: 0;
 }
-#portal-breadcrumbs ol > li {
+#portal-breadcrumbs.plone-breadcrumb ol > li {
     font-weight: 400;
     display: inline-block;
     line-height: 0;
     position: relative;
     padding: 0 30px 0 0;
 }
-#portal-breadcrumbs ol > li + li:after {
+#portal-breadcrumbs.plone-breadcrumb ol > li + li:after {
     content: "";
     position: absolute;
     padding: 0 5px;
@@ -2024,7 +2025,7 @@ h4.figureHeading {
     top: -15px;
     padding: 0 !important;
 }
-#portal-breadcrumbs ol > li + li:before {
+#portal-breadcrumbs.plone-breadcrumb ol > li + li:before {
     content: "";
     position: absolute;
     padding: 0 5px;
@@ -2036,24 +2037,44 @@ h4.figureHeading {
     top: -15px;
     padding: 0 !important;
 }
-#portal-breadcrumbs a {
+#portal-breadcrumbs.plone-breadcrumb a {
     color: #086ca3;
 }
-#portal-breadcrumbs li#breadcrumbs-home i{
+#portal-breadcrumbs.plone-breadcrumb li#breadcrumbs-home i{
     font-size: 1.5em;
     position: relative;
     top: 2px;
     color: #666;
 }
-#portal-breadcrumbs > #breadcrumbs-current {
+#portal-breadcrumbs.plone-breadcrumb > #breadcrumbs-current {
     color: #666;
 }
-#portal-breadcrumbs .breadcrumbSeparator,
-#portal-breadcrumbs #breadcrumbs-you-are-here{
+#portal-breadcrumbs.plone-breadcrumb .breadcrumbSeparator,
+#portal-breadcrumbs.plone-breadcrumb #breadcrumbs-you-are-here{
     display: none;
 }
-#eea-above-columns #portal-breadcrumbs {
+#eea-above-columns #portal-breadcrumbs.plone-breadcrumb {
     box-shadow: 0 1px 10px #e6e4e4;
     border: 0;
+}
+
+/* refs #71262 - top navigation must have a selected style */
+#globalnav-holder .hiddenStructure{
+    height: 0px;
+}
+#portal-globalnav .current{
+    position: relative;
+}
+#portal-globalnav .current :after {
+    top: 0;
+    left: 50%;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border: 10px solid transparent;
+    border-top-color: #fff;
+    margin-left: -10px;
 }
 /* </dtml-with> */

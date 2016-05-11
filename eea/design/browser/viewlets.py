@@ -153,7 +153,7 @@ class DocumentBylineViewlet(content.DocumentBylineViewlet):
         return version_obj.show_version_id if version_obj else ''
 
 
-class PathBarViewlet(breadcrumbs.BreadcrumbsViewlet):
+class PathBarViewlet(common.PathBarViewlet):
     """A modified breadcrumbs viewlet
     """
     index = ViewPageTemplateFile('templates/path_bar.pt')
@@ -275,3 +275,55 @@ class ExportActionsViewlet(common.ViewletBase):
         self.context_state = getMultiAdapter((self.context, self.request),
                                              name=u'plone_context_state')
         self.actions = self.context_state.actions('export_actions')
+
+
+class GlobalSectionsViewlet(common.GlobalSectionsViewlet):
+    """ Override sections viewlet
+    """
+    render = ViewPageTemplateFile('templates/sections.pt')
+
+    def update(self):
+        super(GlobalSectionsViewlet, self).update()
+        self.selected_tabs = self.selectedTabs(portal_tabs=self.portal_tabs)
+        self.selected_portal_tab = self.selected_tabs['portal']
+
+    def selectedTabs(self, default_tab='index_html', portal_tabs=()):
+        plone_url = getToolByName(self.context, 'portal_url')()
+        plone_url_len = len(plone_url)
+        request = self.request
+        valid_actions = []
+
+        url = request['URL']
+        path = url[plone_url_len:]
+
+        # remove /SITE/ in development
+        if path.startswith('/SITE/'):
+            path = path[5:]
+
+        for action in portal_tabs:
+            action_url = action['url']
+            if action_url.startswith('/'):
+                action_url = plone_url + action['url']
+            if action_url.endswith('/'):
+                action_url = action_url[:-1]
+
+            if not action_url.startswith(plone_url):
+                # In this case the action url is an external link. Then, we
+                # avoid issues (bad portal_tab selection) continuing with next
+                # action.
+                continue
+
+            action_path = action_url[plone_url_len:]
+            if not action_path.startswith('/'):
+                action_path = '/' + action_path
+            if path.startswith(action_path + '/') or path == action_path:
+                # Make a list of the action ids, along with the path length
+                # for choosing the longest (most relevant) path.
+                valid_actions.append((len(action_path), action['id']))
+
+        # Sort by path length, the longest matching path wins
+        valid_actions.sort()
+        if valid_actions:
+            return {'portal' : valid_actions[-1][1]}
+
+        return {'portal' : default_tab}

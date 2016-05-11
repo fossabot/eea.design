@@ -343,7 +343,9 @@ jQuery(document).ready(function($) {
         })();
 
     }
-
+    if ($('#eea-above-columns #portal-breadcrumbs').length){
+        $('#header-holder .navbar').addClass('hideShadow');
+    }
 });
 
 
