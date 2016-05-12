@@ -1992,7 +1992,7 @@ h4.figureHeading {
 #portal-breadcrumbs.plone-breadcrumb{
     margin: 0;
     background-color: #e6e4e4;
-    font-size: 110%;
+    font-size: 100%;
 }
 #portal-breadcrumbs.plone-breadcrumb .container{
     max-width: 1024px;

@@ -105,7 +105,11 @@
     margin-left: 0 !important;
     margin-top: -10px !important;
   }
-  #portal-breadcrumbs,
+  #eea-above-columns #portal-breadcrumbs.plone-breadcrumb{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  #eea-above-columns #portal-breadcrumbs.plone-breadcrumb ol{ line-height: 2.5em; }
   #portal-personaltools-wrapper,
   .portal-logo,
   #siteaction-login {
@@ -373,9 +377,11 @@
   #viewlet-below-content .standalone {
     white-space: pre-wrap; } }
 @media screen and (max-width: 768px) {
+  #eea-above-columns{
+    margin-top: 70px;
+  }
   #visual-portal-wrapper {
-    overflow: auto;
-    margin-top: 45px; }
+    overflow: auto; }
 
   #portal-columns {
     min-width: 100% !important; }
