@@ -140,3 +140,4 @@ class IBelowEditContentTitle(IViewletManager):
 class IAboveColumnsManager(IViewletManager):
     """A viewlet manager that sits above columns
     """
+    
