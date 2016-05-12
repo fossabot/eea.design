@@ -16,7 +16,6 @@ from plone.app.layout.viewlets.content import DocumentBylineViewlet as \
 from zope.component import getMultiAdapter
 from eea.design.browser.interfaces import ISubFoldersListing
 from plone.memoize.instance import memoize
-from Products.NavigationManager.browser import breadcrumbs
 
 
 class LogoViewlet(common.LogoViewlet):
@@ -283,11 +282,15 @@ class GlobalSectionsViewlet(common.GlobalSectionsViewlet):
     render = ViewPageTemplateFile('templates/sections.pt')
 
     def update(self):
+        """ update method
+        """
         super(GlobalSectionsViewlet, self).update()
         self.selected_tabs = self.selectedTabs(portal_tabs=self.portal_tabs)
         self.selected_portal_tab = self.selected_tabs['portal']
 
     def selectedTabs(self, default_tab='index_html', portal_tabs=()):
+        """ selected tabs method
+        """
         plone_url = getToolByName(self.context, 'portal_url')()
         plone_url_len = len(plone_url)
         request = self.request
@@ -327,3 +330,4 @@ class GlobalSectionsViewlet(common.GlobalSectionsViewlet):
             return {'portal' : valid_actions[-1][1]}
 
         return {'portal' : default_tab}
+        
