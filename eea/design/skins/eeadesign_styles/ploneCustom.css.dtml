@@ -2054,7 +2054,7 @@ h4.figureHeading {
     display: none;
 }
 #eea-above-columns #portal-breadcrumbs.plone-breadcrumb {
-    box-shadow: 0 1px 10px #e6e4e4;
+    box-shadow: 0 2px 10px #ccc;
     border: 0;
 }
 /* </dtml-with> */

@@ -50,7 +50,6 @@
 
 #portal-globalnav a:hover, #portal-globalnav li a:hover,
 #portal-globalnav .selected a {
-    color: &dtml-corporateOrange;;
     background: transparent;
 }
 
@@ -90,10 +89,11 @@
 #globalnav-holder .hiddenStructure{
     height: 0px;
 }
-#portal-globalnav .current{
+#portal-globalnav li{
     position: relative;
 }
-#portal-globalnav .current :after {
+#portal-globalnav li a:hover:after,
+#portal-globalnav .current a:after {
     top: 0;
     left: 50%;
     content: " ";
