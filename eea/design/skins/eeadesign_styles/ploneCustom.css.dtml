@@ -791,6 +791,7 @@ a.moreLink {
 #header-holder .navbar {
     box-shadow: 0 1px 10px #005078;
     border: 0;
+    margin-bottom: 17px;
 }
 
 #portal-top {
