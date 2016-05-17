@@ -14,6 +14,8 @@ Changelog
 * Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
   available for eea.design
   [lucas refs #71260]
+* Bug fix: Text added in the DaViz Comment field can not be seen
+  [lucas refs #71595]
 
 14.0 - (2016-05-05)
 -------------------

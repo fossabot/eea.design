@@ -59,8 +59,7 @@
                              review_state python:wtool.getInfoFor(reply, 'review_state', 'none');"
                  tal:attributes="class python:'comment replyTreeLevel'+str(depth)+' state-'+str(review_state);
                                  style string:margin-left: ${depth}em;
-                                 id string:${reply/getId}"
-                 tal:condition="python:canReview or review_state == 'published'">
+                                 id string:${reply/getId}">
 
                 <div class="commentImage" tal:condition="showCommenterImage">
                     <a href="" tal:condition="has_author_link"
