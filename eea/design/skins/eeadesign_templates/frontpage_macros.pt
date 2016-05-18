@@ -8,7 +8,7 @@
      tal:define="hide_listing python: False;
                  hide_album python: True;
                  ajax python: False;
-                 more_href string:highlights;">
+                 more_href more_href_news|string:highlights;">
     <div metal:use-macro="here/news_gallery_macro/macros/news" />
 </div>
 
@@ -18,7 +18,7 @@
             tal:define="hide_listing python: False;
                         hide_album python: True;
                         ajax python: False;
-                        more_href string:articles;">
+                        more_href more_href_articles|string:articles;">
     <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
 </div>
 
@@ -28,7 +28,7 @@
      tal:define="hide_listing python: False;
                  hide_album python: True;
                  ajax python: False;
-                 more_href string:publications;">
+                 more_href more_href_publications|string:publications;">
     <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
 
 </div>
@@ -39,7 +39,7 @@
      tal:define="hide_album python: False;
                  hide_listing python: True;
                  ajax python: False;
-                 more_href string:multimedia;">
+                 more_href more_href_multimedia|string:multimedia;">
     <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
 </div>
 
@@ -49,7 +49,7 @@
      tal:define="hide_album python: False;
                  hide_listing python: True;
                  ajax python: False;
-                 more_href string:${portal_url}/data-and-maps;">
+                 more_href more_href_datamaps|string:${portal_url}/data-and-maps;">
     <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
 </div>
 
