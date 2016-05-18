@@ -543,10 +543,10 @@ div.overlay a:hover {
 */
 
 .icons-on .contenttype-document {
-    background: no-repeat transparent 0px 0px url(&dtml-portal_url;/contenttypes-sprite.png);
+    background: no-repeat transparent 0px 2px url(&dtml-portal_url;/contenttypes-sprite.png);
 }
 .icons-on .contenttype-event {
-    background: no-repeat transparent 0px -216px url(&dtml-portal_url;/contenttypes-sprite.png);
+    background: no-repeat transparent 0px -212px url(&dtml-portal_url;/contenttypes-sprite.png);
 }
 .icons-on .contenttype-folder {
     /* background: no-repeat transparent 0px -648px url(&dtml-portal_url;/contenttypes-sprite.png); */
@@ -566,10 +566,10 @@ div.overlay a:hover {
 }
 
 /* These should only appear in the add menu */
-#plone-contentmenu-factories .contenttype-file {
+.icons-on #plone-contentmenu-factories .contenttype-file {
     background: no-repeat transparent 0px -431px url(&dtml-portal_url;/contenttypes-sprite.png);
 }
-#plone-contentmenu-factories .contenttype-image {
+.icons-on #plone-contentmenu-factories .contenttype-image {
     background: no-repeat transparent 0px -862px url(&dtml-portal_url;/contenttypes-sprite.png);
 }
 
@@ -604,6 +604,19 @@ div.overlay a:hover {
     /* fixes edit without visual editor placement because it has an inline
      * negative margin-top */
     margin-bottom: 1em;
+}
+
+.template-folder_contents .contenttype-link,
+.template-folder_contents .contenttype-image,
+.template-folder_contents .contenttype-file,
+.template-folder_contents .contenttype-link,
+.template-folder_contents .contenttype-image,
+.template-folder_contents .contenttype-file,
+.icons-on #plone-contentmenu-factories .contenttype-link,
+.icons-on #plone-contentmenu-factories .contenttype-image,
+.icons-on #plone-contentmenu-factories .contenttype-file{
+    background: none;
+    padding-left: 0 !important;
 }
 
 /* @end @group Core content type sprites */
