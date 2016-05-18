@@ -105,6 +105,7 @@
     border-top-color: #fff;
     margin-left: -10px;
 }
-
+#portal-globalnav li#portaltab-europe a:hover:after{
+    border: none !important;
+}
 /* </dtml-with> */
-
