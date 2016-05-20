@@ -1,4 +1,5 @@
 /*jslint browser: true,  */ /*global jQuery, SubCookieUtil */
+// @flow
 jQuery(document).ready(function($) {
     window.whatsnew = {};
     var eea_gal = window.whatsnew;

@@ -82,32 +82,7 @@ class Frontpage(BrowserView):
 
     def getAllProducts(self, no_sort=False, language=None):
         """ retrieves all latest published products for frontpage """
-        if language and language != 'en':
-            return self.getAllProductsForTranslations(no_sort=no_sort,
-                                                      language=language)
-        else:
-            portaltypes = ('Report', 'Article', 'Highlight', 'PressRelease',
-                                        'Assessment', 'Data', 'EEAFigure')
-            result = []
-            for mytype in portaltypes:
-                res1 = _getItems(self, portaltypes=mytype,
-                                 noOfItems=self.noOfEachProduct,
-                                 language=language)
-                result.extend(res1)
-            multimedia = self.getMultimedia(language=language)
-            result.extend(multimedia[:self.noOfEachProduct])
 
-            # resort based on effective date
-            if not no_sort:
-                result.sort(key=lambda x: x.effective)
-                result.reverse()
-
-            return result
-
-    def getAllProductsForTranslations(self, no_sort=False, language=None):
-        """ retrieves all latest published products for frontpage of
-            translations
-        """
         datamaps_view = self.context.restrictedTraverse('data_and_maps_logic')
         news = self.getNews(language=language)[:self.noOfMedium]
         articles = self.getArticles(language=language)[:self.noOfMedium]
@@ -127,8 +102,6 @@ class Frontpage(BrowserView):
             result.reverse()
 
         return result
-
-
 
     def getHighArticles(self):
         """ return a defined number of high visibility articles items """
