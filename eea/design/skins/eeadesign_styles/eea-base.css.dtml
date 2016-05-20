@@ -609,13 +609,13 @@ div.overlay a:hover {
 .template-folder_contents .contenttype-link,
 .template-folder_contents .contenttype-image,
 .template-folder_contents .contenttype-file,
-.template-folder_contents .contenttype-link,
-.template-folder_contents .contenttype-image,
-.template-folder_contents .contenttype-file,
+.template-atct_topic_view span.summary .contenttype-link,
+.template-atct_topic_view span.summary .contenttype-image,
+.template-atct_topic_view span.summary .contenttype-file,
 .icons-on #plone-contentmenu-factories .contenttype-link,
 .icons-on #plone-contentmenu-factories .contenttype-image,
 .icons-on #plone-contentmenu-factories .contenttype-file{
-    background: none;
+    background: none !important;
     padding-left: 0 !important;
 }
 
