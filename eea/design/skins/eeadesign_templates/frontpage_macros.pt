@@ -83,7 +83,7 @@
                                  item_description_visible python: True if language == 'en' else False;">
         <div class="gallery-ajax visualClear">
             <div tal:attributes="class string: gallery-listing ${visible_listing};">
-                <div metal:use-macro="here/folder_listing_thumb_view/macros/listing"></div>
+                <div metal:use-macro="here/folder_listing_thumb_view/macros/content-core"></div>
             </div>
             <tal:enabled tal:define="enabled python: True;">
                 <div tal:attributes="class string: gallery-album ${visible_album}">
@@ -95,7 +95,7 @@
 
 <metal:ajax-items define-macro="ajax-items">
             <div class="gallery-listing">
-                <div metal:use-macro="here/folder_listing_thumb_view/macros/listing"></div>
+                <div metal:use-macro="here/folder_listing_thumb_view/macros/content-core"></div>
             </div>
             <div class="gallery-album">
                 <tal:enabled tal:define="enabled python: True">
