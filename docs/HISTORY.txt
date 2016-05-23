@@ -3,6 +3,9 @@ Changelog
 
 14.2.dev0 - (unreleased)
 ------------------------
+* Change: whatsnewgallery now loose the tabbing functionality, we now
+  display all results, keeping only the filtering
+  [ichimdav refs #71699]
 * Bug fix: Double icon displayed
   [lucas refs #71634]
   
