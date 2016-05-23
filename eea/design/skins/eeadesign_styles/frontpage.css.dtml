@@ -15,14 +15,6 @@ html {
 
 }
 
-#region-content {
-    padding: 0;
-}
-
-.documentContent {
-    padding: 0;
-}
-
 #main-content {
     margin-top: 5px;
 }
@@ -174,10 +166,19 @@ body.frontpage #portal-columns {
 
 /* style for featured boxes */
 .featured, .portlet {
-    background: &dtml-lightBackgroundColor;;
     margin-bottom: 1em;
     padding:1.9em;
 }
+
+.portlet,
+.portletWrapper .featured {
+    background: &dtml-whiteBackgroundColor;;
+}
+
+.featured {
+    background: &dtml-lightBackgroundColor;;
+}
+
 
 .featured-highlights {
     min-height: 120px;

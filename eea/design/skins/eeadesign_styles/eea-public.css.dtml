@@ -91,6 +91,13 @@ a:active { color: &dtml-linkActiveColor;; }
 }
 /* @end Site actions */
 
+/* @group Content Area */
+#region-content {
+    padding: 1.5em;
+    margin: 0 -0.96em;
+    background-color: #FFF;
+}
+/* @end Content Area */
 
 /* @group Image alignment classes */
 img.image-left,

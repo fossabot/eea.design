@@ -1362,7 +1362,6 @@ option.hiddenStructure {
 }
 
 #portal-column-two {
-    margin-top: 75px;
     min-width: 350px;
 }
 

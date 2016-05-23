@@ -18,7 +18,7 @@ dl.portlet {
 
 dl.portlet dt,
 div.portletAssignments div.portletHeader {
-    background: &dtml-lightBackgroundColor;;
+    background: transparent;
 }
 
 /* #16720; shrink the font-size of portlet headers */
