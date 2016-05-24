@@ -19,13 +19,14 @@
 
 div.width-3\3a 4 { width:    58.5%;  }
 div.position-1\3a 4 {margin-left:    -79.875%;}
-div.width-1\3a 4 { width: 36%;    } /* .width-1:4 */
+div.width-1\3a 4 { width: 35.5%;    } /* .width-1:4 */
 
 /* #16661 fallback to original width value for tinymce popups */
 #plonebrowser .width-1\3a 4 { width:    22.75%; } /* .width-1:4 */
 div.width-1\3a 2 { width:    52.25%; } /* .width-1:2 */
 
-div.position-3\3a 4 {margin-left: -36.5%;}
+div.position-3\3a 4 { margin-left: -35.5%; }
+div.position-0 { margin-left: -100%; }
 /* @end columns.css slider-definitions modification */
 
 /* remove borders on image gallery from eea.jquery */
@@ -1351,7 +1352,9 @@ option.hiddenStructure {
 
 /* portal-column styles */
 #portal-column-content  {
-    min-width: 600px;
+    background-color: #FFF;
+    padding: 0 1.5em 1.5em;
+    min-width: 635px;
 }
 
 .visualPadding {
