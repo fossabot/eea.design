@@ -440,7 +440,6 @@ dt.portletItem a, #content dt.portletItem a {
 }
 #portal-column-two .portlet {
    margin: 0 0 1em 0;
-   padding: 2em;
 }
 #portal-column-two dl dd dl.portlet {
    margin: 0;

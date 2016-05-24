@@ -197,7 +197,7 @@ select {
 
 #content {
     font-size: inherit;
-    margin: 1em 0em 2em 0em;
+    margin: 0 0 2em 0;
 }
 
 .userrole-anonymous .documentFirstHeading {

@@ -167,7 +167,7 @@ body.frontpage #portal-columns {
 /* style for featured boxes */
 .featured, .portlet {
     margin-bottom: 1em;
-    padding:1.9em;
+    padding:1.5em;
 }
 
 .portlet,
@@ -235,7 +235,6 @@ a.album-layout:hover {
 /* END Styles which can be used on any area */
 
 #portlet-followus {
-    padding: 2em;
     margin: 0;
 }
 #portlet-followus dd {

@@ -276,7 +276,7 @@ class figure-right or figure-left */
     text-align: right;
 }
 .figure-plus-container {
-    margin:0.8em 0 0.5em 0.5em;
+    margin: 0 0 1em 0;
 }
 .figure-plus {
     background-color: #fff;
@@ -456,7 +456,8 @@ span.figure-left {
 }
 
 /* languageCodes */
-#languageCodes {
+/* prefix with content in order to override content ul and region-content ul rule*/
+#content #languageCodes {
     border: 0;
     padding: 0;
     margin: 0;
