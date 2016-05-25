@@ -55,7 +55,7 @@ div.position-0 { margin-left: -100%; }
 }
 
 #faceted-form #center-content-area {
-    padding: 0 1.5em 0 0; /* add padding from center area to the right area*/
+    padding: 0 &dtml-padding-base; 0 0; /* add padding from center area to the right area*/
 }
 
 #faceted-form .faceted-widget fieldset {
@@ -403,7 +403,7 @@ input.standalone:hover {
 }
 
 .eea-tabs-panel {
-    padding: 20px;
+    padding: &dtml-padding-base;;
     background-color: &dtml-greyBackgroundColor;;
     overflow: auto;
 }

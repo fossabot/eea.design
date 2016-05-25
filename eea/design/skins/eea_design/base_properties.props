@@ -83,6 +83,9 @@ portalMinWidth:string=70em
 columnOneWidth:string=16em
 columnTwoWidth:string=16em
 
+# boostrap inspired variables
+padding-base:string=1.5em
+
 # 15235 font icon names and values
 # always add any new icons here for easier readability and maintainability
 eea-icon-check:string=\f00c
