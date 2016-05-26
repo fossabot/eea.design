@@ -8,7 +8,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from eea.versions.interfaces import IGetVersions
-from eea.versions.versions import get_version_prefix
+from eea.versions.controlpanel.utils import get_version_prefix
 from plone.app.layout.links import viewlets as links
 from plone.app.layout.viewlets import common, content
 from plone.app.layout.viewlets.content import DocumentBylineViewlet as \
