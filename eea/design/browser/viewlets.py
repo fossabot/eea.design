@@ -330,4 +330,3 @@ class GlobalSectionsViewlet(common.GlobalSectionsViewlet):
             return {'portal' : valid_actions[-1][1]}
 
         return {'portal' : default_tab}
-        
