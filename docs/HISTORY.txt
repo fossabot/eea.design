@@ -1,8 +1,8 @@
 Changelog
 =========
 
-14.3.dev0 - (unreleased)
-------------------------
+14.3 - (2016-06-02)
+-------------------
 * Change: brought changes from production back into eea.design for
   frontpage_view and frontpage_macros.pt
   [ichim-david refs #72908]
