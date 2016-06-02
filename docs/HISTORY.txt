@@ -3,6 +3,13 @@ Changelog
 
 14.3.dev0 - (unreleased)
 ------------------------
+* Change: brought changes from production back into eea.design for
+  frontpage_view and frontpage_macros.pt
+  [ichim-david refs #72908]
+* Feature: added getProduct methods to frontpage in order to allow
+  each individual product both for english and for translations to have
+  separate query range
+  [ichim-david refs #72908]
 
 14.2 - (2016-05-27)
 -------------------

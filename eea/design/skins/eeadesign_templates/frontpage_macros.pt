@@ -1,135 +1,143 @@
 <html xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      i18n:domain="eea" tal:omit-tag="">
+        i18n:domain="eea" tal:omit-tag="">
 
 <div metal:define-macro="news"
-     id="news-highlights"
-     class="eea-tabs-panel"
-     tal:define="hide_listing python: False;
-                 hide_album python: True;
-                 ajax python: False;
-                 more_href more_href_news|string:highlights;">
+        id="news-highlights"
+        class="eea-tabs-panel"
+        tal:define="hide_listing python: False;
+        hide_album python: True;
+        ajax python: False;
+        item_type_title_display python:True;
+        more_href more_href_news|string:highlights;">
     <div metal:use-macro="here/news_gallery_macro/macros/news" />
 </div>
 
 <div metal:define-macro="articles"
         class="eea-tabs-panel"
         id="articles-highlights"
-            tal:define="hide_listing python: False;
-                        hide_album python: True;
-                        ajax python: False;
-                        more_href more_href_articles|string:articles;">
+        tal:define="hide_listing python: False;
+        hide_album python: True;
+        ajax python: False;
+        more_href more_href_articles|string:articles;">
     <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
 </div>
 
 <div metal:define-macro="publications"
-     id="publications-highlights"
-     class="eea-tabs-panel"
-     tal:define="hide_listing python: False;
-                 hide_album python: True;
-                 ajax python: False;
-                 more_href more_href_publications|string:publications;">
+        id="publications-highlights"
+        class="eea-tabs-panel"
+        tal:define="hide_listing python: False;
+        hide_album python: True;
+        ajax python: False;
+        more_href more_href_publications|string:publications;">
     <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
 
 </div>
 
 <div metal:define-macro="multimedia"
-     class="eea-tabs-panel"
-     id="multimedia-highlights"
-     tal:define="hide_album python: False;
-                 hide_listing python: True;
-                 ajax python: False;
-                 more_href more_href_multimedia|string:multimedia;">
+        class="eea-tabs-panel"
+        id="multimedia-highlights"
+        tal:define="hide_album python: False;
+        hide_listing python: True;
+        ajax python: False;
+        more_href more_href_multimedia|string:multimedia;">
     <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
 </div>
 
 <div metal:define-macro="datamaps"
-     class="eea-tabs-panel"
-     id="datamaps-highlights"
-     tal:define="hide_album python: False;
-                 hide_listing python: True;
-                 ajax python: False;
-                 more_href more_href_datamaps|string:${portal_url}/data-and-maps;">
+        class="eea-tabs-panel"
+        id="datamaps-highlights"
+        tal:define="hide_album python: False;
+        hide_listing python: True;
+        ajax python: False;
+        more_href more_href_datamaps|string:${portal_url}/data-and-maps;">
     <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
 </div>
 
 <div metal:define-macro="allproducts"
         class="eea-tabs-panel"
         id="allproducts-highlights"
-        tal:define="hide_album python: True;
-                    hide_listing python: False;
-                    more_title python: context.translate('Archive');
-                    ajax python: False;">
+        tal:define="hide_album python: True if not main_site else False;
+                hide_listing python: False if not main_site else True;
+                        more_title python: context.translate('Archive');
+                                ajax python: False;">
+    <tal:main_site tal:condition="main_site">
+        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+    </tal:main_site>
+
+    <tal:main_site tal:condition="not:main_site">
         <div metal:use-macro="here/allproducts_gallery_macro/macros/allproducts" />
+    </tal:main_site>
 </div>
 
-
 <div metal:define-macro="more-link" class="portletFooter"
-    tal:define="more_href more_href|string:help/advanced-search;
-                more_title more_title|string:All Items">
-                <p>
-		   <a title="archive" class="standardButton" i18n:attributes="title"
-                       tal:attributes="href more_href;" >
-				<span i18n:translate=""
-                                      tal:omit-tag="">
-                                    <tal:block tal:content="more_title">All Items</tal:block></span>
-                    </a>
-                </p>
+        tal:define="more_href more_href|string:help/advanced-search;
+        more_title more_title|string:All Items">
+    <p>
+        <a title="archive" class="standardButton" i18n:attributes="title"
+                tal:attributes="href more_href;" >
+                        <span i18n:translate=""
+                tal:omit-tag="">
+            <tal:block tal:content="more_title">All Items</tal:block></span>
+        </a>
+    </p>
 </div>
 
 <metal:gallery-items define-macro="gallery-items"
-                     tal:define="visible_album python: 'hiddenStructure' if hide_album else '';
-                                 visible_listing python: 'hiddenStructure' if hide_listing else '';
-                                 item_description_visible python: True if language == 'en' else False;">
-        <div class="gallery-ajax visualClear">
-            <div tal:attributes="class string: gallery-listing ${visible_listing};">
-                <div metal:use-macro="here/folder_listing_thumb_view/macros/content-core"></div>
-            </div>
-            <tal:enabled tal:define="enabled python: True;">
-                <div tal:attributes="class string: gallery-album ${visible_album}">
-                    <div metal:use-macro="here/atct_album_view/macros/listing-nobatch"></div>
-                </div>
-            </tal:enabled>
+        tal:define="visible_album python: 'hiddenStructure' if hide_album else '';
+                visible_listing python: 'hiddenStructure' if hide_listing else '';
+                        item_type_title_display python:True;
+                                item_description_visible python: True if language == 'en' else False;">
+    <div class="gallery-ajax visualClear">
+        <div tal:attributes="class string: gallery-listing ${visible_listing};">
+            <div metal:use-macro="here/folder_listing_thumb_view/macros/content-core"></div>
         </div>
+        <tal:enabled tal:define="enabled python: True;">
+            <div tal:attributes="class string: gallery-album ${visible_album}">
+                <div metal:use-macro="here/atct_album_view/macros/listing-nobatch"></div>
+            </div>
+        </tal:enabled>
+    </div>
 </metal:gallery-items>
 
-<metal:ajax-items define-macro="ajax-items">
-            <div class="gallery-listing">
-                <div metal:use-macro="here/folder_listing_thumb_view/macros/content-core"></div>
-            </div>
-            <div class="gallery-album">
-                <tal:enabled tal:define="enabled python: True">
-                    <div metal:use-macro="here/atct_album_view/macros/listing-nobatch"></div>
-                </tal:enabled>
-            </div>
+<metal:ajax-items define-macro="ajax-items" tal:define="item_type_title_display python:True">
+    <div class="gallery-listing">
+        <div metal:use-macro="here/folder_listing_thumb_view/macros/content-core"></div>
+    </div>
+    <div class="gallery-album">
+        <tal:enabled tal:define="enabled python: True">
+            <div metal:use-macro="here/atct_album_view/macros/listing-nobatch"></div>
+        </tal:enabled>
+    </div>
 </metal:ajax-items>
 
 <metal:filter_topic metal:define-macro="filter-topic">
     <p class="filter-topic" i18n:translate="">Filtered by</p>
     <ul class="gallery-layout-selection"
-        tal:define="active_list python:' active-list' if not hide_listing else '';
-                 active_album python:' active-album' if not hide_album else '';">
+            tal:define="active_list python:' active-list' if not hide_listing else '';
+                    active_album python:' active-album' if not hide_album else '';">
         <li><a href="#" tal:attributes="class string:list-layout${active_list}"></a></li>
         <li><a href="#" tal:attributes="class string:album-layout${active_album}"></a></li>
     </ul>
 </metal:filter_topic>
 
 <metal:gallery-layout-selection metal:define-macro="gallery-layout-selection">
-        <metal:filter use-macro="context/frontpage_macros/macros/filter-topic" />
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-items" />
-        <div metal:use-macro="here/frontpage_macros/macros/more-link" />
+    <metal:filter use-macro="context/frontpage_macros/macros/filter-topic" />
+    <div metal:use-macro="here/frontpage_macros/macros/gallery-items" />
+    <div metal:use-macro="here/frontpage_macros/macros/more-link" />
 </metal:gallery-layout-selection>
 
 <metal:condition metal:define-macro="gallery-condition">
     <tal:cond tal:condition="folderContents" tal:define="
-        ajax ajax|nothing;
-        limit_display limit_display|nothing;">
+            ajax ajax|nothing;
+            item_type_title_display python:True;
+            limit_display limit_display|nothing;">
         <tal:ajax tal:condition="ajax" metal:use-macro="context/frontpage_macros/macros/ajax-items" />
         <tal:noajax tal:condition="not:ajax" metal:use-macro="context/frontpage_macros/macros/gallery-layout-selection" />
     </tal:cond>
     <tal:nocond tal:condition="not:folderContents">
-    <div style="display:none" tal:content="string:plone: XXX this is a workaround, somehow the first div from this folder gets it's content removed"></div>
-        <div class='portalMessage informationMessage'>
+        <div style="display:none" tal:content="string:plone: XXX this is a workaround, somehow the first div from this folder gets it's content removed"></div>
+            <div class='portalMessage informationMessage'>
             <p i18n:translate="" class='js-no-results'>No results are available for this topic</p>
         </div>
     </tal:nocond>
@@ -153,13 +161,13 @@
     </tal:comment>
 
     <tal:defines tal:define="
-    portal_type portal_type|context/portal_type;
-    item_interfaces context/@@plone_interface_info;
-    is_video is_video|python:item_interfaces.provides('eea.mediacentre.interfaces.IVideo');
+            portal_type portal_type|context/portal_type;
+            item_interfaces context/@@plone_interface_info;
+            is_video is_video|python:item_interfaces.provides('eea.mediacentre.interfaces.IVideo');
 
-    video python:'video-fancybox' if is_video and portal_type != 'FlashFile' else '';
-    animation python:'animation-fancybox' if portal_type == 'FlashFile' else '';
-    cloud python:'video-fancybox cloudvideo' if portal_type == 'CloudVideo' else '';">
+            video python:'video-fancybox' if is_video and portal_type != 'FlashFile' else '';
+            animation python:'animation-fancybox' if portal_type == 'FlashFile' else '';
+            cloud python:'video-fancybox cloudvideo' if portal_type == 'CloudVideo' else '';">
         <span metal:define-slot="body"></span>
     </tal:defines>
 </metal:isVideo>

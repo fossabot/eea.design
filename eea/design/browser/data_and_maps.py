@@ -21,27 +21,33 @@ class DataMaps(BrowserView):
 
         self.catalog = getToolByName(context, 'portal_catalog')
         portal_properties = getToolByName(context, 'portal_properties')
-        frontpage_properties = getattr(portal_properties,
-                                       'frontpage_properties')
+        self.fp = getattr(portal_properties,
+                          'frontpage_properties')
 
         self.promotions = []
         self.portal_url = getToolByName(aq_inner(context), 'portal_url')()
         #default number of items shown in each whatsnew / latest tab/portlet.
-        self.noOfLatestDefault = frontpage_properties.getProperty(
+        self.noOfLatestDefault = self.fp.getProperty(
             'noOfLatestDefault', 6)
         # noOfEachProduct is used when all latest products are merged together
         # we show equal number of each, so that none
         # products overshadow the others.
-        self.noOfEachProduct = frontpage_properties.getProperty(
+        self.noOfEachProduct = self.fp.getProperty(
             'noOfEachProduct', 3)
         self.now = DateTime()
-        self.effectiveDateMonthsAgo = frontpage_properties.getProperty(
-            'effectiveDateMonthsAgo', 18)
+        self.effectiveDateMonthsAgo = self.fp.getProperty(
+            'effectiveDateDataMonthsAgo', 18)
 
     def getLatestDatasets(self, language=None):
         """ Get latest published datasets. Number configurable via
         ZMI frontpage_properties.
         """
+        if language == 'en':
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getDatasetsAgo') or self.effectiveDateMonthsAgo
+        else:
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getDatasetsAgo-tr') or self.effectiveDateMonthsAgo
         interfaces = ('eea.dataservice.interfaces.IDataset')
         return _getItems(self,
                          interfaces=interfaces,
@@ -50,6 +56,12 @@ class DataMaps(BrowserView):
 
     def getLatestIndicators(self, language=None):
         """ Get latest published indicators. """
+        if language == 'en':
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getDatasetsAgo') or self.effectiveDateMonthsAgo
+        else:
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getDatasetsAgo-tr') or self.effectiveDateMonthsAgo
         interfaces = ('eea.indicators.content.interfaces.IIndicatorAssessment')
         return _getItems(self,
                          interfaces=interfaces,
@@ -58,6 +70,12 @@ class DataMaps(BrowserView):
 
     def getLatestMaps(self, language=None):
         """ Get latest published static maps. """
+        if language == 'en':
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getMapsAgo') or self.effectiveDateMonthsAgo
+        else:
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getMapsAgo-tr') or self.effectiveDateMonthsAgo
         interfaces = ('eea.dataservice.interfaces.IEEAFigureMap')
         return _getItems(self,
                          interfaces=interfaces,
@@ -66,6 +84,12 @@ class DataMaps(BrowserView):
 
     def getLatestGraphs(self, language=None):
         """ Get latest published static graphs/charts."""
+        if language == 'en':
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getGraphsAgo') or self.effectiveDateMonthsAgo
+        else:
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getGraphsAgo-tr') or self.effectiveDateMonthsAgo
         interfaces = ('eea.dataservice.interfaces.IEEAFigureGraph')
         return _getItems(self,
                          interfaces=interfaces,
@@ -74,6 +98,12 @@ class DataMaps(BrowserView):
 
     def getLatestInteractiveMaps(self, language=None):
         """ Get latest published interactive maps."""
+        if language == 'en':
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getInteractiveAgo') or self.effectiveDateMonthsAgo
+        else:
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getInteractiveAgo-tr') or self.effectiveDateMonthsAgo
         interfaces = (
             'Products.EEAContentTypes.content.interfaces.IInteractiveMap')
         return _getItems(self,
@@ -83,6 +113,12 @@ class DataMaps(BrowserView):
 
     def getLatestInteractiveData(self, language=None):
         """ Get latest published interactive data charts."""
+        if language == 'en':
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getDataAgo') or self.effectiveDateMonthsAgo
+        else:
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getDataAgo-tr') or self.effectiveDateMonthsAgo
         interfaces = (
             'Products.EEAContentTypes.content.interfaces.IInteractiveData')
         return _getItems(self,
@@ -124,11 +160,11 @@ class DataMaps(BrowserView):
         query = {
             'object_provides': {
                 'query': [
-               'eea.promotion.interfaces.IPromoted',
-               'Products.EEAContentTypes.content.interfaces.IExternalPromotion',
-               ],
+                    'eea.promotion.interfaces.IPromoted',
+                    'Products.EEAContentTypes.content.interfaces.IExternalPromotion',
+                ],
                 'operator': 'or',
-                },
+            },
             'review_state': 'published',
             'sort_on': 'effective',
             'sort_order': 'reverse'
