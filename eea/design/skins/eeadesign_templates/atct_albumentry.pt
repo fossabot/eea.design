@@ -3,7 +3,9 @@
 
         <metal:isVideo metal:use-macro="context/frontpage_macros/macros/is-video">
             <metal:fill metal:fill-slot="body">
-                <div tal:define="css python:obj.isPrincipiaFolderish and 'photoAlbumEntry photoAlbumFolder' or 'photoAlbumEntry';"
+                <div tal:define="css python:obj.isPrincipiaFolderish and 'photoAlbumEntry photoAlbumFolder' or 'photoAlbumEntry';
+                        show_workflow_state show_workflow_state|python:False;
+                        wf_state python: obj.restrictedTraverse('@@plone_context_state').workflow_state() if show_workflow_state else '';"
                      tal:attributes="class css" >
 
                     <a tal:attributes="href listing_url;
@@ -14,7 +16,8 @@
                                                  alt obj/pretty_title_or_id;
                                                  src string:${obj/absolute_url}/image_thumb"/>
                         </span>
-                        <span class="photoAlbumEntryTitle" tal:content="obj/pretty_title_or_id" />
+                        <span tal:attributes="class python: 'photoAlbumEntryTitle state-' + wf_state if show_workflow_state else 'photoAlbumEntryTitle';"
+                                tal:content="obj/pretty_title_or_id" />
                         <span class="photoAlbumEntryDescription" tal:content="python: obj.Description()" />
                     </a>
                 </div>
@@ -24,3 +27,4 @@
     </tal:defines>
 
 </metal:entry>
+

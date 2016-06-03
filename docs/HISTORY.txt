@@ -1,14 +1,29 @@
 Changelog
 =========
 
-14.2.dev0 - (unreleased)
+14.4.dev0 - (unreleased)
 ------------------------
+* Change: added workflow state class on the album view of whatsnewgallery
+  [ichim-david refs #72908]
+
+14.3 - (2016-06-02)
+-------------------
+* Change: brought changes from production back into eea.design for
+  frontpage_view and frontpage_macros.pt
+  [ichim-david refs #72908]
+* Feature: added getProduct methods to frontpage in order to allow
+  each individual product both for english and for translations to have
+  separate query range
+  [ichim-david refs #72908]
+
+14.2 - (2016-05-27)
+-------------------
 * Change: whatsnewgallery now loose the tabbing functionality, we now
   display all results, keeping only the filtering
   [ichimdav refs #71699]
 * Bug fix: Double icon displayed
   [lucas refs #71634]
-  
+
 14.1 - (2016-05-19)
 -------------------
 * Change: modified avoidMultipleClicks in order to preserve the initial

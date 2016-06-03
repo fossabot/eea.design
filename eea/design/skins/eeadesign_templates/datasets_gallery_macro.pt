@@ -1,7 +1,7 @@
 <tal:defines tal:define="datamaps_view context/@@data_and_maps_logic;">
 
     <tal:datasets metal:define-macro="datasets"
-                      tal:define="language python:request.get('Language');
+                      tal:define="language python:request.get('LANGUAGE');
                                       folderContents python: datamaps_view.getLatestDatasets() if not language else datamaps_view.getLatestDatasets(language=language);
                                       plone_view nocall:plone_view|context/@@plone;
                                       ajax python:True">

@@ -34,7 +34,8 @@ class EEACommentsViewlet(CommentsViewlet):
         # has 'Manage portal' permission
 
         def replies_with_workflow_actions():
-            # Generator that returns replies dict with workflow actions
+            """ Generator that returns replies dict with workflow actions
+            """
             for r in conversation.getThreads():
                 comment_obj = r['comment']
                 # list all possible workflow actions
@@ -47,7 +48,8 @@ class EEACommentsViewlet(CommentsViewlet):
                 yield r
 
         def published_replies():
-            # Generator that returns replies dict with workflow status.
+            """ Generator that returns replies dict with workflow status.
+            """
             for r in conversation.getThreads():
                 comment_obj = r['comment']
                 workflow_status = wf.getInfoFor(comment_obj, 'review_state')

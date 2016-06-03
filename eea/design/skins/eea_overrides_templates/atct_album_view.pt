@@ -90,6 +90,7 @@
   <metal:albummacro define-macro="listing-nobatch" tal:define="
     entry_macro  entry_macro|context/atct_albumentry/macros/entry;
     folderContents folderContents|nothing;
+    show_workflow_state python:True;
     enabled enabled|nothing">
   <tal:folderContents condition="python: folderContents and enabled" tal:define="batch folderContents">
     <tal:images tal:repeat="brain folderContents">
@@ -117,3 +118,4 @@
 </body>
 
 </html>
+

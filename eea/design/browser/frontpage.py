@@ -26,36 +26,41 @@ class Frontpage(BrowserView):
 
         self.catalog = getToolByName(context, 'portal_catalog')
         portal_properties = getToolByName(context, 'portal_properties')
-        frontpage_properties = getattr(portal_properties,
-                                                'frontpage_properties')
+        self.fp = getattr(portal_properties, 'frontpage_properties')
 
         self.promotions = []
         self.portal_url = getToolByName(aq_inner(context), 'portal_url')()
 
-        self.noOfHigh = frontpage_properties.getProperty('noOfHigh', 3)
-        self.noOfMedium = frontpage_properties.getProperty('noOfMedium', 4)
-        self.noOfLow = frontpage_properties.getProperty('noOfLow', 10)
-        self.noOfArticles = frontpage_properties.getProperty('noOfArticles', 6)
-        self.noOfNews = frontpage_properties.getProperty('noOfNews', 6)
-        self.noOfMultimedia = frontpage_properties.getProperty(
+        self.noOfHigh = self.fp.getProperty('noOfHigh', 3)
+        self.noOfMedium = self.fp.getProperty('noOfMedium', 4)
+        self.noOfLow = self.fp.getProperty('noOfLow', 10)
+        self.noOfArticles = self.fp.getProperty('noOfArticles', 6)
+        self.noOfNews = self.fp.getProperty('noOfNews', 6)
+        self.noOfMultimedia = self.fp.getProperty(
                                                            'noOfMultimedia', 6)
-        self.noOfAnimations = frontpage_properties.getProperty(
+        self.noOfAnimations = self.fp.getProperty(
                                                            'noOfAnimations', 6)
-        self.noOfPublications = frontpage_properties.getProperty(
+        self.noOfPublications = self.fp.getProperty(
                                                          'noOfPublications', 6)
-        self.noOfPromotions = frontpage_properties.getProperty(
+        self.noOfPromotions = self.fp.getProperty(
                                                            'noOfPromotions', 7)
-        self.noOfEachProduct = frontpage_properties.getProperty(
+        self.noOfEachProduct = self.fp.getProperty(
                                                           'noOfEachProduct', 3)
-        self.noOfLatestDefault = frontpage_properties.getProperty(
+        self.noOfLatestDefault = self.fp.getProperty(
                                                         'noOfLatestDefault', 6)
-        self.effectiveDateMonthsAgo = frontpage_properties.getProperty(
+        self.effectiveDateMonthsAgo = self.fp.getProperty(
                                                 'effectiveDateMonthsAgo', 18)
         self.now = DateTime()
 
 
     def getNews(self, language=None):
         """ retrieves latest news by date and by topic """
+        if language == 'en':
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getNewsAgo') or self.effectiveDateMonthsAgo
+        else:
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getNewsAgo-tr') or self.effectiveDateMonthsAgo
         visibilityLevel = ['top', 'middle', 'low', '']
         items = _getItems(self, visibilityLevel=visibilityLevel,
                 portaltypes=('Highlight', 'PressRelease'),
@@ -64,18 +69,36 @@ class Frontpage(BrowserView):
 
     def getArticles(self, portaltypes="Article", language=None):
         """ retrieves latest articles by date and by topic """
+        if language == 'en':
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getArticlesAgo') or self.effectiveDateMonthsAgo
+        else:
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getArticlesAgo-tr') or self.effectiveDateMonthsAgo
         return _getItems(self,
                 portaltypes=portaltypes, noOfItems=self.noOfArticles,
                 language=language)
 
     def getPublications(self, portaltypes="Report", language=None):
         """ retrieves latest publications by date and by topic """
+        if language == 'en':
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getPublicationsAgo') or self.effectiveDateMonthsAgo
+        else:
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getPublicationsAgo-tr') or self.effectiveDateMonthsAgo
         return _getItems(self, portaltypes=portaltypes,
                                noOfItems=self.noOfPublications,
                                language=language)
 
     def getInfographics(self, portaltypes="Infographic", language=None):
         """ retrieves latest Infographics by date and by topic """
+        if language == 'en':
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                        'getInfographicsAgo') or self.effectiveDateMonthsAgo
+        else:
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getInfographicsAgo-tr') or self.effectiveDateMonthsAgo
         return _getItems(self,
                          portaltypes=portaltypes, noOfItems=self.noOfMedium,
                          language=language)
@@ -146,6 +169,12 @@ class Frontpage(BrowserView):
     def getMultimedia(self, language=None):
         """ retrieves multimedia objects (videos/animations etc..)
         filtered by date and by topic """
+        if language == 'en':
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getMultimediaAgo') or self.effectiveDateMonthsAgo
+        else:
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                'getMultimediaAgo-tr') or self.effectiveDateMonthsAgo
         interface = 'eea.mediacentre.interfaces.IVideo'
         result = _getItems(self,
                     interfaces=interface,
