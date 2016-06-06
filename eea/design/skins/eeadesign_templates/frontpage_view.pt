@@ -28,14 +28,14 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                         </div>
 
                         <!-- promotions_gallery_slideshow-->
-                        <metal:promotions 
-                        tal:define="frontpage python: True; 
+                        <metal:promotions
+                        tal:define="frontpage python: True;
                         promo_view frontpage_view;
                         show_description python:False;">
                         <div metal:use-macro="here/portlet_promo_gallery/macros/portlet">
                             promoted item
                         </div>
-                        </metal:promotions>   
+                        </metal:promotions>
                         <!-- end promotions_gallery_slideshow -->
 
                         <!-- select_topics -->
@@ -51,8 +51,19 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                 tal:attributes="id string:whatsnew-gallery; data-page string:${datapage};">
                             <tal:tabs tal:condition="main_site">
                                 <ul class="eea-tabs two-rows"
-                                        tal:define="tabnames python:['News', 'Articles', 'Publications', 'Multimedia', 'Data and maps', 'All products'];">
-                                    <li tal:repeat="tab tabnames">
+                                    tal:define="datapage datapage|string:frontpage;
+                                                news_folderContents python: frontpage_view.getNews(language=language);
+                                                articles_folderContents python: frontpage_view.getArticles(language=language);
+                                                publications_folderContents python: frontpage_view.getPublications(language=language);
+                                                multimedia_folderContents python: frontpage_view.getMultimedia(language=language);
+                                                datamaps_folderContents python: datamaps_view.getAllProducts(language=language);
+                                                allproducts_folderContents python: frontpage_view.getAllProducts(language=language);
+                                                folderContent python: { 'News': news_folderContents, 'Articles': articles_folderContents,
+                                                                        'Publications': publications_folderContents, 'Multimedia': multimedia_folderContents,
+                                                                        'Data and maps': datamaps_folderContents, 'All products': allproducts_folderContents};
+                                                tabnames python:['News', 'Articles', 'Publications', 'Multimedia', 'Data and maps', 'All products'];
+                                                global tabs python: [tab for tab in tabnames if folderContent.get(tab)]">
+                                    <li tal:repeat="tab tabs">
                                         <a href="#"  i18n:translate=""
                                                 tal:content="python:context.translate(tab, domain='eea')" class="block"
                                                 tal:attributes="id python: 'tab-datamaps' if tab == 'Data and maps' else 'tab-' + tab.replace(' ', '').lower()">Tabs</a>
@@ -70,24 +81,24 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                 tal:content="python:context.translate(item[1], domain='eea')" />
                                 </tal:items>
                             </select>
-
                             <tal:panels tal:condition="main_site">
-                                <div metal:use-macro="here/frontpage_macros/macros/news">
+                                <div metal:use-macro="here/frontpage_macros/macros/news" tal:condition="python: 'News' in tabs">
                                     News highlights
                                 </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/articles">
+                                <div metal:use-macro="here/frontpage_macros/macros/articles" tal:condition="python: 'Articles' in tabs">
                                     Articles Highlights
                                 </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/publications">
+
+                                <div metal:use-macro="here/frontpage_macros/macros/publications" tal:condition="python: 'Publications' in tabs">
                                     Publications Highlights
                                 </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/multimedia">
+                                <div metal:use-macro="here/frontpage_macros/macros/multimedia" tal:condition="python: 'Multimedia' in tabs">
                                     Multimedia Highlights
                                 </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/datamaps">
+                                <div metal:use-macro="here/frontpage_macros/macros/datamaps" tal:condition="python: 'Data and maps' in tabs">
                                     Data and maps Highlights
                                 </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/allproducts">
+                                <div metal:use-macro="here/frontpage_macros/macros/allproducts" tal:condition="python: 'All products' in tabs">
                                     All products Highlights
                                 </div>
                             </tal:panels>

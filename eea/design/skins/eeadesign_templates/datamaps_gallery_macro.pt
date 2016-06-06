@@ -3,7 +3,7 @@
         language python:request.get('LANGUAGE');
         folderContents folderContents|python: datamaps_view.getAllProducts() if not language else datamaps_view.getAllProducts(language=language);
         plone_view nocall:plone_view|context/@@plone;
-        ajax python:True">
+        ajax ajax|python:True">
 
     <tal:folderContents condition="folderContents">
         <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />

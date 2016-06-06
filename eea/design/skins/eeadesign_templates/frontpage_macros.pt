@@ -20,7 +20,7 @@
         hide_album python: True;
         ajax python: False;
         more_href more_href_articles|string:articles;">
-    <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+    <div metal:use-macro="here/articles_gallery_macro/macros/articles" />
 </div>
 
 <div metal:define-macro="publications"
@@ -30,7 +30,7 @@
         hide_album python: True;
         ajax python: False;
         more_href more_href_publications|string:publications;">
-    <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+    <div metal:use-macro="here/publications_gallery_macro/macros/publications" />
 
 </div>
 
@@ -41,7 +41,7 @@
         hide_listing python: True;
         ajax python: False;
         more_href more_href_multimedia|string:multimedia;">
-    <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+    <div metal:use-macro="here/multimedia_gallery_macro/macros/multimedia" />
 </div>
 
 <div metal:define-macro="datamaps"
@@ -51,7 +51,7 @@
         hide_listing python: True;
         ajax python: False;
         more_href more_href_datamaps|string:${portal_url}/data-and-maps;">
-    <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+    <div metal:use-macro="here/datamaps_gallery_macro/macros/datamaps" />
 </div>
 
 <div metal:define-macro="allproducts"
@@ -61,13 +61,7 @@
                 hide_listing python: False if not main_site else True;
                         more_title python: context.translate('Archive');
                                 ajax python: False;">
-    <tal:main_site tal:condition="main_site">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
-    </tal:main_site>
-
-    <tal:main_site tal:condition="not:main_site">
         <div metal:use-macro="here/allproducts_gallery_macro/macros/allproducts" />
-    </tal:main_site>
 </div>
 
 <div metal:define-macro="more-link" class="portletFooter"
@@ -75,7 +69,7 @@
         more_title more_title|string:All Items">
     <p>
         <a title="archive" class="standardButton" i18n:attributes="title"
-                tal:attributes="href more_href;" >
+                tal:attributes="href more_href;">
                         <span i18n:translate=""
                 tal:omit-tag="">
             <tal:block tal:content="more_title">All Items</tal:block></span>
