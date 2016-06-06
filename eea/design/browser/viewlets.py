@@ -129,7 +129,10 @@ class DocumentBylineViewlet(content.DocumentBylineViewlet):
     def version_id(self):
         """ get version id of context
         """
-        return IGetVersions(self.context).versionId
+        try:
+            return IGetVersions(self.context).versionId
+        except TypeError:
+            return None
 
     def get_version_object(self, version):
         """ Retrieve portal_version object if found
