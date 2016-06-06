@@ -54,8 +54,11 @@ div.position-0 { margin-left: -100%; }
     padding-bottom: 0.5em;
 }
 
-#faceted-form #center-content-area {
+.right-area-js {
     padding: 0 &dtml-padding-base; 0 0; /* add padding from center area to the right area*/
+}
+.left-area-js {
+    padding: 0 0.5em; /* add padding from center area to the left area*/
 }
 
 #faceted-form .faceted-widget fieldset {
