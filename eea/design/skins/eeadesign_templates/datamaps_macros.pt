@@ -8,8 +8,9 @@
      tal:define="plone_view nocall:plone_view|context/@@plone;
                  hide_listing python: False;
                  hide_album python: True;
+                 ajax python: False;
                  more_href more_href|string:data;">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+        <div metal:use-macro="here/datasets_gallery_macro/macros/datasets" />
 </div>
 
 <div metal:define-macro="maps"
@@ -17,8 +18,9 @@
      id="maps-highlights"
      tal:define="hide_listing python: True;
                  hide_album python: False;
+                 ajax python: False;
                  more_href more_href|string:figures;">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+        <div metal:use-macro="here/maps_gallery_macro/macros/maps" />
 </div>
 
 <div metal:define-macro="indicators"
@@ -27,8 +29,9 @@
      tal:define="plone_view nocall:plone_view|context/@@plone;
                  hide_listing python: True;
                  hide_album python: False;
+                 ajax python: False;
                  more_href more_href|string:indicators;">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+        <div metal:use-macro="here/indicators_gallery_macro/macros/indicators" />
 </div>
 
 
@@ -62,8 +65,9 @@
      id="graphs-highlights"
      tal:define="hide_album python: False;
                  hide_listing python: True;
+                 ajax python: False;
                  more_href more_href|string:figures;">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+        <div metal:use-macro="here/graphs_gallery_macro/macros/graphs" />
 </div>
 
 <div metal:define-macro="interactivemaps"
@@ -71,8 +75,9 @@
      id="interactivemaps-highlights"
      tal:define="hide_album python: False;
                  hide_listing python: True;
+                 ajax python: False;
                  more_href more_href|string:explore-interactive-maps;">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
+        <div metal:use-macro="here/interactivemaps_gallery_macro/macros/interactivemaps" />
 </div>
 
 
@@ -83,8 +88,9 @@
                  folderContents datamaps_view/getAllProducts|nothing;
                  hide_album python: False;
                  hide_listing python: True;
+                 ajax python: False;
                  more_href more_href|string:dm;">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />
+        <div metal:use-macro="here/alldataproducts_gallery_macro/macros/alldataproducts" />
 </div>
 
 </html>

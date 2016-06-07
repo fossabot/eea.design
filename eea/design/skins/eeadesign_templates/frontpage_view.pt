@@ -52,6 +52,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                             <tal:tabs tal:condition="main_site">
                                 <ul class="eea-tabs two-rows"
                                     tal:define="datapage datapage|string:frontpage;
+                                                datamaps_view datamaps_view|context/@@data_and_maps_logic;
                                                 news_folderContents python: frontpage_view.getNews(language=language);
                                                 articles_folderContents python: frontpage_view.getArticles(language=language);
                                                 publications_folderContents python: frontpage_view.getPublications(language=language);

@@ -109,8 +109,19 @@ faceted-external-search">
                                           tal:define="more_hrefs  more_hrefs|python: ['find', 'data', 'find#c1=Map', 'explore-interactive-maps', 'indicators', 'find#c1=Graph' ];
                                                       datapage datapage|string:frontpage;" tal:attributes="id string:whatsnew-gallery; data-page string:${datapage};">
                             <ul class="eea-tabs two-rows"
-                                    tal:define="tabnames python: ['All data products', 'Datasets', 'Maps', 'Interactive maps','Indicators', 'Graphs' ];">
-                                <li tal:repeat="tab tabnames">
+                                    tal:define="datamaps_view datamaps_view|context/@@data_and_maps_logic;
+                                                datasets_folderContents datamaps_view/getLatestDatasets;
+                                                maps_folderContents datamaps_view/getLatestMaps;
+                                                interactive_maps_folderContents datamaps_view/getLatestInteractiveMaps;
+                                                indicators_folderContents datamaps_view/getLatestIndicators;
+                                                graphs_folderContents datamaps_view/getLatestGraphs;
+                                                allproducts_folderContents datamaps_view/getAllProducts;
+                                                folderContent python: {'Datasets': datasets_folderContents, 'Maps': maps_folderContents,
+                                                                        'Interactive maps': interactive_maps_folderContents, 'Indicators': indicators_folderContents,
+                                                                        'Graphs': graphs_folderContents, 'All data products': allproducts_folderContents};
+                                                tabnames python: ['All data products', 'Datasets', 'Maps', 'Interactive maps','Indicators', 'Graphs'];
+                                                global tabs python: [tab for tab in tabnames if folderContent.get(tab)]">
+                                <li tal:repeat="tab tabs">
                                     <a href="#"  tal:content="tab" class="block" tal:attributes="id python: 'tab-datamaps' if tab == 'Data and maps' else 'tab-' + tab.replace(' ', '').lower()">Tabs</a>
                                 </li>
                             </ul>
@@ -121,22 +132,22 @@ faceted-external-search">
                             </div>
 
                             <tal:tab define="more_href python:more_hrefs[0]">
-                                <div metal:use-macro="here/datamaps_macros/macros/alldataproducts" />
+                                <div metal:use-macro="here/datamaps_macros/macros/alldataproducts" tal:condition="python: 'All data products' in tabs" />
                             </tal:tab>
                             <tal:tab define="more_href python:more_hrefs[1]">
-                                <div metal:use-macro="here/datamaps_macros/macros/datasets" />
+                                <div metal:use-macro="here/datamaps_macros/macros/datasets" tal:condition="python: 'Datasets' in tabs" />
                             </tal:tab>
                             <tal:tab define="more_href python:more_hrefs[2]">
-                                <div metal:use-macro="here/datamaps_macros/macros/maps" />
+                                <div metal:use-macro="here/datamaps_macros/macros/maps" tal:condition="python: 'Maps' in tabs" />
                             </tal:tab>
                             <tal:tab define="more_href python:more_hrefs[3]">
-                                <div metal:use-macro="here/datamaps_macros/macros/interactivemaps" />
+                                <div metal:use-macro="here/datamaps_macros/macros/interactivemaps" tal:condition="python: 'Interactive maps' in tabs" />
                             </tal:tab>
                             <tal:tab define="more_href python:more_hrefs[4]">
-                                <div metal:use-macro="here/datamaps_macros/macros/indicators" />
+                                <div metal:use-macro="here/datamaps_macros/macros/indicators" tal:condition="python: 'Indicators' in tabs" />
                             </tal:tab>
                             <tal:tab define="more_href python:more_hrefs[5]">
-                                <div metal:use-macro="here/datamaps_macros/macros/graphs" />
+                                <div metal:use-macro="here/datamaps_macros/macros/graphs" tal:condition="python: 'Graphs' in tabs" />
                             </tal:tab>
 
                         </div>

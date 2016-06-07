@@ -1,6 +1,6 @@
 <tal:alldataproducts metal:define-macro="alldataproducts" 
-        tal:define="datamaps_view context/@@data_and_maps_logic;
+        tal:define="datamaps_view datamaps_view|context/@@data_and_maps_logic;
                     folderContents datamaps_view/getAllProducts;
-                    ajax python:True">
+                    ajax ajax|python:True">
         <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />
 </tal:alldataproducts>
