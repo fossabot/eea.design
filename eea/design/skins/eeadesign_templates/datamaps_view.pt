@@ -130,25 +130,26 @@ faceted-external-search">
                             <div metal:use-macro="here/frontpage_view/macros/whatsnew-select-topic">
                                 Whatsnew select topic.
                             </div>
-
-                            <tal:tab define="more_href python:more_hrefs[0]">
-                                <div metal:use-macro="here/datamaps_macros/macros/alldataproducts" tal:condition="python: 'All data products' in tabs" />
-                            </tal:tab>
-                            <tal:tab define="more_href python:more_hrefs[1]">
-                                <div metal:use-macro="here/datamaps_macros/macros/datasets" tal:condition="python: 'Datasets' in tabs" />
-                            </tal:tab>
-                            <tal:tab define="more_href python:more_hrefs[2]">
-                                <div metal:use-macro="here/datamaps_macros/macros/maps" tal:condition="python: 'Maps' in tabs" />
-                            </tal:tab>
-                            <tal:tab define="more_href python:more_hrefs[3]">
-                                <div metal:use-macro="here/datamaps_macros/macros/interactivemaps" tal:condition="python: 'Interactive maps' in tabs" />
-                            </tal:tab>
-                            <tal:tab define="more_href python:more_hrefs[4]">
-                                <div metal:use-macro="here/datamaps_macros/macros/indicators" tal:condition="python: 'Indicators' in tabs" />
-                            </tal:tab>
-                            <tal:tab define="more_href python:more_hrefs[5]">
-                                <div metal:use-macro="here/datamaps_macros/macros/graphs" tal:condition="python: 'Graphs' in tabs" />
-                            </tal:tab>
+                            <div class="eea-tabs-panels">
+                                <tal:tab define="more_href python:more_hrefs[0]">
+                                    <div metal:use-macro="here/datamaps_macros/macros/alldataproducts" tal:condition="python: 'All data products' in tabs" />
+                                </tal:tab>
+                                <tal:tab define="more_href python:more_hrefs[1]">
+                                    <div metal:use-macro="here/datamaps_macros/macros/datasets" tal:condition="python: 'Datasets' in tabs" />
+                                </tal:tab>
+                                <tal:tab define="more_href python:more_hrefs[2]">
+                                    <div metal:use-macro="here/datamaps_macros/macros/maps" tal:condition="python: 'Maps' in tabs" />
+                                </tal:tab>
+                                <tal:tab define="more_href python:more_hrefs[3]">
+                                    <div metal:use-macro="here/datamaps_macros/macros/interactivemaps" tal:condition="python: 'Interactive maps' in tabs" />
+                                </tal:tab>
+                                <tal:tab define="more_href python:more_hrefs[4]">
+                                    <div metal:use-macro="here/datamaps_macros/macros/indicators" tal:condition="python: 'Indicators' in tabs" />
+                                </tal:tab>
+                                <tal:tab define="more_href python:more_hrefs[5]">
+                                    <div metal:use-macro="here/datamaps_macros/macros/graphs" tal:condition="python: 'Graphs' in tabs" />
+                                </tal:tab>
+                            </div>
 
                         </div>
                     </div>

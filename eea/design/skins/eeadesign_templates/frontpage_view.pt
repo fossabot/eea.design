@@ -83,24 +83,26 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                 </tal:items>
                             </select>
                             <tal:panels tal:condition="main_site">
-                                <div metal:use-macro="here/frontpage_macros/macros/news" tal:condition="python: 'News' in tabs">
-                                    News highlights
-                                </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/articles" tal:condition="python: 'Articles' in tabs">
-                                    Articles Highlights
-                                </div>
+                                <div class="eea-tabs-panels">
+                                    <div metal:use-macro="here/frontpage_macros/macros/news" tal:condition="python: 'News' in tabs">
+                                        News highlights
+                                    </div>
+                                    <div metal:use-macro="here/frontpage_macros/macros/articles" tal:condition="python: 'Articles' in tabs">
+                                        Articles Highlights
+                                    </div>
 
-                                <div metal:use-macro="here/frontpage_macros/macros/publications" tal:condition="python: 'Publications' in tabs">
-                                    Publications Highlights
-                                </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/multimedia" tal:condition="python: 'Multimedia' in tabs">
-                                    Multimedia Highlights
-                                </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/datamaps" tal:condition="python: 'Data and maps' in tabs">
-                                    Data and maps Highlights
-                                </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/allproducts" tal:condition="python: 'All products' in tabs">
-                                    All products Highlights
+                                    <div metal:use-macro="here/frontpage_macros/macros/publications" tal:condition="python: 'Publications' in tabs">
+                                        Publications Highlights
+                                    </div>
+                                    <div metal:use-macro="here/frontpage_macros/macros/multimedia" tal:condition="python: 'Multimedia' in tabs">
+                                        Multimedia Highlights
+                                    </div>
+                                    <div metal:use-macro="here/frontpage_macros/macros/datamaps" tal:condition="python: 'Data and maps' in tabs">
+                                        Data and maps Highlights
+                                    </div>
+                                    <div metal:use-macro="here/frontpage_macros/macros/allproducts" tal:condition="python: 'All products' in tabs">
+                                        All products Highlights
+                                    </div>
                                 </div>
                             </tal:panels>
 
