@@ -79,19 +79,48 @@ class Frontpage(BrowserView):
                 portaltypes=portaltypes, noOfItems=self.noOfArticles,
                 language=language)
 
-    def getPropertyProduct(self, portaltypes="Article", language=None):
+    def getPropertyProduct(self, name, searchtype="Article", language=None):
         """ retrieves latest product by date and by topic """
-        effective_date_ago = 'get' + portaltypes + 'Ago'
-        noOfItems = getattr(self, 'noOf' + portaltypes) or self.noOfEachProduct
+        effective_date_ago = 'get' + name + 'Ago'
+        noOfItems = self.fp.getProperty(self, 'noOf' + name + 's') or self.noOfEachProduct
         if language == 'en':
             self.effectiveDateMonthsAgo = self.fp.getProperty(
                 effective_date_ago) or self.effectiveDateMonthsAgo
         else:
             self.effectiveDateMonthsAgo = self.fp.getProperty(
                 effective_date_ago + '-tr') or self.effectiveDateMonthsAgo
-        return _getItems(self,
-                         portaltypes=portaltypes, noOfItems=noOfItems,
-                         language=language)
+        query = {'language': language, 'noOfItems': noOfItems}
+        iface = searchtype.split('.')
+        if len(iface) > 1:
+            query['interfaces'] = searchtype
+        else:
+            query['portaltypes'] = searchtype
+        return _getItems(self, **query)
+
+    def getPropertyProducts(self):
+        """  Get all Property Products defined in frontpage_properties
+        """
+        products = self.fp.getProperty('getProducts')
+        values = []
+        for item in products:
+            values.append(item.split(','))
+        return values
+
+    def getPropertyProductsContent(self):
+        """ Get Catalog results of going over each Property Product """
+        values = self.getPropertyProducts()
+        results = {}
+        for item in values:
+            results[item[0]] = self.getPropertyProduct(item[0], item[1],
+                                               self.context.getLanguage())
+        return results
+
+    def getPropertyProductsTabs(self):
+        """  Get Tab names for Property Products defined in frontpage_properties
+        """
+        values = self.getPropertyProducts()
+        names = [i[0] for i in values]
+        return names
 
     def getPublications(self, portaltypes="Report", language=None):
         """ retrieves latest publications by date and by topic """

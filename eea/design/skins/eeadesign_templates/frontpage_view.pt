@@ -47,9 +47,12 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                         <!-- tabs -->
                         <div metal:define-macro="whatsnew-gallery"
                                 tal:define="datapage datapage|string:frontpage;
-                                            main_site main_site|python: True if language == 'en' else False;"
+                                            main_site main_site|python: True if language == 'en' else False;
+                                            frontpage_properties context/portal_properties/frontpage_properties;
+                                            getProducts frontpage_properties/getProducts|nothing;
+                                            getAllProducts frontpage_properties/getAllProducts|nothing;"
                                 tal:attributes="id string:whatsnew-gallery; data-page string:${datapage};">
-                            <tal:tabs tal:condition="main_site">
+                            <tal:tabs tal:condition="python: main_site and not getProducts">
                                 <ul class="eea-tabs two-rows"
                                     tal:define="datapage datapage|string:frontpage;
                                                 datamaps_view datamaps_view|context/@@data_and_maps_logic;
@@ -71,6 +74,22 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                     </li>
                                 </ul>
                             </tal:tabs>
+
+                            <tal:tabs2 tal:condition="python: main_site and getProducts">
+                                <ul class="eea-tabs two-rows"
+                                        tal:define="datapage datapage|string:frontpage;
+                                        datamaps_view datamaps_view|context/@@data_and_maps_logic;
+                                        folderContent frontpage_view/getPropertyProductsContent;
+                                        tabnames frontpage_view/getPropertyProductsTabs;
+                                        global tabs python: [tab for tab in tabnames if folderContent.get(tab)]">
+                                    <li tal:repeat="tab tabs">
+                                        <a href="#"  i18n:translate=""
+                                                tal:content="python:context.translate(tab, domain='eea')" class="block"
+                                                tal:attributes="id python: 'tab-datamaps' if tab == 'Data and maps' else 'tab-' + tab.replace(' ', '').lower()">Tabs</a>
+                                    </li>
+                                </ul>
+
+                            </tal:tabs2>
                             <!-- end_tabs -->
                             <select tal:define="items python:here.portal_vocabularies.getVocabularyByName('themes').getVocabularyLines()" id="topic-selector"
                                 metal:define-macro="whatsnew-select-topic">
