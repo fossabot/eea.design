@@ -79,6 +79,20 @@ class Frontpage(BrowserView):
                 portaltypes=portaltypes, noOfItems=self.noOfArticles,
                 language=language)
 
+    def getPropertyProduct(self, portaltypes="Article", language=None):
+        """ retrieves latest product by date and by topic """
+        effective_date_ago = 'get' + portaltypes + 'Ago'
+        noOfItems = getattr(self, 'noOf' + portaltypes) or self.noOfEachProduct
+        if language == 'en':
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                effective_date_ago) or self.effectiveDateMonthsAgo
+        else:
+            self.effectiveDateMonthsAgo = self.fp.getProperty(
+                effective_date_ago + '-tr') or self.effectiveDateMonthsAgo
+        return _getItems(self,
+                         portaltypes=portaltypes, noOfItems=noOfItems,
+                         language=language)
+
     def getPublications(self, portaltypes="Report", language=None):
         """ retrieves latest publications by date and by topic """
         if language == 'en':

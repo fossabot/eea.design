@@ -50,8 +50,8 @@ jQuery(document).ready(function($) {
         var params = sel_value ? "topic" +  "=" + sel_value : undefined;
         eea_gal.gallery_load(gallery_ajax, address, params, layout_selection);
     };
-
-    $("#whatsnew-gallery").find(".eea-tabs").tabs("> .eea-tabs-panel", function(event, index) {
+    var $whatsnew_gallery = $("#whatsnew-gallery");
+    $whatsnew_gallery.find(".eea-tabs").tabs($whatsnew_gallery.find(".eea-tabs-panel"), function(event, index) {
         var cur_tab = this.getTabs()[index],
             cur_tab_val = cur_tab.id.substr(4);
         cur_tab.theme = cur_tab.theme || "";
