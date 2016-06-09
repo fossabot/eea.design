@@ -13,6 +13,28 @@
     <div metal:use-macro="here/news_gallery_macro/macros/news" />
 </div>
 
+<!--?<div metal:use-macro="here/propertyproducts_gallery_macro/macros/propertyproducts" />-->
+<!--?tal:define="frontpage_view frontpage_view|context/@@frontpage_highlights;-->
+<div metal:define-macro="properyproducts"
+        class="eea-tabs-panel"
+        id="property-highlights"
+        tal:attributes="id python: 'datamaps-highlights' if tab == 'Data and maps' else tab.replace(' ', '').lower() + '-highlights'"
+        tal:define="hide_listing python: False;
+        hide_album python: True;
+        ajax python: False;
+        item_type_title_display python:True;
+        more_href more_href_news|string:highlights;
+        folderContents folderContents;
+        language language|python:request.get('LANGUAGE');
+        hide_listing hide_listing|python: False;
+        hide_album hide_album|python: True;
+        ajax ajax|python:True">
+
+    <tal:folderContents condition="folderContents">
+        <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />
+    </tal:folderContents>
+</div>
+
 <div metal:define-macro="articles"
         class="eea-tabs-panel"
         id="articles-highlights"

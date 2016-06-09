@@ -79,10 +79,10 @@ class Frontpage(BrowserView):
                 portaltypes=portaltypes, noOfItems=self.noOfArticles,
                 language=language)
 
-    def getPropertyProduct(self, name, searchtype="Article", language=None):
+    def getPropertyProductBrains(self, name, searchtype="Article", language=None):
         """ retrieves latest product by date and by topic """
         effective_date_ago = 'get' + name + 'Ago'
-        noOfItems = self.fp.getProperty(self, 'noOf' + name + 's') or self.noOfEachProduct
+        noOfItems = self.fp.getProperty('noOf' + name) or self.noOfEachProduct
         if language == 'en':
             self.effectiveDateMonthsAgo = self.fp.getProperty(
                 effective_date_ago) or self.effectiveDateMonthsAgo
@@ -90,12 +90,28 @@ class Frontpage(BrowserView):
             self.effectiveDateMonthsAgo = self.fp.getProperty(
                 effective_date_ago + '-tr') or self.effectiveDateMonthsAgo
         query = {'language': language, 'noOfItems': noOfItems}
+        tuple_search = searchtype.find('(')
+        if tuple_search != -1:
+            searchtype = searchtype.split(' ')[1:-1]
+            query['portaltypes'] = searchtype
+            return _getItems(self, **query)
         iface = searchtype.split('.')
         if len(iface) > 1:
             query['interfaces'] = searchtype
         else:
             query['portaltypes'] = searchtype
         return _getItems(self, **query)
+
+    def getPropertyProduct(self, name):
+        if not name:
+            return None
+        values = self.getPropertyProducts()
+        for value in values:
+            if name == value[0]:
+                return value
+
+        return None
+
 
     def getPropertyProducts(self):
         """  Get all Property Products defined in frontpage_properties
@@ -111,15 +127,20 @@ class Frontpage(BrowserView):
         values = self.getPropertyProducts()
         results = {}
         for item in values:
-            results[item[0]] = self.getPropertyProduct(item[0], item[1],
-                                               self.context.getLanguage())
+            search_type = item[2]
+            if search_type.startswith('get'):
+                results[item[1]] = getattr(self, search_type)(
+                    language=self.context.getLanguage())
+            else:
+                results[item[1]] = self.getPropertyProductBrains(
+                    item[1], item[2], self.context.getLanguage())
         return results
 
     def getPropertyProductsTabs(self):
         """  Get Tab names for Property Products defined in frontpage_properties
         """
         values = self.getPropertyProducts()
-        names = [i[0] for i in values]
+        names = [i[1] for i in values]
         return names
 
     def getPublications(self, portaltypes="Report", language=None):
@@ -146,18 +167,21 @@ class Frontpage(BrowserView):
                          portaltypes=portaltypes, noOfItems=self.noOfMedium,
                          language=language)
 
+    def getDataMaps(self, language=None):
+        """ getDataMaps """
+        datamaps_view = self.context.restrictedTraverse('data_and_maps_logic')
+        return datamaps_view.getAllProducts(language=language)
+
     def getAllProducts(self, no_sort=False, language=None):
         """ retrieves all latest published products for frontpage """
 
-        datamaps_view = self.context.restrictedTraverse('data_and_maps_logic')
         news = self.getNews(language=language)[:self.noOfMedium]
         articles = self.getArticles(language=language)[:self.noOfMedium]
         publications = self.getPublications(
             language=language)[:self.noOfMedium]
         multimedia = self.getMultimedia(
             language=language)[:self.noOfMedium]
-        datamaps = datamaps_view.getAllProducts(
-            language=language)
+        datamaps = self.getDataMaps(language=language)
         infographics = self.getInfographics(language=language)[:self.noOfMedium]
         result = []
         result.extend(chain(news, articles, publications, multimedia, datamaps,

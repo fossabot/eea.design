@@ -79,7 +79,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                 <ul class="eea-tabs two-rows"
                                         tal:define="datapage datapage|string:frontpage;
                                         datamaps_view datamaps_view|context/@@data_and_maps_logic;
-                                        folderContent frontpage_view/getPropertyProductsContent;
+                                        global folderContent frontpage_view/getPropertyProductsContent;
                                         tabnames frontpage_view/getPropertyProductsTabs;
                                         global tabs python: [tab for tab in tabnames if folderContent.get(tab)]">
                                     <li tal:repeat="tab tabs">
@@ -103,25 +103,38 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                             </select>
                             <tal:panels tal:condition="main_site">
                                 <div class="eea-tabs-panels">
-                                    <div metal:use-macro="here/frontpage_macros/macros/news" tal:condition="python: 'News' in tabs">
-                                        News highlights
-                                    </div>
-                                    <div metal:use-macro="here/frontpage_macros/macros/articles" tal:condition="python: 'Articles' in tabs">
-                                        Articles Highlights
-                                    </div>
+                                    <tal:classic tal:condition="not:getProducts">
+                                        <div metal:use-macro="here/frontpage_macros/macros/news" tal:condition="python: 'News' in tabs">
+                                            News highlights
+                                        </div>
+                                        <div metal:use-macro="here/frontpage_macros/macros/articles" tal:condition="python: 'Articles' in tabs">
+                                            Articles Highlights
+                                        </div>
 
-                                    <div metal:use-macro="here/frontpage_macros/macros/publications" tal:condition="python: 'Publications' in tabs">
-                                        Publications Highlights
-                                    </div>
-                                    <div metal:use-macro="here/frontpage_macros/macros/multimedia" tal:condition="python: 'Multimedia' in tabs">
-                                        Multimedia Highlights
-                                    </div>
-                                    <div metal:use-macro="here/frontpage_macros/macros/datamaps" tal:condition="python: 'Data and maps' in tabs">
-                                        Data and maps Highlights
-                                    </div>
-                                    <div metal:use-macro="here/frontpage_macros/macros/allproducts" tal:condition="python: 'All products' in tabs">
-                                        All products Highlights
-                                    </div>
+                                        <div metal:use-macro="here/frontpage_macros/macros/publications" tal:condition="python: 'Publications' in tabs">
+                                            Publications Highlights
+                                        </div>
+                                        <div metal:use-macro="here/frontpage_macros/macros/multimedia" tal:condition="python: 'Multimedia' in tabs">
+                                            Multimedia Highlights
+                                        </div>
+                                        <div metal:use-macro="here/frontpage_macros/macros/datamaps" tal:condition="python: 'Data and maps' in tabs">
+                                            Data and maps Highlights
+                                        </div>
+                                        <div metal:use-macro="here/frontpage_macros/macros/allproducts" tal:condition="python: 'All products' in tabs">
+                                            All products Highlights
+                                        </div>
+                                    </tal:classic>
+                                    <tal:propertyProducts tal:condition="getProducts">
+
+                                        <tal:products tal:repeat="tab tabs">
+                                            <tal:defines tal:define="folderContents python:folderContent.get(tab)">
+                                                <div metal:use-macro="here/frontpage_macros/macros/properyproducts">
+                                                    Property Products Highlights
+                                                </div>
+                                            </tal:defines>
+                                        </tal:products>
+
+                                    </tal:propertyProducts>
                                 </div>
                             </tal:panels>
 
