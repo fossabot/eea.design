@@ -48,6 +48,7 @@ class Frontpage(BrowserView):
                                                           'noOfEachProduct', 3)
         self.noOfLatestDefault = self.fp.getProperty(
                                                         'noOfLatestDefault', 6)
+        self.getProducts = self.fp.getProperty('getProducts', [])
         self.effectiveDateMonthsAgo = self.fp.getProperty(
                                                 'effectiveDateMonthsAgo', 18)
         self.now = DateTime()
@@ -115,7 +116,7 @@ class Frontpage(BrowserView):
     def getPropertyProducts(self, skip_value=None):
         """  Get all Property Products defined in frontpage_properties
         """
-        products = self.fp.getProperty('getProducts')
+        products = self.getProducts
         values = []
         for item in products:
             if skip_value and skip_value in item:
@@ -180,8 +181,11 @@ class Frontpage(BrowserView):
         """ retrieves all latest published products for frontpage """
         results_dict = self.getPropertyProductsContent(skip_value='getAllProducts')
         result = []
-        for value in results_dict.values():
-            result.extend(value[:self.noOfMedium])
+        for key, value in results_dict.items():
+            if 'Data and maps' == key:
+                result.extend(value)
+            else:
+                result.extend(value[:self.noOfMedium])
 
         # resort based on effective date
         if not no_sort:

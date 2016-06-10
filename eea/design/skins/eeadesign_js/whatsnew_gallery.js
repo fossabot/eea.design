@@ -32,7 +32,8 @@ jQuery(document).ready(function($) {
     };
 
     eea_gal.whatsnew_func = function(cur_tab_val, sel_text, sel_value, index) {
-        var address = eea_gal.site_address + "whatsnew_gallery_macro";
+        var gallery_macro = this.gallery_page === 'frontpage' ? "whatsnew_gallery_macro" : "datamaps_gallery_macro";
+        var address = eea_gal.site_address + gallery_macro;
         eea_gal.current_tab_addr = address;
         var gal = eea_gal.gallery.find(".eea-tabs-panel");
         var news = index ? gal[index] : gal.filter(function() {

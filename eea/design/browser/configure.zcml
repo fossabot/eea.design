@@ -300,9 +300,7 @@
         layer=".interfaces.IEEACommonLayer"
         permission="zope.Public"
         allowed_interface=".interfaces.IFrontPageHighlights"
-        allowed_attributes="getArticles getPublications getPropertyProduct
-                            getPropertyProductContent
-                            getNews getAllProducts"
+        allowed_attributes="getPropertyProduct getPropertyProductContent getAllProducts"
         />
 
     <browser:page
@@ -311,7 +309,7 @@
         class=".data_and_maps.DataMaps"
         layer=".interfaces.IEEACommonLayer"
         permission="zope.Public"
-        allowed_attributes="getAllProducts getLatestDatasets"
+        allowed_attributes="getAllProducts getPropertyProduct getPropertyProductContent"
         />
 
     <browser:page

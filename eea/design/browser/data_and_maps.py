@@ -6,35 +6,24 @@ from Products.CMFCore.utils import getToolByName
 
 from Products.Five import BrowserView
 
-from eea.design.browser.frontpage import _getItems, _getImageUrl
+from eea.design.browser.frontpage import _getItems, _getImageUrl, Frontpage
 from eea.promotion.interfaces import IPromotion
 
-class DataMaps(BrowserView):
+class DataMaps(Frontpage):
     """
     This browser view class has methods to get all the latest data and maps
     items globally or related to a specific topic.
     """
-    __implements__ = (getattr(BrowserView, '__implements__', ()), )
 
     def __init__(self, context, request):
-        BrowserView.__init__(self, context, request)
+        Frontpage.__init__(self, context, request)
 
-        self.catalog = getToolByName(context, 'portal_catalog')
-        portal_properties = getToolByName(context, 'portal_properties')
-        self.fp = getattr(portal_properties,
-                          'frontpage_properties')
-
-        self.promotions = []
-        self.portal_url = getToolByName(aq_inner(context), 'portal_url')()
-        #default number of items shown in each whatsnew / latest tab/portlet.
-        self.noOfLatestDefault = self.fp.getProperty(
-            'noOfLatestDefault', 6)
         # noOfEachProduct is used when all latest products are merged together
         # we show equal number of each, so that none
         # products overshadow the others.
+        self.getProducts = self.fp.getProperty('getDataProducts', [])
         self.noOfEachProduct = self.fp.getProperty(
             'noOfEachProduct', 3)
-        self.now = DateTime()
         self.effectiveDateMonthsAgo = self.fp.getProperty(
             'effectiveDateDataMonthsAgo', 18)
 
@@ -126,33 +115,6 @@ class DataMaps(BrowserView):
                          noOfItems=self.noOfLatestDefault,
                          language=language)
 
-
-    def getAllProducts(self, no_sort=False, language=None):
-        """ Get all latest data and maps merged into one single list """
-        result = []
-        res1 = self.getLatestIndicators(
-            language=language)[:self.noOfEachProduct]
-        res2 = self.getLatestDatasets(language=language)[:self.noOfEachProduct]
-        res3 = self.getLatestMaps(language=language)[:self.noOfEachProduct]
-        res4 = self.getLatestGraphs(language=language)[:self.noOfEachProduct]
-        res5 = self.getLatestInteractiveMaps(
-            language=language)[:self.noOfEachProduct]
-        res6 = self.getLatestInteractiveData(
-            language=language)[:self.noOfEachProduct]
-
-        result.extend(res1)
-        result.extend(res2)
-        result.extend(res3)
-        result.extend(res4)
-        result.extend(res5)
-        result.extend(res6)
-
-        # sort by effective date and then reverse it as it starts from smallest
-        if not no_sort:
-            result.sort(key=lambda x: x.effective)
-            result.reverse()
-        return result
-
     def getPromotions(self):
         """ Retrieves external and internal promotions for data and maps
             section
@@ -198,8 +160,4 @@ class DataMaps(BrowserView):
         else:
             cPromos.extend(self.getAllProducts())
             return list(set(cPromos))
-
-    def getImageUrl(self, brain):
-        """ Public method for data-and-maps calling _getImageUrl """
-        return _getImageUrl(brain)
 
