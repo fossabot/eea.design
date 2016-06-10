@@ -52,7 +52,6 @@ class Frontpage(BrowserView):
                                                 'effectiveDateMonthsAgo', 18)
         self.now = DateTime()
 
-
     def getNews(self, language=None):
         """ retrieves latest news by date and by topic """
         if language == 'en':
@@ -103,6 +102,7 @@ class Frontpage(BrowserView):
         return _getItems(self, **query)
 
     def getPropertyProduct(self, name):
+        """ getPropertyProduct """
         if not name:
             return None
         values = self.getPropertyProducts()
@@ -111,7 +111,6 @@ class Frontpage(BrowserView):
                 return value
 
         return None
-
 
     def getPropertyProducts(self):
         """  Get all Property Products defined in frontpage_properties
@@ -127,14 +126,18 @@ class Frontpage(BrowserView):
         values = self.getPropertyProducts()
         results = {}
         for item in values:
-            search_type = item[2]
-            if search_type.startswith('get'):
-                results[item[1]] = getattr(self, search_type)(
-                    language=self.context.getLanguage())
-            else:
-                results[item[1]] = self.getPropertyProductBrains(
-                    item[1], item[2], self.context.getLanguage())
+            results[item[1]] = self.getPropertyProductContent(item)
         return results
+
+    def getPropertyProductContent(self, item):
+        """ getPropertyProductContent """
+        search_type = item[2]
+        if search_type.startswith('get'):
+            return getattr(self, search_type)(
+                language=self.context.getLanguage())
+        else:
+            return self.getPropertyProductBrains(
+                item[1], item[2], self.context.getLanguage())
 
     def getPropertyProductsTabs(self):
         """  Get Tab names for Property Products defined in frontpage_properties

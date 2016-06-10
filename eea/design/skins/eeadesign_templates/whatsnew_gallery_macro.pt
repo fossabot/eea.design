@@ -1,8 +1,7 @@
 <tal:news metal:define-macro="propertyproducts"
         tal:define="frontpage_view frontpage_view|context/@@frontpage_highlights;
-                    language language|python:request.get('LANGUAGE');
                     product python:frontpage_view.getPropertyProduct(name=request.get('tabname'));
-                    folderContents folderContents|python:frontpage_view.getPropertyProductBrains(product[1], product[2], language);
+                    folderContents folderContents|python:frontpage_view.getPropertyProductContent(product) if product else None;
                     hide_listing hide_listing|python: False;
                     hide_album hide_album|python: True;
                     ajax ajax|python:True">
