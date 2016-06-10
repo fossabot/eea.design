@@ -112,18 +112,20 @@ class Frontpage(BrowserView):
 
         return None
 
-    def getPropertyProducts(self):
+    def getPropertyProducts(self, skip_value=None):
         """  Get all Property Products defined in frontpage_properties
         """
         products = self.fp.getProperty('getProducts')
         values = []
         for item in products:
+            if skip_value and skip_value in item:
+                continue
             values.append(item.split(','))
         return values
 
-    def getPropertyProductsContent(self):
+    def getPropertyProductsContent(self, skip_value=None):
         """ Get Catalog results of going over each Property Product """
-        values = self.getPropertyProducts()
+        values = self.getPropertyProducts(skip_value)
         results = {}
         for item in values:
             results[item[1]] = self.getPropertyProductContent(item)
@@ -133,8 +135,7 @@ class Frontpage(BrowserView):
         """ getPropertyProductContent """
         search_type = item[2]
         if search_type.startswith('get'):
-            return getattr(self, search_type)(
-                language=self.context.getLanguage())
+            return getattr(self, search_type)()
         else:
             return self.getPropertyProductBrains(
                 item[1], item[2], self.context.getLanguage())
@@ -170,25 +171,18 @@ class Frontpage(BrowserView):
                          portaltypes=portaltypes, noOfItems=self.noOfMedium,
                          language=language)
 
-    def getDataMaps(self, language=None):
+    def getDataMaps(self):
         """ getDataMaps """
         datamaps_view = self.context.restrictedTraverse('data_and_maps_logic')
-        return datamaps_view.getAllProducts(language=language)
+        return datamaps_view.getAllProducts()
 
-    def getAllProducts(self, no_sort=False, language=None):
+    def getAllProducts(self, no_sort=False):
         """ retrieves all latest published products for frontpage """
-
-        news = self.getNews(language=language)[:self.noOfMedium]
-        articles = self.getArticles(language=language)[:self.noOfMedium]
-        publications = self.getPublications(
-            language=language)[:self.noOfMedium]
-        multimedia = self.getMultimedia(
-            language=language)[:self.noOfMedium]
-        datamaps = self.getDataMaps(language=language)
-        infographics = self.getInfographics(language=language)[:self.noOfMedium]
+        results_dict = self.getPropertyProductsContent(skip_value='getAllProducts')
         result = []
-        result.extend(chain(news, articles, publications, multimedia, datamaps,
-                            infographics))
+        for value in results_dict.values():
+            result.extend(value[:self.noOfMedium])
+
         # resort based on effective date
         if not no_sort:
             result.sort(key=lambda x: x.effective)
