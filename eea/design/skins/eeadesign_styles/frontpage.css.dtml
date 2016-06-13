@@ -175,8 +175,12 @@ body.frontpage #portal-columns {
     background: &dtml-whiteBackgroundColor;;
 }
 
+/*.featured {*/
+    /*background: &dtml-lightBackgroundColor;;*/
+/*}*/
+
 .featured {
-    background: &dtml-lightBackgroundColor;;
+    background: &dtml-whiteBackgroundColor;;
 }
 
 
@@ -281,7 +285,8 @@ a.album-layout:hover {
 .shortcut-default {
     text-align: left;
     padding: 2em;
-    background: &dtml-lightBackgroundColor;;
+    /*background: &dtml-lightBackgroundColor;;*/
+    background: &dtml-whiteBackgroundColor;;
     margin-bottom: 1em;
 }
 

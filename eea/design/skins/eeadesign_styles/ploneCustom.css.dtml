@@ -18,6 +18,7 @@
 /* columns.css slider-definitions modification */
 
 div.width-3\3a 4 { width: 58.5%; }
+.position-0.width-3\3a 4 #region-content { background-color: &dtml-lightBackgroundColor;;}
 div.position-1\3a 4 { margin-left: -79.875%; }
 div.width-1\3a 4 { width: 35.5%; } /* .width-1:4 */
 
@@ -384,7 +385,7 @@ input.standalone:hover {
     color: &dtml-corporateBlueTwo;;
     text-decoration: none;
     text-shadow: 1px 1px 1px #FFFFFF;
-    background-color: &dtml-greyBackgroundColor;;
+    background-color: &dtml-lightBackgroundColor;;
 }
 #visual-portal-wrapper .eea-tabs > li > .current,
 #visual-portal-wrapper .eea-tabs > li > .current:hover {
@@ -392,7 +393,7 @@ input.standalone:hover {
     color: &dtml-corporateBlueTwo;;
     text-decoration: none;
     text-shadow: 1px 1px 1px #FFFFFF;
-    background-color: &dtml-greyBackgroundColor;;
+    background-color: &dtml-lightBackgroundColor;;
 }
 
 /* Clear floated elements */
@@ -407,7 +408,7 @@ input.standalone:hover {
 
 .eea-tabs-panel {
     padding: &dtml-padding-base;;
-    background-color: &dtml-greyBackgroundColor;;
+    background-color: &dtml-lightBackgroundColor;;
     overflow: auto;
 }
 
@@ -688,7 +689,7 @@ dl a:hover, dd a:hover, dt a:hover {
 
 /* used by datamaps_view set on SITE/data-and-maps */
 .shortcut-light {
-    background: transparent;
+    background: &dtml-lightBackgroundColor;;
     margin-bottom: 1em;
     text-align: center;
 }
@@ -1100,6 +1101,10 @@ a.moreLink {
 .width-full #article-language {
     min-width: 180px;
 }
+.progressbar-viewlet {
+    border-radius: 0;
+    background-color: &dtml-lightBackgroundColor;;
+}
 
 .documentByLine {
     font-size: &dtml-fontSmallSize;;
@@ -1135,6 +1140,9 @@ a.moreLink {
     clear: both;
 }
 
+.faceted-results .listingBar {
+    background-color: &dtml-lightBackgroundColor;;
+
 .listingBar .previous,
 .listingPrevious {
     text-align: left;
@@ -1153,6 +1161,11 @@ a.moreLink {
 .tileItem {
     border-bottom: &dtml-borderWidth; dotted &dtml-globalBorderColor;;
     padding-top: 0.5em;
+}
+
+.faceted-results .tileItem {
+    padding: &dtml-padding-base;;
+    background-color: &dtml-lightBackgroundColor;;
 }
 
 .tileHeadline {
@@ -1356,7 +1369,7 @@ option.hiddenStructure {
 
 /* portal-column styles */
 #portal-column-content  {
-    background-color: #FFF;
+    /*background-color: #FFF;*/
     padding: 0 1.5em 1.5em;
     min-width: 635px;
 }
