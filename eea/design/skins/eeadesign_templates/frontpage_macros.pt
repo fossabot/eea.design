@@ -5,21 +5,39 @@
 <div metal:define-macro="products"
         class="eea-tabs-panel"
         tal:attributes="id python: 'datamaps-highlights' if tab == 'Data and maps' else tab.replace(' ', '').lower() + '-highlights'"
-        tal:define="hide_listing python: False;
-        hide_album python: True;
+        tal:define="product python:frontpage_view.getProductConfiguration(tab);
         ajax python: False;
         item_type_title_display python:True;
-        more_href more_href_news|string:highlights;
-        folderContents folderContents;
+        more_href more_href|python:product[-1];
+        folderContents folderContents|python:frontpage_view.getLatest(tab);
         language language|python:request.get('LANGUAGE');
-        hide_listing hide_listing|python: False;
-        hide_album hide_album|python: True;
-        ajax ajax|python:True">
+        hide_listing hide_listing|python: False if 'hide_album' in product else True;
+        hide_album hide_album|python: False if hide_listing else True;">
 
     <tal:folderContents condition="folderContents">
         <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />
     </tal:folderContents>
 </div>
+<tal:allproducts metal:define-macro="allproducts"
+        tal:define="frontpage_view frontpage_view|context/@@frontpage_highlights;
+        folderContents folderContents|python: frontpage_view.getAllProducts();
+        plone_view nocall:plone_view|context/@@plone;
+        hide_listing hide_listing|python: False;
+        hide_album hide_album|python: True;
+        more_href more_href|string:${context/@@plone_portal_state/portal_url}/$language/help/advanced-search;
+        item_type_title_display python: True;
+        item_description_visible python: False;
+        ajax ajax|python:False">
+
+    <tal:folderContents condition="folderContents">
+        <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />
+    </tal:folderContents>
+
+    <metal:languages tal:condition="not:folderContents">
+        <metal:results use-macro="here/whatsnew_gallery_macro/macros/noresults" />
+    </metal:languages>
+
+</tal:allproducts>
 
 <div metal:define-macro="more-link" class="portletFooter"
         tal:define="more_href more_href|string:help/advanced-search;

@@ -75,9 +75,9 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                 tal:content="python:context.translate(item[1], domain='eea')" />
                                 </tal:items>
                             </select>
-                            <tal:panels tal:condition="main_site">
+                            <tal:panels>
                                 <div class="eea-tabs-panels">
-                                    <tal:propertyProducts tal:condition="getProducts">
+                                    <tal:propertyProducts tal:condition="python: main_site and getProducts">
 
                                         <tal:products tal:repeat="tab tabs">
                                             <tal:defines tal:define="folderContents python:folderContent.get(tab)">
@@ -86,16 +86,18 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                                 </div>
                                             </tal:defines>
                                         </tal:products>
-
                                     </tal:propertyProducts>
+
+                                    <tal:translationpanels tal:condition="not: main_site">
+                                        <div class="eea-tabs-panel">
+                                            <div metal:use-macro="here/frontpage_macros/macros/allproducts">
+                                                All non english products
+                                            </div>
+                                        </div>
+                                    </tal:translationpanels>
                                 </div>
                             </tal:panels>
 
-                            <tal:translationpanels tal:condition="not: main_site">
-                                <div metal:use-macro="here/frontpage_macros/macros/allproducts">
-                                    All non english products
-                                </div>
-                            </tal:translationpanels>
                         </div>
 
                     </div>

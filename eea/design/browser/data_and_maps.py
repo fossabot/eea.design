@@ -25,6 +25,10 @@ class DataMaps(Frontpage):
         self.effectiveDateMonthsAgo = self.fp.getProperty(
             'effectiveDateDataMonthsAgo', 18)
 
+    def getLatestIndicators(self):
+        """ Backward compatibility method for themecentre """
+        return self.getLatest('indicators')
+
     def getPromotions(self):
         """ Retrieves external and internal promotions for data and maps
             section

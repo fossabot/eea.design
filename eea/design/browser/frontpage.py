@@ -90,12 +90,18 @@ class Frontpage(BrowserView):
         """
         if not language:
             language = self.context.getLanguage()
-        if not name:
-            return None
-        values = self.getProductCategories()
-        for value in values:
-            if name == value[0]:
-                return self.getProductContent(value, language=language)
+        product = self.getProductConfiguration(name)
+        return self.getProductContent(product, language=language) if product \
+            else None
+
+    def getProductConfiguration(self, name):
+        """ Retrieve configuration of Product used for checking which listing
+            to hide and where the more link should point to
+        """
+        products = self.getProductCategories()
+        for product in products:
+            if name in product:
+                return product
         return None
 
     def getProductCategoriesResults(self, skip_value=None):
