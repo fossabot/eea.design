@@ -74,10 +74,6 @@ class IFrontPageHighlights(Interface):
         """ Return all published promotions and group them in categories.
             Categories are defined by the folders containing the promotions. """
 
-
-    def getMultimedia():
-        """ Return 4 latest videos. """
-
     def getHighArticles():
         """ Return the published articles with visibility `top` and that
             haven't expired. Sort by publish date and return the number
@@ -140,4 +136,3 @@ class IBelowEditContentTitle(IViewletManager):
 class IAboveColumnsManager(IViewletManager):
     """A viewlet manager that sits above columns
     """
-    

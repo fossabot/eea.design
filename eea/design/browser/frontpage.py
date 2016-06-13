@@ -38,54 +38,22 @@ class Frontpage(BrowserView):
         self.noOfNews = self.fp.getProperty('noOfNews', 6)
         self.noOfMultimedia = self.fp.getProperty(
                                                            'noOfMultimedia', 6)
-        self.noOfAnimations = self.fp.getProperty(
-                                                           'noOfAnimations', 6)
-        self.noOfPublications = self.fp.getProperty(
-                                                         'noOfPublications', 6)
         self.noOfPromotions = self.fp.getProperty(
                                                            'noOfPromotions', 7)
         self.noOfEachProduct = self.fp.getProperty(
                                                           'noOfEachProduct', 3)
-        self.noOfLatestDefault = self.fp.getProperty(
-                                                        'noOfLatestDefault', 6)
         self.getProducts = self.fp.getProperty('getProducts', [])
         self.effectiveDateMonthsAgo = self.fp.getProperty(
                                                 'effectiveDateMonthsAgo', 18)
         self.now = DateTime()
 
-    def getNews(self, language=None):
-        """ retrieves latest news by date and by topic """
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getNewsAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getNewsAgo-tr') or self.effectiveDateMonthsAgo
-        visibilityLevel = ['top', 'middle', 'low', '']
-        items = _getItems(self, visibilityLevel=visibilityLevel,
-                portaltypes=('Highlight', 'PressRelease'),
-                noOfItems=self.noOfNews, language=language)
-        return items
-
-    def getArticles(self, portaltypes="Article", language=None):
-        """ retrieves latest articles by date and by topic """
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getArticlesAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getArticlesAgo-tr') or self.effectiveDateMonthsAgo
-        return _getItems(self,
-                portaltypes=portaltypes, noOfItems=self.noOfArticles,
-                language=language)
-
-    def getPropertyProductBrains(self, name, searchtype="Article", language=None):
-        """ retrieves latest product by date and by topic """
+    def searchResults(self, name, searchtype="Article", language=None):
+        """ Retrieve latest product filtered by date and by topic """
         effective_date_ago = 'get' + name + 'Ago'
         noOfItems = self.fp.getProperty('noOf' + name) or self.noOfEachProduct
         if language == 'en':
             self.effectiveDateMonthsAgo = self.fp.getProperty(
-                effective_date_ago) or self.effectiveDateMonthsAgo
+              effective_date_ago) or self.effectiveDateMonthsAgo
         else:
             self.effectiveDateMonthsAgo = self.fp.getProperty(
                 effective_date_ago + '-tr') or self.effectiveDateMonthsAgo
@@ -102,19 +70,11 @@ class Frontpage(BrowserView):
             query['portaltypes'] = searchtype
         return _getItems(self, **query)
 
-    def getPropertyProduct(self, name):
-        """ getPropertyProduct """
-        if not name:
-            return None
-        values = self.getPropertyProducts()
-        for value in values:
-            if name == value[0]:
-                return value
-
-        return None
-
-    def getPropertyProducts(self, skip_value=None):
-        """  Get all Property Products defined in frontpage_properties
+    def getProductCategories(self, skip_value=None):
+        """ Get all product categories defined in frontpage_properties.
+            With ability to skip a value for cases where we have
+            a category that retrieves all of the other categories
+            ex: getProductsCategories(skip_value='getAllProducts')
         """
         products = self.getProducts
         values = []
@@ -124,68 +84,60 @@ class Frontpage(BrowserView):
             values.append(item.split(','))
         return values
 
-    def getPropertyProductsContent(self, skip_value=None):
-        """ Get Catalog results of going over each Property Product """
-        values = self.getPropertyProducts(skip_value)
+    def getLatest(self, name, language=None):
+        """ Retrieve the latest brains for given category name
+            ex: getLatest('datasets')
+        """
+        if not language:
+            language = self.context.getLanguage()
+        if not name:
+            return None
+        values = self.getProductCategories()
+        for value in values:
+            if name == value[0]:
+                return self.getProductContent(value, language=language)
+        return None
+
+    def getProductCategoriesResults(self, skip_value=None):
+        """ Get Catalog results of going over each Product """
+        values = self.getProductCategories(skip_value)
         results = {}
         for item in values:
-            results[item[1]] = self.getPropertyProductContent(item)
+            results[item[1]] = self.getProductContent(item)
         return results
 
-    def getPropertyProductContent(self, item):
-        """ getPropertyProductContent """
+    def getProductContent(self, item, language=None):
+        """ Utility which checks if we need to call given item if condition
+            is found else passing item to the retrieval of results """
         search_type = item[2]
         if search_type.startswith('get'):
             return getattr(self, search_type)()
         else:
-            return self.getPropertyProductBrains(
-                item[1], item[2], self.context.getLanguage())
+            return self.searchResults(
+                item[1], item[2], language=language)
 
-    def getPropertyProductsTabs(self):
-        """  Get Tab names for Property Products defined in frontpage_properties
+    def getProductCategoriesNames(self):
+        """ Get the names of Product categories defined in frontpage_properties
         """
-        values = self.getPropertyProducts()
+        values = self.getProductCategories()
         names = [i[1] for i in values]
         return names
 
-    def getPublications(self, portaltypes="Report", language=None):
-        """ retrieves latest publications by date and by topic """
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getPublicationsAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getPublicationsAgo-tr') or self.effectiveDateMonthsAgo
-        return _getItems(self, portaltypes=portaltypes,
-                               noOfItems=self.noOfPublications,
-                               language=language)
-
-    def getInfographics(self, portaltypes="Infographic", language=None):
-        """ retrieves latest Infographics by date and by topic """
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                        'getInfographicsAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getInfographicsAgo-tr') or self.effectiveDateMonthsAgo
-        return _getItems(self,
-                         portaltypes=portaltypes, noOfItems=self.noOfMedium,
-                         language=language)
-
     def getDataMaps(self):
-        """ getDataMaps """
+        """ getDataMaps is created in order to retrieve all data_and_maps """
         datamaps_view = self.context.restrictedTraverse('data_and_maps_logic')
         return datamaps_view.getAllProducts()
 
     def getAllProducts(self, no_sort=False):
         """ retrieves all latest published products for frontpage """
-        results_dict = self.getPropertyProductsContent(skip_value='getAllProducts')
+        results_dict = self.getProductCategoriesResults(skip_value=
+                                                        'getAllProducts')
         result = []
         for key, value in results_dict.items():
-            if 'Data and maps' == key:
+            if 'Data and maps' == key:  # data and maps logic is already sliced
                 result.extend(value)
             else:
-                result.extend(value[:self.noOfMedium])
+                result.extend(value[:self.noOfEachProduct])
 
         # resort based on effective date
         if not no_sort:
@@ -232,23 +184,6 @@ class Frontpage(BrowserView):
         """ Promotions
         """
         result = _getPromotions(self, noOfItems=self.noOfPromotions)
-        return result
-
-    def getMultimedia(self, language=None):
-        """ retrieves multimedia objects (videos/animations etc..)
-        filtered by date and by topic """
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getMultimediaAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getMultimediaAgo-tr') or self.effectiveDateMonthsAgo
-        interface = 'eea.mediacentre.interfaces.IVideo'
-        result = _getItems(self,
-                    interfaces=interface,
-                    noOfItems=self.noOfMultimedia,
-                    language=language)
-
         return result
 
     def getImageUrl(self, brain):

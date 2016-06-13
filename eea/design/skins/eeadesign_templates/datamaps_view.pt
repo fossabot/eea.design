@@ -12,8 +12,7 @@
     <div metal:fill-slot="content-core">
         <tal:main-macro metal:define-macro="main">
             <div id="highlights-block" 
-                 tal:define="global frontpage_view context/@@frontpage_highlights;
-                             global datamaps_view context/@@data_and_maps_logic;">
+                 tal:define="global datamaps_view context/@@data_and_maps_logic;">
                 <div id="main-content">
                     <div class="visualClear"><!-- &nbsp; --></div>
                     <div id="articles-area" class="right-column-area">
@@ -27,7 +26,7 @@
 
                         <tal:featured_item
                              tal:define="featured_class datamaps_view;
-                                         highlights featured_class/getLatestInteractiveData;
+                                         highlights python:featured_class.getLatest('datasets');
                                          nr_items python:1;
                                          archive_href string:data/data-viewers;">
                                          <div metal:use-macro="here/frontpage_macros/macros/featured-item">

@@ -2,22 +2,8 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
         i18n:domain="eea" tal:omit-tag="">
 
-<div metal:define-macro="news"
-        id="news-highlights"
+<div metal:define-macro="products"
         class="eea-tabs-panel"
-        tal:define="hide_listing python: False;
-        hide_album python: True;
-        ajax python: False;
-        item_type_title_display python:True;
-        more_href more_href_news|string:highlights;">
-    <div metal:use-macro="here/news_gallery_macro/macros/news" />
-</div>
-
-<!--?<div metal:use-macro="here/propertyproducts_gallery_macro/macros/propertyproducts" />-->
-<!--?tal:define="frontpage_view frontpage_view|context/@@frontpage_highlights;-->
-<div metal:define-macro="properyproducts"
-        class="eea-tabs-panel"
-        id="property-highlights"
         tal:attributes="id python: 'datamaps-highlights' if tab == 'Data and maps' else tab.replace(' ', '').lower() + '-highlights'"
         tal:define="hide_listing python: False;
         hide_album python: True;
@@ -33,57 +19,6 @@
     <tal:folderContents condition="folderContents">
         <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />
     </tal:folderContents>
-</div>
-
-<div metal:define-macro="articles"
-        class="eea-tabs-panel"
-        id="articles-highlights"
-        tal:define="hide_listing python: False;
-        hide_album python: True;
-        ajax python: False;
-        more_href more_href_articles|string:articles;">
-    <div metal:use-macro="here/articles_gallery_macro/macros/articles" />
-</div>
-
-<div metal:define-macro="publications"
-        id="publications-highlights"
-        class="eea-tabs-panel"
-        tal:define="hide_listing python: False;
-        hide_album python: True;
-        ajax python: False;
-        more_href more_href_publications|string:publications;">
-    <div metal:use-macro="here/publications_gallery_macro/macros/publications" />
-
-</div>
-
-<div metal:define-macro="multimedia"
-        class="eea-tabs-panel"
-        id="multimedia-highlights"
-        tal:define="hide_album python: False;
-        hide_listing python: True;
-        ajax python: False;
-        more_href more_href_multimedia|string:multimedia;">
-    <div metal:use-macro="here/multimedia_gallery_macro/macros/multimedia" />
-</div>
-
-<div metal:define-macro="datamaps"
-        class="eea-tabs-panel"
-        id="datamaps-highlights"
-        tal:define="hide_album python: False;
-        hide_listing python: True;
-        ajax python: False;
-        more_href more_href_datamaps|string:${portal_url}/data-and-maps;">
-    <div metal:use-macro="here/datamaps_gallery_macro/macros/datamaps" />
-</div>
-
-<div metal:define-macro="allproducts"
-        class="eea-tabs-panel"
-        id="allproducts-highlights"
-        tal:define="hide_album python: True if not main_site else False;
-                hide_listing python: False if not main_site else True;
-                        more_title python: context.translate('Archive');
-                                ajax python: False;">
-        <div metal:use-macro="here/allproducts_gallery_macro/macros/allproducts" />
 </div>
 
 <div metal:define-macro="more-link" class="portletFooter"

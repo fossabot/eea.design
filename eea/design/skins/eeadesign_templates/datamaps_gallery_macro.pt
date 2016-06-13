@@ -1,5 +1,5 @@
 <tal:alldata metal:define-macro="datamaps"
         tal:define="frontpage_view context/@@data_and_maps_logic;">
-        <div metal:use-macro="here/whatsnew_gallery_macro/macros/propertyproducts" />
+        <div metal:use-macro="here/whatsnew_gallery_macro/macros/products" />
 
 </tal:alldata>

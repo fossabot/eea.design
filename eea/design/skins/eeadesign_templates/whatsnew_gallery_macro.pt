@@ -1,7 +1,7 @@
-<tal:news metal:define-macro="propertyproducts"
+<tal:news metal:define-macro="products"
         tal:define="frontpage_view frontpage_view|context/@@frontpage_highlights;
-                    product python:frontpage_view.getPropertyProduct(name=request.get('tabname'));
-                    folderContents folderContents|python:frontpage_view.getPropertyProductContent(product) if product else None;
+                    product python:request.get('tabname');
+                    folderContents folderContents|python:frontpage_view.getLatest(product) if product else None;
                     hide_listing hide_listing|python: False;
                     hide_album hide_album|python: True;
                     ajax ajax|python:True">
@@ -10,9 +10,12 @@
         <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />
     </tal:folderContents>
 
-    <metal:languages tal:condition="not:folderContents">
-        <metal:results use-macro="here/articles_gallery_macro/macros/noresults" />
-    </metal:languages>
+    <tal:notFolderContents condition="not:folderContents"
+            metal:define-macro="noresults">
+            <div class='portalMessage informationMessage'>
+                <p i18n:translate="">No recent content is available for this topic.</p>
+            </div>
+    </tal:notFolderContents>
 
 </tal:news>
 
