@@ -18,7 +18,11 @@
 /* columns.css slider-definitions modification */
 
 div.width-3\3A 4 { width: 58.5%; }
-.width-3\3A 4.position-0 { background-color: &dtml-lightBackgroundColor;;}
+.width-3\3A 4.position-0,
+.width-full { background-color: &dtml-lightBackgroundColor;;}
+.template-facetednavigation_view .width-full {
+    background-color: transparent;
+}
 div.position-1\3A 4 { margin-left: -79.875%; }
 div.width-1\3A 4 { width: 35.5%; } /* .width-1:4 */
 
@@ -81,7 +85,7 @@ div.position-0 { margin-left: -100%; }
 }
 
 .faceted-portlet-widget .ui-widget-header {
-    margin: -1em 0;
+    margin: -1em -1em 0;
 }
 
 #faceted-form .widget-fieldset legend {
@@ -316,6 +320,15 @@ input.standalone:hover {
     padding: 0;
 }
 
+.faceted-results {
+    background-color: &dtml-lightBackgroundColor;;
+    padding: 0 1em 1em;
+    margin-bottom: 1em;
+}
+.faceted-results .photoAlbumEntry {
+    width: 123px;
+}
+
 /* end of specific faceted navigation style */
 
 /* ichimdav: these styles were previously in public.css */
@@ -355,9 +368,11 @@ input.standalone:hover {
     padding: 0 10px 0 0;
     margin: 0;
     font-size: 12px;
-    line-height: normal!important;
+    line-height: normal!important;;
     list-style: none none;
     background-color: &dtml-corporateBlue;;
+    border: 1px solid &dtml-mediumBackgroundColor;;
+    border-bottom: 0;
 }
 
 #whatsnew-gallery {
@@ -437,7 +452,7 @@ input.standalone:hover {
 .eea-tabs-panels {
     border: 1px solid #DDD;
     border-top: 0;
-    background-color: &dtml-greyBackgroundColor;;
+    background-color: &dtml-lightBackgroundColor;;
     padding: 10px;
 }
 
@@ -1089,6 +1104,15 @@ a.moreLink {
     list-style: none none;
     margin: 0;
     padding: 0;
+}
+
+#socialmedia-viewlet {
+    padding: 0 1em 1em;
+    background-color: white;
+}
+
+.template-facetednavigation_view #socialmedia-viewlet {
+    width: 68%;
 }
 
 .languageCodes {
