@@ -79,7 +79,7 @@ blockquote {
 /* ++resource++eea.faceted-navigation-edit.css */
 .faceted-portlet-widget fieldset {
     margin: 1em 0;
-    padding: 0 1em 1em;
+    padding: 0;
 }
 
 /* faceted count widget with long terms fall below the inputs

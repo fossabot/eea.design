@@ -62,7 +62,7 @@ div.managePortletsLink {
        -moz-transition: background .3s;
          -o-transition: background .3s;
             transition: background .3s;
-    background: #f0f0f0;
+    background: &dtml-lightBackgroundColor;;
 }
 
 div.managePortletsLink:hover {

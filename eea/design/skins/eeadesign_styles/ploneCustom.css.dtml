@@ -66,13 +66,22 @@ div.position-0 { margin-left: -100%; }
     border-style: none !important;
 }
 
-#faceted-form .faceted-widget {
+#faceted-form .faceted-widget,
+#faceted-edit-widgets {
     background-color: &dtml-lightBackgroundColor;;
     overflow: hidden;
 }
 
-.faceted-text-widget div {
-    margin-top: 1em;
+/* 71710 faceted title widget fixes */
+.faceted-widget fieldset {
+    margin: 1em;
+}
+.faceted-widget .ui-widget-header {
+    margin: -1em -1em 1em -1em;
+}
+
+.faceted-portlet-widget .ui-widget-header {
+    margin: -1em 0;
 }
 
 #faceted-form .widget-fieldset legend {
