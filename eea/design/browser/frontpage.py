@@ -11,8 +11,6 @@ from plone.app.blob.interfaces import IBlobWrapper
 from zope.component import queryMultiAdapter
 from eea.versions.interfaces import IGetVersions
 import logging
-from itertools import chain
-
 
 logger = logging.getLogger("eea.design.browser.frontpage")
 
@@ -145,7 +143,7 @@ class Frontpage(BrowserView):
                                                         'getAllProducts')
         result = []
         for key, value in results_dict.items():
-            if 'Data and maps' == key:  # data and maps logic is already sliced
+            if key == 'Data and maps':  # data and maps logic is already sliced
                 result.extend(value)
             else:
                 result.extend(value[:self.noOfEachProduct])
@@ -329,12 +327,12 @@ def query_results(self, query, portaltypes=None, interfaces=None, noOfItems=6):
     """ Expand results when we have more than one portal type or interface """
     types = []
     if portaltypes:
-        if type(portaltypes) == list:
+        if isinstance(portaltypes, list):
             types.extend(portaltypes)
         else:
             query['portal_type'] = portaltypes
     if interfaces:
-        if type(interfaces) == list:
+        if isinstance(interfaces, list):
             types.extend(interfaces)
         else:
             query['object_provides'] = interfaces
@@ -348,7 +346,7 @@ def query_results(self, query, portaltypes=None, interfaces=None, noOfItems=6):
                 query['object_provides'] = value
             res = self.catalog(query)
             filtered_res.extend(filterLatestVersion(self, brains=res,
-                                                    noOfItems=self.noOfEachProduct))
+                                            noOfItems=self.noOfEachProduct))
     else:
         res = self.catalog(query)
         filtered_res = filterLatestVersion(self, brains=res,
