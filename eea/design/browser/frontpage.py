@@ -51,6 +51,8 @@ class Frontpage(BrowserView):
         """ Retrieve latest product filtered by date and by topic """
         effective_date_ago = 'get' + name + 'Ago'
         noOfItems = self.fp.getProperty('noOf' + name) or self.noOfEachProduct
+        language = language or getattr(self.context, 'getLanguage',
+                                       lambda: '')()
         if language == 'en':
             self.effectiveDateMonthsAgo = self.fp.getProperty(
               effective_date_ago) or self.effectiveDateMonthsAgo
@@ -61,7 +63,10 @@ class Frontpage(BrowserView):
         tuple_search = searchtype.find('(')
         if tuple_search != -1:
             searchtype = searchtype.split(' ')[1:-1]
-            query['portaltypes'] = searchtype
+            if '.' in searchtype[0]:
+                query['interfaces'] = searchtype
+            else:
+                query['portaltypes'] = searchtype
             return _getItems(self, **query)
         iface = searchtype.split('.')
         if len(iface) > 1:
@@ -320,6 +325,36 @@ def queryEffectiveRange(self, query):
     query['effective'] = date_range
     return query
 
+def query_results(self, query, portaltypes=None, interfaces=None, noOfItems=6):
+    """ Expand results when we have more than one portal type or interface """
+    types = []
+    if portaltypes:
+        if type(portaltypes) == list:
+            types.extend(portaltypes)
+        else:
+            query['portal_type'] = portaltypes
+    if interfaces:
+        if type(interfaces) == list:
+            types.extend(interfaces)
+        else:
+            query['object_provides'] = interfaces
+    filtered_res = []
+    query = queryEffectiveRange(self, query)
+    if types:
+        for value in types:
+            if '.' not in value:
+                query['portal_type'] = value
+            else:
+                query['object_provides'] = value
+            res = self.catalog(query)
+            filtered_res.extend(filterLatestVersion(self, brains=res,
+                                                    noOfItems=self.noOfEachProduct))
+    else:
+        res = self.catalog(query)
+        filtered_res = filterLatestVersion(self, brains=res,
+                                           noOfItems=noOfItems)
+    return filtered_res
+
 def _getItemsWithVisibility(self, visibilityLevel=None, portaltypes=None,
                             interfaces=None, topic=None, noOfItems=None,
                             language=None):
@@ -334,22 +369,18 @@ def _getItemsWithVisibility(self, visibilityLevel=None, portaltypes=None,
             'sort_order'         : 'reverse',
             }
 
-    if getattr(self.context, 'getLanguage', None):
-        query['Language'] = self.context.getLanguage()
     if language:
         query['Language'] = language
-    if portaltypes:
-        query['portal_type'] = portaltypes
+    else:
+        if getattr(self.context, 'getLanguage', None):
+            query['Language'] = self.context.getLanguage()
+
     if visibilityLevel:
         query['getVisibilityLevel'] = visibilityLevel
-    if interfaces:
-        query['object_provides'] = interfaces
     if topic:
         query['getThemes'] = topic
-    query = queryEffectiveRange(self, query)
-    res = self.catalog.searchResults(query)
-    filtered_res = filterLatestVersion(self, brains=res,
-                                                noOfItems=noOfItems)
+    filtered_res = query_results(self, query, portaltypes=portaltypes,
+                                 interfaces=interfaces, noOfItems=noOfItems)
     return filtered_res
 
 def _getTopics(self, topic=None, portaltypes=None, object_provides=None,
@@ -362,22 +393,17 @@ def _getTopics(self, topic=None, portaltypes=None, object_provides=None,
         'sort_on'        : 'effective',
         'sort_order'     : 'reverse',
         }
-    if getattr(self.context, 'getLanguage', None):
-        query['Language'] = self.context.getLanguage()
     if language:
         query['Language'] = language
-    if portaltypes:
-        query['portal_type'] = portaltypes
-    if object_provides:
-        query['object_provides'] = object_provides
+    else:
+        if getattr(self.context, 'getLanguage', None):
+            query['Language'] = self.context.getLanguage()
     if topic:
         query['getThemes'] = topic
     if tags:
         query['Subject'] = tags
-    query = queryEffectiveRange(self, query)
-    res = self.catalog(query)
-    filtered_res = filterLatestVersion(self, brains=res,
-                                                     noOfItems=noOfItems)
+    filtered_res = query_results(self, query, portaltypes, object_provides,
+                                 noOfItems)
     return filtered_res
 
 
