@@ -6,152 +6,28 @@ from Products.CMFCore.utils import getToolByName
 
 from Products.Five import BrowserView
 
-from eea.design.browser.frontpage import _getItems, _getImageUrl
+from eea.design.browser.frontpage import _getItems, _getImageUrl, Frontpage
 from eea.promotion.interfaces import IPromotion
 
-class DataMaps(BrowserView):
+class DataMaps(Frontpage):
     """
     This browser view class has methods to get all the latest data and maps
     items globally or related to a specific topic.
     """
-    __implements__ = (getattr(BrowserView, '__implements__', ()), )
 
     def __init__(self, context, request):
-        BrowserView.__init__(self, context, request)
+        Frontpage.__init__(self, context, request)
 
-        self.catalog = getToolByName(context, 'portal_catalog')
-        portal_properties = getToolByName(context, 'portal_properties')
-        self.fp = getattr(portal_properties,
-                          'frontpage_properties')
-
-        self.promotions = []
-        self.portal_url = getToolByName(aq_inner(context), 'portal_url')()
-        #default number of items shown in each whatsnew / latest tab/portlet.
-        self.noOfLatestDefault = self.fp.getProperty(
-            'noOfLatestDefault', 6)
         # noOfEachProduct is used when all latest products are merged together
         # we show equal number of each, so that none
         # products overshadow the others.
-        self.noOfEachProduct = self.fp.getProperty(
-            'noOfEachProduct', 3)
-        self.now = DateTime()
+        self.getProducts = self.fp.getProperty('getDataProducts', [])
         self.effectiveDateMonthsAgo = self.fp.getProperty(
             'effectiveDateDataMonthsAgo', 18)
 
-    def getLatestDatasets(self, language=None):
-        """ Get latest published datasets. Number configurable via
-        ZMI frontpage_properties.
-        """
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getDatasetsAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getDatasetsAgo-tr') or self.effectiveDateMonthsAgo
-        interfaces = ('eea.dataservice.interfaces.IDataset')
-        return _getItems(self,
-                         interfaces=interfaces,
-                         noOfItems=self.noOfLatestDefault,
-                         language=language)
-
-    def getLatestIndicators(self, language=None):
-        """ Get latest published indicators. """
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getDatasetsAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getDatasetsAgo-tr') or self.effectiveDateMonthsAgo
-        interfaces = ('eea.indicators.content.interfaces.IIndicatorAssessment')
-        return _getItems(self,
-                         interfaces=interfaces,
-                         noOfItems=self.noOfLatestDefault,
-                         language=language)
-
-    def getLatestMaps(self, language=None):
-        """ Get latest published static maps. """
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getMapsAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getMapsAgo-tr') or self.effectiveDateMonthsAgo
-        interfaces = ('eea.dataservice.interfaces.IEEAFigureMap')
-        return _getItems(self,
-                         interfaces=interfaces,
-                         noOfItems=self.noOfLatestDefault,
-                         language=language)
-
-    def getLatestGraphs(self, language=None):
-        """ Get latest published static graphs/charts."""
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getGraphsAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getGraphsAgo-tr') or self.effectiveDateMonthsAgo
-        interfaces = ('eea.dataservice.interfaces.IEEAFigureGraph')
-        return _getItems(self,
-                         interfaces=interfaces,
-                         noOfItems=self.noOfLatestDefault,
-                         language=language)
-
-    def getLatestInteractiveMaps(self, language=None):
-        """ Get latest published interactive maps."""
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getInteractiveAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getInteractiveAgo-tr') or self.effectiveDateMonthsAgo
-        interfaces = (
-            'Products.EEAContentTypes.content.interfaces.IInteractiveMap')
-        return _getItems(self,
-                         interfaces=interfaces,
-                         noOfItems=self.noOfLatestDefault,
-                         language=language)
-
-    def getLatestInteractiveData(self, language=None):
-        """ Get latest published interactive data charts."""
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getDataAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getDataAgo-tr') or self.effectiveDateMonthsAgo
-        interfaces = (
-            'Products.EEAContentTypes.content.interfaces.IInteractiveData')
-        return _getItems(self,
-                         interfaces=interfaces,
-                         noOfItems=self.noOfLatestDefault,
-                         language=language)
-
-
-    def getAllProducts(self, no_sort=False, language=None):
-        """ Get all latest data and maps merged into one single list """
-        result = []
-        res1 = self.getLatestIndicators(
-            language=language)[:self.noOfEachProduct]
-        res2 = self.getLatestDatasets(language=language)[:self.noOfEachProduct]
-        res3 = self.getLatestMaps(language=language)[:self.noOfEachProduct]
-        res4 = self.getLatestGraphs(language=language)[:self.noOfEachProduct]
-        res5 = self.getLatestInteractiveMaps(
-            language=language)[:self.noOfEachProduct]
-        res6 = self.getLatestInteractiveData(
-            language=language)[:self.noOfEachProduct]
-
-        result.extend(res1)
-        result.extend(res2)
-        result.extend(res3)
-        result.extend(res4)
-        result.extend(res5)
-        result.extend(res6)
-
-        # sort by effective date and then reverse it as it starts from smallest
-        if not no_sort:
-            result.sort(key=lambda x: x.effective)
-            result.reverse()
-        return result
+    def getLatestIndicators(self):
+        """ Backward compatibility method for themecentre """
+        return self.getLatest('indicators')
 
     def getPromotions(self):
         """ Retrieves external and internal promotions for data and maps
@@ -198,8 +74,4 @@ class DataMaps(BrowserView):
         else:
             cPromos.extend(self.getAllProducts())
             return list(set(cPromos))
-
-    def getImageUrl(self, brain):
-        """ Public method for data-and-maps calling _getImageUrl """
-        return _getImageUrl(brain)
 

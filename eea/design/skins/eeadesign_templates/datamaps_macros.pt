@@ -2,36 +2,6 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       i18n:domain="eea" tal:omit-tag="">
 
-<div metal:define-macro="datasets"
-     id="datasets-highlights"
-     class="eea-tabs-panel"
-     tal:define="plone_view nocall:plone_view|context/@@plone;
-                 hide_listing python: False;
-                 hide_album python: True;
-                 more_href more_href|string:data;">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
-</div>
-
-<div metal:define-macro="maps"
-     class="eea-tabs-panel"
-     id="maps-highlights"
-     tal:define="hide_listing python: True;
-                 hide_album python: False;
-                 more_href more_href|string:figures;">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
-</div>
-
-<div metal:define-macro="indicators"
-     id="indicators-highlights"
-     class="eea-tabs-panel"
-     tal:define="plone_view nocall:plone_view|context/@@plone;
-                 hide_listing python: True;
-                 hide_album python: False;
-                 more_href more_href|string:indicators;">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
-</div>
-
-
 <metal:spotlight metal:define-macro="spotlightItem"
                  tal:define="spotlight frontpage_view/getSpotlight;
                              plone_view nocall:plone_view|context/@@plone;"
@@ -56,35 +26,5 @@
     </div>
 
 </metal:spotlight>
-
-<div metal:define-macro="graphs"
-     class="eea-tabs-panel"
-     id="graphs-highlights"
-     tal:define="hide_album python: False;
-                 hide_listing python: True;
-                 more_href more_href|string:figures;">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
-</div>
-
-<div metal:define-macro="interactivemaps"
-     class="eea-tabs-panel"
-     id="interactivemaps-highlights"
-     tal:define="hide_album python: False;
-                 hide_listing python: True;
-                 more_href more_href|string:explore-interactive-maps;">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-empty" />
-</div>
-
-
-<div metal:define-macro="alldataproducts"
-     class="eea-tabs-panel"
-     id="alldataproducts-highlights" 
-     tal:define="datamaps_view datamaps_view|context/@@data_and_maps_logic;
-                 folderContents datamaps_view/getAllProducts|nothing;
-                 hide_album python: False;
-                 hide_listing python: True;
-                 more_href more_href|string:dm;">
-        <div metal:use-macro="here/frontpage_macros/macros/gallery-condition" />
-</div>
 
 </html>

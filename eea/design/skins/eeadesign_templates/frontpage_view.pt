@@ -15,7 +15,6 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
             <tal:main-macro metal:define-macro="main">
             <div id="highlights-block"
                     tal:define="global frontpage_view context/@@frontpage_highlights;
-                                global datamaps_view context/@@data_and_maps_logic;
                                 main_site python: True if language == 'en' else False;">
                 <div id="main-content">
                     <div class="visualClear"><!-- &nbsp; --></div>
@@ -28,14 +27,14 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                         </div>
 
                         <!-- promotions_gallery_slideshow-->
-                        <metal:promotions 
-                        tal:define="frontpage python: True; 
+                        <metal:promotions
+                        tal:define="frontpage python: True;
                         promo_view frontpage_view;
                         show_description python:False;">
                         <div metal:use-macro="here/portlet_promo_gallery/macros/portlet">
                             promoted item
                         </div>
-                        </metal:promotions>   
+                        </metal:promotions>
                         <!-- end promotions_gallery_slideshow -->
 
                         <!-- select_topics -->
@@ -47,12 +46,18 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                         <!-- tabs -->
                         <div metal:define-macro="whatsnew-gallery"
                                 tal:define="datapage datapage|string:frontpage;
-                                            main_site main_site|python: True if language == 'en' else False;"
+                                            frontpage_view frontpage_view|context/@@frontpage_highlights;
+                                            main_site main_site|python: True if language == 'en' else False;
+                                            frontpage_properties context/portal_properties/frontpage_properties;
+                                            getProducts getProducts|frontpage_properties/getProducts|nothing;"
                                 tal:attributes="id string:whatsnew-gallery; data-page string:${datapage};">
-                            <tal:tabs tal:condition="main_site">
+                            <tal:tabs tal:condition="python: main_site and getProducts">
                                 <ul class="eea-tabs two-rows"
-                                        tal:define="tabnames python:['News', 'Articles', 'Publications', 'Multimedia', 'Data and maps', 'All products'];">
-                                    <li tal:repeat="tab tabnames">
+                                        tal:define="datapage datapage|string:frontpage;
+                                        global folderContent frontpage_view/getProductCategoriesResults;
+                                        tabnames frontpage_view/getProductCategoriesNames;
+                                        global tabs python: [tab for tab in tabnames if folderContent.get(tab)]">
+                                    <li tal:repeat="tab tabs">
                                         <a href="#"  i18n:translate=""
                                                 tal:content="python:context.translate(tab, domain='eea')" class="block"
                                                 tal:attributes="id python: 'tab-datamaps' if tab == 'Data and maps' else 'tab-' + tab.replace(' ', '').lower()">Tabs</a>
@@ -70,33 +75,29 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                 tal:content="python:context.translate(item[1], domain='eea')" />
                                 </tal:items>
                             </select>
+                            <tal:panels>
+                                <div class="eea-tabs-panels">
+                                    <tal:propertyProducts tal:condition="python: main_site and getProducts">
 
-                            <tal:panels tal:condition="main_site">
-                                <div metal:use-macro="here/frontpage_macros/macros/news">
-                                    News highlights
-                                </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/articles">
-                                    Articles Highlights
-                                </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/publications">
-                                    Publications Highlights
-                                </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/multimedia">
-                                    Multimedia Highlights
-                                </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/datamaps">
-                                    Data and maps Highlights
-                                </div>
-                                <div metal:use-macro="here/frontpage_macros/macros/allproducts">
-                                    All products Highlights
+                                        <tal:products tal:repeat="tab tabs">
+                                            <tal:defines tal:define="folderContents python:folderContent.get(tab)">
+                                                <div metal:use-macro="here/frontpage_macros/macros/products">
+                                                    Property Products Highlights
+                                                </div>
+                                            </tal:defines>
+                                        </tal:products>
+                                    </tal:propertyProducts>
+
+                                    <tal:translationpanels tal:condition="not: main_site">
+                                        <div class="eea-tabs-panel">
+                                            <div metal:use-macro="here/frontpage_macros/macros/allproducts">
+                                                All non english products
+                                            </div>
+                                        </div>
+                                    </tal:translationpanels>
                                 </div>
                             </tal:panels>
 
-                            <tal:translationpanels tal:condition="not: main_site">
-                                <div metal:use-macro="here/frontpage_macros/macros/allproducts">
-                                    All non english products
-                                </div>
-                            </tal:translationpanels>
                         </div>
 
                     </div>
