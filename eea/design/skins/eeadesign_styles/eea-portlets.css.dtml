@@ -532,7 +532,7 @@ dl.portletNavigationTree dt.portletSubMenuHeader span.title {
     position: absolute;
     pointer-events: none;
     border: 13px solid transparent;
-    border-left-color: &dtml-BackgroundColor;;
+    border-left-color: &dtml-backgroundColor;;
     margin-left: -8px;
 }
 
