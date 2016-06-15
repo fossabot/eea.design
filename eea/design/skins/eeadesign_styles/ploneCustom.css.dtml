@@ -53,7 +53,9 @@ div.position-0 { margin-left: -100%; }
     font-size: 12px;
     padding: 3px;
 }
-
+#faceted-portal-status-message {
+    width: 75% !important; /* 80% default is too large for our buttons which end up collapsed with default value */
+}
 #faceted-form .faceted-widget {
     margin: 0 0 1em 0;
     padding-bottom: 0.5em;
@@ -1106,12 +1108,14 @@ a.moreLink {
     padding: 0;
 }
 
-#socialmedia-viewlet {
+#socialmedia-viewlet,
+#relatedItems {
     padding: 0 1em 1em;
     background-color: white;
 }
 
-.template-facetednavigation_view #socialmedia-viewlet {
+.template-facetednavigation_view #socialmedia-viewlet,
+.template-facetednavigation_view #relatedItems {
     width: 68%;
 }
 
