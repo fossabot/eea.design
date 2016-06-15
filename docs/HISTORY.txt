@@ -3,6 +3,10 @@ Changelog
 
 14.4.dev0 - (unreleased)
 ------------------------
+* Feature: added ability to set tabs from frontpage_properties
+  [ichim-david refs #71699]
+* Change: whatsnewgallery now transforms into an accordion on mobile views
+  [ichim-david refs #71699]
 * Bugfix: When folder_accordion_view is used, and
   hideOtherResultsFromAccordionView is set, display all accordions and 
   hide the pagination
