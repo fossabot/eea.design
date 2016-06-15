@@ -3,6 +3,10 @@ Changelog
 
 14.4.dev0 - (unreleased)
 ------------------------
+* Bugfix: When folder_accordion_view is used, and
+  hideOtherResultsFromAccordionView is set, display all accordions and 
+  hide the pagination
+  [szabozo0 refs #72959]
 * Change: added workflow state class on the album view of whatsnewgallery
   [ichim-david refs #72908]
 
