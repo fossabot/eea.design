@@ -20,7 +20,9 @@
 div.width-3\3A 4 { width: 58.5%; }
 .width-3\3A 4.position-0,
 .width-full { background-color: &dtml-lightBackgroundColor;;}
-.template-facetednavigation_view .width-full {
+.template-facetednavigation_view .width-full,
+.template-datamaps_view .width-full,
+.frontpage .width-full {
     background-color: transparent;
 }
 div.position-1\3A 4 { margin-left: -79.875%; }

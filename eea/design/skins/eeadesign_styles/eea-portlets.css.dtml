@@ -523,9 +523,12 @@ dl.portletNavigationTree dt.portletSubMenuHeader span.title {
  {
     content: "&dtml-eea-icon-chevron-down;";
 }
+.navTreeCurrentItem {
+    position: relative;
+}
 
 .navTreeCurrentItem:after {
-    left: 2%;
+    left: 0;
     content: " ";
     height: 0;
     width: 0;
@@ -533,7 +536,32 @@ dl.portletNavigationTree dt.portletSubMenuHeader span.title {
     pointer-events: none;
     border: 13px solid transparent;
     border-left-color: &dtml-backgroundColor;;
-    margin-left: -8px;
+    top: 25%;
+}
+
+.navTreeLevel0 .navTreeCurrentItem:after {
+    left: -6%;
+}
+.navTreeLevel1 .navTreeCurrentItem:after {
+    left: -14%;
+}
+.navTreeLevel2 .navTreeCurrentItem:after {
+    left: -24%;
+}
+.navTreeLevel3 .navTreeCurrentItem:after {
+    left: -36%;
+}
+.navTreeLevel4 .navTreeCurrentItem:after {
+    left: -50%;
+}
+.navTreeLevel5 .navTreeCurrentItem:after {
+    left: -67%;
+}
+.navTreeLevel6 .navTreeCurrentItem:after {
+    left: -89%;
+}
+.navTreeLevel7 .navTreeCurrentItem:after {
+    left: -117%;
 }
 
 #portal-column-one .portlet {
