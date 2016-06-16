@@ -643,8 +643,13 @@ input.standalone:hover {
     padding: 0 0 2em 0;
 }
 
-.content-header {
+.width-full .content-header {
     background-color: white;
+
+}
+
+.template-facetednavigation_view .content-header,
+.template-datamaps_view .content-header {
     padding: 1.5em;
     margin-bottom: 1.5em;
 }
@@ -1153,7 +1158,7 @@ a.moreLink {
 .progressbar-viewlet {
     border-radius: 0;
     background-color: &dtml-lightBackgroundColor;;
-    margin-top: 2em;
+    margin: 2em 0;
 }
 
 .documentByLine {
