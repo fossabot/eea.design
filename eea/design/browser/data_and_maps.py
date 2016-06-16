@@ -1,13 +1,9 @@
 """ Browser controllers
 """
-from Acquisition import aq_inner
-from DateTime import DateTime
-from Products.CMFCore.utils import getToolByName
 
-from Products.Five import BrowserView
-
-from eea.design.browser.frontpage import _getItems, _getImageUrl, Frontpage
+from eea.design.browser.frontpage import Frontpage
 from eea.promotion.interfaces import IPromotion
+
 
 class DataMaps(Frontpage):
     """
