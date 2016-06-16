@@ -10,7 +10,7 @@ Changelog
   [ichim-david refs #71699]
 * Change: whatsnewgallery now transforms into an accordion on mobile views
   [ichim-david refs #71699]
-* Bugfix: When folder_accordion_view is used, and
+* Bug fix: When folder_accordion_view is used, and
   hideOtherResultsFromAccordionView is set, display all accordions and 
   hide the pagination
   [szabozo0 refs #72959]
@@ -178,7 +178,7 @@ Changelog
 * Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
   available for eea.design
   [lucas refs #30824]
-* BugFix: remove compression from anchor.js to resolve error in production
+* Bug fix: remove compression from anchor.js to resolve error in production
   [lucas refs #30396]
 
 13.0 - (2015-11-16)
