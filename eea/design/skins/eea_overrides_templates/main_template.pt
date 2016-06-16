@@ -185,38 +185,40 @@
                             </metal:header>
 
                             <metal:bodytext define-slot="main">
+                                <div class="content-header">
 
-                             <div tal:replace="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
-                             <metal:title define-slot="content-title">
-                                 <metal:comment tal:content="nothing">
-                                    <tal:comment replace="nothing">
-                                        If you write a custom title always use
-                                        <h1 class="documentFirstHeading"></h1> for it
-                                    </tal:comment>
-                                 </metal:comment>
-                                 <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">
-                                     Generic KSS Title. Is rendered with class="documentFirstHeading".
-                                 </h1>
-                             </metal:title>
-                            <tal:not4AjaxLoad  tal:condition="not:ajax_load">
-                                <tal:not4Print tal:condition="python:not isPrint">
-                                    <div tal:replace="structure provider:plone.belowcontenttitle" />
-                                </tal:not4Print>
-                            </tal:not4AjaxLoad>
+                                    <div tal:replace="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
+                                    <metal:title define-slot="content-title">
+                                        <metal:comment tal:content="nothing">
+                                            <tal:comment replace="nothing">
+                                                If you write a custom title always use
+                                                <h1 class="documentFirstHeading"></h1> for it
+                                            </tal:comment>
+                                        </metal:comment>
+                                        <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">
+                                            Generic KSS Title. Is rendered with class="documentFirstHeading".
+                                        </h1>
+                                    </metal:title>
+                                    <tal:not4AjaxLoad  tal:condition="not:ajax_load">
+                                        <tal:not4Print tal:condition="python:not isPrint">
+                                            <div tal:replace="structure provider:plone.belowcontenttitle" />
+                                        </tal:not4Print>
+                                    </tal:not4AjaxLoad>
 
-                             <metal:description define-slot="content-description">
-                                 <metal:comment tal:content="nothing">
-                                    <tal:comment replace="nothing">
-                                        If you write a custom description always use
-                                        <div class="documentDescription"></div> for it
-                                    </tal:comment>
-                                 </metal:comment>
-                                 <div metal:use-macro="context/kss_generic_macros/macros/generic_description_view">
-                                     Generic KSS Description. Is rendered with class="documentDescription".
-                                 </div>
-                             </metal:description>
+                                    <metal:description define-slot="content-description">
+                                        <metal:comment tal:content="nothing">
+                                            <tal:comment replace="nothing">
+                                                If you write a custom description always use
+                                                <div class="documentDescription"></div> for it
+                                            </tal:comment>
+                                        </metal:comment>
+                                        <div metal:use-macro="context/kss_generic_macros/macros/generic_description_view">
+                                            Generic KSS Description. Is rendered with class="documentDescription".
+                                        </div>
+                                    </metal:description>
 
-                             <div tal:replace="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
+                                    <div tal:replace="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
+                            </div>
                              <div id="content-core">
                                  <metal:text define-slot="content-core" tal:content="nothing">
                                     <tal:comment replace="nothing">

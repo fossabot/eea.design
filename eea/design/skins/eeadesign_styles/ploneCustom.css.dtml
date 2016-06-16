@@ -642,6 +642,13 @@ input.standalone:hover {
 .documentContent {
     padding: 0 0 2em 0;
 }
+
+.content-header {
+    background-color: white;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+}
+
 #content-core {
     clear:both;
 }
@@ -1115,7 +1122,7 @@ a.moreLink {
 
 #socialmedia-viewlet,
 #relatedItems {
-    padding: 0 1em 1em;
+    padding: 0 &dtml-padding-base; &dtml-padding-base;;
     background-color: white;
 }
 
@@ -1146,6 +1153,7 @@ a.moreLink {
 .progressbar-viewlet {
     border-radius: 0;
     background-color: &dtml-lightBackgroundColor;;
+    margin-top: 2em;
 }
 
 .documentByLine {
