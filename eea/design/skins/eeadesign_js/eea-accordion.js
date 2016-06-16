@@ -121,7 +121,7 @@ jQuery(document).ready(function($) {
                 }
 
                 $el.tabs($pane,
-                {   tabs: '.eea-accordion-title, .eea-accordion-title-manual-icons, h2',
+                {   tabs: $pane.prev(),
                     effect: effect,
                     initialIndex: initial_index,
                     current: current_class,

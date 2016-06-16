@@ -37,7 +37,7 @@ html {
     font-weight: normal;
 }
 
-#highlights-block h2, .featured h2, .featured dt.portletHeader {
+#whats-new, .featured h2, .featured dt.portletHeader {
     font-size: 160%;
     font-weight: normal;
     line-height: 1.4em;

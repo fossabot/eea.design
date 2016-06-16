@@ -1,7 +1,7 @@
-<tal:articles metal:define-macro="articles"
+<tal:news metal:define-macro="products"
         tal:define="frontpage_view frontpage_view|context/@@frontpage_highlights;
-                    language python:request.get('LANGUAGE');
-                    folderContents folderContents|python: frontpage_view.getArticles() if not language else frontpage_view.getArticles(language=language);
+                    product python:request.get('tabname');
+                    folderContents folderContents|python:frontpage_view.getLatest(product) if product else None;
                     hide_listing hide_listing|python: False;
                     hide_album hide_album|python: True;
                     ajax ajax|python:True">
@@ -17,4 +17,5 @@
             </div>
     </tal:notFolderContents>
 
-</tal:articles>
+</tal:news>
+

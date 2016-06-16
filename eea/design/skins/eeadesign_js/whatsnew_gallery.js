@@ -32,7 +32,8 @@ jQuery(document).ready(function($) {
     };
 
     eea_gal.whatsnew_func = function(cur_tab_val, sel_text, sel_value, index) {
-        var address = eea_gal.site_address + cur_tab_val + "_gallery_macro";
+        var gallery_macro = this.gallery_page === 'frontpage' ? "whatsnew_gallery_macro" : "datamaps_gallery_macro";
+        var address = eea_gal.site_address + gallery_macro;
         eea_gal.current_tab_addr = address;
         var gal = eea_gal.gallery.find(".eea-tabs-panel");
         var news = index ? gal[index] : gal.filter(function() {
@@ -48,10 +49,11 @@ jQuery(document).ready(function($) {
         var gallery_ajax = $(".gallery-ajax", news);
         var layout_selection = $('.gallery-layout-selection li a', news)[0];
         var params = sel_value ? "topic" +  "=" + sel_value : undefined;
+        params = params ? params + '&tabname=' + cur_tab_val : 'tabname=' + cur_tab_val;
         eea_gal.gallery_load(gallery_ajax, address, params, layout_selection);
     };
-
-    $("#whatsnew-gallery").find(".eea-tabs").tabs("> .eea-tabs-panel", function(event, index) {
+    var $whatsnew_gallery = $("#whatsnew-gallery");
+    $whatsnew_gallery.find(".eea-tabs").tabs($whatsnew_gallery.find(".eea-tabs-panel"), function(event, index) {
         var cur_tab = this.getTabs()[index],
             cur_tab_val = cur_tab.id.substr(4);
         cur_tab.theme = cur_tab.theme || "";

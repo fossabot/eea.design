@@ -457,6 +457,9 @@ input.standalone:hover {
     background-color: &dtml-lightBackgroundColor;;
     padding: 10px;
 }
+#whatsnew-gallery .eea-tabs-panels {
+    padding: 0;
+}
 
 .eea-accordion-panels {
     border: 1px solid #DDD;

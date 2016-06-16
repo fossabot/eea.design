@@ -11,8 +11,6 @@ from plone.app.blob.interfaces import IBlobWrapper
 from zope.component import queryMultiAdapter
 from eea.versions.interfaces import IGetVersions
 import logging
-from itertools import chain
-
 
 logger = logging.getLogger("eea.design.browser.frontpage")
 
@@ -38,87 +36,118 @@ class Frontpage(BrowserView):
         self.noOfNews = self.fp.getProperty('noOfNews', 6)
         self.noOfMultimedia = self.fp.getProperty(
                                                            'noOfMultimedia', 6)
-        self.noOfAnimations = self.fp.getProperty(
-                                                           'noOfAnimations', 6)
-        self.noOfPublications = self.fp.getProperty(
-                                                         'noOfPublications', 6)
         self.noOfPromotions = self.fp.getProperty(
                                                            'noOfPromotions', 7)
         self.noOfEachProduct = self.fp.getProperty(
                                                           'noOfEachProduct', 3)
-        self.noOfLatestDefault = self.fp.getProperty(
-                                                        'noOfLatestDefault', 6)
+        self.getProducts = self.fp.getProperty('getProducts', [])
         self.effectiveDateMonthsAgo = self.fp.getProperty(
                                                 'effectiveDateMonthsAgo', 18)
         self.now = DateTime()
 
-
-    def getNews(self, language=None):
-        """ retrieves latest news by date and by topic """
+    def searchResults(self, name, searchtype="Article", language=None):
+        """ Retrieve latest product filtered by date and by topic """
+        effective_date_ago = 'get' + name + 'Ago'
+        noOfItems = self.fp.getProperty('noOf' + name) or self.noOfEachProduct
+        language = language or getattr(self.context, 'getLanguage',
+                                       lambda: '')()
         if language == 'en':
             self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getNewsAgo') or self.effectiveDateMonthsAgo
+              effective_date_ago) or self.effectiveDateMonthsAgo
         else:
             self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getNewsAgo-tr') or self.effectiveDateMonthsAgo
-        visibilityLevel = ['top', 'middle', 'low', '']
-        items = _getItems(self, visibilityLevel=visibilityLevel,
-                portaltypes=('Highlight', 'PressRelease'),
-                noOfItems=self.noOfNews, language=language)
-        return items
-
-    def getArticles(self, portaltypes="Article", language=None):
-        """ retrieves latest articles by date and by topic """
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getArticlesAgo') or self.effectiveDateMonthsAgo
+                effective_date_ago + '-tr') or self.effectiveDateMonthsAgo
+        query = {'language': language, 'noOfItems': noOfItems}
+        tuple_search = searchtype.find('(')
+        if tuple_search != -1:
+            searchtype = searchtype.split(' ')[1:-1]
+            if '.' in searchtype[0]:
+                query['interfaces'] = searchtype
+            else:
+                query['portaltypes'] = searchtype
+            return _getItems(self, **query)
+        iface = searchtype.split('.')
+        if len(iface) > 1:
+            query['interfaces'] = searchtype
         else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getArticlesAgo-tr') or self.effectiveDateMonthsAgo
-        return _getItems(self,
-                portaltypes=portaltypes, noOfItems=self.noOfArticles,
-                language=language)
+            query['portaltypes'] = searchtype
+        return _getItems(self, **query)
 
-    def getPublications(self, portaltypes="Report", language=None):
-        """ retrieves latest publications by date and by topic """
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getPublicationsAgo') or self.effectiveDateMonthsAgo
+    def getProductCategories(self, skip_value=None):
+        """ Get all product categories defined in frontpage_properties.
+            With ability to skip a value for cases where we have
+            a category that retrieves all of the other categories
+            ex: getProductsCategories(skip_value='getAllProducts')
+        """
+        products = self.getProducts
+        values = []
+        for item in products:
+            if skip_value and skip_value in item:
+                continue
+            values.append(item.split(','))
+        return values
+
+    def getLatest(self, name, language=None):
+        """ Retrieve the latest brains for given category name
+            ex: getLatest('datasets')
+        """
+        if not language:
+            language = self.context.getLanguage()
+        product = self.getProductConfiguration(name)
+        return self.getProductContent(product, language=language) if product \
+            else None
+
+    def getProductConfiguration(self, name):
+        """ Retrieve configuration of Product used for checking which listing
+            to hide and where the more link should point to
+        """
+        products = self.getProductCategories()
+        for product in products:
+            if name in product:
+                return product
+        return None
+
+    def getProductCategoriesResults(self, skip_value=None):
+        """ Get Catalog results of going over each Product """
+        values = self.getProductCategories(skip_value)
+        results = {}
+        for item in values:
+            results[item[1]] = self.getProductContent(item)
+        return results
+
+    def getProductContent(self, item, language=None):
+        """ Utility which checks if we need to call given item if condition
+            is found else passing item to the retrieval of results """
+        search_type = item[2]
+        if search_type.startswith('get'):
+            return getattr(self, search_type)()
         else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getPublicationsAgo-tr') or self.effectiveDateMonthsAgo
-        return _getItems(self, portaltypes=portaltypes,
-                               noOfItems=self.noOfPublications,
-                               language=language)
+            return self.searchResults(
+                item[1], item[2], language=language)
 
-    def getInfographics(self, portaltypes="Infographic", language=None):
-        """ retrieves latest Infographics by date and by topic """
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                        'getInfographicsAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getInfographicsAgo-tr') or self.effectiveDateMonthsAgo
-        return _getItems(self,
-                         portaltypes=portaltypes, noOfItems=self.noOfMedium,
-                         language=language)
+    def getProductCategoriesNames(self):
+        """ Get the names of Product categories defined in frontpage_properties
+        """
+        values = self.getProductCategories()
+        names = [i[1] for i in values]
+        return names
 
-    def getAllProducts(self, no_sort=False, language=None):
-        """ retrieves all latest published products for frontpage """
-
+    def getDataMaps(self):
+        """ getDataMaps is created in order to retrieve all data_and_maps """
         datamaps_view = self.context.restrictedTraverse('data_and_maps_logic')
-        news = self.getNews(language=language)[:self.noOfMedium]
-        articles = self.getArticles(language=language)[:self.noOfMedium]
-        publications = self.getPublications(
-            language=language)[:self.noOfMedium]
-        multimedia = self.getMultimedia(
-            language=language)[:self.noOfMedium]
-        datamaps = datamaps_view.getAllProducts(
-            language=language)
-        infographics = self.getInfographics(language=language)[:self.noOfMedium]
+        return datamaps_view.getAllProducts()
+
+    def getAllProducts(self, no_sort=False):
+        """ retrieves all latest published products for frontpage """
+        results_dict = self.getProductCategoriesResults(skip_value=
+                                                        'getAllProducts')
         result = []
-        result.extend(chain(news, articles, publications, multimedia, datamaps,
-                            infographics))
+        for key, value in results_dict.items():
+            if key == 'Data and maps':  # data and maps logic is already sliced
+                result.extend(value)
+            else:
+                result.extend(value[:self.noOfEachProduct])
+
         # resort based on effective date
         if not no_sort:
             result.sort(key=lambda x: x.effective)
@@ -164,23 +193,6 @@ class Frontpage(BrowserView):
         """ Promotions
         """
         result = _getPromotions(self, noOfItems=self.noOfPromotions)
-        return result
-
-    def getMultimedia(self, language=None):
-        """ retrieves multimedia objects (videos/animations etc..)
-        filtered by date and by topic """
-        if language == 'en':
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getMultimediaAgo') or self.effectiveDateMonthsAgo
-        else:
-            self.effectiveDateMonthsAgo = self.fp.getProperty(
-                'getMultimediaAgo-tr') or self.effectiveDateMonthsAgo
-        interface = 'eea.mediacentre.interfaces.IVideo'
-        result = _getItems(self,
-                    interfaces=interface,
-                    noOfItems=self.noOfMultimedia,
-                    language=language)
-
         return result
 
     def getImageUrl(self, brain):
@@ -311,6 +323,36 @@ def queryEffectiveRange(self, query):
     query['effective'] = date_range
     return query
 
+def query_results(self, query, portaltypes=None, interfaces=None, noOfItems=6):
+    """ Expand results when we have more than one portal type or interface """
+    types = []
+    if portaltypes:
+        if isinstance(portaltypes, list):
+            types.extend(portaltypes)
+        else:
+            query['portal_type'] = portaltypes
+    if interfaces:
+        if isinstance(interfaces, list):
+            types.extend(interfaces)
+        else:
+            query['object_provides'] = interfaces
+    filtered_res = []
+    query = queryEffectiveRange(self, query)
+    if types:
+        for value in types:
+            if '.' not in value:
+                query['portal_type'] = value
+            else:
+                query['object_provides'] = value
+            res = self.catalog(query)
+            filtered_res.extend(filterLatestVersion(self, brains=res,
+                                            noOfItems=self.noOfEachProduct))
+    else:
+        res = self.catalog(query)
+        filtered_res = filterLatestVersion(self, brains=res,
+                                           noOfItems=noOfItems)
+    return filtered_res
+
 def _getItemsWithVisibility(self, visibilityLevel=None, portaltypes=None,
                             interfaces=None, topic=None, noOfItems=None,
                             language=None):
@@ -325,22 +367,18 @@ def _getItemsWithVisibility(self, visibilityLevel=None, portaltypes=None,
             'sort_order'         : 'reverse',
             }
 
-    if getattr(self.context, 'getLanguage', None):
-        query['Language'] = self.context.getLanguage()
     if language:
         query['Language'] = language
-    if portaltypes:
-        query['portal_type'] = portaltypes
+    else:
+        if getattr(self.context, 'getLanguage', None):
+            query['Language'] = self.context.getLanguage()
+
     if visibilityLevel:
         query['getVisibilityLevel'] = visibilityLevel
-    if interfaces:
-        query['object_provides'] = interfaces
     if topic:
         query['getThemes'] = topic
-    query = queryEffectiveRange(self, query)
-    res = self.catalog.searchResults(query)
-    filtered_res = filterLatestVersion(self, brains=res,
-                                                noOfItems=noOfItems)
+    filtered_res = query_results(self, query, portaltypes=portaltypes,
+                                 interfaces=interfaces, noOfItems=noOfItems)
     return filtered_res
 
 def _getTopics(self, topic=None, portaltypes=None, object_provides=None,
@@ -353,22 +391,17 @@ def _getTopics(self, topic=None, portaltypes=None, object_provides=None,
         'sort_on'        : 'effective',
         'sort_order'     : 'reverse',
         }
-    if getattr(self.context, 'getLanguage', None):
-        query['Language'] = self.context.getLanguage()
     if language:
         query['Language'] = language
-    if portaltypes:
-        query['portal_type'] = portaltypes
-    if object_provides:
-        query['object_provides'] = object_provides
+    else:
+        if getattr(self.context, 'getLanguage', None):
+            query['Language'] = self.context.getLanguage()
     if topic:
         query['getThemes'] = topic
     if tags:
         query['Subject'] = tags
-    query = queryEffectiveRange(self, query)
-    res = self.catalog(query)
-    filtered_res = filterLatestVersion(self, brains=res,
-                                                     noOfItems=noOfItems)
+    filtered_res = query_results(self, query, portaltypes, object_provides,
+                                 noOfItems)
     return filtered_res
 
 

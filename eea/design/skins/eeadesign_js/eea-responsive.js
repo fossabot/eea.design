@@ -55,14 +55,16 @@ jQuery(document).ready(function($) {
         var $tabs_panels = $tabs_panel.find('.eea-tabs-panel');
 
         var $tabs_tabs = $tab.find('li');
+        $("#topic-selector").hide();
         $tabs_tabs.each(function(idx, el) {
             var $panel = $tabs_panels.eq(idx);
             var $el = $(el);
             var link = $el.find('a')[0];
             $panel.attr('class', 'eea-accordion-panel');
             if (!$panel.find('.pane').length) {
-                $panel.wrapInner('<div class=\'pane\' />');
+                $panel.wrapInner("<div class='pane' />");
             }
+            $panel.find('.filter-topic').hide();
             $panel.show();
             var $accordion_title = $panel.find('.eea-accordion-title');
             var link_is_current = link.className.indexOf('current') !== -1;
@@ -103,9 +105,10 @@ jQuery(document).ready(function($) {
             }
             $item.removeClass('collapsed-by-default eea-tabs-transformed');
             var $tabs_accordions = $item.find('.eea-accordion-panel');
-
+            $("#topic-selector").show();
             $tabs_accordions.each(function(idx, panel) {
                 var $panel = $(panel);
+                $panel.find('.filter-topic').show();
                 var $parent = $panel.closest('.eea-tabs-panels');
                 var $tabs = $parent.hasClass('eea-tabs-panels-soer') ? $('.eea-tabs-soer') : $panel.parent().prev() ;
                 $panel.attr('class', 'eea-tabs-panel');
@@ -123,7 +126,7 @@ jQuery(document).ready(function($) {
     var $buttonnavbar = $('button.navbar-toggle');
     var $soer_tabs = $('.eea-tabs-soer'),
         $soer_tabs_found = $soer_tabs.length;
-    var $notransform = $('.eea-tabs-panels-arrows, .eea-tabs-panels-soer, #whatsnew-gallery');
+    var $notransform = $('.eea-tabs-panels-arrows, .eea-tabs-panels-soer');
     if (underscore) {
         $(window).resize(_.debounce(function() {
             var $tabs_panel = $('.eea-tabs-panels').not($notransform);
@@ -131,7 +134,9 @@ jQuery(document).ready(function($) {
                 if ($tabs_panel.length) {
                     $tabs_panel.each(function(idx, tab_panel) {
                         var $tab_panel = $(tab_panel);
-                        make_tabs_into_accordions($tab_panel.prev('.eea-tabs'), $tab_panel);
+                        var $tabs = $tab_panel.prev('.eea-tabs');
+                        $tabs = $tabs.length ? $tabs : $tab_panel.parent().find('.eea-tabs');
+                        make_tabs_into_accordions($tabs, $tab_panel);
                     });
                 }
                 if (tabbed_menu_found) {
