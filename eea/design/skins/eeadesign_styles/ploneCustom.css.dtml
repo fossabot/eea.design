@@ -22,6 +22,7 @@ div.width-3\3A 4 { width: 58.5%; }
 .width-full { background-color: &dtml-lightBackgroundColor;;}
 .template-facetednavigation_view .width-full,
 .template-datamaps_view .width-full,
+.template-dc_view .width-full,
 .frontpage .width-full {
     background-color: transparent;
 }
@@ -649,7 +650,8 @@ input.standalone:hover {
 }
 
 .template-facetednavigation_view .content-header,
-.template-datamaps_view .content-header {
+.template-datamaps_view .content-header,
+.template-dc_view .content-header {
     padding: 1.5em;
     margin-bottom: 1.5em;
 }
@@ -1125,8 +1127,10 @@ a.moreLink {
     padding: 0;
 }
 
-#socialmedia-viewlet,
-#relatedItems {
+.template-facetednavigation_view #socialmedia-viewlet,
+.template-facetednavigation_view #relatedItems,
+.template-dc_view #socialmedia-viewlet,
+.template-dc_view #relatedItems  {
     padding: 0 &dtml-padding-base; &dtml-padding-base;;
     background-color: white;
 }
