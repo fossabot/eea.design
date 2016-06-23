@@ -3,6 +3,9 @@ Changelog
 
 14.5.dev0 - (unreleased)
 ------------------------
+* Bug fix: reintroduced ability to specify more_hrefs for whatsnewgallery
+  as dc page of thematic was pointing to the links of the data-and-maps
+  [ichim-david refs #73701]
 * Change: introduce results4AllProducts option which if given to the
   frontpage_properties we will get results for each product otherwise
   we will get the latest results even if we have more than one product

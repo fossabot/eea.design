@@ -5,7 +5,7 @@
 <div metal:define-macro="products"
         class="eea-tabs-panel"
         tal:attributes="id python: 'datamaps-highlights' if tab == 'Data and maps' else tab.replace(' ', '').lower() + '-highlights'"
-        tal:define="product python:frontpage_view.getProductConfiguration(tab);
+        tal:define="product product|python:frontpage_view.getProductConfiguration(tab);
         ajax python: False;
         item_type_title_display python:True;
         more_href more_href|python:product[-1];
