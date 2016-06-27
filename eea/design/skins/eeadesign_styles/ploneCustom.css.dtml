@@ -60,8 +60,11 @@ div.position-0 { margin-left: -100%; }
     width: 75% !important; /* 80% default is too large for our buttons which end up collapsed with default value */
 }
 #faceted-form .faceted-widget {
-    margin: 0 0 1em 0;
     padding-bottom: 0.5em;
+}
+
+#faceted-right-column .faceted-widget {
+    margin-bottom: 1em;
 }
 
 
@@ -322,7 +325,7 @@ input.standalone:hover {
 .faceted-results {
     background-color: &dtml-lightBackgroundColor;;
     padding: 0 1em 1em;
-    margin-bottom: 1em;
+    margin-bottom: 0;
 }
 .faceted-results .photoAlbumEntry {
     width: 123px;
@@ -647,7 +650,7 @@ input.standalone:hover {
 .template-datamaps_view .content-header,
 .template-dc_view .content-header {
     padding: 1.5em;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
 }
 
 #content-core {
@@ -1151,7 +1154,7 @@ a.moreLink {
 .progressbar-viewlet {
     border-radius: 0;
     background-color: &dtml-lightBackgroundColor;;
-    margin: 2em 0;
+    margin: 2em 0 0 0;
 }
 
 .documentByLine {
@@ -1190,6 +1193,7 @@ a.moreLink {
 
 .faceted-results .listingBar {
     background-color: &dtml-lightBackgroundColor;;
+    margin-top: 0;
 }
 
 .listingBar .previous,
@@ -1254,7 +1258,7 @@ a.moreLink {
 
 /* relatedItems */
 #relatedItems  {
-    margin-bottom: 2em;
+    margin: 0 0 0 0;
     clear: both;
     overflow: hidden;
 }

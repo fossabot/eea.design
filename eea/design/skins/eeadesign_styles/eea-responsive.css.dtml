@@ -379,11 +379,8 @@
   #viewlet-below-content .standalone {
     white-space: pre-wrap; }
 
-  #eea-above-columns{
-    margin-top: 70px;
-  }
-
-}
+  #eea-above-columns {
+    margin-top: 70px; } }
 @media screen and (max-width: 768px) {
   #visual-portal-wrapper {
     overflow: auto; }

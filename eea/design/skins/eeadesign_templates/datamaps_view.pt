@@ -89,7 +89,7 @@
                        title="Go to advanced search"
                        i18n:attributes="title">
                     <span i18n:translate="">Advanced</span></a>
-                    <div class="featured visualNoPrint">
+                    <div class="visualNoPrint">
                        <h2 i18n:translate="">Search data products</h2>
                        <form tal:attributes="action string:${here/absolute_url}/find/global"  method="get" id="faceted-text-search" class="searchforms 
 faceted-external-search">
@@ -107,6 +107,7 @@ faceted-external-search">
                         <div metal:define-macro="whatsnew-gallery"
                                 tal:define="getProducts context/portal_properties/frontpage_properties/getDataProducts;
                                             frontpage_view context/@@data_and_maps_logic;
+                                            more_hrefs more_hrefs|python:{};
                                             datapage string:datamaps;"
                                 tal:attributes="id string:whatsnew-gallery; data-page string:${datapage}">
                             <div metal:use-macro="here/frontpage_view/macros/whatsnew-gallery">

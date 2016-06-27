@@ -94,6 +94,11 @@ a.archives {
     float: left;
 }
 
+#highlights-area {
+    background-color: white;
+    padding: &dtml-padding-base;;
+}
+
 .right-column-area {
     width: 39%;
     padding: 0 0 0 1em;
