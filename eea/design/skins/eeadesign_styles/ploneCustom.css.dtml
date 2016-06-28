@@ -193,20 +193,23 @@ div.position-0 { margin-left: -100%; }
 
 .faceted-widget input[type="text"] {
     min-width: 70%;
-    max-width: 77%;
+    max-width: 75.4%;
     font-size: 16px;
     padding: 6px 6px 7px 6px;
     background: &dtml-greyBackgroundColor;;
     display: inline-block;
 }
 
-.section-free-text-search input[type="text"],
-.section-free-text-search .searchButton {
+.faceted-text-widget input[type="text"],
+.faceted-text-widget .searchButton {
     display: block;
     float: left;
 }
 .faceted-textwidget-place-all {
     clear: left;
+}
+#faceted-form .ui-helper-reset {
+    margin: 0;
 }
 
 .faceted-top-widgets .faceted-widget .widget-fieldset form input[type="text"]:focus,
