@@ -189,13 +189,12 @@ div.position-0 { margin-left: -100%; }
     width: 50%;
 }
 
-.faceted-top-widgets .faceted-widget .widget-fieldset form input[type="text"],
-.faceted-center-widgets .faceted-widget .widget-fieldset form input[type="text"]{
+.faceted-widget input[type="text"] {
     min-width: 70%;
     max-width: 77%;
     font-size: 16px;
     padding: 5px;
-    background: #FFFFFF;
+    background: &dtml-greyBackgroundColor;;
     display: inline-block;
 }
 
