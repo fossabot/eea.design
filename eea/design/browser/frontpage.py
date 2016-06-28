@@ -339,14 +339,25 @@ def query_results(self, query, portaltypes=None, interfaces=None, noOfItems=6):
     filtered_res = []
     query = queryEffectiveRange(self, query)
     if types:
-        for value in types:
-            if '.' not in value:
-                query['portal_type'] = value
+        first_value = types[0]
+        if first_value != 'results4AllProducts':
+            for value in types:
+                if '.' not in value:
+                    query['portal_type'] = value
+                else:
+                    query['object_provides'] = value
+                res = self.catalog(query)
+                filtered_res.extend(filterLatestVersion(self, brains=res,
+                                                noOfItems=self.noOfEachProduct))
+        else:
+            if '.' not in first_value:
+                query['portal_type'] = types[1:-1]
             else:
-                query['object_provides'] = value
+                query['object_provides'] = types[1:-1]
             res = self.catalog(query)
-            filtered_res.extend(filterLatestVersion(self, brains=res,
-                                            noOfItems=self.noOfEachProduct))
+            filtered_res.extend(
+                filterLatestVersion(self,
+                                    brains=res, noOfItems=self.noOfEachProduct))
     else:
         res = self.catalog(query)
         filtered_res = filterLatestVersion(self, brains=res,

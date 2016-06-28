@@ -46,6 +46,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                         <!-- tabs -->
                         <div metal:define-macro="whatsnew-gallery"
                                 tal:define="datapage datapage|string:frontpage;
+                                            more_hrefs more_hrefs|python:{};
                                             frontpage_view frontpage_view|context/@@frontpage_highlights;
                                             main_site main_site|python: True if language == 'en' else False;
                                             frontpage_properties context/portal_properties/frontpage_properties;
@@ -80,7 +81,9 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                     <tal:propertyProducts tal:condition="python: main_site and getProducts">
 
                                         <tal:products tal:repeat="tab tabs">
-                                            <tal:defines tal:define="folderContents python:folderContent.get(tab)">
+                                            <tal:defines tal:define="folderContents python:folderContent.get(tab);
+                                                                     product python:frontpage_view.getProductConfiguration(tab);
+                                                                     more_href python: more_hrefs.get(tab) or product[-1];">
                                                 <div metal:use-macro="here/frontpage_macros/macros/products">
                                                     Property Products Highlights
                                                 </div>
