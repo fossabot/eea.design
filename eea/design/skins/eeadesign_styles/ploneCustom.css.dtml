@@ -143,6 +143,9 @@ div.position-0 { margin-left: -100%; }
 }
 
 /* Style for faceted used in section-publications */
+.faceted-form {
+    padding-top: 0.5em;
+}
 
 .faceted_letter_selected {
     background: transparent !important;
@@ -1140,8 +1143,7 @@ a.moreLink {
 
 .template-facetednavigation_view #socialmedia-viewlet,
 .template-facetednavigation_view #relatedItems,
-.template-dc_view #socialmedia-viewlet,
-.template-dc_view #relatedItems  {
+.template-dc_view .column-area {
     padding: 0 &dtml-padding-base; &dtml-padding-base;;
     background-color: white;
 }
