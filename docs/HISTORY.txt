@@ -3,6 +3,8 @@ Changelog
 
 14.5.dev0 - (unreleased)
 ------------------------
+* Change: Pin eea.facetednavigation < 10.0
+  [avoinea]
 
 14.4 - (2016-06-16)
 -------------------
@@ -11,7 +13,7 @@ Changelog
 * Change: whatsnewgallery now transforms into an accordion on mobile views
   [ichim-david refs #71699]
 * Bug fix: When folder_accordion_view is used, and
-  hideOtherResultsFromAccordionView is set, display all accordions and 
+  hideOtherResultsFromAccordionView is set, display all accordions and
   hide the pagination
   [szabozo0 refs #72959]
 * Change: added workflow state class on the album view of whatsnewgallery
@@ -79,7 +81,7 @@ Changelog
 
 13.9 - (2016-04-18)
 -------------------
-* Bug fix: show reply to comment button 
+* Bug fix: show reply to comment button
   [demarant refs #70675]
 * Change: airs Briefings now display the first table above the fiche-summary
   [ichimdav]
