@@ -78,10 +78,7 @@
     width: 45%; }
 
   .featured img {
-    max-width: 130px !important; }
-
-  .faceted-widget .searchButton {
-    margin-right: 5em; } }
+    max-width: 130px !important; } }
 /* #31309 - Improve DaViz Filter design/display */
 #content-core {
   position: relative; }

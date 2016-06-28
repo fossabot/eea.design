@@ -70,6 +70,8 @@ div.position-0 { margin-left: -100%; }
 
 #faceted-form .faceted-widget fieldset {
     border-style: none !important;
+    margin: 0;
+    padding: 1.5em;
 }
 
 #faceted-form .faceted-widget,
@@ -193,9 +195,18 @@ div.position-0 { margin-left: -100%; }
     min-width: 70%;
     max-width: 77%;
     font-size: 16px;
-    padding: 5px;
+    padding: 6px 6px 7px 6px;
     background: &dtml-greyBackgroundColor;;
     display: inline-block;
+}
+
+.section-free-text-search input[type="text"],
+.section-free-text-search .searchButton {
+    display: block;
+    float: left;
+}
+.faceted-textwidget-place-all {
+    clear: left;
 }
 
 .faceted-top-widgets .faceted-widget .widget-fieldset form input[type="text"]:focus,
@@ -283,6 +294,7 @@ input.standalone {
     text-shadow: 0 1px 1px #000;
     border: 1px solid #346F83;
 }
+
 
 
 #portal-columns input[type="submit"]:hover,
@@ -1154,6 +1166,10 @@ a.moreLink {
     border-radius: 0;
     background-color: &dtml-lightBackgroundColor;;
     margin: 2em 0 0 0;
+}
+
+.frontpage .progressbar-viewlet {
+    margin-bottom: 1em;
 }
 
 .documentByLine {
