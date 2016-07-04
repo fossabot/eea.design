@@ -172,7 +172,7 @@ input {
     border: 1px solid &dtml-globalBorderColor;;
     color: &dtml-fontColor;;
     vertical-align: middle;
-
+    background-color: &dtml-greyBackgroundColor;;
 }
 
 /* #23500 disable webkit special button look in order to get the consistent button

@@ -95,7 +95,7 @@ a:active { color: &dtml-linkActiveColor;; }
 #region-content {
     padding: 1.5em;
     margin: 0 -1.5em;
-    /*background-color: #FFF;*/
+    background-color: &dtml-lightBackgroundColor;;
 }
 /* @end Content Area */
 

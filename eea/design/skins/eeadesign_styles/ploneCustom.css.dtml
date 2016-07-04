@@ -23,7 +23,8 @@ div.width-3\3A 4 { width: 58.5%; }
 .template-facetednavigation_view .width-full,
 .template-datamaps_view .width-full,
 .template-dc_view .width-full,
-.frontpage .width-full {
+.frontpage .width-full,
+.frontpage #region-content {
     background-color: transparent;
 }
 div.position-1\3A 4 { margin-left: -79.875%; }
@@ -71,7 +72,7 @@ div.position-0 { margin-left: -100%; }
 #faceted-form .faceted-widget fieldset {
     border-style: none !important;
     margin: 0;
-    padding: 1.5em;
+    /*padding: 0;*/
 }
 
 #faceted-form .faceted-widget,
@@ -96,16 +97,16 @@ div.position-0 { margin-left: -100%; }
     background-color: &dtml-corporateGreen;;
     color: #ffffff;
     padding: 5px 10px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     font-weight: normal;
-    text-shadow: 1px 1px 1px #555555;
 }
 
 #faceted-form .widget-fieldset form,
 #faceted-form .faceted-criteria-hide-show,
 #faceted-form .faceted-criteria-reset {
     padding-top: 1em;
+    overflow: hidden;
 }
 
 .widget-fieldset ul li input {
@@ -198,7 +199,7 @@ div.position-0 { margin-left: -100%; }
     min-width: 70%;
     max-width: 75.4%;
     font-size: 16px;
-    padding: 6px 6px 7px 6px;
+    padding: 6px;
     background: &dtml-greyBackgroundColor;;
     display: inline-block;
 }
@@ -422,22 +423,36 @@ input.standalone:hover {
     height: 40px;
     white-space: normal;
     max-width: 195px;
+    position: relative;
 }
 
-#visual-portal-wrapper .eea-tabs > li > a:hover {
-    color: &dtml-corporateBlueTwo;;
+#visual-portal-wrapper .eea-tabs > li > a:hover,
+#visual-portal-wrapper .eea-tabs > li > a:target {
     text-decoration: none;
-    text-shadow: 1px 1px 1px #FFFFFF;
+    color: transparent !important;
     background-color: &dtml-lightBackgroundColor;;
 }
 #visual-portal-wrapper .eea-tabs > li > .current,
 #visual-portal-wrapper .eea-tabs > li > .current:hover {
     cursor: default;
-    color: &dtml-corporateBlueTwo;;
+    color: &dtml-lightBackgroundColor;;
     text-decoration: none;
-    text-shadow: 1px 1px 1px #FFFFFF;
-    background-color: &dtml-lightBackgroundColor;;
+    /*background-color: &dtml-lightBackgroundColor;;*/
 }
+
+#visual-portal-wrapper .eea-tabs > li > .current:after,
+#visual-portal-wrapper .eea-tabs > li > a:hover:after {
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border: 13px solid transparent;
+    border-bottom-color: #fff;
+    bottom: 0;
+    right: 35%;
+}
+
 
 /* Clear floated elements */
 #visual-portal-wrapper .eea-tabs:before,
@@ -469,7 +484,6 @@ input.standalone:hover {
 }
 
 .eea-tabs-panels {
-    border: 1px solid #DDD;
     border-top: 0;
     background-color: &dtml-lightBackgroundColor;;
     padding: 10px;
@@ -658,17 +672,17 @@ input.standalone:hover {
     padding: 0 0 2em 0;
 }
 
-.width-full .content-header {
+/*.width-full .content-header {
     background-color: white;
 
-}
+}*/
 
-.template-facetednavigation_view .content-header,
-.template-datamaps_view .content-header,
-.template-dc_view .content-header {
-    padding: 1.5em;
-    margin-bottom: 1em;
-}
+/*.template-facetednavigation_view .content-header,*/
+/*.template-datamaps_view .content-header,*/
+/*.template-dc_view .content-header {*/
+    /*padding: 1.5em;*/
+    /*margin-bottom: 1em;*/
+/*}*/
 
 #content-core {
     clear:both;
@@ -1142,8 +1156,7 @@ a.moreLink {
 }
 
 .template-facetednavigation_view #socialmedia-viewlet,
-.template-facetednavigation_view #relatedItems,
-.template-dc_view .column-area {
+.template-facetednavigation_view #relatedItems {
     padding: 0 &dtml-padding-base; &dtml-padding-base;;
     background-color: white;
 }
@@ -1170,7 +1183,6 @@ a.moreLink {
 .progressbar-viewlet {
     border-radius: 0;
     background-color: &dtml-lightBackgroundColor;;
-    margin: 2em 0 0 0;
 }
 
 .frontpage .progressbar-viewlet {
@@ -1236,10 +1248,10 @@ a.moreLink {
     padding-top: 0.5em;
 }
 
-.faceted-results .tileItem {
-    padding: &dtml-padding-base;;
-    background-color: &dtml-lightBackgroundColor;;
-}
+/*.faceted-results .tileItem {*/
+    /*padding: &dtml-padding-base;;*/
+    /*background-color: &dtml-lightBackgroundColor;;*/
+/*}*/
 
 .tileHeadline {
     border: none;

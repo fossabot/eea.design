@@ -95,8 +95,8 @@ a.archives {
 }
 
 #highlights-area {
-    background-color: white;
-    padding: &dtml-padding-base;;
+    background-color: &dtml-lightBackgroundColor;;
+    /*padding: &dtml-padding-base;;*/
 }
 
 .right-column-area {
@@ -157,7 +157,7 @@ body.frontpage #portal-columns {
 #news-header h2 {
     float: left;
     padding: 0px;
-    margin: 5px 0px;
+    margin: 6px;
     border:none;
     line-height:1.2;
 }
