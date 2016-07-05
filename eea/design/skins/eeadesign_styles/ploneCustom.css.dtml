@@ -414,48 +414,49 @@ input.standalone:hover {
     text-decoration: none;
     white-space: nowrap;
     padding: 8px 8px;
+    position: relative;
 }
 #visual-portal-wrapper .eea-tabs.two-rows > li > a {
-    height: 40px;
+    height: 50px;
     white-space: normal;
     max-width: 195px;
     position: relative;
 }
 
+.eea-tabs .current:after,
+.eea-tabs a:hover:after {
+    top: 100%;
+    left: 50%;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border: 15px solid transparent;
+    border-top-color: #006699;
+    margin-left: -10px;
+}
 #visual-portal-wrapper .eea-tabs > li > a:hover,
 #visual-portal-wrapper .eea-tabs > li > a:target {
     text-decoration: none;
     color: &dtml-lightBackgroundColor; !important;
     background-color: transparent;
 }
-#visual-portal-wrapper .eea-tabs > li > .current,
-#visual-portal-wrapper .eea-tabs > li > .current:hover {
+.eea-tabs > li > .current,
+.eea-tabs > li > .current:hover {
     cursor: default;
     color: &dtml-lightBackgroundColor;;
     text-decoration: none;
 }
 
-#visual-portal-wrapper .eea-tabs > li > .current:after,
-#visual-portal-wrapper .eea-tabs > li > a:hover:after {
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border: 13px solid transparent;
-    border-bottom-color: #fff;
-    bottom: 0;
-    right: 35%;
-}
-
 
 /* Clear floated elements */
-#visual-portal-wrapper .eea-tabs:before,
-#visual-portal-wrapper .eea-tabs:after {
+.eea-tabs:before,
+.eea-tabs:after {
     display: table;
     content: " ";
 }
-#visual-portal-wrapper .eea-tabs:after {
+.eea-tabs:after {
     clear: both;
 }
 
@@ -482,18 +483,13 @@ input.standalone:hover {
     padding: &dtml-padding-base; &dtml-padding-half;;
 }
 #whatsnew-gallery .eea-tabs-panels {
-    padding: 0;
+    padding: 10px;
 }
 
 .eea-accordion-panels {
     border: 1px solid #DDD;
     border-top: 0;
     padding: 10px;
-}
-
-/* TODO fix padding differences */
-#relatedItems .eea-tabs-panels {
-    padding: 1px;
 }
 
 /* eea accordion styles */
@@ -1927,7 +1923,7 @@ body.template-login_form #content,
         padding: 8px 8px;
     }
     .tabbedmenu.two-rows ul > li a {
-        height: 40px;
+        height: 50px;
         white-space: normal;
         max-width: 150px;
     }
@@ -1989,6 +1985,7 @@ div#original_chart_div {
 /* download.pdf download.epub export actions */
 #region-content .documentExportActions {
     float:right;
+    margin: 0 0 1em 1em;
 }
 #region-content .documentExportActions ul, .documentExportActions ul {
     list-style: none;
