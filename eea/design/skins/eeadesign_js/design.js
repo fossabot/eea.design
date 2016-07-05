@@ -18,6 +18,10 @@ jQuery(document).ready(function($) {
     // appendTo($socialmedia, $column_area);
     // appendTo($related_items, $center_bottom_area);
     // appendTo($socialmedia, $center_bottom_area);
+    var $byline = $("#plone-document-byline").children();
+    if ($byline.length <= 1) {
+        $byline.hide();
+    }
 
     var url_path_name = window.location.pathname;
     var $body = $("body");

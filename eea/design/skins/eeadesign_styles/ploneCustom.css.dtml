@@ -72,7 +72,7 @@ div.position-0 { margin-left: -100%; }
 #faceted-form .faceted-widget fieldset {
     border-style: none !important;
     margin: 0;
-    /*padding: 0;*/
+    padding: 0;
 }
 
 #faceted-form .faceted-widget,
@@ -144,10 +144,6 @@ div.position-0 { margin-left: -100%; }
 }
 
 /* Style for faceted used in section-publications */
-.faceted-form {
-    padding-top: 0.5em;
-}
-
 .faceted_letter_selected {
     background: transparent !important;
     font-weight: bold;
@@ -1155,11 +1151,11 @@ a.moreLink {
     padding: 0;
 }
 
-.template-facetednavigation_view #socialmedia-viewlet,
-.template-facetednavigation_view #relatedItems {
-    padding: 0 &dtml-padding-base; &dtml-padding-base;;
-    background-color: white;
-}
+/*.template-facetednavigation_view #socialmedia-viewlet,*/
+/*.template-facetednavigation_view #relatedItems {*/
+    /*padding: 0 &dtml-padding-base; &dtml-padding-base;;*/
+    /*background-color: white;*/
+/*}*/
 
 .languageCodes {
     display: block;
