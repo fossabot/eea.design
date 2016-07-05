@@ -432,7 +432,7 @@ input.standalone:hover {
     width: 0;
     position: absolute;
     pointer-events: none;
-    border: 15px solid transparent;
+    border: 13px solid transparent;
     border-top-color: #006699;
     margin-left: -10px;
 }
@@ -480,10 +480,7 @@ input.standalone:hover {
 .eea-tabs-panels {
     border-top: 0;
     background-color: &dtml-lightBackgroundColor;;
-    padding: &dtml-padding-base; &dtml-padding-half;;
-}
-#whatsnew-gallery .eea-tabs-panels {
-    padding: 10px;
+    padding: &dtml-padding-base;;
 }
 
 .eea-accordion-panels {

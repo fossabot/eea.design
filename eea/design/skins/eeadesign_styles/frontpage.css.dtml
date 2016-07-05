@@ -35,16 +35,16 @@ html {
 #highlights-block h3 {
     margin: 0 0 0.5em 0;
     font-weight: normal;
+    border-bottom: 0;
 }
 
 #whats-new, .featured h2, .featured dt.portletHeader {
     font-size: 160%;
     font-weight: normal;
     line-height: 1.4em;
-    padding: 0 0 0.5em 0;
+    padding: 0;
     border: none;
     clear: left;
-    color: #000;
     margin: 0;
     background: none;
 }
@@ -73,7 +73,7 @@ html {
 
 .archives {
     float: right;
-    margin: 22px 25px 15px 15px;
+    margin: &dtml-padding-base; 25px 15px 15px;
     position: relative;
     top: 8px;
     line-height: 1em;
@@ -109,6 +109,8 @@ a.archives {
 #articles-area h2 {
     padding-top: 0;
     line-height: 1em;
+    border-bottom: 0;
+    font-weight:normal;
 }
 
 
@@ -160,6 +162,7 @@ body.frontpage #portal-columns {
     margin: 6px;
     border:none;
     line-height:1.2;
+    font-weight:normal;
 }
 
 #news-header {
