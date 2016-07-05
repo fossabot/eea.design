@@ -460,8 +460,6 @@ input.standalone:hover {
 }
 
 .eea-tabs-panel {
-    padding: &dtml-padding-base;;
-    background-color: &dtml-lightBackgroundColor;;
     overflow: auto;
 }
 
@@ -481,7 +479,7 @@ input.standalone:hover {
 .eea-tabs-panels {
     border-top: 0;
     background-color: &dtml-lightBackgroundColor;;
-    padding: 10px;
+    padding: &dtml-padding-base; &dtml-padding-half;;
 }
 #whatsnew-gallery .eea-tabs-panels {
     padding: 0;
@@ -661,10 +659,6 @@ input.standalone:hover {
 
 #print-warning {
     display: none;
-}
-
-.documentContent {
-    padding: 0 0 2em 0;
 }
 
 /*.width-full .content-header {
