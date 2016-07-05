@@ -425,15 +425,14 @@ input.standalone:hover {
 #visual-portal-wrapper .eea-tabs > li > a:hover,
 #visual-portal-wrapper .eea-tabs > li > a:target {
     text-decoration: none;
-    color: transparent !important;
-    background-color: &dtml-lightBackgroundColor;;
+    color: &dtml-lightBackgroundColor; !important;
+    background-color: transparent;
 }
 #visual-portal-wrapper .eea-tabs > li > .current,
 #visual-portal-wrapper .eea-tabs > li > .current:hover {
     cursor: default;
     color: &dtml-lightBackgroundColor;;
     text-decoration: none;
-    /*background-color: &dtml-lightBackgroundColor;;*/
 }
 
 #visual-portal-wrapper .eea-tabs > li > .current:after,
