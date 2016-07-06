@@ -1,7 +1,6 @@
 <div tal:omit-tag="" i18n:domain="eea">
 
-    <div class="documentExportActions">
-        <tal:docactions tal:condition="view/actions">
+    <div class="documentExportActions" tal:condition="view/actions">
 
             <ul tal:define="normalizeString nocall: context/@@plone/normalizeString">
                   <li tal:repeat="daction view/actions"
@@ -15,7 +14,5 @@
                       </a>
                   </li>
             </ul>
-        </tal:docactions>
-
     </div>
 </div>

@@ -433,7 +433,7 @@
     width: 41%; }
 
   .template-dc_view .right-column-area {
-    margin-top: -33.6em; }
+    margin-top: -33.8em; }
 
   .userrole-authenticated.template-dc_view .right-column-area {
     margin-top: -36.8em; } }
