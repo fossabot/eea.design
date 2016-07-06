@@ -361,7 +361,7 @@ dl.collapsedBlockCollapsible dt.collapsibleHeader {
 /* @group Search results page */
 fieldset#search-field {
     text-align: left;
-    margin-left: 1em;
+    margin-left: 0;
 }
 
 #rss-subscription {

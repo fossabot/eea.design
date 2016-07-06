@@ -78,6 +78,10 @@ html {
     top: 8px;
     line-height: 1em;
 }
+.template-datamaps_view .advanced-search-link {
+    top: 0;
+    margin-top: 0.8em;
+}
 
 a.archives {
     color: #869936;
@@ -96,7 +100,13 @@ a.archives {
 
 #highlights-area {
     background-color: &dtml-lightBackgroundColor;;
-    /*padding: &dtml-padding-base;;*/
+    padding: &dtml-padding-base;;
+}
+
+#highlights-area h2 {
+    margin: 0 0 0.83em 0;
+    border: 0;
+    font-weight: normal;
 }
 
 .right-column-area {
@@ -114,12 +124,12 @@ a.archives {
 }
 
 
-
-body.frontpage #highlights-block {
+.frontpage #highlights-block,
+.frontpage #highlights-area {
    padding: 0;
 }
 
-body.frontpage #portal-columns {
+.frontpage #portal-columns {
     padding: 0 !important;
 }
 #content ul.gallery-layout-selection  {

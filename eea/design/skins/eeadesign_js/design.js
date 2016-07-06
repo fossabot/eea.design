@@ -3,21 +3,21 @@ jQuery(document).ready(function($) {
     'use strict';
     // #71710 move related and socialmedia inside
     // faceted center area
-    // var $column_area = $(".column-area");
-    // var $center_bottom_area = $("#center-bottom-area");
-    // var $related_items = $("#relatedItems");
-    // var $socialmedia = $("#socialmedia-viewlet");
-    // $related_items.appendTo($column_area);
-    // $socialmedia.appendTo($column_area);
-    // var appendTo = function(context, target) {
-    //   if (context.length) {
-    //       context.appendTo(target);
-    //   }
-    // };
-    // appendTo($related_items, $column_area);
-    // appendTo($socialmedia, $column_area);
-    // appendTo($related_items, $center_bottom_area);
-    // appendTo($socialmedia, $center_bottom_area);
+    var $column_area = $(".column-area");
+    var $center_bottom_area = $("#center-bottom-area");
+    var $related_items = $("#relatedItems");
+    var $socialmedia = $("#socialmedia-viewlet");
+    $related_items.appendTo($column_area);
+    $socialmedia.appendTo($column_area);
+    var appendTo = function(context, target) {
+      if (context.length) {
+          context.appendTo(target);
+      }
+    };
+    appendTo($related_items, $column_area);
+    appendTo($socialmedia, $column_area);
+    appendTo($related_items, $center_bottom_area);
+    appendTo($socialmedia, $center_bottom_area);
     var $byline = $("#plone-document-byline").children();
     if ($byline.length <= 1) {
         $byline.hide();

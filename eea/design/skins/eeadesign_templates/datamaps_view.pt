@@ -9,7 +9,7 @@
     </head>
     <body>
 
-    <div metal:fill-slot="content-core">
+    <div metal:fill-slot="main">
         <tal:main-macro metal:define-macro="main">
             <div id="highlights-block" 
                  tal:define="global datamaps_view context/@@data_and_maps_logic;">
@@ -65,23 +65,10 @@
 
                         <!-- end community divs -->
 
-                        <div class="portletFooter">
-
-                        </div>
                     </div>
 
                     <div id="highlights-area" class="column-area">
-                    <!-- h2 i18n:translate="">Highlights</h2 -->
-                    <!-- promotions_gallery_slideshow-->
-                    <!-- metal:promotions
-                        tal:define="frontpage python: True;
-                                    promo_view datamaps_view;
-                                    show_description python:False;">
-                            <div metal:use-macro="here/portlet_promo_gallery/macros/portlet">
-                                promoted item
-                            </div>
-                    </metal:promotions -->
-                    <!-- end promotions_gallery_slideshow -->
+                    <h1 class="documentFirstHeading">Data and maps</h1>
 
                     <!-- data and maps global search -->
                     <a href="find/global"

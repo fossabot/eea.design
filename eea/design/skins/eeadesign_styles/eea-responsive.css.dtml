@@ -430,7 +430,13 @@
     padding-right: 0.7em; } }
 @media screen and (width: 768px) {
   .right-column-area {
-    width: 41%; } }
+    width: 41%; }
+
+  .template-dc_view .right-column-area {
+    margin-top: -33.6em; }
+
+  .userrole-authenticated.template-dc_view .right-column-area {
+    margin-top: -36.8em; } }
 @media screen and (min-width: 768px) {
   #header-holder .container-fluid {
     padding: 0; }
@@ -512,7 +518,10 @@
     max-width: 1024px; }
 
   #portal-column-content {
-    padding: 0 1.5em 1.5em; } }
+    padding: 0 1.5em 1.5em; }
+
+  .userrole-authenticated.template-dc_view .right-column-area {
+    margin-top: -31.3em; } }
 @media screen and (max-width: 1024px) {
   .frontpage #portal-columns,
   .frontpage #portal-column-content,

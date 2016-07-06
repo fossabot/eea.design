@@ -18,11 +18,8 @@
 /* columns.css slider-definitions modification */
 
 div.width-3\3A 4 { width: 58.5%; }
-.width-3\3A 4.position-0,
-.width-full { background-color: &dtml-lightBackgroundColor;;}
-.template-facetednavigation_view .width-full,
-.template-datamaps_view .width-full,
-.template-dc_view .width-full,
+.template-datamaps_view #region-content,
+.template-dc_view #region-content,
 .frontpage .width-full,
 .frontpage #region-content {
     background-color: transparent;
@@ -661,10 +658,23 @@ input.standalone:hover {
 
 /*.template-facetednavigation_view .content-header,*/
 /*.template-datamaps_view .content-header,*/
-/*.template-dc_view .content-header {*/
-    /*padding: 1.5em;*/
-    /*margin-bottom: 1em;*/
-/*}*/
+.template-dc_view .content-header,
+.template-dc_view .column-area
+{
+    width: 58.5%;
+    padding: 1.5em;
+    background-color: &dtml-lightBackgroundColor;;
+}
+
+.template-dc_view .right-column-area {
+    margin-top: -28.3em;
+}
+
+.frontpage .progressbar-viewlet,
+.template-datamaps_view .progressbar-viewlet,
+.template-dc_view .progressbar-viewlet {
+    display: none;
+}
 
 #content-core {
     clear:both;
