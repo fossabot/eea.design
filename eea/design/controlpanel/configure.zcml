@@ -15,4 +15,13 @@
          permission="cmf.ManagePortal"
     />
 
+    <adapter factory=".controlpanel.MiniHeaderControlPanelAdapter" />
+
+    <browser:page
+        name="eea-miniheader-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".controlpanel.MiniHeaderForm"
+        permission="cmf.ManagePortal"
+    />
+
 </configure>
