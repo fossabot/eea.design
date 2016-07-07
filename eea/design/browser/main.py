@@ -56,3 +56,28 @@ class FullWidthContentTypes(BrowserView):
         registry = getUtility(IRegistry)
         return registry.get('Products.EEAContentTypes.browser.interfaces.'
                             'IEEAContentTypesSettings.fullwidthFor')
+
+
+class MiniHeaderContentTypes(BrowserView):
+    """ Mini Header body class content-types
+    """
+
+    def __init__(self, context, request):
+        """ init
+        """
+        super(MiniHeaderContentTypes, self).__init__(context, request)
+        self.context = context
+        self.request = request
+
+    def __call__(self):
+        """ boolean if fullwidth class should be enabled for given content-type
+        """
+        fullwidth_ctypes = self.get_registry() or []
+        return self.context.portal_type in fullwidth_ctypes
+
+    @eeacache(lambda method, self: method.__name__, dependencies=['eea.design'])
+    def get_registry(self):
+        """ content registry cache
+        """
+        registry = self.context.portal_properties.site_properties
+        return registry.getProperty('mini_header_for')

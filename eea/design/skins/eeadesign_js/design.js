@@ -8,6 +8,28 @@ jQuery(document).ready(function($) {
         $code_diff.click();
     }
 
+    // 72862 mini header
+    var $mini_header = $(".mini-header");
+    if ($mini_header.length) {
+        (function(){
+            var $portal_header = $("#portal-header");
+            var $cross_site_top = $("#cross-site-top");
+            var $ptools = $("#portal-personaltools-wrapper");
+            window.setTimeout(function(){
+                $portal_header.slideUp();
+                $cross_site_top.slideUp();
+                $ptools.slideUp();
+
+            }, 3000);
+            var $show_btn = $(".show_full_header");
+            $show_btn.click(function(){
+               $portal_header.slideToggle();
+               $cross_site_top.slideToggle();
+               $ptools.slideToggle();
+            });
+        }());
+    }
+
     // custom requirement to swap placement of the table and fiche-summary
     // for briefings found within the airs section
     var air_fiches = $(".template-fiche_view.section-airs");
