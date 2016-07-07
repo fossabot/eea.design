@@ -1,6 +1,9 @@
 Changelog
 =========
 
+14.6.dev0 - (unreleased)
+------------------------
+
 14.5 - (2016-07-07)
 -------------------
 * Change: Pin eea.facetednavigation < 10.0
