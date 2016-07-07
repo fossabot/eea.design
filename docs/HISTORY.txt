@@ -1,8 +1,8 @@
 Changelog
 =========
 
-14.5.dev0 - (unreleased)
-------------------------
+14.5 - (2016-07-07)
+-------------------
 * Change: Pin eea.facetednavigation < 10.0
   [avoinea]
 * Bug fix: reintroduced ability to specify more_hrefs for whatsnewgallery
@@ -11,10 +11,8 @@ Changelog
 * Change: introduce results4AllProducts option which if given to the
   frontpage_properties we will get results for each product otherwise
   we will get the latest results even if we have more than one product
-
   ex: news,News,( results4AllProducts Highlight PressRelease ),hide_album,highlights
   will show both highlight and PressRelease while:
-
   news,News,( Highlight PressRelease ),hide_album,highlights
   will show the latest objects which could be either product
   [ichim-david refs #73576]
