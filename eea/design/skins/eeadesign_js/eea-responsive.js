@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
         global_nav = $('#portal-globalnav'),
         $global_nav_children = global_nav.children();
     if ($global_nav_children.length) {
-        $global_nav_children.slice($global_nav_children.length - 3).wrapAll($secondary_portaltabs);
+        $global_nav_children.slice($global_nav_children.length - 4).wrapAll($secondary_portaltabs);
     }
 
     //var $tabbed_menu = $(".tabbedmenu");
