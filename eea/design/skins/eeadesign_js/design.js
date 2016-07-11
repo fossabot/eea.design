@@ -15,17 +15,18 @@ jQuery(document).ready(function($) {
             var $portal_header = $("#portal-header");
             var $cross_site_top = $("#cross-site-top");
             var $ptools = $("#portal-personaltools-wrapper");
+            $portal_header.addClass("mini-header-element");
+            $cross_site_top.addClass("mini-header-element");
+            $ptools.addClass("mini-header-elem");
+            var $mini_header_elem = $(".mini-header-element");
+
             window.setTimeout(function(){
-                $portal_header.slideUp();
-                $cross_site_top.slideUp();
-                $ptools.slideUp();
+                $mini_header_elem.slideUp();
 
             }, 3000);
             var $show_btn = $(".show_full_header");
             $show_btn.click(function(){
-               $portal_header.slideToggle();
-               $cross_site_top.slideToggle();
-               $ptools.slideToggle();
+               $mini_header_elem.slideToggle();
             });
         }());
     }

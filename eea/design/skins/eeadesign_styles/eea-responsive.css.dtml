@@ -78,10 +78,7 @@
     width: 45%; }
 
   .featured img {
-    max-width: 130px !important; }
-
-  .faceted-widget .searchButton {
-    margin-right: 5em; } }
+    max-width: 130px !important; } }
 /* #31309 - Improve DaViz Filter design/display */
 #content-core {
   position: relative; }
@@ -94,22 +91,24 @@
   #content #languageCodes {
     max-width: 60%; } }
 @media screen and (max-width: 767px) {
-  #portal-globalnav .current a{
-    padding-left: 20px;
-  }
-  #portal-globalnav .current a:after{
+  #portal-globalnav .current a {
+    padding-left: 20px; }
+
+  #portal-globalnav .current a:after {
     top: 50% !important;
     left: 0 !important;
     border-left-color: #fff;
     border-top-color: transparent !important;
     margin-left: 0 !important;
-    margin-top: -10px !important;
-  }
-  #eea-above-columns #portal-breadcrumbs.plone-breadcrumb{
+    margin-top: -10px !important; }
+
+  #eea-above-columns #portal-breadcrumbs.plone-breadcrumb {
     margin-top: 0px;
-    margin-bottom: 0px;
-  }
-  #eea-above-columns #portal-breadcrumbs.plone-breadcrumb ol{ line-height: 2.5em; }
+    margin-bottom: 0px; }
+
+  #eea-above-columns #portal-breadcrumbs.plone-breadcrumb ol {
+    line-height: 2.5em; }
+
   #portal-personaltools-wrapper,
   .portal-logo,
   #siteaction-login {
@@ -375,11 +374,11 @@
     display: none; }
 
   #viewlet-below-content .standalone {
-    white-space: pre-wrap; } }
+    white-space: pre-wrap; }
+
+  #eea-above-columns {
+    margin-top: 70px; } }
 @media screen and (max-width: 768px) {
-  #eea-above-columns{
-    margin-top: 70px;
-  }
   #visual-portal-wrapper {
     overflow: auto; }
 
@@ -431,7 +430,13 @@
     padding-right: 0.7em; } }
 @media screen and (width: 768px) {
   .right-column-area {
-    width: 41%; } }
+    width: 41%; }
+
+  .template-dc_view .right-column-area {
+    margin-top: -33.8em; }
+
+  .userrole-authenticated.template-dc_view .right-column-area {
+    margin-top: -36.8em; } }
 @media screen and (min-width: 768px) {
   #header-holder .container-fluid {
     padding: 0; }
@@ -457,6 +462,14 @@
   .eea-right-section-slider {
     display: none; }
 
+  .right-area-js {
+    padding: 0 1.5em 0 0;
+    /* add padding from center area to the right area*/ }
+
+  .left-area-js {
+    padding: 0 0.5em;
+    /* add padding from center area to the left area*/ }
+
   #faceted-form .eea-accordion-title, #faceted-form .eea-faceted-filter {
     display: none; }
   #faceted-form .eea-accordion-panels {
@@ -470,10 +483,10 @@
     display: none; }
   .eea-tabs-panel .pane {
     display: block !important; }
+
   #header-holder .navbar.hideShadow {
     box-shadow: none;
-    border: 0;
-}}
+    border: 0; } }
 @media screen and (min-width: 768px) and (max-width: 800px) {
   #portaltab-europe {
     padding-right: 95px;
@@ -502,7 +515,13 @@
 @media screen and (min-width: 961px) {
   #visual-portal-wrapper, #portal-header {
     min-width: 995px;
-    max-width: 1024px; } }
+    max-width: 1024px; }
+
+  #portal-column-content {
+    padding: 0 1.5em 1.5em; }
+
+  .userrole-authenticated.template-dc_view .right-column-area {
+    margin-top: -31.3em; } }
 @media screen and (max-width: 1024px) {
   .frontpage #portal-columns,
   .frontpage #portal-column-content,
@@ -526,12 +545,13 @@
 .fullwidth #portal-header,
 .fullwidth #visual-portal-wrapper {
   max-width: 100%; }
-.fullwidth #portal-header,
-.fullwidth #secondary-portaltabs {
-  padding-right: 1em; }
 .fullwidth #portal-columns {
   min-width: 100%; }
 
+@media screen and (min-width: 1025px) {
+  .fullwidth #portal-header,
+  .fullwidth #secondary-portaltabs {
+    padding-right: 1em; } }
 /* </dtml-with> */
 
 /*# sourceMappingURL=eea-responsive.css.dtml.map */
