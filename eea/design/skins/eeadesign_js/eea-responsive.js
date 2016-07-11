@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
     var $secondary_portaltabs = $('<ul id=\'secondary-portaltabs\'></ul>'),
         global_nav = $('#portal-globalnav'),
         $global_nav_children = global_nav.children();
-    if ($global_nav_children.length === 7) {
+    if ($global_nav_children.length) {
         $global_nav_children.slice($global_nav_children.length - 3).wrapAll($secondary_portaltabs);
     }
 

@@ -17,15 +17,17 @@ jQuery(document).ready(function($) {
             var $ptools = $("#portal-personaltools-wrapper");
             $portal_header.addClass("mini-header-element");
             $cross_site_top.addClass("mini-header-element");
-            $ptools.addClass("mini-header-elem");
+            $ptools.addClass("mini-header-element");
             var $mini_header_elem = $(".mini-header-element");
 
             window.setTimeout(function(){
                 $mini_header_elem.slideUp();
 
             }, 3000);
-            var $show_btn = $(".show_full_header");
-            $show_btn.click(function(){
+            $("#portaltab-more").find("a").addClass("mini-header-expander");
+            var $show_btn = $(".mini-header-expander");
+            $show_btn.click(function(ev){
+                ev.preventDefault();
                $mini_header_elem.slideToggle();
             });
         }());
