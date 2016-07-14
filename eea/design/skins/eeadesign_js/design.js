@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
         $code_diff.click();
     }
 
-    // 72862 mini header
+    // // 72862 mini header
     var $mini_header = $(".mini-header");
     if ($mini_header.length) {
         (function(){

@@ -1026,14 +1026,6 @@ a.moreLink {
 #portal-siteactions #siteaction-chooselang .eea-icon {
     color: #FFF;
 }
-/* big specificity because we remove icon within mobile view */
-#portal-siteactions #siteaction-chooselang .eea-icon:before {
-    content: "&dtml-eea-icon-flag-o;";
-}
-
-#siteaction-login .eea-icon:before {
-    content: "&dtml-eea-icon-sign-in;";
-}
 
 #portal-externalsites {
     float: left;
