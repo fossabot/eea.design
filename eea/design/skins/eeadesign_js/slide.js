@@ -25,7 +25,6 @@
 
             var fordef;
             if (tooltip.length > 0) {
-                a.attr("title", "").attr("href", "#");
 
                 fordef = 'click, blur';
                 a.tooltip({

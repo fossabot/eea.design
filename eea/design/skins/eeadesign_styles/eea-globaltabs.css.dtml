@@ -10,6 +10,10 @@
 }
 
 /* @group Navigation/search customizes public.css */
+.mini-header #portal-globalnav {
+    border-top: 5px solid #FFF;
+}
+
 #portal-globalnav {
     background: none;
     clear: both;
@@ -46,6 +50,9 @@
     border: 0;
     min-width: 0;
     font-weight:bold;
+}
+#secondary-portaltabs li a {
+    padding: 1em 0.5em;
 }
 
 #portal-globalnav a:hover,
@@ -87,6 +94,10 @@
     line-height: 1.1;
     padding-right: 92px;
     background: url("&dtml-portal_url;/eu-flag.png") no-repeat 123px -5px;
+}
+
+.mini-header #portaltab-europe {
+    display: none;
 }
 
 #portaltab-eeahome  {

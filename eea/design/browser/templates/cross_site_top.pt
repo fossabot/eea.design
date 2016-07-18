@@ -7,31 +7,29 @@
     tal:define="accesskeys python: {'sitemap' : '3', 'accessibility' : '0', 'contact' : '9'};
                 portal_url context/@@plone_portal_state/portal_url;
                 putils context/plone_utils;
-                context_state    context/@@plone_context_state;
+                context_state context/@@plone_context_state;
                 site_actions python: context_state.actions('site_actions');
+                mini_header python: context.restrictedTraverse('@@miniheader_content_types')();
                 getIconFor nocall:putils/getIconFor;"
     tal:condition="site_actions"
     i18n:domain="eea">
 
     <li tal:repeat="saction site_actions"
-        tal:attributes="id string:siteaction-${saction/id}"><a
-           href=""
+        tal:attributes="id string:siteaction-${saction/id}">
+        <a href=""
            tal:define="title saction/title;
                        id saction/id;
-
-                       icon python:getIconFor('site_actions', saction['id'], None);
+                       icon python:getIconFor('site_actions', saction['id'], 'eea-icon eea-icon-lg');
                        accesskey python: accesskeys.get(id, '');"
            tal:attributes="href saction/url;
                            title title;
                            accesskey accesskey;">
-                           <span class="eea-icon eea-icon-lg"><!-- --></span>
-                           <img i18n:attributes="title" src="" alt="" title=""
-                                     tal:attributes="src    string:$icon;
-                                     id     string:icon-${saction/id};
-                                     title  title;
-                                     alt    title;"
-                     tal:condition="icon"/>
-       <tal:title tal:content="python:title.strip()" i18n:translate=""></tal:title></a></li>
+            <span tal:attributes="class icon"><!-- --></span>
+            <tal:data tal:content="title" tal:condition="python:not mini_header"></tal:data>
+            <tal:data tal:content="title" tal:condition="python:repeat['saction'].index == 0 and mini_header"></tal:data>
+
+        </a>
+    </li>
 </ul>
 
    <div metal:use-macro="here/cross_site_panels/macros/main">

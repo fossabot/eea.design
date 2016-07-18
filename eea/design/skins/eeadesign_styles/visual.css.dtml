@@ -522,7 +522,6 @@ span.figure-left {
 .google-visualization-tooltip{ padding: 5px !important; }
 
 .mini-header-expander {
-    width: 75px;
     height: 30px;
     line-height: 0;
     position: relative;
@@ -533,7 +532,7 @@ span.figure-left {
 .mini-header-expander:before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 3px;
     right: 0;
     bottom: 0;
     left: 0;

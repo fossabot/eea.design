@@ -16,21 +16,34 @@ jQuery(document).ready(function($) {
             var $cross_site_top = $("#cross-site-top");
             var $ptools = $("#portal-personaltools-wrapper");
             $portal_header.addClass("mini-header-element");
-            $cross_site_top.addClass("mini-header-element");
+            // $cross_site_top.addClass("mini-header-element");
             $ptools.addClass("mini-header-element");
             var $mini_header_elem = $(".mini-header-element");
+            $("#portal-siteactions").find('li').appendTo("#portal-globalnav");
+            $("#portaltab-europe").css('display', 'none');
+            $("#secondary-portaltabs").find('a').click(function(ev) {
+                ev.preventDefault();
+            });
 
             window.setTimeout(function(){
-                $mini_header_elem.slideUp();
-
+                $mini_header_elem.slideUp(function() {
+                    $cross_site_top.hide();
+                    $(".portal-logo").hide();
+                    $("#portal-searchbox").hide();
+                    $ptools.hide();
+                    $(".networkSites").prependTo($portal_header);
+                });
             }, 3000);
-            $("#portaltab-more").find("a").addClass("mini-header-expander");
+            $("#siteaction-networks").find("a").addClass("mini-header-expander");
             var $show_btn = $(".mini-header-expander");
             $show_btn.click(function(ev){
                 ev.preventDefault();
                $mini_header_elem.slideToggle();
             });
         }());
+    }
+    else {
+        $("#siteaction-networks, #siteaction-search").css('display', 'none');
     }
 
     // custom requirement to swap placement of the table and fiche-summary
