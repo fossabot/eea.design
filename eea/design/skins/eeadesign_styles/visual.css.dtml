@@ -513,6 +513,8 @@ span.figure-left {
     margin: 1em 0;
 }
 
+
+
 .byline-separator:before {
     white-space: pre;
     content: " — ";
