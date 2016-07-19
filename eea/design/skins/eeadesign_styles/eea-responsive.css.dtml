@@ -519,7 +519,8 @@
 
   #portal-header.mini-header-element {
     height: 100%;
-    font-size: 115%; }
+    font-size: 115%;
+    margin: 2em 0; }
 
   #portal-column-content {
     padding: 0 1.5em 1.5em; }

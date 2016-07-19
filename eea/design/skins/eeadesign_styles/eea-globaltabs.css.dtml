@@ -102,10 +102,10 @@
 
 #portaltab-eeahome  {
     width: 140px;
-    font-size: 75%;
+    font-size: 70%;
     line-height: 1.1;
-    padding-left: 50px;
-    background: url("&dtml-portal_url;/logo-only.png") no-repeat 0 0;
+    padding-left: 40px;
+    background: url("&dtml-portal_url;/globalnav-logo.png") no-repeat 10% 60%;
 }
 
 #portal-globalnav #portaltab-eeahome {
