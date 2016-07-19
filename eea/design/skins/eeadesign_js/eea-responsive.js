@@ -10,17 +10,21 @@ jQuery(document).ready(function($) {
     if (!window.EEA) {
         window.EEA = {};
     }
-    window.EEA.isPrintPdf = $('body').hasClass('body-print');
+    var $body = $('body');
+    window.EEA.isPrintPdf = $body.hasClass('body-print');
     var underscore = window._;
 
     var doc = document.documentElement;
     // #16878 move last two links of globalnav to a secondary container
     // #23500 we now have an extra list item (europe)
-    var $secondary_portaltabs = $('<ul id=\'secondary-portaltabs\'></ul>'),
-        global_nav = $('#portal-globalnav'),
-        $global_nav_children = global_nav.children();
-    if ($global_nav_children.length) {
+    var $secondary_portaltabs = $('#secondary-portaltabs'),
+        $global_nav = $('#portal-globalnav'),
+        $global_nav_children = $global_nav.children();
+    if (!$body.hasClass('mini-header')) {
         $global_nav_children.slice($global_nav_children.length - 5).wrapAll($secondary_portaltabs);
+    }
+    else {
+        $secondary_portaltabs.appendTo($global_nav);
     }
 
     //var $tabbed_menu = $(".tabbedmenu");

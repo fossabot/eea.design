@@ -12,7 +12,7 @@
                 <dl class="col-md-6">
                     <dt i18n:translate="">Networks</dt>
                     <dd>
-                        <ul class="eea-no-list-style eea-horizontal-list">
+                        <ul class="eea-no-list-style">
                             <li id="externalsites-eionet">
                                 <a title="Eionet" i18n:attributes="title" accesskey="" href="http://www.eionet.europa.eu/" i18n:translate="">Eionet</a>
                             </li>
@@ -35,12 +35,12 @@
                         <a class="moreLink" href="http://www.eea.europa.eu/about-us/international-cooperation" i18n:translate="">International cooperation</a>
                     </dd>
                 </dl>
-                <dl class="col-md-5">
+                <dl class="col-md-5 bordered-left">
                     <dt>
                         <tal:block i18n:translate="">European Topic Centres (ETCs)</tal:block>
                     </dt>
                     <dd>
-                        <ul class="eea-no-list-style eea-horizontal-list">
+                        <ul class="eea-no-list-style">
                             <li>
                                 <a href="http://acm.eionet.europa.eu" i18n:translate="">Air pollution and Climate Change mitigation (ACM)</a>
                             </li>

@@ -301,6 +301,14 @@
         />
 
     <browser:page
+        name="cross_site_top"
+        for="*"
+        template="templates/cross_site_top.pt"
+        layer=".interfaces.IEEACommonLayer"
+        permission="zope2.View"
+    />
+
+    <browser:page
         for="*"
         name="frontpage_highlights"
         class=".frontpage.Frontpage"

@@ -517,6 +517,10 @@
     min-width: 995px;
     max-width: 1024px; }
 
+  #portal-header.mini-header-element {
+    height: 100%;
+    font-size: 115%; }
+
   #portal-column-content {
     padding: 0 1.5em 1.5em; }
 
@@ -540,7 +544,10 @@
   .template-soer2015_frontpage #visual-portal-wrapper,
   .template-dc_view #visual-portal-wrapper,
   .template-facetednavigation_view #visual-portal-wrapper {
-    overflow: hidden; } }
+    overflow: hidden; }
+
+  .bordered-left:before {
+    left: -5%; } }
 .fullwidth #portal-globalnav,
 .fullwidth #portal-header,
 .fullwidth #visual-portal-wrapper {

@@ -38,9 +38,16 @@
                                          title tab/description|nothing;">
                           Tab Name 
                       </a></li>
-                  </tal:block>             
-                
+                  </tal:block>
             </tal:tabs>
+
+            <div id="secondary-portaltabs">
+                <tal:defines tal:condition="python:context.restrictedTraverse('@@miniheader_content_types')()">
+                        <div metal:use-macro="context/@@cross_site_top/siteactions" >
+                            Eionet, EW ..
+                        </div>
+                </tal:defines>
+            </div>
         </ul>
     </div>
 </tal:sections>

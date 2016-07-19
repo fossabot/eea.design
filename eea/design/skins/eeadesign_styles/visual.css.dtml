@@ -512,8 +512,22 @@ span.figure-left {
     list-style: none none;
     margin: 1em 0;
 }
+.eea-no-list-style > li {
+    display: list-item;
+}
 
-
+.bordered-left {
+    position: relative;
+}
+.bordered-left:before {
+    border-left: 1px solid &dtml-mediumBackgroundColor;;
+    content: " ";
+    height: 100%;
+    width: 5px;
+    position: absolute;
+    top: 0;
+    left: -7%;
+}
 
 .byline-separator:before {
     white-space: pre;
