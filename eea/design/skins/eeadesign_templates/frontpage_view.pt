@@ -1,42 +1,104 @@
 <tal:block tal:define="foo python:request.set('disable_plone.leftcolumn', 1);
-bar python:request.set('disable_plone.rightcolumn', 1);"/>
+        bar python:request.set('disable_plone.rightcolumn', 1);"/>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-    lang="en"
-    i18n:domain="eea"
-    metal:use-macro="context/main_template/macros/master">
-    <head>
+      lang="en"
+        i18n:domain="eea"
+        metal:use-macro="context/main_template/macros/master">
+<head>
 
-    </head>
-    <body>
+</head>
+<body>
 
-        <div metal:fill-slot="main" id="content-core">
+<div metal:fill-slot="main" id="content-core">
+    <h1 class="hiddenStructure" tal:content="context/Title">EEA Home page</h1>
+    <tal:main-macro metal:define-macro="main">
+        <div id="highlights-block"
+                tal:define="global frontpage_view context/@@frontpage_highlights;
+                main_site python: True if language == 'en' else False;">
+            <div id="main-content">
+                <div class="visualClear"><!-- &nbsp; --></div>
+                <div id="highlights-area" class="column-area" style="width:100%;">
 
-            <h1 class="hiddenStructure" tal:content="context/Title">EEA Home page</h1>
-            <tal:main-macro metal:define-macro="main">
-            <div id="highlights-block"
-                    tal:define="global frontpage_view context/@@frontpage_highlights;
-                                main_site python: True if language == 'en' else False;">
-                <div id="main-content">
-                    <div class="visualClear"><!-- &nbsp; --></div>
-                    <div id="highlights-area" class="column-area">
+                    <div class="portalMessage message_disclaimer visualNoMargins" tal:condition="not: main_site">
+                        <span class="eea-icon eea-icon-flag"></span><strong i18n:translate="">Welcome to the European Environment Agency</strong><br />
+                        <span i18n:translate="">This site presents the content we have available in your language.</span>
+                        <span i18n:translate="">To explore all our outputs and complete knowledge base, please visit <a href="http://www.eea.europa.eu" i18n:name="site_url" class="link-plain"><span tal:omit-tag="" i18n:translate="">our main website</span></a> in English.</span>
+                    </div>
+                    <div id="eea-intro-message" class="portalMessage visualNoMargins" tal:condition="main_site">
+                        <span class="discreet">The European Environment Agency provides sound, independent information on the environment for those involved in developing, adopting, implementing and evaluating environmental policy, and also the general public. In close collaboration with
+                            <a href="http://www.eionet.europa.eu" class="link-plain">European Environmental Information and Observation Network</a> and its 33 member countries, the EEA gathers data and produces assessments on a wide range of topics related to the environment. <a href="http://www.eea.europa.eu/about-us">Learn more</a>
+                        </span>
+                    </div>
 
-                        <div class="portalMessage message_disclaimer visualNoMargins" tal:condition="not: main_site">
-                            <span class="eea-icon eea-icon-flag"></span><strong i18n:translate="">Welcome to the European Environment Agency</strong><br />
-                            <span i18n:translate="">This site presents the content we have available in your language.</span>
-                            <span i18n:translate="">To explore all our outputs and complete knowledge base, please visit <a href="http://www.eea.europa.eu" i18n:name="site_url" class="link-plain"><span tal:omit-tag="" i18n:translate="">our main website</span></a> in English.</span>
+                    <!-- mega_topics -->
+                    <div id="megatopics-area" tal:condition="main_site">
+                        <div class="portlet-megatopic">
+                            <dl class="portlet promo-nav-portlet" id="air-and-climate-megatopic">
+                                <dd class="portletItem">
+                                    <img title="Air and climate" src="http://www.eea.europa.eu/themes/air/theme_image/image_mini" />
+                                    <div class="portletHeader">
+                                        Air and climate
+                                    </div>
+                                    <ul class="">
+                                        <li><a href="/themes/air" i18n:translate="">Air pollution</a></li>
+                                        <li><a href="/themes/climate" i18n:translate="">Climate change</a></li>
+                                    </ul>
+                                </dd>
+                            </dl>
                         </div>
-
-                        <!-- promotions_gallery_slideshow-->
-                        <metal:promotions
-                        tal:define="frontpage python: True;
-                        promo_view frontpage_view;
-                        show_description python:False;">
-                        <div metal:use-macro="here/portlet_promo_gallery/macros/portlet">
-                            promoted item
+                        <div class="portlet-megatopic">
+                            <dl class="portlet promo-nav-portlet" id="nature-megatopic">
+                                <dd class="portletItem">
+                                    <img title="Nature" alt="Visit our biodiversity website" src="http://www.eea.europa.eu/themes/biodiversity/theme_image/image_mini" />
+                                    <div class="portletHeader">
+                                        Nature
+                                    </div>
+                                    <ul class="">
+                                        <li><a href="/themes/biodiversity" i18n:translate="">Biodiversity — Ecosystems</a></li>
+                                        <li><a href="/themes/landuse" i18n:translate="">Land use</a></li>
+                                        <li><a href="/themes/soil" i18n:translate="">Soil</a></li>
+                                        <li><a href="/themes/water" i18n:translate="">Water and marine</a></li>
+                                    </ul>
+                                </dd>
+                            </dl>
                         </div>
-                        </metal:promotions>
-                        <!-- end promotions_gallery_slideshow -->
+                        <div class="portlet-megatopic">
+                            <dl class="portlet promo-nav-portlet" id="sustainability-megatopic">
+                                <dd class="portletItem">
+                                    <img title="Sustainability and well-being" src="http://www.eea.europa.eu/themes/human/theme_image/image_mini" />
+                                    <div class="portletHeader" style="font-size:142%;">
+                                        Sustainability and well-being
+                                    </div>
+                                    <ul class="">
+                                        <li><a href="/themes/waste" i18n:translate="">Resource efficiency and waste</a></li>
+                                        <li><a href="/themes/human" i18n:translate="">Environment and health</a></li>
+                                        <li><a href="/themes/policy" i18n:translate="">Policy instruments</a></li>
+                                        <li><a href="/themes/noise" i18n:translate="">Noise</a></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="portlet-megatopic">
+                            <dl class="portlet promo-nav-portlet" id="economic-sectors-megatopic">
+                                <dd class="portletItem">
+                                    <img title="Economic sectors" src="http://www.eea.europa.eu/themes/energy/theme_image/image_mini" />
+                                    <div class="portletHeader">
+                                        Economic sectors
+                                    </div>
+                                    <ul class="">
+                                        <li><a href="/themes/agriculture" i18n:translate="">Agriculture</a></li>
+                                        <li><a href="/themes/energy" i18n:translate="">Energy</a></li>
+                                        <li><a href="/themes/industry" i18n:translate="">Industry</a></li>
+                                        <li><a href="/themes/transport" i18n:translate="">Transport</a></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="visualClear"><!-- &nbsp; --></div>
+                    </div>
+                    <!-- end mega_topics -->
 
+                    <div id="below-topics-area">
                         <!-- select_topics -->
                         <div id="news-header">
                             <h2 i18n:translate=""> What's new</h2>
@@ -44,7 +106,7 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                         <!-- end select_topics -->
 
                         <!-- tabs -->
-                        <div metal:define-macro="whatsnew-gallery"
+                        <div metal:define-macro="whatsnew-gallery" class="column-area"
                                 tal:define="datapage datapage|string:frontpage;
                                             more_hrefs more_hrefs|python:{};
                                             frontpage_view frontpage_view|context/@@frontpage_highlights;
@@ -60,30 +122,29 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                         global tabs python: [tab for tab in tabnames if folderContent.get(tab)]">
                                     <li tal:repeat="tab tabs">
                                         <a href="#"  i18n:translate=""
-                                                tal:content="python:context.translate(tab, domain='eea')" class="block"
-                                                tal:attributes="id python: 'tab-datamaps' if tab == 'Data and maps' else 'tab-' + tab.replace(' ', '').lower()">Tabs</a>
+                                            tal:content="python:context.translate(tab, domain='eea')" class="block"
+                                            tal:attributes="id python: 'tab-datamaps' if tab == 'Data and maps' else 'tab-' + tab.replace(' ', '').lower()">Tabs</a>
                                     </li>
                                 </ul>
                             </tal:tabs>
                             <!-- end_tabs -->
                             <select tal:define="items python:here.portal_vocabularies.getVocabularyByName('themes').getVocabularyLines()" id="topic-selector"
-                                metal:define-macro="whatsnew-select-topic">
+                                    metal:define-macro="whatsnew-select-topic">
                                 <option value="" i18n:translate="">All topics</option>
                                 <tal:items tal:repeat="item items">
-                                <option
-                                tal:define="value python: item[0];"
-                                tal:attributes="value value;"
-                                tal:content="python:context.translate(item[1], domain='eea')" />
+                                    <option
+                                            tal:define="value python: item[0];"
+                                            tal:attributes="value value;"
+                                            tal:content="python:context.translate(item[1], domain='eea')" />
                                 </tal:items>
                             </select>
                             <tal:panels>
                                 <div class="eea-tabs-panels">
                                     <tal:propertyProducts tal:condition="python: main_site and getProducts">
-
                                         <tal:products tal:repeat="tab tabs">
                                             <tal:defines tal:define="folderContents python:folderContent.get(tab);
-                                                                     product python:frontpage_view.getProductConfiguration(tab);
-                                                                     more_href python: more_hrefs.get(tab) or product[-1];">
+                                                    product python:frontpage_view.getProductConfiguration(tab);
+                                                            more_href python: more_hrefs.get(tab) or product[-1];">
                                                 <div metal:use-macro="here/frontpage_macros/macros/products">
                                                     Property Products Highlights
                                                 </div>
@@ -100,71 +161,63 @@ bar python:request.set('disable_plone.rightcolumn', 1);"/>
                                     </tal:translationpanels>
                                 </div>
                             </tal:panels>
-
                         </div>
 
-                    </div>
+                        <div id="articles-area" class="right-column-area">
+                            <!-- featured and spotlight areas -->
+                            <tal:featured_article metal:define-macro="featured_article"
+                                    tal:define="frontpage_view frontpage_view|context/@@frontpage_highlights;
+                                                highlights frontpage_view/getHighArticles;
+                                                archive_url python:here.Language() == 'en' and 'articles' or str(here.Language() + '/articles');
+                                                archive_href string:${context/@@plone_portal_state/portal_url}/$archive_url;">
+                                <div metal:use-macro="here/frontpage_macros/macros/featured-item">
+                                    <span metal:fill-slot="archive" i18n:translate="">Archive</span>
+                                    <span metal:fill-slot="box_title" i18n:translate="">Featured article</span>
+                                </div>
+                            </tal:featured_article>
 
-                    <div id="articles-area" class="right-column-area">
+                            <tal:spotlight tal:define="highlights frontpage_view/getSpotlight;">
+                                <div metal:use-macro="here/frontpage_macros/macros/featured-item">
+                                    <span metal:fill-slot="box_title" i18n:translate="">Topic in the spotlight</span>
+                                </div>
+                            </tal:spotlight>
+                            <!--end featured and spotlight areas -->
 
-                        <!-- featured and spotlight areas -->
-
-                        <tal:featured_article metal:define-macro="featured_article"
-                        tal:define="frontpage_view frontpage_view|context/@@frontpage_highlights;
-                                highlights frontpage_view/getHighArticles;
-                        archive_url python:here.Language() == 'en' and 'articles' or str(here.Language() + '/articles');
-                        archive_href string:${context/@@plone_portal_state/portal_url}/$archive_url;">
-                        <div metal:use-macro="here/frontpage_macros/macros/featured-item">
-                            <span metal:fill-slot="archive" i18n:translate="">Archive</span>
-                            <span metal:fill-slot="box_title" i18n:translate="">Featured article</span>
-                        </div>
-                        </tal:featured_article>
-
-                        <tal:spotlight
-                        tal:define="highlights frontpage_view/getSpotlight;">
-                        <div metal:use-macro="here/frontpage_macros/macros/featured-item">
-                            <span metal:fill-slot="box_title" i18n:translate="">Topic in the spotlight</span>
-                        </div>
-                        </tal:spotlight>
-                        <!--end featured and spotlight areas -->
-
-                        <!-- shortcuts divs -->
-                        <!--div id="forum">
-                        <a id="forum-link" href="" tal:attributes="href string:$portal_url/help/infocentre/enquiries/"></a>
-                        </div-->
-
-                        <div metal:define-macro="enquiry" id="enquiry-service-shortcut" class="shortcut-default">
-                            <div id="enquiry-content">
-                                <a id="enquiry-link" href="" tal:attributes="href string:http://community.eea.europa.eu" class="link-plain">
-                                    <h2 i18n:translate="">Ask your question</h2>
-                                    <tal:block i18n:translate="">EEA Forum, FAQs, discuss and share</tal:block></a>
+                            <!-- shortcuts divs -->
+                            <div metal:define-macro="enquiry" id="enquiry-service-shortcut" class="shortcut-default">
+                                <div id="enquiry-content">
+                                    <a id="enquiry-link" href="" tal:attributes="href string:http://community.eea.europa.eu" class="link-plain">
+                                        <h2 i18n:translate="">Ask your question</h2>
+                                        <tal:block i18n:translate="">EEA Forum, FAQs, discuss and share</tal:block>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <div metal:define-macro="mobile" id="eea-mobile-shortcut" class="shortcut-default">
-                            <div id="mobile-content">
-                                <a id="mobileapps-link" href="/mobile" tal:attributes="href string:$portal_url/mobile"
-                                   class="link-plain">
-                                    <h2 i18n:translate="">Apps for your mobile</h2>
-                                    <tal:block i18n:translate="">Environmental information anywhere</tal:block></a>
+                            <div metal:define-macro="mobile" id="eea-mobile-shortcut" class="shortcut-default">
+                                <div id="mobile-content">
+                                    <a id="mobileapps-link" href="/mobile" tal:attributes="href string:$portal_url/mobile"
+                                       class="link-plain">
+                                        <h2 i18n:translate="">Apps for your mobile</h2>
+                                        <tal:block i18n:translate="">Environmental information anywhere</tal:block>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-
-                        <div metal:use-macro="here/portlet_social_links/macros/portlet">
+                            <div metal:use-macro="here/portlet_social_links/macros/portlet">
                                 Social links
+                            </div>
+                            <!-- end shortcuts divs -->
                         </div>
 
-                        <!-- end shortcuts divs -->
-                    </div>
+                    </div> <!-- below-topics-area -->
 
-                    <div class="visualClear"><!-- &nbsp; --></div>
                 </div>
-            </div>
 
-            </tal:main-macro>
+                <div class="visualClear"><!-- &nbsp; --></div>
+            </div>
         </div>
 
-    </body>
+    </tal:main-macro>
+</div>
+</body>
 </html>
-

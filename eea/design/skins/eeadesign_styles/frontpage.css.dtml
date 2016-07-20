@@ -150,6 +150,49 @@ body.frontpage #portal-columns {
 }
 
 
+/* 72171 impact */
+#eea-intro-message {
+    padding: 1em;
+}
+
+#megatopics-area {
+    font-size: 0.9em;
+}
+
+#megatopics-area .portletHeader {
+    background: none repeat scroll 0 0 white;
+    height: 30px;
+    opacity: 0.8;
+    margin-top: -43px;
+    text-align: left;
+    padding: 5px;
+    color: #888;
+    font-weight: bold !important;
+    line-height: 1.2;
+}
+
+.portlet-megatopic {
+    width: 25%;
+    float: left;
+    padding-right: 2px;
+}
+#megatopics-area .portlet,
+#megatopics-area dd {
+    margin: 0;
+    padding: 0;
+}
+
+.portlet-megatopic img {
+    width: 100%;
+    height: 150px;
+}
+.portlet-megatopic ul {
+    padding-top: 20px;
+    height: 150px;
+    margin-bottom: 2px;
+}
+
+
 /* Frontpage news and articles
 ******************************************************************************/
 #highlights-block .portletFooter {
