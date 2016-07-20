@@ -106,14 +106,15 @@
                         <!-- end select_topics -->
 
                         <!-- tabs -->
-                        <div metal:define-macro="whatsnew-gallery" class="column-area"
+                        <div metal:define-macro="whatsnew-gallery"
                                 tal:define="datapage datapage|string:frontpage;
                                             more_hrefs more_hrefs|python:{};
                                             frontpage_view frontpage_view|context/@@frontpage_highlights;
                                             main_site main_site|python: True if language == 'en' else False;
                                             frontpage_properties context/portal_properties/frontpage_properties;
                                             getProducts getProducts|frontpage_properties/getProducts|nothing;"
-                                tal:attributes="id string:whatsnew-gallery; data-page string:${datapage};">
+                                tal:attributes="id string:whatsnew-gallery; data-page string:${datapage};
+                                                class python:'column-area' if 'frontpage' in body_class else ''">
                             <tal:tabs tal:condition="python: main_site and getProducts">
                                 <ul class="eea-tabs two-rows"
                                         tal:define="datapage datapage|string:frontpage;
