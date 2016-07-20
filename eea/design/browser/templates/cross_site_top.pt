@@ -2,7 +2,6 @@
    <div metal:use-macro="context/@@global_externalsites/external_sites">
        Eionet, EW ..
    </div>
-   <tal:mini_header tal:define="mini_header python: context.restrictedTraverse('@@miniheader_content_types')();" tal:condition="python:not mini_header">
        <ul id="portal-siteactions"
                i18n:domain="eea" >
            <tal:siteactions     tal:define="accesskeys python: {'sitemap' : '3', 'accessibility' : '0', 'contact' : '9'};
@@ -10,7 +9,6 @@
                    putils context/plone_utils;
                    context_state context/@@plone_context_state;
                    site_actions python: context_state.actions('site_actions');
-                   mini_header mini_header|python: context.restrictedTraverse('@@miniheader_content_types')();
                    getIconFor nocall:putils/getIconFor;"
                    metal:define-macro="siteactions">
                <li tal:repeat="saction site_actions"
@@ -24,14 +22,11 @@
                                    title title;
                                    accesskey accesskey;">
                                    <span tal:attributes="class icon"><!-- --></span>
-                       <tal:data tal:content="title" tal:condition="python:not mini_header"></tal:data>
-                       <tal:data tal:content="title" tal:condition="python:repeat['saction'].index == 0 and mini_header"></tal:data>
-
+                       <span class="sitesection-title" tal:content="title"></span>
                    </a>
                </li>
            </tal:siteactions>
        </ul>
-   </tal:mini_header>
 
    <div metal:use-macro="here/cross_site_panels/macros/main">
        dropdown for ETCs ..

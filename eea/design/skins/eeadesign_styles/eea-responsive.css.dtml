@@ -62,7 +62,10 @@
 
   /* #30333 soer2015 frontpage keyfacts are clipped when using an iphone in portrait */
   #keyfacts-slider dl {
-    min-height: 250px; } }
+    min-height: 250px; }
+
+  .portlet-megatopic {
+    width: 100%; } }
 @media screen and (max-height: 480px) and (orientation: landscape) {
   .navbar-fixed-top .navbar-collapse,
   .navbar-fixed-bottom .navbar-collapse {
@@ -378,6 +381,9 @@
 
   #eea-above-columns {
     margin-top: 70px; } }
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .portlet-megatopic {
+    width: 50%; } }
 @media screen and (max-width: 768px) {
   #visual-portal-wrapper {
     overflow: auto; }
@@ -527,6 +533,16 @@
 
   .userrole-authenticated.template-dc_view .right-column-area {
     margin-top: -31.3em; } }
+@media screen and (max-width: 1023px) {
+  #portal-searchbox {
+    display: block !important; }
+
+  .networkSites,
+  .mini-header #portal-globalnav #portaltab-eeahome {
+    display: none; }
+
+  .mini-header #portal-globalnav {
+    border: 0; } }
 @media screen and (max-width: 1024px) {
   .frontpage #portal-columns,
   .frontpage #portal-column-content,

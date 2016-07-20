@@ -350,6 +350,18 @@ jQuery(document).ready(function($) {
         });
     }
     var $secondary_portaltabs_modified = $('#secondary-portaltabs');
+
+    // #72862 remove extra markup not needed when we are on mobile
+    var $mini_header = $(".mini-header");
+    if ($mini_header.length) {
+        (function () {
+            var $portal_siteactions = $("#portal-siteactions");
+            var $global_search = $portal_siteactions.find("#siteaction-search").detach();
+            var $global_network = $portal_siteactions.find("#siteaction-networks").detach();
+            var $global_sections = $secondary_portaltabs_modified.find('li').detach();
+        }());
+    }
+
     if (!$secondary_portaltabs_modified.find('.eea-accordion-panels').length) {
         $holder.prependTo($secondary_portaltabs_modified);
         (function() {
