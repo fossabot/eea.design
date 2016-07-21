@@ -494,6 +494,9 @@
     box-shadow: none;
     border: 0; } }
 @media screen and (min-width: 768px) and (max-width: 800px) {
+  #portal-globalnav li a {
+    padding: 1em 0.4em; }
+
   #portaltab-europe {
     padding-right: 95px;
     width: 185px;
@@ -517,7 +520,13 @@
     width: 127px; } }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   #portal-searchbox {
-    margin: 25px 0.5em 0 0; } }
+    margin: 25px 0.5em 0 0; }
+
+  .siteaction-title {
+    display: none; }
+
+  #siteaction-networks .siteaction-title {
+    display: inline-block; } }
 @media screen and (min-width: 961px) {
   #visual-portal-wrapper, #portal-header {
     min-width: 995px;

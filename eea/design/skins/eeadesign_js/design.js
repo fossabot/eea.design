@@ -38,6 +38,7 @@ jQuery(document).ready(function($) {
                 ev.preventDefault();
                $mini_header_elem.slideToggle();
             });
+
         }());
     }
     else {

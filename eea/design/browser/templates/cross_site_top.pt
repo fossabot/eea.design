@@ -22,7 +22,7 @@
                                    title title;
                                    accesskey accesskey;">
                                    <span tal:attributes="class icon"><!-- --></span>
-                       <span class="sitesection-title" tal:content="title"></span>
+                       <span class="siteaction-title" tal:content="title"></span>
                    </a>
                </li>
            </tal:siteactions>
