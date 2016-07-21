@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
                     $(".networkSites").prependTo($portal_header);
                 });
             }, 3000);
-            $("#siteaction-networks").find("a").addClass("mini-header-expander");
+            $("#secondary-portaltabs").find("#siteaction-networks").find("a").addClass("mini-header-expander");
             var $show_btn = $(".mini-header-expander");
             $show_btn.click(function(ev){
                 ev.preventDefault();

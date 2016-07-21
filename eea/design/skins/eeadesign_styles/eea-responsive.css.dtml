@@ -157,6 +157,8 @@
       padding: 0; }
   #secondary-portaltabs .pane, #secondary-portaltabs .portlet {
     background-color: #FFF; }
+  #secondary-portaltabs > li {
+    display: none !important; }
 
   #portaltab-europe {
     margin-top: 1em;

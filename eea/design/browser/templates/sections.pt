@@ -43,9 +43,11 @@
 
             <div id="secondary-portaltabs">
                 <tal:defines tal:condition="python:context.restrictedTraverse('@@miniheader_content_types')()">
+                    <tal:defines tal:define="idPostfix python:'-menu'">
                         <div metal:use-macro="context/@@cross_site_top/siteactions" >
                             Eionet, EW ..
                         </div>
+                    </tal:defines>
                 </tal:defines>
             </div>
         </ul>
