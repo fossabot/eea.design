@@ -82,9 +82,12 @@
 
   .featured img {
     max-width: 130px !important; } }
+
 /* #31309 - Improve DaViz Filter design/display */
+@media screen{
 #content-core {
   position: relative; }
+}
 
 @media screen and (min-width: 480px) and (max-width: 627px) {
   #content #languageCodes {
