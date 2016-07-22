@@ -29,7 +29,8 @@ jQuery(document).ready(function($) {
                     $(".portal-logo").hide();
                     $("#portal-searchbox").hide();
                     $ptools.hide();
-                    if (!window.mobile_desktop_browser_resolution) {
+
+                    if (!window.eea_mobile_resolution) {
                         $(".networkSites").prependTo($portal_header);
                     }
                 });

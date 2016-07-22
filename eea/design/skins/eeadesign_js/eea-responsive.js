@@ -295,10 +295,11 @@ jQuery(document).ready(function($) {
         window.innerWidth > 768 && window_height < 601) {
         mobile_desktop = true;
     }
-    window.mobile_desktop_browser_resolution = mobile_desktop;
+    window.eea_mobile_desktop_browser_resolution = mobile_desktop;
     if (window_height >= 600 && window.innerWidth > 767 && !mobile_desktop) {
         return;
     }
+    window.eea_mobile_resolution = true;
 
 
     // adjust navigation height when switching between orientation modes
