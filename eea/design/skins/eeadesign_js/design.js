@@ -29,10 +29,12 @@ jQuery(document).ready(function($) {
                     $(".portal-logo").hide();
                     $("#portal-searchbox").hide();
                     $ptools.hide();
-                    $(".networkSites").prependTo($portal_header);
+                    if (!window.mobile_desktop_browser_resolution) {
+                        $(".networkSites").prependTo($portal_header);
+                    }
                 });
             }, 3000);
-            $("#secondary-portaltabs").find("#siteaction-networks").find("a").addClass("mini-header-expander");
+            $("#siteaction-networks-menu").find("a").addClass("mini-header-expander");
             var $show_btn = $(".mini-header-expander");
             $show_btn.click(function(ev){
                 ev.preventDefault();

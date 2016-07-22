@@ -9,7 +9,7 @@
         <div class="panel-top" style="left: -195px;"><!-- --></div>
         <div class="panel-content shadow">
             <div class="container networkSites">
-                <dl class="col-md-6">
+                <dl class="col-md-6 col-sm-6">
                     <dt i18n:translate="">Networks</dt>
                     <dd>
                         <ul class="eea-no-list-style">
@@ -35,7 +35,7 @@
                         <a class="moreLink" href="http://www.eea.europa.eu/about-us/international-cooperation" i18n:translate="">International cooperation</a>
                     </dd>
                 </dl>
-                <dl class="col-md-5 bordered-left">
+                <dl class="col-md-5 col-sm-6 bordered-left">
                     <dt>
                         <tal:block i18n:translate="">European Topic Centres (ETCs)</tal:block>
                     </dt>

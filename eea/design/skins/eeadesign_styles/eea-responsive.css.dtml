@@ -258,6 +258,9 @@
       left: 0;
       background-color: #006699; }
 
+  #portal-searchbox {
+    display: block !important; }
+
   #portal-searchbox input.searchButton {
     margin-left: 0; }
 
@@ -496,6 +499,12 @@
     box-shadow: none;
     border: 0; } }
 @media screen and (min-width: 768px) and (max-width: 800px) {
+  .col-sm-6.bordered-left:before {
+    left: -1%; }
+
+  #portal-header {
+    height: 100%; }
+
   #portal-globalnav li a {
     padding: 1em 0.4em; }
 
@@ -522,13 +531,7 @@
     width: 127px; } }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   #portal-searchbox {
-    margin: 25px 0.5em 0 0; }
-
-  .siteaction-title {
-    display: none; }
-
-  #siteaction-networks .siteaction-title {
-    display: inline-block; } }
+    margin: 25px 0.5em 0 0; } }
 @media screen and (min-width: 961px) {
   #visual-portal-wrapper, #portal-header {
     min-width: 995px;
@@ -545,10 +548,7 @@
   .userrole-authenticated.template-dc_view .right-column-area {
     margin-top: -31.3em; } }
 @media screen and (max-width: 1023px) {
-  #portal-searchbox {
-    display: block !important; }
-
-  .networkSites,
+  .mini-header #tip-externalsites-networks .networkSites,
   .mini-header #portal-globalnav #portaltab-eeahome {
     display: none; }
 
@@ -587,6 +587,12 @@
   .fullwidth #portal-header,
   .fullwidth #secondary-portaltabs {
     padding-right: 1em; } }
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .siteaction-title {
+    display: none; }
+
+  #siteaction-networks-menu .siteaction-title {
+    display: inline-block; } }
 /* </dtml-with> */
 
 /*# sourceMappingURL=eea-responsive.css.dtml.map */
