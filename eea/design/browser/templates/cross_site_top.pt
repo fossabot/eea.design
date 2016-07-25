@@ -10,6 +10,7 @@
                    context_state context/@@plone_context_state;
                    site_actions python: context_state.actions('site_actions');
                    getIconFor nocall:putils/getIconFor;
+                   use_caret_icons use_caret_icons|python:False;
                    idPostfix idPostfix|python:'';"
                    metal:define-macro="siteactions">
 
@@ -24,6 +25,7 @@
                                    title title;
                                    accesskey accesskey;">
                                    <span tal:attributes="class icon"><!-- --></span>
+                                   <span tal:attributes="class string:eea-icon eea-icon-caret-down" tal:condition="use_caret_icons"><!-- --></span>
                        <span class="siteaction-title" tal:content="title"></span>
                    </a>
                </li>

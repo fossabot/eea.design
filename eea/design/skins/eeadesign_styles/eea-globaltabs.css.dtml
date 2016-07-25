@@ -87,6 +87,13 @@
     height: 100%;
 }
 
+#secondary-portaltabs .eea-icon:before {
+    margin: 0;
+}
+#siteaction-networks-menu .eea-icon-caret-down {
+    display: none;
+}
+
 #portaltab-europe {
     width: 120px;
     font-size: 75%;
