@@ -133,6 +133,7 @@ jQuery(document).ready(function($) {
     var $notransform = $('.eea-tabs-panels-arrows, .eea-tabs-panels-soer');
     if (underscore) {
         $(window).resize(_.debounce(function() {
+            $(window).trigger('eea_debounced_resize');
             var $tabs_panel = $('.eea-tabs-panels').not($notransform);
             if ($buttonnavbar.css('display') !== 'none') {
                 if ($tabs_panel.length) {
@@ -359,7 +360,6 @@ jQuery(document).ready(function($) {
             var $portal_siteactions = $("#portal-siteactions");
             var $global_search = $portal_siteactions.find("#siteaction-search").detach();
             var $global_network = $portal_siteactions.find("#siteaction-networks").detach();
-            var $global_sections = $secondary_portaltabs_modified.find('li').detach();
         }());
     }
 

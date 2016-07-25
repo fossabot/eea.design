@@ -521,7 +521,8 @@
     height: 100%; }
 
   #portal-globalnav li a {
-    padding: 1em 0.4em; }
+    padding: 1em 0.5em;
+    font-size: small; }
 
   #portaltab-europe {
     padding-right: 95px;

@@ -29,9 +29,8 @@ jQuery(document).ready(function($) {
                     $(".portal-logo").hide();
                     $("#portal-searchbox").hide();
                     $ptools.hide();
-
-                    if (!window.eea_mobile_resolution) {
-                        $(".networkSites").prependTo($portal_header);
+                    if (!$portal_header.find('.networkSites').length) {
+                        $(".networkSites").eq(0).clone().prependTo($portal_header);
                     }
                 });
             }, 3000);
@@ -43,9 +42,6 @@ jQuery(document).ready(function($) {
             });
 
         }());
-    }
-    else {
-        $("#siteaction-networks, #siteaction-search").css('display', 'none');
     }
 
     // custom requirement to swap placement of the table and fiche-summary
