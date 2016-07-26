@@ -10,9 +10,13 @@
     }
 
     $(document).ready(function() {
+
         function panel() {
-            var a = $(this);
-            var buttonID = a.parent().attr('id');
+            var a = $(this).find('a');
+            var buttonID = this.id;
+            if (!buttonID) {
+                return;
+            }
             var tooltip = $('#tip-' + buttonID);
 
             // 'Contact us' link should go to old translated page because the
@@ -39,10 +43,8 @@
 
                 a.click(function(ev) {
                     ev.preventDefault();
-
-                    var parents = $('#cross-site-top, #content'),
-                        panels = parents.find('.panel');
-                    panels.each(function() {
+                    var $panels = $('.panel');
+                    $panels.each(function() {
                         var $this = $(this);
                         var $id = $this.attr('id');
                         if ($id !== "" && $id !== tooltip.attr('id')) {
@@ -80,9 +82,11 @@
             }
         });
 
-        $("#portal-siteactions").find("a").each(panel);
-        $("#portal-externalsites").find("a").each(panel);
-        $("#article-language").find('a').each(panel);
-        $("#tip-externalsites-networks").find(".externalsites a").each(panel);
+        $("#portal-siteactions").addClass('eea-slide-tooltips');
+        $("#portal-externalsites").addClass('eea-slide-tooltips');
+        $("#article-language").addClass('eea-slide-tooltips');
+        $(".externalsites").addClass('eea-slide-tooltips');
+        $("#tip-externalsites-networks").addClass('eea-slide-tooltips');
+        $(".eea-slide-tooltips").find('> li').each(panel);
     });
 }(jQuery));
