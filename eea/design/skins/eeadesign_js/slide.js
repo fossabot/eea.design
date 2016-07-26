@@ -49,7 +49,7 @@
                     $panels.each(function() {
                         var $this = $(this);
                         var $id = $this.attr('id');
-                        if ($id !== "" && $id !== tooltip.attr('id')) {
+                        if ($id !== "" && $id !== $tooltip.attr('id')) {
                             $this.fadeOut('fast');
                         }
                     });
@@ -74,24 +74,19 @@
         }
 
 
-        var parents = $('#cross-site-top, #content'),
-            panels = parents.find('.panel').filter(function(){ return this.id !== ""; });
+        var $panels = $('.panel').filter(function(){ return this.id !== ""; });
 
-        $(document).click(function(e) {
-            var $target = $(e.target);
-            if (e.target.tagName !== "A") {
-                $target = $target.closest('a');
-            }
-            if (!$target.is('#cross-site-top a,  #cross-site-top .panel, #article-language a') && !$target.parents('.panel').length) {
-                panels.fadeOut('fast');
+        $("#portal-columns, #portal-header").click(function() {
+            if ($panels.is(':visible')) {
+                $panels.fadeOut('fast');
             }
         });
 
         $("#portal-siteactions").addClass('eea-slide-tooltips');
-        // $("#portal-externalsites").addClass('eea-slide-tooltips');
-        // $("#article-language").addClass('eea-slide-tooltips');
-        // $(".externalsites").addClass('eea-slide-tooltips');
-        // $("#tip-externalsites-networks").addClass('eea-slide-tooltips');
+        $("#portal-externalsites").addClass('eea-slide-tooltips');
+        $("#article-language").addClass('eea-slide-tooltips');
+        $(".externalsites").addClass('eea-slide-tooltips');
+        $("#tip-externalsites-networks").addClass('eea-slide-tooltips');
         $(".eea-slide-tooltips").find('a').each(panel);
     });
 }(jQuery));

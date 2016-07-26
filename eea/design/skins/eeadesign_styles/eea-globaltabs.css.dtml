@@ -23,7 +23,6 @@
     list-style: none;
     margin: 0 auto;
     max-width: 1024px;
-    overflow: hidden;
     padding: 0;
     position: relative;
     width: 100%;
