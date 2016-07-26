@@ -20,9 +20,9 @@ jQuery(document).ready(function($) {
     // #23500 we now have an extra list item (europe)
     var $secondary_portaltabs = $('#secondary-portaltabs'),
         $global_nav = $('#portal-globalnav'),
-        $global_nav_children = $global_nav.children();
+        $global_nav_children = $global_nav.find('> li');
     if (!$body.hasClass('mini-header')) {
-        $global_nav_children.slice($global_nav_children.length - 5).wrapAll($secondary_portaltabs);
+        $global_nav_children.slice($global_nav_children.length - 3).appendTo($secondary_portaltabs);
     }
     else {
         $secondary_portaltabs.appendTo($global_nav);

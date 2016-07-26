@@ -17,7 +17,7 @@
             if (!buttonID) {
                 return;
             }
-            var tooltip = $('#tip-' + buttonID);
+            var $tooltip = $('#tip-' + buttonID);
 
             // 'Contact us' link should go to old translated page because the
             // pop up is hardcoded in english. #2954
@@ -28,11 +28,13 @@
             var networks_panel = buttonID === "externalsites-networks";
 
             var fordef;
-            if (tooltip.length > 0) {
-
+            if ($tooltip.length > 0) {
+                // if we don't remove title from links the title will be used for tooltip
+                // content instead of the constructed panels
+                a.attr("title", "").attr("href", "#");
                 fordef = 'click, blur';
                 a.tooltip({
-                    tip: tooltip[0],
+                    tip: $tooltip[0],
                     position: 'bottom center',
                     offset: [0, 0],
                     delay: 10000000,
@@ -66,7 +68,7 @@
                         $("#tip-externalsites-networks").css('margin-left', '2em');
                     }
 
-                    tooltip.fadeIn('fast');
+                    $tooltip.fadeIn('fast');
                 });
             }
         }
@@ -86,10 +88,10 @@
         });
 
         $("#portal-siteactions").addClass('eea-slide-tooltips');
-        $("#portal-externalsites").addClass('eea-slide-tooltips');
-        $("#article-language").addClass('eea-slide-tooltips');
-        $(".externalsites").addClass('eea-slide-tooltips');
-        $("#tip-externalsites-networks").addClass('eea-slide-tooltips');
+        // $("#portal-externalsites").addClass('eea-slide-tooltips');
+        // $("#article-language").addClass('eea-slide-tooltips');
+        // $(".externalsites").addClass('eea-slide-tooltips');
+        // $("#tip-externalsites-networks").addClass('eea-slide-tooltips');
         $(".eea-slide-tooltips").find('a').each(panel);
     });
 }(jQuery));
