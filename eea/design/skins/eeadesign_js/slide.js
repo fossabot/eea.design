@@ -10,7 +10,7 @@
     }
 
     $(document).ready(function() {
-
+        var $mini_header = $('body').hasClass('mini-header');
         function panel() {
             var a = $(this);
             var buttonID = a.parent().attr('id');
@@ -44,6 +44,7 @@
                 });
 
                 a.click(function(ev) {
+                    
                     ev.preventDefault();
                     var $panels = $('.panel');
                     $panels.each(function() {
@@ -67,7 +68,15 @@
                     if (networks_panel) {
                         $("#tip-externalsites-networks").css('margin-left', '2em');
                     }
-
+                    // attempt to position the tooltip 20px away from the page right margin
+                    // when opening mini header globalnav tooltips
+                    if ($mini_header) {
+                        var left_position = window.parseInt($tooltip[0].style.left, 10);
+                        var position = ($tooltip.width() + left_position) - window.innerWidth;
+                        if (position > 0) {
+                            $tooltip[0].style.left = (left_position - position - 20).toString() + 'px';
+                        }
+                    }
                     $tooltip.fadeIn('fast');
                 });
             }
