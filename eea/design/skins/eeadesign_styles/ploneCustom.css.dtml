@@ -925,6 +925,7 @@ a.moreLink {
 #tip-siteaction-chooselang li,
 #tip-siteaction-chooselang-menu li {
     display: list-item;
+    margin: 0;
 }
 
 #tip-siteaction-contactus {

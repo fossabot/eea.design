@@ -29,7 +29,8 @@
 }
 
 
-#portal-globalnav li {
+#portal-globalnav > li,
+#secondary-portaltabs > li {
     margin-bottom: 0;
     float: left;
     text-align: center;
@@ -40,6 +41,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 
 #portal-globalnav li a  {
     background: transparent;
@@ -53,6 +55,22 @@
 #secondary-portaltabs li a {
     padding: 1em 0.5em;
 }
+
+#secondary-globanav-tips li a {
+    padding: 0.3em 0;
+    font-size: small;
+}
+#secondary-globanav-tips a,
+#secondary-globanav-tips a:hover,
+#secondary-globanav-tips li a,
+#secondary-globanav-tips li a:hover {
+    color: &dtml-linkColor;;
+    font-weight: normal;
+}
+
+/*#chooselang li a,*/
+/*#chooselang li a:hover {*/
+/*}*/
 
 #portal-globalnav a:hover,
 #portal-globalnav .selected a {
