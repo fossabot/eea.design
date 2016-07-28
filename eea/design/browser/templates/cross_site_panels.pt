@@ -4,8 +4,7 @@
          tal:define="portal_state context/@@plone_portal_state; portal_url portal_state/portal_url;">
 
         <div id="js-siteaction-panels">
-            <div class="panel" id="tip-siteaction-subscriptions"
-                style="width: 240px">
+            <div class="panel" id="tip-siteaction-subscriptions">
                 <div class="panel-top">
                     <!-- -->
                 </div>
@@ -25,8 +24,7 @@
               </div>
             </div>
 
-            <div class="panel" id="tip-siteaction-contactus"
-                style="width: 420px">
+            <div class="panel" id="tip-siteaction-contactus">
                 <div class="panel-top">
                     <!-- -->
                 </div>
@@ -125,8 +123,7 @@
                 </div>
             </div>
 
-            <div class="panel" id="tip-siteaction-chooselang"
-                style="width: 125px">
+            <div class="panel" id="tip-siteaction-chooselang">
                 <div class="panel-top">
                     <!-- -->
                 </div>
