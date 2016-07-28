@@ -15,19 +15,29 @@ jQuery(document).ready(function($) {
             var $portal_header = $("#portal-header");
             var $cross_site_top = $("#cross-site-top");
             var $ptools = $("#portal-personaltools-wrapper");
+            var $search = $("#portal-searchbox");
+            var $search_panel = $("<div class='panel' id='tip-siteaction-search-menu'>" +
+                "<div class='panel-top'></div>" +
+                "<div class='panel-content shadow'>" +
+                "</div>");
+            $search.clone().appendTo($search_panel.find('.panel-content'));
+            $search_panel.appendTo("#secondary-globanav-tips");
             $portal_header.addClass("mini-header-element");
             $ptools.addClass("mini-header-element");
             var $mini_header_elem = $(".mini-header-element");
             $("#portaltab-europe").css('display', 'none');
-            $("#secondary-portaltabs").find('a').click(function(ev) {
+            $("#secondary-portaltabs").find('> li > a').click(function(ev) {
+                $('.eea-navsiteactions-active').removeClass('eea-navsiteactions-active');
+                $(ev.target).closest('li').addClass('eea-navsiteactions-active');
                 ev.preventDefault();
             });
+
 
             window.setTimeout(function(){
                 $mini_header_elem.slideUp(function() {
                     $cross_site_top.hide();
                     $(".portal-logo").hide();
-                    $("#portal-searchbox").hide();
+                    $search.remove();
                     $ptools.hide();
                     if (!$portal_header.find('.networkSites').length) {
                         $(".networkSites").eq(0).clone().prependTo($portal_header);

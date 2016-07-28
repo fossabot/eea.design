@@ -884,6 +884,12 @@ a.moreLink {
     display: none;
 }
 
+#tip-siteaction-search-menu {
+    width: 360px;
+    right: 0;
+    left: inherit !important;
+}
+
 .panel .portletFooter {
     margin-top: 1em;
 }
@@ -954,6 +960,11 @@ a.moreLink {
     text-align: right;
     font-size: 1.2em;
 }
+.panel #portal-searchbox {
+    float: none;
+    clear: both;
+    margin: 2em 1em;
+}
 
 #portal-searchbox a {
     color: &dtml-linkColor;;
@@ -993,6 +1004,9 @@ a.moreLink {
 #searchbox_terminology input[type="text"],
 .searchField {
     width: 286px;
+}
+.panel #searchbox_terminology input[type="text"] {
+    width: 80%;
 }
 
 #searchbox_terminology input:focus,

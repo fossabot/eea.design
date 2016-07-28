@@ -88,6 +88,7 @@
         $("#portal-columns, #portal-header").click(function() {
             if ($panels.is(':visible')) {
                 $panels.fadeOut('fast');
+                $(".eea-navsiteactions-active").removeClass("eea-navsiteactions-active");
             }
         });
 
