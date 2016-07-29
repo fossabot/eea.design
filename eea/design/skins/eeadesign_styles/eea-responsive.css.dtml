@@ -517,11 +517,11 @@
   .col-sm-6.bordered-left:before {
     left: -1%; }
 
-  #portal-header {
+  .mini-header #portal-header {
     height: 100%; }
 
-  #portal-globalnav li a {
-    padding: 1em 0.5em;
+  .mini-header #portal-globalnav li a {
+    padding: 1.1em 0.5em;
     font-size: small; }
 
   #portaltab-europe {

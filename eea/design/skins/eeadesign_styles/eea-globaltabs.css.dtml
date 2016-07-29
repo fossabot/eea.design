@@ -59,6 +59,8 @@
 .eea-navsiteactions-active > a {
     color: &dtml-linkColor; !important;
     background-color: white !important;
+    position: relative;
+    z-index: 601;
 }
 
 #secondary-globanav-tips li a {

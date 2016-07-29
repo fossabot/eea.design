@@ -5,11 +5,12 @@
             <a href="#" i18n:translate="">Networks</a>
         </li>
     </ul>
-    <div class="panel" id="tip-externalsites-networks" style="width:450px; margin-left: 10em;">
+    <div class="panel" id="tip-externalsites-networks" style="width:450px; margin-left: 10em;"
+        tal:define="mini_header python:' mini-header' if context.restrictedTraverse('@@miniheader_content_types')() else False;">
         <div class="panel-top" style="left: -195px;"><!-- --></div>
         <div class="panel-content shadow">
-            <div class="container networkSites">
-                <dl class="col-md-6 col-sm-6">
+            <div tal:attributes="class python:'container networkSites' if mini_header else 'networkSites'">
+                <dl tal:attributes="class python:'col-md-6 col-sm-6' if mini_header else ''">
                     <dt i18n:translate="">Networks</dt>
                     <dd>
                         <ul class="eea-no-list-style">
@@ -35,7 +36,7 @@
                         <a class="moreLink" href="http://www.eea.europa.eu/about-us/international-cooperation" i18n:translate="">International cooperation</a>
                     </dd>
                 </dl>
-                <dl class="col-md-5 col-sm-6 bordered-left">
+                <dl tal:attributes="class python:'col-md-5 col-sm-6 bordered-left' if mini_header else ''">
                     <dt>
                         <tal:block i18n:translate="">European Topic Centres (ETCs)</tal:block>
                     </dt>
