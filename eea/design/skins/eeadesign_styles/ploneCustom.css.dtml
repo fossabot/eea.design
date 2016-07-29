@@ -1012,9 +1012,6 @@ a.moreLink {
 
 #searchbox_terminology input[type="text"],
 .searchField {
-    width: 286px;
-}
-.panel #searchbox_terminology input[type="text"] {
     width: 80%;
 }
 
