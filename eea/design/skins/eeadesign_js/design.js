@@ -7,6 +7,7 @@ jQuery(document).ready(function($) {
     if ($body.hasClass("portaltype-sparql") && $code_diff) {
         $code_diff.click();
     }
+    var $popup_login = $("#popup_login_form");
 
     // // 72862 mini header
     var $mini_header = $(".mini-header");
@@ -16,12 +17,23 @@ jQuery(document).ready(function($) {
             var $cross_site_top = $("#cross-site-top");
             var $ptools = $("#portal-personaltools-wrapper");
             var $search = $("#portal-searchbox");
-            var $search_panel = $("<div class='panel' id='tip-siteaction-search-menu'>" +
-                "<div class='panel-top'></div>" +
-                "<div class='panel-content shadow'>" +
-                "</div>");
-            $search.clone().appendTo($search_panel.find('.panel-content'));
-            $search_panel.appendTo("#secondary-globanav-tips");
+            var $parent = $("#secondary-globanav-tips");
+            // add any cross_site_top panels as siteaction panels
+            var make_siteaction_panel = function($content, $parent, panel_id, use_only_children) {
+                var $panel = $("<div class='panel' id='" + panel_id + "'>" +
+                    "<div class='panel-top'></div>" +
+                    "<div class='panel-content shadow'>" +
+                    "</div>");
+                var $clone = $content.clone();
+                if (use_only_children) {
+                    $clone = $clone.children();
+                }
+                $clone.appendTo($panel.find('.panel-content'));
+                $panel.appendTo($parent);
+            };
+            make_siteaction_panel($search, $parent, 'tip-siteaction-search-menu');
+            make_siteaction_panel($popup_login, $parent, 'tip-siteaction-login-menu', true);
+
             $portal_header.addClass("eea-miniheader-element");
             $ptools.addClass("eea-miniheader-element");
             $("#portaltab-europe").css('display', 'none');
@@ -116,7 +128,6 @@ jQuery(document).ready(function($) {
     $('.eea-tabs').find('li:last-child').addClass('last-child');
 
     // #9485; login form as popup
-    var $popup_login = $("#popup_login_form");
     $("#anon-personalbar, #siteaction-login").click(function(e) {
         $popup_login.slideToggle();
         e.preventDefault();
