@@ -553,7 +553,7 @@
     min-width: 995px;
     max-width: 1024px; }
 
-  #portal-header.mini-header-element {
+  #portal-header.eea-miniheader-element {
     height: 100%;
     font-size: 115%;
     margin: 2em 0; }

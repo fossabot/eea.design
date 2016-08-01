@@ -22,35 +22,24 @@ jQuery(document).ready(function($) {
                 "</div>");
             $search.clone().appendTo($search_panel.find('.panel-content'));
             $search_panel.appendTo("#secondary-globanav-tips");
-            $portal_header.addClass("mini-header-element");
-            $ptools.addClass("mini-header-element");
-            var $mini_header_elem = $(".mini-header-element");
+            $portal_header.addClass("eea-miniheader-element");
+            $ptools.addClass("eea-miniheader-element");
             $("#portaltab-europe").css('display', 'none');
             $("#secondary-portaltabs").find('> li > a').click(function(ev) {
                 $('.eea-navsiteactions-active').removeClass('eea-navsiteactions-active');
                 $(ev.target).closest('li').addClass('eea-navsiteactions-active');
                 ev.preventDefault();
             });
-
-
-            window.setTimeout(function(){
-                $mini_header_elem.slideUp(function() {
-                    $cross_site_top.hide();
-                    $(".portal-logo").hide();
-                    $search.remove();
-                    $ptools.hide();
-                    if (!$portal_header.find('.networkSites').length) {
-                        $(".networkSites").eq(0).clone().prependTo($portal_header);
-                    }
-                });
-            }, 3000);
-            $("#siteaction-networks-menu").find("a").addClass("mini-header-expander");
-            var $show_btn = $(".mini-header-expander");
-            $show_btn.click(function(ev){
-                ev.preventDefault();
-               $mini_header_elem.slideToggle();
+            $("body").on('eea-miniheader-hide', function(ev, el){
+                $cross_site_top.hide();
+                $(".portal-logo").hide();
+                $search.remove();
+                $ptools.hide();
+                if (!$portal_header.find('.networkSites').length) {
+                    $(".networkSites").eq(0).clone().prependTo($portal_header);
+                }
             });
-
+            $("#siteaction-networks-menu").find("a").addClass("mini-header-expander");
         }());
     }
 

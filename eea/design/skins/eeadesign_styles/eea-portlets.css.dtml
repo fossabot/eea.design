@@ -158,7 +158,7 @@ dl.portlet ul.navTree .navTreeCurrentItem {
     text-align:right;
 }
 
-.mini-header-element .portletFooter {
+.eea-miniheader-element .portletFooter {
     text-align: left;
     max-width: 87%;
 }
