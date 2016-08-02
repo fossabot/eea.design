@@ -1,9 +1,12 @@
 /*global jQuery window anchors document ga setTimeout*/
 jQuery(document).ready(function($) {
     'use strict';
+    var $viewlet_below_content = $("#viewlet-below-content");
+    var $content = $("#ccontent");
+    var $column_area = $(".column-area");
+
     // #71710 move related and socialmedia inside
     // faceted center area
-    var $column_area = $(".column-area");
     var $center_bottom_area = $("#center-bottom-area");
     var $related_items = $("#relatedItems");
     var $socialmedia = $("#socialmedia-viewlet");
@@ -16,12 +19,21 @@ jQuery(document).ready(function($) {
     };
     appendTo($related_items, $column_area);
     appendTo($socialmedia, $column_area);
+    appendTo($viewlet_below_content, $content);
     appendTo($related_items, $center_bottom_area);
     appendTo($socialmedia, $center_bottom_area);
-    var $byline = $("#plone-document-byline").children();
-    if ($byline.length <= 1) {
-        $byline.hide();
-    }
+
+    // hide element if empty or has less than on equal to given
+    // child length
+    var hide_empty_container = function($el, child_count) {
+        var count = child_count || 0;
+        var $children =  $el.children();
+        if ($children.length <= count) {
+            $el.hide();
+        }
+    };
+    hide_empty_container($("#plone-document-byline"), 1);
+    hide_empty_container($viewlet_below_content, 0);
 
     var url_path_name = window.location.pathname;
     var $body = $("body");
@@ -166,7 +178,7 @@ jQuery(document).ready(function($) {
     // 5267 display form fields for translated items
     var edit_bar = $("#edit-bar");
     var edit_translate = function() {
-        var translating = $("#content").find('form').find('.hiddenStructure').text().indexOf('Translating');
+        var translating = $content.find('form').find('.hiddenStructure').text().indexOf('Translating');
         if (translating !== -1) {
             edit_bar.closest('#portal-column-content')[0].className = "cell width-full position-0";
         }
@@ -308,8 +320,6 @@ jQuery(document).ready(function($) {
 
     var downloads_list = match_download_links(links);
     function add_downloads_tracking_code(idx, el) {
-
-
         el.onclick = function() {
             var text = el.textContent || el.innerText;
             var ftype = extract_file_type(el.href, text);

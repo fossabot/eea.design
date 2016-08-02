@@ -49,6 +49,17 @@ jQuery(document).ready(function($) {
             index = tabs.getIndex();
         });
 
+
+        // chemicals has right column bigger than column area
+        // as such we need to equalize heights
+        var $content = $("#content");
+        var $right_column_area = $(".right-column-area");
+        if ($right_column_area.length) {
+            if ($content.height() < $right_column_area.height()) {
+                $content.css('height', $right_column_area.height());
+            }
+        }
+
     }
 
     $.tools.tabs.addEffect("collapsed", function(i, done) {
