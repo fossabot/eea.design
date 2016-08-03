@@ -1,8 +1,8 @@
 Changelog
 =========
 
-14.6.dev0 - (unreleased)
-------------------------
+14.6 - (2016-08-03)
+-------------------
 * Change: added code from custom along with responsive design fixes for megatopics
   [ichim-david refs #72171]
 * FIX: screen media added to content-core object
