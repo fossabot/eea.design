@@ -659,15 +659,32 @@ input.standalone:hover {
 /*.template-facetednavigation_view .content-header,*/
 /*.template-datamaps_view .content-header,*/
 .template-dc_view .content-header,
-.template-dc_view .column-area
-{
+.template-dc_view .column-area {
     width: 58.5%;
     padding: 1.5em;
     background-color: &dtml-lightBackgroundColor;;
 }
 
+/* 71710 dc_view transformations in order to have right-column area act like portal-column-two */
+.template-dc_view .content-header,
+.template-dc_view .column-area {
+    float: left;
+    padding-top: 0;
+}
+
+.template-dc_view .content-header {
+    padding-top: 1.5em;
+    padding-bottom: 0;
+}
+
 .template-dc_view .right-column-area {
-    margin-top: -28.3em;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#viewlet-below-content {
+    clear: both;
+    float: left;
 }
 
 .frontpage .progressbar-viewlet,
@@ -679,7 +696,6 @@ input.standalone:hover {
 #content-core {
     clear:both;
 }
-
 /* 70523 set callout to a base of 12px in order to normalize googlechart notes size  */
 #content .callout {
    font-size: 12px;

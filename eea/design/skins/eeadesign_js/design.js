@@ -25,15 +25,18 @@ jQuery(document).ready(function($) {
 
     // hide element if empty or has less than on equal to given
     // child length
-    var hide_empty_container = function($el, child_count) {
+    var hide_empty_container = function($el, child_count, $checked_el) {
         var count = child_count || 0;
-        var $children =  $el.children();
+        var $elem = $checked_el || $el;
+        var $children = $elem.children();
         if ($children.length <= count) {
             $el.hide();
         }
     };
     hide_empty_container($("#plone-document-byline"), 1);
     hide_empty_container($viewlet_below_content, 0);
+    var $whatsnew_listing = $(".whatsnew-listing");
+    hide_empty_container($whatsnew_listing, 0, $whatsnew_listing.find('.eea-tabs'));
 
     var url_path_name = window.location.pathname;
     var $body = $("body");
