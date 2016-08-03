@@ -82,18 +82,16 @@
 
   .featured img {
     max-width: 130px !important; } }
-
 /* #31309 - Improve DaViz Filter design/display */
-@media screen{
+@media screen {
   #content-core {
     position: relative; }
-  }
+
   .template-dc_view #content-core {
-    position: static; 
-  }
+    position: static; }
+
   .template-dc_view #content {
     position: relative; } }
-
 @media screen and (min-width: 480px) and (max-width: 627px) {
   #content #languageCodes {
     max-width: 50%;
@@ -114,8 +112,8 @@
     margin-top: -10px !important; }
 
   #eea-above-columns #portal-breadcrumbs.plone-breadcrumb {
-    margin-top: 0px;
-    margin-bottom: 0px; }
+    margin-top: 0;
+    margin-bottom: 0; }
 
   #eea-above-columns #portal-breadcrumbs.plone-breadcrumb ol {
     line-height: 2.5em; }
@@ -475,13 +473,7 @@
     padding-right: 0.7em; } }
 @media screen and (width: 768px) {
   .right-column-area {
-    width: 41%; }
-
-  .template-dc_view .right-column-area {
-    margin-top: -33.8em; }
-
-  .userrole-authenticated.template-dc_view .right-column-area {
-    margin-top: -36.8em; } }
+    width: 41%; } }
 @media screen and (min-width: 768px) {
   #header-holder .container-fluid {
     padding: 0; }
@@ -583,7 +575,6 @@
   .mini-header #tip-externalsites-networks .networkSites,
   .mini-header #portal-globalnav #portaltab-eeahome {
     display: none; } }
-
 @media screen and (max-width: 1024px) {
   .frontpage #portal-columns,
   .frontpage #portal-column-content,
