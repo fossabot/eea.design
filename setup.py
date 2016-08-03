@@ -35,7 +35,7 @@ setup(name=name,
 
           'eea.cache',
           'eea.converter',
-          'eea.facetednavigation',
+          'eea.facetednavigation < 10.0',
           'eea.icons',
           'eea.promotion',
           'eea.themecentre',
