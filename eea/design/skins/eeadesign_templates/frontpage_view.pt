@@ -112,6 +112,7 @@
                                             frontpage_view frontpage_view|context/@@frontpage_highlights;
                                             main_site main_site|python: True if language == 'en' else False;
                                             frontpage_properties context/portal_properties/frontpage_properties;
+                                            tabs tabs|nothing;
                                             getProducts getProducts|frontpage_properties/getProducts|nothing;"
                                 tal:attributes="id string:whatsnew-gallery; data-page string:${datapage};
                                                 class python:'column-area' if 'frontpage' in body_class else ''">
@@ -141,7 +142,7 @@
                                 </tal:items>
                             </select>
                             <tal:panels>
-                                <div class="eea-tabs-panels" tal:condition="tabs">
+                                <div class="eea-tabs-panels" tal:condition="python: main_site and getProducts and tabs">
                                     <tal:propertyProducts tal:condition="python: main_site and getProducts">
                                         <tal:products tal:repeat="tab tabs">
                                             <tal:defines tal:define="folderContents python:folderContent.get(tab);
