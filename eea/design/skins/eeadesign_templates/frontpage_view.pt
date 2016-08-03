@@ -142,7 +142,7 @@
                                 </tal:items>
                             </select>
                             <tal:panels>
-                                <div class="eea-tabs-panels" tal:condition="python: main_site and getProducts and tabs">
+                                <div class="eea-tabs-panels" tal:condition="python:tabs">
                                     <tal:propertyProducts tal:condition="python: main_site and getProducts">
                                         <tal:products tal:repeat="tab tabs">
                                             <tal:defines tal:define="folderContents python:folderContent.get(tab);
