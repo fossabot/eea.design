@@ -345,7 +345,7 @@ a.album-layout:hover {
 
 .shortcut-default {
     text-align: left;
-    padding: 2em;
+    padding: 1.5em;
     /*background: &dtml-lightBackgroundColor;;*/
     background: &dtml-whiteBackgroundColor;;
     margin-bottom: 1em;
