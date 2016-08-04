@@ -210,12 +210,12 @@ a.archives {
 
 
 #news-header h2 {
-    float: left;
-    padding: 0px;
-    margin: 6px;
     border:none;
-    line-height:1.2;
+    float: left;
+    font-size: 160%;
     font-weight:normal;
+    margin: 6px;
+    padding: 0;
 }
 
 #news-header {
