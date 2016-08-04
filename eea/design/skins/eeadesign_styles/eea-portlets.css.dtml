@@ -542,24 +542,35 @@ dl.portletNavigationTree dt.portletSubMenuHeader span.title {
 .navTreeLevel0 .navTreeCurrentItem:after {
     left: -6%;
 }
+/* 71710 dc_view pages need extra left value for current arrow */
+.right-column-area .navTreeLevel0 .navTreeCurrentItem:after {
+    left: -20.5%;
+}
+
 .navTreeLevel1 .navTreeCurrentItem:after {
     left: -14%;
 }
+
 .navTreeLevel2 .navTreeCurrentItem:after {
     left: -24%;
 }
+
 .navTreeLevel3 .navTreeCurrentItem:after {
     left: -36%;
 }
+
 .navTreeLevel4 .navTreeCurrentItem:after {
     left: -50%;
 }
+
 .navTreeLevel5 .navTreeCurrentItem:after {
     left: -67%;
 }
+
 .navTreeLevel6 .navTreeCurrentItem:after {
     left: -89%;
 }
+
 .navTreeLevel7 .navTreeCurrentItem:after {
     left: -117%;
 }
