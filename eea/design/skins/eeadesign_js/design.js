@@ -49,7 +49,9 @@ jQuery(document).ready(function($) {
         input.focus();
     });
 
-    $('body').click(function() {$('#popup_login_form').slideUp()});
+    $('body').click(function() {
+        $('#popup_login_form').slideUp()
+    });
 
     /* #28278 prevent figures from printing charts without the figure title on the same line
      * data-and-maps/indicators/eea32-persistent-organic-pollutant-pop-emissions-1/assessment-4/pdf.body
