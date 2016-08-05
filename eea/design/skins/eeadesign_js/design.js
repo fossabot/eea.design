@@ -49,7 +49,9 @@ jQuery(document).ready(function($) {
         input.focus();
     });
 
-    $('body').click(function(){$('#popup_login_form').slideUp()});
+    $('body').click(function() {
+        $('#popup_login_form').slideUp()
+    });
 
     /* #28278 prevent figures from printing charts without the figure title on the same line
      * data-and-maps/indicators/eea32-persistent-organic-pollutant-pop-emissions-1/assessment-4/pdf.body
@@ -96,7 +98,10 @@ jQuery(document).ready(function($) {
     $('.eea-tabs').find('li:last-child').addClass('last-child');
 
     // #9485; login form as popup
-    var $popup_login = $("#popup_login_form").click(function(e){e.stopPropagation();});
+    var $popup_login = $("#popup_login_form");
+    $popup_login.click(function(e) {
+            e.stopPropagation();
+    });
     $("#anon-personalbar, #siteaction-login").click(function(e) {
         $popup_login.slideToggle("slow", function() {
             $('#__ac_name').focus();
