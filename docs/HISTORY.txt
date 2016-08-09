@@ -3,6 +3,8 @@ Changelog
 
 14.7.dev0 - (unreleased)
 ------------------------
+* Change: modified thematic listing on fronptage_view as requested in ticket
+  [ichim-david refs #74969]
 * Bug fix: fixed document-byline for manage-viewlets as we can't access IVersions
   from this page
   [ichim-david refs #74889]
