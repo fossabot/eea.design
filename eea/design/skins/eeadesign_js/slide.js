@@ -35,7 +35,7 @@
                 fordef = 'click, blur';
                 a.tooltip({
                     tip: $tooltip[0],
-                    position: 'bottom center',
+                    position:'bottom center',
                     offset: [0, 0],
                     delay: 10000000,
                     events: {
@@ -46,6 +46,7 @@
                 a.click(function(ev) {
                     
                     ev.preventDefault();
+                    var $this = $(this), tooltip = $tooltip[0];
                     var $panels = $('.panel');
                     $panels.each(function() {
                         var $this = $(this);
@@ -68,13 +69,14 @@
                     if (networks_panel) {
                         $("#tip-externalsites-networks").css('margin-left', '2em');
                     }
-                    // attempt to position the tooltip 20px away from the page right margin
-                    // when opening mini header globalnav tooltips
+                    // attempt to position the tooltip bottom right from target on mini_header
                     if ($mini_header) {
-                        var left_position = window.parseInt($tooltip[0].style.left, 10);
-                        var position = ($tooltip.width() + left_position) - window.innerWidth;
-                        if (position > 0) {
-                            $tooltip[0].style.left = (left_position - position - 20).toString() + 'px';
+                        var pos = $this.offset();
+                        var eWidth = $this.outerWidth();
+                        var mWidth = $tooltip.outerWidth();
+                        var left = window.Math.floor((pos.left + eWidth - mWidth)) + "px";
+                        if (tooltip.style.left !== left) {
+                            tooltip.style.left = left;
                         }
                     }
                     $tooltip.fadeIn('fast');
