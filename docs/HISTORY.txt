@@ -3,6 +3,8 @@ Changelog
 
 14.7.dev0 - (unreleased)
 ------------------------
+* Change: modified thematic listing on fronptage_view as requested in ticket
+  [ichim-david refs #75044]
 * Bug fix: show description of whatsnewgallery for each page that uses it
   [ichim-david refs #74970]
 * Change: modified thematic listing on fronptage_view as requested in ticket
