@@ -431,7 +431,7 @@
   #portal-column-content, #portal-column-two {
     float: none;
     left: 0;
-    margin: 0 1% !important;
+    margin: 0 1% 1.5em 1% !important;
     min-width: 98% !important;
     width: 98% !important; }
 
@@ -523,7 +523,15 @@
 
   #header-holder .navbar.hideShadow {
     box-shadow: none;
-    border: 0; } }
+    border: 0; }
+
+  .template-dc_view .content-header {
+    width: 58.5%; }
+
+  .template-dc_view .right-column-area {
+    position: absolute;
+    right: 0;
+    top: 0; } }
 @media screen and (min-width: 768px) and (max-width: 800px) {
   .col-sm-6.bordered-left:before {
     left: -1%; }
@@ -559,6 +567,9 @@
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   #portal-searchbox {
     margin: 25px 0.5em 0 0; } }
+@media screen and (min-width: 769px) {
+  #portal-column-content {
+    padding: 0 1.5em 1.5em; } }
 @media screen and (min-width: 961px) {
   #visual-portal-wrapper, #portal-header {
     min-width: 995px;
@@ -567,10 +578,7 @@
   #portal-header.eea-miniheader-element {
     height: 100%;
     font-size: 115%;
-    margin: 2em 0; }
-
-  #portal-column-content {
-    padding: 0 1.5em 1.5em; } }
+    margin: 2em 0; } }
 @media screen and (max-width: 1023px) {
   .mini-header #tip-externalsites-networks .networkSites,
   .mini-header #portal-globalnav #portaltab-eeahome {
@@ -609,7 +617,7 @@
   .fullwidth #secondary-portaltabs {
     padding-right: 1em; } }
 @media screen and (min-width: 768px) and (max-width: 1439px) {
-  .siteaction-title {
+  .mini-header .siteaction-title {
     display: none; }
 
   #siteaction-networks-menu .siteaction-title {

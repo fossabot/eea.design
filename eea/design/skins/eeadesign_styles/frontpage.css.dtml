@@ -78,7 +78,7 @@ html {
     top: 8px;
     line-height: 1em;
 }
-.template-datamaps_view .advanced-search-link {
+.advanced-search-link {
     top: 0;
     margin-top: 0.8em;
 }
@@ -103,7 +103,7 @@ a.archives {
     padding: &dtml-padding-base;;
 }
 
-#highlights-area h2 {
+.highlighs-header {
     margin: 0 0 0.83em 0;
     border: 0;
     font-weight: normal;
@@ -166,6 +166,7 @@ a.archives {
 
 #megatopics-area {
     font-size: 0.9em;
+    margin-bottom: 1.5em;
 }
 
 #megatopics-area .portletHeader {
@@ -191,6 +192,10 @@ a.archives {
     padding: 0;
 }
 
+#megatopics-area ul {
+    margin-bottom: 2px;
+}
+
 .portlet-megatopic img {
     width: 100%;
     height: 150px;
@@ -198,7 +203,6 @@ a.archives {
 .portlet-megatopic ul {
     padding-top: 20px;
     height: 150px;
-    margin-bottom: 2px;
 }
 
 

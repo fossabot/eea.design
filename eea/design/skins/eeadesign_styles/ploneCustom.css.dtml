@@ -660,7 +660,6 @@ input.standalone:hover {
 /*.template-datamaps_view .content-header,*/
 .template-dc_view .content-header,
 .template-dc_view .column-area {
-    width: 58.5%;
     padding: 1.5em;
     background-color: &dtml-lightBackgroundColor;;
 }
@@ -677,20 +676,17 @@ input.standalone:hover {
     padding-bottom: 0;
 }
 
-.template-dc_view .right-column-area {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-#viewlet-below-content {
-    clear: both;
-    float: left;
-}
-
 .frontpage .progressbar-viewlet,
 .template-datamaps_view .progressbar-viewlet,
 .template-dc_view .progressbar-viewlet {
     display: none;
+}
+
+#socialmedia-viewlet {
+    margin-bottom: 1em;
+}
+#socialmedia-viewlet ul {
+    margin: 0;
 }
 
 #content-core {
@@ -1463,7 +1459,7 @@ option.hiddenStructure {
 }
 
 /* portal-column styles */
-#portal-column-content  {
+#portal-column-content {
     min-width: 635px;
 }
 

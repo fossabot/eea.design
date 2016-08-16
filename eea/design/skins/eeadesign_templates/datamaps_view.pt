@@ -76,8 +76,8 @@
                        title="Go to advanced search"
                        i18n:attributes="title">
                     <span i18n:translate="">Advanced</span></a>
-                    <div class="visualNoPrint">
-                       <h2 i18n:translate="">Search data products</h2>
+                    <div class="visualNoPrint faceted-search">
+                       <h2 i18n:translate="" class="highlighs-title">Search data products</h2>
                        <form tal:attributes="action string:${here/absolute_url}/find/global"  method="get" id="faceted-text-search" class="searchforms 
 faceted-external-search">
                    <input type="text" name="c12" title="Search data, maps, graphs" i18n:attributes="title" value="" />

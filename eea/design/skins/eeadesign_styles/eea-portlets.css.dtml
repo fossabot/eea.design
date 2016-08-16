@@ -540,39 +540,33 @@ dl.portletNavigationTree dt.portletSubMenuHeader span.title {
 }
 
 .navTreeLevel0 .navTreeCurrentItem:after {
-    left: -6%;
+    left: -18px;
 }
-/* 71710 dc_view pages need extra left value for current arrow */
-.right-column-area .navTreeLevel0 .navTreeCurrentItem:after {
-    left: -20.5%;
+/* dc_view navigation has bigger first level padding */
+.template-dc_view .navTreeLevel0 .navTreeCurrentItem:after {
+    left: -60px;
 }
 
 .navTreeLevel1 .navTreeCurrentItem:after {
-    left: -14%;
+    left: -43px;
 }
-
 .navTreeLevel2 .navTreeCurrentItem:after {
-    left: -24%;
+    left: -66px;
 }
-
 .navTreeLevel3 .navTreeCurrentItem:after {
-    left: -36%;
+    left: -91px;
 }
-
 .navTreeLevel4 .navTreeCurrentItem:after {
-    left: -50%;
+    left: -115px;
 }
-
 .navTreeLevel5 .navTreeCurrentItem:after {
-    left: -67%;
+    left: -138px;
 }
-
 .navTreeLevel6 .navTreeCurrentItem:after {
-    left: -89%;
+    left: -162px;
 }
-
 .navTreeLevel7 .navTreeCurrentItem:after {
-    left: -117%;
+    left: -186px;
 }
 
 #portal-column-one .portlet {

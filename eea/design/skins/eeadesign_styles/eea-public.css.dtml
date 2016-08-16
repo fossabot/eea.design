@@ -164,7 +164,7 @@ span.languageCodes a.translated,
 }
 
 #featured-datasets dd {
-    margin: 0 0 0.5em 2em;
+    margin: 0 0 0.5em 0;
 }
 
 #featured-datasets {
