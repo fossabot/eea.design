@@ -3,6 +3,9 @@ Changelog
 
 14.7.dev0 - (unreleased)
 ------------------------
+* Feature: New portlet for videos on the frontpage: portlet_promo_gallery added
+  to frontpage_view template.
+  [chiridra refs #74485]
 * Change: modified thematic listing on fronptage_view as requested in ticket
   [ichim-david refs #75044]
 * Bug fix: show description of whatsnewgallery for each page that uses it
