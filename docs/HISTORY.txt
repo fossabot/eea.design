@@ -1,6 +1,9 @@
 Changelog
 =========
 
+14.8.dev0 - (unreleased)
+------------------------
+
 14.7 - (2016-08-17)
 -------------------
 * Feature: New portlet for videos on the frontpage: portlet_promo_gallery added
