@@ -136,7 +136,7 @@ jQuery(document).ready(function($) {
                     $tabs.each(function(idx, tab) {
                         var $tab = $(tab);
                         var $tab_panels = $tab.next('.eea-tabs-panels');
-                        $tab_panels = $tab_panels.length ? $tabs : $tab.parent().find('.eea-tabs-panels');
+                        $tab_panels = $tab_panels.length ? $tab_panels : $tab.parent().find('.eea-tabs-panels');
                         make_tabs_into_accordions($tab, $tab_panels);
                     });
                 }
@@ -159,7 +159,7 @@ jQuery(document).ready(function($) {
                     var $tab = $(tab);
                     var $tab_panels = $tab.next('.eea-tabs-panels');
                     var tabs_multiple_lines = false;
-                    $tab_panels = $tab_panels.length ? $tabs : $tab.parent().find('.eea-tabs-panels');
+                    $tab_panels = $tab_panels.length ? $tab_panels : $tab.parent().find('.eea-tabs-panels');
                     var tabs_first_offset = 0;
                     if ($tab.hasClass('hidden')) {
                         $tab.removeClass('hidden');
