@@ -100,7 +100,7 @@
                         <span i18n:translate="">To explore all our outputs and complete knowledge base, please visit <a href="http://www.eea.europa.eu" i18n:name="site_url" class="link-plain"><span tal:omit-tag="" i18n:translate="">our main website</span></a> in English.</span>
                     </div>
 
-                    <div id="below-topics-area">
+                    <div id="below-topics-area" class="whatsnew-listing">
                         <!-- select_topics -->
                         <div id="news-header">
                             <h2 i18n:translate=""> What's new</h2>
