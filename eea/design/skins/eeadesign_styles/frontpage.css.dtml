@@ -305,6 +305,7 @@ a.album-layout:hover {
 
 #portlet-followus {
     margin: 0;
+    padding: 2em;
 }
 #portlet-followus dd {
   display: inline-block;
