@@ -215,7 +215,7 @@ jQuery(document).ready(function($) {
   $('#right-area').addClass('eea-section eea-right-section');
 
     var $faceted_text_widget = $(".faceted-text-widget");
-  $("<div class='faceted-textwidget-place-all'><a href='#' class='eea-faceted-filter eea-section-trigger eea-section-trigger-right'>Filter »</a></div>").appendTo($faceted_text_widget.find("form"));
+  $("<div class='faceted-textwidget-place-current'><a href='#' class='eea-faceted-filter eea-section-trigger eea-section-trigger-right'>Filter »</a></div>").appendTo($faceted_text_widget.find("form"));
   $('.eea-section-trigger').click(function(e) {
         e.preventDefault();
     var section = e.target.className.indexOf('trigger-right') ? '.eea-right-section' : '.eea-left-section';

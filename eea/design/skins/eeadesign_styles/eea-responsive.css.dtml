@@ -15,6 +15,9 @@
     font-size: 15px;
     width: 73%; }
 
+  .faceted-results {
+    padding: 0 0.5em 0 0.5em; }
+
   .eea-list-columns {
     padding: 0 1em 0 0.5em;
     float: none;
@@ -270,7 +273,7 @@
     height: auto; }
 
   #portal-searchbox {
-    background-color: #FFF;
+    background-color: #f3f3f3;
     margin-top: 0;
     text-align: left; }
     #portal-searchbox input[type="text"] {
@@ -431,9 +434,13 @@
   #portal-column-content, #portal-column-two {
     float: none;
     left: 0;
-    margin: 0 1% 1.5em 1% !important;
-    min-width: 98% !important;
-    width: 98% !important; }
+    margin: 0;
+    padding: 0 1% 1.5em 1%;
+    min-width: 100% !important;
+    width: 100% !important; }
+
+  #portal-column-two {
+    padding: 0; }
 
   .navbar-collapse {
     width: 100%; }
