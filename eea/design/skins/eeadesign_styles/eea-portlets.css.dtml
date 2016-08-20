@@ -473,7 +473,7 @@ dt.portletItem a, #content dt.portletItem a {
 dl.portletNavigationTree dt.portletHeader {
   padding: 0;
   font-size: 16px;
-  margin: 5px 10px;
+  margin: 5px 0;
   background-color: transparent;
   font-weight: bold !important;
 }

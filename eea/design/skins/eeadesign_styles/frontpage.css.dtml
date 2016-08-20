@@ -232,7 +232,7 @@ a.archives {
 /* style for featured boxes */
 .featured, .portlet {
     margin-bottom: 1em;
-    padding:1.5em;
+    padding:&dtml-padding-base;;
 }
 
 .portlet,
@@ -303,10 +303,6 @@ a.album-layout:hover {
 }
 /* END Styles which can be used on any area */
 
-#portlet-followus {
-    margin: 0;
-    padding: 2em;
-}
 #portlet-followus dd {
   display: inline-block;
   padding-right: 1em;
