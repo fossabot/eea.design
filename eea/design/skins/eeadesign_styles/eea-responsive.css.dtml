@@ -321,7 +321,7 @@
   .right-column-area {
     float: none;
     width: 100%;
-    padding: 0 0 1em 0; 
+    padding: 0 0 1em 0;
     margin-bottom: 1em; }
 
   #articles-area {
@@ -440,12 +440,12 @@
     min-width: 100%;
     width: 100%; }
 
-  .frontpage #region-content, #portal-column-two {
+  .frontpage #region-content,
+  #portal-column-two {
     padding: 0; }
 
   #portal-column-two {
-    margin-top: 1em;
-  }
+    margin-top: 1em; }
 
   .navbar-collapse {
     width: 100%; }
@@ -481,10 +481,9 @@
     padding: 10px; }
   .template-soer2015_frontpage .eea-icon:before {
     margin: 0 .2em; }
+  .template-soer2015_frontpage #portlet-followus {
+    margin: 2em; }
 
-  .template-soer2015_frontpage  #portlet-followus {
-        margin: 2em;
-    }
   #portlet-followus dd {
     padding-right: 0.7em; } }
 @media screen and (width: 768px) {
@@ -630,11 +629,8 @@
   min-width: 100%; }
 
 @media screen and (min-width: 1024px) {
-    #region-content {
-        margin: 0 -1.5em;
-    }
-}
-
+  #region-content {
+    margin: 0 -1.5em; } }
 @media screen and (min-width: 1025px) {
   .fullwidth #portal-header,
   .fullwidth #secondary-portaltabs {
