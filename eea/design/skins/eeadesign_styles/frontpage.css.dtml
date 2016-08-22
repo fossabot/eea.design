@@ -215,7 +215,6 @@ a.archives {
 
 #news-header h2 {
     border:none;
-    float: left;
     font-size: 160%;
     font-weight:normal;
     margin: 6px;

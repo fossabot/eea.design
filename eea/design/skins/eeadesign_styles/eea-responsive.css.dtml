@@ -321,7 +321,8 @@
   .right-column-area {
     float: none;
     width: 100%;
-    padding: 0 0 1em 0; }
+    padding: 0 0 1em 0; 
+    margin-bottom: 1em; }
 
   #articles-area {
     margin-top: 2em;
@@ -435,12 +436,16 @@
     float: none;
     left: 0;
     margin: 0;
-    padding: 0 15px 1.5em 15px;
+    padding: 0;
     min-width: 100%;
     width: 100%; }
 
-  #portal-column-two {
+  .frontpage #region-content, #portal-column-two {
     padding: 0; }
+
+  #portal-column-two {
+    margin-top: 1em;
+  }
 
   .navbar-collapse {
     width: 100%; }
@@ -451,6 +456,7 @@
   #article-language {
     margin-top: 0;
     margin-bottom: 7px;
+    right: 0;
     position: relative; }
 
   #portal-colophon .colophonWrapper, .colophon-middle {
@@ -476,6 +482,9 @@
   .template-soer2015_frontpage .eea-icon:before {
     margin: 0 .2em; }
 
+  .template-soer2015_frontpage  #portlet-followus {
+        margin: 2em;
+    }
   #portlet-followus dd {
     padding-right: 0.7em; } }
 @media screen and (width: 768px) {
@@ -559,6 +568,7 @@
       padding: 0 !important; }
 
   .template-soer2015_frontpage .column-area {
+    padding-left: 0;
     width: 61%; }
   .template-soer2015_frontpage .right-column-area {
     width: 39%; }
@@ -618,6 +628,12 @@
   max-width: 100%; }
 .fullwidth #portal-columns {
   min-width: 100%; }
+
+@media screen and (min-width: 1024px) {
+    #region-content {
+        margin: 0 -1.5em;
+    }
+}
 
 @media screen and (min-width: 1025px) {
   .fullwidth #portal-header,

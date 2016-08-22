@@ -23,6 +23,7 @@ div.width-3\3A 4 { width: 58.5%; }
 .frontpage .width-full,
 .frontpage #region-content {
     background-color: transparent;
+    padding: 0;
 }
 div.position-1\3A 4 { margin-left: -79.875%; }
 div.width-1\3A 4 { width: 35.5%; } /* .width-1:4 */
@@ -137,10 +138,6 @@ div.position-0 { margin-left: -100%; }
 
 #tag-cloud .portletFooter {
     margin: 0 1em 1em 0;
-}
-
-.tags-cloud {
-    padding: 0.5em 1em !important;
 }
 
 /* Style for faceted used in section-publications */
@@ -665,6 +662,10 @@ input.standalone:hover {
 .template-dc_view .column-area {
     padding: 1.5em;
     background-color: &dtml-lightBackgroundColor;;
+}
+
+.template-dc_view .content-header {
+    width: 100%;
 }
 
 /* 71710 dc_view transformations in order to have right-column area act like portal-column-two */
