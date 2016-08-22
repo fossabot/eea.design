@@ -2,12 +2,9 @@
 jQuery(document).ready(function($) {
     'use strict';
     var $viewlet_below_content = $("#viewlet-below-content");
-    var $content = $("#ccontent");
+    var $content = $("#content");
     var $column_area = $(".column-area");
 
-    // #71710 viewlet-below-content within region-content
-    // in order to integrate below content section within content
-    $("#viewlet-below-content").appendTo('#region-content');
     // #71710 move related and socialmedia inside
     // faceted center area
     var $center_bottom_area = $("#center-bottom-area");
@@ -20,6 +17,7 @@ jQuery(document).ready(function($) {
           context.appendTo(target);
       }
     };
+
     appendTo($related_items, $column_area);
     appendTo($socialmedia, $column_area);
     appendTo($viewlet_below_content, $content);
