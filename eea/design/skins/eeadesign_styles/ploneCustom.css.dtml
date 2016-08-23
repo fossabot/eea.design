@@ -885,7 +885,6 @@ a.moreLink {
 }
 
 #tip-siteaction-search-menu {
-    width: 360px;
     right: 0;
     left: inherit !important;
 }
@@ -972,7 +971,7 @@ a.moreLink {
 .panel #portal-searchbox {
     float: none;
     clear: both;
-    margin: 2em 1em;
+    margin: 1em 1em 2em 1em;
 }
 
 #portal-searchbox a {

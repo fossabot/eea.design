@@ -33,6 +33,7 @@ jQuery(document).ready(function($) {
             };
             make_siteaction_panel($search, $parent, 'tip-siteaction-search-menu');
             make_siteaction_panel($popup_login, $parent, 'tip-siteaction-login-menu', true);
+            make_siteaction_panel($("#portal-personaltools"), $parent, 'tip-siteaction-user-menu', true);
 
             $portal_header.addClass("eea-miniheader-element");
             $ptools.addClass("eea-miniheader-element");

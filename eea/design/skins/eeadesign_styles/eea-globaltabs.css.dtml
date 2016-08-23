@@ -47,7 +47,7 @@
     background: transparent;
     color: white;
     display: inline-block;
-    padding: 1em 0.8em;
+    padding: 0.8em;
     border: 0;
     min-width: 0;
     font-weight:bold;
@@ -145,7 +145,7 @@
 }
 
 #portal-globalnav #portaltab-eeahome a {
-    padding: 0.8em;
+    padding: 0.5em 0.8em;
 }
 
 #secondary-portaltabs #portaltab-europe a {
