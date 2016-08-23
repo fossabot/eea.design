@@ -4,19 +4,6 @@
     <action-provider name="portal_actions"/>
     <object name="site_actions" meta_type="CMF Action Category">
         <property name="title"></property>
-        <object name="networks" meta_type="CMF Action">
-            <property name="title">Networks</property>
-            <property name="description"></property>
-            <property name="url_expr"></property>
-            <property name="link_target"></property>
-            <property name="icon_expr">string:eea-icon eea-icon-code-fork</property>
-            <property
-                name="available_expr">python:context.restrictedTraverse('@@miniheader_content_types')()</property>
-            <property name="permissions">
-                <element value="View"/>
-            </property>
-            <property name="visible">True</property>
-        </object>
         <object name="subscriptions" meta_type="CMF Action" i18n:domain="plone">
             <property name="title" i18n:translate="">Subscriptions</property>
             <property name="description" i18n:translate=""></property>
@@ -61,7 +48,7 @@
                 i18n:translate="">description is here</property>
             <property name="url_expr">string:$portal_url/chooselang</property>
             <property name="link_target"></property>
-            <property name="icon_expr">string:eea-icon  eea-icon-flag</property>
+            <property name="icon_expr">string:eea-icon eea-icon-global</property>
             <property name="available_expr"></property>
             <property name="permissions">
                 <element value="View"/>
@@ -88,6 +75,19 @@
                 name="url_expr">string:$portal_url/help/advanced-search</property>
             <property name="link_target"></property>
             <property name="icon_expr">string:eea-icon eea-icon-search</property>
+            <property
+                name="available_expr">python:context.restrictedTraverse('@@miniheader_content_types')()</property>
+            <property name="permissions">
+                <element value="View"/>
+            </property>
+            <property name="visible">True</property>
+        </object>
+        <object name="networks" meta_type="CMF Action">
+            <property name="title">Networks</property>
+            <property name="description"></property>
+            <property name="url_expr"></property>
+            <property name="link_target"></property>
+            <property name="icon_expr">string:eea-icon eea-icon-code-fork</property>
             <property
                 name="available_expr">python:context.restrictedTraverse('@@miniheader_content_types')()</property>
             <property name="permissions">
