@@ -49,6 +49,9 @@
     float: right;
     font-size: 110%;
 }
+.mini-header #portal-personaltools-wrapper {
+    visibility: hidden;
+}
 
 #portal-personaltools #user-name {
     background: transparent url(&dtml-portal_url;/user.gif) center left no-repeat;

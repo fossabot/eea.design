@@ -15,6 +15,9 @@
     font-size: 15px;
     width: 73%; }
 
+  .faceted-results {
+    padding: 0 0.5em 0 0.5em; }
+
   .eea-list-columns {
     padding: 0 1em 0 0.5em;
     float: none;
@@ -270,7 +273,7 @@
     height: auto; }
 
   #portal-searchbox {
-    background-color: #FFF;
+    background-color: #f3f3f3;
     margin-top: 0;
     text-align: left; }
     #portal-searchbox input[type="text"] {
@@ -318,7 +321,8 @@
   .right-column-area {
     float: none;
     width: 100%;
-    padding: 0 0 1em 0; }
+    padding: 0 0 1em 0;
+    margin-bottom: 1em; }
 
   #articles-area {
     margin-top: 2em;
@@ -431,9 +435,17 @@
   #portal-column-content, #portal-column-two {
     float: none;
     left: 0;
-    margin: 0 1% !important;
-    min-width: 98% !important;
-    width: 98% !important; }
+    margin: 0;
+    padding: 0 15px 1.5em 15px;
+    min-width: 100%;
+    width: 100%; }
+
+  .frontpage #region-content,
+  #portal-column-two {
+    padding: 0; }
+
+  #portal-column-two {
+    margin-top: 1em; }
 
   .navbar-collapse {
     width: 100%; }
@@ -444,7 +456,8 @@
   #article-language {
     margin-top: 0;
     margin-bottom: 7px;
-    position: relative; }
+    position: relative;
+    right: 0; }
 
   #portal-colophon .colophonWrapper, .colophon-middle {
     text-align: center; }
@@ -468,6 +481,8 @@
     padding: 10px; }
   .template-soer2015_frontpage .eea-icon:before {
     margin: 0 .2em; }
+  .template-soer2015_frontpage #portlet-followus {
+    margin: 2em; }
 
   #portlet-followus dd {
     padding-right: 0.7em; } }
@@ -523,7 +538,15 @@
 
   #header-holder .navbar.hideShadow {
     box-shadow: none;
-    border: 0; } }
+    border: 0; }
+
+  .template-dc_view .content-header {
+    width: 58.5%; }
+
+  .template-dc_view .right-column-area {
+    position: absolute;
+    right: 0;
+    top: 0; } }
 @media screen and (min-width: 768px) and (max-width: 800px) {
   .col-sm-6.bordered-left:before {
     left: -1%; }
@@ -531,9 +554,9 @@
   .mini-header #portal-header {
     height: 100%; }
 
-  .mini-header #portal-globalnav li a {
-    padding: 1.1em 0.5em;
-    font-size: small; }
+  .mini-header #portal-globalnav > li > a {
+    padding: 1.1em 0.5em !important;
+    font-size: 83%; }
 
   #portaltab-europe {
     padding-right: 95px;
@@ -544,6 +567,7 @@
       padding: 0 !important; }
 
   .template-soer2015_frontpage .column-area {
+    padding-left: 0;
     width: 61%; }
   .template-soer2015_frontpage .right-column-area {
     width: 39%; }
@@ -559,6 +583,22 @@
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   #portal-searchbox {
     margin: 25px 0.5em 0 0; } }
+@media screen and (min-width: 768px) {
+  .mini-header #secondary-portaltabs > li > a {
+    padding: 0.75em 1em !important;
+    height: 46px; }
+
+  .mini-header-expander {
+    height: 27px !important; }
+
+  .mini-header .siteaction-title {
+    display: none; }
+
+  #siteaction-networks-menu .siteaction-title {
+    display: inline-block; } }
+@media screen and (min-width: 769px) {
+  #portal-column-content {
+    padding: 0 1.5em 1.5em; } }
 @media screen and (min-width: 961px) {
   #visual-portal-wrapper, #portal-header {
     min-width: 995px;
@@ -604,16 +644,13 @@
 .fullwidth #portal-columns {
   min-width: 100%; }
 
+@media screen and (min-width: 1024px) {
+  #region-content {
+    margin: 0 -1.5em; } }
 @media screen and (min-width: 1025px) {
   .fullwidth #portal-header,
   .fullwidth #secondary-portaltabs {
     padding-right: 1em; } }
-@media screen and (min-width: 768px) and (max-width: 1439px) {
-  .mini-header .siteaction-title {
-    display: none; }
-
-  #siteaction-networks-menu .siteaction-title {
-    display: inline-block; } }
 /* </dtml-with> */
 
 /*# sourceMappingURL=eea-responsive.css.dtml.map */

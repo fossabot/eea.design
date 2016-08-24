@@ -878,15 +878,10 @@ a.moreLink {
 }
 /* 72862 tweak placement of globanav panels */
 #secondary-globanav-tips .panel {
-    top: 46px !important;
+    top: 44px !important;
 }
 #secondary-globanav-tips .panel-top {
     display: none;
-}
-
-#tip-siteaction-search-menu {
-    right: 0;
-    left: inherit !important;
 }
 
 .panel .portletFooter {
@@ -972,6 +967,7 @@ a.moreLink {
     float: none;
     clear: both;
     margin: 1em 1em 2em 1em;
+    width: 425px;
 }
 
 #portal-searchbox a {
