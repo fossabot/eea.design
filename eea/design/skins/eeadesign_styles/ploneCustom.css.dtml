@@ -878,7 +878,7 @@ a.moreLink {
 }
 /* 72862 tweak placement of globanav panels */
 #secondary-globanav-tips .panel {
-    top: 44px !important;
+    top: 46px !important;
 }
 #secondary-globanav-tips .panel-top {
     display: none;

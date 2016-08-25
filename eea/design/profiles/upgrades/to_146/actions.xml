@@ -48,7 +48,7 @@
                 i18n:translate="">description is here</property>
             <property name="url_expr">string:$portal_url/chooselang</property>
             <property name="link_target"></property>
-            <property name="icon_expr">string:eea-icon eea-icon-global</property>
+            <property name="icon_expr">string:eea-icon eea-icon-globe</property>
             <property name="available_expr"></property>
             <property name="permissions">
                 <element value="View"/>
