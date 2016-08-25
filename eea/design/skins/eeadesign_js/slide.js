@@ -74,7 +74,7 @@
                         var pos = $this.offset();
                         var eWidth = $this.outerWidth();
                         var mWidth = $tooltip.outerWidth();
-                        var left = window.Math.floor((pos.left + eWidth - mWidth)) + 1 + "px";
+                        var left = window.Math.ceil((pos.left + eWidth - mWidth))  + "px";
                         if (tooltip.style.left !== left) {
                             tooltip.style.left = left;
                         }
