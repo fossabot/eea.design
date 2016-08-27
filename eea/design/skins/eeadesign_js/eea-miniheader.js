@@ -48,8 +48,12 @@ EEA.MiniHeader.prototype = {
     triggerTransition: function(ev_name) {
         var self = this;
         var event_name = ev_name || 'eea-miniheader-toggled';
+        var count = 0;
         self.$el[self.settings.transition](self.settings.transition_for, function() {
-            self.$context.trigger(event_name, self);
+            count += 1;
+            if (count === 1) {
+                self.$context.trigger(event_name, self);
+            }
         });
 
     }

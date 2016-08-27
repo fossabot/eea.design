@@ -892,7 +892,6 @@ a.moreLink {
     color: black;
     clear: both;
     padding: 10px;
-    border: 1px solid #BABBB8;
 }
 
 #tip-article-language {

@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
         $code_diff.click();
     }
     var $popup_login = $("#popup_login_form");
-
+    
     // // 72862 mini header
     var $mini_header = $(".mini-header");
     if ($mini_header.length) {
@@ -18,6 +18,12 @@ jQuery(document).ready(function($) {
             var $ptools = $("#portal-personaltools-wrapper");
             var $search = $("#portal-searchbox");
             var $parent = $("#secondary-globanav-tips");
+
+            $("body").on('eea-miniheader-toggled', function(ev) {
+                // hide globalnav current triangle when we have the 
+                // network section open
+                $(".eea-nav-current").toggleClass('eea-nav-inactive');
+            });
             // add any cross_site_top panels as siteaction panels
             var make_siteaction_panel = function($content, $parent, panel_id, use_only_children) {
                 var $panel = $("<div class='panel' id='" + panel_id + "'>" +

@@ -10,7 +10,7 @@
                 <tal:block tal:condition="python:not language or language == 'en'">
                     <li tal:define="tid tab/id"
                      tal:attributes="id string:portaltab-${tid};
-                                     class python:selected_tab==tid and 'current' or 'plain';">
+                                     class python:selected_tab==tid and 'eea-nav-current' or 'plain';">
                      <a href=""
                        tal:content="tab/name"
                        tal:attributes="href tab/url;
@@ -29,7 +29,7 @@
                                       searchPath python:'/www/SITE' + tab_url;
                                       results python:portal.queryCatalog({'Language':'en', 'path':searchPath, 'id':url_id});
                                       class_icon python:results and 'en_icon' or '';
-                                      class_selected python:selected_tab==tid and 'current' or 'plain';"
+                                      class_selected python:selected_tab==tid and 'eea-nav-current' or 'plain';"
                        tal:attributes="id string:portaltab-${tid};
                                        class python:' '.join([class_selected,class_icon])">
                        <a href=""

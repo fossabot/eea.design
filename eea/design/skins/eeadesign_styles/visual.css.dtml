@@ -554,7 +554,11 @@ span.figure-left {
     left: 0;
     z-index: -1;
     background: #FFF;
-    transform: perspective(1px) rotateX(-1deg);
+    -webkit-transform: perspective(1px) rotateX(-1deg);
+       -moz-transform: perspective(1px) rotateX(-1deg);
+        -ms-transform: perspective(1px) rotateX(-1deg);
+         -o-transform: perspective(1px) rotateX(-1deg);
+            transform: perspective(1px) rotateX(-1deg);
     border-radius: 0 0 10px 10px;
 }
 

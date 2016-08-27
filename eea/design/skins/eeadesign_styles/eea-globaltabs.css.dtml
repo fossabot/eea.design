@@ -165,8 +165,17 @@
 #portal-globalnav li{
     position: relative;
 }
+
+/* 72862_mini_header hide eea-nav-current navigation arrow
+*  when we have the mini header as we have the expanding
+*  network panel
+*/
+.mini-header #portal-globalnav .eea-nav-inactive a:after {
+    display: none;
+}
 #portal-globalnav a:hover:after,
-#portal-globalnav .current a:after {
+#portal-globalnav .eea-nav-current a:after,
+.mini-header #portal-globalnav .eea-nav-current a:hover:after {
     top: 0;
     left: 50%;
     content: " ";
@@ -177,6 +186,7 @@
     border: 10px solid transparent;
     border-top-color: #fff;
     margin-left: -10px;
+    display: block;
 }
 
 #portaltab-eeahome a:hover:after,
