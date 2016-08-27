@@ -19,7 +19,7 @@
     clear: both;
     display: block;
     font-size: 120%;
-    height: 49px;
+    height: 51px;
     list-style: none;
     margin: 0 auto;
     max-width: 1024px;
@@ -145,7 +145,7 @@
 }
 
 #portal-globalnav #portaltab-eeahome a {
-    padding: 0.5em 0.8em;
+    padding: 0.6em 0.8em;
 }
 
 #secondary-portaltabs #portaltab-europe a {

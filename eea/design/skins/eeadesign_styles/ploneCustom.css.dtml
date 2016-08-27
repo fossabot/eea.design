@@ -966,7 +966,7 @@ a.moreLink {
     float: none;
     clear: both;
     margin: 1em 1em 2em 1em;
-    width: 425px;
+    width: 400px;
 }
 
 #portal-searchbox a {

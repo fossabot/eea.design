@@ -508,6 +508,9 @@
   #portal-searchbox .eea-icon {
     margin-right: -2em; }
 
+  .mini-header #portal-searchbox .searchSection {
+    display: none; }
+
   .navbar-toggle {
     display: none; }
 
