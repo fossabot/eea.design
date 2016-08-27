@@ -793,6 +793,7 @@ a.moreLink {
 }
 #header-holder .navbar {
     box-shadow: 0 1px 10px #005078;
+    background-color: #FFF;
     border: 0;
     margin-bottom: 17px;
 }
@@ -815,6 +816,9 @@ a.moreLink {
     margin: 0 auto;
     overflow: hidden;
     height: 90px;
+}
+.mini-header #portal-header {
+    height: 100%;
 }
 
 #printLogo {
@@ -965,8 +969,9 @@ a.moreLink {
 .panel #portal-searchbox {
     float: none;
     clear: both;
-    margin: 1em 1em 2em 1em;
+    margin: 1em;
     width: 400px;
+    overflow: hidden;
 }
 
 #portal-searchbox a {

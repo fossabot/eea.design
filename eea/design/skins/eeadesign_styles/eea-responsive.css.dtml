@@ -127,7 +127,6 @@
     display: none !important; }
 
   #header-holder .navbar-default {
-    background-color: #FFF;
     will-change: transform; }
   #header-holder .navbar-collapse {
     background-color: #006699; }
@@ -189,8 +188,13 @@
       padding: 0; }
   #secondary-portaltabs .pane, #secondary-portaltabs .portlet {
     background-color: #FFF; }
-  #secondary-portaltabs > li {
+
+  #secondary-portaltabs .eea-siteaction {
     display: none !important; }
+
+  #siteaction-user,
+  #siteaction-search {
+    display: none; }
 
   #portaltab-europe {
     margin-top: 1em;

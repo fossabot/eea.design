@@ -52,7 +52,7 @@ jQuery(document).ready(function($) {
             $("body").on('eea-miniheader-hide', function(ev, el){
                 $cross_site_top.hide();
                 $(".portal-logo").hide();
-                $search.remove();
+                $search.hide();
                 $ptools.hide();
                 if (!$portal_header.find('.networkSites').length) {
                     $(".networkSites").eq(0).clone().prependTo($portal_header);
