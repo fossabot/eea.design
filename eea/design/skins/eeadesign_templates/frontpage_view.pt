@@ -57,7 +57,8 @@
                                         <li><a href="/themes/biodiversity" i18n:translate="">Biodiversity — Ecosystems</a></li>
                                         <li><a href="/themes/landuse" i18n:translate="">Land use</a></li>
                                         <li><a href="/themes/soil" i18n:translate="">Soil</a></li>
-                                        <li><a href="/themes/water" i18n:translate="">Water and marine</a></li>
+                                        <li><a href="/themes/water" i18n:translate="">Water</a></li>
+                                        <li><a href="/themes/coast_sea" i18n:translate="">Marine</a></li>
                                     </ul>
                                 </dd>
                             </dl>
@@ -70,7 +71,7 @@
                                         Sustainability and well-being
                                     </div>
                                     <ul class="">
-                                        <li><a href="/themes/waste" i18n:translate="">Resource efficiency and waste</a></li>
+                                         <li><a href="/themes/waste" i18n:translate="">Waste and material resources</a></li>
                                         <li><a href="/themes/human" i18n:translate="">Environment and health</a></li>
                                         <li><a href="/themes/policy" i18n:translate="">Policy instruments</a></li>
                                         <li><a href="/themes/noise" i18n:translate="">Noise</a></li>
@@ -176,6 +177,15 @@
                                     <span metal:fill-slot="box_title" i18n:translate="">Featured article</span>
                                 </div>
                             </tal:featured_article>
+
+                            <!-- promotions_gallery_slideshow-->
+                            <metal:promotions tal:define="frontpage python: False; 
+                                            promo_view frontpage_view;">
+                                    <div metal:use-macro="here/portlet_promo_gallery/macros/portlet">
+                                        promoted item
+                                    </div>
+                            </metal:promotions>   
+                            <!-- end promotions_gallery_slideshow -->
 
                             <tal:spotlight tal:define="highlights frontpage_view/getSpotlight;">
                                 <div metal:use-macro="here/frontpage_macros/macros/featured-item">
