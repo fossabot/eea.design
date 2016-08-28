@@ -131,6 +131,7 @@ jQuery(document).ready(function($) {
         $(window).resize(_.debounce(function() {
             var $tabs = $('.eea-tabs').not($notransform);
             var tabs_found = $tabs.length;
+            $(window).trigger('eea_debounced_resize');
             if ($buttonnavbar.css('display') !== 'none') {
                 if (tabs_found) {
                     $tabs.each(function(idx, tab) {
