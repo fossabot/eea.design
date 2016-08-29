@@ -3,6 +3,9 @@ Changelog
 
 14.8.dev0 - (unreleased)
 ------------------------
+* Feature: added mini_header functionality which can be enabled per content type
+  from www/@@eea-miniheader-controlpanel
+  [ichim-david refs #72862]
 
 14.7 - (2016-08-17)
 -------------------
