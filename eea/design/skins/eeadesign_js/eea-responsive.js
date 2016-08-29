@@ -10,17 +10,22 @@ jQuery(document).ready(function($) {
     if (!window.EEA) {
         window.EEA = {};
     }
-    window.EEA.isPrintPdf = $('body').hasClass('body-print');
+    var $body = $('body');
+    window.EEA.isPrintPdf = $body.hasClass('body-print');
     var underscore = window._;
+    var $portal_siteactions = $("#portal-siteactions");
 
     var doc = document.documentElement;
     // #16878 move last two links of globalnav to a secondary container
     // #23500 we now have an extra list item (europe)
-    var $secondary_portaltabs = $('<ul id=\'secondary-portaltabs\'></ul>'),
-        global_nav = $('#portal-globalnav'),
-        $global_nav_children = global_nav.children();
-    if ($global_nav_children.length === 7) {
-        $global_nav_children.slice($global_nav_children.length - 3).wrapAll($secondary_portaltabs);
+    var $secondary_portaltabs = $('#secondary-portaltabs'),
+        $global_nav = $('#portal-globalnav'),
+        $global_nav_children = $global_nav.find('> li');
+    if (!$body.hasClass('mini-header')) {
+        $global_nav_children.slice($global_nav_children.length - 3).appendTo($secondary_portaltabs);
+    }
+    else {
+        $secondary_portaltabs.appendTo($global_nav);
     }
 
     //var $tabbed_menu = $(".tabbedmenu");
@@ -290,6 +295,22 @@ jQuery(document).ready(function($) {
         }
     }
 
+    // #72862 remove extra markup not needed when we are on mobile
+    var $mini_header = $(".mini-header");
+    if ($mini_header.length) {
+        (function () {
+            "use strict";
+            var $globalnav_tips = $("<div id='secondary-globanav-tips' />");
+                $globalnav_tips.appendTo($secondary_portaltabs);
+            $secondary_portaltabs.addClass('eea-slide-tooltips');
+            $portal_siteactions.find('li').each(function(idx, el) {
+                var $old_panel = $('#tip-' + el.id);
+                $old_panel.clone().attr('id', 'tip-' + el.id + '-menu').appendTo($globalnav_tips);
+
+            });
+        }());
+    }
+
     /* #27280 return only if we don't have a mobile resolution as well as a larger resolution */
     var mobile_desktop = false;
     var window_height = window.outerHeight || window.innerHeight;
@@ -297,10 +318,11 @@ jQuery(document).ready(function($) {
         window.innerWidth > 768 && window_height < 601) {
         mobile_desktop = true;
     }
-    window.mobile_desktop_browser_resolution = mobile_desktop;
+    window.eea_mobile_desktop_browser_resolution = mobile_desktop;
     if (window_height >= 600 && window.innerWidth > 767 && !mobile_desktop) {
         return;
     }
+    window.eea_mobile_resolution = true;
 
 
     // adjust navigation height when switching between orientation modes
@@ -331,7 +353,7 @@ jQuery(document).ready(function($) {
     // make accordion panels out of cross-site-top content
     var $holder = $('<div class=\'eea-accordion-panels collapsed-by-default non-exclusive\' />');
 
-    function turn_cross_panels_into_accordions($el) {
+    function turn_cross_panels_into_accordions($el, $holder) {
         var lists = $el.find('li');
         lists.each(function(idx, el) {
             var $acordion_panel = $('<div  />',
@@ -352,13 +374,21 @@ jQuery(document).ready(function($) {
         });
     }
     var $secondary_portaltabs_modified = $('#secondary-portaltabs');
+
+    if ($mini_header.length) {
+        (function () {
+            var $global_search = $portal_siteactions.find("#siteaction-search").detach();
+            var $global_network = $portal_siteactions.find("#siteaction-networks").detach();
+        }());
+    }
+
     if (!$secondary_portaltabs_modified.find('.eea-accordion-panels').length) {
         $holder.prependTo($secondary_portaltabs_modified);
         (function() {
             var $cross_site_top_panels = $('#portal-externalsites, #portal-siteactions');
             $cross_site_top_panels.each(function(idx, el) {
                 var $el = $(el);
-                turn_cross_panels_into_accordions($el);
+                turn_cross_panels_into_accordions($el, $holder);
             });
         })();
     }

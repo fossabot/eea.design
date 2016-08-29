@@ -54,8 +54,11 @@ jQuery(document).ready(function($) {
     };
     var $whatsnew_gallery = $("#whatsnew-gallery");
     $whatsnew_gallery.find(".eea-tabs").tabs($whatsnew_gallery.find(".eea-tabs-panel"), function(event, index) {
-        var cur_tab = this.getTabs()[index],
-            cur_tab_val = cur_tab.id.substr(4);
+        var cur_tab = this.getTabs()[index];
+        if (!cur_tab) {
+            return;
+        }
+        var cur_tab_val = cur_tab.id.substr(4);
         cur_tab.theme = cur_tab.theme || "";
         var opt_item,
             sel_value,

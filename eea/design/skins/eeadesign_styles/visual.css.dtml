@@ -514,6 +514,22 @@ span.figure-left {
     list-style: none none;
     margin: 1em 0;
 }
+.eea-no-list-style > li {
+    display: list-item;
+}
+
+.bordered-left {
+    position: relative;
+}
+.bordered-left:before {
+    border-left: 1px solid &dtml-mediumBackgroundColor;;
+    content: " ";
+    height: 100%;
+    width: 5px;
+    position: absolute;
+    top: 0;
+    left: -7%;
+}
 
 .byline-separator:before {
     white-space: pre;
@@ -522,5 +538,30 @@ span.figure-left {
 
 /* padding to daviz tooltip */
 .google-visualization-tooltip{ padding: 5px !important; }
+
+.mini-header-expander {
+    height: 30px;
+    line-height: 0;
+    position: relative;
+    z-index: 0;
+    color: #346f83 !important;
+    margin: 0 2em;
+}
+.mini-header-expander:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: #FFF;
+    -webkit-transform: perspective(1px) rotateX(-1deg);
+       -moz-transform: perspective(1px) rotateX(-1deg);
+        -ms-transform: perspective(1px) rotateX(-1deg);
+         -o-transform: perspective(1px) rotateX(-1deg);
+            transform: perspective(1px) rotateX(-1deg);
+    border-radius: 0 0 10px 10px;
+}
 
 /* </dtml-with> */

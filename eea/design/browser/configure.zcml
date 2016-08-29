@@ -31,6 +31,13 @@
         permission="zope.Public"
     />
 
+    <browser:page
+        class=".main.MiniHeaderContentTypes"
+        for="*"
+        name="miniheader_content_types"
+        permission="zope.Public"
+    />
+
     <browser:view
         for="*"
         name="contenthistory"
@@ -292,6 +299,14 @@
         layer=".interfaces.IEEACommonLayer"
         permission="zope2.View"
         />
+
+    <browser:page
+        name="cross_site_top"
+        for="*"
+        template="templates/cross_site_top.pt"
+        layer=".interfaces.IEEACommonLayer"
+        permission="zope2.View"
+    />
 
     <browser:page
         for="*"

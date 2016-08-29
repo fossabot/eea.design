@@ -1,11 +1,36 @@
 Changelog
 =========
 
-14.6.dev0 - (unreleased)
+14.8.dev0 - (unreleased)
 ------------------------
+* Feature: added mini_header functionality which can be enabled per content type
+  from www/@@eea-miniheader-controlpanel
+  [ichim-david refs #72862]
+
+14.7 - (2016-08-17)
+-------------------
+* Feature: New portlet for videos on the frontpage: portlet_promo_gallery added
+  to frontpage_view template.
+  [chiridra refs #74485]
+* Change: modified thematic listing on fronptage_view as requested in ticket
+  [ichim-david refs #75044]
+* Bug fix: show description of whatsnewgallery for each page that uses it
+  [ichim-david refs #74970]
+* Change: modified thematic listing on fronptage_view as requested in ticket
+  [ichim-david refs #74969]
+* Bug fix: fixed document-byline for manage-viewlets as we can't access IVersions
+  from this page
+  [ichim-david refs #74889]
+* Feature: close the popup login when you click outside; when it opens the focus is
+  now on the "Login Name"; when you are on the login page, if you click on the
+  "Login Name" the focus will be there
+  [catalin refs #73488]
+
+14.6 - (2016-08-03)
+-------------------
 * Change: added code from custom along with responsive design fixes for megatopics
   [ichim-david refs #72171]
-* FIX: screen media added to content-core object
+* Bug fix: screen media added to content-core object
   [lucas refs #73106]
 
 14.5 - (2016-07-07)
