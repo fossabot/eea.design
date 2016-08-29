@@ -33,7 +33,8 @@
                         acl_users nocall: context/acl_users;
                         ifacetool context/portal_interface;
                         isPrint python:1 if 'pdf.' in request['URL0'] else 0;
-                        wf_state context_state/workflow_state|string:;">
+                        wf_state context_state/workflow_state|string:;
+                        mini_header python:' mini-header' if context.restrictedTraverse('@@miniheader_content_types')() else False;">
 
 <tal:comment replace="nothing">xssDisable was added in order to fix the chrome issue from ticket #15231</tal:comment>
 
@@ -109,6 +110,7 @@
                   body_class python:plone_view.bodyClass(template, view);
                   body_class python: body_class + ' body-print' if isPrint else body_class;
                   body_class python: body_class + ' fullwidth' if context.restrictedTraverse('@@fullwidth_content_types')() else body_class;
+                  body_class python: body_class + mini_header if mini_header else body_class;
                   frontpage python: ' frontpage' if ('frontpage_view' or 'localfrontpage_view') in body_class else '';
                   sunburst_view python:context.restrictedTraverse('@@sunburstview')"
       tal:attributes="class python:body_class + ' ' + language + frontpage;

@@ -10,10 +10,14 @@
     }
 
     $(document).ready(function() {
+        var $mini_header = $('body').hasClass('mini-header');
         function panel() {
             var a = $(this);
             var buttonID = a.parent().attr('id');
-            var tooltip = $('#tip-' + buttonID);
+            if (!buttonID) {
+                return;
+            }
+            var $tooltip = $('#tip-' + buttonID);
 
             // 'Contact us' link should go to old translated page because the
             // pop up is hardcoded in english. #2954
@@ -24,13 +28,14 @@
             var networks_panel = buttonID === "externalsites-networks";
 
             var fordef;
-            if (tooltip.length > 0) {
+            if ($tooltip.length > 0) {
+                // if we don't remove title from links the title will be used for tooltip
+                // content instead of the constructed panels
                 a.attr("title", "").attr("href", "#");
-
                 fordef = 'click, blur';
                 a.tooltip({
-                    tip: tooltip[0],
-                    position: 'bottom center',
+                    tip: $tooltip[0],
+                    position:'bottom center',
                     offset: [0, 0],
                     delay: 10000000,
                     events: {
@@ -39,14 +44,14 @@
                 });
 
                 a.click(function(ev) {
+                    
                     ev.preventDefault();
-
-                    var parents = $('#cross-site-top, #content'),
-                        panels = parents.find('.panel');
-                    panels.each(function() {
+                    var $this = $(this), tooltip = $tooltip[0];
+                    var $panels = $('.panel');
+                    $panels.each(function() {
                         var $this = $(this);
                         var $id = $this.attr('id');
-                        if ($id !== "" && $id !== tooltip.attr('id')) {
+                        if ($id !== "" && $id !== $tooltip.attr('id')) {
                             $this.fadeOut('fast');
                         }
                     });
@@ -64,26 +69,36 @@
                     if (networks_panel) {
                         $("#tip-externalsites-networks").css('margin-left', '2em');
                     }
-
-                    tooltip.fadeIn('fast');
+                    // attempt to position the tooltip bottom right from target on mini_header
+                    if ($mini_header) {
+                        var pos = $this.offset();
+                        var eWidth = $this.outerWidth();
+                        var mWidth = $tooltip.outerWidth();
+                        var left = window.Math.ceil((pos.left + eWidth - mWidth))  + "px";
+                        if (tooltip.style.left !== left) {
+                            tooltip.style.left = left;
+                        }
+                    }
+                    $tooltip.fadeIn('fast');
                 });
             }
         }
 
 
-        var parents = $('#cross-site-top, #content'),
-            panels = parents.find('.panel').filter(function(){ return this.id !== ""; });
+        var $panels = $('.panel').filter(function(){ return this.id !== ""; });
 
-        $(document).click(function(e) {
-            var target = $(e.target);
-            if (!target.is('#cross-site-top a,  #cross-site-top .panel, #article-language a') && !target.parents('.panel').length) {
-                panels.fadeOut('fast');
+        $("#portal-columns, #portal-header").click(function() {
+            if ($panels.is(':visible')) {
+                $panels.fadeOut('fast');
+                $(".eea-navsiteactions-active").removeClass("eea-navsiteactions-active");
             }
         });
 
-        $("#portal-siteactions").find("a").each(panel);
-        $("#portal-externalsites").find("a").each(panel);
-        $("#article-language").find('a').each(panel);
-        $("#tip-externalsites-networks").find(".externalsites a").each(panel);
+        $("#portal-siteactions").addClass('eea-slide-tooltips');
+        $("#portal-externalsites").addClass('eea-slide-tooltips');
+        $("#article-language").addClass('eea-slide-tooltips');
+        $(".externalsites").addClass('eea-slide-tooltips');
+        $("#tip-externalsites-networks").addClass('eea-slide-tooltips');
+        $(".eea-slide-tooltips").find('a').each(panel);
     });
 }(jQuery));

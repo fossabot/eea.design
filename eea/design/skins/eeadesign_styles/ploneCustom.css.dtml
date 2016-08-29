@@ -793,6 +793,7 @@ a.moreLink {
 }
 #header-holder .navbar {
     box-shadow: 0 1px 10px #005078;
+    background-color: #FFF;
     border: 0;
     margin-bottom: 17px;
 }
@@ -815,6 +816,9 @@ a.moreLink {
     margin: 0 auto;
     overflow: hidden;
     height: 90px;
+}
+.mini-header #portal-header {
+    height: 100%;
 }
 
 #printLogo {
@@ -867,6 +871,7 @@ a.moreLink {
     border: 0;
 }
 
+
 .panel-top {
     margin: auto auto;
     background: transparent url(&dtml-portal_url;/panel_arrow.png);
@@ -874,6 +879,13 @@ a.moreLink {
     height: 25px;
     position: relative;
     top: 2px;
+}
+/* 72862 tweak placement of globanav panels */
+#secondary-globanav-tips .panel {
+    top: 46px !important;
+}
+#secondary-globanav-tips .panel-top {
+    display: none;
 }
 
 .panel .portletFooter {
@@ -884,7 +896,6 @@ a.moreLink {
     color: black;
     clear: both;
     padding: 10px;
-    border: 1px solid #BABBB8;
 }
 
 #tip-article-language {
@@ -914,12 +925,23 @@ a.moreLink {
     background: transparent;
 }
 
-#tip-siteaction-chooselang li {
-    display: list-item;
+#tip-siteaction-chooselang,
+#tip-siteaction-chooselang-menu {
+    width: 145px;
 }
-
-#tip-siteaction-contactus {
+#tip-siteaction-chooselang li,
+#tip-siteaction-chooselang-menu li {
+    display: list-item;
+    margin: 0;
+}
+#tip-siteaction-subscriptions,
+#tip-siteaction-subscriptions-menu {
+    width: 240px;
+}
+#tip-siteaction-contactus,
+#tip-siteaction-contactus-menu {
     font-size: 125%;
+    width: 420px;
 }
 
 #tip-externalsites-networks, #tip-externalsites-etcssites {
@@ -943,6 +965,13 @@ a.moreLink {
     margin: 25px 0 0 0;
     text-align: right;
     font-size: 1.2em;
+}
+.panel #portal-searchbox {
+    float: none;
+    clear: both;
+    margin: 1em;
+    width: 400px;
+    overflow: hidden;
 }
 
 #portal-searchbox a {
@@ -982,7 +1011,7 @@ a.moreLink {
 
 #searchbox_terminology input[type="text"],
 .searchField {
-    width: 286px;
+    width: 80%;
 }
 
 #searchbox_terminology input:focus,
@@ -1020,19 +1049,14 @@ a.moreLink {
     padding: 0 10px 0 0;
     clear: none;
 }
+#portal-siteactions > #siteaction-networks, #portal-siteactions > #siteaction-search {
+    display: none;
+}
 
 /* use font awesome unicode icons */
 /* daviz -edit sets eea-icon color to #000 */
 #portal-siteactions #siteaction-chooselang .eea-icon {
     color: #FFF;
-}
-/* big specificity because we remove icon within mobile view */
-#portal-siteactions #siteaction-chooselang .eea-icon:before {
-    content: "&dtml-eea-icon-flag-o;";
-}
-
-#siteaction-login .eea-icon:before {
-    content: "&dtml-eea-icon-sign-in;";
 }
 
 #portal-externalsites {

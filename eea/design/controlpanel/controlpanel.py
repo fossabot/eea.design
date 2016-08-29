@@ -146,3 +146,56 @@ class DocumentByLinePrefsForm(ControlPanelForm):
     label = _(u'Document by line settings')
     description = _(u'Select which content type must show in documentbyline')
     form_name = _(u'')
+
+
+class IMiniHeaderForm(Interface):
+    """ Mini header form """
+
+    mini_header_for = schema.List(
+        title=_(u'Portal types to enable mini header for'),
+        description=_(
+            u'header is displayed for the following portal types'),
+        missing_value=tuple(),
+        value_type=schema.Choice(
+            vocabulary="plone.app.vocabularies.ReallyUserFriendlyTypes"
+        ),
+        required=True
+    )
+
+
+class MiniHeaderForm(ControlPanelForm):
+    """ Mini header form """
+
+    implements(IMiniHeaderForm)
+    form_fields = form.FormFields(IMiniHeaderForm)
+
+    label = _(u'Mini header settings')
+    description = _(u'Select which contenttype will implement the mini header')
+    form_name = _(u'')
+
+
+class MiniHeaderControlPanelAdapter(SchemaAdapterBase):
+    """ Control Panel adapter """
+
+    adapts(IPloneSiteRoot)
+    implements(IMiniHeaderForm)
+
+    def __init__(self, context):
+        super(MiniHeaderControlPanelAdapter, self).__init__(context)
+        pprop = getUtility(IPropertiesTool)
+        self.site_props = getattr(pprop, 'site_properties', None)
+        self.context = context
+
+    def get_mini_header_for(self):
+        """ get metatypes_showpubdate from site_props """
+        return self.site_props.getProperty('mini_header_for', ())
+
+    def set_mini_header_for(self, types):
+        """ set allowed_types to site_props """
+        if not self.get_mini_header_for():
+            self.site_props.manage_addProperty('mini_header_for', types, type='lines')
+        else:
+            self.site_props.mini_header_for = tuple(types)
+
+    mini_header_for = property(
+        get_mini_header_for, set_mini_header_for)
