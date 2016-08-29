@@ -3,6 +3,11 @@ Changelog
 
 14.8.dev0 - (unreleased)
 ------------------------
+* Upgrade step: remove base_properties from custom or add padding-base key with
+  1.5em value
+  [ichim-david refs #71710]
+* Feature: added soer colors on all site sections
+  [ichim-david refs #71710]
 * Feature: added mini_header functionality which can be enabled per content type
   from www/@@eea-miniheader-controlpanel
   [ichim-david refs #72862]
