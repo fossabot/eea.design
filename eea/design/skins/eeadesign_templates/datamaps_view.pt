@@ -9,7 +9,7 @@
     </head>
     <body>
 
-    <div metal:fill-slot="content-core">
+    <div metal:fill-slot="main">
         <tal:main-macro metal:define-macro="main">
             <div id="highlights-block" 
                  tal:define="global datamaps_view context/@@data_and_maps_logic;">
@@ -65,23 +65,10 @@
 
                         <!-- end community divs -->
 
-                        <div class="portletFooter">
-
-                        </div>
                     </div>
 
                     <div id="highlights-area" class="column-area">
-                    <!-- h2 i18n:translate="">Highlights</h2 -->
-                    <!-- promotions_gallery_slideshow-->
-                    <!-- metal:promotions
-                        tal:define="frontpage python: True;
-                                    promo_view datamaps_view;
-                                    show_description python:False;">
-                            <div metal:use-macro="here/portlet_promo_gallery/macros/portlet">
-                                promoted item
-                            </div>
-                    </metal:promotions -->
-                    <!-- end promotions_gallery_slideshow -->
+                    <h1 class="documentFirstHeading">Data and maps</h1>
 
                     <!-- data and maps global search -->
                     <a href="find/global"
@@ -89,8 +76,8 @@
                        title="Go to advanced search"
                        i18n:attributes="title">
                     <span i18n:translate="">Advanced</span></a>
-                    <div class="featured visualNoPrint">
-                       <h2 i18n:translate="">Search data products</h2>
+                    <div class="visualNoPrint faceted-search">
+                       <h2 i18n:translate="" class="highlighs-title">Search data products</h2>
                        <form tal:attributes="action string:${here/absolute_url}/find/global"  method="get" id="faceted-text-search" class="searchforms 
 faceted-external-search">
                    <input type="text" name="c12" title="Search data, maps, graphs" i18n:attributes="title" value="" />
@@ -104,17 +91,16 @@ faceted-external-search">
                     </div>
 
                         <!-- tabs -->
-                        <div metal:define-macro="whatsnew-gallery"
+                        <tal:whatsnew metal:define-macro="whatsnew-gallery"
                                 tal:define="getProducts context/portal_properties/frontpage_properties/getDataProducts;
                                             frontpage_view context/@@data_and_maps_logic;
                                             more_hrefs more_hrefs|python:{};
-                                            datapage string:datamaps;"
-                                tal:attributes="id string:whatsnew-gallery; data-page string:${datapage}">
+                                            datapage string:datamaps;">
                             <div metal:use-macro="here/frontpage_view/macros/whatsnew-gallery">
                                 whatsnew gallery
                             </div>
 
-                        </div>
+                        </tal:whatsnew>
                     </div>
                     <div class="visualClear"><!-- &nbsp; --></div>
                 </div>

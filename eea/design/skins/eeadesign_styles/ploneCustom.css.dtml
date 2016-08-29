@@ -17,15 +17,24 @@
 
 /* columns.css slider-definitions modification */
 
-div.width-3\3a 4 { width:    58.5%;  }
-div.position-1\3a 4 {margin-left:    -79.875%;}
-div.width-1\3a 4 { width: 36%;    } /* .width-1:4 */
+div.width-3\3A 4 { width: 58.5%; }
+.template-datamaps_view #region-content,
+.template-dc_view #region-content,
+.frontpage .width-full,
+.frontpage #region-content {
+    background-color: transparent;
+    padding: 0;
+}
+div.position-1\3A 4 { margin-left: -79.875%; }
+div.width-1\3A 4 { width: 35.5%; } /* .width-1:4 */
 
 /* #16661 fallback to original width value for tinymce popups */
-#plonebrowser .width-1\3a 4 { width:    22.75%; } /* .width-1:4 */
-div.width-1\3a 2 { width:    52.25%; } /* .width-1:2 */
+#plonebrowser .width-1\3a 4 { width: 22.75%; } /* .width-1:4 */
+div.width-1\3a 2 { width: 52.25%; } /* .width-1:2 */
+div.width-full { width: 100%; }
 
-div.position-3\3a 4 {margin-left: -36.5%;}
+div.position-3\3a 4 { margin-left: -35.5%; }
+div.position-0 { margin-left: -100%; }
 /* @end columns.css slider-definitions modification */
 
 /* remove borders on image gallery from eea.jquery */
@@ -37,6 +46,9 @@ div.position-3\3a 4 {margin-left: -36.5%;}
 /*
 ** demarant: Specific faceted navigation style for certain site sections
 */
+.faceted-textwidget-place-all, .faceted-textwidget-place-current {
+    margin-top: 1em; /* give search inputs some top margin making them easier to touch */
+}
 
 .ui-widget {
     font-family: &dtml-fontFamily;;
@@ -46,43 +58,56 @@ div.position-3\3a 4 {margin-left: -36.5%;}
     font-size: 12px;
     padding: 3px;
 }
-
+#faceted-portal-status-message {
+    width: 75% !important; /* 80% default is too large for our buttons which end up collapsed with default value */
+}
 #faceted-form .faceted-widget {
-    margin: 0 0 1em 0;
     padding-bottom: 0.5em;
 }
 
-#faceted-form #center-content-area {
-    padding: 0 0.5em 0 0.5em;
+#faceted-right-column .faceted-widget {
+    margin-bottom: 1em;
 }
+
 
 #faceted-form .faceted-widget fieldset {
     border-style: none !important;
+    margin: 0;
+    padding: 0;
 }
 
-#faceted-form .faceted-widget {
+#faceted-form .faceted-widget,
+#faceted-edit-widgets {
     background-color: &dtml-lightBackgroundColor;;
     overflow: hidden;
 }
 
-.faceted-text-widget div {
-    margin-top: 1em;
+/* 71710 faceted title widget fixes */
+.faceted-widget fieldset {
+    margin: 1em;
+}
+.faceted-widget .ui-widget-header {
+    margin: -1em -1em 1em -1em;
+}
+
+.faceted-portlet-widget .ui-widget-header {
+    margin: -1em -1em 0;
 }
 
 #faceted-form .widget-fieldset legend {
     background-color: &dtml-corporateGreen;;
     color: #ffffff;
     padding: 5px 10px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     font-weight: normal;
-    text-shadow: 1px 1px 1px #555555;
 }
 
 #faceted-form .widget-fieldset form,
 #faceted-form .faceted-criteria-hide-show,
 #faceted-form .faceted-criteria-reset {
     padding-top: 1em;
+    overflow: hidden;
 }
 
 .widget-fieldset ul li input {
@@ -115,12 +140,7 @@ div.position-3\3a 4 {margin-left: -36.5%;}
     margin: 0 1em 1em 0;
 }
 
-.tags-cloud {
-    padding: 0.5em 1em !important;
-}
-
 /* Style for faceted used in section-publications */
-
 .faceted_letter_selected {
     background: transparent !important;
     font-weight: bold;
@@ -168,14 +188,25 @@ div.position-3\3a 4 {margin-left: -36.5%;}
     width: 50%;
 }
 
-.faceted-top-widgets .faceted-widget .widget-fieldset form input[type="text"],
-.faceted-center-widgets .faceted-widget .widget-fieldset form input[type="text"]{
+.faceted-widget input[type="text"] {
     min-width: 70%;
-    max-width: 77%;
+    max-width: 75.4%;
     font-size: 16px;
-    padding: 5px;
-    background: #FFFFFF;
+    padding: 6px;
+    background: &dtml-greyBackgroundColor;;
     display: inline-block;
+}
+
+.faceted-text-widget input[type="text"],
+.faceted-text-widget .searchButton {
+    display: block;
+    float: left;
+}
+.faceted-textwidget-place-all {
+    clear: left;
+}
+#faceted-form .ui-helper-reset {
+    margin: 0;
 }
 
 .faceted-top-widgets .faceted-widget .widget-fieldset form input[type="text"]:focus,
@@ -265,6 +296,7 @@ input.standalone {
 }
 
 
+
 #portal-columns input[type="submit"]:hover,
 .standardButton:hover,
 #content a.standardButton:hover,
@@ -299,6 +331,15 @@ input.standalone:hover {
 
 .faceted-results {
     padding: 0;
+}
+
+.faceted-results {
+    background-color: &dtml-lightBackgroundColor;;
+    padding: 0 1em 1em;
+    margin-bottom: 0;
+}
+.faceted-results .photoAlbumEntry {
+    width: 123px;
 }
 
 /* end of specific faceted navigation style */
@@ -340,9 +381,11 @@ input.standalone:hover {
     padding: 0 10px 0 0;
     margin: 0;
     font-size: 12px;
-    line-height: normal!important;
+    line-height: normal!important;;
     list-style: none none;
     background-color: &dtml-corporateBlue;;
+    border: 1px solid &dtml-mediumBackgroundColor;;
+    border-bottom: 0;
 }
 
 #whatsnew-gallery {
@@ -368,41 +411,53 @@ input.standalone:hover {
     text-decoration: none;
     white-space: nowrap;
     padding: 8px 8px;
+    position: relative;
 }
 #visual-portal-wrapper .eea-tabs.two-rows > li > a {
-    height: 40px;
+    height: 50px;
     white-space: normal;
     max-width: 195px;
+    position: relative;
 }
 
-#visual-portal-wrapper .eea-tabs > li > a:hover {
-    color: &dtml-corporateBlueTwo;;
-    text-decoration: none;
-    text-shadow: 1px 1px 1px #FFFFFF;
-    background-color: &dtml-greyBackgroundColor;;
+.eea-tabs .current:after,
+.eea-tabs a:hover:after {
+    top: 100%;
+    left: 50%;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border: 13px solid transparent;
+    border-top-color: #006699;
+    margin-left: -10px;
 }
-#visual-portal-wrapper .eea-tabs > li > .current,
-#visual-portal-wrapper .eea-tabs > li > .current:hover {
+#visual-portal-wrapper .eea-tabs > li > a:hover,
+#visual-portal-wrapper .eea-tabs > li > a:target {
+    text-decoration: none;
+    color: &dtml-lightBackgroundColor; !important;
+    background-color: transparent;
+}
+.eea-tabs > li > .current,
+.eea-tabs > li > .current:hover {
     cursor: default;
-    color: &dtml-corporateBlueTwo;;
+    color: &dtml-lightBackgroundColor;;
     text-decoration: none;
-    text-shadow: 1px 1px 1px #FFFFFF;
-    background-color: &dtml-greyBackgroundColor;;
 }
+
 
 /* Clear floated elements */
-#visual-portal-wrapper .eea-tabs:before,
-#visual-portal-wrapper .eea-tabs:after {
+.eea-tabs:before,
+.eea-tabs:after {
     display: table;
     content: " ";
 }
-#visual-portal-wrapper .eea-tabs:after {
+.eea-tabs:after {
     clear: both;
 }
 
 .eea-tabs-panel {
-    padding: 20px;
-    background-color: &dtml-greyBackgroundColor;;
     overflow: auto;
 }
 
@@ -420,24 +475,15 @@ input.standalone:hover {
 }
 
 .eea-tabs-panels {
-    border: 1px solid #DDD;
     border-top: 0;
-    background-color: &dtml-greyBackgroundColor;;
-    padding: 10px;
-}
-#whatsnew-gallery .eea-tabs-panels {
-    padding: 0;
+    background-color: &dtml-lightBackgroundColor;;
+    padding: &dtml-padding-base;;
 }
 
 .eea-accordion-panels {
     border: 1px solid #DDD;
     border-top: 0;
     padding: 10px;
-}
-
-/* TODO fix padding differences */
-#relatedItems .eea-tabs-panels {
-    padding: 1px;
 }
 
 /* eea accordion styles */
@@ -605,13 +651,51 @@ input.standalone:hover {
     display: none;
 }
 
-.documentContent {
-    padding: 0 0 2em 0;
+/*.width-full .content-header {
+    background-color: white;
+
+}*/
+
+/*.template-facetednavigation_view .content-header,*/
+/*.template-datamaps_view .content-header,*/
+.template-dc_view .content-header,
+.template-dc_view .column-area {
+    padding: 1.5em;
+    background-color: &dtml-lightBackgroundColor;;
 }
+
+.template-dc_view .content-header {
+    width: 100%;
+}
+
+/* 71710 dc_view transformations in order to have right-column area act like portal-column-two */
+.template-dc_view .content-header,
+.template-dc_view .column-area {
+    float: left;
+    padding-top: 0;
+}
+
+.template-dc_view .content-header {
+    padding-top: 1.5em;
+    padding-bottom: 0;
+}
+
+.frontpage .progressbar-viewlet,
+.template-datamaps_view .progressbar-viewlet,
+.template-dc_view .progressbar-viewlet {
+    display: none;
+}
+
+#socialmedia-viewlet {
+    margin-bottom: 1em;
+}
+#socialmedia-viewlet ul {
+    margin: 0;
+}
+
 #content-core {
     clear:both;
 }
-
 /* 70523 set callout to a base of 12px in order to normalize googlechart notes size  */
 #content .callout {
    font-size: 12px;
@@ -686,7 +770,7 @@ dl a:hover, dd a:hover, dt a:hover {
 
 /* used by datamaps_view set on SITE/data-and-maps */
 .shortcut-light {
-    background: transparent;
+    background: &dtml-lightBackgroundColor;;
     margin-bottom: 1em;
     text-align: center;
 }
@@ -710,10 +794,12 @@ dl a:hover, dd a:hover, dt a:hover {
 
 /* used by dc_view and portlet_datacenter_overview */
 #theme-datacentre {
-    background: transparent url('&dtml-portal_url;/sprite-eeaimages.png') no-repeat;
-    padding: 25px 0px 25px 66px;
+    padding: 15px 0 25px 70px;
     height: 56px;
-    background-position: -401px -469px;
+    background: transparent url('&dtml-portal_url;/sprite-eeaimages.png') no-repeat -401px -469px;
+    display: block;
+    line-height: 1.3;
+    border: 0;
 }
 /* /used by dc_view and portlet_datacenter_overview */
 
@@ -1103,6 +1189,12 @@ a.moreLink {
     padding: 0;
 }
 
+/*.template-facetednavigation_view #socialmedia-viewlet,*/
+/*.template-facetednavigation_view #relatedItems {*/
+    /*padding: 0 &dtml-padding-base; &dtml-padding-base;;*/
+    /*background-color: white;*/
+/*}*/
+
 .languageCodes {
     display: block;
 }
@@ -1116,11 +1208,19 @@ a.moreLink {
     background: url("&dtml-portal_url;/sprite-eeaimages.png") no-repeat scroll -430px -35px transparent;
     padding-left: 35px;
     position: absolute;
-    right: 0;
+    right: 1.5em;
 }
 
 .width-full #article-language {
     min-width: 180px;
+}
+.progressbar-viewlet {
+    border-radius: 0;
+    background-color: &dtml-lightBackgroundColor;;
+}
+
+.frontpage .progressbar-viewlet {
+    margin-bottom: 1em;
 }
 
 .documentByLine {
@@ -1157,6 +1257,11 @@ a.moreLink {
     clear: both;
 }
 
+.faceted-results .listingBar {
+    background-color: &dtml-lightBackgroundColor;;
+    margin-top: 0;
+}
+
 .listingBar .previous,
 .listingPrevious {
     text-align: left;
@@ -1176,6 +1281,11 @@ a.moreLink {
     border-bottom: &dtml-borderWidth; dotted &dtml-globalBorderColor;;
     padding-top: 0.5em;
 }
+
+/*.faceted-results .tileItem {*/
+    /*padding: &dtml-padding-base;;*/
+    /*background-color: &dtml-lightBackgroundColor;;*/
+/*}*/
 
 .tileHeadline {
     border: none;
@@ -1214,7 +1324,7 @@ a.moreLink {
 
 /* relatedItems */
 #relatedItems  {
-    margin-bottom: 2em;
+    margin: 0 0 0 0;
     clear: both;
     overflow: hidden;
 }
@@ -1377,8 +1487,8 @@ option.hiddenStructure {
 }
 
 /* portal-column styles */
-#portal-column-content  {
-    min-width: 600px;
+#portal-column-content {
+    min-width: 635px;
 }
 
 .visualPadding {
@@ -1389,7 +1499,6 @@ option.hiddenStructure {
 }
 
 #portal-column-two {
-    margin-top: 75px;
     min-width: 350px;
 }
 
@@ -1827,6 +1936,10 @@ body.template-login_form #content,
 /* EUNIS navigation proposal, see #16978 */
 
 @media screen {
+    /* #71710 add a margin for eunis tabbed menu needed after move to a colored background */
+    #portal-column-content .tabbedmenu {
+        margin-top: &dtml-padding-base;;
+    }
     .tabbedmenu ul {
         padding: 0 10px 0 0!important;
         margin: 0!important;
@@ -1859,7 +1972,7 @@ body.template-login_form #content,
         padding: 8px 8px;
     }
     .tabbedmenu.two-rows ul > li a {
-        height: 40px;
+        height: 50px;
         white-space: normal;
         max-width: 150px;
     }
@@ -1921,6 +2034,7 @@ div#original_chart_div {
 /* download.pdf download.epub export actions */
 #region-content .documentExportActions {
     float:right;
+    margin: 0 0 1em 1em;
 }
 #region-content .documentExportActions ul, .documentExportActions ul {
     list-style: none;

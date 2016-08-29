@@ -91,6 +91,12 @@ a:active { color: &dtml-linkActiveColor;; }
 }
 /* @end Site actions */
 
+/* @group Content Area */
+#region-content {
+    padding: 1.5em;
+    background-color: &dtml-lightBackgroundColor;;
+}
+/* @end Content Area */
 
 /* @group Image alignment classes */
 img.image-left,
@@ -157,7 +163,7 @@ span.languageCodes a.translated,
 }
 
 #featured-datasets dd {
-    margin: 0 0 0.5em 2em;
+    margin: 0 0 0.5em 0;
 }
 
 #featured-datasets {

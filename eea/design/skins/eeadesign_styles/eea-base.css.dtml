@@ -172,7 +172,7 @@ input {
     border: 1px solid &dtml-globalBorderColor;;
     color: &dtml-fontColor;;
     vertical-align: middle;
-
+    background-color: &dtml-greyBackgroundColor;;
 }
 
 /* #23500 disable webkit special button look in order to get the consistent button
@@ -197,7 +197,7 @@ select {
 
 #content {
     font-size: inherit;
-    margin: 1em 0em 2em 0em;
+    margin: 0;
 }
 
 .userrole-anonymous .documentFirstHeading {
@@ -361,7 +361,7 @@ dl.collapsedBlockCollapsible dt.collapsibleHeader {
 /* @group Search results page */
 fieldset#search-field {
     text-align: left;
-    margin-left: 1em;
+    margin-left: 0;
 }
 
 #rss-subscription {
@@ -428,8 +428,8 @@ dl.toc dd {
     background: white;
     max-height: 71px;
     height: 100%;
-    width: 128px;
-    margin-bottom: 0px;
+    width: 100%;
+    margin-bottom: 0;
     overflow: hidden;
     border: 0;
 }
@@ -441,8 +441,8 @@ a.video-fancybox .photoAlbumEntryWrapper {
 .photoAlbumEntry a {
     font-size: &dtml-fontSmallSize;;
     height: 128px;
-    width: 128px;
-    margin: 10px 0px;
+    width: 100%;
+    margin: 10px 0;
     overflow: hidden;
 }
 
@@ -454,6 +454,8 @@ a.video-fancybox .photoAlbumEntryWrapper {
     overflow: hidden;
     height: 3.2em;
     margin-top: 0.4em;
+    width: 100%;
+    padding: 0 5px;
     font-weight: bold;
 }
 /* our additional photoAlbumEntry styles */

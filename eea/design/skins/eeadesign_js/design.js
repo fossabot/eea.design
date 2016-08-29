@@ -1,6 +1,46 @@
 /*global jQuery window anchors document ga setTimeout*/
 jQuery(document).ready(function($) {
     'use strict';
+    var $viewlet_below_content = $("#viewlet-below-content");
+    var $content = $("#content");
+    var $column_area = $(".column-area");
+
+    // #71710 move related and socialmedia inside
+    // faceted center area
+    var $center_bottom_area = $("#center-bottom-area");
+    var $related_items = $("#relatedItems");
+    var $socialmedia = $("#socialmedia-viewlet");
+    $related_items.appendTo($column_area);
+    $socialmedia.appendTo($column_area);
+    var appendTo = function(context, target) {
+      if (context.length) {
+          context.appendTo(target);
+      }
+    };
+
+    appendTo($related_items, $column_area);
+    appendTo($socialmedia, $column_area);
+    appendTo($viewlet_below_content, $content);
+    appendTo($related_items, $center_bottom_area);
+    appendTo($socialmedia, $center_bottom_area);
+
+    // hide element if empty or has less than on equal to given
+    // child length
+    var hide_empty_container = function($el, child_count, $checked_el) {
+        var count = child_count || 0;
+        var $elem = $checked_el || $el;
+        var $children = $elem.children();
+        if ($children.length <= count) {
+            $el.hide();
+        }
+    };
+    hide_empty_container($("#plone-document-byline"), 1);
+    hide_empty_container($viewlet_below_content, 0);
+    var $whatsnew_listing = $(".whatsnew-listing");
+    var $body_content = $(".body-content");
+    hide_empty_container($whatsnew_listing, 0, $whatsnew_listing.find('.eea-tabs'));
+    hide_empty_container($body_content, 1, $body_content.find('p'));
+
     var url_path_name = window.location.pathname;
     var $body = $("body");
     var $code_diff = $("#diffstylecode");
@@ -218,7 +258,7 @@ jQuery(document).ready(function($) {
     // 5267 display form fields for translated items
     var edit_bar = $("#edit-bar");
     var edit_translate = function() {
-        var translating = $("#content").find('form').find('.hiddenStructure').text().indexOf('Translating');
+        var translating = $content.find('form').find('.hiddenStructure').text().indexOf('Translating');
         if (translating !== -1) {
             edit_bar.closest('#portal-column-content')[0].className = "cell width-full position-0";
         }
@@ -360,8 +400,6 @@ jQuery(document).ready(function($) {
 
     var downloads_list = match_download_links(links);
     function add_downloads_tracking_code(idx, el) {
-
-
         el.onclick = function() {
             var text = el.textContent || el.innerText;
             var ftype = extract_file_type(el.href, text);

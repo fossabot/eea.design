@@ -17,89 +17,90 @@
                 main_site python: True if language == 'en' else False;">
             <div id="main-content">
                 <div class="visualClear"><!-- &nbsp; --></div>
-                <div id="highlights-area" class="column-area" style="width:100%;">
+
+                <div id="eea-intro-message" class="portalMessage visualNoMargins" tal:condition="main_site">
+                        <span class="discreet">The European Environment Agency provides sound, independent information on the environment for those involved in developing, adopting, implementing and evaluating environmental policy, and also the general public. In close collaboration with
+                            <a href="http://www.eionet.europa.eu" class="link-plain">European Environmental Information and Observation Network</a> and its 33 member countries, the EEA gathers data and produces assessments on a wide range of topics related to the environment. <a href="http://www.eea.europa.eu/about-us">Learn more</a>
+                        </span>
+                </div>
+
+                <!-- mega_topics -->
+                <div id="megatopics-area" tal:condition="main_site">
+                    <div class="portlet-megatopic">
+                        <dl class="portlet promo-nav-portlet" id="air-and-climate-megatopic">
+                            <dd class="portletItem">
+                                <img title="Air and climate" src="http://www.eea.europa.eu/themes/air/theme_image/image_mini" />
+                                <div class="portletHeader">
+                                    Air and climate
+                                </div>
+                                <ul class="">
+                                    <li><a href="/themes/air" i18n:translate="">Air pollution</a></li>
+                                    <li><a href="/themes/climate" i18n:translate="">Climate change</a></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="portlet-megatopic">
+                        <dl class="portlet promo-nav-portlet" id="nature-megatopic">
+                            <dd class="portletItem">
+                                <img title="Nature" alt="Visit our biodiversity website" src="http://www.eea.europa.eu/themes/biodiversity/theme_image/image_mini" />
+                                <div class="portletHeader">
+                                    Nature
+                                </div>
+                                <ul class="">
+                                    <li><a href="/themes/biodiversity" i18n:translate="">Biodiversity — Ecosystems</a></li>
+                                    <li><a href="/themes/landuse" i18n:translate="">Land use</a></li>
+                                    <li><a href="/themes/soil" i18n:translate="">Soil</a></li>
+                                    <li><a href="/themes/water" i18n:translate="">Water and marine</a></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="portlet-megatopic">
+                        <dl class="portlet promo-nav-portlet" id="sustainability-megatopic">
+                            <dd class="portletItem">
+                                <img title="Sustainability and well-being" src="http://www.eea.europa.eu/themes/human/theme_image/image_mini" />
+                                <div class="portletHeader" style="font-size:142%;">
+                                    Sustainability and well-being
+                                </div>
+                                <ul class="">
+                                    <li><a href="/themes/waste" i18n:translate="">Resource efficiency and waste</a></li>
+                                    <li><a href="/themes/human" i18n:translate="">Environment and health</a></li>
+                                    <li><a href="/themes/policy" i18n:translate="">Policy instruments</a></li>
+                                    <li><a href="/themes/noise" i18n:translate="">Noise</a></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="portlet-megatopic">
+                        <dl class="portlet promo-nav-portlet" id="economic-sectors-megatopic">
+                            <dd class="portletItem">
+                                <img title="Economic sectors" src="http://www.eea.europa.eu/themes/energy/theme_image/image_mini" />
+                                <div class="portletHeader">
+                                    Economic sectors
+                                </div>
+                                <ul class="">
+                                    <li><a href="/themes/agriculture" i18n:translate="">Agriculture</a></li>
+                                    <li><a href="/themes/energy" i18n:translate="">Energy</a></li>
+                                    <li><a href="/themes/industry" i18n:translate="">Industry</a></li>
+                                    <li><a href="/themes/transport" i18n:translate="">Transport</a></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="visualClear"><!-- &nbsp; --></div>
+                </div>
+                <!-- end mega_topics -->
+
+                <div id="highlights-area" class="column-area">
 
                     <div class="portalMessage message_disclaimer visualNoMargins" tal:condition="not: main_site">
                         <span class="eea-icon eea-icon-flag"></span><strong i18n:translate="">Welcome to the European Environment Agency</strong><br />
                         <span i18n:translate="">This site presents the content we have available in your language.</span>
                         <span i18n:translate="">To explore all our outputs and complete knowledge base, please visit <a href="http://www.eea.europa.eu" i18n:name="site_url" class="link-plain"><span tal:omit-tag="" i18n:translate="">our main website</span></a> in English.</span>
                     </div>
-                    <div id="eea-intro-message" class="portalMessage visualNoMargins" tal:condition="main_site">
-                        <span class="discreet">The European Environment Agency provides sound, independent information on the environment for those involved in developing, adopting, implementing and evaluating environmental policy, and also the general public. In close collaboration with
-                            <a href="http://www.eionet.europa.eu" class="link-plain">European Environmental Information and Observation Network</a> and its 33 member countries, the EEA gathers data and produces assessments on a wide range of topics related to the environment. <a href="http://www.eea.europa.eu/about-us">Learn more</a>
-                        </span>
-                    </div>
 
-                    <!-- mega_topics -->
-                    <div id="megatopics-area" tal:condition="main_site">
-                        <div class="portlet-megatopic">
-                            <dl class="portlet promo-nav-portlet" id="air-and-climate-megatopic">
-                                <dd class="portletItem">
-                                    <img title="Air and climate" src="http://www.eea.europa.eu/themes/air/theme_image/image_mini" />
-                                    <div class="portletHeader">
-                                        Air and climate
-                                    </div>
-                                    <ul class="">
-                                        <li><a href="/themes/air" i18n:translate="">Air pollution</a></li>
-                                        <li><a href="/themes/climate" i18n:translate="">Climate change</a></li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="portlet-megatopic">
-                            <dl class="portlet promo-nav-portlet" id="nature-megatopic">
-                                <dd class="portletItem">
-                                    <img title="Nature" alt="Visit our biodiversity website" src="http://www.eea.europa.eu/themes/biodiversity/theme_image/image_mini" />
-                                    <div class="portletHeader">
-                                        Nature
-                                    </div>
-                                    <ul class="">
-                                        <li><a href="/themes/biodiversity" i18n:translate="">Biodiversity — Ecosystems</a></li>
-                                        <li><a href="/themes/landuse" i18n:translate="">Land use</a></li>
-                                        <li><a href="/themes/soil" i18n:translate="">Soil</a></li>
-                                        <li><a href="/themes/water" i18n:translate="">Water</a></li>
-                                        <li><a href="/themes/coast_sea" i18n:translate="">Marine</a></li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="portlet-megatopic">
-                            <dl class="portlet promo-nav-portlet" id="sustainability-megatopic">
-                                <dd class="portletItem">
-                                    <img title="Sustainability and well-being" src="http://www.eea.europa.eu/themes/human/theme_image/image_mini" />
-                                    <div class="portletHeader" style="font-size:142%;">
-                                        Sustainability and well-being
-                                    </div>
-                                    <ul class="">
-                                         <li><a href="/themes/waste" i18n:translate="">Waste and material resources</a></li>
-                                        <li><a href="/themes/human" i18n:translate="">Environment and health</a></li>
-                                        <li><a href="/themes/policy" i18n:translate="">Policy instruments</a></li>
-                                        <li><a href="/themes/noise" i18n:translate="">Noise</a></li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="portlet-megatopic">
-                            <dl class="portlet promo-nav-portlet" id="economic-sectors-megatopic">
-                                <dd class="portletItem">
-                                    <img title="Economic sectors" src="http://www.eea.europa.eu/themes/energy/theme_image/image_mini" />
-                                    <div class="portletHeader">
-                                        Economic sectors
-                                    </div>
-                                    <ul class="">
-                                        <li><a href="/themes/agriculture" i18n:translate="">Agriculture</a></li>
-                                        <li><a href="/themes/energy" i18n:translate="">Energy</a></li>
-                                        <li><a href="/themes/industry" i18n:translate="">Industry</a></li>
-                                        <li><a href="/themes/transport" i18n:translate="">Transport</a></li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                        </div>
-                        <div class="visualClear"><!-- &nbsp; --></div>
-                    </div>
-                    <!-- end mega_topics -->
-
-                    <div id="below-topics-area">
+                    <div id="below-topics-area" class="whatsnew-listing">
                         <!-- select_topics -->
                         <div id="news-header">
                             <h2 i18n:translate=""> What's new</h2>
@@ -113,15 +114,16 @@
                                             frontpage_view frontpage_view|context/@@frontpage_highlights;
                                             main_site main_site|python: True if language == 'en' else False;
                                             frontpage_properties context/portal_properties/frontpage_properties;
+                                            tabs tabs|nothing;
                                             getProducts getProducts|frontpage_properties/getProducts|nothing;"
-                                tal:attributes="id string:whatsnew-gallery; data-page string:${datapage};
-                                                class python:'column-area' if 'frontpage' in body_class else ''">
+                                tal:attributes="id string:whatsnew-gallery; data-page string:${datapage};">
                             <tal:tabs tal:condition="python: main_site and getProducts">
                                 <ul class="eea-tabs two-rows"
                                         tal:define="datapage datapage|string:frontpage;
                                         global folderContent frontpage_view/getProductCategoriesResults;
                                         tabnames frontpage_view/getProductCategoriesNames;
-                                        global tabs python: [tab for tab in tabnames if folderContent.get(tab)]">
+                                        global tabs python: [tab for tab in tabnames if folderContent.get(tab)]"
+                                        tal:condition="tabs">
                                     <li tal:repeat="tab tabs">
                                         <a href="#"  i18n:translate=""
                                             tal:content="python:context.translate(tab, domain='eea')" class="block"
@@ -141,7 +143,7 @@
                                 </tal:items>
                             </select>
                             <tal:panels>
-                                <div class="eea-tabs-panels">
+                                <div class="eea-tabs-panels" tal:condition="python:tabs">
                                     <tal:propertyProducts tal:condition="python: main_site and getProducts">
                                         <tal:products tal:repeat="tab tabs">
                                             <tal:defines tal:define="folderContents python:folderContent.get(tab);
@@ -165,7 +167,12 @@
                             </tal:panels>
                         </div>
 
-                        <div id="articles-area" class="right-column-area">
+
+
+                    </div> <!-- below-topics-area -->
+
+                </div>
+                 <div id="articles-area" class="right-column-area">
                             <!-- featured and spotlight areas -->
                             <tal:featured_article metal:define-macro="featured_article"
                                     tal:define="frontpage_view frontpage_view|context/@@frontpage_highlights;
@@ -177,15 +184,6 @@
                                     <span metal:fill-slot="box_title" i18n:translate="">Featured article</span>
                                 </div>
                             </tal:featured_article>
-
-                            <!-- promotions_gallery_slideshow-->
-                            <metal:promotions tal:define="frontpage python: False; 
-                                            promo_view frontpage_view;">
-                                    <div metal:use-macro="here/portlet_promo_gallery/macros/portlet">
-                                        promoted item
-                                    </div>
-                            </metal:promotions>   
-                            <!-- end promotions_gallery_slideshow -->
 
                             <tal:spotlight tal:define="highlights frontpage_view/getSpotlight;">
                                 <div metal:use-macro="here/frontpage_macros/macros/featured-item">
@@ -219,10 +217,6 @@
                             </div>
                             <!-- end shortcuts divs -->
                         </div>
-
-                    </div> <!-- below-topics-area -->
-
-                </div>
 
                 <div class="visualClear"><!-- &nbsp; --></div>
             </div>

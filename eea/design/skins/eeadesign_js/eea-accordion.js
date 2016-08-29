@@ -36,18 +36,41 @@ jQuery(document).ready(function($) {
             var $this = $(this);
             if (index === tabs.getIndex()) {
                 if(tabs.getCurrentTab().hasClass('current')){
-                    tabs.getCurrentPane().dequeue().stop().slideUp();
+                    tabs.getCurrentPane().dequeue().stop().slideUp(function(){
+                        portlet.trigger('eea.accordion.navigation.hidden', this);
+                    });
                     tabs.getCurrentTab().removeClass('current').addClass('collapsed');
                 }
                 else {
                     $this.addClass('current')
                         .removeClass('collapsed')
                         .next()
-                        .slideDown();
+                        .slideDown(function() {
+                            portlet.trigger('eea.accordion.navigation.visible', this);
+
+                        });
                 }
             }
             index = tabs.getIndex();
         });
+
+
+        // chemicals has right column bigger than column area
+        // as such we need to equalize heights
+        var $content = $("#content");
+        portlet.on('eea.accordion.navigation.visible', function(el) {
+            equalize_columns();
+        });
+        var $right_column_area = $(".right-column-area");
+        var equalize_columns = function() {
+            if ($right_column_area.length) {
+                if ($content.height() < $right_column_area.height()) {
+                    $content.css('height', $right_column_area.height());
+                }
+            }
+        };
+        equalize_columns();
+
 
     }
 

@@ -69,7 +69,7 @@
                    </tal:modified><span tal:replace="python:' %s' % plone_view.toLocalizedTime(here.ModificationDate(),long_format=1)"> August 16, 2001 at 23:35:59</span>
             </span>
         </tal:dates>
-        <br />
+
         <tal:loggedin tal:condition="not: isAnon">
             <span id="lock-icon"
                 title="This document is locked."

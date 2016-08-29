@@ -24,13 +24,14 @@ linkHeadingColor:string=#346f83
 headingColor:string=#006699
 headingFontFamily:string='Open Sans', Verdana, Helvetica, Arial, sans-serif
 
-backgroundColor:string=transparent
+backgroundColor:string=#e8f0fb
 
 #general divisions colors
 lightGreyDivisionColor:string=#cccccc
 
 #general bgc for boxes and portlets
-lightBackgroundColor:string=#f3f3f3
+whiteBackgroundColor:string=#ffffff
+lightBackgroundColor:string=#ffffff
 mediumBackgroundColor:string=#ececec
 darkBackgroundColor:string=#D6D6D6
 greyBackgroundColor:string=#f3f3f3
@@ -81,6 +82,10 @@ helpBackgroundColor:string=#ffffe1
 portalMinWidth:string=70em
 columnOneWidth:string=16em
 columnTwoWidth:string=16em
+
+# boostrap inspired variables
+padding-base:string=1.5em
+padding-half:string=0.75em
 
 # 15235 font icon names and values
 # always add any new icons here for easier readability and maintainability

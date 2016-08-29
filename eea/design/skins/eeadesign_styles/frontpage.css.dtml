@@ -15,14 +15,6 @@ html {
 
 }
 
-#region-content {
-    padding: 0;
-}
-
-.documentContent {
-    padding: 0;
-}
-
 #main-content {
     margin-top: 5px;
 }
@@ -43,16 +35,16 @@ html {
 #highlights-block h3 {
     margin: 0 0 0.5em 0;
     font-weight: normal;
+    border-bottom: 0;
 }
 
 #whats-new, .featured h2, .featured dt.portletHeader {
     font-size: 160%;
     font-weight: normal;
     line-height: 1.4em;
-    padding: 0 0 0.5em 0;
+    padding: 0;
     border: none;
     clear: left;
-    color: #000;
     margin: 0;
     background: none;
 }
@@ -81,10 +73,14 @@ html {
 
 .archives {
     float: right;
-    margin: 22px 25px 15px 15px;
+    margin: &dtml-padding-base; 25px 15px 15px;
     position: relative;
     top: 8px;
     line-height: 1em;
+}
+.advanced-search-link {
+    top: 0;
+    margin-top: 0.8em;
 }
 
 a.archives {
@@ -102,6 +98,17 @@ a.archives {
     float: left;
 }
 
+#highlights-area {
+    background-color: &dtml-lightBackgroundColor;;
+    padding: &dtml-padding-base;;
+}
+
+.highlighs-header {
+    margin: 0 0 0.83em 0;
+    border: 0;
+    font-weight: normal;
+}
+
 .right-column-area {
     width: 39%;
     padding: 0 0 0 1em;
@@ -112,15 +119,17 @@ a.archives {
 #articles-area h2 {
     padding-top: 0;
     line-height: 1em;
+    border-bottom: 0;
+    font-weight:normal;
 }
 
 
-
-body.frontpage #highlights-block {
+.frontpage #highlights-block,
+.frontpage #highlights-area {
    padding: 0;
 }
 
-body.frontpage #portal-columns {
+.frontpage #portal-columns {
     padding: 0 !important;
 }
 #content ul.gallery-layout-selection  {
@@ -157,6 +166,7 @@ body.frontpage #portal-columns {
 
 #megatopics-area {
     font-size: 0.9em;
+    margin-bottom: 1.5em;
 }
 
 #megatopics-area .portletHeader {
@@ -182,6 +192,10 @@ body.frontpage #portal-columns {
     padding: 0;
 }
 
+#megatopics-area ul {
+    margin-bottom: 2px;
+}
+
 .portlet-megatopic img {
     width: 100%;
     height: 150px;
@@ -189,7 +203,6 @@ body.frontpage #portal-columns {
 .portlet-megatopic ul {
     padding-top: 20px;
     height: 150px;
-    margin-bottom: 2px;
 }
 
 
@@ -201,11 +214,11 @@ body.frontpage #portal-columns {
 
 
 #news-header h2 {
-    float: left;
-    padding: 0px;
-    margin: 5px 0px;
     border:none;
-    line-height:1.2;
+    font-size: 160%;
+    font-weight:normal;
+    margin: 6px;
+    padding: 0;
 }
 
 #news-header {
@@ -217,10 +230,23 @@ body.frontpage #portal-columns {
 
 /* style for featured boxes */
 .featured, .portlet {
-    background: &dtml-lightBackgroundColor;;
     margin-bottom: 1em;
-    padding:1.9em;
+    padding:&dtml-padding-base;;
 }
+
+.portlet,
+.portletWrapper .featured {
+    background: &dtml-whiteBackgroundColor;;
+}
+
+/*.featured {*/
+    /*background: &dtml-lightBackgroundColor;;*/
+/*}*/
+
+.featured {
+    background: &dtml-whiteBackgroundColor;;
+}
+
 
 .featured-highlights {
     min-height: 120px;
@@ -276,10 +302,6 @@ a.album-layout:hover {
 }
 /* END Styles which can be used on any area */
 
-#portlet-followus {
-    padding: 2em;
-    margin: 0;
-}
 #portlet-followus dd {
   display: inline-block;
   padding-right: 1em;
@@ -323,8 +345,9 @@ a.album-layout:hover {
 
 .shortcut-default {
     text-align: left;
-    padding: 2em;
-    background: &dtml-lightBackgroundColor;;
+    padding: 1.5em;
+    /*background: &dtml-lightBackgroundColor;;*/
+    background: &dtml-whiteBackgroundColor;;
     margin-bottom: 1em;
 }
 
