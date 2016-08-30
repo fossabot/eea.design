@@ -13,14 +13,19 @@ jQuery(document).ready(function($) {
     $related_items.appendTo($column_area);
     $socialmedia.appendTo($column_area);
     var appendTo = function(context, target) {
-      if (context.length) {
-          context.appendTo(target);
-      }
+        if (context.length) {
+            context.appendTo(target);
+        }
     };
 
     appendTo($related_items, $column_area);
     appendTo($socialmedia, $column_area);
-    appendTo($viewlet_below_content, $content);
+    if ($column_area.length) {
+        appendTo($viewlet_below_content, $column_area);
+    }
+    else {
+        appendTo($viewlet_below_content, $content);
+    }
     appendTo($related_items, $center_bottom_area);
     appendTo($socialmedia, $center_bottom_area);
 
@@ -47,8 +52,9 @@ jQuery(document).ready(function($) {
     if ($body.hasClass("portaltype-sparql") && $code_diff) {
         $code_diff.click();
     }
-    var $popup_login = $("#popup_login_form");
-    
+
+    var $popup_login = $("#popup_login_form").click(function(e){e.stopPropagation();});
+
     // // 72862 mini header
     var $mini_header = $(".mini-header");
     if ($mini_header.length) {
@@ -59,8 +65,8 @@ jQuery(document).ready(function($) {
             var $search = $("#portal-searchbox");
             var $parent = $("#secondary-globanav-tips");
 
-            $("body").on('eea-miniheader-toggled', function(ev) {
-                // hide globalnav current triangle when we have the 
+            $body.on('eea-miniheader-toggled', function(ev) {
+                // hide globalnav current triangle when we have the
                 // network section open
                 $(".eea-nav-current").toggleClass('eea-nav-inactive');
             });
@@ -89,7 +95,7 @@ jQuery(document).ready(function($) {
                 $(ev.target).closest('li').addClass('eea-navsiteactions-active');
                 ev.preventDefault();
             });
-            $("body").on('eea-miniheader-hide', function(ev, el){
+            $body.on('eea-miniheader-hide', function(ev, el){
                 $cross_site_top.hide();
                 $(".portal-logo").hide();
                 $search.hide();
@@ -143,7 +149,7 @@ jQuery(document).ready(function($) {
         input.focus();
     });
 
-    $('body').click(function() {
+    $body.click(function() {
         $('#popup_login_form').slideUp()
     });
 
@@ -161,9 +167,9 @@ jQuery(document).ready(function($) {
     });
 
     /* 27220 moved showing and hiding of the older versions from eea.versions to design.js
-    *  this is an eea specific design decision
-    *  eg: http://eea.europa.eu/data-and-maps/daviz/real-price-indices-of-passenger-transport-1
-    *  */
+     *  this is an eea specific design decision
+     *  eg: http://eea.europa.eu/data-and-maps/daviz/real-price-indices-of-passenger-transport-1
+     *  */
     (function($el){
         if (!$el.length) {
             return;
@@ -177,7 +183,7 @@ jQuery(document).ready(function($) {
     }($(".showOlderVersions")));
 
     /* 27537; insert a link for iframes that contain video since whkthmltopdf doesn't support
-    * the video tag and there is no image placeholder */
+     * the video tag and there is no image placeholder */
     var $video_iframe = $("iframe").filter('[src*="video"]'), $video_iframe_src;
     if ($video_iframe) {
         $video_iframe_src = $video_iframe.attr('src');
@@ -224,10 +230,10 @@ jQuery(document).ready(function($) {
         var url = settings.url.split('/');
         var method = url[url.length-1];
         var reset_methods = ['@@googlechart.googledashboard.edit',
-                             '@@googlechart.googledashboards.edit',
-                             '@@googlechart.savepngchart',
-                             '@@googlechart.setthumb',
-                             '@@daviz.properties.edit'];
+            '@@googlechart.googledashboards.edit',
+            '@@googlechart.savepngchart',
+            '@@googlechart.setthumb',
+            '@@daviz.properties.edit'];
         if (reset_methods.indexOf(method) > -1) {
             $.timeoutDialog.reset();
         }
@@ -308,48 +314,48 @@ jQuery(document).ready(function($) {
      * Function to avoid multiple clicks on document actions (Download as PDF, etc.)
      */
     jQuery.fn.avoidMultipleClicks = function(options){
-      var settings = {
-        timeout: 3000,
-        linkSelector: 'a',
-        linkCSS: 'downloading',
-        lockCSS: 'downloading-lock'
-      };
+        var settings = {
+            timeout: 3000,
+            linkSelector: 'a',
+            linkCSS: 'downloading',
+            lockCSS: 'downloading-lock'
+        };
 
-      if(options){
-        jQuery.extend(settings, options);
-      }
+        if(options){
+            jQuery.extend(settings, options);
+        }
 
-      var self = this;
-      return this.each(function(){
-        self.find(settings.linkSelector).click(function(){
-          var context = $(this);
-          var oldCSS = context.attr('class');
-            settings.linkCSS = oldCSS.split(' ').slice(0,2).join(' ') + settings.linkCSS;
-          context.removeClass();
-          context.addClass(settings.linkCSS);
+        var self = this;
+        return this.each(function(){
+            self.find(settings.linkSelector).click(function(){
+                var context = $(this);
+                var oldCSS = context.attr('class');
+                settings.linkCSS = oldCSS.split(' ').slice(0,2).join(' ') + settings.linkCSS;
+                context.removeClass();
+                context.addClass(settings.linkCSS);
 
-          self.addClass(settings.lockCSS);
+                self.addClass(settings.lockCSS);
 
-          setTimeout(function(){
-            self.removeClass(settings.lockCSS);
-            context.removeClass(settings.linkCSS);
-            context.addClass(oldCSS);
-          }, settings.timeout);
+                setTimeout(function(){
+                    self.removeClass(settings.lockCSS);
+                    context.removeClass(settings.linkCSS);
+                    context.addClass(oldCSS);
+                }, settings.timeout);
 
+            });
         });
-      });
     };
 
     $('.documentActions .action-items').avoidMultipleClicks();
     $document_actions.avoidMultipleClicks({
-      linkSelector: '.eea-icon',
-      linkCSS: ' eea-icon-download eea-icon-anim-burst animated'
+        linkSelector: '.eea-icon',
+        linkCSS: ' eea-icon-download eea-icon-anim-burst animated'
     });
 
 
     // #23277 track download of PDF and EPUBS #18753 as well as other downloads
     var file_types = ['pdf', 'gif', 'tif', 'png', 'zip', 'xls', 'eps', 'csv',
-                      'tsv', 'exhibit', 'txt', 'doc', 'docx', 'xlsx', 'table'];
+        'tsv', 'exhibit', 'txt', 'doc', 'docx', 'xlsx', 'table'];
 
     function check_file_type(tokens) {
         var tokens_length = tokens.length;
@@ -425,10 +431,10 @@ jQuery(document).ready(function($) {
                 // insert the slider button in case we are missing it if we want
                 // to keep the needed markup as small as possible
                 var $el = $(el), $right_section_slider = $el.prev();
-                 if (!$right_section_slider.hasClass('eea-right-section-slider')) {
+                if (!$right_section_slider.hasClass('eea-right-section-slider')) {
                     $right_section_slider = $('<div class="eea-section eea-right-section-slider eea-scrolling-toggle-visibility"><span class="eea-icon eea-icon-5x eea-icon-caret-left eea-icon-anim-horizontal animated"></span></div>');
-                     $right_section_slider.insertBefore($el);
-                 }
+                    $right_section_slider.insertBefore($el);
+                }
                 $right_section_slider.click(function(){
                     var $this = $(this);
                     $this.toggleClass("eea-right-section-slider-active")
@@ -459,5 +465,6 @@ jQuery(document).ready(function($) {
         $('#header-holder .navbar').addClass('hideShadow');
     }
 });
+
 
 
