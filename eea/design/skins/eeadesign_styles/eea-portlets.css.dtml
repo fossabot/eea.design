@@ -44,6 +44,10 @@ div.managePortletsLink,
 a.managePortletsFallback {
     font-size: 90%;
 }
+#content .managePortletsFallback {
+    float: left;
+    clear: both;
+}
 /* @end @group Portlets */
 
 /* @group Navigation portlet */

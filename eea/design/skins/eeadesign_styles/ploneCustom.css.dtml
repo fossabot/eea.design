@@ -6,7 +6,7 @@
 */
 
 #c4_option_c4_public-administrative-document {
-   display: none !important;
+    display: none !important;
 }
 
 /* #70675 show reply to comment button */
@@ -341,7 +341,9 @@ input.standalone:hover {
 .faceted-results .photoAlbumEntry {
     width: 123px;
 }
-
+.photoAlbumEntry {
+    width: 125px;
+}
 /* end of specific faceted navigation style */
 
 /* ichimdav: these styles were previously in public.css */
@@ -422,7 +424,7 @@ input.standalone:hover {
 
 .eea-tabs .current:after,
 .eea-tabs a:hover:after {
-    top: 100%;
+    top: 99%;
     left: 50%;
     content: " ";
     height: 0;
@@ -698,7 +700,7 @@ input.standalone:hover {
 }
 /* 70523 set callout to a base of 12px in order to normalize googlechart notes size  */
 #content .callout {
-   font-size: 12px;
+    font-size: 12px;
 }
 /* related styles amd flowplayer videos style */
 
@@ -1059,6 +1061,12 @@ a.moreLink {
     width: 400px;
     overflow: hidden;
 }
+.userrole-authenticated .panel #portal-searchbox {
+    overflow: visible;
+}
+.LSBox {
+    float: none;
+}
 
 #portal-searchbox a {
     color: &dtml-linkColor;;
@@ -1191,8 +1199,8 @@ a.moreLink {
 
 /*.template-facetednavigation_view #socialmedia-viewlet,*/
 /*.template-facetednavigation_view #relatedItems {*/
-    /*padding: 0 &dtml-padding-base; &dtml-padding-base;;*/
-    /*background-color: white;*/
+/*padding: 0 &dtml-padding-base; &dtml-padding-base;;*/
+/*background-color: white;*/
 /*}*/
 
 .languageCodes {
@@ -1283,8 +1291,8 @@ a.moreLink {
 }
 
 /*.faceted-results .tileItem {*/
-    /*padding: &dtml-padding-base;;*/
-    /*background-color: &dtml-lightBackgroundColor;;*/
+/*padding: &dtml-padding-base;;*/
+/*background-color: &dtml-lightBackgroundColor;;*/
 /*}*/
 
 .tileHeadline {
@@ -1500,6 +1508,10 @@ option.hiddenStructure {
 
 #portal-column-two {
     min-width: 350px;
+}
+
+#viewlet-below-content {
+    clear: both;
 }
 
 /* TinyMCE Fixes */
@@ -2126,3 +2138,4 @@ h4.figureHeading {
 }
 
 /* </dtml-with> */
+

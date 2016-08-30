@@ -204,6 +204,11 @@ div.managePortletsLink, a.managePortletsFallback {
     padding-left: 0;
     padding-right: 0;
 }
+
+/* on fullwidth the breadcrumb should align to the left of the browserwindow not center align */
+.fullwidth #portal-breadcrumbs.plone-breadcrumb .container {
+    margin: 0;
+}
 #portal-breadcrumbs.plone-breadcrumb ol {
     display: inline-block;
     padding: 8px 5px;

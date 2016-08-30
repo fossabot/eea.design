@@ -6,7 +6,7 @@
     font-size: 0.7em; }
 
   ul.social-buttons > li {
-    padding: 0 3px; }
+    padding: 0 2px; }
 
   #content .action-items ul {
     margin-left: 0; }
@@ -40,6 +40,9 @@
   .photoAlbumEntryTitle {
     height: 5em;
     width: 100%; } }
+@media screen and (width: 360px) {
+  ul.social-buttons > li {
+    padding: 0 8px; } }
 @media screen and (max-width: 360px) {
   .filter-topic {
     width: 69%; }
@@ -188,8 +191,6 @@
       padding: 0; }
   #secondary-portaltabs .pane, #secondary-portaltabs .portlet {
     background-color: #FFF; }
-  #secondary-portaltabs > li {
-    display: none !important; }
 
   #secondary-portaltabs .eea-siteaction {
     display: none !important; }
@@ -442,7 +443,7 @@
     float: none;
     left: 0;
     margin: 0;
-    padding: 0;
+    padding: 0 15px 1.5em 15px;
     min-width: 100%;
     width: 100%; }
 
@@ -462,8 +463,8 @@
   #article-language {
     margin-top: 0;
     margin-bottom: 7px;
-    right: 0;
-    position: relative; }
+    position: relative;
+    right: 0; }
 
   #portal-colophon .colophonWrapper, .colophon-middle {
     text-align: center; }
@@ -563,10 +564,6 @@
   .mini-header #portal-header {
     height: 100%; }
 
-  .mini-header #portal-globalnav li a {
-    padding: 1.1em 0.5em;
-    font-size: small; }
-
   #portaltab-europe {
     padding-right: 95px;
     width: 185px;
@@ -619,7 +616,10 @@
   #portal-header.eea-miniheader-element {
     height: 100%;
     font-size: 115%;
-    margin: 2em 0; } }
+    margin: 2em 0; }
+
+  #portal-column-content {
+    padding: 0 1.5em 1.5em; } }
 @media screen and (max-width: 1023px) {
   .mini-header #tip-externalsites-networks .networkSites,
   .mini-header #portal-globalnav #portaltab-eeahome {
@@ -656,18 +656,17 @@
 @media screen and (min-width: 1024px) {
   .mini-header #visual-portal-wrapper {
     overflow: hidden; }
+
   #region-content {
     margin: 0 -1.5em; } }
 @media screen and (min-width: 1025px) {
   .fullwidth #portal-header,
   .fullwidth #secondary-portaltabs {
     padding-right: 1em; } }
-@media screen and (min-width: 768px) and (max-width: 1439px) {
-  .mini-header .siteaction-title {
-    display: none; }
-
-  #siteaction-networks-menu .siteaction-title {
-    display: inline-block; } }
+@media screen and (min-width: 768px) and (max-width: 1050px) {
+  .mini-header #portal-globalnav > li > a {
+    padding: 1.1em 0.5em !important;
+    font-size: 83%; } }
 /* </dtml-with> */
 
 /*# sourceMappingURL=eea-responsive.css.dtml.map */

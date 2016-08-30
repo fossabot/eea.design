@@ -3,6 +3,9 @@ Changelog
 
 14.9.dev0 - (unreleased)
 ------------------------
+* Change: added fixes from custom regarding latest styling changes concerning
+  the mini header and the soer integration
+  [ichim-david refs #75139]
 * Change: globalnav siteactions should have the title when hovered
   [ichim-david refs #72862]
 

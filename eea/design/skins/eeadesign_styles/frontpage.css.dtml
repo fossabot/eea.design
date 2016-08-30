@@ -127,6 +127,7 @@ a.archives {
 .frontpage #highlights-block,
 .frontpage #highlights-area {
    padding: 0;
+    overflow: hidden;
 }
 
 .frontpage #portal-columns {
@@ -225,7 +226,7 @@ a.archives {
   height: 35px;
   clear: both;
   display: block;
-  margin:2em 0 5px 0;
+    margin:14px 0 5px 0;
 }
 
 /* style for featured boxes */
