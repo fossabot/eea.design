@@ -31,6 +31,7 @@
             if ($tooltip.length > 0) {
                 // if we don't remove title from links the title will be used for tooltip
                 // content instead of the constructed panels
+                var initial_title =  a.attr("title");
                 a.attr("title", "").attr("href", "#");
                 fordef = 'click, blur';
                 a.tooltip({
@@ -42,7 +43,8 @@
                         def: fordef
                     }
                 });
-
+                // re add original title which can be set after the tooltip logic
+                a.attr('title', initial_title);
                 a.click(function(ev) {
                     
                     ev.preventDefault();

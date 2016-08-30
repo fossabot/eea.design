@@ -3,6 +3,8 @@ Changelog
 
 14.9.dev0 - (unreleased)
 ------------------------
+* Change: globalnav siteactions should have the title when hovered
+  [ichim-david refs #72862]
 
 14.8 - (2016-08-29)
 -------------------
