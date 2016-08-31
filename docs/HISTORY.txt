@@ -3,6 +3,9 @@ Changelog
 
 14.9.dev0 - (unreleased)
 ------------------------
+* Bug fix: removed eea.cache caching for fullscreen and mini-header setting
+  use memoize instead which will cache it only for the request
+  [ichim-david]
 * Change: added fixes from custom regarding latest styling changes concerning
   the mini header and the soer integration
   [ichim-david refs #75139]

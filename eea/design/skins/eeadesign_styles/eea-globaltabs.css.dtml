@@ -6,11 +6,10 @@
     width: 100%;
     display: block;
     clear: both;
-    height: 50px;
 }
 
 /* @group Navigation/search customizes public.css */
-.mini-header #portal-globalnav {
+.mini-header #globalnav-holder {
     border-top: 5px solid #FFF;
 }
 

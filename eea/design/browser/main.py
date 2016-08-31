@@ -6,7 +6,7 @@ from Acquisition import aq_base, aq_inner, aq_parent
 from Products.CMFPlone import utils as putils
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
-from eea.cache import cache as eeacache
+from plone.memoize.view import memoize
 
 
 class Main(BrowserView):
@@ -46,11 +46,11 @@ class FullWidthContentTypes(BrowserView):
     def __call__(self):
         """ boolean if fullwidth class should be enabled for given content-type
         """
-        fullwidth_ctypes = self.get_registry() or []
+        fullwidth_ctypes = self.get_full_registry() or []
         return self.context.portal_type in fullwidth_ctypes
 
-    @eeacache(lambda method, self: method.__name__, dependencies=['eea.design'])
-    def get_registry(self):
+    @memoize
+    def get_full_registry(self):
         """ content registry cache
         """
         registry = getUtility(IRegistry)
@@ -72,12 +72,13 @@ class MiniHeaderContentTypes(BrowserView):
     def __call__(self):
         """ boolean if fullwidth class should be enabled for given content-type
         """
-        fullwidth_ctypes = self.get_registry() or []
+        fullwidth_ctypes = self.get_mini_registry() or []
         return self.context.portal_type in fullwidth_ctypes
 
-    @eeacache(lambda method, self: method.__name__, dependencies=['eea.design'])
-    def get_registry(self):
+    @memoize
+    def get_mini_registry(self):
         """ content registry cache
         """
         registry = self.context.portal_properties.site_properties
-        return registry.getProperty('mini_header_for')
+        data = registry.getProperty('mini_header_for', None)
+        return data
