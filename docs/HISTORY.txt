@@ -3,6 +3,9 @@ Changelog
 
 14.9.dev0 - (unreleased)
 ------------------------
+* Bug fix: Airs Briefings now display the first table above the fiche-summary
+  regardless of their position in the fiche-body
+  [ichim-david refs #75465]
 * Bug fix: removed eea.cache caching for fullscreen and mini-header setting
   use memoize instead which will cache it only for the request
   [ichim-david]

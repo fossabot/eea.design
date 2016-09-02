@@ -111,17 +111,14 @@ jQuery(document).ready(function($) {
     // custom requirement to swap placement of the table and fiche-summary
     // for briefings found within the airs section
     var air_fiches = $(".template-fiche_view.section-airs");
-    if (air_fiches) {
+    if (air_fiches.length) {
         (function() {
             var $fiche_body = $(".fiche-body");
-            var $pivot = $fiche_body.find('h2').eq(0);
-            var $table = $pivot.prev();
-            if ($table.prop('tagName') !== "TABLE") {
-                return;
-            }
+            var $table = $fiche_body.find('table').eq(0);
             var $fiche_summary = $(".fiche-summary");
-            $table.insertBefore($fiche_summary);
-            $fiche_summary.insertBefore($pivot);
+            if ($table.length) {
+                $table.insertBefore($fiche_summary);
+            }
         }());
     }
 
