@@ -3,6 +3,8 @@ Changelog
 
 15.0.dev0 - (unreleased)
 ------------------------
+* Bug fix: Remove http/https mixed content on login_form
+  [catalin refs #74910]
 
 14.9 - (2016-09-05)
 -------------------
