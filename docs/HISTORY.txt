@@ -3,6 +3,8 @@ Changelog
 
 15.0.dev0 - (unreleased)
 ------------------------
+* Bug fix: fix language selection tooltip
+  [ichim-david refs #75503]
 * Bug fix: Remove http/https mixed content on login_form
   [catalin refs #74910]
 

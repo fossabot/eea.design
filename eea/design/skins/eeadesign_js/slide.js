@@ -86,12 +86,13 @@
             }
         }
 
+        $("#portal-columns, #portal-header").click(function(e) {
+            var target = $(e.target);
+            var parents = $('.navbar-header, #content'),
+                panels = parents.find('.panel');
 
-        var $panels = $('.panel').filter(function(){ return this.id !== ""; });
-
-        $("#portal-columns, #portal-header").click(function() {
-            if ($panels.is(':visible')) {
-                $panels.fadeOut('fast');
+            if (!target.is('#cross-site-top a,  #cross-site-top .panel, #article-language a') && !target.parents('.panel').length) {
+                panels.fadeOut('fast');
                 $(".eea-navsiteactions-active").removeClass("eea-navsiteactions-active");
             }
         });
