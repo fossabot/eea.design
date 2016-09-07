@@ -21,7 +21,7 @@
                                 <a title="EPA network" i18n:attributes="title" accesskey="" href="http://epanet.ew.eea.europa.eu/" i18n:translate="">Network of the Heads of Environment Protection Agencies (EPA network)</a>
                             </li>
                             <li id="externalsites-envirowindows">
-                                <a title="Partnerships beyond Eionet (PBE)" i18n:attributes="title" accesskey="" href="http://ew.eea.europa.eu/" i18n:translate="">Partnerships beyond Eionet (PBE)</a>
+                                <a title="Partnerships beyond Eionet (PBE)" i18n:attributes="title" accesskey="" href="http://pbe.eea.europa.eu/" i18n:translate="">Partnerships beyond Eionet (PBE)</a>
                             </li>
                             <li id="seis-network">
                                 <a title="SEIS network" i18n:attributes="title" accesskey="" href="http://www.eea.europa.eu/about-us/what/shared-environmental-information-system" i18n:translate="">Shared Environmental Information System (SEIS)</a>
@@ -55,10 +55,10 @@
                                 <a href="http://icm.eionet.europa.eu" i18n:translate="">Inland, Coastal and Marine waters (ICM)</a>
                             </li>
                             <li>
-                                <a href="http://sia.eionet.europa.eu" i18n:translate="">Urban, Land and Soil systems (ULS)</a>
+                                <a href="http://uls.eionet.europa.eu" i18n:translate="">Urban, Land and Soil systems (ULS)</a>
                             </li>
                             <li>
-                                <a href="http://etc-wmge.vito.be" i18n:translate="">Waste and Materials in a Green Economy (WMGE)</a>
+                                <a href="http://wmge.eionet.europa.eu" i18n:translate="">Waste and Materials in a Green Economy (WMGE)</a>
                             </li>
                         </ul>
                     </dd>
