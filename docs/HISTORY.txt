@@ -3,6 +3,8 @@ Changelog
 
 15.0.dev0 - (unreleased)
 ------------------------
+* Bug fix: fixed exclude from table of contents
+  [catalin refs #74583]
 * Bug fix: fixed whatsnewgallery from not showing on non english pages
   [ichim-david refs #75989]
 * Bug fix: fix language selection tooltip
