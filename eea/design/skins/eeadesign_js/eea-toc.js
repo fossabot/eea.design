@@ -17,6 +17,17 @@ function build_toc(toc) {
     var queryString = $('#queryString').html();
         queryString = queryString || "h2, h3, h4";
 
+    var tocExclude = $("#exclude-toc").data("exclude").trim();
+    if(tocExclude.length) {
+        try {
+            $("#content").find(tocExclude).addClass("notoc");
+        } catch(err) {
+            if(window.console) {
+                console.log(err);
+            }
+        }
+    }
+
     $('#content').find(queryString).each(function(i, el) {
         var newLevel = parseInt(el.tagName.charAt(1), 10);
         hLevel = hLevel || newLevel;
