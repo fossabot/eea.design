@@ -43,7 +43,7 @@ jQuery(document).ready(function($) {
     hide_empty_container($viewlet_below_content, 0);
     var $whatsnew_listing = $(".whatsnew-listing");
     var $body_content = $(".body-content");
-    hide_empty_container($whatsnew_listing, 0, $whatsnew_listing.find('.eea-tabs'));
+    hide_empty_container($whatsnew_listing, 0, $whatsnew_listing.find('.eea-tabs-panels'));
     hide_empty_container($body_content, 1, $body_content.find('p'));
 
     var url_path_name = window.location.pathname;

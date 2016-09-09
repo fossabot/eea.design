@@ -3,6 +3,8 @@ Changelog
 
 15.0.dev0 - (unreleased)
 ------------------------
+* Bug fix: fixed whatsnewgallery from not showing on non english pages
+  [ichim-david refs #75989]
 * Bug fix: fix language selection tooltip
   [ichim-david refs #75503]
 * Bug fix: Remove http/https mixed content on login_form
