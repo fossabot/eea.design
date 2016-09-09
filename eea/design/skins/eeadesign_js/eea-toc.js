@@ -18,7 +18,7 @@ function build_toc(toc) {
         queryString = queryString || "h2, h3, h4";
 
     var tocExclude = $("#exclude-toc").data("exclude").trim();
-    if(tocExclude.length){
+    if(tocExclude.length) {
         try {
             $("#content").find(tocExclude).addClass("notoc");
         } catch(err) {
