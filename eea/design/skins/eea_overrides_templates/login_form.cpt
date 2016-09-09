@@ -7,10 +7,10 @@
 
 <head>
     <metal:js fill-slot="javascript_head_slot">
-        <script type="text/javascript"
-              src=""
-              tal:define="xurl python: context.absolute_url().replace('https://', 'http://').replace('http://', '//')"
-              tal:attributes="src string:$xurl/login.js">
+        <script type="text/javascript" tal:define="
+              url context/portal_url;
+              url python:url.replace('https://', 'http://').replace('http://', '//');"
+              tal:attributes="src string:$url/login.js">
       </script>
     </metal:js>
     <metal:block fill-slot="top_slot"
