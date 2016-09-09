@@ -221,6 +221,18 @@ a.archives {
     margin: 6px;
     padding: 0;
 }
+#below-topics-area #news-header {
+    margin-bottom: 0;
+}
+#below-topics-area #news-header h2 {
+    margin: 0 6px 0 1em;
+}
+#below-topics-area #topic-selector {
+    margin-top: 0.5em;
+}
+#below-topics-area .eea-tabs-panels {
+    padding: 0 1.5em 1.5em 1.5em;
+}
 
 #news-header {
   height: 35px;
