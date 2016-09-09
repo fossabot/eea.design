@@ -2,6 +2,7 @@
   Style for the promo gallery with highlights/news.
 
   <dtml-with base_properties> (do not remove this)
+  <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')">
   <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either)
 */
 
@@ -282,7 +283,7 @@ a.album-layout,
 a.active-album,
 a.list-layout:hover,
 a.album-layout:hover {
-  background: transparent url('&dtml-portal_url;/sprite-eeaimages.png') no-repeat scroll top right;
+  background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat scroll top right;
 }
 
 #semantic-ds-links a:hover,
@@ -320,7 +321,7 @@ a.album-layout:hover {
 }
 
 #content #twitter-link, #content #facebook-link, #content #youtube-link {
-    background: transparent url('&dtml-portal_url;/sprite-eeaimages.png') no-repeat;
+    background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat;
     padding: 0px;
 }
 
@@ -341,7 +342,7 @@ a.album-layout:hover {
 }
 
 #email-link {
-    background: url("&dtml-portal_url;/email_32.png") no-repeat center center transparent; /* TODO: to sprite */
+    background: url("&dtml-xurl;/email_32.png") no-repeat center center transparent; /* TODO: to sprite */
 }
 
 .shortcut-default {
@@ -370,13 +371,13 @@ a.album-layout:hover {
     vertical-align: middle;
 }
 #enquiry-content {
-    background: url("&dtml-portal_url;/forum.png") no-repeat -7px -16px transparent;
+    background: url("&dtml-xurl;/forum.png") no-repeat -7px -16px transparent;
     padding: 0 0 0 70px;
     height: 40px;
 }
 
 #mobile-content {
-    background: url("&dtml-portal_url;/mobile-large.png") no-repeat 0px 0px transparent;
+    background: url("&dtml-xurl;/mobile-large.png") no-repeat 0px 0px transparent;
     padding: 0 0 0 45px;
     height: 60px;
 }
@@ -413,5 +414,6 @@ a.active-list, a.list-layout:hover {
     width: 83%;
     padding-top: 6px;
 }
+/* </dtml-let> */
 /* </dtml-with> */
 

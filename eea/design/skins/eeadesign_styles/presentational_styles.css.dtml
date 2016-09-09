@@ -1,6 +1,7 @@
 /* EEA Presentational styles */
 
 /* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
 
@@ -188,7 +189,7 @@ blockquote {
     width: 70%;
     margin: 1.0em auto;
     padding: 1.5em 1em 1em 3em;
-    background: &dtml-lightBackgroundColor; url(&dtml-portal_url;/open_quote.gif) 0.5em 0.75em no-repeat;
+    background: &dtml-lightBackgroundColor; url(&dtml-xurl;/open_quote.gif) 0.5em 0.75em no-repeat;
     color: #000000;
     clear:both;
 }
@@ -235,22 +236,23 @@ pre {
 
 /* 21882 added figure container class */
 
-.figureContainer, .figureContainer50Left, .figureContainer50Right { 
+.figureContainer, .figureContainer50Left, .figureContainer50Right {
   page-break-inside: avoid;
 }
 
-.figureContainer { 
+.figureContainer {
    width: 100%;
 }
 
-.figureContainer50Left { 
+.figureContainer50Left {
    float: left;
    width: 50%;
 }
 
-.figureContainer50Right { 
+.figureContainer50Right {
    float: right;
    width: 50%;
 }
 
+/* </dtml-let> */
 /* </dtml-with> */

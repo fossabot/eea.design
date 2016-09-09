@@ -3,6 +3,7 @@
 */
 
 /* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 /* @group styles changes for public.css */
 
@@ -142,7 +143,7 @@ fieldset,
 }
 
 .fieldRequired {
-    background: url(&dtml-portal_url;/required.png) center left no-repeat;
+    background: url(&dtml-xurl;/required.png) center left no-repeat;
 }
 /* @end @group Forms found now in forms.css */
 
@@ -268,4 +269,5 @@ div.managePortletsLink, a.managePortletsFallback {
 }
 
 /* @end previously in public.css not found in stock plone */
+/* </dtml-let> */
 /* </dtml-with> */

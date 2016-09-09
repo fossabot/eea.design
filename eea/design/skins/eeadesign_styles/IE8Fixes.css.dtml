@@ -3,6 +3,7 @@
 */
 
 /* <dtml-with base_properties> */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 
 
 /* Left Navigation workaround for broken Internet Explorer */
@@ -31,10 +32,10 @@
 input {
     margin-bottom: 1px; /* bug fix */
 }
-input.searchButton, 
-input.standardButton, 
-input.context, 
-input.destructive, 
+input.searchButton,
+input.standardButton,
+input.context,
+input.destructive,
 input.standalone {
     font-size: 0.90em !important;
 }
@@ -58,7 +59,7 @@ textarea {
 #portal-logo {
   height /**/: <dtml-var "_[logoName].height">px;
   overflow: hidden;
-}       
+}
 
 .actionMenu .actionMenuHeader a {
     display: inline;
@@ -113,7 +114,7 @@ body { /* These work in IE only, changes the look of the scrollbar + textareas *
 * html .link-external,
 * html .link-external a {
      height: 1%;
-} 
+}
 
 /* Fix for IE float bug */
 * html #portal-top,
@@ -137,12 +138,12 @@ body { /* These work in IE only, changes the look of the scrollbar + textareas *
 }
 
 /* link background position fix */
-h2 a, 
-h3 a, 
-h4 a, 
-h5 a, 
+h2 a,
+h3 a,
+h4 a,
+h5 a,
 h6 a {
-     background: url(&dtml-portal_url;/bcpil.gif) no-repeat 0.5em right;
+     background: url(&dtml-xurl;/bcpil.gif) no-repeat 0.5em right;
 }
 
 /* Fix for IE float bug - have to use the Limi Hack here, since the paragraph
@@ -168,7 +169,7 @@ dd.portletFooter {
 * html .portletHeader {
     height: 1%;
 }
-.portletTopRight, 
+.portletTopRight,
 .portletTopLeft {
     top: 0px;
 }
@@ -197,7 +198,7 @@ dd.portletFooter {
 * html .portlet .portletItem #selectlang_form{
     margin: 0;
 }
- 
+
 * html .datatable {
     height: 0.1%;
 }
@@ -252,7 +253,7 @@ dd.portletFooter {
 * html #portal-globalnav li.selected a.dropTab img,
 * html #portal-globalnav li.selected a.dropTab:hover img {
     padding-top: 3px;
-} 
+}
 
 
 #portal-column-two .portletTabHead,
@@ -280,7 +281,7 @@ dd.portletFooter {
 
 * html .frontpage .documentActions {
     margin: -3em 0 0.5em 0em;
-} 
+}
 
 .section-copyright .documentActions,
 .section-privacy .documentActions,
@@ -305,17 +306,17 @@ dd.portletFooter {
     width: 414px;
 }
 
-#whatsnew-gallery .tileHeadline, #whatsnew-gallery .tileHeadline a { 
+#whatsnew-gallery .tileHeadline, #whatsnew-gallery .tileHeadline a {
     width: 390px;
     padding: 0px !important;
     margin-right: 20px !important;
 }
-#whatsnew-gallery .tileBody { 
+#whatsnew-gallery .tileBody {
     margin-top: 5px;
 }
 
 
-#forum-link { 
+#forum-link {
     display: block;
     height: 50px;
     width: 200px;
@@ -356,12 +357,12 @@ dd.portletFooter {
     color: #333333;
 }
 
-#languageCodes li, #languageCodes li.selected { 
+#languageCodes li, #languageCodes li.selected {
     display: inline;
     margin: 0px 5px;
 }
 
-#languageCodes li.selected  { 
+#languageCodes li.selected  {
     padding-bottom: 3px;
 }
 
@@ -486,7 +487,7 @@ dd.portletItem {
   background-color:transparent;
 }
 
-#coverflow img { 
+#coverflow img {
    margin: 0px 0px -35px -92px !important;
 }
 
@@ -543,7 +544,7 @@ img
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b1c748', endColorstr='#777c1f') !important;
 }
 #multimedia-vids #whatsnew-gallery .eea-tabs-panel {
-    background: transparent; 
+    background: transparent;
 }
 
 .section-publications .widget-fieldset legend {
@@ -568,10 +569,11 @@ img
 }
 
 
-/* 5509; IE8 displayed portal-personaltools on entire screen width 
+/* 5509; IE8 displayed portal-personaltools on entire screen width
  * because of min-width: 100% */
 dl.actionMenu.activated dd {
     min-width: 0;
 }
+/* </dtml-let> */
 /* </dtml-with> */
 

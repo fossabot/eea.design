@@ -14,12 +14,13 @@
 */
 
 /* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
 /* generated icon classes for content types should be applied to wrapper spans
    instead of on the link class itself because of bugs in Internet Explorer's
    rendering engine. It will flicker on hover if not.
-   Full explanation can be found at 
+   Full explanation can be found at
    http://plone.org/documentation/how-to/flickering-background-images-internet-explorer */
 
 <dtml-in "getPortalTypeList()">
@@ -27,19 +28,19 @@
             type_id="item['id']"
             type_icon="item['icon']">
     .contenttype-&dtml-type_id;,
-    .actionMenu .contenttype-&dtml-type_id; a:hover { 
-        background-image: url(&dtml-portal_url;/&dtml-type_icon;); 
-        background-repeat: no-repeat; 
+    .actionMenu .contenttype-&dtml-type_id; a:hover {
+        background-image: url(&dtml-xurl;/&dtml-type_icon;);
+        background-repeat: no-repeat;
         background-position: 0% 0%;
     }
     /* Holly hack to prevent items from shifting to the left in IE*/
-    * html .contenttype-&dtml-type_id; { 
+    * html .contenttype-&dtml-type_id; {
         height: 1%;
     }
     #portal-sitemap .contenttype-&dtml-type_id; a:hover,
     #portlet-navigation-tree .contenttype-&dtml-type_id; a:hover,
     #portlet-navigation-tree .contenttype-&dtml-type_id; a.navTreeCurrentItem {
-        background-image: url(&dtml-portal_url;/&dtml-type_icon;);
+        background-image: url(&dtml-xurl;/&dtml-type_icon;);
         background-repeat: no-repeat;
         background-position: 0% 3px;
     }
@@ -52,16 +53,16 @@
     * html #portlet-navigation-tree .contenttype-&dtml-type_id; a.navTreeCurrentItem {
         position: relative;
     }
-    .listing .contenttype-&dtml-type_id; { 
-        display: block; 
+    .listing .contenttype-&dtml-type_id; {
+        display: block;
     }
   </dtml-let>
 </dtml-in>
 
 <dtml-in "getActionIconList()">
-    .actionicon-<dtml-var category>-<dtml-var action> { 
-        background-image: url(<dtml-var portal_url>/<dtml-var icon>) !important; 
-        background-repeat: no-repeat; 
+    .actionicon-<dtml-var category>-<dtml-var action> {
+        background-image: url(<dtml-var xurl>/<dtml-var icon>) !important;
+        background-repeat: no-repeat;
         background-position: 0% 50%;
     }
 </dtml-in>
@@ -86,4 +87,5 @@
     width /**/: 18px;
 }
 
+/* </dtml-let> */
 /* </dtml-with> */

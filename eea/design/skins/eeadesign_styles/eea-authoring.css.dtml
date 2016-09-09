@@ -1,4 +1,5 @@
 /* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
 /* @group Editing */
@@ -54,7 +55,7 @@
 }
 
 #portal-personaltools #user-name {
-    background: transparent url(&dtml-portal_url;/user.gif) center left no-repeat;
+    background: transparent url(&dtml-xurl;/user.gif) center left no-repeat;
     padding-left: 15px;
     color: white;
 }
@@ -104,5 +105,6 @@
 
 /* @end group Editing */
 
+/* </dtml-let> */
 /* </dtml-with> */
 

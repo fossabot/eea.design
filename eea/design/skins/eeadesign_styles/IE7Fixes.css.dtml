@@ -1,6 +1,7 @@
 /* Stylesheet with Internet Explorer 7 - specific workarounds.
 
   <dtml-with base_properties> (do not remove this)
+  <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')">
   <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either)
 */
 
@@ -97,10 +98,10 @@
 input {
     margin-bottom: 1px; /* bug fix */
 }
-input.searchButton, 
-input.standardButton, 
-input.context, 
-input.destructive, 
+input.searchButton,
+input.standardButton,
+input.context,
+input.destructive,
 input.standalone {
     font-size: 0.90em !important;
 }
@@ -126,7 +127,7 @@ div#portal-columns div.portlet {
 /*     overflow: hidden; */
 /* } */
 
-.column-area .featured .searchforms input[type="submit"], .right-column-area .featured .searchforms input[type="submit"] { 
+.column-area .featured .searchforms input[type="submit"], .right-column-area .featured .searchforms input[type="submit"] {
     padding: 7px 4px !important;
 }
 
@@ -141,7 +142,7 @@ textarea {
 #portal-logo {
   height /**/: <dtml-var "_[logoName].height">px;
   overflow: hidden;
-}       
+}
 
 #portal-colophon .colophonWrapper {
     width: 950px;
@@ -200,7 +201,7 @@ body { /* These work in IE only, changes the look of the scrollbar + textareas *
 * html .link-external,
 * html .link-external a {
      height: 1%;
-} 
+}
 
 /* Fix for IE float bug */
 * html #portal-top,
@@ -224,12 +225,12 @@ body { /* These work in IE only, changes the look of the scrollbar + textareas *
 }
 
 /* link background position fix */
-h2 a, 
-h3 a, 
-h4 a, 
-h5 a, 
+h2 a,
+h3 a,
+h4 a,
+h5 a,
 h6 a {
-     background: url(&dtml-portal_url;/bcpil.gif) no-repeat 0.5em right;
+     background: url(&dtml-xurl;/bcpil.gif) no-repeat 0.5em right;
 }
 
 /* Fix for IE float bug - have to use the Limi Hack here, since the paragraph
@@ -255,7 +256,7 @@ dd.portletFooter {
 * html .portletHeader {
     height: 1%;
 }
-.portletTopRight, 
+.portletTopRight,
 .portletTopLeft {
     top: 0px;
 }
@@ -284,7 +285,7 @@ dd.portletFooter {
 * html .portlet .portletItem #selectlang_form{
     margin: 0;
 }
- 
+
 * html .datatable {
     height: 0.1%;
 }
@@ -335,7 +336,7 @@ dd.portletFooter {
 * html #portal-globalnav li.selected a.dropTab img,
 * html #portal-globalnav li.selected a.dropTab:hover img {
     padding-top: 3px;
-} 
+}
 
 
 #portal-column-two .portletTabHead,
@@ -363,7 +364,7 @@ dd.portletFooter {
 
 * html .frontpage .documentActions {
     margin: -3em 0 0.5em 0em;
-} 
+}
 
 .section-copyright .documentActions,
 .section-privacy .documentActions,
@@ -393,12 +394,12 @@ dd.portletFooter {
     width: 414px;
 }
 
-#whatsnew-gallery .tileHeadline, #whatsnew-gallery .tileHeadline a { 
+#whatsnew-gallery .tileHeadline, #whatsnew-gallery .tileHeadline a {
     width: 414px;
     padding: 0px !important;
     margin-right: 20px !important;
 }
-#whatsnew-gallery .tileBody { 
+#whatsnew-gallery .tileBody {
     margin-top: 5px;
 }
 
@@ -407,7 +408,7 @@ dd.portletFooter {
     padding-left: 0px;
 }
 
-#play-pause { 
+#play-pause {
     margin-top: -22px;
 }
 
@@ -457,12 +458,12 @@ dd.portletFooter {
     font-style: normal;
 }
 
-#languageCodes li, #languageCodes li.selected { 
+#languageCodes li, #languageCodes li.selected {
     display: inline;
     margin: 0px 5px;
 }
 
-#languageCodes li.selected  { 
+#languageCodes li.selected  {
     padding-bottom: 3px;
 }
 
@@ -549,7 +550,7 @@ img
 }
 
 
-#coverflow img { 
+#coverflow img {
    margin: 0px 0px -35px -92px !important;
 }
 
@@ -584,7 +585,7 @@ img
 /*     display: inline-block; */
 /* } */
 
-.multimedia-widget#topright-widgets #faceted-text-search { 
+.multimedia-widget#topright-widgets #faceted-text-search {
     margin-top: -10px;
 }
 
@@ -677,5 +678,6 @@ img
     zoom: 1;
 }
 
+/* </dtml-let> */
 /* </dtml-with> */
 

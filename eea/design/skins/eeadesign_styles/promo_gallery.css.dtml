@@ -2,6 +2,7 @@
   Style for the promo gallery with highlights/news.
 
   <dtml-with base_properties> (do not remove this)
+  <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')">
   <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either)
 */
 
@@ -39,13 +40,13 @@
     clear: none !important;
 }
 
-#promo-gallery-content h3 a, #promo-gallery-content h3 a:visited, 
+#promo-gallery-content h3 a, #promo-gallery-content h3 a:visited,
 #promo-gallery-content-sm h3 a, #promo-gallery-content-sm h3 a:visited {
     color: #FFF !important;
     background: none;
 }
 
-#promo-gallery-content h3 a:hover, 
+#promo-gallery-content h3 a:hover,
 #promo-gallery-content-sm h3 a:hover {
     color: #FFFFFF !important;
     background: none;
@@ -59,7 +60,7 @@
 #promo-gallery-wrapper {
     width: 100%;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
     background: &dtml-lightBackgroundColor;;
     border: 0px solid #F7F7F7;
     margin-bottom: 1em;
@@ -110,7 +111,7 @@
 
 #promo-gallery-content li a.video-fancybox.cloudvideo {
     display: block;
-    background: url(&dtml-portal_url;/play-button.png) no-repeat center center;
+    background: url(&dtml-xurl;/play-button.png) no-repeat center center;
 }
 
 #promo-gallery-content li a.video-fancybox.cloudvideo img {
@@ -127,7 +128,7 @@
     position: absolute;
 	width:190px;
 }
-#promo-navigator-sm{ 
+#promo-navigator-sm{
     height: 50px;
 }
 #promo-gallery-wrapper ul, #promo-gallery-content ul, #promo-gallery-content-sm ul {
@@ -136,7 +137,7 @@
     list-style: none;
 }
 
-#promo-gallery-content-sm { 
+#promo-gallery-content-sm {
     height: 250px;
     overflow: hidden;
 }
@@ -180,7 +181,7 @@
 /* } */
 
 #promo-navigator-sm li, #promo-navigator-sm li.active {
-    width: 65px !important; 
+    width: 65px !important;
 }
 
 #promo-navigator li h3, #promo-navigator-sm li h3 {
@@ -258,7 +259,7 @@
 .promo-gallery-pause,
 #prev-promo,
 #next-promo {
-  background: transparent url("&dtml-portal_url;/sprite-eeaimages.png") no-repeat scroll top right;
+  background: transparent url("&dtml-xurl;/sprite-eeaimages.png") no-repeat scroll top right;
 }
 
 .promo-gallery-play {
@@ -294,4 +295,5 @@
     position: relative;
 }
 
+/* </dtml-let> */
 /* </dtml-with> */

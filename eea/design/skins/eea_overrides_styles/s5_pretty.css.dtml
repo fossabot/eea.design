@@ -5,6 +5,7 @@
 */
 
 /* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
 /*
@@ -87,7 +88,7 @@ div#header {
 */
 /* #14814; customized this file in order to use the print logo */
 .layout #footer {
-    background: &dtml-backgroundColor; url('&dtml-portal_url;/++resource++eea.translations.images/printlogo-en.gif') 10px 10px no-repeat;
+    background: &dtml-backgroundColor; url('&dtml-xurl;/++resource++eea.translations.images/printlogo-en.gif') 10px 10px no-repeat;
     border-top: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
     color: &dtml-fontColor;;
     font-size: 0.5em;
@@ -204,5 +205,5 @@ div#controls form {
     font-size: 1em;
 }
 
-
+/* </dtml-let> */
 /* </dtml-with> */

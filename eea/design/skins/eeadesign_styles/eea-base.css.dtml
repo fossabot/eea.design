@@ -1,4 +1,5 @@
 /* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
 /* @group Tabs #29898 minimum css needed for formTabs on indicators figure plus daviz
@@ -91,7 +92,7 @@ hr {
 
 #region-content ul, ul {
     margin: 0 0 0 1.5em;
-    list-style-image: url(&dtml-portal_url;/bullet.gif);
+    list-style-image: url(&dtml-xurl;/bullet.gif);
     list-style-type: square;
     list-style-position: inside;
 }
@@ -225,7 +226,7 @@ dl.portlet a:visited {
 }
 
 #content span.link-external a {
-    background: transparent url(&dtml-portal_url;/link_icon.gif) 0px 1px no-repeat;
+    background: transparent url(&dtml-xurl;/link_icon.gif) 0px 1px no-repeat;
     padding: 2px 0px 1px 16px;
 }
 
@@ -335,12 +336,12 @@ dl.warning dd, dl.error dd {
 /* @group Collapsible */
 dl.expandedInlineCollapsible dt.collapsibleHeader,
 dl.expandedBlockCollapsible dt.collapsibleHeader {
-    background: White url(&dtml-portal_url;/treeExpanded.png) no-repeat 0.5em 50%;
+    background: White url(&dtml-xurl;/treeExpanded.png) no-repeat 0.5em 50%;
 }
 
 dl.collapsedInlineCollapsible dt.collapsibleHeader,
 dl.collapsedBlockCollapsible dt.collapsibleHeader {
-    background: White url(&dtml-portal_url;/treeCollapsed.png) no-repeat 0.5em 50%;
+    background: White url(&dtml-xurl;/treeCollapsed.png) no-repeat 0.5em 50%;
 }
 /* @end @group Collapsible */
 
@@ -436,7 +437,7 @@ dl.toc dd {
 
 a.video-fancybox .photoAlbumEntryWrapper {
     position: relative;
-    background: url(&dtml-portal_url;/play-button-cloud.png) no-repeat 2px center;
+    background: url(&dtml-xurl;/play-button-cloud.png) no-repeat 2px center;
 }
 .photoAlbumEntry a {
     font-size: &dtml-fontSmallSize;;
@@ -504,7 +505,7 @@ a.video-fancybox .photoAlbumEntryWrapper {
 /* default close button positioned on upper-left corner */
 div.overlaybg div.close,
 div.overlay div.close {
-    background-image: url(&dtml-portal_url;/pb_close.png);
+    background-image: url(&dtml-xurl;/pb_close.png);
 }
 
 .pb-ajax, .pb-image, .overlay iframe {
@@ -545,34 +546,34 @@ div.overlay a:hover {
 */
 
 .icons-on .contenttype-document {
-    background: no-repeat transparent 0px 2px url(&dtml-portal_url;/contenttypes-sprite.png);
+    background: no-repeat transparent 0px 2px url(&dtml-xurl;/contenttypes-sprite.png);
 }
 .icons-on .contenttype-event {
-    background: no-repeat transparent 0px -212px url(&dtml-portal_url;/contenttypes-sprite.png);
+    background: no-repeat transparent 0px -212px url(&dtml-xurl;/contenttypes-sprite.png);
 }
 .icons-on .contenttype-folder {
-    /* background: no-repeat transparent 0px -648px url(&dtml-portal_url;/contenttypes-sprite.png); */
+    /* background: no-repeat transparent 0px -648px url(&dtml-xurl;/contenttypes-sprite.png); */
     background: none;
 }
 .icons-on .contenttype-link {
-    background: no-repeat transparent 0px -1080px url(&dtml-portal_url;/contenttypes-sprite.png);
+    background: no-repeat transparent 0px -1080px url(&dtml-xurl;/contenttypes-sprite.png);
 }
 .icons-on .contenttype-news-item {
-    background: no-repeat transparent 0px -1296px url(&dtml-portal_url;/contenttypes-sprite.png);
+    background: no-repeat transparent 0px -1296px url(&dtml-xurl;/contenttypes-sprite.png);
 }
 .icons-on .contenttype-plone-site {
-    background: no-repeat transparent 0px -1512px url(&dtml-portal_url;/contenttypes-sprite.png);
+    background: no-repeat transparent 0px -1512px url(&dtml-xurl;/contenttypes-sprite.png);
 }
 .icons-on .contenttype-topic, .icons-on .contenttype-collection {
-    background: no-repeat transparent 0px -1728px url(&dtml-portal_url;/contenttypes-sprite.png);
+    background: no-repeat transparent 0px -1728px url(&dtml-xurl;/contenttypes-sprite.png);
 }
 
 /* These should only appear in the add menu */
 .icons-on #plone-contentmenu-factories .contenttype-file {
-    background: no-repeat transparent 0px -431px url(&dtml-portal_url;/contenttypes-sprite.png);
+    background: no-repeat transparent 0px -431px url(&dtml-xurl;/contenttypes-sprite.png);
 }
 .icons-on #plone-contentmenu-factories .contenttype-image {
-    background: no-repeat transparent 0px -862px url(&dtml-portal_url;/contenttypes-sprite.png);
+    background: no-repeat transparent 0px -862px url(&dtml-xurl;/contenttypes-sprite.png);
 }
 
 .contenttype-document,
@@ -623,5 +624,6 @@ div.overlay a:hover {
 
 /* @end @group Core content type sprites */
 
-/* END OF BASE.CSS RULES </dtml-with> */
-
+/* END OF BASE.CSS RULES */
+/* </dtml-let> */
+/* </dtml-with> */

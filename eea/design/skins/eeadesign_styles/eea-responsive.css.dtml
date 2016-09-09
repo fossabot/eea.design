@@ -1,5 +1,6 @@
 /* Footer.css responsive styles */
 /* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 @media screen and (max-width: 320px) {
   .eea-accordion-panels table {
@@ -204,7 +205,7 @@
     padding-bottom: 2em;
     width: 100%;
     padding-right: 90px;
-    background: url("&dtml-portal_url;/eu-flag.png") no-repeat top right; }
+    background: url("&dtml-xurl;/eu-flag.png") no-repeat top right; }
     #portaltab-europe a {
       text-align: left;
       margin-top: 1em; }
@@ -231,7 +232,7 @@
 
   #chooselang li {
     display: list-item;
-    list-style: square inside url("&dtml-portal_url;/bullet.gif"); }
+    list-style: square inside url("&dtml-xurl;/bullet.gif"); }
 
   #portal-externalsites a, #portal-siteactions a {
     display: block;
@@ -567,7 +568,7 @@
   #portaltab-europe {
     padding-right: 95px;
     width: 185px;
-    background: url("&dtml-portal_url;/eu-flag.png") no-repeat top right; }
+    background: url("&dtml-xurl;/eu-flag.png") no-repeat top right; }
     #portaltab-europe a {
       margin-top: 7px;
       padding: 0 !important; }
@@ -667,6 +668,7 @@
   .mini-header #portal-globalnav > li > a {
     padding: 1.1em 0.5em !important;
     font-size: 83%; } }
+/* </dtml-let> */
 /* </dtml-with> */
 
 /*# sourceMappingURL=eea-responsive.css.dtml.map */

@@ -1,4 +1,5 @@
 /* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
 /* #50513 hide global filter for document register
@@ -561,18 +562,18 @@ input.standalone:hover {
     text-decoration: none;
 }
 .eea-tooltip-markup-top {
-    background: transparent url(&dtml-portal_url;/++resource++tools/green_arrow_top.png);
+    background: transparent url(&dtml-xurl;/++resource++tools/green_arrow_top.png);
 }
 .eea-tooltip-markup-bottom {
-    background: transparent url(&dtml-portal_url;/++resource++tools/green_arrow_bottom.png);
+    background: transparent url(&dtml-xurl;/++resource++tools/green_arrow_bottom.png);
     margin-top: 15px;
 }
 .eea-tooltip-markup-left {
-    background: transparent url(&dtml-portal_url;/++resource++tools/green_arrow_left.png);
+    background: transparent url(&dtml-xurl;/++resource++tools/green_arrow_left.png);
     padding-right: 45px;
 }
 .eea-tooltip-markup-right {
-    background: transparent url(&dtml-portal_url;/++resource++tools/green_arrow_right.png);
+    background: transparent url(&dtml-xurl;/++resource++tools/green_arrow_right.png);
     padding-left: 45px;
 }
 
@@ -584,7 +585,7 @@ input.standalone:hover {
 }
 
 .eea-tooltip-markup .tooltip-box-br {
-    background: transparent url(&dtml-portal_url;/++resource++tools/x-green-bottom-right.png) no-repeat right bottom;
+    background: transparent url(&dtml-xurl;/++resource++tools/x-green-bottom-right.png) no-repeat right bottom;
     position:relative;
     max-height:1000px;
     min-height:50px;
@@ -594,7 +595,7 @@ input.standalone:hover {
 }
 
 .eea-tooltip-markup .tooltip-box-tl {
-    background: transparent url(&dtml-portal_url;/++resource++tools/x-green-top-left.png) no-repeat left top;
+    background: transparent url(&dtml-xurl;/++resource++tools/x-green-top-left.png) no-repeat left top;
     position:relative;
     left:-30px;
     top:-20px;
@@ -606,7 +607,7 @@ input.standalone:hover {
 }
 
 .eea-tooltip-markup .tooltip-box-rcontent {
-    background: transparent url(&dtml-portal_url;/++resource++tools/x-green-arrow-left.png) no-repeat left center;
+    background: transparent url(&dtml-xurl;/++resource++tools/x-green-arrow-left.png) no-repeat left center;
     position: relative;
     top: 11px;
     padding:2em 1em 2em 3em;
@@ -616,7 +617,7 @@ input.standalone:hover {
 }
 
 .eea-tooltip-markup .tooltip-box-lcontent {
-    background: transparent url(&dtml-portal_url;/++resource++tools/x-green-arrow-right.png) no-repeat right center;
+    background: transparent url(&dtml-xurl;/++resource++tools/x-green-arrow-right.png) no-repeat right center;
     position: relative;
     top: 11px;
     right: -31px;
@@ -627,7 +628,7 @@ input.standalone:hover {
 }
 
 .eea-tooltip-markup .tooltip-box-bcontent {
-    background: transparent url(&dtml-portal_url;/++resource++tools/x-green-arrow-top.png) no-repeat center top;
+    background: transparent url(&dtml-xurl;/++resource++tools/x-green-arrow-top.png) no-repeat center top;
     color:#FFFFFF;
     font-size:12px;
     left:10px;
@@ -638,7 +639,7 @@ input.standalone:hover {
 }
 
 .eea-tooltip-markup .tooltip-box-tcontent {
-    background: transparent url(&dtml-portal_url;/++resource++tools/x-green-arrow-bottom.png) no-repeat center bottom;
+    background: transparent url(&dtml-xurl;/++resource++tools/x-green-arrow-bottom.png) no-repeat center bottom;
     bottom:-22px;
     color:#FFFFFF;
     font-size:12px;
@@ -777,12 +778,12 @@ dl a:hover, dd a:hover, dt a:hover {
     text-align: center;
 }
 #organisations-content {
-    background: url("&dtml-portal_url;/portal_depiction/organisation/image_thumb") no-repeat 12px 10px &dtml-lightBackgroundColor;;
+    background: url("&dtml-xurl;/portal_depiction/organisation/image_thumb") no-repeat 12px 10px &dtml-lightBackgroundColor;;
     padding: 25px 20px 50px 90px;
     text-align: left;
 }
 #semantic-content {
-    background: url("&dtml-portal_url;/molecule.png") no-repeat 20px 22px transparent; /* TODO: to sprite */
+    background: url("&dtml-xurl;/molecule.png") no-repeat 20px 22px transparent; /* TODO: to sprite */
     padding: 25px 20px 35px 80px;
     text-align: left;
 }
@@ -798,7 +799,7 @@ dl a:hover, dd a:hover, dt a:hover {
 #theme-datacentre {
     padding: 15px 0 25px 70px;
     height: 56px;
-    background: transparent url('&dtml-portal_url;/sprite-eeaimages.png') no-repeat -401px -469px;
+    background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat -401px -469px;
     display: block;
     line-height: 1.3;
     border: 0;
@@ -810,7 +811,7 @@ dl a:hover, dd a:hover, dt a:hover {
 }
 a.moreLink {
     border: 0 !important;
-    background: transparent url("&dtml-portal_url;/sprite-eeaimages.png") no-repeat scroll -441px -9px;
+    background: transparent url("&dtml-xurl;/sprite-eeaimages.png") no-repeat scroll -441px -9px;
     display: inline-block;
     padding-left: 25px;
     height: 18px;
@@ -841,7 +842,7 @@ a.moreLink {
 }
 
 .fieldRequired {
-    background: url(&dtml-portal_url;/required.gif) center left no-repeat;
+    background: url(&dtml-xurl;/required.gif) center left no-repeat;
     padding: 0 0 0 8px;
     color: &dtml-backgroundColor;;
 }
@@ -962,7 +963,7 @@ a.moreLink {
 
 .panel-top {
     margin: auto auto;
-    background: transparent url(&dtml-portal_url;/panel_arrow.png);
+    background: transparent url(&dtml-xurl;/panel_arrow.png);
     width: 50px;
     height: 25px;
     position: relative;
@@ -1213,7 +1214,7 @@ a.moreLink {
 
 #article-language {
     margin-top: -40px;
-    background: url("&dtml-portal_url;/sprite-eeaimages.png") no-repeat scroll -430px -35px transparent;
+    background: url("&dtml-xurl;/sprite-eeaimages.png") no-repeat scroll -430px -35px transparent;
     padding-left: 35px;
     position: absolute;
     right: 1.5em;
@@ -1409,24 +1410,24 @@ option.hiddenStructure {
 
 .link-parent {
     display: block;
-    background: transparent url(&dtml-portal_url;/arrowUp.gif) 4px 5px no-repeat;
+    background: transparent url(&dtml-xurl;/arrowUp.gif) 4px 5px no-repeat;
     padding: 1px 0 10px 16px;
     font-size: &dtml-fontSmallSize;;
     text-decoration: none;
 }
 
 .link-external {
-    background: transparent url(&dtml-portal_url;/link_icon.gif) 3px 1px no-repeat;
+    background: transparent url(&dtml-xurl;/link_icon.gif) 3px 1px no-repeat;
     padding: 1px 0 1px 19px;
 }
 
 .link-feed, .link-rss, .link-rdf, .link-xml {
-    background: transparent url(&dtml-portal_url;/rss.gif) 0 1px no-repeat;
+    background: transparent url(&dtml-xurl;/rss.gif) 0 1px no-repeat;
     padding: 1px 0 1px 18px;
 }
 
 .link-comment {
-    background: transparent url(&dtml-portal_url;/discussionitem_icon.gif) center left no-repeat;
+    background: transparent url(&dtml-xurl;/discussionitem_icon.gif) center left no-repeat;
     padding: 1px 0 1px 16px !important; /* value:  */
 }
 
@@ -1438,20 +1439,20 @@ option.hiddenStructure {
 
 /* Common file types icon */
 .link-pdf {
-    background: transparent url(&dtml-portal_url;/pdf.png) 0 50% no-repeat;
+    background: transparent url(&dtml-xurl;/pdf.png) 0 50% no-repeat;
     padding: 2px 0 2px 16px;
 }
 .link-xlb, .link-xls, .link-xlt, .link-csv, .link-tsv {
-    background: transparent url(&dtml-portal_url;/xls.png) 0 50% no-repeat;
+    background: transparent url(&dtml-xurl;/xls.png) 0 50% no-repeat;
     padding: 2px 0 2px 20px;}
 .link-json {
-    background: transparent url(&dtml-portal_url;/script_code.png) 0 50% no-repeat;
+    background: transparent url(&dtml-xurl;/script_code.png) 0 50% no-repeat;
     padding: 2px 0 2px 20px;}
 .link-exhibit {
-    background: transparent url(&dtml-portal_url;/script_code_red.png) 0 50% no-repeat;
+    background: transparent url(&dtml-xurl;/script_code_red.png) 0 50% no-repeat;
     padding: 2px 0 2px 20px;}
 .link-table {
-    background: transparent url(&dtml-portal_url;/table.png) 0 50% no-repeat;
+    background: transparent url(&dtml-xurl;/table.png) 0 50% no-repeat;
     padding: 2px 0 2px 20px;}
 
 /* TinyMCE image alignment classes */
@@ -1705,7 +1706,7 @@ form[name="edit_form"] table {
 
 #outdated li {
     float: left;
-    background: url('&dtml-portal_url;/browsers.png') no-repeat;
+    background: url('&dtml-xurl;/browsers.png') no-repeat;
     width: 50px;
     height: 71px;
     overflow: hidden;
@@ -1813,12 +1814,12 @@ input.queryvalue {
     text-decoration: underline;
 }
 a#subfolders_more_a, .more_dropdown_a {
-    background: url("&dtml-portal_url;/accordion_down.png") no-repeat scroll 95% 50% transparent;
+    background: url("&dtml-xurl;/accordion_down.png") no-repeat scroll 95% 50% transparent;
     padding-right: 2.5em;
 }
 
 #subfolders_listing #subfolders_more_a:hover, #subfolders_listing .moreHover, .more_dropdown_a .moreHover {
-    background: url("&dtml-portal_url;/accordion_down.png") no-repeat scroll 95% 50% #FFF !important;
+    background: url("&dtml-xurl;/accordion_down.png") no-repeat scroll 95% 50% #FFF !important;
     position: relative;
     z-index: 1010;
 }
@@ -2016,7 +2017,7 @@ body.template-login_form #content,
 
 /* download.pdf extra clicking prevention styles */
 a.downloading {
-    background: transparent url(&dtml-portal_url;/icon-downloading.gif) no-repeat center center;
+    background: transparent url(&dtml-xurl;/icon-downloading.gif) no-repeat center center;
 }
 
 a.downloading img {
@@ -2137,5 +2138,6 @@ h4.figureHeading {
     margin: 0;
 }
 
+/* </dtml-let> */
 /* </dtml-with> */
 

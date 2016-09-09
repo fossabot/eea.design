@@ -1,4 +1,5 @@
 /* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
 #globalnav-holder {
@@ -124,7 +125,7 @@
     vertical-align: top;
     line-height: 1.1;
     padding-right: 92px;
-    background: url("&dtml-portal_url;/eu-flag.png") no-repeat 123px -5px;
+    background: url("&dtml-xurl;/eu-flag.png") no-repeat 123px -5px;
 }
 
 .mini-header #portaltab-europe {
@@ -136,7 +137,7 @@
     font-size: 70%;
     line-height: 1.1;
     padding-left: 35px;
-    background: url("&dtml-portal_url;/globalnav-logo.png") no-repeat 10% 60%;
+    background: url("&dtml-xurl;/globalnav-logo.png") no-repeat 10% 60%;
 }
 
 #portal-globalnav #portaltab-eeahome {
@@ -154,7 +155,7 @@
 }
 
 #portal-globalnav .en_icon {
-    background: url(&dtml-portal_url;/en_icon.png) no-repeat scroll right -1px transparent;
+    background: url(&dtml-xurl;/en_icon.png) no-repeat scroll right -1px transparent;
 }
 
 /* refs #71262 - top navigation must have a selected style */
@@ -192,4 +193,5 @@
 #portaltab-europe a:hover:after{
     border: none;
 }
+/* </dtml-let> */
 /* </dtml-with> */

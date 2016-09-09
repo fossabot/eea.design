@@ -1,4 +1,5 @@
 /* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
 /* sub/sup must not alter the line-height #20996 */
@@ -68,7 +69,7 @@ sup, sub {
 .wf-state-in-progress,
 .wf-state-obsolete,
 .wf-state-pending {
-    background: url(&dtml-portal_url;/draft.png);
+    background: url(&dtml-xurl;/draft.png);
 }
 
 /*
@@ -79,7 +80,7 @@ sup, sub {
 
 .collapsibleHeader {
     cursor: pointer;
-    background: transparent url(<dtml-var portal_url>/p_/pl) 0% 50% no-repeat;
+    background: transparent url(<dtml-var xurl>/p_/pl) 0% 50% no-repeat;
     padding: 1px 0 1px 20px;
 }
 
@@ -222,7 +223,7 @@ th a, th a:link, th a:visited {
 
 #content blockquote p {
     font-weight:bold;
-    background: url(&dtml-portal_url;/close_quote.gif) no-repeat bottom right;
+    background: url(&dtml-xurl;/close_quote.gif) no-repeat bottom right;
     padding: 0 2.25em 1em 0;
 }
 
@@ -354,13 +355,13 @@ span.figure-left {
     padding: 10px 2px;
     width: 17px;
     height: 17px;
-    background: transparent url(&dtml-portal_url;/accordion_left.png) no-repeat scroll center center;
+    background: transparent url(&dtml-xurl;/accordion_left.png) no-repeat scroll center center;
     cursor: pointer;
 }
 
 #keyfacts-slider .slidePortlet .slideButton.next {
     right: 0;
-    background: transparent url(&dtml-portal_url;/accordion_right.png) no-repeat scroll center center;
+    background: transparent url(&dtml-xurl;/accordion_right.png) no-repeat scroll center center;
 }
 
 #keyfacts-slider .slidePortlet .slideButton.play {
@@ -370,11 +371,11 @@ span.figure-left {
     margin-right: 10px;
     padding: 5px;
     border: 0;
-    background: transparent url('&dtml-portal_url;/sprite-eeaimages.png') no-repeat scroll -446px -216px;
+    background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat scroll -446px -216px;
 }
 
 #keyfacts-slider .slidePortlet .slideButton.play.pause {
-    background: transparent url('&dtml-portal_url;/sprite-eeaimages.png') no-repeat scroll -454px -191px;
+    background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat scroll -454px -191px;
 }
 
 #keyfacts-slider .slidePortlet a.moreLink {
@@ -564,4 +565,5 @@ span.figure-left {
     border-radius: 0 0 10px 10px;
 }
 
+/* </dtml-let> */
 /* </dtml-with> */
