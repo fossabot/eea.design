@@ -73,10 +73,11 @@
                     }
                     // attempt to position the tooltip bottom right from target on mini_header
                     if ($mini_header) {
-                        var pos = $this.offset();
+                        var gnav_pos_left = window.Math.floor($("#portal-globalnav").offset().left);
+                        var pos_left = window.Math.floor($this.offset().left);
                         var eWidth = $this.outerWidth();
-                        var mWidth = $tooltip.outerWidth();
-                        var left = window.Math.ceil((pos.left + eWidth - mWidth))  + "px";
+                        var tWidth = $tooltip.outerWidth();
+                        var left = pos_left + eWidth - gnav_pos_left - tWidth + "px";
                         if (tooltip.style.left !== left) {
                             tooltip.style.left = left;
                         }
