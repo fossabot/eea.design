@@ -231,8 +231,14 @@ a.archives {
 #below-topics-area #topic-selector {
     margin-top: 0.5em;
 }
+.site-SITE #below-topics-area #topic-selector {
+     margin-top: 2em;
+}
 #below-topics-area .eea-tabs-panels {
     padding: 0 1.5em 1.5em 1.5em;
+}
+.site-SITE #below-topics-area .eea-tabs-panels {
+    padding: 1.5em;
 }
 
 #news-header {

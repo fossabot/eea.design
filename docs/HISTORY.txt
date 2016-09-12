@@ -3,6 +3,10 @@ Changelog
 
 15.0.dev0 - (unreleased)
 ------------------------
+* Bug fix: fixed position of filtering on whatsnew-gallery
+  [ichim-david refs #76202]
+* Bug fix: fixed display of globalnav popup
+  [ichim-david refs #76202]
 * Feature: fixed exclude from table of contents
   [catalin refs #74583]
 * Bug fix: fixed whatsnewgallery from not showing on non english pages
