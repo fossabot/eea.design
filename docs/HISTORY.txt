@@ -1,6 +1,9 @@
 Changelog
 =========
 
+15.1.dev0 - (unreleased)
+------------------------
+
 15.0 - (2016-09-13)
 -------------------
 * Bug fix: fixed position of filtering on whatsnew-gallery
