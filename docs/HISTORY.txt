@@ -3,6 +3,9 @@ Changelog
 
 15.1.dev0 - (unreleased)
 ------------------------
+* Bug fix: take into consideration that eea-toc exclude data
+  might not be found
+  [ichim-david refs #77243]
 
 15.0 - (2016-09-13)
 -------------------
