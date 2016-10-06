@@ -7,7 +7,7 @@ class JobsView(BrowserView):
     """ Async Jobs BrowserView
     """
 
-    def js(self, timeout=30000):
+    def js(self, timeout=600000):
         """Returns the javascript code for async call
         """
         return """
@@ -20,7 +20,7 @@ jQuery(function($) {
     $.fn.render = function(data) {
       var rows = ['<caption style="width:100%%;">'];
       rows.push('<div class="portalMessage informationMessage">');
-      rows.push('The list is refreshed every %(seconds)s seconds.');
+      rows.push('The list is refreshed every %(seconds)s minutes.');
       rows.push('</div></caption>');
       rows.push('<tr><th>Job</th><th>Status</th></tr>');
       $(data).each(function(i, job) {
@@ -52,4 +52,4 @@ jQuery(function($) {
   };
   update();
 });
-""" % {'seconds': timeout/1000, 'timeout': timeout}
+""" % {'seconds': timeout/60000, 'timeout': timeout}
