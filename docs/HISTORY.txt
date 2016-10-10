@@ -1,8 +1,8 @@
 Changelog
 =========
 
-15.2.dev0 - (unreleased)
-------------------------
+15.2 - (2016-10-10)
+-------------------
 * Change: incresed refresh time for manage-job-queue
   [alecghica refs #75566]
 
