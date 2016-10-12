@@ -3,6 +3,8 @@ Changelog
 
 15.3.dev0 - (unreleased)
 ------------------------
+* Change: disable anchor plugin on print
+  [ichim-david refs #77476]
 
 15.2 - (2016-10-10)
 -------------------
