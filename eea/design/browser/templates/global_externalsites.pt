@@ -20,9 +20,6 @@
                             <li id="externalsites-epanet">
                                 <a title="EPA network" i18n:attributes="title" accesskey="" href="http://epanet.pbe.eea.europa.eu/" i18n:translate="">Network of the Heads of Environment Protection Agencies (EPA network)</a>
                             </li>
-                            <li id="externalsites-envirowindows">
-                                <a title="Partnerships beyond Eionet (PBE)" i18n:attributes="title" accesskey="" href="http://pbe.eea.europa.eu/" i18n:translate="">Partnerships beyond Eionet (PBE)</a>
-                            </li>
                             <li id="seis-network">
                                 <a title="SEIS network" i18n:attributes="title" accesskey="" href="http://www.eea.europa.eu/about-us/what/shared-environmental-information-system" i18n:translate="">Shared Environmental Information System (SEIS)</a>
                             </li>
