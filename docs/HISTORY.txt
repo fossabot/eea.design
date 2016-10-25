@@ -3,7 +3,7 @@ Changelog
 
 15.4.dev0 - (unreleased)
 ------------------------
-* Change: fix EPA network link
+* Change: fix EPA network link and phased out PBE
   [demarant refs #75904 and #78048]
 
 15.3 - (2016-10-14)
