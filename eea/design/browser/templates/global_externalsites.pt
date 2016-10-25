@@ -18,7 +18,7 @@
                                 <a title="Eionet" i18n:attributes="title" accesskey="" href="http://www.eionet.europa.eu/" i18n:translate="">Eionet</a>
                             </li>
                             <li id="externalsites-epanet">
-                                <a title="EPA network" i18n:attributes="title" accesskey="" href="http://epanet.ew.eea.europa.eu/" i18n:translate="">Network of the Heads of Environment Protection Agencies (EPA network)</a>
+                                <a title="EPA network" i18n:attributes="title" accesskey="" href="http://epanet.pbe.eea.europa.eu/" i18n:translate="">Network of the Heads of Environment Protection Agencies (EPA network)</a>
                             </li>
                             <li id="externalsites-envirowindows">
                                 <a title="Partnerships beyond Eionet (PBE)" i18n:attributes="title" accesskey="" href="http://pbe.eea.europa.eu/" i18n:translate="">Partnerships beyond Eionet (PBE)</a>
