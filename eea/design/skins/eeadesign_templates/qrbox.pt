@@ -1,11 +1,12 @@
 <div class="qrbox-text" style="font-size:x-small;" tal:define="
         toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+        url python:request.URL0;
+        is_soer python:'soer-2015' in url;
         current_date python:toLocalizedTime(DateTime(), long_format=1)">
-    <p i18n:translate=""><strong>For references</strong>, please go to <a href="http://www.eea.europa.eu/soer">www.eea.europa.eu/soer</a> or scan the QR code.</p>
-    <p i18n:translate="">This briefing is part of the EEA's report <strong>The European Environment - State and Outlook 2015</strong>. The EEA is an official agency of the EU, tasked with providing information on Europe's environment.</p>
-    <p tal:define="
-      url python:request.URL0;
-      download_type python:'ePub' if 'epub' in url else 'PDF'">
+
+    <p i18n:translate=""><strong>For references</strong>, please go to <a tal:define="here_url context/@@plone_context_state/object_url" tal:attributes="href here_url" tal:content="python:here_url">URL</a> or scan the QR code.</p>
+    <p i18n:translate="" tal:condition="is_soer">This briefing is part of the EEA's report <strong>The European Environment - State and Outlook 2015</strong>. The EEA is an official agency of the EU, tasked with providing information on Europe's environment.</p>
+    <p tal:define="download_type python:'ePub' if 'epub' in url else 'PDF'">
       <span class="discreet">
         <tal:type replace="download_type" /> <span tal:omit-tag="" i18n:translate="">generated on</span> <tal:date replace="python:current_date" />
       </span>
