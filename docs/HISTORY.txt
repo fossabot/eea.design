@@ -3,6 +3,8 @@ Changelog
 
 15.5.dev0 - (unreleased)
 ------------------------
+* Change: cleanup JS for older versions display
+  [alecgica refs #76194]
 
 15.4 - (2016-10-31)
 -------------------
