@@ -3,6 +3,9 @@ Changelog
 
 15.6.dev0 - (unreleased)
 ------------------------
+* Bug fix: avoid having the text so large that the accordion icon
+  goes below next title
+  [ichim-david refs #77943]
 
 15.5 - (2016-11-21)
 -------------------

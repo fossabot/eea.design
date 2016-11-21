@@ -540,6 +540,13 @@ input.standalone:hover {
 .eea-accordion-panel > h2 a {
     color: #00446A !important;
 }
+/* #77943 avoid having the text too large that the accordion icon
+ * goes below next title */
+.eea-accordion-panel > h2 a {
+    max-width: 92%;
+    display: inline-block;
+    line-height: 1.5;
+}
 
 /* Override jquery.ui style */
 .ui-widget-content a {
