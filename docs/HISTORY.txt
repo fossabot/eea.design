@@ -1,8 +1,8 @@
 Changelog
 =========
 
-15.5.dev0 - (unreleased)
-------------------------
+15.5 - (2016-11-21)
+-------------------
 * Change: cleanup JS for older versions display
   [alecghica refs #76194]
 
