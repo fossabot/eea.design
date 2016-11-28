@@ -1,6 +1,9 @@
 Changelog
 =========
 
+15.7.dev0 - (unreleased)
+------------------------
+
 15.6 - (2016-11-28)
 -------------------
 * Bug fix: avoid having the text so large that the accordion icon
