@@ -2,6 +2,19 @@
 /* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
+dl.actionMenu #assessmentpart {
+   display: none !important;
+}
+
+.userrole-manager dl.actionMenu #assessmentpart {
+   display: block !important;
+}
+
+/* #72857 fixed font size for "Dashboard" listing "Add new ..." */
+#edit-bar #dashboard {
+    font-size: 100%;
+}
+
 /* #50513 hide global filter for document register
 * so that users cannot remove it.
 */
@@ -421,6 +434,7 @@ input.standalone:hover {
     white-space: normal;
     max-width: 195px;
     position: relative;
+    line-height: 2.5;
 }
 
 .eea-tabs .current:after,
@@ -1188,6 +1202,10 @@ a.moreLink {
     margin: 3px 0 0 0;
     position: relative;
     clear: both;
+}
+
+.fullwidth #portal-breadcrumbs.plone-breadcrumb .container {
+    margin: 0;
 }
 
 .breadcrumbSeparator {
@@ -2140,11 +2158,26 @@ div#original_chart_div {
     padding: 0;
 }
 
-/* SOER 2015 quick fixes */
-h4.figureHeading {
+
+.template-collection-pdf-body h4.figureHeading {
+    margin: 0 0 1.5em 0;
+}
+
+.portaltype-assessment #parent-fieldname-description {
+   display: none;
+}
+
+.template-soer2015_frontpage #content {
+    margin: 1em 0em 2em 0em;
+}
+
+.template-soer2015_frontpage #region-content {
+    background-color: transparent;
     margin: 0;
+}
+.template-soer2015_frontpage #portlet-followus {
+    margin: 2em;
 }
 
 /* </dtml-let> */
 /* </dtml-with> */
-
