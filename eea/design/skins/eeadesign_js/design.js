@@ -110,7 +110,7 @@ jQuery(document).ready(function($) {
 
     // custom requirement to swap placement of the table and fiche-summary
     // for briefings found within the airs section
-    var air_fiches = $(".template-fiche_view.section-airs");
+    var air_fiches = $(".portaltype-fiche.section-airs");
     if (air_fiches.length) {
         (function() {
             var $fiche_body = $(".fiche-body");
