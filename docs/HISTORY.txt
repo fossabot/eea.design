@@ -3,6 +3,9 @@ Changelog
 
 15.7.dev0 - (unreleased)
 ------------------------
+* Change: move table above keyfacts for Fiche on airs section for
+  when printing folders 
+  [ichim-david refs #75505]
 * Change: move table above keyfacts for Fiche on airs section
   [ichim-david refs #75505]
 
