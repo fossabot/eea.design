@@ -84,6 +84,7 @@
                  class="cell width-full position-0"
                  tal:define="b_start python:0;
                              b_start request/b_start | b_start;
+                             b_start python: b_start if isinstance(b_start, int) else 0;
                              batch python: view.results(b_start=b_start);
                              normalizeString nocall:context/@@plone/normalizeString;">
                 <div class="visualClear"></div>

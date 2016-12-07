@@ -3,6 +3,9 @@ Changelog
 
 15.8.dev0 - (unreleased)
 ------------------------
+* Bug fix: fixed search results when b_start is empty or contains
+  a non int value
+  [ichim-david refs #75388]
 
 15.7 - (2016-12-05)
 -------------------
