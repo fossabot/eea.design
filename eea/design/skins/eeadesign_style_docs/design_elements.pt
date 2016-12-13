@@ -1328,6 +1328,32 @@ eea-icon-heart eea-icon-anim-burst animated</pre>
         </pre>
         <!-- End Client Side Pagination with tabs -->
 
+        <!-- Ribbon design ?-->
+        <div class="ribbon-example">
+            <h3 i18n:translate="">Ribbon albums</h3>
+            <p>Expired and recent</p>
+            <div class="photoAlbumEntry recent">
+                <a href="#">
+                            <span class="photoAlbumEntryWrapper">
+                                <img src="fish"/>
+                            </span>
+                    <span class="photoAlbumEntryTitle" i18n:translate="">Cras non lectus ante, quis cursus nunc.
+                            </span>
+                </a>
+                <div class="ribbon-wrapper"><div class="ribbon">NEW</div></div>
+            </div>
+            <div class="photoAlbumEntry expired">
+                <a href="#">
+                            <span class="photoAlbumEntryWrapper">
+                                <img src="fish"/>
+                            </span>
+                    <span class="photoAlbumEntryTitle" i18n:translate="">Cras non lectus ante, quis cursus nunc.
+                            </span>
+                </a>
+                <div class="ribbon-wrapper"><div class="ribbon">NEW</div></div>
+            </div>
+        </div>
+        <!-- /Ribbon design ?-->
     </metal:main-macro>
     </div>
 
