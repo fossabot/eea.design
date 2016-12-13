@@ -1,7 +1,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="eea.notranslation">
+      i18n:domain="eea.notranslation"
+      tal:define="portal_url context/@@plone_portal_state/portal_url">
+      
+<metal:css metal:fill-slot="style_slot">
+    <link rel="stylesheet" type="text/css" tal:attributes="href string:${portal_url}/X-rayHTML.css" />
+</metal:css>
+
+<metal:javascriptslot fill-slot="javascript_head_slot">
+    <script type="text/javascript" tal:attributes="src string:${portal_url}/X-rayHTML.js"></script>
+</metal:javascriptslot>
 
 <body>
     <div metal:fill-slot="content-core">
@@ -1329,9 +1338,10 @@ eea-icon-heart eea-icon-anim-burst animated</pre>
         <!-- End Client Side Pagination with tabs -->
 
         <!-- Ribbon design ?-->
-        <div class="ribbon-example">
-            <h3 i18n:translate="">Ribbon albums</h3>
-            <p>Expired and recent</p>
+         <h2 i18n:translate="">Ribbon albums</h2>
+        <p>Adding a ribbon-wrapper with a ribbon div will create a ribbon effect</p>
+        <div class="ribbon-example" data-xrayhtml>
+           
             <div class="photoAlbumEntry recent">
                 <a href="#">
                             <span class="photoAlbumEntryWrapper">
