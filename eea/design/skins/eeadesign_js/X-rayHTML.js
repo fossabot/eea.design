@@ -27,7 +27,7 @@ window.jQuery = window.jQuery || window.shoestring;
 			antipattern: "antipattern"
 		},
 		initSelector: "[data-" + pluginName + "]",
-		defaultReveal: "inline"
+		defaultReveal: "flip"
 	},
 	methods = {
 		_create: function() {

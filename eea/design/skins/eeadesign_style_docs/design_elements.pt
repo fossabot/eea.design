@@ -3,7 +3,6 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="eea.notranslation"
       tal:define="portal_url context/@@plone_portal_state/portal_url">
-      
 <metal:css metal:fill-slot="style_slot">
     <link rel="stylesheet" type="text/css" tal:attributes="href string:${portal_url}/X-rayHTML.css" />
 </metal:css>
@@ -11,7 +10,6 @@
 <metal:javascriptslot fill-slot="javascript_head_slot">
     <script type="text/javascript" tal:attributes="src string:${portal_url}/X-rayHTML.js"></script>
 </metal:javascriptslot>
-
 <body>
     <div metal:fill-slot="content-core">
     <metal:main-macro define-macro="content-core">
@@ -1339,30 +1337,55 @@ eea-icon-heart eea-icon-anim-burst animated</pre>
 
         <!-- Ribbon design ?-->
          <h2 i18n:translate="">Ribbon albums</h2>
-        <p>Adding a ribbon-wrapper with a ribbon div will create a ribbon effect</p>
-        <div class="ribbon-example" data-xrayhtml>
-           
+        <p>Photo album thumbnails can make use of a ribbon text.</p>
+        <p>The markup for this ribbon is:</p>
+        <pre>
+            &lt;div class="ribbon-wrapper"&gt;&lt;div class="ribbon"&gt;Recent&lt;/div&gt;&lt;/div&gt;
+        </pre>
+        <p>This can be styled different by adding  <strong>recent</strong> or <strong>expired</strong> classes to the <strong>photoAlbumEntry</strong> parent div</p>
+        <div class="ribbon-example">
             <div class="photoAlbumEntry recent">
                 <a href="#">
-                            <span class="photoAlbumEntryWrapper">
-                                <img src="fish"/>
-                            </span>
-                    <span class="photoAlbumEntryTitle" i18n:translate="">Cras non lectus ante, quis cursus nunc.
-                            </span>
+                    <span class="photoAlbumEntryWrapper">
+                        <img src="fish"/>
+                    </span>
+                    <span class="photoAlbumEntryTitle" i18n:translate="">Cras non lectus ante, quis cursus nun</span>
                 </a>
-                <div class="ribbon-wrapper"><div class="ribbon">NEW</div></div>
+                <div class="ribbon-wrapper"><div class="ribbon">Recent</div></div>
             </div>
             <div class="photoAlbumEntry expired">
                 <a href="#">
-                            <span class="photoAlbumEntryWrapper">
-                                <img src="fish"/>
-                            </span>
-                    <span class="photoAlbumEntryTitle" i18n:translate="">Cras non lectus ante, quis cursus nunc.
-                            </span>
+                    <span class="photoAlbumEntryWrapper">
+                        <img src="fish"/>
+                    </span>
+                    <span class="photoAlbumEntryTitle" i18n:translate="">Cras non lectus ante, quis cursus nun</span>
                 </a>
-                <div class="ribbon-wrapper"><div class="ribbon">NEW</div></div>
+                <div class="ribbon-wrapper"><div class="ribbon">Expired</div></div>
             </div>
         </div>
+
+        <pre>
+            &lt;div class="ribbon-example"&gt;
+                &lt;div class="photoAlbumEntry recent"&gt;
+                    &lt;a href="#"&gt;
+                        &lt;span class="photoAlbumEntryWrapper"&gt;
+                            &lt;img src="fish"/&gt;
+                        &lt;/span&gt;
+                        &lt;span class="photoAlbumEntryTitle" i18n:translate=""&gt;Cras non lectus ante, quis cursus nun&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;div class="ribbon-wrapper"&gt;&lt;div class="ribbon"&gt;NEW&lt;/div&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="photoAlbumEntry expired"&gt;
+                    &lt;a href="#"&gt;
+                        &lt;span class="photoAlbumEntryWrapper"&gt;
+                            &lt;img src="fish"/&gt;
+                        &lt;/span&gt;
+                        &lt;span class="photoAlbumEntryTitle" i18n:translate=""&gt;Cras non lectus ante, quis cursus nun&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;div class="ribbon-wrapper"&gt;&lt;div class="ribbon"&gt;NEW&lt;/div&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        </pre>
         <!-- /Ribbon design ?-->
     </metal:main-macro>
     </div>
