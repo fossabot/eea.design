@@ -35,7 +35,8 @@
                                 </div>
                                 <ul class="">
                                     <li><a href="/themes/air" i18n:translate="">Air pollution</a></li>
-                                    <li><a href="/themes/climate" i18n:translate="">Climate change</a></li>
+                                    <li><a href="/themes/climate-change-adaptation" i18n:translate="">Climate change adaptation</a></li>
+                                    <li><a href="themes/climate" i18n:translate="">Climate change mitigation</a></li>
                                 </ul>
                             </dd>
                         </dl>
@@ -50,9 +51,9 @@
                                 <ul class="">
                                     <li><a href="/themes/biodiversity" i18n:translate="">Biodiversity — Ecosystems</a></li>
                                     <li><a href="/themes/landuse" i18n:translate="">Land use</a></li>
+                                    <li><a href="/themes/coast_sea" i18n:translate="">Marine</a></li>
                                     <li><a href="/themes/soil" i18n:translate="">Soil</a></li>
                                     <li><a href="/themes/water" i18n:translate="">Water</a></li>
-                                    <li><a href="/themes/coast_sea" i18n:translate="">Marine</a></li>
                                 </ul>
                             </dd>
                         </dl>
@@ -65,9 +66,9 @@
                                     Sustainability and well-being
                                 </div>
                                 <ul class="">
-                                    <li><a href="/themes/waste" i18n:translate="">Resource efficiency and waste</a></li>
                                     <li><a href="/themes/human" i18n:translate="">Environment and health</a></li>
                                     <li><a href="/themes/policy" i18n:translate="">Policy instruments</a></li>
+                                    <li><a href="/themes/waste" i18n:translate="">Resource efficiency and waste</a></li>
                                 </ul>
                             </dd>
                         </dl>
