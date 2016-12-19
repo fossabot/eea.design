@@ -1,6 +1,9 @@
 Changelog
 =========
 
+15.9.dev0 - (unreleased)
+------------------------
+
 15.8 - (2016-12-19)
 -------------------
 * Bug fix: fixed search results when b_start is empty or contains
