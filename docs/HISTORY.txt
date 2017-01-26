@@ -3,6 +3,8 @@ Changelog
 
 15.9.dev0 - (unreleased)
 ------------------------
+* Bug fix: updated broken links in contact us.
+  [demarant refs #81118]
 
 15.8 - (2016-12-19)
 -------------------
