@@ -43,7 +43,7 @@
                                     <li>
                                         <p>
                                             <a target="_self"
-                                                tal:attributes="href string:$portal_url/help/infocentre/enquiries/"
+                                                tal:attributes="href string:http://community.eea.europa.eu/"
                                                 i18n:translate="">
                                                 Ask your question
                                                 <br/>
@@ -81,7 +81,7 @@
                                     <strong i18n:translate="">Contact the web team</strong>
                                 </a>
                                 <br/>
-                                <a tal:attributes="href string:$portal_url/help/eea-help-centre/faqs"
+                                <a tal:attributes="href string:http://community.eea.europa.eu/"
                                     class="internal-link">
                                     <strong i18n:translate="">FAQ</strong>
                                 </a>
