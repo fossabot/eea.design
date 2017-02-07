@@ -240,7 +240,7 @@ dl.portlet a:visited {
     width: 100%;
 }
 
-#category, #themes-tags {
+#category, #themes-tags, #geotags {
     font-size: 100%;
     margin-bottom: 1em;
     color: #666;
@@ -250,6 +250,7 @@ dl.portlet a:visited {
 
 #category a.link-category,
 #themes-tags a.link-category,
+#geotags a.link-category,
 #languageCodes a.translated, #languageCodes li.selected, span.selectedTag {
     color: black;
     padding: 2px 5px;
@@ -259,17 +260,21 @@ dl.portlet a:visited {
     line-height: inherit;
     background: &dtml-mediumBackgroundColor;;
     font-size: 10px;
+    -webkit-border-radius: 0.5em;
 }
 
 #category a.link-category:hover,
 #themes-tags a.link-category:hover,
+#geotags a.link-category:hover,
 #languageCodes a.translated:hover, #languageCodes li.selected {
     background: &dtml-corporateOrange;;
     color: White;
     border-color: #205c90;
 }
 
-#category .separator, #themes-tags .separator {
+#category .separator,
+#themes-tags .separator,
+#geotags  .separator {
     display: none;
 }
 
