@@ -3,7 +3,8 @@ Changelog
 
 16.0.dev0 - (unreleased)
 ------------------------
-* Feature: geotags and themes display alligned with tags style
+* Feature: geotags, temporal coverage and themes display 
+  alligned with tags style
   [alecghica refs #81054]
 
 15.9 - (2017-01-30)
