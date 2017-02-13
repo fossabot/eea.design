@@ -199,61 +199,6 @@ class Frontpage(BrowserView):
         """ public method for frontpage calling _getImageUrl """
         return _getImageUrl(brain)
 
-    def _getTeaserMedia(self, high, scale):
-        """ teaser media utility method """
-        obj = high.getObject()
-        media = obj.getMedia()
-        media_url = media_type = media_title = media_copy = media_note = ''
-        if media:
-            if IBlobWrapper.providedBy(media):
-                media_url = obj.absolute_url() + '/image'
-            else:
-                media_url = media.absolute_url()
-
-            if obj.absolute_url() in media_url:
-                # image in image field
-                media_type = 'Image'
-                media_title = obj.getImageCaption()
-                media_copy = obj.getImageCopyright()
-                media_note = obj.getImageNote()
-            else:
-                # reference to an Image or FlashFile
-                media_type = media.portal_type
-                media_title = media.Title()
-                media_copy = media.Rights()
-                media_note = media.Description()
-
-        adapter = queryMultiAdapter((obj, self.request), name=u'themes-object',
-                                                                default=None)
-        themes = []
-        if adapter is not None:
-            themes = adapter.short_items()
-        result = {
-            'id': high['id'],
-            'getUrl': high.get('getUrl', high.getURL()),
-            'getNewsTitle': high['getNewsTitle'],
-            'getTeaser': high['getTeaser'],
-            'effective': high['effective'],
-            'expires': high['expires'],
-            'getVisibilityLevel': high['getVisibilityLevel'],
-            'themes': themes,
-        }
-
-        if media is not None:
-            result['media'] = {
-                    'absolute_url' : media_url,
-                    'portal_type'  : media_type,
-                    'Title'        : media_title,
-                    'Rights'       : media_copy,
-                    'Description'  : media_note,
-                    'getScale'     : ''
-                }
-            if IBlobWrapper.providedBy(media):
-                result['media']['getScale'] = obj.getField('image').tag(
-                                                            obj, scale=scale)
-
-        return result
-
 ## Utility functions
 
 def _getPromotions(self, noOfItems=6):
