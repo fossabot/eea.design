@@ -1,6 +1,9 @@
 Changelog
 =========
 
+16.1.dev0 - (unreleased)
+------------------------
+
 16.0 - (2017-02-14)
 -------------------
 * Cleanup: Remove unused frontpage method `_getTeaserMedia`
