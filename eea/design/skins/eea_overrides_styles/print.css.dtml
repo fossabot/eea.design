@@ -348,7 +348,8 @@ input.context,
 #enable_cookies_message + .informationMessage,
 #topic-selector,
 .filter-topic,
-.gallery-layout-selection
+.gallery-layout-selection,
+#socialmedia-viewlet
 {
     /* Hides all the elements irrelevant for printing */
     display: none !important;
