@@ -6,6 +6,8 @@ Changelog
 * Bug fix: hide socialmedia-viewlet on print in order to avoid
   QFont::setPixelSize: Pixel size <= 0 wkhtmltopdf errors
   [ichim-david refs #80861]
+* Change: added new topic on front page
+  [alecghica refs #82604]
 
 16.0 - (2017-02-14)
 -------------------
