@@ -20,7 +20,8 @@
 
                 <div id="eea-intro-message" class="portalMessage visualNoMargins" tal:condition="main_site">
                         <span class="discreet">The European Environment Agency provides sound, independent information on the environment for those involved in developing, adopting, implementing and evaluating environmental policy, and also the general public. In close collaboration with
-                            <a href="http://www.eionet.europa.eu" class="link-plain">European Environmental Information and Observation Network</a> and its 33 member countries, the EEA gathers data and produces assessments on a wide range of topics related to the environment. <a href="http://www.eea.europa.eu/about-us">Learn more</a>
+                            <a href="http://www.eionet.europa.eu" class="link-plain">European Environmental Information and Observation Network</a> and its 33 member countries, the EEA gathers data and produces assessments on a wide range of topics related to the environment. 
+                            <a tal:attributes="href string:$portal_url/about-us">Learn more</a>
                         </span>
                 </div>
 
@@ -29,7 +30,7 @@
                     <div class="portlet-megatopic">
                         <dl class="portlet promo-nav-portlet" id="air-and-climate-megatopic">
                             <dd class="portletItem">
-                                <img title="Air and climate" src="http://www.eea.europa.eu/themes/air/theme_image/image_mini" />
+                                <img title="Air and climate" tal:attributes="src string:$portal_url/themes/air/theme_image/image_mini" />
                                 <div class="portletHeader">
                                     Air and climate
                                 </div>
@@ -44,7 +45,7 @@
                     <div class="portlet-megatopic">
                         <dl class="portlet promo-nav-portlet" id="nature-megatopic">
                             <dd class="portletItem">
-                                <img title="Nature" alt="Visit our biodiversity website" src="http://www.eea.europa.eu/themes/biodiversity/theme_image/image_mini" />
+                                <img title="Nature" alt="Visit our biodiversity website" tal:attributes="src string:$portal_url/themes/biodiversity/theme_image/image_mini" />
                                 <div class="portletHeader">
                                     Nature
                                 </div>
@@ -61,7 +62,7 @@
                     <div class="portlet-megatopic">
                         <dl class="portlet promo-nav-portlet" id="sustainability-megatopic">
                             <dd class="portletItem">
-                                <img title="Sustainability and well-being" src="http://www.eea.europa.eu/themes/human/theme_image/image_mini" />
+                                <img title="Sustainability and well-being" tal:attributes="src string:$portal_url/themes/human/theme_image/image_mini" />
                                 <div class="portletHeader" style="font-size:142%;">
                                     Sustainability and well-being
                                 </div>
@@ -77,7 +78,7 @@
                     <div class="portlet-megatopic">
                         <dl class="portlet promo-nav-portlet" id="economic-sectors-megatopic">
                             <dd class="portletItem">
-                                <img title="Economic sectors" src="http://www.eea.europa.eu/themes/energy/theme_image/image_mini" />
+                                <img title="Economic sectors" tal:attributes="src string:$portal_url/themes/energy/theme_image/image_mini" />
                                 <div class="portletHeader">
                                     Economic sectors
                                 </div>
@@ -99,7 +100,7 @@
                     <div class="portalMessage message_disclaimer visualNoMargins" tal:condition="not: main_site">
                         <span class="eea-icon eea-icon-flag"></span><strong i18n:translate="">Welcome to the European Environment Agency</strong><br />
                         <span i18n:translate="">This site presents the content we have available in your language.</span>
-                        <span i18n:translate="">To explore all our outputs and complete knowledge base, please visit <a href="http://www.eea.europa.eu" i18n:name="site_url" class="link-plain"><span tal:omit-tag="" i18n:translate="">our main website</span></a> in English.</span>
+                        <span i18n:translate="">To explore all our outputs and complete knowledge base, please visit <a tal:attributes="href string:$portal_url" i18n:name="site_url" class="link-plain"><span tal:omit-tag="" i18n:translate="">our main website</span></a> in English.</span>
                     </div>
 
                     <div id="below-topics-area" class="whatsnew-listing">
