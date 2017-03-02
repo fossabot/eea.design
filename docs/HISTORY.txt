@@ -3,6 +3,8 @@ Changelog
 
 16.1.dev0 - (unreleased)
 ------------------------
+* Change: Define glossary-search action for global search viewlet
+  [avoinea refs #82562]
 * Bug fix: Get resources over https
   [avoinea refs #82562]
 * Bug fix: Remove hard-coded images path domain on frontpage
@@ -17,7 +19,7 @@ Changelog
 -------------------
 * Cleanup: Remove unused frontpage method `_getTeaserMedia`
   [voineali refs #80119]
-* Feature: geotags, temporal coverage and themes display 
+* Feature: geotags, temporal coverage and themes display
   alligned with tags style
   [alecghica refs #81054]
 
@@ -31,13 +33,13 @@ Changelog
 * Bug fix: fixed search results when b_start is empty or contains
   a non int value
   [ichim-david refs #75388]
-* Change: updated themes list on frontpage_view.pt 
+* Change: updated themes list on frontpage_view.pt
   [alecghica refs #79941]
 
 15.7 - (2016-12-05)
 -------------------
 * Change: move table above keyfacts for Fiche on airs section for
-  when printing folders 
+  when printing folders
   [ichim-david refs #75505]
 * Change: move table above keyfacts for Fiche on airs section
   [ichim-david refs #75505]
