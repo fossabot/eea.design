@@ -1,8 +1,8 @@
 Changelog
 =========
 
-16.1.dev0 - (unreleased)
-------------------------
+16.1 - (2017-03-02)
+-------------------
 * Change: Define glossary-search action for global search viewlet
   [avoinea refs #82562]
 * Bug fix: Get resources over https
