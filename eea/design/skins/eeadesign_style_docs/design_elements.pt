@@ -492,7 +492,7 @@ developers, UX/UI experts.
         fancybox will hang.
     </p>
     <a class="fancybox" href="http://farm3.static.flickr.com/2181/2168980899_1508c84aac.jpg">
-        <img src="http://farm3.static.flickr.com/2181/2168980899_1508c84aac_t.jpg" />
+        <img src="https://farm3.static.flickr.com/2181/2168980899_1508c84aac_t.jpg" />
     </a>
 
     <h2 i18n:translate="">Video pop-ups</h2>
@@ -502,7 +502,7 @@ developers, UX/UI experts.
     </a>
     <pre tal:content="string:
         &lt;a href=&quot;http://www.eea.europa.eu/multimedia/electric-car&quot; class=&quot;video-fancybox&quot;&gt;
-            &lt;img src=&quot;http://www.eea.europa.eu/multimedia/electric-car/image_wide&quot; /&gt;
+            &lt;img src=&quot;https://www.eea.europa.eu/multimedia/electric-car/image_wide&quot; /&gt;
         &lt;/a&gt;
         ">
     </pre>

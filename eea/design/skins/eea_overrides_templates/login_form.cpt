@@ -92,9 +92,7 @@
             </tal:template_defines>
         </div>
 
-            <form tal:define="url python:context.absolute_url()+'/'+ 'login_form';
-                              decide_https python:test(context.portal_url() == 'http://www.eea.europa.eu', 'https://', 'http://');
-                              secureUrl python:url.replace('http://', decide_https);"
+            <form tal:define="url python:context.absolute_url() + '/' + 'login_form';"
                   tal:attributes="action secureUrl"
                   class="enableAutoFocus"
                   method="post"

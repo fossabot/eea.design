@@ -4,9 +4,9 @@
       i18n:domain="eea">
 
 <metal:js fill-slot="javascript_head_slot">
-   <script src="http://www.google.com/uds/api?file=uds.js&amp;v=1.0" type="text/javascript"></script>
-   <link href="http://www.google.com/uds/css/gsearch.css" rel="stylesheet" type="text/css"/>
-   <link href="http://glossary.eea.europa.eu/css/customsearch.css" rel="stylesheet" type="text/css"/>
+   <script src="https://www.google.com/uds/api?file=uds.js&amp;v=1.0" type="text/javascript"></script>
+   <link href="https://www.google.com/uds/css/gsearch.css" rel="stylesheet" type="text/css"/>
+   <link href="https://glossary.eea.europa.eu/css/customsearch.css" rel="stylesheet" type="text/css"/>
 </metal:js>
 <metal:block fill-slot="top_slot"
              tal:define="dummy python:request.set('disable_border',1)" />

@@ -12,4 +12,4 @@
       </span>
     </p>
 </div>
-<img class="qr" tal:attributes="src string:http://chart.apis.google.com/chart?cht=qr&amp;chld=H|0&amp;chs=70x70&amp;chl=${context/absolute_url}" />
+<img class="qr" tal:attributes="src string:https://chart.apis.google.com/chart?cht=qr&amp;chld=H|0&amp;chs=70x70&amp;chl=${context/absolute_url}" />

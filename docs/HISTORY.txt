@@ -3,7 +3,9 @@ Changelog
 
 16.1.dev0 - (unreleased)
 ------------------------
-* Big fix: Remove hard-coded images path domain on frontpage
+* Bug fix: Get resources over https
+  [avoinea refs #82562]
+* Bug fix: Remove hard-coded images path domain on frontpage
   [avoinea refs #82562]
 * Bug fix: hide socialmedia-viewlet on print in order to avoid
   QFont::setPixelSize: Pixel size <= 0 wkhtmltopdf errors
