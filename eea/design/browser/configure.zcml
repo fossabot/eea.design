@@ -10,6 +10,12 @@
     <include package="plone.app.controlpanel" file="permissions.zcml" />
 
     <browser:page
+        for="zope.interface.Interface"
+        name="glossary-search"
+        class=".search.Glossary"
+        permission="zope.Public" />
+
+    <browser:page
         for="*"
         name="main_template"
         template="../skins/eea_overrides_templates/main_template.pt"
