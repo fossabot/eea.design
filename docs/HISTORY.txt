@@ -3,6 +3,8 @@ Changelog
 
 16.2.dev0 - (unreleased)
 ------------------------
+* Bug fix: Fix `NameError: secureUrl` within login_form
+  [avoinea refs #82562]
 
 16.1 - (2017-03-02)
 -------------------
