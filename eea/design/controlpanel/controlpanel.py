@@ -193,7 +193,8 @@ class MiniHeaderControlPanelAdapter(SchemaAdapterBase):
     def set_mini_header_for(self, types):
         """ set allowed_types to site_props """
         if not self.get_mini_header_for():
-            self.site_props.manage_addProperty('mini_header_for', types, type='lines')
+            self.site_props.manage_addProperty('mini_header_for', types,
+                                               type='lines')
         else:
             self.site_props.mini_header_for = tuple(types)
 

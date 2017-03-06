@@ -7,8 +7,6 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from eea.promotion.interfaces import IPromotion
 from eea.themecentre.themecentre import getTheme
-from plone.app.blob.interfaces import IBlobWrapper
-from zope.component import queryMultiAdapter
 from eea.versions.interfaces import IGetVersions
 import logging
 

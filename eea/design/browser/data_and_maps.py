@@ -32,8 +32,8 @@ class DataMaps(Frontpage):
         query = {
             'object_provides': {
                 'query': [
-                    'eea.promotion.interfaces.IPromoted',
-                    'Products.EEAContentTypes.content.interfaces.IExternalPromotion',
+              'eea.promotion.interfaces.IPromoted',
+              'Products.EEAContentTypes.content.interfaces.IExternalPromotion',
                 ],
                 'operator': 'or',
             },

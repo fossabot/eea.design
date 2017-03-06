@@ -3,6 +3,8 @@ Changelog
 
 16.3.dev0 - (unreleased)
 ------------------------
+* Cleanup: fixed pylint warnings
+  [alecghica refs #82561]
 
 16.2 - (2017-03-03)
 -------------------
