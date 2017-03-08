@@ -1,9 +1,8 @@
 <!-- THE SEARCHBOX DEFINITION -->
 <div id="portal-searchbox" metal:define-macro="quick_search" tal:define="
-     portal_url context/@@plone_portal_state/portal_url;
      local_site context/@@plone_portal_state/local_site"
      i18n:domain="eea">
-    <form tal:attributes="action string:$portal_url/glossary-search" id="searchbox_terminology" class="searchforms" method="post">
+    <form tal:attributes="action string:${context/absolute_url}/glossary-search" id="searchbox_terminology" class="searchforms" method="post">
             <span class="eea-icon eea-icon-search">&nbsp;</span>
             <input type="text" name="term" size="35" i18n:attributes="title" title="Search Europe's environment" class="searchField"  />
             <input class="searchButton"

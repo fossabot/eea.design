@@ -2,26 +2,26 @@
 """
 from Products.Five.browser import BrowserView
 
-GLOSSARY = u"http://glossary.{lang}.eea.europa.eu/terminology/sitesearch?term="
+GLOSSARY = "http://glossary.{lang}.eea.europa.eu"
+SEARCH = "/terminology/sitesearch?term="
 
 
 class Glossary(BrowserView):
     """ Glossary searcb
     """
     def __call__(self, *args, **kwargs):
-        if not self.request.method.lower() == u"post":
-            return self.request.response.redirect(self.context.absolute_url())
-
-        lang = self.request.get(u'LANGUAGE', u'en')
+        lang = self.request.get("LANGUAGE", "en")
         if len(lang) > 2:
-            lang = u'en'
+            lang = "en"
 
-        term = self.request.get(u"term", u"")
+        url = GLOSSARY.format(lang=lang)
+        term = self.request.get("term", "")
         if not term:
-            return self.request.response.redirect(self.context.absolute_url())
+            return self.request.response.redirect(url)
 
-        if isinstance(term, str):
-            term = term.decode('utf-8')
+        url += SEARCH
+        if isinstance(term, unicode):
+            term = term.encode('utf-8')
 
-        url = GLOSSARY.format(lang=lang) + term
+        url += term
         self.request.response.redirect(url)

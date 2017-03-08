@@ -3,6 +3,10 @@ Changelog
 
 16.3.dev0 - (unreleased)
 ------------------------
+* Bug fix: Fix language redirect within glossary-search
+  [avoinea refs #83106]
+* Bug fix: Fix UnicodeEncodeError: 'ascii' within glossary-search
+  [avoinea refs #83106]
 * Cleanup: fixed pylint warnings
   [alecghica refs #82561]
 
