@@ -3,6 +3,8 @@ Changelog
 
 16.3.dev0 - (unreleased)
 ------------------------
+* Upgrade step: Remove customized views at **ZMI > portal_view_customizations**
+  [avoinea refs #83106]
 * Bug fix: Fix language redirect within glossary-search
   [avoinea refs #83106]
 * Bug fix: Fix UnicodeEncodeError: 'ascii' within glossary-search
