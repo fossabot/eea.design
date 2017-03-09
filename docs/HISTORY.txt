@@ -3,6 +3,9 @@ Changelog
 
 16.3.dev0 - (unreleased)
 ------------------------
+* Bug fix: fixed portalMessage background color now that lightGrayBackground
+  is set to white
+  [ichim-david]
 * Upgrade step: Remove customized views at **ZMI > portal_view_customizations**
   [avoinea refs #83106]
 * Bug fix: Fix language redirect within glossary-search

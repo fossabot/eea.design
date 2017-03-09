@@ -31,7 +31,7 @@ dl.error,
 
 /* #23017 simple portal messages get the gray background */
 .portalMessage {
-    background-color: &dtml-lightBackgroundColor;;
+    background-color: &dtml-greyBackgroundColor;;
 
 }
 
