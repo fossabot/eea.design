@@ -103,6 +103,11 @@ table {
     font-size: 0.9em;
 }
 
+/* #81310 table should be visible overriding bootstrap invisible class */
+table.invisible {
+    visibility: visible;
+}
+
 th {
     font-weight: bold;
     line-height: normal;

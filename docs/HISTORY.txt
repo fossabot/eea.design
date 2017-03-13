@@ -3,6 +3,8 @@ Changelog
 
 16.3.dev0 - (unreleased)
 ------------------------
+* Bug fix: tables with class invisible are now visible again
+  [ichim-david refs #81310]
 * Bug fix: fixed portalMessage background color now that lightGrayBackground
   is set to white
   [ichim-david]
@@ -896,7 +898,7 @@ Changelog
 * Feature: allow editor to exclude page parts from PDF generation via
   a special style in tinymce.
   Upgrade step: Plone > Site setup > TinyMCE >
-  In styles add line "Exclude from PDF|span|excludeFromPDF"
+  In styles add line "Exclude from PDFspanexcludeFromPDF"
   [demarant #20255]
 * Bug fix: fixed icons placement for icons of soer2015 section navigation
   [ichimdav refs #19875]
@@ -2609,7 +2611,7 @@ Changelog
   [r18494 thuliper]
 
 2.3 - (2010-10-25)
-----------------------
+------------------
 * Feature: SOER 2010 frontpage milestone 1
   [thuliper]
 * Bug fix: fixed 404s on loading images in eea template on devels
