@@ -190,7 +190,7 @@
 
                             <tal:spotlight tal:define="highlights frontpage_view/getSpotlight;">
                                 <div metal:use-macro="here/frontpage_macros/macros/featured-item">
-                                    <span metal:fill-slot="box_title" i18n:translate="">Topic in the spotlight</span>
+                                    <span metal:fill-slot="box_title" i18n:translate="">In the spotlight</span>
                                 </div>
                             </tal:spotlight>
                             <!--end featured and spotlight areas -->
