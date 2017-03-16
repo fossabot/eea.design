@@ -33,7 +33,7 @@ dl.actionMenu #assessmentpart {
 
 div.width-3\3A 4 { width: 58.5%; }
 .template-datamaps_view #region-content,
-.template-dc_view #region-content,
+.template-dc_view #rInterface, egion-content,
 .frontpage .width-full,
 .frontpage #region-content {
     background-color: transparent;
@@ -1072,10 +1072,16 @@ a.moreLink {
 #portal-searchbox {
     float: right;
     clear: right;
-    margin: 25px 0 0 0;
+    margin: 13px 0 0 0;
     text-align: right;
     font-size: 1.2em;
+    width: 350px;
 }
+
+#portal-searchbox .gsc-clear-button {
+    display: none;
+}
+
 .panel #portal-searchbox {
     float: none;
     clear: both;
@@ -1114,16 +1120,25 @@ a.moreLink {
 #portal-searchbox input, .searchField,
 #content .searchField
 {
-    height: 30px;
+
     padding: 0;
     background-position: 0 -82px;
     font-family: &dtml-fontFamily;;
     font-style: italic;
-    color: #777777;
+    color: #FFF;
     border: none;
     margin: 0;
-    font-size: 0.8em;
 }
+
+#portal-searchbox input.gsc-search-button {
+    height: 30px;
+    border-radius: 0;
+}
+#portal-searchbox td.gsc-input {
+    border: 1px solid gray;
+    padding: 0 0.5em;
+}
+
 
 #searchbox_terminology input[type="text"],
 .searchField {
