@@ -281,7 +281,6 @@
     height: auto; }
 
   #portal-searchbox {
-    background-color: #f3f3f3;
     margin-top: 0;
     text-align: left; }
     #portal-searchbox input[type="text"] {
@@ -299,7 +298,9 @@
       background-color: #006699; }
 
   #portal-searchbox {
-    display: block !important; }
+    display: block !important;
+    width: 100%;
+  }
 
   #portal-searchbox input.searchButton {
     margin-left: 0; }
