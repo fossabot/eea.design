@@ -3,11 +3,11 @@
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
 dl.actionMenu #assessmentpart {
-   display: none !important;
+    display: none !important;
 }
 
 .userrole-manager dl.actionMenu #assessmentpart {
-   display: block !important;
+    display: block !important;
 }
 
 /* #72857 fixed font size for "Dashboard" listing "Add new ..." */
@@ -1072,14 +1072,20 @@ a.moreLink {
 #portal-searchbox {
     float: right;
     clear: right;
-    margin: 13px 0 0 0;
-    text-align: right;
+    margin: 20px 0 0 0;
     font-size: 1.2em;
     width: 350px;
 }
-
+#portal-searchbox form {
+    padding: 0;
+    margin-bottom: 0;
+}
 #portal-searchbox .gsc-clear-button {
     display: none;
+}
+
+#portal-searchbox .gsc-control-cse {
+    padding: 0;
 }
 
 .panel #portal-searchbox {
@@ -1164,7 +1170,6 @@ a.moreLink {
 }
 
 #search_glossary_link, #search_advanced_link {
-    text-decoration: underline;
     font-size: 11px;
 }
 
@@ -2179,7 +2184,7 @@ div#original_chart_div {
 }
 
 .portaltype-assessment #parent-fieldname-description {
-   display: none;
+    display: none;
 }
 
 .template-soer2015_frontpage #content {
@@ -2196,3 +2201,4 @@ div#original_chart_div {
 
 /* </dtml-let> */
 /* </dtml-with> */
+
