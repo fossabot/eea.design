@@ -33,7 +33,7 @@ dl.actionMenu #assessmentpart {
 
 div.width-3\3A 4 { width: 58.5%; }
 .template-datamaps_view #region-content,
-.template-dc_view #rInterface, egion-content,
+.template-dc_view #region-content,
 .frontpage .width-full,
 .frontpage #region-content {
     background-color: transparent;
@@ -2216,6 +2216,35 @@ div#original_chart_div {
 }
 .template-soer2015_frontpage #portlet-followus {
     margin: 2em;
+}
+
+.showOnPrint {
+   display: none;
+}
+
+.mceContentBody .showOnPrint {
+   display: block;
+}
+
+.mceContentBody .showOnPrint:before {
+    content: "Image visible only within pdf download";
+   background-color: #ffb;
+   border-bottom: 3px solid black;
+}
+.mceContentBody .showOnPrint + iframe:before {
+   content: "Iframe hidden within pdf download";
+   background-color: #ffb;
+   border-bottom: 3px solid black;
+}
+
+/* custom css fix for hiding warning message for anonymous users when  visualization is not published */
+.userrole-anonymous .metadata ~ .warningMessage {
+    display: none;
+}
+
+/* #81310 table should be visible overriding bootstrap invisible class */
+table.invisible {
+    visibility: visible;
 }
 
 /* </dtml-let> */
