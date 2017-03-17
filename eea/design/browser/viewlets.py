@@ -1,5 +1,6 @@
 """ Custom viewlets
 """
+import math
 from cgi import escape
 from Acquisition import aq_parent, aq_base, aq_inner
 
@@ -13,6 +14,7 @@ from plone.app.layout.links import viewlets as links
 from plone.app.layout.viewlets import common, content
 from plone.app.layout.viewlets.content import DocumentBylineViewlet as \
     BaseBelowContentTitleViewlet
+from zope.annotation.interfaces import IAnnotations
 from zope.component import getMultiAdapter
 from eea.design.browser.interfaces import ISubFoldersListing
 from plone.memoize.instance import memoize
@@ -142,6 +144,18 @@ class DocumentBylineViewlet(content.DocumentBylineViewlet):
         if not res:
             return get_version_prefix(self.context)
         return res
+
+    def time_estimate(self):
+        """ time_estimation for reading time """
+        anno = IAnnotations(self.context)
+        scores = anno.get('readability_scores')
+        if not scores:
+            return ""
+        minutes = 0
+        for value in scores.values():
+            word = int(value.get('word_count', 1))
+            minutes += int(math.floor(word / 200))
+        return minutes
 
     def available(self):
         """ Available

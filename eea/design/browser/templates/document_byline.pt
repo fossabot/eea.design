@@ -70,6 +70,12 @@
             </span>
         </tal:dates>
 
+        <tal:reading_estimate tal:condition="time_estimate" tal:define="time_estimate view/time_estimate">
+            <span class="byline-separator"></span>
+            <span class="documentByLineReadingTime" tal:content="time_estimate">0</span>
+            <span i18n:translate="">minutes read</span>
+        </tal:reading_estimate>
+
         <tal:loggedin tal:condition="not: isAnon">
             <span id="lock-icon"
                 title="This document is locked."
@@ -77,6 +83,7 @@
                 tal:define="lock_icon view/locked_icon"
                 tal:condition="python:lock_icon"> <img tal:replace="structure lock_icon" />
             </span>
+
 
             <div tal:define="creators python:view.creators(skipCreator=False);" tal:condition="creators" class="documentByLineAuthors">
                 <tal:name>
