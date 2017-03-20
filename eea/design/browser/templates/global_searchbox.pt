@@ -13,7 +13,7 @@
             s.parentNode.insertBefore(gcse, s);
         })();
     </script>
-    <gcse:search></gcse:search>
+    <div class="gcse-search">&nbsp;</div>
     <div class="eea-search-links">
         <a id="search_advanced_link" href="http://search.apps.eea.europa.eu"
            class="pull-left" i18n:translate=""

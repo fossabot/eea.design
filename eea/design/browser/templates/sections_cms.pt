@@ -1,20 +1,30 @@
-<tal:sections tal:define="portal_tabs view/portal_tabs"
-     tal:condition="portal_tabs"
-     i18n:domain="eea">
-    <h5 class="hiddenStructure" i18n:translate="">Sections</h5>
-<div id="globalnav-holder">
-    <ul id="portal-globalnav"
-        tal:define="selected_tab python:view.selected_portal_tab"
-        ><tal:tabs tal:repeat="tab portal_tabs"
-        ><li tal:define="tid tab/id"
-             tal:attributes="id string:portaltab-${tid};
-                            class python:selected_tab==tid and 'eea-nav-current' or 'plain'"
-            ><a href=""
-               tal:content="tab/name"
-               tal:attributes="href tab/url;
-                               title tab/description|nothing;">
-            Tab Name
-            </a></li></tal:tabs>
-        </ul>
+<!-- THE SEARCHBOX DEFINITION -->
+<div id="portal-searchbox" metal:define-macro="quick_search"
+        tal:define="local_site context/@@plone_portal_state/local_site"
+        i18n:domain="eea">
+
+    <script>
+        (function() {
+            var cx = '010617083146134556574:ymkqzb7sibw';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
+    <div class="gcse-search">&nbsp;</div>
+
+    <div class="eea-search-links">
+        <a id="search_advanced_link" href="http://search.apps.eea.europa.eu"
+           class="pull-left" i18n:translate="">
+            <span i18n:translate="">Search the catalogue</span>
+            <img src="" tal:attributes="src string:${local_site}/new_item.png">
+        </a>
+        <a id="search_glossary_link" class="pull-right"
+                 href="http://glossary.eea.europa.eu/"
+                 i18n:translate=""
+                 tal:attributes="href python:'http://glossary.%s.eea.europa.eu'%request.get('LANGUAGE', 'en')">A-Z Glossary</a>
     </div>
-</tal:sections>
+</div>
