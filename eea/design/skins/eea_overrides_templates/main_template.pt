@@ -164,7 +164,8 @@
 
             <metal:block define-slot="content">
                 <div metal:define-macro="content"
-                    tal:define="show_border context/@@plone/showEditableBorder; show_border python:show_border and not ajax_load"
+                    tal:define="show_border context/@@plone/showEditableBorder; ajax_load ajax_load|python:False; show_border python:show_border and not ajax_load;
+                        isPrint isPrint|python:False;"
                     tal:attributes="class python:show_border and 'documentEditable' or ''"
                     id="region-content">
 
@@ -180,7 +181,7 @@
 
                     <metal:slot define-slot="body">
                         <div id="content"  class="documentContent panels"
-                                           tal:attributes="class python:wf_state and ('documentContent panels wf-state-' + str(wf_state)) or 'documentContent panels'">
+                                           tal:attributes="class python:'documentContent panels'">
 
                             <metal:header define-slot="header" tal:content="nothing">
 
@@ -235,7 +236,7 @@
                                 </tal:comment>
                              </metal:comment>
 
-                             <tal:block define="thumb_scale thumb_scale | string:image_tile;"
+                             <tal:block define="thumb_scale thumb_scale | string:image_tile; skip_relations skip_relations|python: False"
                                      tal:condition="python:not skip_relations">
                                  <tal:soer tal:condition="python:False if isPrint == 1 and '/soer-2015' in here_url else True">
                                <metal:macro use-macro="context/eea_relateditems/macros/relatedItemsWithThumbs" />

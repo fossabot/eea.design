@@ -71,9 +71,12 @@
         </tal:dates>
 
         <tal:reading_estimate tal:condition="time_estimate" tal:define="time_estimate view/time_estimate">
-            <span class="byline-separator"></span>
-            <span class="documentByLineReadingTime" tal:content="time_estimate">0</span>
-            <span i18n:translate="">minutes read</span>
+            <div class="documentByLineReadingStats">
+                <span class="byline-separator"></span>
+                <strong i18n:translate="">Reading time:</strong>
+                <span class="documentByLineReadingTime" tal:content="time_estimate">0</span>
+                <span i18n:translate="">minutes</span>
+            </div>
         </tal:reading_estimate>
 
         <tal:loggedin tal:condition="not: isAnon">

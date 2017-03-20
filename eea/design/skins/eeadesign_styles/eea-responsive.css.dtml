@@ -299,8 +299,7 @@
 
   #portal-searchbox {
     display: block !important;
-    width: 100%;
-  }
+    width: 100%; }
 
   #portal-searchbox input.searchButton {
     margin-left: 0; }
