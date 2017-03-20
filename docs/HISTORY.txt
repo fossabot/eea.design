@@ -1,8 +1,8 @@
 Changelog
 =========
 
-16.3.dev0 - (unreleased)
-------------------------
+16.3 - (2017-03-20)
+-------------------
 * Change: anonymous users now search through google custom search
   and logged in users have access to glossary and eeasearch links
   [ichim-david]
