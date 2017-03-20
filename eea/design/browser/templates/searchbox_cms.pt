@@ -1,8 +1,9 @@
 <div id="portal-searchbox"
      i18n:domain="eea"
      tal:define="navigation_root_url view/navigation_root_url;
-                 search_input_id view/search_input_id;">
-    <form name="searchform" id="searchGadget_form" 
+                 search_input_id view/search_input_id;
+                 local_site context/@@plone_portal_state/local_site">
+    <form name="searchform" id="searchGadget_form"
           action="search"
           tal:attributes="action string:${navigation_root_url}/@@search;
           id string:${search_input_id}_form">
@@ -23,18 +24,17 @@
                value="Search"
                i18n:attributes="value" />
 
-        <div class="searchSection">
-            <input id="searchbox_currentfolder_only"
-                   class="noborder"
-                   type="checkbox"
-                   name="path"
-                   tal:attributes="value view/folder_path"
-                   />
-            <label for="searchbox_currentfolder_only"
-                   i18n:translate=""
-                   style="cursor: pointer">
-                only in current section
-            </label>
+        <div class="eea-search-links">
+            <a id="search_advanced_link" href="http://search.apps.eea.europa.eu"
+                class="pull-left" i18n:translate="">
+                <span i18n:translate="">Search the catalogue</span>
+                <img src="" tal:attributes="src string:${local_site}/new_item.png">
+            </a>
+            <a id="search_glossary_link" class="pull-right" href="http://glossary.eea.europa.eu/"
+                 i18n:translate=""
+                 tal:attributes="href python:'http://glossary.%s.eea.europa.eu'%request.get('LANGUAGE', 'en')">
+                A-Z Glossary
+            </a>
         </div>
 
         <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>

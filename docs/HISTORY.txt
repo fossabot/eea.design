@@ -3,6 +3,9 @@ Changelog
 
 16.3.dev0 - (unreleased)
 ------------------------
+* Change: anonymous users now search through google custom search
+  and logged in users have access to glossary and eeasearch links
+  [ichim-david]
 * Bug fix: tables with class invisible are now visible again
   [ichim-david refs #81310]
 * Bug fix: fixed portalMessage background color now that lightGrayBackground

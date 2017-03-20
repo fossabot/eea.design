@@ -33,7 +33,7 @@ dl.actionMenu #assessmentpart {
 
 div.width-3\3A 4 { width: 58.5%; }
 .template-datamaps_view #region-content,
-.template-dc_view #rInterface, egion-content,
+.template-dc_view #region-content,
 .frontpage .width-full,
 .frontpage #region-content {
     background-color: transparent;
@@ -1085,7 +1085,9 @@ a.moreLink {
 }
 
 #portal-searchbox .gsc-control-cse {
+    background-color: transparent;
     padding: 0;
+    border: 0;
 }
 
 .panel #portal-searchbox {
@@ -1108,7 +1110,8 @@ a.moreLink {
     font-size: 85%;
 }
 
-#portal-searchbox .searchButton {
+#portal-searchbox .searchButton,
+#portal-searchbox input.gsc-search-button {
     background: &dtml-corporateBlue; none;
     color: #FFFFFF;
     cursor: pointer;
@@ -1119,30 +1122,37 @@ a.moreLink {
     margin-left: -5px;
 }
 
-#portal-searchbox .searchButton:hover {
-    background-position: -385px -115px !important;
-}
-
 #portal-searchbox input, .searchField,
 #content .searchField
 {
-
+    height: 30px;
     padding: 0;
-    background-position: 0 -82px;
+
     font-family: &dtml-fontFamily;;
     font-style: italic;
-    color: #FFF;
+
     border: none;
     margin: 0;
 }
 
 #portal-searchbox input.gsc-search-button {
     height: 30px;
+    width: 70px;
     border-radius: 0;
 }
-#portal-searchbox td.gsc-input {
+#portal-searchbox input.gsc-input {
     border: 1px solid gray;
     padding: 0 0.5em;
+    background: url("//www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png") 5px center no-repeat rgb(255, 255, 255) !important;
+}
+#portal-searchbox input.gsc-input:focus {
+    background: #FFF none !important;
+}
+#searchGadget_form {
+    background-color: #f3f3f3;
+}
+#portal-searchbox td.gsc-input {
+    padding: 0;
 }
 
 
@@ -1154,14 +1164,23 @@ a.moreLink {
 #searchbox_terminology input:focus,
 #portal-searchbox input:focus,
 .searchField:focus {
-    font-style: normal;
-    color: #000000;
-    background-color: transparent;
     outline-color: transparent;
+    background-color: transparent;
 }
 
 #portal-searchbox .searchButton:focus {
     background-color: &dtml-corporateOrange;;
+}
+
+#portal-searchbox .gsc-cursor-current-page {
+    color: #FFF;
+}
+
+#portal-searchbox .gsc-results-wrapper-overlay {
+    height: 96%;
+    top: 2%;
+    width: 90%;
+    left: 5%;
 }
 
 .site-description {
@@ -2197,6 +2216,35 @@ div#original_chart_div {
 }
 .template-soer2015_frontpage #portlet-followus {
     margin: 2em;
+}
+
+.showOnPrint {
+   display: none;
+}
+
+.mceContentBody .showOnPrint {
+   display: block;
+}
+
+.mceContentBody .showOnPrint:before {
+    content: "Image visible only within pdf download";
+   background-color: #ffb;
+   border-bottom: 3px solid black;
+}
+.mceContentBody .showOnPrint + iframe:before {
+   content: "Iframe hidden within pdf download";
+   background-color: #ffb;
+   border-bottom: 3px solid black;
+}
+
+/* custom css fix for hiding warning message for anonymous users when  visualization is not published */
+.userrole-anonymous .metadata ~ .warningMessage {
+    display: none;
+}
+
+/* #81310 table should be visible overriding bootstrap invisible class */
+table.invisible {
+    visibility: visible;
 }
 
 /* </dtml-let> */
