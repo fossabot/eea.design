@@ -5,6 +5,10 @@
  * and footer
  * eg:http://www.eea.europa.eu/code/design-elements#tab-first-tab
  * */
+
+// NOTE: this file is loaded by PLONE 3 sites as such avoid using
+// jQuery features above 1.4 such as on instead of bind
+
 jQuery(document).ready(function($) {
 
     if (!window.EEA) {
@@ -267,7 +271,7 @@ jQuery(document).ready(function($) {
         }
     }
 
-    $(window).on("swipe", swipeHandler);
+    $(window).bind("swipe", swipeHandler);
 
     var mqOrientation = window.matchMedia && window.matchMedia('(orientation: portrait)');
     // The Listener will fire whenever this either matches or ceases to match
@@ -410,7 +414,7 @@ jQuery(document).ready(function($) {
 
     if (underscore) {
         var lazyTouchMove = _.throttle(TouchMove, 90);
-        $(window).on("touchmove", lazyTouchMove);
+        $(window).bind("touchmove", lazyTouchMove);
     }
 
     var $document = $(document);
