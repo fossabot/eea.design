@@ -461,6 +461,36 @@ jQuery(document).ready(function($) {
     if ($('#eea-above-columns #portal-breadcrumbs').length){
         $('#header-holder .navbar').addClass('hideShadow');
     }
+
+    $.screentime({
+        fields: [
+            { selector: '#header-holder',
+                name: 'Top'
+            },
+            { selector: '.documentContent',
+                name: 'Middle'
+            },
+            { selector: '#portal-colophon',
+                name: 'Bottom'
+            }
+        ],
+        googleAnalytics: true,
+        reportInterval: 15,
+        callback: function(data) {
+            // console.log(data);
+            // Logs: { Top: 5, Middle: 3 }
+        }
+    });
+
+    jQuery.scrollDepth({
+        minHeight: 500,
+        elements: ['#header-holder', '.documentContent', '#portal-colophon'],
+        percentage: true,
+        userTiming: true,
+        pixelDepth: true,
+        nonInteraction: false
+    });
+
 });
 
 
