@@ -467,7 +467,7 @@ jQuery(document).ready(function($) {
             { selector: '#header-holder',
                 name: 'Top'
             },
-            { selector: '.documentContent',
+            { selector: '#content',
                 name: 'Middle'
             },
             { selector: '#portal-colophon',
@@ -484,7 +484,7 @@ jQuery(document).ready(function($) {
 
     jQuery.scrollDepth({
         minHeight: 500,
-        elements: ['#header-holder', '.documentContent', '#portal-colophon'],
+        elements: ['#header-holder', '#content', '#main', '#portal-colophon'],
         percentage: true,
         userTiming: true,
         pixelDepth: true,
