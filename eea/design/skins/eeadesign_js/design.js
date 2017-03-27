@@ -461,8 +461,9 @@ jQuery(document).ready(function($) {
     if ($('#eea-above-columns #portal-breadcrumbs').length){
         $('#header-holder .navbar').addClass('hideShadow');
     }
-    
-    if ($.fn.screentime) {
+
+    var scroll_analytics_enabled = $body.hasClass("scroll-analytics");
+    if ($.fn.screentime && scroll_analytics_enabled) {
         $.screentime({
             fields: [
                 { selector: '#header-holder',
@@ -484,13 +485,12 @@ jQuery(document).ready(function($) {
         });
         }
     
-    if ($.fn.scrollDepth) {
+    if ($.fn.scrollDepth && scroll_analytics_enabled) {
         jQuery.scrollDepth({
             minHeight: 500,
             elements: ['#header-holder', '#content', '#main', '#portal-colophon'],
             percentage: true,
             userTiming: true,
-            pixelDepth: true,
             nonInteraction: false
         });        
     }
