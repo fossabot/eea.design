@@ -463,17 +463,20 @@ jQuery(document).ready(function($) {
     }
 
     var scroll_analytics_enabled = $body.hasClass("scroll-analytics");
-    if ($.fn.screentime && scroll_analytics_enabled) {
+    if ($.screentime && scroll_analytics_enabled) {
         $.screentime({
             fields: [
                 { selector: '#header-holder',
-                    name: 'Top'
+                    name: 'Page loaded'
                 },
                 { selector: '#content',
-                    name: 'Middle'
+                    name: 'Content start'
+                },
+                { selector: '#relatedItems',
+                    name: 'Content bottom'
                 },
                 { selector: '#portal-colophon',
-                    name: 'Bottom'
+                    name: 'Page bottom'
                 }
             ],
             googleAnalytics: true,
@@ -485,11 +488,13 @@ jQuery(document).ready(function($) {
         });
         }
     
-    if ($.fn.scrollDepth && scroll_analytics_enabled) {
+    if ($.scrollDepth && scroll_analytics_enabled) {
         jQuery.scrollDepth({
             minHeight: 500,
-            elements: ['#header-holder', '#content', '#main', '#portal-colophon'],
+            elements: ['#header-holder', '#content', '#main', '#relatedItems',
+                       '#portal-colophon'],
             percentage: true,
+            pixelDepth: false,
             userTiming: true,
             nonInteraction: false
         });        
