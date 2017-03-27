@@ -82,3 +82,32 @@ class MiniHeaderContentTypes(BrowserView):
         registry = self.context.portal_properties.site_properties
         data = registry.getProperty('mini_header_for', None)
         return data
+
+
+class ScrollAnalyticsContentTypes(BrowserView):
+    """ scrollAnalytics body class content-types
+    """
+
+    def __init__(self, context, request):
+        """ init
+        """
+        super(ScrollAnalyticsContentTypes, self).__init__(context, request)
+        self.context = context
+        self.request = request
+
+    def __call__(self):
+        """ boolean if scrollAnalytics class should be enabled
+            for given content-type
+        """
+        scroll_analytics_ctypes = self.get_full_registry() or []
+        return self.context.portal_type in scroll_analytics_ctypes and not \
+               self.context.portal_membership.isAnonymousUser()
+
+    @memoize
+    def get_scroll_registry(self):
+        """ content registry cache
+        """
+        registry = getUtility(IRegistry)
+        return registry.get('Products.EEAContentTypes.browser.interfaces.'
+                            'IEEAContentTypesSettings.scrollAnalyticsFor')
+
