@@ -480,7 +480,7 @@ jQuery(document).ready(function($) {
                 }
             ],
             googleAnalytics: true,
-            reportInterval: 15,
+            reportInterval: 10,
             callback: function(data) {
                 // console.log(data);
                 // Logs: { Top: 5, Middle: 3 }
@@ -491,11 +491,11 @@ jQuery(document).ready(function($) {
     if ($.scrollDepth && scroll_analytics_enabled) {
         jQuery.scrollDepth({
             minHeight: 500,
-            elements: ['#header-holder', '#content', '#main', '#relatedItems',
-                       '#portal-colophon'],
+            // elements: ['#header-holder', '#content', '#main', '#relatedItems',
+            //            '#portal-colophon'],
             percentage: true,
             pixelDepth: false,
-            userTiming: true,
+            userTiming: false,
             nonInteraction: false
         });        
     }
