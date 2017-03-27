@@ -99,7 +99,7 @@ class ScrollAnalyticsContentTypes(BrowserView):
         """ boolean if scrollAnalytics class should be enabled
             for given content-type
         """
-        scroll_analytics_ctypes = self.get_full_registry() or []
+        scroll_analytics_ctypes = self.get_scroll_registry() or []
         return self.context.portal_type in scroll_analytics_ctypes and not \
                self.context.portal_membership.isAnonymousUser()
 
