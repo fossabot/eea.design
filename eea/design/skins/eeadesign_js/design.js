@@ -1,4 +1,4 @@
-/*global jQuery window anchors document ga setTimeout*/
+/*global jQuery window document ga setTimeout*/
 jQuery(document).ready(function($) {
     'use strict';
     var $viewlet_below_content = $("#viewlet-below-content");
@@ -65,7 +65,7 @@ jQuery(document).ready(function($) {
             var $search = $("#portal-searchbox");
             var $parent = $("#secondary-globanav-tips");
 
-            $body.on('eea-miniheader-toggled', function(ev) {
+            $body.on('eea-miniheader-toggled', function() {
                 // hide globalnav current triangle when we have the
                 // network section open
                 $(".eea-nav-current").toggleClass('eea-nav-inactive');
@@ -95,7 +95,7 @@ jQuery(document).ready(function($) {
                 $(ev.target).closest('li').addClass('eea-navsiteactions-active');
                 ev.preventDefault();
             });
-            $body.on('eea-miniheader-hide', function(ev, el){
+            $body.on('eea-miniheader-hide', function(){
                 $cross_site_top.hide();
                 $(".portal-logo").hide();
                 $search.hide();
@@ -123,8 +123,8 @@ jQuery(document).ready(function($) {
     }
     
     // same requirement as above but for every fiche found within a collection pdf template
-    var air_fiches = $(".template-collection-pdf-body.section-airs");
-    if (air_fiches.length) {
+    var collection_air_fiches = $(".template-collection-pdf-body.section-airs");
+    if (collection_air_fiches.length) {
         (function() {
             var $fiche_bodies = $(".fiche-body");
             $fiche_bodies.each(function(idx, el){
@@ -163,7 +163,7 @@ jQuery(document).ready(function($) {
     });
 
     $body.click(function() {
-        $('#popup_login_form').slideUp()
+        $('#popup_login_form').slideUp();
     });
 
     /* #28278 prevent figures from printing charts without the figure title on the same line
@@ -458,8 +458,8 @@ jQuery(document).ready(function($) {
         })();
 
     }
-    if ($('#eea-above-columns #portal-breadcrumbs').length){
-        $('#header-holder .navbar').addClass('hideShadow');
+    if ($('#eea-above-columns').find('#portal-breadcrumbs').length){
+        $('#header-holder').find('.navbar').addClass('hideShadow');
     }
 
     var scroll_analytics_enabled = $body.hasClass("scroll-analytics");
@@ -524,14 +524,14 @@ jQuery(document).ready(function($) {
             };
             window.onafterprint = afterPrint; // Internet Explorer
             $(document).keydown(function(allBrowsers){ // Track printing using Ctrl/Cmd+P.
-                if (allBrowsers.keyCode==80 && (allBrowsers.ctrlKey || allBrowsers.metaKey)) {
+                if (allBrowsers.keyCode === 80 && (allBrowsers.ctrlKey || allBrowsers.metaKey)) {
                     $html.attr('printType', 'Ctrl/Cmd+P');
                     afterPrint();
                 }
             });
             // Detect Right Mouse Button Click
             $html.mousedown(function(e) {
-                if( e.which == 3 ) {
+                if( e.which === 3 ) {
                     $html.attr('mouseBtn', 'Right');
                 }
             });
