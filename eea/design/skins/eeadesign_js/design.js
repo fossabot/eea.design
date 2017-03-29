@@ -4,7 +4,8 @@ jQuery(document).ready(function($) {
     var $viewlet_below_content = $("#viewlet-below-content");
     var $content = $("#content");
     var $column_area = $(".column-area");
-
+    var $body = $("body");
+    var is_anon = $body.hasClass('userrole-anonymous');
     // #71710 move related and socialmedia inside
     // faceted center area
     var $center_bottom_area = $("#center-bottom-area");
@@ -47,7 +48,6 @@ jQuery(document).ready(function($) {
     hide_empty_container($body_content, 1, $body_content.find('p'));
 
     var url_path_name = window.location.pathname;
-    var $body = $("body");
     var $code_diff = $("#diffstylecode");
     if ($body.hasClass("portaltype-sparql") && $code_diff) {
         $code_diff.click();
@@ -463,30 +463,30 @@ jQuery(document).ready(function($) {
     }
 
     var scroll_analytics_enabled = $body.hasClass("scroll-analytics");
-    if ($.screentime && scroll_analytics_enabled) {
-        $.screentime({
-            fields: [
-                { selector: '#header-holder',
-                    name: 'Page loaded'
-                },
-                { selector: '#content',
-                    name: 'Content start'
-                },
-                { selector: '#relatedItems',
-                    name: 'Content bottom'
-                },
-                { selector: '#portal-colophon',
-                    name: 'Page bottom'
-                }
-            ],
-            googleAnalytics: true,
-            reportInterval: 10,
-            callback: function(data) {
-                // console.log(data);
-                // Logs: { Top: 5, Middle: 3 }
-            }
-        });
-        }
+    // if ($.screentime && scroll_analytics_enabled) {
+    //     $.screentime({
+    //         fields: [
+    //             { selector: '#header-holder',
+    //                 name: 'Page loaded'
+    //             },
+    //             { selector: '#content',
+    //                 name: 'Content start'
+    //             },
+    //             { selector: '#relatedItems',
+    //                 name: 'Content bottom'
+    //             },
+    //             { selector: '#portal-colophon',
+    //                 name: 'Page bottom'
+    //             }
+    //         ],
+    //         googleAnalytics: true,
+    //         reportInterval: 10,
+    //         callback: function(data) {
+    //             // console.log(data);
+    //             // Logs: { Top: 5, Middle: 3 }
+    //         }
+    //     });
+    //     }
     
     if ($.scrollDepth && scroll_analytics_enabled) {
         jQuery.scrollDepth({
@@ -495,9 +495,48 @@ jQuery(document).ready(function($) {
             //            '#portal-colophon'],
             percentage: true,
             pixelDepth: false,
-            userTiming: false,
-            nonInteraction: false
-        });        
+            userTiming: true
+        });
+    }
+
+    // track print attempt with google analytics
+    // original code from https://www.savio.no/analytics/how-to-track-printed-pages-in-google-analytics
+    if (is_anon) {
+        (function(){
+            var runOnce;
+            var $html = $("html");
+            var afterPrint = function() {
+                if (!runOnce) { // Because of Chrome we can only allow the code to run once.
+                    runOnce = true;
+                    var printData = $html.attr('printType');
+                    var mouseButton = $html.attr('mouseBtn');
+                    if (printData === undefined && mouseButton === 'Right') { // Print activated using Right Mouse Button
+                        printData = 'Right Mouse Button';
+                    } else if (printData === undefined) { // Print (probably) activated using Browser Menu
+                        printData = 'Browser Menu';
+                    }
+                    if (window.ga) {
+                        window.ga('send', 'event', 'Print Action', printData, window.location.pathname);
+                    }
+                    $html.removeAttr('printType'); // Clear the attribute, if not printing from the menu can be tracked wrongly.
+                    $html.removeAttr('mouseBtn'); // Clear the attribute, if not printing from the menu can be tracked wrongly.
+                }
+            };
+            window.onafterprint = afterPrint; // Internet Explorer
+            $(document).keydown(function(allBrowsers){ // Track printing using Ctrl/Cmd+P.
+                if (allBrowsers.keyCode==80 && (allBrowsers.ctrlKey || allBrowsers.metaKey)) {
+                    $html.attr('printType', 'Ctrl/Cmd+P');
+                    afterPrint();
+                }
+            });
+            // Detect Right Mouse Button Click
+            $html.mousedown(function(e) {
+                if( e.which == 3 ) {
+                    $html.attr('mouseBtn', 'Right');
+                }
+            });
+
+        }());
     }
 
 });
