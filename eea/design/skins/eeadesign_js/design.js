@@ -504,37 +504,28 @@ jQuery(document).ready(function($) {
     if (is_anon) {
         (function(){
             var runOnce;
-            var $html = $("html");
             var afterPrint = function() {
                 if (!runOnce) { // Because of Chrome we can only allow the code to run once.
                     runOnce = true;
-                    var printData = $html.attr('printType');
-                    var mouseButton = $html.attr('mouseBtn');
-                    if (printData === undefined && mouseButton === 'Right') { // Print activated using Right Mouse Button
-                        printData = 'Right Mouse Button';
-                    } else if (printData === undefined) { // Print (probably) activated using Browser Menu
-                        printData = 'Browser Menu';
-                    }
                     if (window.ga) {
-                        window.ga('send', 'event', 'Print Action', printData, window.location.pathname);
+                        window.ga('send', 'event', 'Print Action', window.location.host, window.location.href);
                     }
-                    $html.removeAttr('printType'); // Clear the attribute, if not printing from the menu can be tracked wrongly.
-                    $html.removeAttr('mouseBtn'); // Clear the attribute, if not printing from the menu can be tracked wrongly.
                 }
             };
             window.onafterprint = afterPrint; // Internet Explorer
             $(document).keydown(function(allBrowsers){ // Track printing using Ctrl/Cmd+P.
                 if (allBrowsers.keyCode === 80 && (allBrowsers.ctrlKey || allBrowsers.metaKey)) {
-                    $html.attr('printType', 'Ctrl/Cmd+P');
                     afterPrint();
                 }
             });
-            // Detect Right Mouse Button Click
-            $html.mousedown(function(e) {
-                if( e.which === 3 ) {
-                    $html.attr('mouseBtn', 'Right');
-                }
-            });
+            if (window.matchMedia) { // Track printing from browsers using the Webkit engine
+                var mediaQueryList = window.matchMedia('print');
+                mediaQueryList.addListener(function(mql) {
+                    if (mql.matches) {
+                        afterPrint();
+                    }
+                });
+            }
 
         }());
     }
