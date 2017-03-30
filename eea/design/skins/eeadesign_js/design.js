@@ -463,36 +463,12 @@ jQuery(document).ready(function($) {
     }
 
     var scroll_analytics_enabled = $body.hasClass("scroll-analytics");
-    // if ($.screentime && scroll_analytics_enabled) {
-    //     $.screentime({
-    //         fields: [
-    //             { selector: '#header-holder',
-    //                 name: 'Page loaded'
-    //             },
-    //             { selector: '#content',
-    //                 name: 'Content start'
-    //             },
-    //             { selector: '#relatedItems',
-    //                 name: 'Content bottom'
-    //             },
-    //             { selector: '#portal-colophon',
-    //                 name: 'Page bottom'
-    //             }
-    //         ],
-    //         googleAnalytics: true,
-    //         reportInterval: 10,
-    //         callback: function(data) {
-    //             // console.log(data);
-    //             // Logs: { Top: 5, Middle: 3 }
-    //         }
-    //     });
-    //     }
-    
+
     if ($.scrollDepth && scroll_analytics_enabled) {
         jQuery.scrollDepth({
             minHeight: 500,
-            // elements: ['#header-holder', '#content', '#main', '#relatedItems',
-            //            '#portal-colophon'],
+            elements: ['#header-holder', '#content', '#main', '#relatedItems',
+                       '#portal-colophon'],
             percentage: true,
             pixelDepth: false,
             userTiming: true
