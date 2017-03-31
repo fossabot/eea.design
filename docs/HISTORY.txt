@@ -3,6 +3,9 @@ Changelog
 
 16.4.dev0 - (unreleased)
 ------------------------
+* Change: removed search customization for cms, use same template with the
+  common layer
+  [ichim-david refs #83823]
 
 16.3 - (2017-03-20)
 -------------------

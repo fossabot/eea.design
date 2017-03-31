@@ -146,16 +146,7 @@
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         class="plone.app.layout.viewlets.common.SearchBoxViewlet"
         template="templates/global_searchbox.pt"
-        layer=".interfaces.IEEADesignPublic"
-        permission="zope2.View"
-        />
-
-    <browser:viewlet
-        name="plone.searchbox"
-        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-        class="plone.app.layout.viewlets.common.SearchBoxViewlet"
-        template="templates/searchbox_cms.pt"
-        layer=".interfaces.IEEADesignCMS"
+        layer=".interfaces.IEEACommonLayer"
         permission="zope2.View"
         />
 
