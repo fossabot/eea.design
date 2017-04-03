@@ -9,7 +9,7 @@
 /*******************************************************************************/
 
 .promo-item-desc, .promo-item-desc-sm {
-    z-index: 100;
+    z-index: 4;
     position: absolute;
     bottom: 0;
     left: 0px;
@@ -155,7 +155,7 @@
 #navigator-outer {
 	right:0;
 	top:0px;
-	z-index:100;
+	z-index:4;
 	height:330px;
 	overflow:hidden;
 	color:#FFF;
@@ -171,7 +171,7 @@
 	color:#FFF;
     background: transparent url("promotions-gallery-arrow.png") no-repeat right center;
     position: relative;
-    z-index: 300;
+    z-index: 5;
     width: 182px !important;
     float: left;
 }
