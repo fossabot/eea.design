@@ -1181,6 +1181,7 @@ a.moreLink {
     top: 2%;
     width: 90%;
     left: 5%;
+    z-index: 1031;
 }
 
 .site-description {
@@ -2171,6 +2172,10 @@ div#original_chart_div {
 .eea-epub-download,
 .eea-pdf-download {
     font-size: 150%;
+}
+
+.eea-pdf-overlay {
+    z-index: 1031;
 }
 
 /* do not show copyright info on soer briefings */
