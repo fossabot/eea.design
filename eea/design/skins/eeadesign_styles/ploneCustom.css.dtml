@@ -926,7 +926,9 @@ a.moreLink {
     margin: 0 auto;
     overflow: hidden;
     height: 90px;
+    z-index: initial;
 }
+
 .mini-header #portal-header {
     height: 100%;
 }
@@ -1102,6 +1104,7 @@ a.moreLink {
 }
 .LSBox {
     float: none;
+    background-color: #FFF;
 }
 
 #portal-searchbox a {
@@ -1181,7 +1184,7 @@ a.moreLink {
     top: 2%;
     width: 90%;
     left: 5%;
-    z-index: 1031;
+  
 }
 
 .site-description {
@@ -2174,7 +2177,7 @@ div#original_chart_div {
     font-size: 150%;
 }
 
-.eea-pdf-overlay {
+div.eea-pdf-overlay {
     z-index: 1031;
 }
 
@@ -2254,4 +2257,3 @@ table.invisible {
 
 /* </dtml-let> */
 /* </dtml-with> */
-
