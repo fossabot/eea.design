@@ -3,6 +3,9 @@ Changelog
 
 16.4.dev0 - (unreleased)
 ------------------------
+* Bug fix: fixed z-index issues for portal-header, google search and pdf
+  download
+  [ichim-david refs #83615]
 * Change: removed search customization for cms, use same template with the
   common layer
   [ichim-david refs #83823]
