@@ -66,16 +66,15 @@
                    <span class="byline-separator"></span>
                    <tal:modified i18n:translate="">
                     Last modified
-                   </tal:modified><span tal:replace="python:' %s' % plone_view.toLocalizedTime(here.ModificationDate(),long_format=1)"> August 16, 2001 at 23:35:59</span>
+                   </tal:modified><span tal:replace="python:' %s' % plone_view.toLocalizedTime(here.ModificationDate(),long_format=0)"> August 16, 2001 at 23:35:59</span>
             </span>
         </tal:dates>
 
         <tal:reading_estimate tal:condition="time_estimate" tal:define="time_estimate view/time_estimate">
-            <div class="documentByLineReadingStats">
+            <div class="documentByLineReadingStats inline-block">
                 <span class="byline-separator"></span>
-                <strong i18n:translate="">Reading time:</strong>
                 <span class="documentByLineReadingTime" tal:content="time_estimate">0</span>
-                <span i18n:translate="">minutes</span>
+                <span i18n:translate="">min read</span>
             </div>
         </tal:reading_estimate>
 
