@@ -151,10 +151,10 @@ class DocumentBylineViewlet(content.DocumentBylineViewlet):
         scores = anno.get('readability_scores')
         if not scores:
             return ""
-        minutes = 0
+        words = 0
         for value in scores.values():
-            word = int(value.get('word_count', 1))
-            minutes += int(math.floor(word / 228))
+            words += int(value.get('word_count', 1))
+        minutes = int(round(words / 228))
         return minutes
 
     def available(self):
