@@ -154,7 +154,7 @@ class DocumentBylineViewlet(content.DocumentBylineViewlet):
         words = 0
         for value in scores.values():
             words += int(value.get('word_count', 1))
-        minutes = int(round(words / 228))
+        minutes = int(round(words / 228.0))
         return minutes
 
     def available(self):
