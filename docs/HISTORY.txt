@@ -1,6 +1,9 @@
 Changelog
 =========
 
+16.6.dev0 - (unreleased)
+------------------------
+
 16.5 - (2017-04-14)
 -------------------
 * Feature: expose reading time info as data within document byline if enabled
