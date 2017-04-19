@@ -1,6 +1,9 @@
 Changelog
 =========
 
+16.7.dev0 - (unreleased)
+------------------------
+
 16.6 - (2017-04-19)
 -------------------
 * Change: rdfexport calculates now only fields with readability statistics
