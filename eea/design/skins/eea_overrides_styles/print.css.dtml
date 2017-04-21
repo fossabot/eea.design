@@ -248,12 +248,12 @@ iframe[src*="video"] {
 
 /* Display related items in a simpler list way */
 #relatedItems h2 {
-    margin: 10pt 0;
+    margin: 5pt 0;
     padding: 0;
 }
 
 #relatedItems h3 {
-    margin: 1em 0 0 0;
+    margin: 0;
     padding: 0;
 }
 
@@ -262,6 +262,7 @@ iframe[src*="video"] {
     margin: 0;
     padding: 5px 0;
     height: auto !important;
+    width: auto;
 }
 
 #relatedItems .photoAlbumEntryWrapper,
