@@ -1,9 +1,7 @@
 """ Custom viewlets
 """
-import math
 from cgi import escape
 from Acquisition import aq_parent, aq_base, aq_inner
-
 from Products.CMFCore.utils import _checkPermission
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
