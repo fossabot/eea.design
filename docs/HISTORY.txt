@@ -4,7 +4,7 @@ Changelog
 16.7.dev0 - (unreleased)
 ------------------------
 * Change: updated package information
-[eduard-fironda]
+  [eduard-fironda]
 
 16.6 - (2017-04-19)
 -------------------
