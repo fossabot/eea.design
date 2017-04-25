@@ -53,12 +53,14 @@ jQuery(document).ready(function($) {
         $code_diff.click();
     }
 
-    var $popup_login = $("#popup_login_form").click(function(e){e.stopPropagation();});
+    var $popup_login = $("#popup_login_form").click(function(e) {
+        e.stopPropagation();
+    });
 
     // // 72862 mini header
     var $mini_header = $(".mini-header");
     if ($mini_header.length) {
-        (function(){
+        (function() {
             var $portal_header = $("#portal-header");
             var $cross_site_top = $("#cross-site-top");
             var $ptools = $("#portal-personaltools-wrapper");
@@ -95,7 +97,7 @@ jQuery(document).ready(function($) {
                 $(ev.target).closest('li').addClass('eea-navsiteactions-active');
                 ev.preventDefault();
             });
-            $body.on('eea-miniheader-hide', function(){
+            $body.on('eea-miniheader-hide', function() {
                 $cross_site_top.hide();
                 $(".portal-logo").hide();
                 $search.hide();
@@ -121,13 +123,13 @@ jQuery(document).ready(function($) {
             }
         }());
     }
-    
+
     // same requirement as above but for every fiche found within a collection pdf template
     var collection_air_fiches = $(".template-collection-pdf-body.section-airs");
     if (collection_air_fiches.length) {
         (function() {
             var $fiche_bodies = $(".fiche-body");
-            $fiche_bodies.each(function(idx, el){
+            $fiche_bodies.each(function(idx, el) {
                 var $el = $(el);
                 var $table = $el.find('table').eq(0);
                 var $fiche_summary = $el.find(".fiche-summary");
@@ -137,7 +139,7 @@ jQuery(document).ready(function($) {
             });
         }());
     }
-    
+
     // #69065 move google chart button within externalActions
     var $charts_buttons = $(".google_buttons_bar").find('a');
     var $document_actions = $(".documentExportActions");
@@ -225,7 +227,7 @@ jQuery(document).ready(function($) {
 
     $(document).ajaxComplete(function(event, xhr, settings) {
         var url = settings.url.split('/');
-        var method = url[url.length-1];
+        var method = url[url.length - 1];
         var reset_methods = ['@@googlechart.googledashboard.edit',
             '@@googlechart.googledashboards.edit',
             '@@googlechart.savepngchart',
@@ -239,7 +241,7 @@ jQuery(document).ready(function($) {
     try {
         $.timeoutDialog({delay: 900000}); // set to be triggered after 15 minutes
     }
-    catch(err) {
+    catch (err) {
         // console.log(err);
     }
 
@@ -310,7 +312,7 @@ jQuery(document).ready(function($) {
     /**
      * Function to avoid multiple clicks on document actions (Download as PDF, etc.)
      */
-    jQuery.fn.avoidMultipleClicks = function(options){
+    jQuery.fn.avoidMultipleClicks = function(options) {
         var settings = {
             timeout: 3000,
             linkSelector: 'a',
@@ -318,22 +320,22 @@ jQuery(document).ready(function($) {
             lockCSS: 'downloading-lock'
         };
 
-        if(options){
+        if (options) {
             jQuery.extend(settings, options);
         }
 
         var self = this;
-        return this.each(function(){
-            self.find(settings.linkSelector).click(function(){
+        return this.each(function() {
+            self.find(settings.linkSelector).click(function() {
                 var context = $(this);
                 var oldCSS = context.attr('class');
-                settings.linkCSS = oldCSS.split(' ').slice(0,2).join(' ') + settings.linkCSS;
+                settings.linkCSS = oldCSS.split(' ').slice(0, 2).join(' ') + settings.linkCSS;
                 context.removeClass();
                 context.addClass(settings.linkCSS);
 
                 self.addClass(settings.lockCSS);
 
-                setTimeout(function(){
+                setTimeout(function() {
                     self.removeClass(settings.lockCSS);
                     context.removeClass(settings.linkCSS);
                     context.addClass(oldCSS);
@@ -378,7 +380,9 @@ jQuery(document).ready(function($) {
         return txt_tokes_outcome;
 
     }
+
     var links = document.getElementsByTagName('a');
+
     function match_download_links(links) {
         var list = [];
         var links_length = links.length;
@@ -402,6 +406,7 @@ jQuery(document).ready(function($) {
     }
 
     var downloads_list = match_download_links(links);
+
     function add_downloads_tracking_code(idx, el) {
         el.onclick = function() {
             var text = el.textContent || el.innerText;
@@ -413,6 +418,7 @@ jQuery(document).ready(function($) {
         };
         return el;
     }
+
     $.each(downloads_list, add_downloads_tracking_code);
 
     /* #26746 do now show the survey message for 1 year as we no longer need to show it */
@@ -423,8 +429,8 @@ jQuery(document).ready(function($) {
     /* #27214 generic panel slider functionality */
     var $right_section_container = $(".eea-right-section");
     if ($right_section_container.length) {
-        (function insert_section(){
-            $right_section_container.each(function(idx, el){
+        (function insert_section() {
+            $right_section_container.each(function(idx, el) {
                 // insert the slider button in case we are missing it if we want
                 // to keep the needed markup as small as possible
                 var $el = $(el), $right_section_slider = $el.prev();
@@ -432,7 +438,7 @@ jQuery(document).ready(function($) {
                     $right_section_slider = $('<div class="eea-section eea-right-section-slider eea-scrolling-toggle-visibility"><span class="eea-icon eea-icon-5x eea-icon-caret-left eea-icon-anim-horizontal animated"></span></div>');
                     $right_section_slider.insertBefore($el);
                 }
-                $right_section_slider.click(function(){
+                $right_section_slider.click(function() {
                     var $this = $(this);
                     $this.toggleClass("eea-right-section-slider-active")
                         .next().toggleClass("eea-right-section-active eea-scrolling-keep-visible");
@@ -442,13 +448,13 @@ jQuery(document).ready(function($) {
                     if ($this.hasClass("eea-right-section-slider-active")) {
                         // set overflow hidden when object is in view in order to
                         // avoid scrolling of body
-                        document.body.style.overflow='hidden';
-                        document.body.style.position='fixed';
+                        document.body.style.overflow = 'hidden';
+                        document.body.style.position = 'fixed';
                     }
                     else {
                         if (document.body.style.overflow === "hidden") {
-                            document.body.style.overflow='auto';
-                            document.body.style.position='relative';
+                            document.body.style.overflow = 'auto';
+                            document.body.style.position = 'relative';
                         }
                     }
 
@@ -458,7 +464,7 @@ jQuery(document).ready(function($) {
         })();
 
     }
-    if ($('#eea-above-columns').find('#portal-breadcrumbs').length){
+    if ($('#eea-above-columns').find('#portal-breadcrumbs').length) {
         $('#header-holder').find('.navbar').addClass('hideShadow');
     }
 
@@ -468,7 +474,7 @@ jQuery(document).ready(function($) {
         jQuery.scrollDepth({
             minHeight: 500,
             elements: ['#header-holder', '#content', '#main', '#relatedItems',
-                       '#portal-colophon'],
+                '#portal-colophon'],
             percentage: true,
             pixelDepth: false,
             userTiming: true
@@ -478,7 +484,7 @@ jQuery(document).ready(function($) {
     // track print attempt with google analytics
     // original code from https://www.savio.no/analytics/how-to-track-printed-pages-in-google-analytics
     if (is_anon) {
-        (function(){
+        (function() {
             var runOnce;
             var afterPrint = function() {
                 if (!runOnce) { // Because of Chrome we can only allow the code to run once.
@@ -489,7 +495,7 @@ jQuery(document).ready(function($) {
                 }
             };
             window.onafterprint = afterPrint; // Internet Explorer
-            $(document).keydown(function(allBrowsers){ // Track printing using Ctrl/Cmd+P.
+            $(document).keydown(function(allBrowsers) { // Track printing using Ctrl/Cmd+P.
                 if (allBrowsers.keyCode === 80 && (allBrowsers.ctrlKey || allBrowsers.metaKey)) {
                     afterPrint();
                 }
@@ -506,7 +512,141 @@ jQuery(document).ready(function($) {
         }());
     }
 
+
+    if (scroll_analytics_enabled) {
+        var looker = null;
+        var started;
+        var timers = { beginning: 0, content_bottom: 0, page_bottom: 0};
+        $(window).one("scroll", function() {
+            // Debug flag
+            var debugMode = false;
+
+            // Default time delay before checking location
+            var callBackTime = 100;
+
+            // # px before tracking a reader
+            var readerLocation = 100;
+
+            var readingTime = $(".documentByLineReadingTime");
+            var minReadTime = readingTime.length ?
+                        window.parseInt(readingTime.text(), 10) * 60 : 10;
+
+            // Set some flags for tracking & execution
+            var timer = 0;
+            var scroller = false;
+            var endContent = false;
+            var didComplete = false;
+
+            // Get some information about the current page
+            var pageTitle = document.title;
+
+            // Set some time variables to calculate reading time
+              startTimers();
+
+            // Track the article load
+            if (!debugMode) {
+                ga('send', 'event', 'Reading', 'ArticleLoaded', pageTitle, {'nonInteraction': 1});
+            } else {
+                window.alert('The page has loaded. Woohoo.');
+            }
+
+            var $content = $("#content-core");
+
+            // Check the location and track user
+            var timeToScroll, totalTime, timeToContentEnd;
+
+
+            function trackLocation() {
+                if (!$content.length) {
+                    return;
+                }
+                var scrollTop = $(window).scrollTop();
+                var bottom = Math.round($(window).height() + scrollTop);
+                var height = $(document).height();
+
+                // If user starts to scroll send an event
+                if (scrollTop > readerLocation && !scroller) {
+                    timeToScroll = timer['beginning'];
+                    // console.log('send content start in ' + timeToScroll);
+                    if (!debugMode) {
+                        ga('send', 'event', 'Reading', 'StartReading', pageTitle, timeToScroll, {'metric1': timeToScroll});
+                    } else {
+                        window.alert('started reading ' + timeToScroll);
+                    }
+                    scroller = true;
+                }
+
+                // If user has hit the bottom of the content send an event
+                if (window.innerHeight >= $content[0].getBoundingClientRect().bottom && !endContent) {
+                    timeToContentEnd = timers['content_bottom'];
+                    // console.log('send content bottom in ' + timeToContentEnd);
+                    if (!debugMode) {
+                        if (timeToContentEnd < minReadTime) {
+                            ga('set', 'dimension1', 'Scanner');
+                        } else {
+                            ga('set', 'dimension1', 'Reader');
+                        }
+                        ga('send', 'event', 'Reading', 'ContentBottom', pageTitle, timeToContentEnd, {'metric2': timeToContentEnd});
+                    } else {
+                        window.alert('end content section ' + timeToContentEnd);
+                    }
+                    endContent = true;
+                }
+
+                // If user has hit the bottom of page send an event
+                if (bottom >= height - 50 && !didComplete) {
+                    totalTime = timers['page_bottom'];
+                    // console.log('send page bottom in ' + totalTime);
+                    if (!debugMode) {
+                        ga('send', 'event', 'Reading', 'PageBottom', pageTitle, totalTime, {'metric3': totalTime});
+                    } else {
+                        window.alert('bottom of page ' + totalTime);
+                    }
+                    didComplete = true;
+                }
+            }
+
+            // Track the scrolling and track location
+            $(window).scroll(function() {
+                if (timer) {
+                    window.clearTimeout(timer);
+                }
+
+                // Use a buffer so we don't call trackLocation too often.
+                timer = window.setTimeout(trackLocation, callBackTime);
+            });
+
+        });
+
+        var incrementTimeSpent = function incrementTimeSpent() {
+            $.each(timers, function(key, val) {
+                timers[key] = val + 1;
+            });
+        };
+        var startTimers = function startTimers() {
+            // console.log('startTimers');
+
+            if (!started) {
+                incrementTimeSpent();
+                started = true;
+            }
+            looker = window.setInterval(function() {
+                incrementTimeSpent();
+            }, 1000);
+        };
+        var stopTimers = function stopTimers() {
+            // console.log('stopTimers');
+            window.clearInterval(looker);
+        };
+        if (window.visibly) {
+            window.visibly.onHidden(function() {
+                stopTimers();
+            });
+            window.visibly.onVisible(function() {
+                stopTimers();
+                startTimers();
+            });
+        }
+    }
 });
-
-
 

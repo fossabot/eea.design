@@ -104,7 +104,8 @@ class ScrollAnalyticsContentTypes(BrowserView):
         pcs = self.context.restrictedTraverse('@@plone_context_state')
         is_view_template = pcs.is_view_template()
         return self.context.portal_type in scroll_analytics_ctypes and \
-               is_view_template
+               is_view_template and \
+               self.context.portal_membership.isAnonymousUser()
 
     @memoize
     def get_scroll_registry(self):
