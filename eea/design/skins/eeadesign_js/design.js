@@ -513,7 +513,6 @@ jQuery(document).ready(function($) {
         }());
     }
 
-
     if (scroll_analytics_enabled) {
         var looker = null;
         var started;
@@ -538,9 +537,41 @@ jQuery(document).ready(function($) {
 
         // Get some information about the current page
         var pageTitle = document.title;
-        $(window).one("scroll", function() {
-            // Debug flag
 
+        var incrementTimeSpent = function incrementTimeSpent() {
+            $.each(timers, function(key, val) {
+                timers[key] = val + 1;
+            });
+
+            if (scrollAnalyticsDebugMode) {
+                var ii = new Date();
+                console.log('INCREMENT at ' + ii.getMinutes() + ' ' + ii.getSeconds());
+            }
+        };
+        var startTimers = function startTimers(msg) {
+            if (scrollAnalyticsDebugMode) {
+                var ii = new Date();
+                console.log('startTimers at ' + ii.getMinutes() + ' ' + ii.getSeconds() + ' ' + msg);
+            }
+
+            if (!started) {
+                incrementTimeSpent();
+                started = true;
+            }
+            looker = window.setInterval(function() {
+                incrementTimeSpent();
+            }, 1000);
+        };
+        var stopTimers = function stopTimers(msg) {
+            if (scrollAnalyticsDebugMode) {
+                var ii = new Date();
+                console.log('stopTimers at ' + ii.getMinutes() + ' ' + ii.getSeconds() + ' ' + msg);
+            }
+            window.clearInterval(looker);
+            looker = null;
+        };
+
+        $(window).one("scroll", function() {
             // Set some time variables to calculate reading time
             if (!started) {
               startTimers();
@@ -569,7 +600,7 @@ jQuery(document).ready(function($) {
 
                 // If user starts to scroll send an event
                 if (scrollTop > readerLocation && !scroller) {
-                    timeToScroll = timer['beginning'];
+                    timeToScroll = timers['beginning'];
 
                     if (!scrollAnalyticsDebugMode) {
                         ga('send', 'event', 'Reading', 'StartReading', pageTitle, timeToScroll, {'metric1': timeToScroll});
@@ -629,38 +660,9 @@ jQuery(document).ready(function($) {
             }
         });
 
-        var incrementTimeSpent = function incrementTimeSpent() {
-            $.each(timers, function(key, val) {
-                timers[key] = val + 1;
-            });
-
-            if (scrollAnalyticsDebugMode) {
-                var ii = new Date();
-                console.log('INCREMENT at ' + ii.getMinutes() + ' ' + ii.getSeconds());
-            }
-        };
-        var startTimers = function startTimers(msg) {
-            if (scrollAnalyticsDebugMode) {
-                var ii = new Date();
-                console.log('startTimers at ' + ii.getMinutes() + ' ' + ii.getSeconds() + ' ' + msg);
-            }
-
-            if (!started) {
-                incrementTimeSpent();
-                started = true;
-            }
-            looker = window.setInterval(function() {
-                incrementTimeSpent();
-            }, 1000);
-        };
-        var stopTimers = function stopTimers(msg) {
-            if (scrollAnalyticsDebugMode) {
-                var ii = new Date();
-                console.log('stopTimers at ' + ii.getMinutes() + ' ' + ii.getSeconds() + ' ' + msg);
-            }
-            window.clearInterval(looker);
-            looker = null;
-        };
+        if (document.hasFocus && document.hasFocus()) {
+            $(window).trigger('scroll');
+        }
         if (window.visibly) {
             window.visibly.onHidden(function() {
                 if (!didComplete) {
@@ -675,5 +677,6 @@ jQuery(document).ready(function($) {
             });
         }
     }
+
 });
 
