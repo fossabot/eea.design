@@ -528,7 +528,7 @@ jQuery(document).ready(function($) {
 
         var readingTime = $(".documentByLineReadingTime");
         var minReadTime = readingTime.length ?
-                    window.parseInt(readingTime.text(), 10) * 60 : 10;
+                    window.parseInt(readingTime.text(), 10) * 60 : 120;
 
         // Set some flags for tracking & execution
         var timer = 0;
@@ -583,7 +583,7 @@ jQuery(document).ready(function($) {
                 if (window.innerHeight >= $content[0].getBoundingClientRect().bottom && !endContent) {
                     timeToContentEnd = timers['content_bottom'];
                     if (!scrollAnalyticsDebugMode) {
-                        if (timeToContentEnd < minReadTime) {
+                        if (timeToContentEnd < (minReadTime - 60)) {
                             ga('set', 'dimension1', 'Scanner');
                         } else {
                             ga('set', 'dimension1', 'Reader');
