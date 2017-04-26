@@ -13,6 +13,7 @@ jQuery(document).ready(function($) {
     var $socialmedia = $("#socialmedia-viewlet");
     $related_items.appendTo($column_area);
     $socialmedia.appendTo($column_area);
+    var underscore = window._;
     var appendTo = function(context, target) {
         if (context.length) {
             context.appendTo(target);
@@ -190,7 +191,7 @@ jQuery(document).ready(function($) {
             'class': 'video_iframe_for_print visible-print',
             href: $video_iframe_src,
             html: "Video link: [" + $video_iframe_src + "]"
-        }).insertBefore($video_iframe);
+    }).insertBefore($video_iframe);
     }
 
     // 13830 add last-child class since ie < 9 doesn't know about this css3 selector
@@ -517,37 +518,39 @@ jQuery(document).ready(function($) {
         var looker = null;
         var started;
         var timers = { beginning: 0, content_bottom: 0, page_bottom: 0};
+        var scrollAnalyticsDebugMode = false;
+
+        // Default time delay before checking location
+        var callBackTime = 100;
+
+        // # px before tracking a reader
+        var readerLocation = 100;
+
+        var readingTime = $(".documentByLineReadingTime");
+        var minReadTime = readingTime.length ?
+                    window.parseInt(readingTime.text(), 10) * 60 : 10;
+
+        // Set some flags for tracking & execution
+        var timer = 0;
+        var scroller = false;
+        var endContent = false;
+        var didComplete = false;
+
+        // Get some information about the current page
+        var pageTitle = document.title;
         $(window).one("scroll", function() {
             // Debug flag
-            var debugMode = false;
-
-            // Default time delay before checking location
-            var callBackTime = 100;
-
-            // # px before tracking a reader
-            var readerLocation = 100;
-
-            var readingTime = $(".documentByLineReadingTime");
-            var minReadTime = readingTime.length ?
-                        window.parseInt(readingTime.text(), 10) * 60 : 10;
-
-            // Set some flags for tracking & execution
-            var timer = 0;
-            var scroller = false;
-            var endContent = false;
-            var didComplete = false;
-
-            // Get some information about the current page
-            var pageTitle = document.title;
 
             // Set some time variables to calculate reading time
+            if (!started) {
               startTimers();
+            }
 
             // Track the article load
-            if (!debugMode) {
+            if (!scrollAnalyticsDebugMode) {
                 ga('send', 'event', 'Reading', 'ArticleLoaded', pageTitle, {'nonInteraction': 1});
             } else {
-                window.alert('The page has loaded. Woohoo.');
+                console.log('The page has loaded.');
             }
 
             var $content = $("#content-core");
@@ -567,11 +570,11 @@ jQuery(document).ready(function($) {
                 // If user starts to scroll send an event
                 if (scrollTop > readerLocation && !scroller) {
                     timeToScroll = timer['beginning'];
-                    // console.log('send content start in ' + timeToScroll);
-                    if (!debugMode) {
+
+                    if (!scrollAnalyticsDebugMode) {
                         ga('send', 'event', 'Reading', 'StartReading', pageTitle, timeToScroll, {'metric1': timeToScroll});
                     } else {
-                        window.alert('started reading ' + timeToScroll);
+                        console.log('Reached content start in ' + timeToScroll);
                     }
                     scroller = true;
                 }
@@ -579,8 +582,7 @@ jQuery(document).ready(function($) {
                 // If user has hit the bottom of the content send an event
                 if (window.innerHeight >= $content[0].getBoundingClientRect().bottom && !endContent) {
                     timeToContentEnd = timers['content_bottom'];
-                    // console.log('send content bottom in ' + timeToContentEnd);
-                    if (!debugMode) {
+                    if (!scrollAnalyticsDebugMode) {
                         if (timeToContentEnd < minReadTime) {
                             ga('set', 'dimension1', 'Scanner');
                         } else {
@@ -588,7 +590,7 @@ jQuery(document).ready(function($) {
                         }
                         ga('send', 'event', 'Reading', 'ContentBottom', pageTitle, timeToContentEnd, {'metric2': timeToContentEnd});
                     } else {
-                        window.alert('end content section ' + timeToContentEnd);
+                        console.log('Reached content section bottom in ' + timeToContentEnd);
                     }
                     endContent = true;
                 }
@@ -596,35 +598,52 @@ jQuery(document).ready(function($) {
                 // If user has hit the bottom of page send an event
                 if (bottom >= height - 50 && !didComplete) {
                     totalTime = timers['page_bottom'];
-                    // console.log('send page bottom in ' + totalTime);
-                    if (!debugMode) {
+                    if (!scrollAnalyticsDebugMode) {
                         ga('send', 'event', 'Reading', 'PageBottom', pageTitle, totalTime, {'metric3': totalTime});
                     } else {
-                        window.alert('bottom of page ' + totalTime);
+                        console.log('Reached page bottom in ' + totalTime);
                     }
                     didComplete = true;
+                    stopTimers('onvisible');
                 }
             }
 
             // Track the scrolling and track location
-            $(window).scroll(function() {
-                if (timer) {
-                    window.clearTimeout(timer);
-                }
 
-                // Use a buffer so we don't call trackLocation too often.
-                timer = window.setTimeout(trackLocation, callBackTime);
-            });
+            if (underscore) {
+                var lazyNavScroll = underscore.throttle(function(){
+                    if (timer) {
+                        window.clearTimeout(timer);
+                    }
 
+                    // Use a buffer so we don't call trackLocation too often.
+                    if (!didComplete) {
+                        timer = window.setTimeout(trackLocation, callBackTime);
+                    }
+                    else {
+                        timer = null;
+                    }
+
+                }, 100);
+                $(window).scroll(lazyNavScroll);
+            }
         });
 
         var incrementTimeSpent = function incrementTimeSpent() {
             $.each(timers, function(key, val) {
                 timers[key] = val + 1;
             });
+
+            if (scrollAnalyticsDebugMode) {
+                var ii = new Date();
+                console.log('INCREMENT at ' + ii.getMinutes() + ' ' + ii.getSeconds());
+            }
         };
-        var startTimers = function startTimers() {
-            // console.log('startTimers');
+        var startTimers = function startTimers(msg) {
+            if (scrollAnalyticsDebugMode) {
+                var ii = new Date();
+                console.log('startTimers at ' + ii.getMinutes() + ' ' + ii.getSeconds() + ' ' + msg);
+            }
 
             if (!started) {
                 incrementTimeSpent();
@@ -634,17 +653,25 @@ jQuery(document).ready(function($) {
                 incrementTimeSpent();
             }, 1000);
         };
-        var stopTimers = function stopTimers() {
-            // console.log('stopTimers');
+        var stopTimers = function stopTimers(msg) {
+            if (scrollAnalyticsDebugMode) {
+                var ii = new Date();
+                console.log('stopTimers at ' + ii.getMinutes() + ' ' + ii.getSeconds() + ' ' + msg);
+            }
             window.clearInterval(looker);
+            looker = null;
         };
         if (window.visibly) {
             window.visibly.onHidden(function() {
-                stopTimers();
+                if (!didComplete) {
+                    stopTimers('onhidden');
+                }
             });
             window.visibly.onVisible(function() {
-                stopTimers();
-                startTimers();
+                if (!didComplete) {
+                    stopTimers('onvisible');
+                    startTimers('onvisible');
+                }
             });
         }
     }
