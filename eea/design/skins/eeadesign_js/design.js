@@ -536,7 +536,7 @@ jQuery(document).ready(function($) {
         var didComplete = false;
 
         // Get some information about the current page
-        var pageTitle = document.title;
+        var ptype = $(".portalType").text();
 
         var incrementTimeSpent = function incrementTimeSpent() {
             $.each(timers, function(key, val) {
@@ -579,7 +579,7 @@ jQuery(document).ready(function($) {
 
             // Track the article load
             if (!scrollAnalyticsDebugMode) {
-                ga('send', 'event', 'Reading', 'ArticleLoaded', pageTitle, {'nonInteraction': 1});
+                ga('send', 'event', 'Reading', 'ArticleLoaded', ptype, {'nonInteraction': 1});
             } else {
                 console.log('The page has loaded.');
             }
@@ -603,7 +603,7 @@ jQuery(document).ready(function($) {
                     timeToScroll = timers['beginning'];
 
                     if (!scrollAnalyticsDebugMode) {
-                        ga('send', 'event', 'Reading', 'StartReading', pageTitle, timeToScroll, {'metric1': timeToScroll});
+                        ga('send', 'event', 'Reading', 'StartReading', ptype, timeToScroll, {'metric1': timeToScroll});
                     } else {
                         console.log('Reached content start in ' + timeToScroll);
                     }
@@ -619,7 +619,7 @@ jQuery(document).ready(function($) {
                         } else {
                             ga('set', 'dimension1', 'Reader');
                         }
-                        ga('send', 'event', 'Reading', 'ContentBottom', pageTitle, timeToContentEnd, {'metric2': timeToContentEnd});
+                        ga('send', 'event', 'Reading', 'ContentBottom', ptype, timeToContentEnd, {'metric2': timeToContentEnd});
                     } else {
                         console.log('Reached content section bottom in ' + timeToContentEnd);
                     }
@@ -630,7 +630,7 @@ jQuery(document).ready(function($) {
                 if (bottom >= height - 50 && !didComplete) {
                     totalTime = timers['page_bottom'];
                     if (!scrollAnalyticsDebugMode) {
-                        ga('send', 'event', 'Reading', 'PageBottom', pageTitle, totalTime, {'metric3': totalTime});
+                        ga('send', 'event', 'Reading', 'PageBottom', ptype, totalTime, {'metric3': totalTime});
                     } else {
                         console.log('Reached page bottom in ' + totalTime);
                     }
