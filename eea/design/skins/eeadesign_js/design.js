@@ -616,8 +616,10 @@ jQuery(document).ready(function($) {
                     if (!scrollAnalyticsDebugMode) {
                         if (timeToContentEnd < (minReadTime - 60)) {
                             ga('set', 'dimension1', 'Scanner');
+                            ga('send', 'event', 'Reading', 'ContentScanned', ptype, timeToContentEnd);
                         } else {
                             ga('set', 'dimension1', 'Reader');
+                            ga('send', 'event', 'Reading', 'ContentRead', ptype, timeToContentEnd);
                         }
                         ga('send', 'event', 'Reading', 'ContentBottom', ptype, timeToContentEnd, {'metric2': timeToContentEnd});
                     } else {
