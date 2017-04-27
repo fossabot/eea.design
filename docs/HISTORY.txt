@@ -3,6 +3,8 @@ Changelog
 
 16.8.dev0 - (unreleased)
 ------------------------
+* Bug fix: fixed parameters of search_rss when links are generated under @@search
+  [alecghica refs #84554]
 
 16.7 - (2017-04-24)
 -------------------
