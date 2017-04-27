@@ -11,7 +11,8 @@
 
     <link rel="alternate" title="" type="application/rss+xml"
           tal:condition="request/SearchableText|nothing"
-          tal:attributes="href string:$portal_url/search_rss?${request/QUERY_STRING};
+          tal:define="query_string python:request.QUERY_STRING.replace('b_start=&', 'b_start=0&')"
+          tal:attributes="href string:$portal_url/search_rss?${query_string};
                           title string:RSS 1.0"/>
 
   </metal:block>
@@ -72,7 +73,8 @@
                    tal:condition="context/@@syndication-util/context_allowed">
                     <a href=""
                        class="link-feed"
-                       tal:attributes="href string:$portal_url/search_rss?${request/QUERY_STRING}">
+                       tal:define="query_string python:request.QUERY_STRING.replace('b_start=&', 'b_start=0&')"
+                       tal:attributes="href string:$portal_url/search_rss?${query_string}">
                         <span i18n:translate="title_subscribe_rss_feed">
                           Subscribe to an always-updated RSS feed.
                         </span>
