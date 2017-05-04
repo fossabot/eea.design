@@ -191,7 +191,7 @@ jQuery(document).ready(function($) {
             'class': 'video_iframe_for_print visible-print',
             href: $video_iframe_src,
             html: "Video link: [" + $video_iframe_src + "]"
-    }).insertBefore($video_iframe);
+        }).insertBefore($video_iframe);
     }
 
     // 13830 add last-child class since ie < 9 doesn't know about this css3 selector
@@ -243,7 +243,7 @@ jQuery(document).ready(function($) {
         $.timeoutDialog({delay: 900000}); // set to be triggered after 15 minutes
     }
     catch (err) {
-        // console.log(err);
+        // window.console.log(err);
     }
 
     // #5454 remove background for required fields that have the red square
@@ -471,17 +471,6 @@ jQuery(document).ready(function($) {
 
     var scroll_analytics_enabled = $body.hasClass("scroll-analytics");
 
-    if ($.scrollDepth && scroll_analytics_enabled) {
-        jQuery.scrollDepth({
-            minHeight: 500,
-            elements: ['#header-holder', '#content', '#main', '#relatedItems',
-                '#portal-colophon'],
-            percentage: true,
-            pixelDepth: false,
-            userTiming: true
-        });
-    }
-
     // track print attempt with google analytics
     // original code from https://www.savio.no/analytics/how-to-track-printed-pages-in-google-analytics
     if (is_anon) {
@@ -525,9 +514,9 @@ jQuery(document).ready(function($) {
         // # px before tracking a reader
         var readerLocation = 100;
 
-        var readingTime = $(".documentByLineReadingTime");
-        var minReadTime = readingTime.length ?
-                    window.parseInt(readingTime.text(), 10) * 60 : 120;
+        var content_core = document.getElementById('content-core');
+        var minReadTime = window.parseInt(Math.round(window.textstatistics(
+            content_core.innerText).wordCount() / 228), 10) * 60;
 
         // Set some flags for tracking & execution
         var timer = 0;
@@ -545,13 +534,13 @@ jQuery(document).ready(function($) {
 
             if (scrollAnalyticsDebugMode) {
                 var ii = new Date();
-                console.log('INCREMENT at ' + ii.getMinutes() + ' ' + ii.getSeconds());
+                window.console.log('INCREMENT at ' + ii.getMinutes() + ' ' + ii.getSeconds());
             }
         };
         var startTimers = function startTimers(msg) {
             if (scrollAnalyticsDebugMode) {
                 var ii = new Date();
-                console.log('startTimers at ' + ii.getMinutes() + ' ' + ii.getSeconds() + ' ' + msg);
+                window.console.log('startTimers at ' + ii.getMinutes() + ' ' + ii.getSeconds() + ' ' + msg);
             }
 
             if (!started) {
@@ -565,7 +554,7 @@ jQuery(document).ready(function($) {
         var stopTimers = function stopTimers(msg) {
             if (scrollAnalyticsDebugMode) {
                 var ii = new Date();
-                console.log('stopTimers at ' + ii.getMinutes() + ' ' + ii.getSeconds() + ' ' + msg);
+                window.console.log('stopTimers at ' + ii.getMinutes() + ' ' + ii.getSeconds() + ' ' + msg);
             }
             window.clearInterval(looker);
             looker = null;
@@ -574,17 +563,16 @@ jQuery(document).ready(function($) {
         $(window).one("scroll", function() {
             // Set some time variables to calculate reading time
             if (!started) {
-              startTimers();
+                startTimers();
             }
+
 
             // Track the article load
             if (!scrollAnalyticsDebugMode) {
-                ga('send', 'event', 'Reading', 'ArticleLoaded', ptype, {'nonInteraction': 1});
+                ga('send', 'event', 'Reading', '1 Page Loaded', ptype, {'nonInteraction': 1});
             } else {
-                console.log('The page has loaded.');
+                window.console.log('The page has loaded.');
             }
-
-            var $content = $("#content-core");
 
             // Check the location and track user
             var timeToScroll, totalTime, timeToContentEnd;
@@ -603,27 +591,29 @@ jQuery(document).ready(function($) {
                     timeToScroll = timers['beginning'];
 
                     if (!scrollAnalyticsDebugMode) {
-                        ga('send', 'event', 'Reading', 'StartReading', ptype, timeToScroll, {'metric1': timeToScroll});
+                        ga('send', 'event', 'Reading', '2 Started Content Reading', ptype, timeToScroll,
+                            {'metric1': timeToScroll, 'metric3': 1});
                     } else {
-                        console.log('Reached content start in ' + timeToScroll);
+                        window.console.log('Reached content start in ' + timeToScroll);
                     }
                     scroller = true;
                 }
 
                 // If user has hit the bottom of the content send an event
-                if (window.innerHeight >= $content[0].getBoundingClientRect().bottom && !endContent) {
+                if (window.innerHeight >= content_core.getBoundingClientRect().bottom && !endContent) {
                     timeToContentEnd = timers['content_bottom'];
                     if (!scrollAnalyticsDebugMode) {
                         if (timeToContentEnd < (minReadTime - 60)) {
                             ga('set', 'dimension1', 'Scanner');
-                            ga('send', 'event', 'Reading', 'ContentScanned', ptype, timeToContentEnd);
+                            ga('send', 'event', 'Reading', '5 Content Scanned', ptype, timeToContentEnd);
                         } else {
                             ga('set', 'dimension1', 'Reader');
-                            ga('send', 'event', 'Reading', 'ContentRead', ptype, timeToContentEnd);
+                            ga('send', 'event', 'Reading', '6 Content Read', ptype, timeToContentEnd);
                         }
-                        ga('send', 'event', 'Reading', 'ContentBottom', ptype, timeToContentEnd, {'metric2': timeToContentEnd});
+                        ga('send', 'event', 'Reading', '3 Reached Content Bottom', ptype, timeToContentEnd,
+                            {'metric2': timeToContentEnd, 'metric4': 1});
                     } else {
-                        console.log('Reached content section bottom in ' + timeToContentEnd);
+                        window.console.log('Reached content section bottom in ' + timeToContentEnd);
                     }
                     endContent = true;
                 }
@@ -632,9 +622,9 @@ jQuery(document).ready(function($) {
                 if (bottom >= height - 50 && !didComplete) {
                     totalTime = timers['page_bottom'];
                     if (!scrollAnalyticsDebugMode) {
-                        ga('send', 'event', 'Reading', 'PageBottom', ptype, totalTime, {'metric3': totalTime});
+                        ga('send', 'event', 'Reading', '4 Reached Page Bottom', ptype, totalTime, {'metric3': totalTime, 'metric6': 1});
                     } else {
-                        console.log('Reached page bottom in ' + totalTime);
+                        window.console.log('Reached page bottom in ' + totalTime);
                     }
                     didComplete = true;
                     stopTimers('onvisible');
