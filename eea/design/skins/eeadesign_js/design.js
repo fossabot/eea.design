@@ -525,7 +525,17 @@ jQuery(document).ready(function($) {
         var didComplete = false;
 
         // Get some information about the current page
-        var ptype = $(".portalType").text();
+        var ptype = $('body').attr('class').match('portaltype-[a-z-]*');
+        var ptype_length;
+        var capitalize = function capitalize(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        };
+        if (ptype) {
+            ptype = ptype[0].split('-');
+            ptype_length = ptype.length;
+            ptype = ptype_length === 2 ? capitalize(ptype[1]) :
+                capitalize(ptype[1]) + ' ' + capitalize(ptype[2]);
+        }
 
         var incrementTimeSpent = function incrementTimeSpent() {
             $.each(timers, function(key, val) {
