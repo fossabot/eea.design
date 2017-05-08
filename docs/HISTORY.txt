@@ -1,6 +1,9 @@
 Changelog
 =========
 
+16.9.dev0 - (unreleased)
+------------------------
+
 16.8 - (2017-05-08)
 -------------------
 * Bug fix: fixed parameters of search_rss when links are generated under @@search
