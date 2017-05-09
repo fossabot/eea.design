@@ -14,4 +14,3 @@ class EEAFooterPortletRenderer(ColumnPortletManagerRenderer):
     """
     adapts(Interface, IDefaultBrowserLayer, IBrowserView, IFooterPortletManager)
     template = ViewPageTemplateFile('../templates/renderer.pt')
-

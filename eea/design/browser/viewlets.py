@@ -8,14 +8,14 @@ from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from eea.versions.interfaces import IGetVersions
 from eea.versions.controlpanel.utils import get_version_prefix
+from eea.design.browser.interfaces import ISubFoldersListing
 from plone.app.layout.links import viewlets as links
 from plone.app.layout.viewlets import common, content
 from plone.app.layout.viewlets.content import DocumentBylineViewlet as \
     BaseBelowContentTitleViewlet
+from plone.memoize.instance import memoize
 from zope.annotation.interfaces import IAnnotations
 from zope.component import getMultiAdapter
-from eea.design.browser.interfaces import ISubFoldersListing
-from plone.memoize.instance import memoize
 
 
 class LogoViewlet(common.LogoViewlet):

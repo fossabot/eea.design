@@ -1,9 +1,9 @@
 """ SubfolderListing BrowserViews
 """
 from Products.Five.browser import BrowserView
+from Products.statusmessages.interfaces import IStatusMessage
 from zope.interface import alsoProvides, noLongerProvides
 from eea.design.browser.interfaces import ISubFoldersListing
-from Products.statusmessages.interfaces import IStatusMessage
 from eea.design import EEANOTRANSLATIONMessageFactory as _
 
 class SubfolderListing(BrowserView):
@@ -42,4 +42,3 @@ class SubfolderListing(BrowserView):
             noLongerProvides(trans[0], ISubFoldersListing)
             trans[0].reindexObject(idxs='object_provides')
         self._redirect(_('SubfolderListing disabled'))
-

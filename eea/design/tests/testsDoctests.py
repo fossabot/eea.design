@@ -1,6 +1,8 @@
 """ Tests
 """
 import unittest
+import eea.design
+import eea.versions
 
 #from zope.testing import doctestunit
 #from zope.component import testing
@@ -10,9 +12,6 @@ from Products.Five import fiveconfigure
 from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import PloneSite
 ptc.setupPloneSite()
-
-import eea.design
-import eea.versions
 
 class TestCase(ptc.PloneTestCase):
     """ Test Case
