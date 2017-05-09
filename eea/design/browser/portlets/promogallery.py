@@ -72,4 +72,3 @@ class AddForm(base.NullAddForm):
         """ Create
         """
         return Assignment()
-
