@@ -1,10 +1,10 @@
 """ Subfolder
 """
+from types import GeneratorType
 from zope.component import queryMultiAdapter
 from zope.component import getMultiAdapter
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
-from types import GeneratorType
 
 def _get_contents(obj, size_limit, request, facetednav=None):
     """ Get contents of folderish brain (cachable list/dict format)

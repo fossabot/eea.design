@@ -70,4 +70,3 @@ class DataMaps(Frontpage):
         else:
             cPromos.extend(self.getAllProducts())
             return list(set(cPromos))
-

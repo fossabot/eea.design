@@ -3,11 +3,11 @@
 
 from plone.app.portlets.portlets.events import Renderer as EventsRenderer
 from plone.memoize.instance import memoize
+from plone.memoize.compress import xhtml_compress
 from Acquisition import aq_inner
 from DateTime.DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone.memoize.compress import xhtml_compress
 
 
 class EEAEventsRenderer(EventsRenderer):

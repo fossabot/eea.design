@@ -1,8 +1,13 @@
 Changelog
 =========
 
-16.8.dev0 - (unreleased)
+16.9.dev0 - (unreleased)
 ------------------------
+* Change: fixed PyLint warnings and errors
+  [eduard-fironda refs #84949]
+
+16.8 - (2017-05-08)
+-------------------
 * Bug fix: fixed parameters of search_rss when links are generated under @@search
   [alecghica refs #84554]
 

@@ -1,6 +1,7 @@
 """ Controllers
 """
 
+import logging
 from Acquisition import aq_inner
 from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
@@ -8,7 +9,6 @@ from Products.Five import BrowserView
 from eea.promotion.interfaces import IPromotion
 from eea.themecentre.themecentre import getTheme
 from eea.versions.interfaces import IGetVersions
-import logging
 
 logger = logging.getLogger("eea.design.browser.frontpage")
 

@@ -1,17 +1,13 @@
 """ Portlets
 """
 from zope.interface import implements
-
+from zope.component import getMultiAdapter
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
-
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
 from plone.memoize.compress import xhtml_compress
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
-
 from DateTime import DateTime
-from zope.component import getMultiAdapter
 from eea.design.browser.frontpage import _getHighArticles
 
 class IFeaturedArticle(IPortletDataProvider):
