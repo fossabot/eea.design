@@ -3,6 +3,9 @@ Changelog
 
 16.9.dev0 - (unreleased)
 ------------------------
+* Feature: added eea_dates viewlet within content body viewlet manager in order
+  to have publishing date for every pdf render
+  [ichim-david refs #83520]
 * Change: fixed PyLint warnings and errors
   [eduard-fironda refs #84949]
 

@@ -2229,6 +2229,9 @@ div.eea-pdf-overlay {
 .showOnPrint {
    display: none;
 }
+.eea-dates {
+    margin: 1em 1em 1em 0;
+}
 
 .mceContentBody .showOnPrint {
    display: block;

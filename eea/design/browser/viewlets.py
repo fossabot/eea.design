@@ -347,3 +347,9 @@ class GlobalSectionsViewlet(common.GlobalSectionsViewlet):
             return {'portal' : valid_actions[-1][1]}
 
         return {'portal' : default_tab}
+
+
+class EEADatesViewlet(common.ViewletBase):
+    """ EEA Dates viewlet
+    """
+    render = ViewPageTemplateFile('templates/eea_dates.pt')
