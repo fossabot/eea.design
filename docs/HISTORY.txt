@@ -3,8 +3,8 @@ Changelog
 
 17.0.dev0 - (unreleased)
 ------------------------
-* Feature: added eea_dates viewlet within content body viewlet manager in order
-  to have publishing date for every pdf render
+* Feature: call eea_dates within main_template in order to have publishing date
+  rendered for every pdf
   [ichim-david refs #83520]
 
 16.9 - (2017-05-15)
