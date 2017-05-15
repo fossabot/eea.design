@@ -244,9 +244,12 @@
                                  </tal:soer>
                              </tal:block>
 
-                            <tal:not4AjaxLoad  tal:condition="not:ajax_load">
-                                    <div tal:replace="structure provider:plone.belowcontentbody" />
-                            </tal:not4AjaxLoad>
+                             <tal:not4AjaxLoad  tal:condition="not:ajax_load">
+                                 <div tal:replace="structure provider:plone.belowcontentbody" />
+                             </tal:not4AjaxLoad>
+                             <div metal:use-macro="here/eea_dates/macros/pdfPublishDate" tal:condition="isPrint">
+                                 pdf publish date
+                             </div>
 
                             </metal:bodytext>
                         </div>

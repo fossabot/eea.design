@@ -1,13 +1,14 @@
+<tal:dave  metal:define-macro="pdfPublishDate">
 <div class="eea-dates showOnPrint discreet pull-right"
-      tal:define="publishDate python:here.getEffectiveDate();
-             isPrint python:1 if 'pdf.' in request['URL0'] else 0;
-             plone_view context/@@plone;"
-             i18n:domain="eea" tal:condition="isPrint">
+         tal:define="publishDate python:here.getEffectiveDate();
+        plone_view context/@@plone;"
+         i18n:domain="eea" tal:condition="python:publishDate and here.portal_type not in ['Folder', 'Collection', 'Topic']">
     <tal:dates>
-            <span class="docDate publishDate" tal:condition="python:publishDate">
+            <span class="docDate publishDate">
                 <tal:published i18n:translate="">
                     Published on
                 </tal:published><span tal:replace="python:' %s' % plone_view.toLocalizedTime(publishDate)"> August 16, 2001 at 23:35:59</span>
             </span>
     </tal:dates>
 </div>
+</tal:dave>

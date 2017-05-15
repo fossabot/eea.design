@@ -231,15 +231,6 @@
         />
 
     <browser:viewlet
-        name="eea.dates"
-        for="*"
-        layer=".interfaces.IEEACommonLayer"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
-        class=".viewlets.EEADatesViewlet"
-        permission="zope2.View"
-    />
-
-    <browser:viewlet
         name="plone.app.i18n.locales.languageselector"
         class=".viewlets.LanguageSelectorViewlet"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
