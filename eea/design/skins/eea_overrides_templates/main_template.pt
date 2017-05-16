@@ -247,7 +247,8 @@
                              <tal:not4AjaxLoad  tal:condition="not:ajax_load">
                                  <div tal:replace="structure provider:plone.belowcontentbody" />
                              </tal:not4AjaxLoad>
-                             <div metal:use-macro="here/eea_dates/macros/pdfPublishDate" tal:condition="isPrint">
+
+                             <div metal:use-macro="here/eea_dates/macros/pdfPublishDate" tal:condition="python:'pdf.body' in request['URL0']">
                                  pdf publish date
                              </div>
 
