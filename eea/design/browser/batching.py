@@ -74,5 +74,4 @@ class FormatCatalogMetadata(BrowserView):
             ellipsis = '...'
         if len(value) < max_length:
             return value
-        else:
-            return '%s%s' % (value[:max_length], ellipsis)
+        return '%s%s' % (value[:max_length], ellipsis)

@@ -68,7 +68,7 @@ class DocumentBylineViewlet(content.DocumentBylineViewlet):
         if not name:
             name = self.creator()
         author = self.author(name)
-        return author and author['fullname'] or name
+        return author['fullname'] if author else name
 
     def creators(self, skipCreator=True):
         """ Return all the other authors if skipCreator is True
@@ -117,7 +117,8 @@ class DocumentBylineViewlet(content.DocumentBylineViewlet):
         """
         context = aq_inner(self.context)
         portal_type = getattr(context, 'portal_type', None)
-        return portal_type in self.prefs_properties.metatypes_labeling_blacklist
+        return portal_type in \
+            self.prefs_properties.metatypes_labeling_blacklist
 
     def showRights(self):
         """ Return True if context portal types it set to show rights
@@ -191,8 +192,8 @@ class FooterPortletsViewlet(common.ViewletBase):
 
         # This is the way it's done in plone.app.portlets.manager
         mt = getToolByName(self.context, 'portal_membership')
-        self.canManagePortlets = mt.checkPermission('Portlets: Manage portlets',
-                                                    self.context)
+        self.canManagePortlets = mt.checkPermission(
+            'Portlets: Manage portlets', self.context)
 
 
 class SearchViewlet(links.SearchViewlet):
@@ -260,10 +261,9 @@ class SubFoldersViewlet(common.ViewletBase):
             res = parent.getFolderContents({'portal_type': "Folder"})
             res = [obj for obj in res if obj.exclude_from_nav is not True]
             return res
-        else:
-            res = self.context.getFolderContents({'portal_type': "Folder"})
-            res = [obj for obj in res if obj.exclude_from_nav is not True]
-            return res
+        res = self.context.getFolderContents({'portal_type': "Folder"})
+        res = [obj for obj in res if obj.exclude_from_nav is not True]
+        return res
 
 
 class QRBox(common.ViewletBase):
@@ -344,7 +344,5 @@ class GlobalSectionsViewlet(common.GlobalSectionsViewlet):
         # Sort by path length, the longest matching path wins
         valid_actions.sort()
         if valid_actions:
-            return {'portal' : valid_actions[-1][1]}
-
-        return {'portal' : default_tab}
-
+            return {'portal': valid_actions[-1][1]}
+        return {'portal': default_tab}

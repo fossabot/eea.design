@@ -59,11 +59,10 @@ class EEACommentsViewlet(CommentsViewlet):
                     yield r
 
         # Return all direct replies
-        if len(conversation.objectIds()):
+        if conversation.objectIds():
             if workflow_actions:
                 return replies_with_workflow_actions()
-            else:
-                return published_replies()
+            return published_replies()
 
 
 class EEAGoToCommentsViewlet(CommentsViewlet):

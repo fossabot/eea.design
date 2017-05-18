@@ -6,6 +6,8 @@ Changelog
 * Feature: call eea_dates within main_template in order to have publishing date
   rendered for every pdf
   [ichim-david refs #83520]
+* Change: fixed PyLint warnings and errors
+  [valipod refs #84949]
 
 16.9 - (2017-05-15)
 -------------------

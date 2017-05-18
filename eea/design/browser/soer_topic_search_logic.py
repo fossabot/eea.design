@@ -66,8 +66,8 @@ class SoerTopicSearch(BrowserView):
                 if len(result) >= count:
                     break
                 optionalAppended = False
-                for tag in optional_tags:
-                    if tag in brain.Subject:
+                for opt_tag in optional_tags:
+                    if opt_tag in brain.Subject:
                         result.append(brain)
                         optionalAppended = True
                     if optionalAppended:

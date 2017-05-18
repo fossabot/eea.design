@@ -119,9 +119,7 @@ class Frontpage(BrowserView):
         search_type = item[2]
         if search_type.startswith('get'):
             return getattr(self, search_type)()
-        else:
-            return self.searchResults(
-                item[1], item[2], language=language)
+        return self.searchResults(item[1], item[2], language=language)
 
     def getProductCategoriesNames(self):
         """ Get the names of Product categories defined in frontpage_properties

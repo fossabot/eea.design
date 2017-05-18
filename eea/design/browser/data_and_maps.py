@@ -67,6 +67,5 @@ class DataMaps(Frontpage):
         promotions = len(cPromos)
         if promotions >= 6:
             return cPromos
-        else:
-            cPromos.extend(self.getAllProducts())
-            return list(set(cPromos))
+        cPromos.extend(self.getAllProducts())
+        return list(set(cPromos))
