@@ -1,8 +1,8 @@
 Changelog
 =========
 
-17.0.dev0 - (unreleased)
-------------------------
+17.0 - (2017-05-22)
+-------------------
 * Feature: call eea_dates within main_template in order to have publishing date
   rendered for every pdf
   [ichim-david refs #83520]
