@@ -116,12 +116,16 @@ jQuery(document).ready(function($) {
     var air_fiches = $(".portaltype-fiche.section-airs");
     if (air_fiches.length) {
         (function() {
-            if (!$body.hasClass('section-airs subsection-2016')) {
-                return;
-            }
             var $fiche_body = $(".fiche-body");
             var $table = $fiche_body.find('table').eq(0);
             var $fiche_summary = $(".fiche-summary");
+            if (!$body.hasClass('section-airs subsection-2016')) {
+                // hide fiche-summary in case the contents of keyfact is empty
+                if (!$fiche_summary.find('.keyFact').find('div').text().trim()) {
+                    $fiche_summary.addClass('hidden');
+                }
+                return;
+            }
             if ($table.length) {
                 $table.insertBefore($fiche_summary);
             }
