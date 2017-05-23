@@ -116,6 +116,9 @@ jQuery(document).ready(function($) {
     var air_fiches = $(".portaltype-fiche.section-airs");
     if (air_fiches.length) {
         (function() {
+            if (!$body.hasClass('section-airs subsection-2016')) {
+                return;
+            }
             var $fiche_body = $(".fiche-body");
             var $table = $fiche_body.find('table').eq(0);
             var $fiche_summary = $(".fiche-summary");
