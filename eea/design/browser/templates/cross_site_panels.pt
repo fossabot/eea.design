@@ -69,13 +69,6 @@
                                     </li>
                                 </ul>
                                 <br/>
-                                <a tal:attributes="href string:$portal_url/about-us/who/staff-list"
-                                    class="internal-link"
-                                    title="Staff list"
-                                    i18n:attributes="title">
-                                    <strong i18n:translate="">Contact EEA staff</strong>
-                                </a>
-                                <br/>
                                 <a tal:attributes="href string:$portal_url/help/contact-info"
                                     class="internal-link">
                                     <strong i18n:translate="">Contact the web team</strong>
