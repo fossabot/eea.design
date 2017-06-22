@@ -3,6 +3,8 @@ Changelog
 
 17.2.dev0 - (unreleased)
 ------------------------
+* Change: remove contact EEA staff from contact us.
+  [demarant]
 
 17.1 - (2017-05-29)
 -------------------
