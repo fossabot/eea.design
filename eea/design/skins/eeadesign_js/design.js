@@ -3,6 +3,8 @@ jQuery(document).ready(function($) {
     'use strict';
     var $viewlet_below_content = $("#viewlet-below-content");
     var $content = $("#content");
+    var context_url = window.context_url || $("base").attr('href');
+    var $content_core = $("#content-core");
     var $column_area = $(".column-area");
     var $body = $("body");
     var is_anon = $body.hasClass('userrole-anonymous');
@@ -30,6 +32,23 @@ jQuery(document).ready(function($) {
     }
     appendTo($related_items, $center_bottom_area);
     appendTo($socialmedia, $center_bottom_area);
+
+
+    if (!is_anon) {
+        (function(){
+            if (!$content_core) {
+                return;
+            }
+            var text_statistics = window.textstatistics($content_core.text());
+            var data = {};
+            data['content'] = {
+                'sentence_count': text_statistics.sentenceCount(),
+                'word_count': text_statistics.wordCount(),
+                'readability_value': text_statistics.fleschKincaidReadingEase()
+            };
+            $.post(context_url + '/set_eea_readability_score', JSON.stringify(data));
+        }());
+    }
 
     // hide element if empty or has less than on equal to given
     // child length
