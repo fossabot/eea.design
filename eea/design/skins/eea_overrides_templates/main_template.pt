@@ -9,6 +9,7 @@
                         checkPermission nocall: context/portal_membership/checkPermission;
                         site_properties context/portal_properties/site_properties;
                         ajax_load request/ajax_load | nothing;
+                        content_core_only request/content_core_only | nothing;
                         skip_relations request/skipRelations | nothing;
                         ajax_include_head request/ajax_include_head | nothing;
                         dummy python:request.RESPONSE.setHeader('X-UA-Compatible', 'IE=edge,chrome=1');
@@ -125,7 +126,7 @@
 
 <a class="eea-template back-to-toc-button link-without-style" href="#document-toc" title="Back to table of contents" i18n:attributes="title"></a>
 
-<div id="header-holder">
+<div id="header-holder" tal:condition="not content_core_only">
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -170,15 +171,15 @@
                     tal:attributes="class python:show_border and 'documentEditable' or ''"
                     id="region-content">
 
-                    <tal:not4Print tal:condition="python:not isPrint">
+                    <tal:not4Print tal:condition="python:not isPrint and not content_core_only">
                         <div id="edit-bar"
                             tal:condition="show_border"
                             tal:content="structure provider:plone.contentviews" />
-                    </tal:not4Print>
 
-                    <div metal:use-macro="context/global_statusmessage/macros/portal_message">
-                     Status message
-                    </div>
+                        <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+                         Status message
+                        </div>
+                    </tal:not4Print>
 
                     <metal:slot define-slot="body">
                         <div id="content"  class="documentContent panels"
@@ -189,7 +190,7 @@
                             </metal:header>
 
                             <metal:bodytext define-slot="main">
-                                <div class="content-header">
+                                <div class="content-header" tal:condition="not content_core_only">
 
                                     <div tal:replace="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
                                     <metal:title define-slot="content-title">
@@ -237,20 +238,22 @@
                                 </tal:comment>
                              </metal:comment>
 
-                             <tal:block define="thumb_scale thumb_scale | string:image_tile; skip_relations skip_relations|python: False"
-                                     tal:condition="python:not skip_relations">
-                                 <tal:soer tal:condition="python:False if isPrint == 1 and '/soer-2015' in here_url else True">
-                               <metal:macro use-macro="context/eea_relateditems/macros/relatedItemsWithThumbs" />
-                                 </tal:soer>
-                             </tal:block>
+                             <tal:not4ContentCoreOnly tal:condition="not content_core_only">
+                                 <tal:block define="thumb_scale thumb_scale | string:image_tile; skip_relations skip_relations|python: False"
+                                         tal:condition="python:not skip_relations">
+                                     <tal:soer tal:condition="python:False if isPrint == 1 and '/soer-2015' in here_url else True">
+                                   <metal:macro use-macro="context/eea_relateditems/macros/relatedItemsWithThumbs" />
+                                     </tal:soer>
+                                 </tal:block>
 
-                             <tal:not4AjaxLoad  tal:condition="not:ajax_load">
-                                 <div tal:replace="structure provider:plone.belowcontentbody" />
-                             </tal:not4AjaxLoad>
+                                 <tal:not4AjaxLoad  tal:condition="not:ajax_load">
+                                                      <div tal:replace="structure provider:plone.belowcontentbody" />
+                                                      </tal:not4AjaxLoad>
 
-                             <div metal:use-macro="here/eea_dates/macros/pdfPublishDate" tal:condition="python:'pdf.body' in request['URL0']">
-                                 pdf publish date
-                             </div>
+                                 <div metal:use-macro="here/eea_dates/macros/pdfPublishDate" tal:condition="python:'pdf.body' in request['URL0']">
+                                     pdf publish date
+                                 </div>
+                            </tal:not4ContentCoreOnly>
 
                             </metal:bodytext>
                         </div>
