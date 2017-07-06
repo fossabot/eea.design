@@ -126,7 +126,7 @@
 
 <a class="eea-template back-to-toc-button link-without-style" href="#document-toc" title="Back to table of contents" i18n:attributes="title"></a>
 
-<div id="header-holder" tal:condition="not content_core_only">
+<div id="header-holder" tal:condition="python: not content_core_only">
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -190,7 +190,7 @@
                             </metal:header>
 
                             <metal:bodytext define-slot="main">
-                                <div class="content-header" tal:condition="not content_core_only">
+                                <div class="content-header" tal:condition="python: not content_core_only">
 
                                     <div tal:replace="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
                                     <metal:title define-slot="content-title">
@@ -238,7 +238,7 @@
                                 </tal:comment>
                              </metal:comment>
 
-                             <tal:not4ContentCoreOnly tal:condition="not content_core_only">
+                             <tal:not4ContentCoreOnly tal:condition="python:not content_core_only">
                                  <tal:block define="thumb_scale thumb_scale | string:image_tile; skip_relations skip_relations|python: False"
                                          tal:condition="python:not skip_relations">
                                      <tal:soer tal:condition="python:False if isPrint == 1 and '/soer-2015' in here_url else True">
