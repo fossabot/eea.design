@@ -313,14 +313,10 @@
 
 </tal:not4ContentCoreOnly>
 
-<tal:4ContentCoreOnly tal:condition="python:content_core_only">
+<tal:4ContentCoreOnly tal:condition="python: content_core_only">
 
-    <metal:bodytext define-slot="main2">
-    <metal:text define-slot="content-core2" tal:content="nothing">
-        <tal:comment replace="nothing">
-            text body page
-        </tal:comment>
-    </metal:text>
-    </metal:bodytext>
+    <metal:content_core_only use-macro="context/content_core_only/macros/content_core_only">
+        Get the global cache headers located in global_cache_settings.
+    </metal:content_core_only>
 </tal:4ContentCoreOnly>
 </metal:page>
