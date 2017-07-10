@@ -33,23 +33,6 @@ jQuery(document).ready(function($) {
     appendTo($related_items, $center_bottom_area);
     appendTo($socialmedia, $center_bottom_area);
 
-
-    if (!is_anon) {
-        (function(){
-            if (!$content_core) {
-                return;
-            }
-            var text_statistics = window.textstatistics($content_core.text());
-            var data = {};
-            data['content'] = {
-                'sentence_count': text_statistics.sentenceCount(),
-                'word_count': text_statistics.wordCount(),
-                'readability_value': text_statistics.fleschKincaidReadingEase()
-            };
-            $.post(context_url + '/set_eea_readability_score', JSON.stringify(data));
-        }());
-    }
-
     // hide element if empty or has less than on equal to given
     // child length
     var hide_empty_container = function($el, child_count, $checked_el) {
