@@ -37,6 +37,7 @@
                         wf_state context_state/workflow_state|string:;
                         mini_header python:' mini-header' if context.restrictedTraverse('@@miniheader_content_types')() else False;">
 
+<tal:not4ContentCoreOnly tal:condition="python: not content_core_only">
 <tal:comment replace="nothing">xssDisable was added in order to fix the chrome issue from ticket #15231</tal:comment>
 
 <tal:doctype tal:replace="structure string:&lt;!DOCTYPE html&gt;" tal:condition="python: not isPrint"/>
@@ -118,37 +119,39 @@
       tal:attributes="class python:body_class + ' ' + language + frontpage;
                       dir python:isRTL and 'rtl' or 'ltr'">
 
-<div id="print-warning" i18n:domain="eea">
-    <p i18n:translate="">
-        Do something for our planet, print this page only if needed. Even a small action can make an enormous difference when millions of people do it!
-    </p>
-</div>
-
-<a class="eea-template back-to-toc-button link-without-style" href="#document-toc" title="Back to table of contents" i18n:attributes="title"></a>
-
-<div id="header-holder" tal:condition="python: not content_core_only">
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only" i18n:translate="">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <div id="portal-top"
-                            tal:condition="python: not ajax_load">
-                        <tal:not4Print tal:condition="python:not isPrint">
-                            <div tal:replace="structure provider:plone.portaltop" />
-                        </tal:not4Print>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div id="print-warning" i18n:domain="eea">
+        <p i18n:translate="">
+            Do something for our planet, print this page only if needed. Even a small action can make an enormous difference when millions of people do it!
+        </p>
     </div>
-</div>
-<div id="eea-above-columns" tal:content="structure provider:eea.abovecolumns" />
+
+    <a class="eea-template back-to-toc-button link-without-style" href="#document-toc" title="Back to table of contents" i18n:attributes="title"></a>
+
+    <div id="header-holder">
+                               <div class="navbar navbar-default navbar-fixed-top">
+                               <div class="container-fluid">
+                               <div class="navbar-header">
+                               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                               <span class="sr-only" i18n:translate="">Toggle navigation</span>
+                               <span class="icon-bar"></span>
+                               <span class="icon-bar"></span>
+                               <span class="icon-bar"></span>
+                               </button>
+                               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                               <div id="portal-top"
+                               tal:condition="python: not ajax_load">
+                               <tal:not4Print tal:condition="python:not isPrint">
+                               <div tal:replace="structure provider:plone.portaltop" />
+                               </tal:not4Print>
+                               </div>
+                               </div>
+                               </div>
+                               </div>
+                               </div>
+                               </div>
+
+    <div id="eea-above-columns" tal:content="structure provider:eea.abovecolumns" />
+
 <div id="visual-portal-wrapper">
 
         <div id="portal-columns" class="row">
@@ -171,7 +174,7 @@
                     tal:attributes="class python:show_border and 'documentEditable' or ''"
                     id="region-content">
 
-                    <tal:not4Print tal:condition="python:not isPrint and not content_core_only">
+                    <tal:not4Print tal:condition="python:not isPrint">
                         <div id="edit-bar"
                             tal:condition="show_border"
                             tal:content="structure provider:plone.contentviews" />
@@ -190,7 +193,7 @@
                             </metal:header>
 
                             <metal:bodytext define-slot="main">
-                                <div class="content-header" tal:condition="python: not content_core_only">
+                                <div class="content-header">
 
                                     <div tal:replace="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
                                     <metal:title define-slot="content-title">
@@ -238,7 +241,6 @@
                                 </tal:comment>
                              </metal:comment>
 
-                             <tal:not4ContentCoreOnly tal:condition="python:not content_core_only">
                                  <tal:block define="thumb_scale thumb_scale | string:image_tile; skip_relations skip_relations|python: False"
                                          tal:condition="python:not skip_relations">
                                      <tal:soer tal:condition="python:False if isPrint == 1 and '/soer-2015' in here_url else True">
@@ -253,7 +255,6 @@
                                  <div metal:use-macro="here/eea_dates/macros/pdfPublishDate" tal:condition="python:'pdf.body' in request['URL0']">
                                      pdf publish date
                                  </div>
-                            </tal:not4ContentCoreOnly>
 
                             </metal:bodytext>
                         </div>
@@ -310,4 +311,12 @@
 </body>
 </html>
 
+</tal:not4ContentCoreOnly>
+
+<tal:4ContentCoreOnly tal:condition="python: content_core_only">
+
+    <metal:content_core_only use-macro="context/content_core_only/macros/content_core_only">
+        Get the global cache headers located in global_cache_settings.
+    </metal:content_core_only>
+</tal:4ContentCoreOnly>
 </metal:page>
