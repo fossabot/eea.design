@@ -1,5 +1,4 @@
 <metal:bodytext define-macro="content_core_only">
-    <h1>david is here</h1>
     <metal:bodytext define-slot="main">
     <metal:text define-slot="content-core">
         <tal:comment replace="nothing">
