@@ -3,6 +3,9 @@ Changelog
 
 17.3.dev0 - (unreleased)
 ------------------------
+* Bug fix: patch form_tabbing.js in order to avoid value
+  error when submiting form which changes fieldset value
+  [ichim-david refs #86786]
 * Change: move edit input within error field
   [ichim-david refs #86620]
 
