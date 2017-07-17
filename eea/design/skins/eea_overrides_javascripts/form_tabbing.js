@@ -139,7 +139,7 @@ var ploneFormTabbing = {
                 selected = ftabs.find('a.selected').attr('id').replace(/fieldsetlegend-/g, "");
             }
             else{
-                selected = ftabs.attr('value').replace(/^fieldsetlegend-/,'#fieldset-');
+                selected = ftabs.find('.selected').attr('id').replace(/fieldsetlegend-/g, "");
             }
             var fsInput = jqForm.find('input[name="fieldset"]');
             if (selected && fsInput) {
