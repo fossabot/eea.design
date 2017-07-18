@@ -154,8 +154,10 @@ class DocumentBylineViewlet(content.DocumentBylineViewlet):
         for value in scores.values():
             if not value.get('readability_value'):
                 continue
-            words += int(value.get('word_count', 1))
+            words += int(value.get('word_count', 0))
         minutes = int(round(words / 228.0))
+        if not minutes and words > 1:
+            minutes = 1
         return minutes
 
     def available(self):
