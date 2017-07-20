@@ -3,6 +3,10 @@ Changelog
 
 17.3.dev0 - (unreleased)
 ------------------------
+* Bug fix: amend patch for form_tabbing.js in order to avoid value
+  error when submiting form with fieldset that contained several
+  words such as Daviz. Plone adds - while the original value is space
+  [ichim-david refs #86915]
 * Bug fix: patch form_tabbing.js in order to avoid value
   error when submiting form which changes fieldset value
   [ichim-david refs #86786]

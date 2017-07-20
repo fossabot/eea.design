@@ -137,9 +137,11 @@ var ploneFormTabbing = {
                 // 86786 use id and remove fieldsetlegend avoiding the change
                 // for fieldset value from default to link + default
                 selected = ftabs.find('a.selected').attr('id').replace(/fieldsetlegend-/g, "");
+                selected = selected.replace(/-/g, ' ');
             }
             else{
                 selected = ftabs.find('.selected').attr('id').replace(/fieldsetlegend-/g, "");
+                selected = selected.replace(/-/g, ' ');
             }
             var fsInput = jqForm.find('input[name="fieldset"]');
             if (selected && fsInput) {
