@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
         $global_nav = $('#portal-globalnav'),
         $global_nav_children = $global_nav.find('> li');
     if (!$body.hasClass('mini-header')) {
-        $global_nav_children.slice($global_nav_children.length - 3).appendTo($secondary_portaltabs);
+        $global_nav_children.slice($global_nav_children.length - 4, $global_nav_children.length - 1).appendTo($secondary_portaltabs);
     }
     else {
         $secondary_portaltabs.appendTo($global_nav);

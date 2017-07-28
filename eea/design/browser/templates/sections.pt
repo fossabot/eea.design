@@ -41,7 +41,8 @@
                   </tal:block>
             </tal:tabs>
 
-            <div id="secondary-portaltabs">
+            <li id="secondary-portaltabs-container">
+              <ul id="secondary-portaltabs" class="plain">
                 <tal:defines tal:condition="python:context.restrictedTraverse('@@miniheader_content_types')()">
                     <tal:defines tal:define="idPostfix python:'-menu';">
                         <div metal:use-macro="context/@@cross_site_top/siteactions" >
@@ -49,7 +50,8 @@
                         </div>
                     </tal:defines>
                 </tal:defines>
-            </div>
+              </ul>
+            </li>
         </ul>
     </div>
 </tal:sections>

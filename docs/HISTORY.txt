@@ -12,6 +12,11 @@ Changelog
   [ichim-david refs #86786]
 * Change: move edit input within error field
   [ichim-david refs #86620]
+* Bug fix W3C compliance modifications
+  [valipod refs #86295]
+* Upgrade step: Remove customized views at **ZMI > portal_skins/custom:
+  eea-globaltabs.css, frontpage_view.pt, portlet_subscribe.pt
+  [valipod refs #86295]
 
 17.2 - (2017-06-26)
 -------------------

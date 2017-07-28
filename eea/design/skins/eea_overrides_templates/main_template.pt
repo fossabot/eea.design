@@ -12,7 +12,7 @@
                         content_core_only request/content_core_only | nothing;
                         skip_relations request/skipRelations | nothing;
                         ajax_include_head request/ajax_include_head | nothing;
-                        dummy python:request.RESPONSE.setHeader('X-UA-Compatible', 'IE=edge,chrome=1');
+                        dummy python:request.RESPONSE.setHeader('X-UA-Compatible', 'IE=edge');
                         xssDisable python:request.RESPONSE.setHeader('X-XSS-Protection', '0');
                         template_id template/getId|string:;
                         normalizeString nocall:plone_view/normalizeString;

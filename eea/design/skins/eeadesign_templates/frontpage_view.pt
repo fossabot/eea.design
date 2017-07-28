@@ -28,9 +28,10 @@
                 <!-- mega_topics -->
                 <div id="megatopics-area" tal:condition="main_site">
                     <div class="portlet-megatopic">
-                        <dl class="portlet promo-nav-portlet" id="air-and-climate-megatopic">
-                            <dd class="portletItem">
-                                <img title="Air and climate" tal:attributes="src string:$portal_url/themes/air/theme_image/image_mini" />
+                        <div class="portlet promo-nav-portlet" id="air-and-climate-megatopic">
+                            <div class="portletItem">
+                                <img title="Air and climate" alt="Air and climate" tal:attributes="src
+                                string:$portal_url/SITE/themes/air/theme_image/image_mini" />
                                 <div class="portletHeader">
                                     Air and climate
                                 </div>
@@ -39,13 +40,15 @@
                                     <li><a href="/themes/climate-change-adaptation" i18n:translate="">Climate change adaptation</a></li>
                                     <li><a href="themes/climate" i18n:translate="">Climate change mitigation</a></li>
                                 </ul>
-                            </dd>
-                        </dl>
+                            </div>
+                        </div>
                     </div>
                     <div class="portlet-megatopic">
-                        <dl class="portlet promo-nav-portlet" id="nature-megatopic">
-                            <dd class="portletItem">
-                                <img title="Nature" alt="Visit our biodiversity website" tal:attributes="src string:$portal_url/themes/biodiversity/theme_image/image_mini" />
+                        <div class="portlet promo-nav-portlet" id="nature-megatopic">
+                            <div class="portletItem">
+                                <img title="Nature" alt="Visit our biodiversity
+                                website" tal:attributes="src
+                                string:$portal_url/SITE/themes/biodiversity/theme_image/image_mini" />
                                 <div class="portletHeader">
                                     Nature
                                 </div>
@@ -56,13 +59,14 @@
                                     <li><a href="/themes/soil" i18n:translate="">Soil</a></li>
                                     <li><a href="/themes/water" i18n:translate="">Water</a></li>
                                 </ul>
-                            </dd>
-                        </dl>
+                            </div>
+                        </div>
                     </div>
                     <div class="portlet-megatopic">
-                        <dl class="portlet promo-nav-portlet" id="sustainability-megatopic">
-                            <dd class="portletItem">
-                                <img title="Sustainability and well-being" tal:attributes="src string:$portal_url/themes/human/theme_image/image_mini" />
+                        <div class="portlet promo-nav-portlet" id="sustainability-megatopic">
+                            <div class="portletItem">
+                                <img title="Sustainability and well-being" alt="Sustainability and well-being"
+                                tal:attributes="src string:$portal_url/SITE/themes/human/theme_image/image_mini" />
                                 <div class="portletHeader" style="font-size:142%;">
                                     Sustainability and well-being
                                 </div>
@@ -72,13 +76,14 @@
                                     <li><a href="/themes/waste" i18n:translate="">Resource efficiency and waste</a></li>
                                     <li><a href="/themes/sustainability-transitions" i18n:translate="">Sustainability transitions</a></li>
                                 </ul>
-                            </dd>
-                        </dl>
+                            </div>
+                        </div>
                     </div>
                     <div class="portlet-megatopic">
-                        <dl class="portlet promo-nav-portlet" id="economic-sectors-megatopic">
-                            <dd class="portletItem">
-                                <img title="Economic sectors" tal:attributes="src string:$portal_url/themes/energy/theme_image/image_mini" />
+                        <div class="portlet promo-nav-portlet" id="economic-sectors-megatopic">
+                            <div class="portletItem">
+                                <img title="Economic sectors" alt="Economic sectors"
+                                tal:attributes="src string:$portal_url/SITE/themes/energy/theme_image/image_mini" />
                                 <div class="portletHeader">
                                     Economic sectors
                                 </div>
@@ -88,8 +93,8 @@
                                     <li><a href="/themes/industry" i18n:translate="">Industry</a></li>
                                     <li><a href="/themes/transport" i18n:translate="">Transport</a></li>
                                 </ul>
-                            </dd>
-                        </dl>
+                            </div>
+                        </div>
                     </div>
                     <div class="visualClear"><!-- &nbsp; --></div>
                 </div>
@@ -214,6 +219,10 @@
                                     </a>
                                 </div>
                             </div>
+
+                            <!-- div metal:use-macro="here/portlet_eea_events/macros/portlet">
+                                 Events
+                            </div -->
 
                             <div metal:use-macro="here/portlet_social_links/macros/portlet">
                                 Social links
