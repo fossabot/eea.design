@@ -5,6 +5,20 @@ Changelog
 ------------------------
 * Change: added IP Anonymization to google analytics
   [zoltan_andras refs #86256]
+* Bug fix: amend patch for form_tabbing.js in order to avoid value
+  error when submiting form with fieldset that contained several
+  words such as Daviz. Plone adds - while the original value is space
+  [ichim-david refs #86915]
+* Bug fix: patch form_tabbing.js in order to avoid value
+  error when submiting form which changes fieldset value
+  [ichim-david refs #86786]
+* Change: move edit input within error field
+  [ichim-david refs #86620]
+* Bug fix W3C compliance modifications
+  [valipod refs #86295]
+* Upgrade step: Remove customized views at **ZMI > portal_skins/custom:
+  eea-globaltabs.css, frontpage_view.pt, portlet_subscribe.pt
+  [valipod refs #86295]
 
 17.2 - (2017-06-26)
 -------------------

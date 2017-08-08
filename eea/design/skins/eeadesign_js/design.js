@@ -3,6 +3,8 @@ jQuery(document).ready(function($) {
     'use strict';
     var $viewlet_below_content = $("#viewlet-below-content");
     var $content = $("#content");
+    var context_url = window.context_url || $("base").attr('href');
+    var $content_core = $("#content-core");
     var $column_area = $(".column-area");
     var $body = $("body");
     var is_anon = $body.hasClass('userrole-anonymous');

@@ -395,7 +395,7 @@ dt.portletItem a, #content dt.portletItem a {
    display: none;
 }
 
-.portlet-subscribtion dt {
+.portlet-subscription dt {
    margin-bottom: 5px;
 }
 
@@ -466,11 +466,11 @@ dt.portletItem a, #content dt.portletItem a {
    float: left;
 }
 
-.portlet-subscribtion dd {
+.portlet-subscription dd, .portlet-subscription dd div {
     margin-bottom: 0.5em;
 }
 
-.portlet-subscribtion input.subscriptionButton {
+.portlet-subscription input.subscriptionButton {
    background: url(&dtml-xurl;/search_btn_small.png) no-repeat top left;
    border: none;
    width: 30px;

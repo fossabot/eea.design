@@ -240,7 +240,7 @@ dl.portlet a:visited {
     width: 100%;
 }
 
-#category, #themes-tags, #geotags, #tempCoverage {
+.category, #themes-tags, #geotags, .geotags, #tempCoverage, .temporal-coverage {
     font-size: 100%;
     margin-bottom: 1em;
     color: #666;
@@ -248,9 +248,15 @@ dl.portlet a:visited {
     line-height: 2em;
 }
 
+dd#tempCoverage, dd.geotags, dd.category{
+    margin-left: 0 !important;
+}
+
 #category a.link-category,
+.category a.link-category,
 #themes-tags a.link-category,
 #geotags a.link-category,
+.geotags a.link-category,
 #tempCoverage a.link-category,
 #languageCodes a.translated, #languageCodes li.selected, span.selectedTag {
     color: black;
@@ -265,8 +271,10 @@ dl.portlet a:visited {
 }
 
 #category a.link-category:hover,
+.category a.link-category:hover,
 #themes-tags a.link-category:hover,
 #geotags a.link-category:hover,
+.geotags a.link-category:hover,
 #tempCoverage a.link-category:hover,
 #languageCodes a.translated:hover, #languageCodes li.selected {
     background: &dtml-corporateOrange;;
@@ -274,9 +282,10 @@ dl.portlet a:visited {
     border-color: #205c90;
 }
 
-#category .separator,
+.category .separator,
 #themes-tags .separator,
 #geotags .separator,
+.geotags .separator,
 #tempCoverage  .separator {
     display: none;
 }

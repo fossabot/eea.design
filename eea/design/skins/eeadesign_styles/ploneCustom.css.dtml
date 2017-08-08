@@ -852,6 +852,9 @@ a.moreLink {
 .field .field {
     margin: 1em 0 0 0;
 }
+div.field.error {
+    padding: 1em 0 1.7em 0; /* 86620 move edit input within error field */
+}
 
 /* bootstrap also has a label class which is white while plone uses black */
 .label {

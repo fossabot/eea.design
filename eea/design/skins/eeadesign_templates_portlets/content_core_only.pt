@@ -1,0 +1,10 @@
+<metal:bodytext define-macro="content_core_only">
+    <metal:bodytext define-slot="main">
+    <metal:text define-slot="content-core">
+        <tal:comment replace="nothing">
+            text body page
+        </tal:comment>
+    </metal:text>
+    </metal:bodytext>
+
+</metal:bodytext>

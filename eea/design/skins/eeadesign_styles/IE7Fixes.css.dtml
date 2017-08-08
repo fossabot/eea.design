@@ -15,7 +15,7 @@
 *:first-child+html .portlet .portletItem #selectlang_form{
     margin: 0;
 }
-*:first-child+html .portlet-subscribtion {
+*:first-child+html .portlet-subscription {
     min-height: 10em;
 }
 

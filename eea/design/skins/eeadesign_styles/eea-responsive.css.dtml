@@ -184,10 +184,13 @@
     margin-left: 0 !important;
     margin-top: -10px !important; }
 
+  #secondary-portaltabs {
+    margin: 0; }
+
   #secondary-portaltabs .portlet {
     margin-bottom: 0;
     padding: 0; }
-    #secondary-portaltabs .portlet dt, #secondary-portaltabs .portlet ul {
+  #secondary-portaltabs .portlet dt, #secondary-portaltabs .portlet ul {
       margin: 0;
       padding: 0; }
   #secondary-portaltabs .pane, #secondary-portaltabs .portlet {

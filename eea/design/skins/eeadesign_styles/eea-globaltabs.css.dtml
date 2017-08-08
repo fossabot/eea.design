@@ -42,12 +42,11 @@
     box-sizing: border-box;
 }
 
-
 #portal-globalnav li a  {
     background: transparent;
     color: white;
     display: inline-block;
-    padding: 0.8em;
+    padding: 1em 0.8em;
     border: 0;
     min-width: 0;
     font-weight:bold;
@@ -106,7 +105,7 @@
 }
 
 
-#secondary-portaltabs {
+li#secondary-portaltabs-container {
     float: right;
     margin: 0;
     height: 100%;
@@ -123,9 +122,8 @@
     width: 120px;
     font-size: 75%;
     vertical-align: top;
-    line-height: 1.1;
     padding-right: 92px;
-    background: url("&dtml-xurl;/eu-flag.png") no-repeat 123px -5px;
+    background: url("&dtml-xurl;/eu-flag.png") no-repeat 123px -3px;
 }
 
 .mini-header #portaltab-europe {
