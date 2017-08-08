@@ -3,6 +3,8 @@ Changelog
 
 17.3.dev0 - (unreleased)
 ------------------------
+* Change: added IP Anonymization to google analytics
+  [zoltan_andras refs #86256]
 
 17.2 - (2017-06-26)
 -------------------
