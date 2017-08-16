@@ -1,8 +1,8 @@
 Changelog
 =========
 
-17.3.dev0 - (unreleased)
-------------------------
+17.3 - (2017-08-16)
+-------------------
 * Change: added IP Anonymization to google analytics
   [zoltan_andras refs #86256]
 * Bug fix: amend patch for form_tabbing.js in order to avoid value
