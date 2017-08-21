@@ -131,6 +131,22 @@ jQuery(document).ready(function($) {
             if ($table.length) {
                 $table.insertBefore($fiche_summary);
             }
+            
+
+            // hide googlecharts bottom images
+            if ($body.hasClass('body-print')) {
+                var $iframes = $fiche_body.find('iframe');
+                $iframes.each(function (idx, el) {
+                    $(el).load(function(idx){
+                        var el = idx.target;
+                        var src = el.src;
+                        if (src.indexOf('embed-chart') !== -1) {
+                            $(el).contents().find('html').addClass('portaltype-fiche section-airs');
+                        }
+                    })
+                });
+            }
+
         }());
     }
 
