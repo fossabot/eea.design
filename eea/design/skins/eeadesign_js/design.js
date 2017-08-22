@@ -131,7 +131,6 @@ jQuery(document).ready(function($) {
             if ($table.length) {
                 $table.insertBefore($fiche_summary);
             }
-            
 
             // hide googlecharts bottom images
             if ($body.hasClass('body-print')) {
@@ -142,6 +141,9 @@ jQuery(document).ready(function($) {
                         var src = el.src;
                         if (src.indexOf('embed-chart') !== -1) {
                             $(el).contents().find('html').addClass('portaltype-fiche section-airs');
+                            var correctHeight = $(el).contents().find('.googlechart_dashboard').css('height');
+                            $(el).removeAttr('height');
+                            $(el).css('height', correctHeight);
                         }
                     })
                 });

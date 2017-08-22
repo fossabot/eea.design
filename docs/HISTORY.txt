@@ -22,7 +22,7 @@ Changelog
 * Upgrade step: Remove customized views at **ZMI > portal_skins/custom:
   eea-globaltabs.css, frontpage_view.pt, portlet_subscribe.pt
   [valipod refs #86295]
-* Bug fix: Hot fix, bug still present on live after previous fix
+* Bug fix: Hot fix, bug still present on prod after previous fix
   [zoltan_andras refs #82714]
 
 17.2 - (2017-06-26)
