@@ -121,16 +121,33 @@ jQuery(document).ready(function($) {
             var $fiche_body = $(".fiche-body");
             var $table = $fiche_body.find('table').eq(0);
             var $fiche_summary = $(".fiche-summary");
+            
             if (!$body.hasClass('section-airs subsection-2016')) {
                 // hide fiche-summary in case the contents of keyfact is empty
                 if (!$fiche_summary.find('.keyFact').find('div').text().trim()) {
                     $fiche_summary.addClass('hidden');
                 }
-                return;
-            }
-            if ($table.length) {
+            } else if ($table.length) {
                 $table.insertBefore($fiche_summary);
+            } 
+
+            // hide googlecharts bottom images
+            if ($body.hasClass('body-print')) {
+                var $iframes = $fiche_body.find('iframe');
+                $iframes.each(function (idx, el) {
+                    $(el).load(function(idx){
+                        var el = idx.target;
+                        var src = el.src;
+                        if (src.indexOf('embed-chart') !== -1) {
+                            $(el).contents().find('html').addClass('portaltype-fiche section-airs');
+                            var correctHeight = $(el).contents().find('.googlechart_dashboard').css('height').replace('px', '');;
+                            $(el).attr("height", correctHeight);
+                            $(el).attr("width", "100%");
+                        }
+                    })
+                });
             }
+
         }());
     }
 

@@ -194,7 +194,6 @@
 
                             <metal:bodytext define-slot="main">
                                 <div class="content-header">
-
                                     <div tal:replace="structure provider:plone.abovecontenttitle" tal:condition="not:ajax_load" />
                                     <metal:title define-slot="content-title">
                                         <metal:comment tal:content="nothing">
@@ -226,36 +225,36 @@
                                     </metal:description>
 
                                     <div tal:replace="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
-                            </div>
-                             <div id="content-core">
-                                 <metal:text define-slot="content-core" tal:content="nothing">
+                                </div>
+
+                                <div id="content-core">
+                                    <metal:text define-slot="content-core" tal:content="nothing">
+                                        <tal:comment replace="nothing">
+                                            text body page
+                                        </tal:comment>
+                                    </metal:text>
+                                </div>
+
+                                <metal:comment tal:content="nothing">
                                     <tal:comment replace="nothing">
-                                        text body page
+                                        possible relation labels. can be made as viewlet.
                                     </tal:comment>
-                                 </metal:text>
-                             </div>
+                                </metal:comment>
 
-                             <metal:comment tal:content="nothing">
-                                <tal:comment replace="nothing">
-                                    possible relation labels. can be made as viewlet.
-                                </tal:comment>
-                             </metal:comment>
+                                <tal:block define="thumb_scale thumb_scale | string:image_tile; skip_relations skip_relations|python: False"
+                                           tal:condition="python:not skip_relations">
+                                    <tal:soer tal:condition="python:False if isPrint == 1 and '/soer-2015' in here_url else True">
+                                        <metal:macro use-macro="context/eea_relateditems/macros/relatedItemsWithThumbs" />
+                                    </tal:soer>
+                                </tal:block>
 
-                                 <tal:block define="thumb_scale thumb_scale | string:image_tile; skip_relations skip_relations|python: False"
-                                         tal:condition="python:not skip_relations">
-                                     <tal:soer tal:condition="python:False if isPrint == 1 and '/soer-2015' in here_url else True">
-                                   <metal:macro use-macro="context/eea_relateditems/macros/relatedItemsWithThumbs" />
-                                     </tal:soer>
-                                 </tal:block>
+                                <tal:not4AjaxLoad  tal:condition="not:ajax_load">
+                                    <div tal:replace="structure provider:plone.belowcontentbody" />
+                                </tal:not4AjaxLoad>
 
-                                 <tal:not4AjaxLoad  tal:condition="not:ajax_load">
-                                                      <div tal:replace="structure provider:plone.belowcontentbody" />
-                                                      </tal:not4AjaxLoad>
-
-                                 <div metal:use-macro="here/eea_dates/macros/pdfPublishDate" tal:condition="python:'pdf.body' in request['URL0']">
-                                     pdf publish date
-                                 </div>
-
+                                <div metal:use-macro="here/eea_dates/macros/pdfPublishDate" tal:condition="python:'pdf.body' in request['URL0']">
+                                    pdf publish date
+                                </div>
                             </metal:bodytext>
                         </div>
                     </metal:slot>
