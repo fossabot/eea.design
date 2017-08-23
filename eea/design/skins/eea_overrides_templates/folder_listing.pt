@@ -8,14 +8,7 @@
 
 <body>
 
-    <metal:content-core fill-slot="content-core"
-        tal:define="context_wf_state context/review_state|python: context.portal_workflow.getInfoFor(context, 'review_state', '');">
-    <tal:comment tal:replace="nothing" i18n:translate="">
-        If folder isn't public and user is anonymous, redirect to a standared message page
-    </tal:comment>
-    <tal:cond tal:condition="python: isAnon and context_wf_state != 'published' ">
-         <tal:redirect tal:define="dummy python: request.RESPONSE.redirect(here_url + '/listing_not_available')" />
-    </tal:cond>
+    <metal:content-core fill-slot="content-core">
 
 <metal:block define-macro="content-core"
                     tal:define="kssClassesView context/@@kss_field_decorator_view;
@@ -248,15 +241,31 @@
     </tal:listing>
 
     <div metal:use-macro="context/batch_macros/macros/navigation" />
+      <tal:block
+        define="context_wf_state context/review_state|python: context.portal_workflow.getInfoFor(context, 'review_state', '');
+                listing_not_available python: isAnon and context_wf_state != 'published'">
+        <tal:cond tal:condition="listing_not_available">
+            <tal:comment tal:replace="nothing" i18n:translate="">
+                If folder isn't public and user is anonymous, redirect to a standared message page
+            </tal:comment>
+            <tal:redirect tal:define="dummy python:
+                 request.RESPONSE.redirect(here_url + '/listing_not_available',
+                 status=404)" />
+            <tal:comment tal:replace="nothing" i18n:translate="">
+                Since we cannot actually redirect and return 404, we'll embed
+                the explanation text from listing_not_available here.
+            </tal:comment>
+            <metal:block use-macro="context/listing_not_available/macros/explanation" />
+        </tal:cond>
 
         <metal:empty metal:define-slot="no_items_in_listing">
-        <p class="discreet"
-           tal:condition="not: folderContents"
-           i18n:translate="">
-            There are currently no items in this folder.
-        </p>
-    </metal:empty>
-
+            <p class="discreet"
+               tal:condition="python: not folderContents and not listing_not_available"
+               i18n:translate="">
+                There are currently no items in this folder.
+            </p>
+        </metal:empty>
+      </tal:block>
     </tal:foldercontents>
     </metal:defaults-core>
     </metal:defaults>

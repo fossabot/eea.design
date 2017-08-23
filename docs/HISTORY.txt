@@ -3,6 +3,9 @@ Changelog
 
 17.5.dev0 - (unreleased)
 ------------------------
+* Bug fix: return 404 status instead of redirecting to listing_not_available
+  [valipod refs #86594]
+
 
 17.4 - (2017-08-22)
 -------------------

@@ -19,11 +19,13 @@
         Listing not available
     </h1>
 
+    <metal:block define-macro="explanation">
     <p i18n:translate="">
         The folder you are trying to access is still in draft and therefore its
         content cannot be listed. If you are a content manager of this site,
-        you need to login and publish this folder. 
+        you need to login and publish this folder.
     </p>
+    </metal:block>
 
 
 </metal:main>
