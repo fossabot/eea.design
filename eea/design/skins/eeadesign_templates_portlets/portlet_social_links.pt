@@ -1,4 +1,5 @@
 <!-- Social / Follow us links -->
+<!-- changed the notification service, demarant #21159 -->
 <div metal:define-macro="portlet"
       tal:define="portal_url context/@@plone_portal_state/portal_url;"
       i18n:domain="eea"
@@ -38,8 +39,7 @@
         <dd>
             <a id="email-link"
                title="Subscribe by email"
-               href="#subscribe-popup"
-               class="fancybox"
+               tal:attributes="href string:$portal_url/subscription/targeted-subscription"
                i18n:attributes="title">&nbsp;</a>
         </dd>
       </dl>
