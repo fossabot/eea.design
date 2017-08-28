@@ -207,6 +207,7 @@ select {
 
 #content p a:link {
     border-bottom: 1px solid #CCCCCC;
+    word-wrap: break-word; /* #87691 avoid link span over the content area */
 }
 
 #content a:link,
