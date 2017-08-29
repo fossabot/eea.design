@@ -1,6 +1,9 @@
 Changelog
 =========
 
+17.6.dev0 - (unreleased)
+------------------------
+
 17.5 - (2017-08-29)
 -------------------
 * Bug fix: return 404 status instead of redirecting to listing_not_available
