@@ -8,6 +8,8 @@ Changelog
 * Bug fix: make interactive data portlet use display correct type
   instead of just datasets
   [demarant refs #87868]
+* Feature: show infographics portlet in data and maps
+  [demarant refs #87868]
 
 17.5 - (2017-08-29)
 -------------------
