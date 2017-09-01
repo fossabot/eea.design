@@ -18,12 +18,7 @@
                     <div id="articles-area" class="right-column-area">
 
                         <!-- featured content -->
-
-                        <!--<div class="featured">
-                          <div metal:use-macro="here/portlet_dataviewers/macros/portlet" />
-                        </div>-->
-                        <div metal:use-macro="here/portlet_maindatasets/macros/portlet" />
-
+                        
                         <tal:featured_item
                              tal:define="featured_class datamaps_view;
                                          highlights python:featured_class.getLatest('datasets');

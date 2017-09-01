@@ -3,6 +3,8 @@ Changelog
 
 17.6.dev0 - (unreleased)
 ------------------------
+* Bug fix: remove empty featured datasets portlet from data-and-maps view
+  [demarant refs #87862]
 
 17.5 - (2017-08-29)
 -------------------
