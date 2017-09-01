@@ -21,7 +21,7 @@
                         
                         <tal:featured_item
                              tal:define="featured_class datamaps_view;
-                                         highlights python:featured_class.getLatest('datasets');
+                                         highlights python:featured_class.getLatest('interactivedata');
                                          nr_items python:1;
                                          archive_href string:data/data-viewers;">
                                          <div metal:use-macro="here/frontpage_macros/macros/featured-item">
