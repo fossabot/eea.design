@@ -2260,6 +2260,25 @@ div.eea-pdf-overlay {
 table.invisible {
     visibility: visible;
 }
+/* 87691 temporary styles */
+.eea-list-columns {
+    padding: 0 1em;
+    float: left; }
 
+.eea-list-columns li {
+    display: list-item; }
+
+#region-content .eea-list-columns {
+    list-style: none none;
+    margin-left: 0; }
+#region-content .eea-list-columns ul {
+    list-style-position: outside; }
+
+.eea-three-columns {
+    width: 25%; }
+
+.collaborating-countries {
+    color: #64bfbd;
+}
 /* </dtml-let> */
 /* </dtml-with> */

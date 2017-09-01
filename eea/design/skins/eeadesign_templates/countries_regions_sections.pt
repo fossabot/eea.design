@@ -9,22 +9,19 @@
 </head>
 
 <body>
-<div metal:fill-slot="content-core">
+<div metal:fill-slot="main" class="overflow_hidden">
     <metal:main-macro define-macro="main">
 
         <metal:title fill-slot="content-title">
                     <h1 class="documentFirstHeading">Countries and regions</h1>
         </metal:title>
-        <div id="panel-tab-regions-countries" style="display: block;">
+        <div id="regions-countries" style="display: block; width: 50%;" class="pull-left">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium atque molestiae officia similique tenetur. Accusamus atque dolorum ducimus eaque et, hic ipsum minima modi molestiae necessitatibus nisi placeat quia veritatis.</p>
-            <div>
-                <h3>EEA member countries</h3>
+            <div style="overflow: hidden;">
+                <h3 class="pull-left">EEA member countries</h3>
+                <h3 class="collaborating-countries pull-right">Collaborating countries</h3>
+                <div class="visualClear">&nbsp;</div>
                 <ul class="eea-list-columns eea-three-columns">
-                    <li>
-                        <a href="http://www.eea.europa.eu/countries-and-regions/albania">
-                            <span>Albania</span>
-                        </a>
-                    </li>
                     <li>
                         <a href="http://www.eea.europa.eu/countries-and-regions/austria">
                             <span>Austria</span>
@@ -80,6 +77,8 @@
                             <span>Germany</span>
                         </a>
                     </li>
+                </ul>
+                <ul class="eea-list-columns eea-three-columns">
                     <li>
                         <a href="http://www.eea.europa.eu/countries-and-regions/greece">
                             <span>Greece</span>
@@ -90,8 +89,6 @@
                             <span>Hungary</span>
                         </a>
                     </li>
-                </ul>
-                <ul class="eea-list-columns eea-three-columns">
                     <li>
                         <a href="http://www.eea.europa.eu/countries-and-regions/iceland">
                             <span>Iceland</span>
@@ -137,6 +134,9 @@
                             <span>Norway</span>
                         </a>
                     </li>
+                </ul>
+
+                <ul class="eea-list-columns eea-three-columns">
                     <li>
                         <a href="http://www.eea.europa.eu/countries-and-regions/poland">
                             <span>Poland</span>
@@ -157,107 +157,106 @@
                             <span>Serbia</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/slovakia">
+                            <span>Slovakia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/slovenia">
+                            <span>Slovenia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/spain">
+                            <span>Spain</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/sweden">
+                            <span>Sweden</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/switzerland">
+                            <span>Switzerland</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/the-netherlands">
+                            <span>The Netherlands</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/turkey">
+                            <span>Turkey</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/united-kingdom">
+                            <span>United Kingdom</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="eea-list-columns eea-three-columns">
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/albania">
+                            <span>Albania</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/bosnia-and-herzegovina">
+                            <span>Bosnia and Herzegovina</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/kosovo">
+                            <span>Kosovo*</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/the-former-yugoslav-republic-of-macedonia">
+                            <span>The Former Yugoslav Republic of Macedonia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.eea.europa.eu/countries-and-regions/montenegro">
+                            <span>Montenegro</span>
+                        </a>
+                    </li>
                 </ul>
                 <div class="eea-list-columns eea-three-columns">
-                    <ul>
+                    <h3>Regions</h3>
+                    <ul class="eea-list-columns">
                         <li>
-                            <a href="http://www.eea.europa.eu/countries-and-regions/slovakia">
-                                <span>Slovakia</span>
+                            <a href="http://www.eea.europa.eu/countries-and-regions/arctic">
+                                <span>Arctic region</span>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.eea.europa.eu/countries-and-regions/slovenia">
-                                <span>Slovenia</span>
+                            <a href="http://www.eea.europa.eu/countries-and-regions/black-sea">
+                                <span>Black Sea region</span>
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.eea.europa.eu/countries-and-regions/spain">
-                                <span>Spain</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.eea.europa.eu/countries-and-regions/sweden">
-                                <span>Sweden</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.eea.europa.eu/countries-and-regions/switzerland">
-                                <span>Switzerland</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.eea.europa.eu/countries-and-regions/the-netherlands">
-                                <span>The Netherlands</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.eea.europa.eu/countries-and-regions/turkey">
-                                <span>Turkey</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://www.eea.europa.eu/countries-and-regions/united-kingdom">
-                                <span>United Kingdom</span>
+                            <a href="http://www.eea.europa.eu/countries-and-regions/mediterranean">
+                                <span>Mediterranean Sea region</span>
                             </a>
                         </li>
                     </ul>
-
-                    <div>
-                        <h3>Regions</h3>
-                        <ul>
-                            <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/arctic">
-                                    <span>Arctic region</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/black-sea">
-                                    <span>Black Sea region</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/mediterranean">
-                                    <span>Mediterranean Sea region</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
 
-                <h3>Collaborating countries</h3>
-
-                <li>
-                    <a href="http://www.eea.europa.eu/countries-and-regions/albania">
-                        <span>Albania</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://www.eea.europa.eu/countries-and-regions/bosnia-and-herzegovina">
-                        <span>Bosnia and Herzegovina</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://www.eea.europa.eu/countries-and-regions/kosovo">
-                        <span>Kosovo*</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://www.eea.europa.eu/countries-and-regions/the-former-yugoslav-republic-of-macedonia">
-                        <span>The Former Yugoslav Republic of Macedonia</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://www.eea.europa.eu/countries-and-regions/montenegro">
-                        <span>Montenegro</span>
-                    </a>
-                </li>
 
             </div>
             <div class="pull-left"><p class="discreet">*under the UN SCR 1244/99</p>
             </div>
+        </div>
+        <div style="display: block; width: 50%;" class="pull-right">
             <object type="image/svg+xml" data="Map.svg" class="svg-countries-map">
             </object>
         </div>
+        
     </metal:main-macro>
 </div>
 </body>
