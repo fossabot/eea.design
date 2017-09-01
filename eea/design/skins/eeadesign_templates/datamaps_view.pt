@@ -18,20 +18,26 @@
                     <div id="articles-area" class="right-column-area">
 
                         <!-- featured content -->
-
-                        <!--<div class="featured">
-                          <div metal:use-macro="here/portlet_dataviewers/macros/portlet" />
-                        </div>-->
-                        <div metal:use-macro="here/portlet_maindatasets/macros/portlet" />
-
+                        
                         <tal:featured_item
                              tal:define="featured_class datamaps_view;
-                                         highlights python:featured_class.getLatest('datasets');
+                                         highlights python:featured_class.getLatest('interactivedata');
                                          nr_items python:1;
                                          archive_href string:data/data-viewers;">
                                          <div metal:use-macro="here/frontpage_macros/macros/featured-item">
                                               <span metal:fill-slot="archive" i18n:translate="">See all</span>
                                               <span metal:fill-slot="box_title" i18n:translate="">Interactive data viewers</span>
+                                          </div>
+                        </tal:featured_item>
+                        
+                        <tal:featured_item
+                             tal:define="featured_class datamaps_view;
+                                         highlights python:featured_class.getLatest('infographics');
+                                         nr_items python:1;
+                                         archive_href string:/media/infographics;">
+                                         <div metal:use-macro="here/frontpage_macros/macros/featured-item">
+                                              <span metal:fill-slot="archive" i18n:translate="">See all</span>
+                                              <span metal:fill-slot="box_title" i18n:translate="">Infographics</span>
                                           </div>
                         </tal:featured_item>
 
