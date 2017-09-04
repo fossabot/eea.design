@@ -1,5 +1,6 @@
 <tal:block tal:define="foo python:request.set('disable_plone.leftcolumn', 1);
-        bar python:request.set('disable_plone.rightcolumn', 1);"/>
+        bar python:request.set('disable_plone.rightcolumn', 1);" />
+        <!--?fullwidth python:request.set('body.fullwidth', 1);" />-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       lang="en"
          metal:use-macro="here/main_template/macros/master"
@@ -19,7 +20,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium atque molestiae officia similique tenetur. Accusamus atque dolorum ducimus eaque et, hic ipsum minima modi molestiae necessitatibus nisi placeat quia veritatis.</p>
             <div style="overflow: hidden;">
                 <h3 class="pull-left">EEA member countries</h3>
-                <h3 class="collaborating-countries pull-right">Collaborating countries</h3>
+                <h3 class="pull-right">Collaborating countries</h3>
                 <div class="visualClear">&nbsp;</div>
                 <ul class="eea-list-columns eea-three-columns">
                     <li>

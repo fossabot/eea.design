@@ -111,7 +111,7 @@
                   sr python:plone_view.have_portlets('plone.rightcolumn', view) and not request.get('disable_plone.rightcolumn');
                   body_class python:plone_view.bodyClass(template, view);
                   body_class python: body_class + ' body-print' if isPrint else body_class;
-                  body_class python: body_class + ' fullwidth' if context.restrictedTraverse('@@fullwidth_content_types')() else body_class;
+                  body_class python: body_class + ' fullwidth' if context.restrictedTraverse('@@fullwidth_content_types')() or request.get('body.fullwidth') else body_class;
                   body_class python: body_class + ' scroll-analytics' if context.restrictedTraverse('@@scroll_analytics_content_types')() else body_class;
                   body_class python: body_class + mini_header if mini_header else body_class;
                   frontpage python: ' frontpage' if ('frontpage_view' or 'localfrontpage_view') in body_class else '';
