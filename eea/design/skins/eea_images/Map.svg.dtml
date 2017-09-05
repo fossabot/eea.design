@@ -22,10 +22,6 @@
      type="text/javascript"
      id="script2365"><![CDATA[
 
-
-//   width="2045.4084"
-//   height="1719.7312"
-
   var svgns = "http://www.w3.org/2000/svg";
   var path;
   var vanillaRGB = 'rgb(0, 146, 144)';
@@ -33,41 +29,38 @@
   var filledRGB = 'rgb(107, 142, 247)';
   var filledHex = '#0000ff';
 
-  function toggle() {
-//    alert(this.id);
-    var country = this.id.substring(0,2);
-    switchColour(country);
-  }
 
-  function switchColour(c) {
-    for (var i = 0; i < path.length; i++) {
-      if (path[i].id.indexOf(c) == 0) {
-        if ((path[i].style.fill == vanillaRGB) || (path[i].style.fill == vanillaHex)) {
-          path[i].style.fill = filledRGB;
-          if (top.document.getElementById(c)) {top.document.getElementById(c).checked = true}
-        } else {
-          path[i].style.fill = vanillaRGB;
-          if (top.document.getElementById(c)) {top.document.getElementById(c).checked = false}
-        }
-      }
+function switchColor(ev) {
+    var obj = ev.path[0];
+    if (ev.type == "mouseover") {
+        obj.classList.add('fillHover');
     }
-  }
+    else {
+        obj.classList.remove('fillHover');
+    }
+}
+
+function goToPage(c) {
+    var cid = c.path[0].id;
+    top.location.href = "http://search.apps.eea.europa.eu/countries/" + cid;
+}
+
 
   function initialise() {
     path = document.getElementsByTagNameNS(svgns,'path');
     if (path[0].addEventListener) {
       for (var i = 0; i < path.length; i++) {
-        path[i].addEventListener("click", toggle, false);
-        path[i].style.fill = vanillaRGB;
+        path[i].addEventListener("mouseover", switchColor, false);
+        path[i].addEventListener("click", goToPage, false);
+        path[i].addEventListener("mouseout", switchColor, false);
       }
     } else if (path[0].attachEvent)  {
       for (var i = 0; i < path.length; i++) {
-        path[i].attachEvent('onclick', toggle);
+        path[i].addEventListener("onmouseover", switchColor, false);
+        path[i].addEventListener("onclick", goToPage, false);
+        path[i].addEventListener("onmouseout", switchColor, false);
       }
     }
-
-//  alert(document.getElementById('theMap').getAttribute('width'));
-
   }
 
 
@@ -104,7 +97,9 @@ window.onload=initialise;
      id="defs6787"><svg:style
        type="text/css"
        id="style6789">
-
+     path:hover {
+         cursor: pointer;
+     }
     .str0 {stroke:#1F1A17;stroke-width:74.7387}
     .str13 {stroke:#ffffff;stroke-width:146.241}
     .str14 {stroke:#ffffff;stroke-width:146.241;stroke-linecap:round;stroke-linejoin:round}
@@ -135,6 +130,7 @@ window.onload=initialise;
     .fil12 {fill:#00873B;fill-rule:nonzero}
     .fil6 {fill:#C0C1C5;fill-rule:nonzero}
     .fil2 {fill:#D1D2D5;fill-rule:nonzero}
+    .fillHover { fill: rgb(107, 142, 247) !important;}
 
   </svg:style></svg:defs><svg:g
      id="Layer_x0020_1"
@@ -525,7 +521,7 @@ window.onload=initialise;
          height="4149.7056"
          width="4149.7056"
          id="rect3909-3"
-         style="fill:#6b8ef7;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:190.06407166;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /><svg:text
+         style="fill:#73c2c3;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:190.06407166;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /><svg:text
          sodipodi:linespacing="125%"
          id="text3928"
          y="66460.391"
