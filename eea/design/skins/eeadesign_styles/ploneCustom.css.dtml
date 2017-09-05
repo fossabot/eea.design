@@ -2262,7 +2262,7 @@ table.invisible {
 }
 /* 87691 temporary styles */
 .eea-list-columns {
-    padding: 0 1em;
+    padding: 0 1em 0 0;
     float: left; }
 
 .eea-list-columns li {
@@ -2272,13 +2272,49 @@ table.invisible {
     list-style: none none;
     margin-left: 0; }
 #region-content .eea-list-columns ul {
-    list-style-position: outside; }
+    list-style: none outside none;
+}
 
 .eea-three-columns {
     width: 25%; }
 
-.collaborating-countries {
-    color: #64bfbd;
+.template-countries_regions_sections #region-content {
+    background-color: transparent;
 }
+.template-countries_regions_sections #edit-bar {
+    display: none;
+}
+
+.collaborating-countries-header {
+    margin-left: 320px;
+    position: absolute;
+    width: 180px;
+}
+
+
+.regions-countries {
+    position: absolute;
+    width: 42%;
+}
+
+.region:before {
+    position: absolute;
+    background-color: #f1f5f8;
+    content: " ";
+    margin: 0 -12%;
+    width: 125%;
+    height: 64%;
+    box-shadow: 1px 1px 1px #d8d8d8;
+    z-index: -1;
+
+}
+.regions-countries-map {
+    width: 70%;
+}
+/*.collaborating-countries {*/
+    /*height: 100%;*/
+    /*background: #f3f3f3 linear-gradient(180deg, #FFF, #F1F5F8);*/
+    /*box-shadow: 1px 1px 1px #f3f3f3;*/
+/*}*/
 /* </dtml-let> */
 /* </dtml-with> */

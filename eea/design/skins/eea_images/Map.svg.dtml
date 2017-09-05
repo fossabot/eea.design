@@ -42,7 +42,7 @@ function switchColor(ev) {
 
 function goToPage(c) {
     var cid = c.path[0].id;
-    top.location.href = "http://search.apps.eea.europa.eu/countries/" + cid;
+    top.location.href = "http://car.apps.eea.europa.eu/" + cid;
 }
 
 
@@ -145,8 +145,7 @@ window.onload=initialise;
        width="207036"
        height="173880"
        id="rect6793"
-       x="0"
-       style="fill:none;stroke-width:190.06411679;stroke-miterlimit:4;stroke-dasharray:none;stroke:#ffffff;stroke-opacity:1" /><svg:metadata
+       x="0" /><svg:metadata
        id="metadata7"><RDF><Work
            about=""><format>
       image/svg+xml     </format><type
