@@ -2264,6 +2264,9 @@ table.invisible {
 .eea-list-columns {
     padding: 0 1em 0 0;
     float: left; }
+.eea-half {
+    width: 50%;
+}
 
 .eea-list-columns li {
     display: list-item; }
@@ -2281,6 +2284,7 @@ table.invisible {
 .template-countries_regions_sections #region-content {
     background-color: transparent;
 }
+
 .template-countries_regions_sections #edit-bar {
     display: none;
 }
@@ -2293,23 +2297,58 @@ table.invisible {
 
 
 .regions-countries {
-    position: absolute;
     width: 42%;
 }
 
 .region:before {
     position: absolute;
-    background-color: #f1f5f8;
+    background-color: #f2f5f7;
     content: " ";
-    margin: 0 -12%;
-    width: 125%;
+    margin: 0 -2%;
+    width: 101%;
     height: 64%;
-    box-shadow: 1px 1px 1px #d8d8d8;
+    box-shadow: 0 2px 2px #cecece;
     z-index: -1;
-
 }
 .regions-countries-map {
-    width: 70%;
+    width: 58%;
+    position: relative;
+    min-height: 410px;
+}
+.svg-countries-map {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    margin-top: -14%;
+}
+.template-countries_regions_sections {
+    background: #eef3f6 linear-gradient(180deg, #eef3f6 2%, #ffffff 50%);
+    /*background: white url("BG_Gradient.png") repeat-x;*/
+}
+.template-countries_regions_sections #portal-columns {
+    min-width: 100%;
+}
+@media screen and (min-width: 1280px) {
+ .template-countries_regions_sections   #visual-portal-wrapper, #portal-header, #portal-globalnav {
+        max-width: 80% !important;
+    }
+    #content {
+        min-height: 600px;
+        /*background: url(europe.png) no-repeat bottom right;*/
+        /*background-size: contain;*/
+    }
+}
+
+@media screen and (min-width: 1680px) {
+    #content {
+        min-height: 600px;
+    }
+}
+
+@media screen and (min-width: 1720px) {
+    .svg-countries-map {
+        width: 88%;
+    }
 }
 /*.collaborating-countries {*/
     /*height: 100%;*/
