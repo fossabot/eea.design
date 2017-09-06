@@ -32,16 +32,23 @@
 
 function switchColor(ev) {
     var obj = ev.path[0];
-    if (ev.type == "mouseover") {
-        obj.classList.add('fillHover');
-    }
-    else {
-        obj.classList.remove('fillHover');
+    var cid = obj.id.substring(0,2);
+    var country;
+    for (var i = 0; i < path.length; i++) {
+        country = path[i];
+        if (country.id.indexOf(cid) == 0) {
+            if (ev.type == "mouseover") {
+                country.classList.add('fillHover');
+            }
+            else {
+                country.classList.remove('fillHover');
+            }
+        }
     }
 }
 
 function goToPage(c) {
-    var cid = c.path[0].id;
+    var cid = c.path[0].id.substring(0,2);
     top.location.href = "http://car.apps.eea.europa.eu/" + cid;
 }
 
