@@ -1,0 +1,148 @@
+/* 87691 countries regions styles */
+
+/* body gradient */
+.template-countries_regions_sections {
+    background: #eef3f6 linear-gradient(180deg, #eef3f6 2%, #ffffff 50%);
+}
+
+#portal-columns {
+    min-width: 100%;
+}
+#edit-bar {
+    display: none;
+}
+
+/* columns */
+.eea-list-columns {
+    padding: 0 1em 0 0;
+    float: left;
+}
+
+.eea-list-columns li {
+    display: list-item;
+}
+
+.eea-list-last-columns {
+    padding-right: 0;
+}
+
+.eea-three-columns {
+    width: 70%;
+    column-count: 3;
+}
+.eea-one-column {
+    width: 30%;
+}
+
+/*region-content overrides needed because of other styles */
+#region-content {
+    background-color: transparent;
+}
+#region-content .eea-list-columns {
+    list-style: none none;
+    margin-left: 0;
+}
+#region-content .eea-list-columns ul {
+    list-style: none outside none;
+}
+
+.countries-description,
+.regions-countries {
+    width: 42%;
+    float: left;
+}
+
+/* gray out of box background */
+.region:before {
+    position: absolute;
+    background-color: #f2f5f7;
+    content: " ";
+    margin: 0 -2%;
+    width: 101%;
+    height: 64%;
+    box-shadow: 0 2px 2px #cecece;
+    z-index: -1;
+    min-height: 410px;
+}
+
+/* regions image map */
+.regions-countries-map {
+    width: 58%;
+    position: relative;
+    min-height: 675px;
+    max-height: 675px;
+    display: flex;
+}
+
+.regions-header {
+    margin-top: 2em;
+    float: left;
+    min-width: 65px;
+}
+
+.collaborating-countries-header {
+    position: absolute;
+    margin-top: -57px;
+}
+
+
+@media screen and (max-width: 420px) {
+    .regions-countries-image {
+        max-width: 125% !important;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .regions-countries-map {
+        min-height: 100%;
+        max-height: 397px !important;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    .eea-one-column,
+    .eea-three-columns,
+    .eea-full-header {
+        width: 100%;
+    }
+    .region:before {
+        min-height: 650px;
+    }
+    .collaborating-countries-header {
+        position: relative;
+        margin-top: 1em;
+    }
+
+    .regions-header,
+    .collaborating-countries-header {
+        width: 100%;
+    }
+    .regions-header {
+        margin-top: 1em;
+    }
+
+    .clearfix > .visualClear {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 959px) {
+    .countries-description,
+    .regions-countries,
+    .regions-countries-map
+    {
+        width: 100%;
+    }
+    .regions-countries-map {
+        max-height: 475px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    #visual-portal-wrapper, #portal-header, #portal-globalnav {
+        max-width: 80% !important;
+    }
+    #content {
+        min-height: 600px;
+    }
+}

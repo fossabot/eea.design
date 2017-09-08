@@ -22,15 +22,13 @@
         </div>
 
         <div class="pull-right regions-countries-map clearfix">
-            <img  src="europe.png" class="image" />
-            <object type="image/svg+xml" data="europe.svg" class="svg-countries-map" style="display:none">
-            </object>
+            <img  src="countries_regions.png" class="regions-countries-image" />
         </div>
-        <div class="regions-countries pull-left clearfix">
+        <div class="regions-countries clearfix">
             <div class="region">
                 <div id="regions-countries">
                     <div class="clearfix">
-                        <h3 class="pull-left">EEA member countries</h3>
+                        <h3 class="pull-left eea-full-header">EEA member countries</h3>
                         <div class="visualClear">&nbsp;</div>
                         <ul class="eea-list-columns eea-three-columns">
                             <li>
@@ -234,7 +232,7 @@
                                     </a>
                                 </li>
                             </ul>
-                            <h3>Regions</h3>
+                            <h3 class="regions-header">Regions</h3>
                             <ul class="eea-list-columns eea-list-last-columns">
                                 <li>
                                     <a href="http://www.eea.europa.eu/countries-and-regions/arctic">
@@ -265,3 +263,4 @@
 </body>
 
 </html>
+
