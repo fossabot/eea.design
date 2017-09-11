@@ -3,6 +3,9 @@ Changelog
 
 17.6.dev0 - (unreleased)
 ------------------------
+* Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
+  available for eea.design
+  [ichim-david refs #87691]
 * Bug fix: remove empty featured datasets portlet from data-and-maps view
   [demarant refs #87862]
 * Bug fix: make interactive data portlet use display correct type
