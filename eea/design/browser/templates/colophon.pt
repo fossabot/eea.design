@@ -69,13 +69,13 @@
                         tal:attributes="href string:${portal_url}/login_form" 
                         title="CMS login"
                         i18n:attributes="title"><strong i18n:translate="">CMS login</strong></a>
-                    <a href="https://svn.eionet.europa.eu/repositories/Zope/trunk/www.eea.europa.eu/trunk/docs/" 
+                    <a href="https://github.com/eea/eea.docker.kgs/releases" 
                         title="Software updates history"
                         i18n:attributes="title"
                         i18n:translate="">Software updates history</a>
                     <a href="/code" 
                         tal:attributes="href string:${portal_state/portal_url}/code" 
-                        title="Software updates history"
+                        title="Code for developers"
                         i18n:attributes="title"
                         i18n:translate="">Code for developers</a>
                     <a href="@@invalidate_cache"
