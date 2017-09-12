@@ -3,6 +3,8 @@ Changelog
 
 17.7.dev0 - (unreleased)
 ------------------------
+* Change: Update link to release history in colophon.
+  [demarant]
 
 17.6 - (2017-09-11)
 -------------------
