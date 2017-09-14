@@ -1,116 +1,182 @@
 pipeline {
   agent any
+
+  environment {
+        GIT_NAME = "eea.design"
+    }
+
   stages {
     stage('Tests') {
       steps {
         parallel(
+
           "WWW": {
-            dir(path: '/var/jenkins_home/worker/workspace/www.eea.europa.eu-hudson/src/eea.design') {
-              sh '''
-git checkout master
-git pull
-../../bin/test -v -vv -s eea.design
-'''
+            node(label: 'docker-1.13') {
+              script {
+                try {
+                  sh '''docker run -i --net=host --name="$BUILD_TAG-www" -e GIT_NAME="$GIT_NAME" -e GIT_BRANCH="$BRANCH_NAME" eeacms/www-devel /debug.sh bin/test -v -vv -s $GIT_NAME'''
+                } finally {
+                  sh '''docker rm -v $BUILD_TAG-www'''
+                }
+              }
             }
-
-
           },
+
           "Plone4": {
-            node(label: 'standalone') {
-              git(url: 'https://github.com/eea/eea.design.git', changelog: true)
-              sh '''
-cd buildouts/plone4
-./install.sh
-bin/python bin/buildout
-bin/python bin/test -v -vv -s eea.design
-'''
-            }
-
-
-          },
-          "Docker: WWW": {
             node(label: 'docker-1.13') {
-              sh '''
-NAME="$BUILD_TAG-www"
-docker run -i --net=host --name=$NAME eeacms/www:devel bash -c 'bin/develop up && bin/test -v -vv -s eea.design'
-docker rm -v $NAME'''
+              script {
+                try {
+                  sh '''docker run -i --net=host --name="$BUILD_TAG-plone4" -v /plone/instance/parts -e GIT_BRANCH="$BRANCH_NAME" -e ADDONS="$GIT_NAME" -e DEVELOP="src/$GIT_NAME" eeacms/plone-test:4 -v -vv -s $GIT_NAME'''
+                } finally {
+                  sh '''docker rm -v $BUILD_TAG-plone4'''
+                }
+              }
             }
-
-
-          },
-          "Docker: Plone4": {
-            node(label: 'docker-1.13') {
-              sh '''
-NAME="$BUILD_TAG-plone4"
-docker run -i --net=host --name=$NAME -v /plone/instance/parts -e BUILDOUT_EGGS=eea.design -e BUILDOUT_DEVELOP=src/eea.design eeacms/plone-test bin/test -v -vv -s eea.design
-docker rm -v $NAME'''
-            }
-
-
           }
         )
       }
     }
+
     stage('Code Analysis') {
       steps {
         parallel(
-          "Tests Coverage": {
-            dir(path: '/var/jenkins_home/worker/workspace/www.eea.europa.eu-hudson/src/eea.design') {
-              sh '''
-../../bin/coverage run ../../bin/xmltestreport -v -vv -s eea.design
-../../bin/report xml --include=*eea/design*
-mkdir -p xmltestreport
-cp ../../parts/xmltestreport/testreports/*eea-design*.xml xmltestreport/
-'''
-            }
 
-
-          },
           "ZPT Lint": {
-            dir(path: '/var/jenkins_home/worker/workspace/www.eea.europa.eu-hudson/src/eea.design') {
-              sh '../../bin/zptlint-test'
+            node(label: 'docker-1.13') {
+              script {
+                try {
+                  sh '''docker run -i --net=host --name="$BUILD_TAG-zptlint" -e GIT_SRC="https://github.com/eea/$GIT_NAME.git --branch=$BRANCH_NAME" eeacms/zptlint'''
+                } finally {
+                  sh '''docker rm -v $BUILD_TAG-zptlint'''
+                }
+              }
             }
-
-
           },
+
+          "JS Lint": {
+            node(label: 'docker-1.13') {
+              script {
+                try {
+                  sh '''docker run -i --net=host --name="$BUILD_TAG-jslint" -e GIT_SRC="https://github.com/eea/$GIT_NAME.git --branch=$BRANCH_NAME" eeacms/jslint4java'''
+                } finally {
+                  sh '''docker rm -v $BUILD_TAG-jslint'''
+                }
+              }
+            }
+          },
+
           "PyFlakes": {
-            dir(path: '/var/jenkins_home/worker/workspace/www.eea.europa.eu-hudson/src/eea.design') {
-              sh '../../bin/pyflakes-test'
+            node(label: 'docker-1.13') {
+              script {
+                try {
+                  sh '''docker run -i --net=host --name="$BUILD_TAG-pyflakes" -e GIT_SRC="https://github.com/eea/$GIT_NAME.git --branch=$BRANCH_NAME" eeacms/pyflakes'''
+                } finally {
+                  sh '''docker rm -v $BUILD_TAG-pyflakes'''
+                }
+              }
             }
-
-
           },
-          "PyLint": {
-            dir(path: '/var/jenkins_home/worker/workspace/www.eea.europa.eu-hudson/src/eea.design') {
-              sh '../../bin/pylint-test'
-            }
 
-
-          },
-          "JSLint": {
-            dir(path: '/var/jenkins_home/worker/workspace/www.eea.europa.eu-hudson/src/eea.design') {
-              sh '../../bin/jslint-test eea'
-            }
-
-
-          },
           "i18n": {
-            dir(path: '/var/jenkins_home/worker/workspace/www.eea.europa.eu-hudson/src/eea.design') {
-              sh 'find . -name *.pt | xargs ../../bin/i18ndude find-untranslated -n | wc -l'
+            node(label: 'docker-1.13') {
+              script {
+                try {
+                  sh '''docker run -i --net=host --name=$BUILD_TAG-i18n -e GIT_SRC="https://github.com/eea/$GIT_NAME.git --branch=$BRANCH_NAME" eeacms/i18ndude'''
+                } finally {
+                  sh '''docker rm -v $BUILD_TAG-i18n'''
+                }
+              }
             }
-
-
           }
         )
       }
     }
-    stage('Report') {
-      steps {
-        dir(path: '/var/jenkins_home/worker/workspace/www.eea.europa.eu-hudson/src/eea.design') {
-          openTasks(excludePattern: '**/*.png, **/*.gif,  **/*.jpg, **/*.zip, **/*.ppt, **/*.jar,   **/*.stx, **/CHANGES.txt, **/HISTORY.txt, **/INSTALL.txt, **/*.rst, **/CHANGELOG.txt, **/ChangeLog')
-          junit(testResults: '**/xmltestreport/*.xml', healthScaleFactor: 1)
-        }
 
+    stage('Code Syntax') {
+      steps {
+        parallel(
+
+          "JS Hint": {
+            node(label: 'docker-1.13') {
+              script {
+                try {
+                  sh '''docker run -i --net=host --name="$BUILD_TAG-jshint" -e GIT_SRC="https://github.com/eea/$GIT_NAME.git --branch=$BRANCH_NAME" eeacms/jshint'''
+                } catch (err) {
+                  echo "Unstable: ${err}"
+                } finally {
+                  sh '''docker rm -v $BUILD_TAG-jshint'''
+                }
+              }
+            }
+          },
+
+          "CSS Lint": {
+            node(label: 'docker-1.13') {
+              script {
+                try {
+                  sh '''docker run -i --net=host --name="$BUILD_TAG-csslint" -e GIT_SRC="https://github.com/eea/$GIT_NAME.git --branch=$BRANCH_NAME" eeacms/csslint'''
+                } catch (err) {
+                  echo "Unstable: ${err}"
+                } finally {
+                  sh '''docker rm -v $BUILD_TAG-csslint'''
+                }
+              }
+            }
+          },
+
+          "PEP8": {
+            node(label: 'docker-1.13') {
+              script {
+                try {
+                  sh '''docker run -i --net=host --name="$BUILD_TAG-pep8" -e GIT_SRC="https://github.com/eea/$GIT_NAME.git --branch=$BRANCH_NAME" eeacms/pep8'''
+                } catch (err) {
+                  echo "Unstable: ${err}"
+                } finally {
+                  sh '''docker rm -v $BUILD_TAG-pep8'''
+                }
+              }
+            }
+          },
+
+          "PyLint": {
+            node(label: 'docker-1.13') {
+              script {
+                try {
+                  sh '''docker run -i --net=host --name="$BUILD_TAG-pylint" -e GIT_SRC="https://github.com/eea/$GIT_NAME.git --branch=$BRANCH_NAME" eeacms/pylint'''
+                } catch (err) {
+                  echo "Unstable: ${err}"
+                } finally {
+                  sh '''docker rm -v $BUILD_TAG-pylint'''
+                }
+              }
+            }
+          }
+
+        )
+      }
+    }
+
+  }
+
+  post {
+    changed {
+      script {
+        def url = "${env.BUILD_URL}/display/redirect"
+        def status = currentBuild.currentResult
+        def subject = "${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+        def summary = "${subject} (${url})"
+        def details = """<h1>${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - ${status}</h1>
+                         <p>Check console output at <a href="${url}">${env.JOB_BASE_NAME} - #${env.BUILD_NUMBER}</a></p>
+                      """
+
+        def color = '#FFFF00'
+        if (status == 'SUCCESS') {
+          color = '#00FF00'
+        } else if (status == 'FAILURE') {
+          color = '#FF0000'
+        }
+        slackSend (color: color, message: summary)
+        emailext (subject: '$DEFAULT_SUBJECT', to: '$DEFAULT_RECIPIENTS', body: details)
       }
     }
   }
