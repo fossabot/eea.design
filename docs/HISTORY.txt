@@ -1,8 +1,8 @@
 Changelog
 =========
 
-17.7.dev0 - (unreleased)
-------------------------
+17.7 - (2017-09-15)
+-------------------
 * Feature: Added expired.png watermark image
   [petchesi-iulian refs #87529]
 * Change: Update link to release history in colophon.
