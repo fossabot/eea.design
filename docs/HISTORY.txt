@@ -7,6 +7,8 @@ Changelog
   [petchesi-iulian refs #87529]
 * Change: Update link to release history in colophon.
   [demarant]
+* Feature: added countries_regions_section page
+  [ichim-david and aleghica refs #88122]
 
 17.6 - (2017-09-11)
 -------------------

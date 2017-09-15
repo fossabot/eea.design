@@ -21,9 +21,11 @@
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium commodi consequatur ea id maiores ullam veritatis. Ab blanditiis, deleniti eum inventore nemo nesciunt perspiciatis provident rem, sapiente sit tempore, veniam!</p>
         </div>
 
-        <div class="pull-right regions-countries-map clearfix">
-            <img  src="countries_regions.png" class="regions-countries-image" />
+         <div class="pull-right regions-countries-map clearfix" style="min-height: 604px;">
+            <object type="image/svg+xml" data="Map.svg" class="svg-countries-map"  style="width:100%">
+            </object>
         </div>
+
         <div class="regions-countries clearfix">
             <div class="region">
                 <div id="regions-countries">
