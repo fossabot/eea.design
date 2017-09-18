@@ -16,9 +16,9 @@
     <div class="gcse-search">&nbsp;</div>
     <div class="eea-search-links">
         <a id="search_advanced_link" href="http://search.apps.eea.europa.eu"
-           class="pull-left" i18n:translate="">
+           class="pull-left">
             <span i18n:translate="">Search the catalogue</span>
-            <img src="" alt="New item" tal:attributes="src string:${local_site}/new_item.png">
+            <img src="" alt="New item" tal:attributes="src string:${local_site}/new_item.png" i18n:attributes="alt" />
         </a>
         <a id="search_glossary_link" class="pull-right" href="http://glossary.eea.europa.eu/"
                  i18n:translate=""

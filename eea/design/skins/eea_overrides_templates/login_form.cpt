@@ -80,10 +80,10 @@
                 <p i18n:translate="">The EEA Web CMS works best with following browsers:</p>
                 <div id="cms-browsers-links">
                     <ul>
-                        <li id="cms-chrome">
+                        <li id="cms-chrome" i18n:translate="">
                             Google Chrome (recommended)
                         </li>
-                        <li id="cms-firefox">
+                        <li id="cms-firefox" i18n:translate="">
                             Firefox
                         </li>
                     </ul>

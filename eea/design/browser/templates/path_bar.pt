@@ -15,8 +15,7 @@
             i18n:translate="you_are_here">You are here:</span>
     <ol aria-labelledby="breadcrumbs-you-are-here">
       <li id="breadcrumbs-home">
-        <a tal:attributes="href view/navigation_root_url"
-           title="Home">
+        <a tal:attributes="href view/navigation_root_url" title="Home" i18n:attributes="title">
             <i class="eea-icon eea-icon-home"></i>
         </a>
       </li>

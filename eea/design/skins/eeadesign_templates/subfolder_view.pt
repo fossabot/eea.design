@@ -18,7 +18,7 @@
                     <h2><a tal:content="python:'%s (%i)' % (child['title'], child['nitems'])" tal:attributes="href child/listing_url"></a></h2>
                     <p class="subfolder-description" tal:condition="child/description" tal:content="child/description"></p>
                     <div class="subfolder-contents" tal:define="subFolderContents child/contents">
-                        <p tal:condition="not:child/nitems">No items to display.</p>
+                        <p tal:condition="not:child/nitems" i18n:translate="">No items to display.</p>
                         <div class="photoAlbumEntry"
                              tal:attributes="class python:item['portal_type'] == 'EyewitnessStory' and 'photoAlbumEntry photoAlbumFolder' or 'photoAlbumEntry'"
                              tal:repeat="item subFolderContents">

@@ -19,12 +19,13 @@
     <h1 class="documentFirstHeading"
         i18n:translate="heading_contact_form">Contact EEA Web Team</h1>
 
-    <div class="documentDescription">Send comments, issues, ideas for the EEA website</div>
-    <p><a title="Visit the EEA Forum" href="http://community.eea.europa.eu">Post your question/idea to the EEA Forum</a>. Use the category "Technical Topics".
+    <div class="documentDescription" i18n:translate="">Send comments, issues, ideas for the EEA website</div>
+    <p><a title="Visit the EEA Forum" href="http://community.eea.europa.eu" i18n:attributes="title" i18n:translate="">Post your question/idea to the EEA Forum</a>.
+      <tal:block i18n:translate=""> Use the category "Technical Topics"</tal:block>.
     </p>
-    <p>We will do our best to reply as soon as possible.<br><br>Kind regards<br>EEA Web Team</p>
+    <p i18n:translate="">We will do our best to reply as soon as possible.<br><br>Kind regards<br>EEA Web Team</p>
     <br><br>
-    <p class="discreet">For questions not related to the website you may also add your question to the relevant section under <a href="http://community.eea.europa.eu">EEA Forum</a></p>
+    <p class="discreet" i18n:translate="">For questions not related to the website you may also add your question to the relevant section under <a href="http://community.eea.europa.eu" i18n:name="link">EEA Forum</a></p>
 </metal:main>
 </body>
 </html>

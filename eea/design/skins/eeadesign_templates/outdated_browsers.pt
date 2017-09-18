@@ -32,7 +32,7 @@
 
     <tal:comment replace="nothing">
         You can use a condition for a specific role for displaying certain browsers images or messages
-        ex: <h2 tal:condition="python:'ContentEditor' in roles"> Message for content editors</h2>
+        ex: <h2 tal:condition="python:'ContentEditor' in roles" i18n:translate=""> Message for content editors</h2>
     </tal:comment>
 
     <tal:template_defines define="enabled_browsers_macro python:True;">
