@@ -13,7 +13,7 @@
 <div metal:fill-slot="main" class="collaborating-countries">
     <metal:main-macro define-macro="main">
         <metal:title fill-slot="content-title">
-            <h1 class="documentFirstHeading">Countries and regions</h1>
+            <h1 class="documentFirstHeading" i18n:translate="">Countries and regions</h1>
         </metal:title>
         <div class="countries-description">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium atque molestiae officia similique tenetur.</p>
