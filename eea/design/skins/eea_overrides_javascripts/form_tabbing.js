@@ -70,7 +70,7 @@ var ploneFormTabbing = {
             tabs.change(function(){
                 var selected = $(this).attr('value');
                 $(this).parent().find('option#'+selected).click();
-            })
+            });
         } else {
             tabs = $('<ul class="formTabs">'+tabs+'</ul>');
         }
@@ -113,7 +113,7 @@ var ploneFormTabbing = {
         var count = 0;
         var found = false;
         $(this).find('.formPanel').each(function() {
-            if (!found && $(this).find('div.field.error').length!=0) {
+            if (!found && $(this).find('div.field.error').length!==0) {
                 initialIndex = count;
                 found = true;
             }

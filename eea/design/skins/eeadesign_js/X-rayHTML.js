@@ -1,4 +1,4 @@
-
+/* jslint:disable */
 /*
 * View Source
 * Generates copy/pastable markup from actual rendered markup.

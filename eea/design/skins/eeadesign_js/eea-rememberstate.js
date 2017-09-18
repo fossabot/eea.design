@@ -142,7 +142,7 @@ jQuery(document).ready(function($) {
                                                 if (name === "subject_keywords:lines" || name === "temporalCoverage:lines") {
                                                     (function(){
                                                         $el.tokenInput("clear");
-                                                        var data_value = data['value'];
+                                                        var data_value = data.value;
                                                         var values = data_value.split('\r');
                                                         var i, length, value;
 

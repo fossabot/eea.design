@@ -1,3 +1,4 @@
+/*global $ jQuery window document */
 if(window.EEA === undefined){
     var EEA = {
         who: 'eea.miniheader',

@@ -140,11 +140,11 @@ jQuery(document).ready(function($) {
                         var src = el.src;
                         if (src.indexOf('embed-chart') !== -1) {
                             $(el).contents().find('html').addClass('portaltype-fiche section-airs');
-                            var correctHeight = $(el).contents().find('.googlechart_dashboard').css('height').replace('px', '');;
+                            var correctHeight = $(el).contents().find('.googlechart_dashboard').css('height').replace('px', '');
                             $(el).attr("height", correctHeight);
                             $(el).attr("width", "100%");
                         }
-                    })
+                    });
                 });
             }
 

@@ -1,4 +1,5 @@
-/* global jQuery, window, _, document */
+/* jslint:disable */
+/*global jQuery, window, _, document */
 
 /* EXTERNAL DEPENDENCIES eea-accordion.js
  * responsive design transforms done to tabs and global header

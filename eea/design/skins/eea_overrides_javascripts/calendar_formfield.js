@@ -1,4 +1,4 @@
-
+/* jslint:disable */
 /* - calendar_formfield.js - */
 /* jscalendar glue
  *
@@ -45,7 +45,7 @@ plone.jscalendar = {
 
     // Attach event handlers on load
     init: function() {
-    	// $('.plone_jscalendar > input:hidden') was very low under ie8-
+        // $('.plone_jscalendar > input:hidden') was very low under ie8-
         $('.plone_jscalendar').find('input:hidden').each(function() {
             var selector = '#' + this.id.split('|').join("\\\|");
             $.each(plone.jscalendar._fields(selector), function() {

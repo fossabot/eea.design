@@ -1,3 +1,4 @@
+/*global $ jQuery window document */
 /* This JS integrates the jQuery Tools Tooltips with the EEA site.
  * aka ++resource++plone.app.jquerytools.tooltip.js */
 /*

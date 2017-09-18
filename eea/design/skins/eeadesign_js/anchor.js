@@ -1,3 +1,4 @@
+/* jslint:disable */
 /*global window anchors document ga setTimeout*/
 /**
  * AnchorJS - v2.0.0 - 2015-10-31

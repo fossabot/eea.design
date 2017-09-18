@@ -10,7 +10,7 @@ jQuery(function($) {
     }
 });
 
-if (typeof(eea) === 'undefined') {
+if(window.eea === undefined){
     var eea = {};
 }
 
