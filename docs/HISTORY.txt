@@ -3,7 +3,7 @@ Changelog
 
 17.8.dev0 - (unreleased)
 ------------------------
-* Bug fix: patch calendar_formfiled.js in order to escape the '|' character
+* Bug fix: patch calendar_formfield.js in order to escape the '|' character
   on form submit for the calendar widget
   [petchesi-iulian refs #87706]
 
