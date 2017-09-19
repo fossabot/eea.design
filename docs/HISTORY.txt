@@ -3,6 +3,8 @@ Changelog
 
 17.8.dev0 - (unreleased)
 ------------------------
+* Change: renamed countries_regions_sections template to car-index as requested
+  [ichim-david refs #88150]
 * Bug fix: patch calendar_formfield.js in order to escape the '|' character
   on form submit for the calendar widget
   [petchesi-iulian refs #87706]

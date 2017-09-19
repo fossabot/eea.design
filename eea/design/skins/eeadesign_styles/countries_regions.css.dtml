@@ -1,17 +1,20 @@
 /* 87691 countries regions styles */
 
 /* body gradient */
-.template-countries_regions_sections {
+.template-car-index {
     background: #eef3f6 linear-gradient(180deg, #eef3f6 2%, #ffffff 50%);
 }
 
 #portal-columns {
     min-width: 100%;
 }
-#edit-bar {
-    display: none;
+#content {
+    background-image: none;
 }
 
+#viewlet-below-content {
+    display: none;
+}
 /* columns */
 .eea-list-columns {
     padding: 0 1em 0 0;
@@ -146,3 +149,4 @@
         min-height: 600px;
     }
 }
+
