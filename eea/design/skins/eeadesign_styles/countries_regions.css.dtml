@@ -12,6 +12,11 @@
     background-image: none;
 }
 
+#portal-breadcrumbs.plone-breadcrumb .container {
+    max-width: 100%;
+    width: 80%;
+}
+
 #viewlet-below-content {
     display: none;
 }
