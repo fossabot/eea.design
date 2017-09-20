@@ -13,13 +13,13 @@
 <div metal:fill-slot="main" class="collaborating-countries">
     <metal:main-macro define-macro="main">
         <metal:title fill-slot="content-title">
-            <h1 class="documentFirstHeading" i18n:translate="">Countries and regions</h1>
+            <h1 class="documentFirstHeading">Countries and regions</h1>
         </metal:title>
-        <div class="countries-description">
+        <!--div class="countries-description">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium atque molestiae officia similique tenetur.</p>
             <p>Accusamus atque dolorum ducimus eaque et, hic ipsum minima modi molestiae necessitatibus nisi placeat quia veritatis.
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium commodi consequatur ea id maiores ullam veritatis. Ab blanditiis, deleniti eum inventore nemo nesciunt perspiciatis provident rem, sapiente sit tempore, veniam!</p>
-        </div>
+        </div-->
 
          <div class="pull-right regions-countries-map clearfix" style="min-height: 604px;">
             <object type="image/svg+xml" data="Map.svg" class="svg-countries-map"  style="width:100%">
@@ -255,7 +255,7 @@
                         </div>
 
                     </div>
-                    <div class="pull-left"><p class="discreet">*under the UN SCR 1244/99</p>
+                    <div class="pull-left" style="margin-top:1em;"><p class="discreet">*under the UN SCR 1244/99</p>
                     </div>
                 </div>
             </div>
@@ -265,4 +265,3 @@
 </body>
 
 </html>
-
