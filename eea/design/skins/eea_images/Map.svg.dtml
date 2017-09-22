@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 20.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 200 1033.3 735.3" style="enable-background:new 0 0 1033.3 735.3;" xml:space="preserve">
+	 viewBox="0 0 1033.3 735.3" style="enable-background:new 0 0 1033.3 735.3;" xml:space="preserve">
 <style type="text/css">
 	.st0{opacity:0.35;}
 	.st1{fill:#1B9290;stroke:#FDFDFD;}
@@ -46,6 +46,15 @@
     .fil6 {fill:#C0C1C5;fill-rule:nonzero}
     .fil2 {fill:#D1D2D5;fill-rule:nonzero}
     .fillHover { fill: rgb(107, 142, 247) !important;}
+    #cy:hover {
+      fill: rgb(107, 142, 247) !important;
+      cursor: pointer;
+    }
+    .zoom_outline {
+    fill: none;
+    stroke: #AAAAAA;
+    stroke-width: 0.75;
+    }
 
 </style>
 <script  type="text/javascript">
@@ -57,10 +66,53 @@
   var vanillaHex = '#009290';
   var filledRGB = 'rgb(107, 142, 247)';
   var filledHex = '#0000ff';
-
+  var countries = {
+    'at' : 'austria',
+    'be' : 'belgium',
+    'bg' : 'bulgaria',
+    'hr' : 'croatia',
+    'cy' : 'cyprus',
+    'cz' : 'czech-republic',
+    'dk' : 'denmark',
+    'ee' : 'estonia',
+    'fi' : 'finland',
+    'fr' : 'france',
+    'de' : 'germany',
+    'el' : 'greece',
+    'hu' : 'hungary',
+    'is' : 'iceland',
+    'ie' : 'ireland',
+    'it' : 'italy',
+    'lv' : 'latvia',
+    'li' : 'liechtenstein',
+    'lt' : 'lithuania',
+    'lu' : 'luxembourg',
+    'mt' : 'malta',
+    'no' : 'norway',
+    'pl' : 'poland',
+    'pt' : 'portugal',
+    'ro' : 'romania',
+    'rs' : 'serbia',
+    'sk' : 'slovakia',
+    'si' : 'slovenia',
+    'es' : 'spain',
+    'se' : 'sweden',
+    'ch' : 'switzerland',
+    'nl' : 'the-netherlands',
+    'tr' : 'turkey',
+    'gb' : 'united-kingdom',
+    'al' : 'albania',
+    'ba' : 'bosnia-and-herzegovina',
+    'kv' : 'kosovo',
+    'mk' : 'the-former-yugoslav-republic-of-macedonia',
+    'me' : 'montenegro',
+  }
+/*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js*/
+;if("document" in self&&!("classList" in document.createElement("_"))){(function(j){"use strict";if(!("Element" in j)){return}var a="classList",f="prototype",m=j.Element[f],b=Object,k=String[f].trim||function(){return this.replace(/^\s+|\s+$/g,"")},c=Array[f].indexOf||function(q){var p=0,o=this.length;for(;p<o;p++){if(p in this&&this[p]===q){return p}}return -1},n=function(o,p){this.name=o;this.code=DOMException[o];this.message=p},g=function(p,o){if(o===""){throw new n("SYNTAX_ERR","An invalid or illegal string was specified")}if(/\s/.test(o)){throw new n("INVALID_CHARACTER_ERR","String contains an invalid character")}return c.call(p,o)},d=function(s){var r=k.call(s.getAttribute("class")||""),q=r?r.split(/\s+/):[],p=0,o=q.length;for(;p<o;p++){this.push(q[p])}this._updateClassName=function(){s.setAttribute("class",this.toString())}},e=d[f]=[],i=function(){return new d(this)};n[f]=Error[f];e.item=function(o){return this[o]||null};e.contains=function(o){o+="";return g(this,o)!==-1};e.add=function(){var s=arguments,r=0,p=s.length,q,o=false;do{q=s[r]+"";if(g(this,q)===-1){this.push(q);o=true}}while(++r<p);if(o){this._updateClassName()}};e.remove=function(){var t=arguments,s=0,p=t.length,r,o=false;do{r=t[s]+"";var q=g(this,r);if(q!==-1){this.splice(q,1);o=true}}while(++s<p);if(o){this._updateClassName()}};e.toggle=function(p,q){p+="";var o=this.contains(p),r=o?q!==true&&"remove":q!==false&&"add";if(r){this[r](p)}return !o};e.toString=function(){return this.join(" ")};if(b.defineProperty){var l={get:i,enumerable:true,configurable:true};try{b.defineProperty(m,a,l)}catch(h){if(h.number===-2146823252){l.enumerable=false;b.defineProperty(m,a,l)}}}else{if(b[f].__defineGetter__){m.__defineGetter__(a,i)}}}(self))};
 
 function switchColor(ev) {
-    var obj = ev.path[0];
+
+    var obj = ev.target;
     var cid = obj.id.substring(0,2);
     var country;
     for (var i = 0; i < path.length; i++) {
@@ -77,8 +129,10 @@ function switchColor(ev) {
 }
 
 function goToPage(c) {
-    var cid = c.path[0].id.substring(0,2);
-    top.location.href = "http://car.apps.eea.europa.eu/" + cid;
+    var cid = c.target.id.substring(0,2);
+      // window.open("https://www.eea.europa.eu/countries-and-regions/" + countries[cid], "_blank")
+      top.location.href = "https://www.eea.europa.eu/countries-and-regions/" + countries[cid];
+
 }
 
 
@@ -97,6 +151,11 @@ function goToPage(c) {
         path[i].addEventListener("onmouseout", switchColor, false);
       }
     }
+    var cy = document.getElementById('cy')
+        cy.addEventListener("mouseover", switchColor, false);
+        cy.addEventListener("click", goToPage, false);
+        cy.addEventListener("mouseout", switchColor, false);
+
   }
 
 window.onload=initialise;
@@ -104,7 +163,7 @@ window.onload=initialise;
 		]]>
 </script>
 <g class="st0">
-
+	
 		<image style="overflow:visible;" width="1035" height="638" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAsAAAJ+CAYAAADVBYn/AAAACXBIWXMAAAsSAAALEgHS3X78AAAA
 GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAEkqFJREFUeNrsnX1uJMex7TMyq7rZ
 Q3H0YFmAIQwGwoX1j+8mvInZz92PNuFNXP8j40IQBL+LJ0uQRFEkuyozXp6IzKqs7mqyOR+ypIlj
@@ -5369,8 +5428,12 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 </g>
 <g id="Layer_1_copy_2_1_">
 	<g>
-		<path class="st1" d="M651.8,292.5v0.5l-2-0.2v-0.5l0.8-0.2L651.8,292.5z M638.9,290.6l-1.5,0.5l-0.5-0.5l0.5-0.7h1L638.9,290.6z
-			 M643.3,288.5l1.5-0.2l2.4,1.4l-1,0.9l-1.5-0.2l-2,0.7v0.7l-2.4,0.2l-0.7-0.2l-0.9-1.9l2-1.2v-0.5l1-0.7L643.3,288.5z"/>
+		<path class="st1" id="fi" d="M651.8,292.5v0.5l-2-0.2v-0.5l0.8-0.2L651.8,292.5z M638.9,290.6l-1.5,0.5l-0.5-0.5l0.5-0.7h1L638.9,290.6z
+			 M643.3,288.5l1.5-0.2l2.4,1.4l-1,0.9l-1.5-0.2l-2,0.7v0.7l-2.4,0.2l-0.7-0.2l-0.9-1.9l2-1.2v-0.5l1-0.7L643.3,288.5z">
+        <title>
+          Finland
+        </title>   
+       </path>
 		<path class="st1" d="M393.3,528l1-0.2h1l1.5,0.1v0.7l-0.3,0.5l-2.6,0.9l-0.1-0.2v-0.7l-0.7-0.3L393.3,528z"/>
 		<path id="at" class="st1" d="M604.9,455l-0.8,1.4l-0.3,0.2v1.6l0.3,0.7l-1.5,0.2l-1.5-0.2l-1.5,0.2l-1.2-0.9l-1.7,1.2v0.2
 			l2.1,0.7l0.1,0.9l-0.7,1.2l-3,0.9l0.4,1.6l0.2,1.1l-0.2,1.7h2.1v-0.2l-1.8,0.9l-1.4-0.2l-1.7,0.5l-2.4,1.4l-1.9,0.9v1.4l-0.2,0.2
@@ -5390,7 +5453,7 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 			l-0.5-0.1l-1.9-0.1h-0.6V430l-1.2-1.6l0.9-2.3l-0.5-0.2l-1.5,0.7l-1,1.4l-1.5,0.5l-2.4,0.2l-1.4-0.2l0.6-0.2v-0.7v-0.2v-0.7
 			l-1.3-0.5l0.1-1.4l-2.1-0.9h-1.2h-2.9h-1l-0.5-2.2l-1.9-0.8h-2.4l0.2-0.8v-0.9l-2.5-1.6l-3.7,0.9l-2.6-1.4l-1.1-0.9v-1.4v-0.9
 			v-0.5l5.4-2.3l5.1-1.6l0.9,1.9l1.8-0.4h1.5l1.9,1h1l1.9-0.6l1.9-1l0.5-1l1.9,0.5l0.5-0.9l1.5-0.2l1,1.2h1l1.5-1.4l1,0.6l0.5,0.8h1
-			l1.5-1.3l1,1.4l1.5,0.8l1.5,0.2l2.4-0.3l1.5,1.2l1.6,0.2l0.6,0.7v0.5l-1.7,2.1l-1.3,0.9v0.7l1.1,0.5l2.3-0.5l1.1,0.7L454.4,418z
+			l1.5-1.3l1,1.4l1.5,0.8l1.5,0.2l2.4-0.3l1.5,1.2l1.6,0.2l0.6,0.7v0.5l-1.7,2.1l-1.3,0.9v0.7l1.1,0.5l2.3-0.5l1.1,0.7L454.4,418z		
 			">
 <title>Belgium</title>
 		</path>
@@ -5421,10 +5484,12 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 			l1.5,0.4l0.5-0.4h1.3l0,0h-1.3l-1-0.5l0.5-0.9l1-0.6h1.5h1.5h1.5l1,1.3h4.1l5,2.1l0.8,1.1v1L502.8,464.2z		">
 <title>Switzerland</title>
 		</path>
-		<polygon class="st1" points="829.8,628.4 829.8,627.5 830.9,626.3 838.1,622.3 837.7,621.9 834.9,622.8 833,623.7 826.7,625
-			824.8,624.8 822.9,624.8 820.3,625 817.8,624.9 817.8,626.5 816.9,627.7 815.5,628.2 815.1,627.9 814.1,627.7 812.7,628.2
-			811.7,629.1 810.7,629.6 809.3,629.1 809.8,630.7 810.7,633.3 812.2,634.3 814.6,635 817,634.7 817.9,635.9 818.8,636.1
-			818.8,635.2 819.3,634.5 822.8,634 824.3,633.6 825.8,632.9 828.2,630.5 829.7,630.7 833.1,630.3 831.4,629.3 		"/>
+		<polygon class="st1" id="cy" points="829.8,628.4 829.8,627.5 830.9,626.3 838.1,622.3 837.7,621.9 834.9,622.8 833,623.7 826.7,625 
+			824.8,624.8 822.9,624.8 820.3,625 817.8,624.9 817.8,626.5 816.9,627.7 815.5,628.2 815.1,627.9 814.1,627.7 812.7,628.2 
+			811.7,629.1 810.7,629.6 809.3,629.1 809.8,630.7 810.7,633.3 812.2,634.3 814.6,635 817,634.7 817.9,635.9 818.8,636.1 
+			818.8,635.2 819.3,634.5 822.8,634 824.3,633.6 825.8,632.9 828.2,630.5 829.7,630.7 833.1,630.3 831.4,629.3 		">
+     <title>Cyprus</title>   
+      </polygon>
 		<path id="cz" class="st1" d="M627.7,433.9l-1-0.1h-2l-3,1.8l-0.5,0.9l-3,1.3l-0.5,1v1l-0.5,0.7l-2,0.7l-0.5,0.5l-2,1.2
 			l-1.5,0.5l-2,0.2l-3-0.2l-1.5-0.2l-1.5,1.2l-1.5,2.4l-0.5-0.2l-0.5-1.2l-2.5-0.2l-1.5-0.7l-1.5-0.2l-1.5,0.7h-4.5l-3-2h-2
 			l-1.5-0.1l-2.5-0.9l-2-0.2l-1,0.3l-0.5-0.2l-2.5-0.5l-0.5,2.4l-0.5,1l-1.3-0.2l-2.3,1.4v1h-1.3h-1.5l-1,1h-2.5l-2-0.8l-0.5-1.4
@@ -5552,10 +5617,12 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 			l-0.8,2.3l1.1,1.6v1.7h0.6h1.9l0.5,0.5l1.5,0.5h0.5v-0.1l1.2,0.5l2.1,1.3l3-0.6h1.4V433.8z		">
 <title>France</title>
 		</path>
-		<path class="st1" d="M282.8,273.8l-0.6-0.2l-1.3-1.2l-0.4-0.9l1.6,0.5l0.6,1.2L282.8,273.8L282.8,273.8z M284.5,268.9l0.3,0.5
+		<path class="st1" id="dk" d="M282.8,273.8l-0.6-0.2l-1.3-1.2l-0.4-0.9l1.6,0.5l0.6,1.2L282.8,273.8L282.8,273.8z M284.5,268.9l0.3,0.5
 			l-2.1-1.2v-0.7l2.1,0.7L284.5,268.9z M276.8,264.4l1.9,0.8l-1,0.6h-1.9l-1.5-0.6l-0.5-0.8l2.4-0.3L276.8,264.4z M284.5,263
 			l-0.5,1.9l-2.4-0.5l1.9,2.3l-1.5-0.2l-2.9-1.6l-1.9-2.6l2.9-0.5l1.9,0.7L284.5,263z M287.5,262.8l-0.5,0.9l-1.5-0.2l1-1.2
-			L287.5,262.8z"/>
+			L287.5,262.8z">
+        <title>Denmark</title>
+      </path>
 		<path id="gb" class="st1" d="M359.3,418.7l-1,0.5l-0.5,0.7l-1.3,0.2l-2.8-1.2v-0.5l1.8-0.2l0.9-0.7l1.9,0.5L359.3,418.7z
 			 M317.1,383.1l1.9,1l-1.9,0.5l-1.9,1.2l-1.5-0.5l-1-1.2l-0.5-1.7l1.5-0.5h1.9L317.1,383.1z M289.9,371.8h-1l-1.5,1h-2.7v-1.2
 			l-2-0.5l-1-1.2v-0.5l-2.6,0.3h-0.5l-1.9,0.8l0.2,0.6l-2.2,0.6v0.5l-1.2-0.2l-1.8,0.2l-1.4-0.7l-2.4-0.5l-0.5-0.9l-2.9-1.6
@@ -5627,7 +5694,9 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 			l1.3,0.8v0.5l0.7,1l1.8,0.7l0.9,0.3l1.4-0.1h1.5l0.6,2.2v1.3H681.8z		">
 <title>Hungary</title>
 		</path>
-		<path class="st3" d="M314.1,371.6l-2.4,1.6l-1.9-0.7l0.5-1.6l1.5-0.5l1.5-1.4l1-0.5l0.5,0.2l1,1.6l-1,0.5L314.1,371.6z"/>
+		<path class="st3" id="gb" d="M314.1,371.6l-2.4,1.6l-1.9-0.7l0.5-1.6l1.5-0.5l1.5-1.4l1-0.5l0.5,0.2l1,1.6l-1,0.5L314.1,371.6z">
+      <title>United Kingdom</title>  
+    </path>
 		<path id="ie" class="st1" d="M239.9,374.8h-1l-0.5-0.3l-2.9-0.2l1-1.2l0.5-0.3h1.9L239.9,374.8z M276.8,359.2l-2.4,0.9
 			l-0.5,0.5l-0.5,1.6l-0.5,0.7l-1.5,0.7l-1.9,0.2h-1.9l-0.5,0.7l2.4,1.1l-0.5,0.5l-4.9,1.4l0.5,1l2.9,1.6l0.5,0.9l2.4,0.5l1.5,0.7
 			l1.7-0.2l1.2,0.2v-0.5l2.2-0.9l-0.3-0.3l2.1-0.8h0.5l2.6-0.3v0.5l1,1.2l2,0.5v1.2h2.7l1.5-1h1l0.1,1.4l-3.3,0.9v1.4l1.8,0.7
@@ -5692,8 +5761,14 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 			h1l0.5-0.7l-1-0.5L540.5,509.4z		">
 <title>Italy</title>
 		</path>
-		<path class="st1" d="M346.8,438.3v0.5h-3v-1L346.8,438.3z"/>
-		<path class="st1" d="M501.8,464.8v1.2l1,0.7v0.7l0.2,1.5h-1l-0.3-1.7v-0.9L501.8,464.8L501.8,464.8z"/>
+		<path class="st1" id="gb" d="M346.8,438.3v0.5h-3v-1L346.8,438.3z"/>
+	<!-- 	<path class="st1" id="lts" d="M501.8,464.8v1.2l1,0.7v0.7l0.2,1.5h-1l-0.3-1.7v-0.9L501.8,464.8L501.8,464.8z">
+    <title>Liechtenstein</title>  
+    </path -->>
+    <path id="li" class="st1" d="M500.7,457.8v4.4l3.6,2.6v2.6l0.7,5.5h-3.6l-1.1-6.2v-3.3L500.7,457.8L500.7,457.8z">
+     <title>Liechtenstein</title>
+    </path>
+    <circle class="st4 zoom_outline" cx="502.9" cy="466.3" r="10.4"/>
 		<path id="lt" class="st1" d="M655.9,356.3l-1-0.2l2-0.8l0.5-0.5h0.5l-1,1.2L655.9,356.3z M735.8,350.8v0.7l-1.7,2.4l-1.4,1
 			l0.3,0.7l2.4,0.2l1.5,0.5l-0.5,0.5l-1.5,0.3l-0.5,0.8h-4.5l-1.5,2.1l-1,0.6l-3.5,0.5l-0.5,1.2l-0.5,1.7v1.2v1l-0.3,0.5l-0.8,2.2
 			v0.7l1.5,0.7v1.1l-2,0.4h-1.5l-1-0.4l0.5-0.4l-1-0.8l-1,0.6h-1.5l-1.5,0.3l-1.5,1.1l-2.5-0.3l-0.5,0.5l-0.5,1.7l-0.5,0.7h-2
@@ -5717,7 +5792,10 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 <title>Latvia</title>
 		</path>
 		<path class="st3" d="M474.3,512.3l-1,0.2V512L474.3,512.3z"/>
-		<path class="st1" d="M570.4,618.8l-0.5,0.5l-1.3-0.2l-0.9-0.5V617l2.3,1.4L570.4,618.8z"/>
+    <path id="mt" class="st1" d="M573.5,618.4l-1,1l-2.7-0.4l-1.9-1v-3.3l4.8,2.9L573.5,618.4z  ">
+      <title>Malta</title>
+    </path>
+    <circle class="st4 zoom_outline" cx="570.2" cy="616.7" r="5.5"/>
 		<path id="me" class="st2" d="M648.8,524.7l-3,0.5v1.7h-1.5l-0.5-0.4l1,1.1l-0.5,0.7l-2.4,0.5h-1h-2.1v-1.6l0.1-0.2l-1.2,1.2
 			l-0.3,0.9l-2.8,3.3l-0.6,1.2l0.9,1.4v0.9v0.9v0.7l-2.1-0.9l-1-1.6l-2.9-2.6l-3.9-1.9l0.5-0.7l-2.3,0.2l-1.3-1.4v-0.5l2-0.7v-0.7
 			v-1.4v-0.9l-0.9-1.6l1.2-0.7l1.7-0.2v-1.6l0.5-1.4l2-2.1h1l0.5,1.4h0.5l0.5-0.8l-1.5-1.8l0.5-0.4l2.5,0.2l1.6-0.2v0.7l-0.1,0.5
@@ -5960,9 +6038,11 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 			l1.5,1.5l0.5,1.2l2.4,1l1,0.7l0.5,0.7l0.5,2.1l0.3,1.2L650.6,537.6z		">
 <title>Albania</title>
 		</path>
-		<path class="st2" d="M651,537.6l0.5-0.7l-0.5-1.2l-0.5-2.1l-0.5-0.7l-1-0.7l-2.4-0.9l-0.5-1.2l-1.5-1.4l-0.5-0.2l0.5-1.2l-1-0.8
+		<path class="st2" id="kv" d="M651,537.6l0.5-0.7l-0.5-1.2l-0.5-2.1l-0.5-0.7l-1-0.7l-2.4-0.9l-0.5-1.2l-1.5-1.4l-0.5-0.2l0.5-1.2l-1-0.8
 			l0.5,0.4h1.5v-1.7l2.2-0.5l2-0.5l-0.4-0.9l2.5-1.4l0.5-0.9l-1-0.9l2.4-1.2h0.8v0.7l0.3,0.5l1.4,0.7l2.4,0.9l1.2,1.9l1.7,1.2v0.9
-			l6,1.2v0.9l-2,2.3v0.5v0.5v0.9l-0.3,0.5l-2.6,0.5l-1.1,0.5v0.7l-1.2,0.5l-1.6-1.2l-4.8,1.4l-0.4,0.9v1.9l-0.6,0.2L651,537.6z"/>
+			l6,1.2v0.9l-2,2.3v0.5v0.5v0.9l-0.3,0.5l-2.6,0.5l-1.1,0.5v0.7l-1.2,0.5l-1.6-1.2l-4.8,1.4l-0.4,0.9v1.9l-0.6,0.2L651,537.6z">
+      <title> Kosovo </title>
+      </path>
 		<path id="rs" class="st1" d="M646.7,480.5l1,0.7l0.5,1.2l1.5,0.5l1.9,0.9l1.4,1.6l0.9-0.2v3.7l1.5,0.7l1,0.1l2,0.1h0.5l1.5,1.5
 			l1.5,0.9l1,1.1v0.5v0.5v0.7l-1,0.5l2.2,0.7l1.8,0.2v0.5h-3.6l-0.5,0.8l2.4,0.5l1.5,1l1.5,0.5l2.4,0.2l1.5,0.7l1,0.9l1.5-0.2
 			l1.9-1.6l2.2-0.2l3.2,1.2v1.2h-2.1h-1.2l-0.7,0.4v0.7l1.2,1.4l1.1,0.2l0.5,0.9l0.5,0.2l-1.4,0.5v1.6l-2.5,0.9l-0.3,0.5l-0.3,1.4
@@ -6024,4 +6104,3 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 	<text transform="matrix(1 0 0 1 796.1964 428.8499)" class="st4 st5 st6">Collaborating countries</text>
 </g>
 </svg>
-
