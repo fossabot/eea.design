@@ -50,11 +50,6 @@
       fill: rgb(107, 142, 247) !important;
       cursor: pointer;
     }
-    .zoom_outline {
-    fill: none;
-    stroke: #AAAAAA;
-    stroke-width: 0.75;
-    }
 
 </style>
 <script  type="text/javascript">
@@ -130,7 +125,9 @@ function switchColor(ev) {
 
 function goToPage(c) {
     var cid = c.target.id.substring(0,2);
-      // window.open("https://www.eea.europa.eu/countries-and-regions/" + countries[cid], "_blank")
+      if(countries[cid] == undefined)
+        return
+      else
       top.location.href = "https://www.eea.europa.eu/countries-and-regions/" + countries[cid];
 
 }
@@ -5664,7 +5661,9 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 			 M360.8,286.2l-1,0.2l-1.2-1.4l0.8-1.6l1.4,0.2l-0.1,0.7v1.9H360.8z M363.2,282.2l-0.5,1.6h-1.5v-1.4L363.2,282.2z		">
 <title>United Kingdom</title>
 		</path>
-		<path class="st3" d="M339.9,434.8l-0.5,0.9l-1-0.5l1-0.7L339.9,434.8z"/>
+		<path id="gb" class="st3" d="M339.9,434.8l-0.5,0.9l-1-0.5l1-0.7L339.9,434.8z">
+    <title>United Kingdom</title>  
+    </path>
 		<path id="hr" class="st1" d="M598.1,522.4l2.9,0.5l1.6-0.2l2.1,0.2v0.7l-1.6-0.2l-2,0.5l-1.5-0.2L598.1,522.4z M612.2,523.8
 			l1-0.2l2.4,1.4l2.4,1.6l2.1,1.2l1.6,0.5v0.5l1.3,1.4l-4.7-2.8l-4.3-2.1l-3.4-0.7l-4.3-1.6l-0.5-0.9l6.8,2.6L612.2,523.8z
 			 M605.9,520.8h-7.3l-1.5-0.3l-2.4-1l1.9-0.2l1.9,0.2l0.5,0.5L605.9,520.8z M600.1,518.6l-1.9,0.2l-2.9-0.9l0.5-1.1h1.9l3.4,0.7
@@ -5765,10 +5764,9 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 	<!-- 	<path class="st1" id="lts" d="M501.8,464.8v1.2l1,0.7v0.7l0.2,1.5h-1l-0.3-1.7v-0.9L501.8,464.8L501.8,464.8z">
     <title>Liechtenstein</title>  
     </path -->>
-    <path id="li" class="st1" d="M500.7,457.8v4.4l3.6,2.6v2.6l0.7,5.5h-3.6l-1.1-6.2v-3.3L500.7,457.8L500.7,457.8z">
+    <path id="li" class="st1" d="M501.8,464.8v1.2l1,0.7v0.7l0.2,1.5h-1l-0.3-1.7v-0.9L501.8,464.8L501.8,464.8z">
      <title>Liechtenstein</title>
     </path>
-    <circle class="st4 zoom_outline" cx="502.9" cy="466.3" r="10.4"/>
 		<path id="lt" class="st1" d="M655.9,356.3l-1-0.2l2-0.8l0.5-0.5h0.5l-1,1.2L655.9,356.3z M735.8,350.8v0.7l-1.7,2.4l-1.4,1
 			l0.3,0.7l2.4,0.2l1.5,0.5l-0.5,0.5l-1.5,0.3l-0.5,0.8h-4.5l-1.5,2.1l-1,0.6l-3.5,0.5l-0.5,1.2l-0.5,1.7v1.2v1l-0.3,0.5l-0.8,2.2
 			v0.7l1.5,0.7v1.1l-2,0.4h-1.5l-1-0.4l0.5-0.4l-1-0.8l-1,0.6h-1.5l-1.5,0.3l-1.5,1.1l-2.5-0.3l-0.5,0.5l-0.5,1.7l-0.5,0.7h-2
@@ -5791,11 +5789,12 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 			l0.6,1.2l1.5,1.9l1.5,0.7l-0.1,2.1l-0.1,0.9v1.6L752.9,345.2z		">
 <title>Latvia</title>
 		</path>
-		<path class="st3" d="M474.3,512.3l-1,0.2V512L474.3,512.3z"/>
-    <path id="mt" class="st1" d="M573.5,618.4l-1,1l-2.7-0.4l-1.9-1v-3.3l4.8,2.9L573.5,618.4z  ">
+		<path id="mn" class="st3" d="M474.3,512.3l-1,0.2V512L474.3,512.3z">
+    <title>Monaco</title>  
+    </path>
+    <path id="mt" class="st1" d="M570.4,618.8l-0.5,0.5l-1.3-0.2l-0.9-0.5V617l2.3,1.4L570.4,618.8z">
       <title>Malta</title>
     </path>
-    <circle class="st4 zoom_outline" cx="570.2" cy="616.7" r="5.5"/>
 		<path id="me" class="st2" d="M648.8,524.7l-3,0.5v1.7h-1.5l-0.5-0.4l1,1.1l-0.5,0.7l-2.4,0.5h-1h-2.1v-1.6l0.1-0.2l-1.2,1.2
 			l-0.3,0.9l-2.8,3.3l-0.6,1.2l0.9,1.4v0.9v0.9v0.7l-2.1-0.9l-1-1.6l-2.9-2.6l-3.9-1.9l0.5-0.7l-2.3,0.2l-1.3-1.4v-0.5l2-0.7v-0.7
 			v-1.4v-0.9l-0.9-1.6l1.2-0.7l1.7-0.2v-1.6l0.5-1.4l2-2.1h1l0.5,1.4h0.5l0.5-0.8l-1.5-1.8l0.5-0.4l2.5,0.2l1.6-0.2v0.7l-0.1,0.5
@@ -5828,7 +5827,9 @@ AAAAAAAAPCT8/wIMAFqXvT0Irjk7AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -19 113.
 			v-0.9L258.2,535.1z		">
 <title>Portugal</title>
 		</path>
-		<path class="st3" d="M540.8,509.7l1-0.7l1,0.5l-0.5,0.7h-1L540.8,509.7z"/>
+		<path id="sm" class="st3" d="M540.8,509.7l1-0.7l1,0.5l-0.5,0.7h-1L540.8,509.7z">
+    <title>San Marino</title>  
+    </path>
 		<path id="si" class="st1" d="M557.4,487.8h2l-0.5-1.4l-2-1.8l-1.5-0.3l0.5-2.5l-1.5,0.2l-0.5-0.5l1-1.2l0.5-1.1l1-0.1h-1.5
 			l-1-0.3h-2.1v-1.6l1.6-0.7l2.8-1.2l0.2-0.7l1-0.2l0.6,0.4h2.5l2.5,0.6l4.5,0.4l1.5,0.2l0.5-0.5l2.5-1l1-1l1-0.5l1.5-0.2l3-0.2
 			l3,0.2l2.5-1l2-0.2l2.3,0.5l0.3-0.2v-1.5l1.7-1l1.7,0.2l-0.4,0.2v0.7l2.5,1l2.5,0.2v0.7l0.5,1.7v0.2l-4.2-0.5l-2.2,0.7v1.7
