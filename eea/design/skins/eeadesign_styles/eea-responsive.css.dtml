@@ -568,12 +568,18 @@
   .mini-header #portal-header {
     height: 100%; }
 
+  #secondary-portaltabs {
+    margin-left: 0;
+    overflow: hidden;
+    height: 50px;
+  }
+
   #portaltab-europe {
     padding-right: 95px;
     width: 185px;
     background: url("&dtml-xurl;/eu-flag.png") no-repeat top right; }
     #portaltab-europe a {
-      margin-top: 7px;
+      margin-top: 3px;
       padding: 0 !important; }
 
   .template-soer2015_frontpage .column-area {
