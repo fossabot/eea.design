@@ -52,7 +52,7 @@
     font-weight:bold;
 }
 #secondary-portaltabs li a {
-    padding: 1em 0.5em;
+    padding: 1em 0.45em;
 }
 
 .eea-navsiteactions-active > a {

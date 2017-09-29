@@ -1,15 +1,20 @@
 Changelog
 =========
 
-17.8.dev0 - (unreleased)
+17.9.dev0 - (unreleased)
 ------------------------
 * Change: center europe portal_tab content
   [ichim-david refs #88567]
+
+17.8 - (2017-09-26)
+-------------------
 * Change: renamed countries_regions_sections template to car-index as requested
   [ichim-david refs #88150]
 * Bug fix: patch calendar_formfield.js in order to escape the '|' character
   on form submit for the calendar widget
   [petchesi-iulian refs #87706]
+* Change: updated Map.svg from /custom
+  [alecghica refs #88122]
 * Upgrade step: update the following object's geotags, should be updated from "Marine Artic Ocean" into "Marine Arctic Ocean"
     - https://www.eea.europa.eu/data-and-maps/indicators/sea-level-rise-4
     - https://www.eea.europa.eu/data-and-maps/indicators/status-of-marine-fish-stocks-2
