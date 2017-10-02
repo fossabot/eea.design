@@ -3,6 +3,10 @@ Changelog
 
 18.0.dev0 - (unreleased)
 ------------------------
+* Bug fix: fixed mini header network position
+  [ichim-david refs #88567]
+* Bug fix: fixed secondary globalnav position on ipad resolution
+  [ichim-david refs #88567]
 
 17.9 - (2017-09-29)
 -------------------
