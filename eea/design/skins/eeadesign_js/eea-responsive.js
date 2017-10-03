@@ -137,7 +137,7 @@ jQuery(document).ready(function($) {
     var $soer_tabs = $('.eea-tabs-soer'),
         $soer_tabs_found = $soer_tabs.length;
     var $notransform = $('.eea-tabs-arrows, .eea-tabs-soer');
-    if (underscore) {
+    if (underscore && underscore.debounce) {
         $(window).resize(_.debounce(function() {
             var $tabs = $('.eea-tabs').not($notransform);
             var tabs_found = $tabs.length;
@@ -413,7 +413,7 @@ jQuery(document).ready(function($) {
         multiple_touch = e.touches.length > 1;
     }
 
-    if (underscore) {
+    if (underscore && underscore.throttle) {
         var lazyTouchMove = _.throttle(TouchMove, 90);
         $(window).bind("touchmove", lazyTouchMove);
     }
@@ -468,10 +468,9 @@ jQuery(document).ready(function($) {
         lastScrollTop = st;
     }
 
-    if (underscore) {
+    if (underscore && underscore.throttle) {
         var lazyNavScroll = _.throttle(navScroll, 100);
         $(window).scroll(lazyNavScroll);
     }
 
 });
-
