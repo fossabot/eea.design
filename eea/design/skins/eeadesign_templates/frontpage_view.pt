@@ -54,9 +54,8 @@
                                 <ul class="">
                                     <li><a href="/themes/biodiversity" i18n:translate="">Biodiversity — Ecosystems</a></li>
                                     <li><a href="/themes/landuse" i18n:translate="">Land use</a></li>
-                                    <li><a href="/themes/coast_sea" i18n:translate="">Marine</a></li>
                                     <li><a href="/themes/soil" i18n:translate="">Soil</a></li>
-                                    <li><a href="/themes/water" i18n:translate="">Water</a></li>
+                                    <li><a href="/themes/water" i18n:translate="">Water and marine environment</a></li>
                                 </ul>
                             </div>
                         </div>
