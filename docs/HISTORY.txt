@@ -3,6 +3,8 @@ Changelog
 
 18.0.dev0 - (unreleased)
 ------------------------
+* Feature: Add Sentry for javascript
+  [valipod: refs #88817]
 * Change: Merged Marine into Water topic 
   [demarant refs #88361]
 * Bug fix: fixed mini header network position

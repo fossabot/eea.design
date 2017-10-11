@@ -399,6 +399,13 @@
         permission="zope2.View"
         />
 
+    <browser:page
+        name="sentry_dsn"
+        for="*"
+        class=".sentry.SentryDSN"
+        permission="zope2.View"
+        />
+
     <!-- Customized portlets -->
     <plone:portletRenderer
         portlet="plone.app.portlets.portlets.calendar.ICalendarPortlet"
