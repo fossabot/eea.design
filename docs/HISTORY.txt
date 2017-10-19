@@ -3,6 +3,8 @@ Changelog
 
 18.0.dev0 - (unreleased)
 ------------------------
+* Bug fix: update glossary URL in site header to local plone directory
+  [demarant refs #89241]
 * Feature: Add Sentry for javascript
   [valipod: refs #88817]
 * Change: Merged Marine into Water topic 

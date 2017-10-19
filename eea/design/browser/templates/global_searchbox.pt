@@ -20,9 +20,8 @@
             <span i18n:translate="">Search the catalogue</span>
             <img src="" alt="New item" tal:attributes="src string:${local_site}/new_item.png" i18n:attributes="alt" />
         </a>
-        <a id="search_glossary_link" class="pull-right" href="http://glossary.eea.europa.eu/"
+        <a id="search_glossary_link" class="pull-right" href="/help/glossary"
                  i18n:translate=""
-                 tal:attributes="href python:'//glossary.%s.eea.europa.eu'%request.get('LANGUAGE', 'en')"
         >A-Z Glossary</a>
     </div>
 </div>
