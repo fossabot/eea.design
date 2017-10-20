@@ -190,7 +190,7 @@
                         </tal:cond>
                         <tal:notcond tal:condition="not:is_video">
                             <a href="#" tal:attributes="href url;">
-                                    <img alt="" tal:attributes="src string:${image_url}/${image_scale}; title title; alt title" />
+                                    <img alt="" width="125" height="70" tal:attributes="src string:${image_url}/${image_scale}; title title; alt title" />
                             </a>
                         </tal:notcond>
                     </div>

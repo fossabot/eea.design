@@ -60,7 +60,7 @@
                                     <li>
                                         <p>
                                             <a target="_self"
-                                                tal:attributes="href string:$portal_url/pressroom"
+                                                tal:attributes="href string:$portal_url/media/"
                                                 i18n:translate="">
                                                 Press room
                                                 <br/>
@@ -109,8 +109,8 @@
                     </table>
                     <div class="portletFooter">
                         <a class="moreLink"
-                            tal:attributes="href string:$portal_url/address.html">
-                            <span i18n:translate="">More</span>
+                            tal:attributes="href string:$portal_url/contact-us/">
+                            <span i18n:translate="">More contact details</span>
                         </a>
                     </div>
                 </div>

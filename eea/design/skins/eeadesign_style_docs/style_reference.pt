@@ -38,17 +38,17 @@
 							    <dd class="portletItem">
 							        <form action="http://readme.eea.europa.eu/login_form" name="loginform" method="post">
 							            <div class="field">
-							                <label for="__ac_name" tal:content="string:Login Name"></label>
+							                <label rel="__ac_name" tal:content="string:Login Name"></label>
 							                <br />
-							                <input size="10" alt="Login Name" onclick="showCookieMessage('cookies_message')" tabindex="20001" name="__ac_name" value="" id="__ac_name" type="text" />
+							                <input size="10" alt="Login Name" onclick="showCookieMessage('cookies_message')" tabindex="20001" name="__ac_name" value="" type="text" />
 							            </div>
 
 							            <div class="field">
-							                <label for="__ac_password" tal:content="string:Password"></label>
+							                <label rel="__ac_password" tal:content="string:Password"></label>
 							                <br />
 							                <input size="10" alt="Password" 
 							                       onclick="showCookieMessage('cookies_message')" 
-							                       tabindex="20002" name="__ac_password" id="__ac_password" type="password" />
+							                       tabindex="20002" name="__ac_password" type="password" />
 							                <input class="standardButton" name="submit" value="Log in" i18n:attributes="value" 
 							                       alt="Log in" onclick="javascript:return setLoginVars('__ac_name','login_name','__ac_password','pwd_empty','js_enabled','cookies_enabled')" tabindex="20003" type="submit" />
 							            </div>

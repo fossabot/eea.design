@@ -61,7 +61,7 @@
             <property name="title" i18n:translate="">Log in</property>
             <property name="description" i18n:translate=""></property>
             <property
-                    name="url_expr">string:${globals_view/navigationRootUrl}/login</property>
+                    name="url_expr">string:${globals_view/navigationRootUrl}/login/</property>
             <property name="link_target"></property>
             <property name="icon_expr"></property>
             <property name="available_expr">not: member</property>
@@ -127,7 +127,7 @@
             <property name="title" i18n:translate="">Log in</property>
             <property name="description" i18n:translate=""></property>
             <property
-                    name="url_expr">string:${globals_view/navigationRootUrl}/login</property>
+                    name="url_expr">string:${globals_view/navigationRootUrl}/login/</property>
             <property name="link_target"></property>
             <property name="icon_expr"></property>
             <property name="available_expr">not: member</property>

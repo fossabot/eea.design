@@ -275,7 +275,9 @@ a.archives {
 /* #16673 provide a max-width in order to avoid floated text from spilling below image */
 .featured img {
     padding: 0 5px 5px 0;
-    width: 100%;
+/*    width: 100%;*/
+    width: 130px;
+    height: 75px;
     max-width: 150px !important;
 }
 

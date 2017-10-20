@@ -18,7 +18,8 @@
         <a id="search_advanced_link" href="http://search.apps.eea.europa.eu"
            class="pull-left">
             <span i18n:translate="">Search the catalogue</span>
-            <img src="" alt="New item" tal:attributes="src string:${local_site}/new_item.png" i18n:attributes="alt" />
+            <img src="" alt="New item" width="37" height="17"
+                tal:attributes="src string:${local_site}/new_item.png" i18n:attributes="alt" />
         </a>
         <a id="search_glossary_link" class="pull-right" href="/help/glossary"
                  i18n:translate=""

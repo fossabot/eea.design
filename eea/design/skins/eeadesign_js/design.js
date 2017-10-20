@@ -179,15 +179,15 @@ jQuery(document).ready(function($) {
         });
     }
 
-    $("[for=__ac_name]").click(function(evt) {
+    $("[rel=__ac_name]").click(function(evt) {
         evt.preventDefault();
-        var input = $(this).parent().find("#__ac_name");
+        var input = $(this).parent().find("[name='__ac_name']");
         input.focus();
     });
 
-    $("[for=__ac_password]").click(function(evt) {
+    $("[rel=__ac_password]").click(function(evt) {
         evt.preventDefault();
-        var input = $(this).parent().find("#__ac_password");
+        var input = $(this).parent().find("[name='__ac_password']");
         input.focus();
     });
 
@@ -226,7 +226,7 @@ jQuery(document).ready(function($) {
     // #9485; login form as popup
     $("#anon-personalbar, #siteaction-login").click(function(e) {
         $popup_login.slideToggle("slow", function() {
-            $('#__ac_name').focus();
+            $(this).find('[name="__ac_name"]').focus();
         });
         e.preventDefault();
         e.stopPropagation();

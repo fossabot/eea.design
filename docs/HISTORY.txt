@@ -3,11 +3,22 @@ Changelog
 
 18.0.dev0 - (unreleased)
 ------------------------
+* Upgrade step: change all occurences of:
+    #login_form to .login_form
+    #login-forgotten-password to .login-forgotten-password
+    #login-form to .login-form
+  in portal_skins/custom/ploneCustom.css
+  [valipod: refs #86595]
+* Upgrade step: customise /portal_skins/sunburst_styles/forms.css and
+  change all occerences of #login-form to .login-form
+  [valipod: refs #86595]
+* fixes for website errors (http://nibbler.silktide.com)
+  [valipod: refs #86595]
 * Bug fix: update glossary URL in site header to local plone directory
   [demarant refs #89241]
 * Feature: Add Sentry for javascript
   [valipod: refs #88817]
-* Change: Merged Marine into Water topic 
+* Change: Merged Marine into Water topic
   [demarant refs #88361]
 * Bug fix: fixed mini header network position
   [ichim-david refs #88567]

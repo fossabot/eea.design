@@ -1236,6 +1236,7 @@ div.field.error {
 #portal-siteactions li a {
     color: #FFF;
     font-size: 11px;
+    cursor: pointer;
 }
 
 #siteaction-contactus {
@@ -1813,7 +1814,7 @@ form[name="edit_form"] table {
     background-position: -100px 0 !important;
 }
 
-#cms-browsers-links ul li {
+.cms-browsers-links ul li {
     display: list-item;
     list-style-type: none;
 }
@@ -1962,21 +1963,21 @@ a#subfolders_more_a, .more_dropdown_a {
 
 /* customize form.css rule in order to remove center alignment */
 body.template-login_form #content,
-.pb-ajax #login-form  {
+.pb-ajax .login-form  {
     text-align: left;
 }
-#fieldset-openid-login label, #login-form label {
+#fieldset-openid-login label, .login-form label {
     width: 6em; /* was 10em on stock plone */
 }
 
-#login_form,
-#login-forgotten-password {
+.login_form,
+.login-forgotten-password {
     margin-left: 6.5em;
 }
-#popup_login_form #login-form input {
+#popup_login_form .login-form input {
     font-size: 100%;
 }
-#popup_login_form #login-forgotten-password {
+#popup_login_form .login-forgotten-password {
     margin-left: 6.5em;
 }
 

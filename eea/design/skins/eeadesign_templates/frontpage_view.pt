@@ -30,8 +30,9 @@
                     <div class="portlet-megatopic">
                         <div class="portlet promo-nav-portlet" id="air-and-climate-megatopic">
                             <div class="portletItem">
-                                <img title="Air and climate" alt="Air and climate" i18n:attributes="title alt" tal:attributes="src
-                                string:$portal_url/SITE/themes/air/theme_image/image_mini" />
+                                <img title="Air and climate" alt="Air and climate"
+                                  width="254" height="150" i18n:attributes="title alt"
+                                  tal:attributes="src string:$portal_url/SITE/themes/air/theme_image/image_mini" />
                                 <div class="portletHeader" i18n:translate="">
                                     Air and climate
                                 </div>
@@ -46,8 +47,9 @@
                     <div class="portlet-megatopic">
                         <div class="portlet promo-nav-portlet" id="nature-megatopic">
                             <div class="portletItem">
-                                <img title="Nature" alt="Visit our biodiversity website" i18n:attributes="title alt" tal:attributes="src
-                                string:$portal_url/SITE/themes/biodiversity/theme_image/image_mini" />
+                                <img title="Nature" alt="Visit our biodiversity website"
+                                  width="254" height="150" i18n:attributes="title alt"
+                                  tal:attributes="src string:$portal_url/SITE/themes/biodiversity/theme_image/image_mini" />
                                 <div class="portletHeader" i18n:translate="">
                                     Nature
                                 </div>
@@ -63,8 +65,9 @@
                     <div class="portlet-megatopic">
                         <div class="portlet promo-nav-portlet" id="sustainability-megatopic">
                             <div class="portletItem">
-                                <img title="Sustainability and well-being" alt="Sustainability and well-being" i18n:attributes="title alt"
-                                tal:attributes="src string:$portal_url/SITE/themes/human/theme_image/image_mini" />
+                                <img title="Sustainability and well-being" alt="Sustainability and well-being"
+                                  width="254" height="150" i18n:attributes="title alt"
+                                  tal:attributes="src string:$portal_url/SITE/themes/human/theme_image/image_mini" />
                                 <div class="portletHeader" style="font-size:142%;" i18n:translate="">
                                     Sustainability and well-being
                                 </div>
@@ -80,8 +83,9 @@
                     <div class="portlet-megatopic">
                         <div class="portlet promo-nav-portlet" id="economic-sectors-megatopic">
                             <div class="portletItem">
-                                <img title="Economic sectors" alt="Economic sectors" i18n:attributes="title alt"
-                                tal:attributes="src string:$portal_url/SITE/themes/energy/theme_image/image_mini" />
+                                <img title="Economic sectors" alt="Economic sectors"
+                                  width="254" height="150" i18n:attributes="title alt"
+                                  tal:attributes="src string:$portal_url/SITE/themes/energy/theme_image/image_mini" />
                                 <div class="portletHeader" i18n:translate="">
                                     Economic sectors
                                 </div>

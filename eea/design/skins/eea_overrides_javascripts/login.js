@@ -23,51 +23,65 @@ function setLoginVars(user_name_id, alt_user_name_id, password_id, empty_passwor
   // Indicate that javascript is enabled, set cookie status, copy username and password length info to
   // alternative variables since these vars are removed from the request by zope's authentication mechanism.
   if (js_enabled_id) {
-    el = document.getElementById(js_enabled_id);
-    if (el) { el.value = 1; }
+    var els = document.getElementsByName(js_enabled_id);
+    if (els) {
+      for (var i = 0; i < els.length; i++){
+        els[i].value = 1;
+      }
+    }
   }
   if (cookies_enabled_id) {
-    el = document.getElementById(cookies_enabled_id);
+    els = document.getElementsByName(cookies_enabled_id);
     // Do a fresh cookies enabled test every time we press the login button
     //   so that we are up to date in case the user enables cookies after seeing
     //   the cookies message.
-    if (el) { el.value = cookiesEnabled(); }
+    if (els) {
+      for (var i = 0; i < els.length; i++){
+        els[i].value = cookiesEnabled();
+      }
+    }
   }
   if (user_name_id && alt_user_name_id) {
-    user_name = document.getElementById(user_name_id);
-    alt_user_name = document.getElementById(alt_user_name_id);
-    if (user_name && alt_user_name) {
-       alt_user_name.value = user_name.value;
+    user_names = document.getElementsByName(user_name_id);
+    alt_user_names = document.getElementsByName(alt_user_name_id);
+    if (user_names && alt_user_names) {
+      for (var i = 0; i < user_names.length; i++){
+        alt_user_names[i].value = user_names[i].value;
+      }
     }
   }
   if (password_id && empty_password_id) {
-    password = document.getElementById(password_id);
-    empty_password = document.getElementById(empty_password_id);
-    if (password && empty_password) {
-       if (password.value.length === 0) {
-          empty_password.value = '1';
-       } else {
-          empty_password.value = '0';
-       }
+    passwords = document.getElementsByName(password_id);
+    empty_passwords = document.getElementsByName(empty_password_id);
+    if (passwords && empty_passwords) {
+      for (var i = 0; i < passwords.length; i++){
+        if (passwords[i].value.length === 0) {
+          empty_passwords[i].value = '1';
+        } else {
+          empty_passwords[i].value = '0';
+        }
+      }
     }
   }
   return 1;
 }
 
-function showCookieMessage(msg_id) {
-  // Show the element with the given id if cookies are not enabled
-  msg = document.getElementById(msg_id);
+function showCookieMessage(msg_class) {
+  // Show the element with the given class if cookies are not enabled
+  msg = document.getElementsByClassName(msg_class);
   if (msg) {
-     if (cookiesEnabled()) {
-        msg.style.display = 'none';
-     } else {
-        msg.style.display = 'block';
-     }
+    for (var i = 0; i < msg.length; i++){
+      if (cookiesEnabled()) {
+        msg[i].style.display = 'none';
+      } else {
+        msg[i].style.display = 'block';
+      }
+    }
   }
 }
 
 function showEnableCookiesMessage() {
-  // Show the element with the id 'enable_cookies_message' if cookies are not enabled
+  // Show the element with the class 'enable_cookies_message' if cookies are not enabled
   showCookieMessage('enable_cookies_message');
 }
 // Call showEnableCookiesMessage after the page loads
