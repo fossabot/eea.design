@@ -468,6 +468,32 @@
     margin-bottom: 7px;
     position: relative;
     right: 0; }
+    
+   /* #89398 remove unnecessary padding for mobile view */
+
+   #portal-column-content {
+    padding: 0;
+   }
+
+   #region-content {
+    padding: 0.5em;
+   }
+
+   #portal-columns {
+    padding-top: 0;
+   }
+
+  /* START #89398 GIS Map Applications get a slimmer mobile view */
+
+  .template-gis_view .content-header,
+  .template-gis_view  .plone-breadcrumb,
+  .template-gis_view .documentFirstHeading, 
+  .template-gis_view .documentByLine, 
+  .template-gis_view .documentDescription {
+    display: none; }
+
+  /* END #89398 GIS Map Applications get a slimmer mobile view */
+
 
   #portal-colophon .colophonWrapper, .colophon-middle {
     text-align: center; }

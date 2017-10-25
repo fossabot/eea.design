@@ -3,6 +3,9 @@ Changelog
 
 18.0.dev0 - (unreleased)
 ------------------------
+* Feature: Improved responsive design in max-width: 768px
+  for GIS applications
+  [demarant: refs #89398]  
 * Upgrade step: change all occurences of:
     #login_form to .login_form
     #login-forgotten-password to .login-forgotten-password
