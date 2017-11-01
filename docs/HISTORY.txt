@@ -3,9 +3,11 @@ Changelog
 
 18.0.dev0 - (unreleased)
 ------------------------
+* Change: updated goto comments message
+  [alecghica refs #88692]
 * Feature: Improved responsive design in max-width: 768px
   for GIS applications
-  [demarant: refs #89398]  
+  [demarant refs #89398]  
 * Upgrade step: change all occurences of:
     #login_form to .login_form
     #login-forgotten-password to .login-forgotten-password
@@ -15,7 +17,7 @@ Changelog
 * Upgrade step: customise /portal_skins/sunburst_styles/forms.css and
   change all occerences of #login-form to .login-form
   [valipod: refs #86595]
-* fixes for website errors (http://nibbler.silktide.com)
+* Bug fix: fixes for website errors (http://nibbler.silktide.com)
   [valipod: refs #86595]
 * Bug fix: update glossary URL in site header to local plone directory
   [demarant refs #89241]
