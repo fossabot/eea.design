@@ -430,8 +430,8 @@
   #viewlet-below-content .standalone {
     white-space: pre-wrap; }
 
-  #eea-above-columns {
-    margin-top: 70px; } }
+  #header-holder {
+    height: 70px; } }
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .portlet-megatopic {
     width: 50%; } }
