@@ -22,10 +22,11 @@ function cookiesEnabled() {
 function setLoginVars(user_name_id, alt_user_name_id, password_id, empty_password_id, js_enabled_id, cookies_enabled_id) {
   // Indicate that javascript is enabled, set cookie status, copy username and password length info to
   // alternative variables since these vars are removed from the request by zope's authentication mechanism.
+  var els, i;
   if (js_enabled_id) {
-    var els = document.getElementsByName(js_enabled_id);
+    els = document.getElementsByName(js_enabled_id);
     if (els) {
-      for (var i = 0; i < els.length; i++){
+      for (i = 0; i < els.length; i++){
         els[i].value = 1;
       }
     }
@@ -36,7 +37,7 @@ function setLoginVars(user_name_id, alt_user_name_id, password_id, empty_passwor
     //   so that we are up to date in case the user enables cookies after seeing
     //   the cookies message.
     if (els) {
-      for (var i = 0; i < els.length; i++){
+      for (i = 0; i < els.length; i++){
         els[i].value = cookiesEnabled();
       }
     }
@@ -45,7 +46,7 @@ function setLoginVars(user_name_id, alt_user_name_id, password_id, empty_passwor
     user_names = document.getElementsByName(user_name_id);
     alt_user_names = document.getElementsByName(alt_user_name_id);
     if (user_names && alt_user_names) {
-      for (var i = 0; i < user_names.length; i++){
+      for (i = 0; i < user_names.length; i++){
         alt_user_names[i].value = user_names[i].value;
       }
     }
@@ -54,7 +55,7 @@ function setLoginVars(user_name_id, alt_user_name_id, password_id, empty_passwor
     passwords = document.getElementsByName(password_id);
     empty_passwords = document.getElementsByName(empty_password_id);
     if (passwords && empty_passwords) {
-      for (var i = 0; i < passwords.length; i++){
+      for (i = 0; i < passwords.length; i++){
         if (passwords[i].value.length === 0) {
           empty_passwords[i].value = '1';
         } else {
