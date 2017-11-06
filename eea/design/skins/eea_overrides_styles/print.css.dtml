@@ -58,11 +58,10 @@ ul {
 }
 
 pre {
-    border: 1pt dotted black;
     white-space: pre;
     font-size: 8pt;
     overflow: auto;
-    padding: 1em 0;
+    padding: 1em;
 }
 
 #content table {
