@@ -12,10 +12,10 @@
                      tal:attributes="id string:portaltab-${tid};
                                      class python:selected_tab==tid and 'eea-nav-current' or 'plain';">
                      <a href=""
-                       tal:content="tab/name"
+
                        tal:attributes="href tab/url;
                                        title tab/description|nothing;">
-                        Tab Name
+                        <span tal:content="tab/name">Tab Name</span>
                     </a>
                     </li>
                 </tal:block>
@@ -33,10 +33,9 @@
                        tal:attributes="id string:portaltab-${tid};
                                        class python:' '.join([class_selected,class_icon])">
                        <a href=""
-                         tal:content="tab/name"
                          tal:attributes="href tab/url;
                                          title tab/description|nothing;">
-                          Tab Name 
+                           <span tal:content="tab/name">Tab Name</span>
                       </a></li>
                   </tal:block>
             </tal:tabs>

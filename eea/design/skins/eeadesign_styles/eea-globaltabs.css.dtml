@@ -17,7 +17,7 @@
 #portal-globalnav {
     background: none;
     clear: both;
-    display: block;
+    display: flex;
     font-size: 120%;
     height: 50px;
     list-style: none;
@@ -107,8 +107,15 @@
 
 li#secondary-portaltabs-container {
     float: right;
-    margin: 0;
     height: 100%;
+    display: flex;
+    margin: 0 0 0 auto;
+    align-self: right;
+}
+
+#portaltab-media {
+    display: flex;
+    margin: 0 0 0 auto;
 }
 
 #secondary-portaltabs .eea-icon:before {
