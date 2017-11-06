@@ -224,8 +224,8 @@ blockquote {
 
 /* pre is the tag used when selecting the literal style */
 pre {
-    background-color: #222;
-    color: White;
+    background-color: #f3f3f3;
+    color: #000;
     font-family: Consolas, Inconsolata, Menlo, "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
     padding: 1em;
     overflow-x: auto;
