@@ -3,6 +3,8 @@ Changelog
 
 18.0.dev0 - (unreleased)
 ------------------------
+* Feature: Implement different Sentry DSN for production, staging and devel
+  [valipod refs #88817]
 * Change: pre tag now uses gray bg with black text also on presentationl styles
   [ichim-david refs #88297]
 * Change: updated goto comments message
