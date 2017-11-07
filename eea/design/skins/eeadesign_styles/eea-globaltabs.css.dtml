@@ -35,7 +35,7 @@
     float: left;
     text-align: center;
     height: 100%;
-    display: inline-block;
+    display: flex;
     white-space: nowrap;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -45,7 +45,8 @@
 #portal-globalnav li a  {
     background: transparent;
     color: white;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     padding: 1em 0.8em;
     border: 0;
     min-width: 0;
@@ -104,17 +105,7 @@
     background-color: transparent !important;
 }
 
-
-li#secondary-portaltabs-container {
-    float: right;
-    height: 100%;
-    display: flex;
-    margin: 0 0 0 auto;
-    align-self: right;
-}
-
 #portaltab-media {
-    display: flex;
     margin: 0 0 0 auto;
 }
 
@@ -147,10 +138,6 @@ li#secondary-portaltabs-container {
 
 #portal-globalnav #portaltab-eeahome {
     text-align: left;
-}
-
-#portal-globalnav #portaltab-eeahome a {
-    padding: 0.6em 0.8em;
 }
 
 #secondary-portaltabs #portaltab-europe a {

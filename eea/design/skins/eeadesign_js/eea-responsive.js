@@ -21,6 +21,7 @@ jQuery(document).ready(function($) {
     var $portal_siteactions = $("#portal-siteactions");
 
     var doc = document.documentElement;
+    var $secondary_portaltabs = $("#secondary-portaltabs");
 
     //var $tabbed_menu = $(".tabbedmenu");
     //var tabbed_menu_found = $tabbed_menu.length;
