@@ -33,10 +33,8 @@
 #secondary-portaltabs > li {
     margin-bottom: 0;
     float: left;
-    text-align: center;
     height: 100%;
     display: flex;
-    white-space: nowrap;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -44,14 +42,24 @@
 
 #portal-globalnav li a  {
     background: transparent;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 1em 0.8em;
+    position: relative;
     border: 0;
     min-width: 0;
-    font-weight:bold;
+    padding: inherit;
 }
+#portal-globalnav li > a {
+    color: white;
+    font-weight:bold;
+    padding: 1em 0.8em;
+}
+
+#portal-globalnav > li > a,
+#secondary-portaltabs > li > a
+{
+    display: flex;
+    align-items: center;
+}
+
 #secondary-portaltabs li a {
     padding: 1em 0.45em;
 }
@@ -63,14 +71,14 @@
     z-index: 601;
 }
 
-#secondary-globanav-tips li a {
+#secondary-globalnav-tips li a {
     padding: 0.3em 0;
     font-size: small;
 }
-#secondary-globanav-tips a,
-#secondary-globanav-tips a:hover,
-#secondary-globanav-tips li a,
-#secondary-globanav-tips li a:hover {
+#secondary-globalnav-tips a,
+#secondary-globalnav-tips a:hover,
+#secondary-globalnav-tips li a,
+#secondary-globalnav-tips li a:hover {
     color: &dtml-linkColor;;
     font-weight: normal;
 }
@@ -96,7 +104,7 @@
 }
 .mini-header #portal-globalnav #portaltab-more,
 .mini-header #portal-globalnav #portaltab-eeahome {
-    display: block;
+    display: flex;
 }
 
 #portal-globalnav .mini-header-expander {
@@ -153,9 +161,6 @@
 /* refs #71262 - top navigation must have a selected style */
 #globalnav-holder .hiddenStructure{
     height: 0;
-}
-#portal-globalnav li{
-    position: relative;
 }
 
 /* 72862_mini_header hide eea-nav-current navigation arrow

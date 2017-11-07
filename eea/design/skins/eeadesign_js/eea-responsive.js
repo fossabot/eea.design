@@ -295,7 +295,7 @@ jQuery(document).ready(function($) {
     if ($mini_header.length) {
         (function () {
             "use strict";
-            var $globalnav_tips = $("<div id='secondary-globanav-tips' />");
+            var $globalnav_tips = $("<div id='secondary-globalnav-tips' />");
                 $globalnav_tips.appendTo($secondary_portaltabs);
             $secondary_portaltabs.addClass('eea-slide-tooltips');
             $portal_siteactions.find('li').each(function(idx, el) {

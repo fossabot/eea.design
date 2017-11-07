@@ -995,11 +995,11 @@ div.field.error {
     position: relative;
     top: 2px;
 }
-/* 72862 tweak placement of globanav panels */
-#secondary-globanav-tips .panel {
+/* 72862 tweak placement of globalnav panels */
+#secondary-globalnav-tips .panel {
     top: 46px !important;
 }
-#secondary-globanav-tips .panel-top {
+#secondary-globalnav-tips .panel-top {
     display: none;
 }
 
@@ -1048,6 +1048,7 @@ div.field.error {
 #tip-siteaction-chooselang-menu li {
     display: list-item;
     margin: 0;
+    text-align: left;
 }
 #tip-siteaction-subscriptions,
 #tip-siteaction-subscriptions-menu {
@@ -1101,9 +1102,6 @@ div.field.error {
     margin: 1em;
     width: 400px;
     overflow: hidden;
-}
-.userrole-authenticated .panel #portal-searchbox {
-    overflow: visible;
 }
 .LSBox {
     float: none;

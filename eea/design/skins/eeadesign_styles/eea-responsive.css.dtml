@@ -91,8 +91,6 @@
     max-width: 130px !important; } }
 /* #31309 - Improve DaViz Filter design/display */
 @media screen {
-
-
   .template-dc_view #content-core {
     position: static; }
 
@@ -106,6 +104,9 @@
   #content #languageCodes {
     max-width: 60%; } }
 @media screen and (max-width: 767px) {
+  #portal-globalnav {
+    display: block; }
+
   #portal-globalnav .current a {
     padding-left: 20px; }
 
@@ -116,6 +117,9 @@
     border-top-color: transparent !important;
     margin-left: 0 !important;
     margin-top: -10px !important; }
+
+  #secondary-portaltabs {
+    margin: 0; }
 
   #eea-above-columns #portal-breadcrumbs.plone-breadcrumb {
     margin-top: 0;
@@ -183,13 +187,10 @@
     margin-left: 0 !important;
     margin-top: -10px !important; }
 
-  #secondary-portaltabs {
-    margin: 0; }
-
   #secondary-portaltabs .portlet {
     margin-bottom: 0;
     padding: 0; }
-  #secondary-portaltabs .portlet dt, #secondary-portaltabs .portlet ul {
+    #secondary-portaltabs .portlet dt, #secondary-portaltabs .portlet ul {
       margin: 0;
       padding: 0; }
   #secondary-portaltabs .pane, #secondary-portaltabs .portlet {
@@ -430,8 +431,8 @@
   #viewlet-below-content .standalone {
     white-space: pre-wrap; }
 
-  #header-holder {
-    height: 70px; } }
+  #eea-above-columns {
+    margin-top: 70px; } }
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .portlet-megatopic {
     width: 50%; } }
@@ -468,7 +469,7 @@
     margin-bottom: 7px;
     position: relative;
     right: 0; }
-    
+
    /* #89398 remove unnecessary padding for mobile view */
 
    #portal-column-content {
@@ -487,8 +488,8 @@
 
   .template-gis_view .content-header,
   .template-gis_view  .plone-breadcrumb,
-  .template-gis_view .documentFirstHeading, 
-  .template-gis_view .documentByLine, 
+  .template-gis_view .documentFirstHeading,
+  .template-gis_view .documentByLine,
   .template-gis_view .documentDescription {
     display: none; }
 
@@ -582,10 +583,8 @@
   .template-dc_view .content-header {
     width: 58.5%; }
 
-   #portal-globalnav #siteaction-networks-menu {
-        position: absolute;
-        min-width: 125px;
-    }
+  #portal-globalnav #siteaction-networks-menu {
+    min-width: 125px; }
 
   .template-dc_view .right-column-area {
     position: absolute;
@@ -597,7 +596,6 @@
 
   .mini-header #portal-header {
     height: 100%; }
-
 
   #portaltab-europe {
     padding-right: 95px;
@@ -621,34 +619,29 @@
 
   .photoAlbumEntry {
     width: 127px; } }
-
 @media screen and (min-width: 768px) and (max-width: 910px) {
   #portaltab-europe {
     padding-right: 95px;
-}
-#globalnav-holder #portal-globalnav {
-    padding-right: 0 !important;
-}
-#portal-globalnav {
-   font-size: 100%;
-}
+    width: 200px; }
 
-#portal-globalnav li a {
-   padding: 1.4em 0.8em;
-}
+  #globalnav-holder #portal-globalnav {
+    padding-right: 0 !important; }
 
- #portaltab-europe a {
-      margin-top: 3px !important;
-      padding: 1.3em 0 !important; }
-}
+  #portal-globalnav {
+    font-size: 95%; }
 
+  #portal-globalnav li a {
+    padding: 1.4em 0.8em; }
+
+  #portaltab-europe a {
+    margin-top: 3px !important;
+    padding: 1.3em 0 !important; } }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   #portal-searchbox {
     margin: 25px 0.5em 0 0; } }
 @media screen and (min-width: 768px) {
   .mini-header #secondary-portaltabs > li > a {
-    padding: 0.75em 1em !important;
-    height: 48px; }
+    padding: 0 1em !important; }
 
   .mini-header #secondary-portaltabs .mini-header-expander {
     padding: 0.75em 0.4em !important; }
@@ -715,6 +708,12 @@
 
   #region-content {
     margin: 0 -1.5em; } }
+@media screen and (width: 1024px) {
+  #secondary-portaltabs #portaltab-europe a {
+    padding: 1.1em 0; }
+
+  #portaltab-europe {
+    font-size: 70%; } }
 @media screen and (min-width: 1025px) {
   .fullwidth #portal-header,
   .fullwidth #secondary-portaltabs {
