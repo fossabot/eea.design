@@ -1,8 +1,8 @@
 Changelog
 =========
 
-18.0.dev0 - (unreleased)
-------------------------
+18.0 - (2017-11-07)
+-------------------
 * Bug fix: fixed issues reported by Jenkins
   [alecghica refs #88692]
 * Feature: Implement different Sentry DSN for production, staging and devel
