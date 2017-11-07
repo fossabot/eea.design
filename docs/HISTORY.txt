@@ -3,6 +3,8 @@ Changelog
 
 18.0.dev0 - (unreleased)
 ------------------------
+* Change: remove unused css from eea-design css files
+  [petchesi-iulian refs #88382]
 * Bug fix: fixed issues reported by Jenkins
   [alecghica refs #88692]
 * Feature: Implement different Sentry DSN for production, staging and devel

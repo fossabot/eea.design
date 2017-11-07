@@ -1070,11 +1070,6 @@ div.field.error {
 }
 
 /* Searchbox style and positioning */
-.searchSection {
-    left: -5px;
-    position: relative;
-}
-
 #portal-searchbox {
     float: right;
     clear: right;
@@ -1102,10 +1097,6 @@ div.field.error {
     margin: 1em;
     width: 400px;
     overflow: hidden;
-}
-.LSBox {
-    float: none;
-    background-color: #FFF;
 }
 
 #portal-searchbox a {

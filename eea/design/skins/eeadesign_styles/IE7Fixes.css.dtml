@@ -42,8 +42,7 @@
     margin: -12px 0 0 0;
 }
 
-*:first-child+html #portlet-etcs-sites,
-*:first-child+html #portlet-chooselang {
+*:first-child+html #portlet-etcs-sites {
     font-size: 70%;
 }
 
@@ -352,8 +351,7 @@ dd.portletFooter {
     width: 200px;
 }
 
-* html #portlet-etcs-sites,
-* html #portlet-chooselang {
+* html #portlet-etcs-sites {
     font-size: 70%;
     width: 19em;
 }

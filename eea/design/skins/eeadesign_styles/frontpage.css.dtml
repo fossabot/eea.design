@@ -79,10 +79,6 @@ html {
     top: 8px;
     line-height: 1em;
 }
-.advanced-search-link {
-    top: 0;
-    margin-top: 0.8em;
-}
 
 a.archives {
     color: #869936;
@@ -102,12 +98,6 @@ a.archives {
 #highlights-area {
     background-color: &dtml-lightBackgroundColor;;
     padding: &dtml-padding-base;;
-}
-
-.highlighs-header {
-    margin: 0 0 0.83em 0;
-    border: 0;
-    font-weight: normal;
 }
 
 .right-column-area {
@@ -304,14 +294,6 @@ a.active-album,
 a.list-layout:hover,
 a.album-layout:hover {
   background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat scroll top right;
-}
-
-#semantic-ds-links a:hover,
-#forum a:hover,
-#prev-promo:hover,
-#play-pause:hover,
-#next-promo:hover {
-  text-decoration: none !important;
 }
 
 /* Styles which can be used on any area */
