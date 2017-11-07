@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
             var $cross_site_top = $("#cross-site-top");
             var $ptools = $("#portal-personaltools-wrapper");
             var $search = $("#portal-searchbox");
-            var $parent = $("#secondary-globanav-tips");
+            var $parent = $("#secondary-globalnav-tips");
 
             $body.on('eea-miniheader-toggled', function() {
                 // hide globalnav current triangle when we have the
