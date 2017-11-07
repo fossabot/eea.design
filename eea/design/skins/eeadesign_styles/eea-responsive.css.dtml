@@ -528,7 +528,8 @@
     position: relative; }
 
   #secondary-portaltabs .eea-accordion-panels,
-  #portal-logo-link-header {
+  #portal-logo-link-header,
+  #secondary-portaltabs-container {
     display: none; }
 
   /* move the search icon inside the input of the searchfield */

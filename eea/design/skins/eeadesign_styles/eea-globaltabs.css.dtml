@@ -29,7 +29,7 @@
 }
 
 
-#portal-globalnav > li,
+.portal-globalnav > li,
 #secondary-portaltabs > li {
     margin-bottom: 0;
     float: left;
@@ -49,8 +49,11 @@
 }
 #portal-globalnav li > a {
     color: white;
-    font-weight:bold;
     padding: 1em 0.8em;
+}
+
+.portal-globalnav li > a {
+    font-weight: bold;
 }
 
 #portal-globalnav > li > a,
@@ -125,11 +128,15 @@
 }
 
 #portaltab-europe {
-    width: 120px;
+    width: 225px;
     font-size: 75%;
     vertical-align: top;
     padding-right: 92px;
-    background: url("&dtml-xurl;/eu-flag.png") no-repeat 123px -3px;
+    background: url("&dtml-xurl;/eu-flag.png") no-repeat 135px -3px;
+}
+
+#portaltab-europe a {
+    font-weight: normal;
 }
 
 .mini-header #portaltab-europe {
