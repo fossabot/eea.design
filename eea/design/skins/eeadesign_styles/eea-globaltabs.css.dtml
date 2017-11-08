@@ -63,6 +63,13 @@
     align-items: center;
 }
 
+#secondary-portaltabs-container {
+    display: none;
+}
+.mini-header #secondary-portaltabs-container {
+    display: block;
+}
+
 #secondary-portaltabs li a {
     padding: 1em 0.45em;
 }
