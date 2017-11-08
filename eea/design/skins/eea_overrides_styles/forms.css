@@ -2,7 +2,7 @@
 
 fieldset,
 .editionComment {
-    line-height:1.5em;
+    line-height:1.5em;`
     margin:1em 0;
     padding:0 1em 1em;
     width:auto;
@@ -179,11 +179,11 @@ tr.error {
 
 body.template-logged_out #content,
 body.template-login_form #content,
-.pb-ajax #login-form {
+.pb-ajax .login-form {
     text-align: center;
 }
 
-#fieldset-openid-login input, #login-form input {
+#fieldset-openid-login input, .login-form input {
     font-size: 150%;
 }
 
@@ -195,7 +195,7 @@ body.template-new-user #content input {
 
 }
 
-#fieldset-openid-login label, #login-form label {
+#fieldset-openid-login label, .login-form label {
     margin-right:0.5em;
     padding-top:0.2em;
     text-align:right;
@@ -203,7 +203,7 @@ body.template-new-user #content input {
     display: inline-block;
 }
 
-#fieldset-openid-login .formControls input, #login-form .formControls input {
+#fieldset-openid-login .formControls input, .login-form .formControls input {
 margin-left: 0.25em;
 }
 
