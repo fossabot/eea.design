@@ -3,6 +3,8 @@ Changelog
 
 18.1.dev0 - (unreleased)
 ------------------------
+* Change: Override sunburst_styles/forms.css
+  [refs #88692]
 
 18.0 - (2017-11-07)
 -------------------
@@ -16,7 +18,7 @@ Changelog
   [alecghica refs #88692]
 * Feature: Improved responsive design in max-width: 768px
   for GIS applications
-  [demarant refs #89398]  
+  [demarant refs #89398]
 * Upgrade step: change all occurences of:
     #login_form to .login_form
     #login-forgotten-password to .login-forgotten-password
