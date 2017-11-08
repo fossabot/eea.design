@@ -105,7 +105,14 @@
     max-width: 60%; } }
 @media screen and (max-width: 767px) {
   #portal-globalnav {
-    display: block; }
+    display: flex;
+    flex-direction: column; }
+
+  #portaltab-europe {
+    order: 1; }
+
+  #portaltab-media {
+    margin: 0; }
 
   #portal-globalnav .current a {
     padding-left: 20px; }
@@ -213,7 +220,7 @@
       text-align: left;
       margin-top: 1em; }
 
-  #secondary-portaltabs #portaltab-europe a {
+  #portaltab-europe a {
     padding: 0.5em 0 2em 0;
     border-bottom: 0;
     text-align: left; }
@@ -316,8 +323,10 @@
   #portal-globalnav li a {
     padding: 0.5em 0;
     display: block;
-    border-bottom: 1px solid gray;
     line-height: 2em; }
+
+  .portal-globalnav li a {
+    border-bottom: 1px solid gray; }
 
   #portal-column-content {
     margin-top: 60px; }
@@ -528,8 +537,7 @@
     position: relative; }
 
   #secondary-portaltabs .eea-accordion-panels,
-  #portal-logo-link-header,
-  #secondary-portaltabs-container {
+  #portal-logo-link-header {
     display: none; }
 
   /* move the search icon inside the input of the searchfield */
@@ -703,7 +711,7 @@
   #region-content {
     margin: 0 -1.5em; } }
 @media screen and (width: 1024px) {
-  #secondary-portaltabs #portaltab-europe a {
+  #portaltab-europe a {
     padding: 1.1em 0; }
 
   #portaltab-europe {

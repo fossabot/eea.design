@@ -43,7 +43,7 @@
 #portal-globalnav li a  {
     background: transparent;
     position: relative;
-    border: 0;
+    border-right: 0;
     min-width: 0;
     padding: inherit;
 }
