@@ -3,6 +3,8 @@ Changelog
 
 18.1.dev0 - (unreleased)
 ------------------------
+* Change: Reduced the height of the megatopics area on the frontpage
+  [petchesi-iulian refs #89096]
 * Change: Override sunburst_styles/forms.css
   [refs #88692]
 
