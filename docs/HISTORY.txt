@@ -1,6 +1,9 @@
 Changelog
 =========
 
+18.2.dev0 - (unreleased)
+------------------------
+
 18.1 - (2017-11-14)
 -------------------
 * Bugfix: production/staging/devel differentiation for sentry
