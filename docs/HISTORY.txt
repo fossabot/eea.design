@@ -3,6 +3,8 @@ Changelog
 
 18.1.dev0 - (unreleased)
 ------------------------
+* Bugfix: fixed mini header and mobile view globalnav
+  [ichim-david refs #89889]
 * Bugfix: production/staging/devel differentiation for sentry
   [valipod refs #88817]
 * Change: Reduced the height of the megatopics area on the frontpage

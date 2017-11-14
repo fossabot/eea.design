@@ -104,30 +104,6 @@
   #content #languageCodes {
     max-width: 60%; } }
 @media screen and (max-width: 767px) {
-  #portal-globalnav {
-    display: flex;
-    flex-direction: column; }
-
-  #portaltab-europe {
-    order: 1; }
-
-  #portaltab-media {
-    margin: 0; }
-
-  #portal-globalnav .current a {
-    padding-left: 20px; }
-
-  #portal-globalnav .current a:after {
-    top: 50% !important;
-    left: 0 !important;
-    border-left-color: #fff;
-    border-top-color: transparent !important;
-    margin-left: 0 !important;
-    margin-top: -10px !important; }
-
-  #secondary-portaltabs {
-    margin: 0; }
-
   #eea-above-columns #portal-breadcrumbs.plone-breadcrumb {
     margin-top: 0;
     margin-bottom: 0; }
@@ -154,6 +130,7 @@
     margin-top: 1.3em;
     background-color: transparent; }
     #portal-top .eea-accordion-panels {
+      width: 100%;
       border: 0; }
       #portal-top .eea-accordion-panels table {
         width: 100%; }
@@ -182,6 +159,31 @@
   .networkSites > .col-md-6,
   .networkSites > .col-sm-6 {
     padding: 0; }
+
+  #portal-globalnav {
+    display: flex;
+    flex-direction: column; }
+
+  #portaltab-europe {
+    order: 1; }
+
+  #portaltab-media {
+    margin: 0; }
+
+  #portal-globalnav .current a {
+    padding-left: 20px; }
+
+  #portal-globalnav .current a:after {
+    top: 50% !important;
+    left: 0 !important;
+    border-left-color: #fff;
+    border-top-color: transparent !important;
+    margin-left: 0 !important;
+    margin-top: -10px !important; }
+
+  #secondary-portaltabs {
+    margin: 0;
+    width: 100%; }
 
   #portal-globalnav .current a {
     padding-left: 20px; }
@@ -254,11 +256,9 @@
   .LSBox {
     float: none; }
 
-  #portal-externalsites li, #portal-siteactions li,
-  #portal-globalnav li {
+  #portal-externalsites li, #portal-siteactions li {
     display: block;
-    text-align: left;
-    float: none; }
+    text-align: left; }
 
   #portal-header {
     height: 100%;
@@ -317,16 +317,23 @@
   #globalnav-holder, #portal-globalnav {
     height: inherit; }
 
-  .mini-header #portal-globalnav {
+  .mini-header #globalnav-holder {
     border: 0; }
 
-  #portal-globalnav li a {
+  #portal-globalnav > li > a {
     padding: 0.5em 0;
-    display: block;
-    line-height: 2em; }
+    line-height: 2em;
+    width: 100%; }
 
   .portal-globalnav li a {
     border-bottom: 1px solid gray; }
+
+  #portal-globalnav a:hover:after, #portal-globalnav .eea-nav-current a:after, .mini-header #portal-globalnav .eea-nav-current a:hover:after {
+    top: 8px;
+    left: -1%;
+    border-left-color: #FFF;
+    border-top-color: transparent;
+    margin-left: -11px; }
 
   #portal-column-content {
     margin-top: 60px; }
@@ -632,9 +639,6 @@
   #portal-globalnav {
     font-size: 95%; }
 
-  #portal-globalnav li a {
-    padding: 1.4em 0.8em; }
-
   #portaltab-europe a {
     margin-top: 3px !important;
     padding: 1.3em 0 !important; } }
@@ -643,10 +647,7 @@
     margin: 25px 0.5em 0 0; } }
 @media screen and (min-width: 768px) {
   .mini-header #secondary-portaltabs > li > a {
-    padding: 0 1em !important; }
-
-  .mini-header #secondary-portaltabs .mini-header-expander {
-    padding: 0.75em 0.4em !important; }
+    padding: 0 1em; }
 
   .mini-header-expander {
     height: 27px !important; }
