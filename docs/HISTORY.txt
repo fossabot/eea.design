@@ -1,8 +1,16 @@
 Changelog
 =========
 
-18.1.dev0 - (unreleased)
+18.2.dev0 - (unreleased)
 ------------------------
+* Change: Changed the height attribute of the frontpage topics to auto and
+  added javascript for automatic height adjustment
+  [petchesi-iulian refs #89096]
+* Bugfix: fixed mini header and mobile view globalnav
+  [ichim-david refs #89889]
+
+18.1 - (2017-11-14)
+-------------------
 * Bugfix: production/staging/devel differentiation for sentry
   [valipod refs #88817]
 * Change: Reduced the height of the megatopics area on the frontpage
