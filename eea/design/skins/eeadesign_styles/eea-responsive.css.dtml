@@ -472,7 +472,7 @@
   }
 
   .portlet-megatopic ul {
-    height: 120px;
+    height: auto;
   }
 
   .portlet-megatopic {

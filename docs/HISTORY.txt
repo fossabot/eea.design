@@ -3,6 +3,9 @@ Changelog
 
 18.2.dev0 - (unreleased)
 ------------------------
+* Change: More responsive modifications for topics + an automatic height
+  adjuster only for screens between 480 <> 769 px
+  [petchesi-iulian refs #89096]
 * Change: Removed height adjusting javascript and moved to a flex layout
   implementation for the topics
   [petchesi-iulian refs #89096]

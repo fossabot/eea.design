@@ -530,5 +530,18 @@ jQuery(document).ready(function($) {
     if (scroll_analytics_enabled) {
         $("#content-core").screentimeAnalytics();
     }
+
+    // Frontpage topics automatic height adjustment for
+    if ($(window).width() < 769 && $(window).width() > 480) {
+        var ul = $('.portlet-megatopic ul');
+        var heights = [];
+        if (ul.length) {
+            ul.each(function(index,item){ heights.push($(item).height()); });
+            var x = heights.reduce(function(a, b) {
+                return Math.max(a, b);
+            });
+            ul.height(x);
+        }
+    }
 });
 
