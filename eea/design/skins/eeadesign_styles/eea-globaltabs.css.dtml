@@ -32,7 +32,7 @@
 #portal-globalnav > li,
 #secondary-portaltabs > li {
     margin-bottom: 0;
-    height: 100%;
+    height: 50px;
     display: flex;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -67,8 +67,8 @@
 }
 
 #secondary-portaltabs {
-  display: flex;
-  margin-left: 0;
+    display: flex;
+    margin-left: 0;
 }
 .mini-header #secondary-portaltabs-container {
     display: flex;
@@ -124,7 +124,9 @@
 #portal-globalnav .mini-header-expander {
     margin: 0 0.5em;
     padding: 0.8em;
-    background-color: transparent !important;
+    display: block;
+    align-items: normal;
+    overflow: visible;
 }
 
 #portaltab-media {

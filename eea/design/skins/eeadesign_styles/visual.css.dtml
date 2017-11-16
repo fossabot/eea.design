@@ -547,9 +547,8 @@ span.figure-left {
 
 .mini-header-expander {
     height: 30px;
-    line-height: 0;
     position: relative;
-    z-index: 0;
+    z-index: 1;
     color: #346f83 !important;
     margin: 0 2em;
 }

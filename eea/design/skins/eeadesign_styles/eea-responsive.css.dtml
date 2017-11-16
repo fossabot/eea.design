@@ -708,7 +708,10 @@
     overflow: hidden; }
 
   .bordered-left:before {
-    left: -5%; } }
+    left: -5%; }
+
+  .mini-header-expander {
+    padding: 0.8em !important; } }
 .fullwidth #portal-globalnav,
 .fullwidth #portal-header,
 .fullwidth #visual-portal-wrapper {
