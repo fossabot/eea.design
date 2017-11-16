@@ -71,7 +71,18 @@
   #keyfacts-slider dl {
     min-height: 250px; }
 
+  #megatopics-area {
+    display: block;
+    flex-wrap: nowrap;
+  }
+
+  .portlet-megatopic img {
+    width: 100%;
+  }
+
   .portlet-megatopic {
+    display: block;
+    flex: none;
     width: 100%; } }
 @media screen and (max-height: 480px) and (orientation: landscape) {
   .navbar-fixed-top .navbar-collapse,

@@ -530,21 +530,5 @@ jQuery(document).ready(function($) {
     if (scroll_analytics_enabled) {
         $("#content-core").screentimeAnalytics();
     }
-
-    // Frontpage topics automatic height adjustment
-    var ul = $('.portlet-megatopic ul');
-    var megatopic_div = $('#megatopics-area');
-    var megatopic_height = $('.portlet-megatopic');
-    var heights = [];
-
-    if (ul.length && megatopic_div.length && megatopic_height.length) {
-        ul.each(function(index,item){ heights.push($(item).height()); });
-
-        var x = heights.reduce(function(a, b) {
-            return Math.max(a, b);
-        });
-        ul.height(x);
-        megatopic_div.height(megatopic_height.height());
-    }
 });
 

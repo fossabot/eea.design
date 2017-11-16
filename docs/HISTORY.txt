@@ -3,6 +3,9 @@ Changelog
 
 18.2.dev0 - (unreleased)
 ------------------------
+* Change: Removed height adjusting javascript and moved to a flex layout
+  implementation for the topics
+  [petchesi-iulian refs #89096]
 * Change: Changed the height attribute of the frontpage topics to auto and
   added javascript for automatic height adjustment
   [petchesi-iulian refs #89096]
