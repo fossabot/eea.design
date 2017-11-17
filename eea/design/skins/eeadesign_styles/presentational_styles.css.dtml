@@ -107,6 +107,11 @@ dl.warning,
     background-color: #FFFABE;
 }
 
+.warningMessage {
+    font-size: 200%;
+    line-height: 1;
+}
+
 div.attention:before, div.caution:before,
 div.danger:before, div.important:before,
 dl.warning:before,
