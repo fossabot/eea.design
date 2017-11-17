@@ -79,7 +79,7 @@
                     </div>
 
                     <div id="highlights-area" class="column-area">
-                    <h1 class="documentFirstHeading">Data and maps</h1>
+                    <h1 i18n:translate="" class="documentFirstHeading">Data and maps</h1>
 
                     <!-- data and maps global search -->
                     <a href="find/global"
