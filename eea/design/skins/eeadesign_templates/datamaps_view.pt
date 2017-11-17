@@ -18,7 +18,12 @@
                     <div id="articles-area" class="right-column-area">
 
                         <!-- featured content -->
-                        
+
+                        <!-- #87862 <div class="featured">
+                         <div metal:use-macro="here/portlet_dataviewers/macros/portlet" />
+                         <div metal:use-macro="here/portlet_maindatasets/macros/portlet" />
+                        </div>-->
+
                         <tal:featured_item
                              tal:define="featured_class datamaps_view;
                                          highlights python:featured_class.getLatest('interactivedata');
@@ -29,7 +34,7 @@
                                               <span metal:fill-slot="box_title" i18n:translate="">Interactive data viewers</span>
                                           </div>
                         </tal:featured_item>
-                        
+
                         <tal:featured_item
                              tal:define="featured_class datamaps_view;
                                          highlights python:featured_class.getLatest('infographics');
@@ -74,7 +79,7 @@
                     </div>
 
                     <div id="highlights-area" class="column-area">
-                    <h1 class="documentFirstHeading" i18n:translate="">Data and maps</h1>
+                    <h1 class="documentFirstHeading">Data and maps</h1>
 
                     <!-- data and maps global search -->
                     <a href="find/global"
@@ -117,4 +122,3 @@ faceted-external-search">
 
     </body>
 </html>
-
