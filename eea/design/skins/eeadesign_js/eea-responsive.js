@@ -21,17 +21,7 @@ jQuery(document).ready(function($) {
     var $portal_siteactions = $("#portal-siteactions");
 
     var doc = document.documentElement;
-    // #16878 move last two links of globalnav to a secondary container
-    // #23500 we now have an extra list item (europe)
-    var $secondary_portaltabs = $('#secondary-portaltabs'),
-        $global_nav = $('#portal-globalnav'),
-        $global_nav_children = $global_nav.find('> li');
-    if (!$body.hasClass('mini-header')) {
-        $global_nav_children.slice($global_nav_children.length - 4, $global_nav_children.length - 1).appendTo($secondary_portaltabs);
-    }
-    else {
-        $secondary_portaltabs.appendTo($global_nav);
-    }
+    var $secondary_portaltabs = $("#secondary-portaltabs");
 
     //var $tabbed_menu = $(".tabbedmenu");
     //var tabbed_menu_found = $tabbed_menu.length;
@@ -305,7 +295,7 @@ jQuery(document).ready(function($) {
     if ($mini_header.length) {
         (function () {
             "use strict";
-            var $globalnav_tips = $("<div id='secondary-globanav-tips' />");
+            var $globalnav_tips = $("<div id='secondary-globalnav-tips' />");
                 $globalnav_tips.appendTo($secondary_portaltabs);
             $secondary_portaltabs.addClass('eea-slide-tooltips');
             $portal_siteactions.find('li').each(function(idx, el) {

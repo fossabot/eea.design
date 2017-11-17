@@ -17,8 +17,8 @@
 #portal-globalnav {
     background: none;
     clear: both;
-    display: block;
-    font-size: 120%;
+    display: flex;
+    font-size: 100%;
     height: 50px;
     list-style: none;
     margin: 0 auto;
@@ -32,11 +32,8 @@
 #portal-globalnav > li,
 #secondary-portaltabs > li {
     margin-bottom: 0;
-    float: left;
-    text-align: center;
-    height: 100%;
-    display: inline-block;
-    white-space: nowrap;
+    height: 50px;
+    display: flex;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -44,13 +41,39 @@
 
 #portal-globalnav li a  {
     background: transparent;
-    color: white;
-    display: inline-block;
-    padding: 1em 0.8em;
-    border: 0;
+    position: relative;
+    border-right: 0;
     min-width: 0;
+    padding: inherit;
+}
+#portal-globalnav li > a {
+    color: white;
+    padding: 1em 0.8em;
+}
+
+#portal-globalnav li > a {
     font-weight:bold;
 }
+
+#portal-globalnav > li > a,
+#secondary-portaltabs > li > a
+{
+    display: flex;
+    align-items: center;
+}
+
+#secondary-portaltabs-container {
+    display: none;
+}
+
+#secondary-portaltabs {
+    display: flex;
+    margin-left: 0;
+}
+.mini-header #secondary-portaltabs-container {
+    display: flex;
+}
+
 #secondary-portaltabs li a {
     padding: 1em 0.45em;
 }
@@ -62,14 +85,14 @@
     z-index: 601;
 }
 
-#secondary-globanav-tips li a {
+#secondary-globalnav-tips li a {
     padding: 0.3em 0;
     font-size: small;
 }
-#secondary-globanav-tips a,
-#secondary-globanav-tips a:hover,
-#secondary-globanav-tips li a,
-#secondary-globanav-tips li a:hover {
+#secondary-globalnav-tips a,
+#secondary-globalnav-tips a:hover,
+#secondary-globalnav-tips li a,
+#secondary-globalnav-tips li a:hover {
     color: &dtml-linkColor;;
     font-weight: normal;
 }
@@ -95,20 +118,19 @@
 }
 .mini-header #portal-globalnav #portaltab-more,
 .mini-header #portal-globalnav #portaltab-eeahome {
-    display: block;
+    display: flex;
 }
 
 #portal-globalnav .mini-header-expander {
     margin: 0 0.5em;
     padding: 0.8em;
-    background-color: transparent !important;
+    display: block;
+    align-items: normal;
+    overflow: visible;
 }
 
-
-li#secondary-portaltabs-container {
-    float: right;
-    margin: 0;
-    height: 100%;
+#portaltab-media {
+    margin: 0 0 0 auto;
 }
 
 #secondary-portaltabs .eea-icon:before {
@@ -119,11 +141,15 @@ li#secondary-portaltabs-container {
 }
 
 #portaltab-europe {
-    width: 120px;
+    width: 212px;
     font-size: 75%;
     vertical-align: top;
     padding-right: 92px;
-    background: url("&dtml-xurl;/eu-flag.png") no-repeat 123px -3px;
+    background: url("&dtml-xurl;/eu-flag.png") no-repeat 122px -3px;
+}
+
+#portaltab-europe a {
+    font-weight: normal !important;
 }
 
 .mini-header #portaltab-europe {
@@ -142,10 +168,6 @@ li#secondary-portaltabs-container {
     text-align: left;
 }
 
-#portal-globalnav #portaltab-eeahome a {
-    padding: 0.6em 0.8em;
-}
-
 #secondary-portaltabs #portaltab-europe a {
     font-weight: normal;
     text-align: right;
@@ -159,9 +181,6 @@ li#secondary-portaltabs-container {
 /* refs #71262 - top navigation must have a selected style */
 #globalnav-holder .hiddenStructure{
     height: 0;
-}
-#portal-globalnav li{
-    position: relative;
 }
 
 /* 72862_mini_header hide eea-nav-current navigation arrow
@@ -193,3 +212,4 @@ li#secondary-portaltabs-container {
 }
 /* </dtml-let> */
 /* </dtml-with> */
+

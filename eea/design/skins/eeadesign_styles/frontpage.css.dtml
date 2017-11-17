@@ -169,6 +169,8 @@ a.archives {
 #megatopics-area {
     font-size: 0.9em;
     margin-bottom: 1.5em;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #megatopics-area .portletHeader {
@@ -184,9 +186,8 @@ a.archives {
 }
 
 .portlet-megatopic {
-    width: 25%;
-    float: left;
-    padding-right: 2px;
+    display: flex;
+    flex: 1;
 }
 #megatopics-area .portlet,
 #megatopics-area dd {
@@ -199,14 +200,16 @@ a.archives {
 }
 
 .portlet-megatopic img {
-    width: 100%;
     height: 150px;
 }
 .portlet-megatopic ul {
     padding-top: 20px;
-    height: 150px;
+    height: auto;
 }
 
+.portlet-megatopic ul li:last-child {
+    padding-bottom: 15px;
+}
 
 /* Frontpage news and articles
 ******************************************************************************/

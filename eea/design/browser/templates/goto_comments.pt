@@ -12,8 +12,8 @@
 
 <p class="portalMessage">
     <span class="eea-icon eea-icon-comments"></span>
-    <tal:block i18n:translate="">This item is open for comments. See the comments </tal:block>
-    <a tal:attributes="href string:${context/absolute_url}#eea-comments" i18n:translate="">section below</a>
+    <tal:block i18n:translate="">This item is open for comments. Login with your Eionet account in order to see and add comments. See </tal:block>
+    <a tal:attributes="href string:${context/absolute_url}#eea-comments" i18n:translate="">comments section below</a>
 </p>
 
 </tal:block>
