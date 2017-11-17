@@ -72,6 +72,10 @@ sup, sub {
     background: url(&dtml-xurl;/draft.png);
 }
 
+.archived-content {
+    background: url(&dtml-xurl;/expired.png);    
+}
+
 /*
 ** Collapsible areas classes.
 ** further info in javascript
