@@ -3,6 +3,8 @@ Changelog
 
 18.0.dev0 - (unreleased)
 ------------------------
+* Change: Make archive message more visible.
+  [demarant refs #87958]
 * Feature: Improved responsive design in max-width: 768px
   for GIS applications
   [demarant: refs #89398]  

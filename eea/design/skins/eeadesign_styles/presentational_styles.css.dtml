@@ -132,6 +132,11 @@ dl.error dt,
     color: red;
 }
 
+.archiveMessage {
+    font-size:300%;
+    line-height: 1;
+}
+
 .archiveMessage:before {
     content: "&dtml-eea-icon-history;";
 }
