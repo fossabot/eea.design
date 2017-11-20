@@ -3,6 +3,9 @@ Changelog
 
 18.2.dev0 - (unreleased)
 ------------------------
+* Bug fix: removed static dimensions for image thumbs added within
+  folder_summary_view
+  [ichim-david refs #90072]
 * Change: Make archive message more visible.
   [demarant refs #87958]
 * Change: merged changes from /custom
