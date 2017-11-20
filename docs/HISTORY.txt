@@ -1,8 +1,8 @@
 Changelog
 =========
 
-18.2.dev0 - (unreleased)
-------------------------
+18.2 - (2017-11-20)
+-------------------
 * Bug fix: removed static dimensions for image thumbs added within
   folder_summary_view
   [ichim-david refs #90072]
