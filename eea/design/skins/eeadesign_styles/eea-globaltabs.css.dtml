@@ -104,6 +104,7 @@
 #portal-globalnav a:hover,
 #portal-globalnav .selected a {
     background: transparent;
+    cursor: pointer;
 }
 
 #portal-globalnav .selected a {
@@ -207,7 +208,8 @@
 }
 
 #portaltab-eeahome a:hover:after,
-#portaltab-europe a:hover:after{
+#secondary-portaltabs .mini-header-expander a:hover:after,
+#portaltab-europe a:hover:after {
     border: none;
 }
 /* </dtml-let> */
