@@ -430,8 +430,8 @@ jQuery(document).ready(function($) {
                     list.push(link);
                 }
             }
-            catch(err){
-                console.log(err);
+            catch(err) {
+                window.console.log(err);
             }
         }
         return list;
