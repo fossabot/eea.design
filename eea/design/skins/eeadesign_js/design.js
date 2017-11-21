@@ -415,18 +415,23 @@ jQuery(document).ready(function($) {
         var links_length = links.length;
         var link, link_href;
         for (var i = 0; i < links_length; i++) {
-            link = links[i];
-            link_href = link.href;
-            // match only links that are comming from the eea site
-            if (!link_href.match('eea.europa')) {
-                continue;
+            try {
+                link = links[i];
+                link_href = link.href;
+                // match only links that are comming from the eea site
+                if (!link_href.match('eea.europa')) {
+                    continue;
+                }
+                if (
+                    link_href.match("/download[.a-zA-Z]*") ||
+                    link_href.match("at_download") ||
+                    link_href.match("/download$") ||
+                    link_href.match("ftp.eea.europa")) {
+                    list.push(link);
+                }
             }
-            if (
-                link_href.match("/download[.a-zA-Z]*") ||
-                link_href.match("at_download") ||
-                link_href.match("/download$") ||
-                link_href.match("ftp.eea.europa")) {
-                list.push(link);
+            catch(err){
+                console.log(err);
             }
         }
         return list;

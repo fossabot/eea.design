@@ -3,6 +3,9 @@ Changelog
 
 18.3.dev0 - (unreleased)
 ------------------------
+* Bug fix: fixed JS error on IE11 / Windows 7 affecting the reply button 
+  on Community portal
+  [alecghica refs #90112]
 * Change: Implemented jquery lazy image loading + upgrade step for adding the
   js dependencies
   [petchesi-iulian refs #88420]
