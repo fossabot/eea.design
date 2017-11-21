@@ -431,7 +431,7 @@ jQuery(document).ready(function($) {
                 }
             }
             catch(err){
-                console.log(err)
+                console.log(err);
             }
         }
         return list;
