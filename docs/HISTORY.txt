@@ -3,6 +3,9 @@ Changelog
 
 18.3.dev0 - (unreleased)
 ------------------------
+* Change: Implemented jquery lazy image loading + upgrade step for adding the
+  js dependencies
+  [petchesi-iulian refs #88420]
 
 18.2 - (2017-11-20)
 -------------------

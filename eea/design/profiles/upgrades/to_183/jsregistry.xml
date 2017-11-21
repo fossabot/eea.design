@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+
+    <javascript cacheable="True" compression="none" cookable="True"
+        enabled="True" inline="False" expression=""
+        bundle="default" id="jquery.lazy.min.js" />
+
+    <javascript cacheable="True" compression="none" cookable="True"
+        enabled="True" inline="False" expression=""
+        bundle="default" id="jquery.lazy.plugins.min.js" />
+
+    <javascript cacheable="True" compression="none" cookable="True"
+        enabled="True" inline="False" expression=""
+        bundle="default" id="lazy_load.js" />
+
+</object>
