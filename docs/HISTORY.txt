@@ -9,6 +9,8 @@ Changelog
 * Change: Implemented jquery lazy image loading + upgrade step for adding the
   js dependencies
   [petchesi-iulian refs #88420]
+* Change: car_index.pt merged from /custom
+  [alecghica refs #89967]
 
 18.2 - (2017-11-20)
 -------------------
