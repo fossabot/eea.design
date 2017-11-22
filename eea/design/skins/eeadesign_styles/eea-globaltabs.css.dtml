@@ -78,6 +78,7 @@
     padding: 1em 0.45em;
 }
 
+/* needed for mini header siteaction icons */
 .eea-navsiteactions-active > a {
     color: &dtml-linkColor; !important;
     background-color: white !important;
@@ -85,10 +86,15 @@
     z-index: 601;
 }
 
+ #siteaction-networks-menu .mini-header-expander {
+     background-color: transparent !important;
+ }
+
 #secondary-globalnav-tips li a {
     padding: 0.3em 0;
     font-size: small;
 }
+
 #secondary-globalnav-tips a,
 #secondary-globalnav-tips a:hover,
 #secondary-globalnav-tips li a,
@@ -124,7 +130,7 @@
 
 #portal-globalnav .mini-header-expander {
     margin: 0 0.5em;
-    padding: 0.8em;
+    padding: 0.5em 0.8em !important;
     display: block;
     align-items: normal;
     overflow: visible;

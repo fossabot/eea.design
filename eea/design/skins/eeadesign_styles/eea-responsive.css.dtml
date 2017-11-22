@@ -73,12 +73,10 @@
 
   #megatopics-area {
     display: block;
-    flex-wrap: nowrap;
-  }
+    flex-wrap: nowrap; }
 
   .portlet-megatopic img {
-    width: 100%;
-  }
+    width: 100%; }
 
   .portlet-megatopic {
     display: block;
@@ -340,7 +338,7 @@
     border-bottom: 1px solid gray; }
 
   #portal-globalnav a:hover:after, #portal-globalnav .eea-nav-current a:after, .mini-header #portal-globalnav .eea-nav-current a:hover:after {
-    top: 8px;
+    top: 14px;
     left: -1%;
     border-left-color: #FFF;
     border-top-color: transparent;
@@ -463,17 +461,14 @@
 @media screen and (min-width: 481px) and (max-width: 768px) {
   #megatopics-area {
     display: block;
-    flex-wrap: nowrap;
-  }
+    flex-wrap: nowrap; }
 
   .portlet-megatopic img {
     width: 100%;
-    height: 150px;
-  }
+    height: 150px; }
 
   .portlet-megatopic ul {
-    height: auto;
-  }
+    height: auto; }
 
   .portlet-megatopic {
     display: block;
@@ -665,9 +660,6 @@
   #globalnav-holder #portal-globalnav {
     padding-right: 0 !important; }
 
-  #portal-globalnav {
-    font-size: 95%; }
-
   #portaltab-europe a {
     margin-top: 3px !important;
     padding: 1.3em 0 !important; } }
@@ -677,9 +669,6 @@
 @media screen and (min-width: 768px) {
   .mini-header #secondary-portaltabs > li > a {
     padding: 0 1em; }
-
-  .mini-header-expander {
-    height: 27px !important; }
 
   .mini-header .siteaction-title {
     display: none; }
@@ -726,10 +715,7 @@
     overflow: hidden; }
 
   .bordered-left:before {
-    left: -5%; }
-
-  .mini-header-expander {
-    padding: 0.8em !important; } }
+    left: -5%; } }
 .fullwidth #portal-globalnav,
 .fullwidth #portal-header,
 .fullwidth #visual-portal-wrapper {
@@ -752,7 +738,13 @@
 @media screen and (min-width: 1025px) {
   .fullwidth #portal-header,
   .fullwidth #secondary-portaltabs {
-    padding-right: 1em; } }
+    padding-right: 1em; }
+
+  .mini-header-expander:before {
+    -webkit-transform: perspective(1px) rotateX(-1deg);
+    -ms-transform: perspective(1px) rotateX(-1deg);
+    -o-transform: perspective(1px) rotateX(-1deg);
+    transform: perspective(1px) rotateX(-1deg); } }
 @media screen and (min-width: 768px) and (max-width: 1050px) {
   .mini-header #portal-globalnav > li > a {
     padding: 1.1em 0.5em !important;
