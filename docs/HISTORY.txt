@@ -3,6 +3,9 @@ Changelog
 
 18.3.dev0 - (unreleased)
 ------------------------
+* Feature: Give content the css class=archived-content if it is expired
+  useful for watermarks.
+  [demarant refs #87958]
 * Change: remove css transform on 1024px and less for network menu as it
   clips text on IOS devices
   [ichim-david refs #89889]
