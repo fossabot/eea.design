@@ -657,6 +657,12 @@
     padding-right: 95px;
     width: 200px; }
 
+  .mini-header #portal-globalnav {
+    font-size: 90%; }
+
+  #portal-globalnav > li > a {
+    padding: 1em 0.5em; }
+
   #globalnav-holder #portal-globalnav {
     padding-right: 0 !important; }
 
@@ -728,7 +734,10 @@
     overflow: hidden; }
 
   #region-content {
-    margin: 0 -1.5em; } }
+    margin: 0 -1.5em; }
+
+  #portal-globaltab {
+    font-size: 120%; } }
 @media screen and (width: 1024px) {
   #portaltab-europe a {
     padding: 1.1em 0; }
@@ -745,10 +754,6 @@
     -ms-transform: perspective(1px) rotateX(-1deg);
     -o-transform: perspective(1px) rotateX(-1deg);
     transform: perspective(1px) rotateX(-1deg); } }
-@media screen and (min-width: 768px) and (max-width: 1050px) {
-  .mini-header #portal-globalnav > li > a {
-    padding: 1.1em 0.5em !important;
-    font-size: 83%; } }
 /* </dtml-let> */
 /* </dtml-with> */
 

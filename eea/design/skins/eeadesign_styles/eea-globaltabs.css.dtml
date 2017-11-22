@@ -18,7 +18,7 @@
     background: none;
     clear: both;
     display: flex;
-    font-size: 100%;
+    font-size: 105%;
     height: 50px;
     list-style: none;
     margin: 0 auto;
@@ -49,6 +49,7 @@
 #portal-globalnav li > a {
     color: white;
     padding: 1em 0.8em;
+    text-align: center;
 }
 
 #portal-globalnav li > a {
@@ -89,6 +90,9 @@
  #siteaction-networks-menu .mini-header-expander {
      background-color: transparent !important;
  }
+#siteaction-networks-menu a:hover:after {
+    border-left-color: transparent;
+}
 
 #secondary-globalnav-tips li a {
     padding: 0.3em 0;
@@ -157,6 +161,7 @@
 
 #portaltab-europe a {
     font-weight: normal !important;
+    padding: 0 !important;
 }
 
 .mini-header #portaltab-europe {
