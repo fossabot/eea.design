@@ -226,7 +226,7 @@
     padding-bottom: 2em;
     width: 100%;
     padding-right: 90px;
-    background: url("&dtml-xurl;/eu-flag.png") no-repeat top right; }
+    background: url("&dtml-xurl;/eu-flag.png") no-repeat right -5px; }
     #portaltab-europe a {
       text-align: left;
       margin-top: 1em; }
@@ -633,7 +633,7 @@
   #portaltab-europe {
     padding-right: 95px;
     width: 195px;
-    background: url("&dtml-xurl;/eu-flag.png") no-repeat top right; }
+    background: url("&dtml-xurl;/eu-flag.png") no-repeat right -5px; }
     #portaltab-europe a {
       margin-top: 7px;
       padding: 1.3em 0 !important; }
