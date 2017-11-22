@@ -49,7 +49,6 @@
 #portal-globalnav li > a {
     color: white;
     padding: 1em 0.8em;
-    text-align: center;
 }
 
 #portal-globalnav li > a {
@@ -161,7 +160,6 @@
 
 #portaltab-europe a {
     font-weight: normal !important;
-    padding: 0 !important;
 }
 
 .mini-header #portaltab-europe {
