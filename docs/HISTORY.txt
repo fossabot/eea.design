@@ -3,6 +3,9 @@ Changelog
 
 18.3.dev0 - (unreleased)
 ------------------------
+* Change: experiment with the loading position of raven (sentry)
+  to reduce error noise
+  [dumitval refs #88817]
 * Feature: Give content the css class=archived-content if it is expired
   useful for watermarks.
   [demarant refs #87958]

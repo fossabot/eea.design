@@ -13,4 +13,8 @@
         enabled="True" inline="False" expression=""
         bundle="default" id="lazy_load.js" />
 
+    <javascript cacheable="True" compression="none" cookable="True"
+        enabled="True" inline="False" expression="context/@@sentry_dsn"
+        bundle="default" id="sentry.js" insert-after="boostrap.js" />
+
 </object>
