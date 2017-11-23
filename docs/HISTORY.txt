@@ -17,6 +17,8 @@ Changelog
   [petchesi-iulian refs #88420]
 * Change: car_index.pt merged from /custom
   [alecghica refs #89967]
+* Change: updated main_template.pt to use context instead of here
+  [alecghica refs #89902]
 
 18.2 - (2017-11-20)
 -------------------
