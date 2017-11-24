@@ -65,13 +65,13 @@
 #secondary-portaltabs-container {
     display: none;
 }
+.mini-header #portal-globalnav #secondary-portaltabs-container {
+    display: flex;
+}
 
 #secondary-portaltabs {
     display: flex;
     margin-left: 0;
-}
-.mini-header #secondary-portaltabs-container {
-    display: flex;
 }
 
 #secondary-portaltabs li a {
