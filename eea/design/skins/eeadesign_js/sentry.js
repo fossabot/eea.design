@@ -8,7 +8,7 @@ $(function(){
                  'Can\'t find variable: jQuery',
                  'Socialite is not defined',
                  'Persistent storage maximum size reached'
-            ];
-        }).install();
+            ]
+        }).install()
     }
-});
+})
