@@ -9,6 +9,6 @@ $(function(){
                  'Socialite is not defined',
                  'Persistent storage maximum size reached'
             ]
-        }).install()
+        }).install();
     }
-})
+});
