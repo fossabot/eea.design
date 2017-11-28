@@ -1,8 +1,8 @@
 Changelog
 =========
 
-18.3 - (2017-11-27)
--------------------
+18.3.dev0 - (unreleased)
+------------------------
 * Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
   available for eea.design
   [avoinea refs #89955]
