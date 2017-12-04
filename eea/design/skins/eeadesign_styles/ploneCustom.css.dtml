@@ -1226,6 +1226,7 @@ div.field.error {
 .portlet-subscription .eea-icon-lg {
     line-height: 0.75em;
     color: #596EA0;
+    width: 20px;
 }
 .portlet-subscription .eea-icon-twitter-square {
     color: #1da1f2;

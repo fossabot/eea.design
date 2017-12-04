@@ -3,6 +3,10 @@ Changelog
 
 18.3.dev0 - (unreleased)
 ------------------------
+* Change: use pdflogo-web.png if we are on english website when we reference
+  the eea logo used for the portal logo as performance tools were complaining
+  about the original image being too large
+  [ichim-david refs #88482]
 * Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
   available for eea.design
   [avoinea refs #89955]
