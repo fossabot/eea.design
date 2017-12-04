@@ -1,6 +1,6 @@
 $(function(){
     var sentry_dsn = $('body').data('sentry-dsn');
-    if (sentry_dsn !== null){
+    if (sentry_dsn !== undefined){
         Raven.config(sentry_dsn, {
             ignoreErrors: [
                 'jQuery is not defined',
