@@ -77,9 +77,10 @@
 .regions-countries-map {
     width: 58%;
     position: relative;
-    min-height: 675px;
-    max-height: 675px;
+    min-height: 600px;
+    max-height: 600px;
     display: flex;
+    margin-top:-45px;
 }
 
 .regions-header {
@@ -151,7 +152,6 @@
         max-width: 80% !important;
     }
     #content {
-        min-height: 600px;
+        min-height: 400px;
     }
 }
-

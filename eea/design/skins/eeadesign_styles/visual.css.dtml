@@ -72,6 +72,10 @@ sup, sub {
     background: url(&dtml-xurl;/draft.png);
 }
 
+.archived-content {
+    background: url(&dtml-xurl;/expired.png);    
+}
+
 /*
 ** Collapsible areas classes.
 ** further info in javascript
@@ -535,26 +539,20 @@ span.figure-left {
 
 .mini-header-expander {
     height: 30px;
-    line-height: 0;
     position: relative;
-    z-index: 0;
+    z-index: 1;
     color: #346f83 !important;
     margin: 0 2em;
 }
 .mini-header-expander:before {
     content: '';
     position: absolute;
-    top: 2px;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: -1;
     background: #FFF;
-    -webkit-transform: perspective(1px) rotateX(-1deg);
-       -moz-transform: perspective(1px) rotateX(-1deg);
-        -ms-transform: perspective(1px) rotateX(-1deg);
-         -o-transform: perspective(1px) rotateX(-1deg);
-            transform: perspective(1px) rotateX(-1deg);
     border-radius: 0 0 10px 10px;
 }
 

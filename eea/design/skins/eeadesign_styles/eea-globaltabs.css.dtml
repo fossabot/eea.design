@@ -18,7 +18,7 @@
     background: none;
     clear: both;
     display: flex;
-    font-size: 120%;
+    font-size: 105%;
     height: 50px;
     list-style: none;
     margin: 0 auto;
@@ -32,8 +32,7 @@
 #portal-globalnav > li,
 #secondary-portaltabs > li {
     margin-bottom: 0;
-    float: left;
-    height: 100%;
+    height: 50px;
     display: flex;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -43,14 +42,17 @@
 #portal-globalnav li a  {
     background: transparent;
     position: relative;
-    border: 0;
+    border-right: 0;
     min-width: 0;
     padding: inherit;
 }
 #portal-globalnav li > a {
     color: white;
-    font-weight:bold;
     padding: 1em 0.8em;
+}
+
+#portal-globalnav li > a {
+    font-weight:bold;
 }
 
 #portal-globalnav > li > a,
@@ -60,10 +62,23 @@
     align-items: center;
 }
 
+#secondary-portaltabs-container {
+    display: none;
+}
+.mini-header #portal-globalnav #secondary-portaltabs-container {
+    display: flex;
+}
+
+#secondary-portaltabs {
+    display: flex;
+    margin-left: 0;
+}
+
 #secondary-portaltabs li a {
     padding: 1em 0.45em;
 }
 
+/* needed for mini header siteaction icons */
 .eea-navsiteactions-active > a {
     color: &dtml-linkColor; !important;
     background-color: white !important;
@@ -71,10 +86,18 @@
     z-index: 601;
 }
 
+ #siteaction-networks-menu .mini-header-expander {
+     background-color: transparent !important;
+ }
+#siteaction-networks-menu a:hover:after {
+    border-left-color: transparent;
+}
+
 #secondary-globalnav-tips li a {
     padding: 0.3em 0;
     font-size: small;
 }
+
 #secondary-globalnav-tips a,
 #secondary-globalnav-tips a:hover,
 #secondary-globalnav-tips li a,
@@ -90,6 +113,7 @@
 #portal-globalnav a:hover,
 #portal-globalnav .selected a {
     background: transparent;
+    cursor: pointer;
 }
 
 #portal-globalnav .selected a {
@@ -109,8 +133,10 @@
 
 #portal-globalnav .mini-header-expander {
     margin: 0 0.5em;
-    padding: 0.8em;
-    background-color: transparent !important;
+    padding: 0.5em 0.8em !important;
+    display: block;
+    align-items: normal;
+    overflow: visible;
 }
 
 #portaltab-media {
@@ -122,11 +148,15 @@
 }
 
 #portaltab-europe {
-    width: 120px;
+    width: 212px;
     font-size: 75%;
     vertical-align: top;
     padding-right: 92px;
-    background: url("&dtml-xurl;/eu-flag.png") no-repeat 123px -3px;
+    background: url("&dtml-xurl;/eu-flag.png") no-repeat 122px -3px;
+}
+
+#portaltab-europe a {
+    font-weight: normal !important;
 }
 
 .mini-header #portaltab-europe {
@@ -139,10 +169,6 @@
     line-height: 1.1;
     padding-left: 35px;
     background: url("&dtml-xurl;/globalnav-logo.png") no-repeat 10% 60%;
-}
-
-#portal-globalnav #portaltab-eeahome {
-    text-align: left;
 }
 
 #secondary-portaltabs #portaltab-europe a {
@@ -184,8 +210,10 @@
 }
 
 #portaltab-eeahome a:hover:after,
-#portaltab-europe a:hover:after{
+#secondary-portaltabs .mini-header-expander a:hover:after,
+#portaltab-europe a:hover:after {
     border: none;
 }
 /* </dtml-let> */
 /* </dtml-with> */
+
