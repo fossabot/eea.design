@@ -64,10 +64,9 @@
     <!--?<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>-->
     <!--?<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>-->
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext,latin" rel="stylesheet" type="text/css" />
-    <tal:block define="sentry_dsn here/@@sentry_dsn" condition="sentry_dsn">
+    <tal:block define="sentry_dsn context/@@sentry_dsn" condition="sentry_dsn">
         <script src="https://cdn.ravenjs.com/3.17.0/raven.min.js"
             crossorigin="anonymous"></script>
-        <script tal:content="string:Raven.config('${sentry_dsn}').install()" />
     </tal:block>
 
     <tal:comment replace="nothing">
@@ -115,6 +114,7 @@
 
 <body tal:define="isRTL portal_state/is_rtl;
                   wf_state context_state/workflow_state|string:;
+                  is_expired context/isExpired;
                   is_editable context_state/is_editable;
                   sr python:plone_view.have_portlets('plone.rightcolumn', view) and not request.get('disable_plone.rightcolumn');
                   body_class python:plone_view.bodyClass(template, view);
@@ -122,10 +122,12 @@
                   body_class python: body_class + ' fullwidth' if context.restrictedTraverse('@@fullwidth_content_types')() or request.get('body.fullwidth') else body_class;
                   body_class python: body_class + ' scroll-analytics' if context.restrictedTraverse('@@scroll_analytics_content_types')() else body_class;
                   body_class python: body_class + mini_header if mini_header else body_class;
+                  body_class python: body_class + ' expired-content' if is_expired else body_class;
                   frontpage python: ' frontpage' if ('frontpage_view' or 'localfrontpage_view') in body_class else '';
                   sunburst_view python:context.restrictedTraverse('@@sunburstview')"
       tal:attributes="class python:body_class + ' ' + language + frontpage;
-                      dir python:isRTL and 'rtl' or 'ltr'">
+                      dir python:isRTL and 'rtl' or 'ltr';
+                      data-sentry-dsn context/@@sentry_dsn">
 
     <div id="print-warning" i18n:domain="eea">
         <p i18n:translate="">
@@ -194,7 +196,9 @@
 
                     <metal:slot define-slot="body">
                         <div id="content"  class="documentContent panels"
-                                           tal:attributes="class python:wf_state and ('documentContent panels wf-state-' + str(wf_state)) or 'documentContent panels'">
+                                            tal:define="content_class python:wf_state and ('documentContent panels wf-state-' + str(wf_state)) or 'documentContent panels';
+                                                        content_class python: content_class + ' archived-content' if is_expired else content_class;"
+                                            tal:attributes="class python:content_class">
 
                             <metal:header define-slot="header" tal:content="nothing">
 
@@ -260,7 +264,7 @@
                                     <div tal:replace="structure provider:plone.belowcontentbody" />
                                 </tal:not4AjaxLoad>
 
-                                <div metal:use-macro="here/eea_dates/macros/pdfPublishDate" tal:condition="python:'pdf.body' in request['URL0']">
+                                <div metal:use-macro="context/eea_dates/macros/pdfPublishDate" tal:condition="python:'pdf.body' in request['URL0']">
                                     pdf publish date
                                 </div>
                             </metal:bodytext>

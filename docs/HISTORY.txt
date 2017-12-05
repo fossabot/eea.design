@@ -1,10 +1,70 @@
 Changelog
 =========
 
-18.0.dev0 - (unreleased)
+18.3.dev0 - (unreleased)
 ------------------------
 * Change: remove unused css from eea-design css files
   [petchesi-iulian refs #88382]
+* Change: use pdflogo-web.png if we are on english website when we reference
+  the eea logo used for the portal logo as performance tools were complaining
+  about the original image being too large
+  [ichim-david refs #88482]
+* Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
+  available for eea.design (BEFORE eea.facetednavigation upgrade)
+  [avoinea refs #89955]
+* Change: experiment with the loading position of raven (sentry)
+  to reduce error noise
+  [dumitval refs #88817]
+* Feature: Give content the css class=archived-content if it is expired
+  useful for watermarks.
+  [demarant refs #87958]
+* Change: remove css transform on 1024px and less for network menu as it
+  clips text on IOS devices
+  [ichim-david refs #89889]
+* Bug fix: fixed JS error on IE11 / Windows 7 affecting the reply button
+  on Community portal
+  [alecghica refs #90112]
+* Change: Implemented jquery lazy image loading + upgrade step for adding the
+  js dependencies
+  [petchesi-iulian refs #88420]
+* Change: car_index.pt merged from /custom
+  [alecghica refs #89967]
+* Change: updated main_template.pt to use context instead of here
+  [alecghica refs #89902]
+
+18.2 - (2017-11-20)
+-------------------
+* Bug fix: removed static dimensions for image thumbs added within
+  folder_summary_view
+  [ichim-david refs #90072]
+* Change: Make archive message more visible.
+  [demarant refs #87958]
+* Change: merged changes from /custom
+  [alecghica refs #89754]
+* Change: More responsive modifications for topics + an automatic height
+  adjuster only for screens between 480 <> 769 px
+  [petchesi-iulian refs #89096]
+* Change: Removed height adjusting javascript and moved to a flex layout
+  implementation for the topics
+  [petchesi-iulian refs #89096]
+* Change: Changed the height attribute of the frontpage topics to auto and
+  added javascript for automatic height adjustment
+  [petchesi-iulian refs #89096]
+* Bug fix: fixed mini header and mobile view globalnav
+  [ichim-david refs #89889]
+
+18.1 - (2017-11-14)
+-------------------
+* Bugfix: production/staging/devel differentiation for sentry
+  [valipod refs #88817]
+* Change: Reduced the height of the megatopics area on the frontpage
+  [petchesi-iulian refs #89096]
+* Change: Override sunburst_styles/forms.css
+  [refs #88692]
+
+18.0 - (2017-11-07)
+-------------------
+>>>>>>> develop
 * Bug fix: fixed issues reported by Jenkins
   [alecghica refs #88692]
 * Feature: Implement different Sentry DSN for production, staging and devel
@@ -15,7 +75,7 @@ Changelog
   [alecghica refs #88692]
 * Feature: Improved responsive design in max-width: 768px
   for GIS applications
-  [demarant refs #89398]  
+  [demarant refs #89398]
 * Upgrade step: change all occurences of:
     #login_form to .login_form
     #login-forgotten-password to .login-forgotten-password
