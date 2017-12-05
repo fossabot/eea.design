@@ -4,7 +4,7 @@ Changelog
 18.3.dev0 - (unreleased)
 ------------------------
 * Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
-  available for eea.design
+  available for eea.design (BEFORE eea.facetednavigation upgrade)
   [avoinea refs #89955]
 * Change: experiment with the loading position of raven (sentry)
   to reduce error noise
