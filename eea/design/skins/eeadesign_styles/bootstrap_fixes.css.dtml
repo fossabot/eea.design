@@ -114,6 +114,13 @@ blockquote {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
+/* ++resource++archetypes.querywidget.querywidget.css new style collection fixes */
+input.removecriteria {
+    margin-left: 0.5em;
+}
+.ArchetypesQueryWidget .multipleSelectionWidget dt {
+    height: 2.6em;
+}
 
 /* uberlisting.css */
 #uber-view-switch a {

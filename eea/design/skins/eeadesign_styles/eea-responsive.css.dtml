@@ -199,6 +199,10 @@
   #secondary-portaltabs .eea-siteaction {
     display: none !important; }
 
+  #siteaction-user,
+  #siteaction-search {
+    display: none; }
+
   #portaltab-europe {
     margin-top: 1em;
     padding-bottom: 2em;
