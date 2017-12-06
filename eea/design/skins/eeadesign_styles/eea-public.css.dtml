@@ -256,9 +256,6 @@ div.managePortletsLink, a.managePortletsFallback {
     top: 2px;
     color: #666;
 }
-#portal-breadcrumbs.plone-breadcrumb > #breadcrumbs-current {
-    color: #666;
-}
 #portal-breadcrumbs.plone-breadcrumb .breadcrumbSeparator,
 #portal-breadcrumbs.plone-breadcrumb #breadcrumbs-you-are-here{
     display: none;

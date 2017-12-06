@@ -261,8 +261,7 @@
 
   #portal-externalsites, #portal-siteactions,
   #secondary-portaltabs,
-  #portal-searchbox,
-  .LSBox {
+  #portal-searchbox {
     float: none; }
 
   #portal-externalsites li, #portal-siteactions li {
@@ -309,12 +308,6 @@
       margin: 0; }
     #portal-searchbox .searchButton {
       display: none; }
-
-  .LSBox {
-    padding-right: 0; }
-    .LSBox .searchSection {
-      left: 0;
-      background-color: #006699; }
 
   #portal-searchbox {
     display: block !important;
@@ -572,14 +565,8 @@
     display: none; }
 
   /* move the search icon inside the input of the searchfield */
-  #portal-searchbox .searchField {
-    border: 1px solid gray;
-    padding-left: 2em; }
   #portal-searchbox .eea-icon {
     margin-right: -2em; }
-
-  .mini-header #portal-searchbox .searchSection {
-    display: none; }
 
   .navbar-toggle {
     display: none; }

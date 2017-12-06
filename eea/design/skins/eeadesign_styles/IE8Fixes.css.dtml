@@ -269,8 +269,7 @@ dd.portletFooter {
     width: 200px;
 }
 
-* html #portlet-etcs-sites,
-* html #portlet-chooselang {
+* html #portlet-etcs-sites {
     font-size: 70%;
     width: 19em;
 }

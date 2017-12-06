@@ -111,8 +111,7 @@ blockquote {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
-
-/* ++resource++archetypes.querywidget.querywidget.css */
+/* ++resource++archetypes.querywidget.querywidget.css new style collection fixes */
 input.removecriteria {
     margin-left: 0.5em;
 }
@@ -123,18 +122,6 @@ input.removecriteria {
 /* uberlisting.css */
 #uber-view-switch a {
     height: 55px;
-}
-
-/* community.css */
-#col1 .mainsearchboxinputtext,
-#col1 #statusinputtextarea {
-    height: inherit;
-}
-#sidenavigationlogoholder a {
-    width: 198px !important;
-}
-#languageselectorcombo {
-  height: 25px !important;
 }
 
 /* ++resource++jquery.annotator.css  */

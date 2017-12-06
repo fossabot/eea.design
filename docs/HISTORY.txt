@@ -3,6 +3,8 @@ Changelog
 
 18.3.dev0 - (unreleased)
 ------------------------
+* Change: remove unused css from eea-design css files
+  [petchesi-iulian refs #88382]
 * Change: use pdflogo-web.png if we are on english website when we reference
   the eea logo used for the portal logo as performance tools were complaining
   about the original image being too large
@@ -62,6 +64,7 @@ Changelog
 
 18.0 - (2017-11-07)
 -------------------
+>>>>>>> develop
 * Bug fix: fixed issues reported by Jenkins
   [alecghica refs #88692]
 * Feature: Implement different Sentry DSN for production, staging and devel
