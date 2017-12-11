@@ -11,7 +11,7 @@
 <body>
 <div metal:fill-slot="main" class="collaborating-countries">
     <metal:main-macro define-macro="main">
-        <metal:title fill-slot="content-title">
+        <metal:title metal:fill-slot="content-title">
             <h1 class="documentFirstHeading">Countries</h1>
         </metal:title>
         <!--div class="countries-description">

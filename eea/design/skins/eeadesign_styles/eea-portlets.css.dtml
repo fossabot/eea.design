@@ -324,14 +324,10 @@ dl.portlet-navigation-tree {
 
 
 .navTreeLevel0 { margin: 0; }
-.navTreeLevel1 { }
-.navTreeLevel2 { }
 .navTreeLevel0,
 .navTreeLevel3 { background: transparent; }
 .navTreeLevel4 { background: transparent; }
 .navTreeLevel5 { background: transparent; }
-/* .navTreeLevel5 { margin-left: 0.75em; } */
-
 
 /* EEA specific portlet classes */
 .portlet .link,
@@ -365,12 +361,6 @@ dl.portlet-navigation-tree {
     color: &dtml-linkColor;;
 }
 
-.portlet dd.portletSeparator {
-   clear: both;
-   border-bottom: 1px dotted &dtml-globalBorderColor;;
-   margin:0;
-   padding:0;
-}
 .portlet a.portletHeader {
    font-size: 1em;
    padding-bottom: 0.4em;
@@ -380,34 +370,14 @@ dt.portletItem a, #content dt.portletItem a {
    font-weight: normal;
 }
 
-#portlet-chooselang {
-   background: transparent;
-   color:black;
-   margin: 0 13px 0 0;
-   padding: 0.5em 0;
-   float: right;
-   clear: right;
-   border: 0;
-   font-size: 100%;
-}
-
-#portlet-chooselang dt {
-   display: none;
-}
-
 .portlet-subscription dt {
    margin-bottom: 5px;
-}
-
-#portlet-chooselang select {
-   font-size: 110%;
 }
 
 #chooselang {
     margin: 0;
     padding: 0;
 }
-
 
 #portal-column-two .portletTabHead,
 #portal-column-two .portletTabHead_current {
@@ -444,7 +414,6 @@ dt.portletItem a, #content dt.portletItem a {
    border: 1px solid #bebebe;
    border-top:none;
 }
-#portal-column-two #portlet-chooselang dl dd,
 #portal-column-two .portlet-rss dd {
    margin: 0 0 0 0;
 }
@@ -468,16 +437,6 @@ dt.portletItem a, #content dt.portletItem a {
 
 .portlet-subscription dd, .portlet-subscription dd div {
     margin-bottom: 0.5em;
-}
-
-.portlet-subscription input.subscriptionButton {
-   background: url(&dtml-xurl;/search_btn_small.png) no-repeat top left;
-   border: none;
-   width: 30px;
-   height: 19px;
-   margin: 0 2px 0 2px;
-   padding: 0;
-   cursor:pointer;
 }
 
 dl.portletNavigationTree dt.portletHeader {
@@ -579,12 +538,6 @@ dl.portletNavigationTree dt.portletSubMenuHeader span.title {
     left: -186px;
 }
 
-#portal-column-one .portlet {
-    padding: 0;
-    margin: 0;
-}
-
-
 .navTreeItem .contenttype-document,
 .navTreeItem .contenttype-event,
 .navTreeItem .contenttype-folder,
@@ -600,21 +553,6 @@ dl.portletNavigationTree dt.portletSubMenuHeader span.title {
 /* ichimdav added styles from sunburst's portlets.css */
 .managedPortlet {
     margin: 0.8em 0;
-}
-
-.blockedPortlet .portletHeader {
-    border: 1px dashed #ddd;
-    margin: -1px;
-    background: none !important;
-}
-
-.blockedPortlet .portletHeader a {
-    color: #666;
-}
-
-.blockedPortlet .portletBlockedMessage {
-    color: white;
-    display: inline;
 }
 
 .portletItemDetails {

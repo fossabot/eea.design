@@ -106,14 +106,6 @@
     z-index: 20;
 }
 
-.LSBox {
-    clear: left;
-    float: left;
-    text-align: right;
-    padding-right: 1px;
-    display:block;
-}
-
 #LSNothingFound {
     text-align: center;
     padding: 2px;

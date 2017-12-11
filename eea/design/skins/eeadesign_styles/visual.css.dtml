@@ -167,10 +167,6 @@ th a, th a:link, th a:visited {
     border-bottom: 1px solid #DDD;
 }
 
-.sum {
-    font-weight: bold;
-}
-
 /* Sortable table columns */
 .sortable, .listing {
     border: 1px solid #b6b6b6;
@@ -261,7 +257,6 @@ can be floated left or right with additional
 class figure-right or figure-left */
 
 .figure p,
-.figure-plus p,
 .figure-container p {
     margin-bottom: 0;
 }
@@ -287,13 +282,6 @@ class figure-right or figure-left */
 }
 .figure-plus-container {
     margin: 0 0 1em 0;
-}
-.figure-plus {
-    background-color: #fff;
-    border: 1px solid #a9a9a9;
-    margin: -6px 0 0 -6px;
-    padding: 4px;
-    zoom: 1;
 }
 
 .figure-right .figure,
