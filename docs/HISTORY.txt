@@ -3,6 +3,8 @@ Changelog
 
 18.3.dev0 - (unreleased)
 ------------------------
+* Change: Replace eeacms/zptlint with eeacms/plone-test:4 zptlint
+  [avoinea refs #90415]
 * Change: remove unused css from eea-design css files
   [petchesi-iulian refs #88382]
 * Change: use pdflogo-web.png if we are on english website when we reference
