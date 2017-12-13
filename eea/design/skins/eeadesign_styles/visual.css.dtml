@@ -167,6 +167,10 @@ th a, th a:link, th a:visited {
     border-bottom: 1px solid #DDD;
 }
 
+.sum {
+    font-weight: bold;
+}
+
 /* Sortable table columns */
 .sortable, .listing {
     border: 1px solid #b6b6b6;
@@ -494,18 +498,6 @@ span.figure-left {
 
 .eea-template {
     display: none;
-}
-
-.eea-rounded-corners {
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -o-border-radius: 3px;
-}
-
-.eea-horizontal-list li {
-    float: left;
-    margin: 0 0.5em 0 0;
 }
 
 .eea-no-list-style {
