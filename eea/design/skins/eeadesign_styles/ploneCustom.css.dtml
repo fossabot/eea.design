@@ -17,6 +17,7 @@ dl.actionMenu #assessmentpart {
 
 /* #50513 hide global filter for document register
 * so that users cannot remove it.
+* https://www.eea.europa.eu/about-us/documents/administrativedocuments facet entry
 */
 
 #c4_option_c4_public-administrative-document {
@@ -30,7 +31,6 @@ dl.actionMenu #assessmentpart {
 }
 
 /* columns.css slider-definitions modification */
-
 div.width-3\3A 4 { width: 58.5%; }
 .template-datamaps_view #region-content,
 .template-dc_view #region-content,
@@ -52,7 +52,6 @@ div.position-0 { margin-left: -100%; }
 /* @end columns.css slider-definitions modification */
 
 /* remove borders on image gallery from eea.jquery */
-
 #galleryView {
     border: none;
 }
@@ -82,7 +81,6 @@ div.position-0 { margin-left: -100%; }
 #faceted-right-column .faceted-widget {
     margin-bottom: 1em;
 }
-
 
 #faceted-form .faceted-widget fieldset {
     border-style: none !important;
@@ -223,15 +221,6 @@ div.position-0 { margin-left: -100%; }
     margin: 0;
 }
 
-.faceted-top-widgets .faceted-widget .widget-fieldset form input[type="text"]:focus,
-.faceted-center-widgets .faceted-widget .widget-fieldset form input[type="text"]:focus {
-    -webkit-box-shadow: 1px 1px 3px #DFDFDF;
-    -moz-box-shadow: 1px 1px 3px #DFDFDF;
-    -ms-box-shadow: 1px 1px 3px #DFDFDF;
-    -o-box-shadow: 1px 1px 3px #DFDFDF;
-    box-shadow: 1px 1px 3px #DFDFDF;
-    border-color: &dtml-corporateGreen;;
-}
 
 .faceted-top-widgets .faceted-widget,
 .faceted-center-widgets .faceted-widget {
@@ -248,25 +237,6 @@ div.position-0 { margin-left: -100%; }
     margin-right: 15px;
 }
 
-.faceted-top-widgets .faceted-widget .widget-fieldset form .searchButton,
-.faceted-center-widgets .faceted-widget .widget-fieldset form .searchButton {
-    color:#fff;
-    background-color: &dtml-corporateBlue;;
-    font: bold 12px &dtml-fontFamily;;
-    padding: 7px 11px;
-    display: inline-block;
-    border: 1px solid #DCDCDC;
-    margin-left: -4px;
-}
-.faceted-top-widgets .faceted-widget .widget-fieldset form .searchButton:hover,
-.faceted-center-widgets .faceted-widget .widget-fieldset form .searchButton:hover {
-    background-color:&dtml-corporateOrange;;
-    color: #FFFFFF;
-    cursor:pointer;
-    border-color: #999999;
-    text-shadow: none;
-}
-
 .faceted-resultsperpage-widget select {
     padding: 3px;
     width: 50px;
@@ -274,18 +244,6 @@ div.position-0 { margin-left: -100%; }
 
 .faceted-criteria dd {
     margin-left: 22px !important;
-}
-
-.faceted-criteria-toggle-button,
-.faceted-criteria-count-holder {
-    position: relative;
-    top: -10px;
-    margin-right: 5px;
-    padding: 0;
-}
-
-.faceted-criteria-count-holder {
-    display: none;
 }
 
 /* standard search button inside any of the portal columns*/
@@ -358,38 +316,7 @@ input.standalone:hover {
 .photoAlbumEntry {
     width: 125px;
 }
-/* end of specific faceted navigation style */
-
-/* ichimdav: these styles were previously in public.css */
-
-/* specific SOER2010 design */
-
-/* #5175 soer search portlet fix */
-#soerSearchBox .portletHeader {
-    float: left;
-}
-#soerSearchBox .moreLink {
-    float: right;
-    margin-top: 1em;
-}
-
-#soer-search-area #faceted-text-search {
-    float: left;
-    margin-right: 1em;
-}
-#soer-search-area #topic-search {
-    float: right;
-    width: 308px;
-}
-
-.section-soer #boxes .portlet,
-.section-soer-draft #boxes .portlet {
-    overflow: hidden;
-}
-
-.section-signals #nonfolderish-subfolder-view-items {
-    display: none;
-}
+/* @end of specific faceted navigation style */
 
 /* folder_tabs_view and folder_accordion_view styling
  * as well as generic tabs and accordion styling */
@@ -724,51 +651,6 @@ input.standalone:hover {
 #content .callout {
     font-size: 12px;
 }
-/* related styles amd flowplayer videos style */
-
-.media-player {
-    text-align:center;
-}
-
-.related-in-content-area .portlet {
-    margin-left: 2em;
-}
-
-#auto-related .tileImage,
-#related-multimedia .tileImage {
-    float: none;
-}
-
-#auto-related .portletItem {
-    padding-bottom:0.5em;
-    clear: both;
-}
-
-/* #5157 */
-#auto-related .embeddedMedia {
-    clear: none !important;
-}
-
-#auto-related h2,
-#related-multimedia h2,
-#related-pages h2 {
-    margin-top: 0;
-}
-
-#auto-related dd {
-    padding: 0;
-    margin: 0 0 1em 0;
-}
-
-#auto-related dd.portletFooter {
-    padding:1em;
-}
-
-#auto-related dt {
-    background-color:transparent;
-    padding-left: 0;
-}
-
 
 /* Links with differently colored link underlines - only for content */
 #content span.link-external  {
@@ -783,7 +665,9 @@ input.standalone:hover {
     text-decoration: none !important;
 }
 
-/* 5455 fix publicationMessage link color */
+/* 5455 fix publicationMessage link color
+* older version portlet https://www.eea.europa.eu//publications/term-report-2016
+*/
 #content dl.publicationMessage a {
     border: 0;
     color: &dtml-linkColor;;
@@ -814,7 +698,7 @@ dl a:hover, dd a:hover, dt a:hover {
     min-width: 70%;
     max-width: 77%;
 }
-/* /used by datamaps_view set on SITE/data-and-maps */
+/* @end used by datamaps_view set on SITE/data-and-maps */
 
 /* used by dc_view and portlet_datacenter_overview */
 #theme-datacentre {
@@ -830,7 +714,9 @@ dl a:hover, dd a:hover, dt a:hover {
 #content .featured p:last-child {
     margin-bottom: 0;
 }
-a.moreLink {
+
+/* Networks panel EU partners links */
+.moreLink {
     border: 0 !important;
     display: inline-block;
     padding-left: 20px;
@@ -849,7 +735,6 @@ a.moreLink {
     margin-left: -18px;
     top: -3px;
 }
-
 /* End links */
 
 /* The edit form elements */
@@ -881,7 +766,6 @@ div.field.error {
     color: &dtml-backgroundColor;;
 }
 
-
 .formHelp {
     font-size: 90%;
     color: &dtml-discreetColor;;
@@ -893,7 +777,7 @@ div.field.error {
     color: &dtml-fontColor;;
     cursor: default;
 }
-/* End edit form elements */
+/* @end edit form elements */
 
 /* #23500 allow the control panel widget to be placed outside of their context
     by having overflow visible for screen with size larger than 1024px
@@ -907,7 +791,7 @@ div.field.error {
     overflow: visible;
 }
 
-/* Logo properties */
+/* portal-header area */
 #header-holder {
     width: 100%;
     clear: both;
@@ -970,57 +854,15 @@ div.field.error {
     padding: 0;
     cursor: pointer;
 }
+/* @end portal-header area */
 
 
-.is-eea-hidden {
-    -moz-transition: all 1s;
-    -o-transition: all 1s;
-    -webkit-transition: all 1s;
-    transition: all 1s;
-    display: none !important;
-}
-
-.shadow {
-    -webkit-box-shadow: 1px 1px 5px #afafaf;
-    -moz-box-shadow: 1px 1px 5px #afafaf;
-    -ms-box-shadow: 1px 1px 5px #afafaf;
-    -o-box-shadow: 1px 1px 5px #afafaf;
-    box-shadow: 1px 1px 5px #afafaf;
-}
-
-/* drop down panels for portal siteactions */
-.panel {
-    display: none;
-    z-index: 600;
-    background: transparent;
-    border: 0;
-}
-
-
-.panel-top {
-    margin: auto auto;
-    background: transparent url(&dtml-xurl;/panel_arrow.png);
-    width: 50px;
-    height: 25px;
-    position: relative;
-    top: 2px;
-}
 /* 72862 tweak placement of globalnav panels */
 #secondary-globalnav-tips .panel {
     top: 46px !important;
 }
 #secondary-globalnav-tips .panel-top {
     display: none;
-}
-
-.panel .portletFooter {
-    margin-top: 1em;
-}
-.panel-content {
-    background: white;
-    color: black;
-    clear: both;
-    padding: 10px;
 }
 
 #tip-article-language {
@@ -1078,6 +920,7 @@ div.field.error {
 .networkSites dt {
     background: none !important;
 }
+/* @end 72862 tweak placement of globalnav panels */
 
 /* Searchbox style and positioning */
 #portal-searchbox {
@@ -1160,7 +1003,6 @@ div.field.error {
     padding: 0;
 }
 
-
 #searchbox_terminology input[type="text"],
 .searchField {
     width: 80%;
@@ -1170,7 +1012,6 @@ div.field.error {
 #portal-searchbox input:focus,
 .searchField:focus {
     outline-color: transparent;
-    background-color: transparent;
 }
 
 #portal-searchbox .searchButton:focus {
@@ -1201,6 +1042,7 @@ div.field.error {
 #search_glossary_link:hover, #search_advanced_link:hover {
     text-decoration: none;
 }
+/* @end Searchbox style and positioning */
 
 /* Site-wide action menu - font size, contact, index, sitemap etc */
 #portal-externalsites,
@@ -1214,6 +1056,7 @@ div.field.error {
     display: none;
 }
 
+/* subscription cross_site_top panel content icons */
 .portlet-subscription .eea-icon-lg {
     line-height: 0.75em;
     color: #596EA0;
@@ -1228,6 +1071,10 @@ div.field.error {
 .portlet-subscription .eea-icon-youtube-square {
     color: #DB2B28;
 }
+/* @end subscription cross_site_top panel content icons */
+
+
+/* siteactions cross_site_top */
 /* use font awesome unicode icons */
 /* daviz -edit sets eea-icon color to #000 */
 #portal-siteactions #siteaction-chooselang .eea-icon {
@@ -1256,6 +1103,9 @@ div.field.error {
     font-weight: bold;
 }
 
+/* @end siteactions cross_site_top */
+
+/* breadcrumbs found below global-nav*/
 #portal-breadcrumbs {
     /* The path bar, including breadcrumbs and add to favorites */
     line-height: 1.4;
@@ -1263,24 +1113,16 @@ div.field.error {
     position: relative;
     clear: both;
 }
-
 .fullwidth #portal-breadcrumbs.plone-breadcrumb .container {
     margin: 0;
 }
-
 .breadcrumbSeparator {
     font-size: 120%;
 }
+/* @end breadcrumbs */
 
 #region-content {
     position: relative;
-}
-
-.documentActions li, .languageCodes li {
-    display: inline-block !important;
-    list-style: none none;
-    margin: 0;
-    padding: 0;
 }
 
 /*.template-facetednavigation_view #socialmedia-viewlet,*/
@@ -1289,14 +1131,19 @@ div.field.error {
 /*background-color: white;*/
 /*}*/
 
+/* Language viewlet */
+.documentActions li, .languageCodes li {
+    display: inline-block !important;
+    list-style: none none;
+    margin: 0;
+    padding: 0;
+}
 .languageCodes {
     display: block;
 }
-
 #languageCodes {
     max-width: 80%;
 }
-
 #article-language {
     margin-top: -40px;
     background: url("&dtml-xurl;/sprite-eeaimages.png") no-repeat scroll -430px -35px transparent;
@@ -1304,40 +1151,40 @@ div.field.error {
     position: absolute;
     right: 1.5em;
 }
-
 .width-full #article-language {
     min-width: 180px;
 }
+/* @end Language viewlet */
+
+/* progressbar-viewlet */
 .progressbar-viewlet {
     border-radius: 0;
     background-color: &dtml-lightBackgroundColor;;
 }
-
 .frontpage .progressbar-viewlet {
     margin-bottom: 1em;
 }
+/* @end progressbar-viewlet */
 
+/* documentByLine */
 .documentByLine {
     font-size: &dtml-fontSmallSize;;
     font-weight: normal;
     color: &dtml-discreetColor;;
     margin: 0 0 0.5em 0;
-
 }
-
 .documentByLine .portalType, .listHead {
     font-weight: bold;
 }
-
 .documentByLineAuthor:nth-child(2) span:after,
 .documentByLineAuthor a:after, .documentByLineContributor a:after {
     content: ',';
 }
-
 .documentByLineAuthor:nth-child(2) a:after,
 .documentByLineAuthor:last-child a:after, .documentByLineContributor:last-child a:after {
     content: '';
 }
+/* @end documentByLine */
 
 /* Batch selector */
 .listingBar {
@@ -1369,18 +1216,17 @@ div.field.error {
     float: right;
     margin-left: 1em;
 }
+/* @end Batch selector */
 
 /* tileItem used in related and eea-tabs listings */
 .tileItem {
     border-bottom: &dtml-borderWidth; dotted &dtml-globalBorderColor;;
     padding-top: 0.5em;
 }
-
 /*.faceted-results .tileItem {*/
 /*padding: &dtml-padding-base;;*/
 /*background-color: &dtml-lightBackgroundColor;;*/
 /*}*/
-
 .tileHeadline {
     border: none;
     font-size: 110%;
@@ -1389,7 +1235,6 @@ div.field.error {
     margin:0;
     padding-left:0;
 }
-
 #relatedItems .tileHeadline {
     font-size: 130%;
     margin: 0.6em 0;
@@ -1414,7 +1259,7 @@ div.field.error {
     clear: both;
     display: block;
 }
-
+/* @end tileItem used in related and eea-tabs listings */
 
 /* relatedItems */
 #relatedItems  {
@@ -1426,9 +1271,9 @@ div.field.error {
 #relatedItems  h3 {
     clear: both;
 }
+/* @end relatedItems */
 
 /* Useful deviations from regular style on elements */
-
 /* List classes without markers */
 ul.visualNoMarker,
 ol.visualNoMarker {
@@ -1448,10 +1293,11 @@ ol.visualNoMarker {
     margin: 0;
     font-size: 90%;
 }
-
 #portal-sitemap > li {
     border: 0;
 }
+
+/* @end Sitemap styles */
 
 /* Accessibility and visual enhancement elements */
 .hiddenStructure {
@@ -1487,7 +1333,6 @@ option.hiddenStructure {
 }
 
 /* Link types */
-
 .link-plain {
     background-image: none;
     padding: 0;
@@ -1521,6 +1366,7 @@ option.hiddenStructure {
     text-decoration: none;
     font-weight: normal;
 }
+/* @end Link types */
 
 /* Common file types icon */
 .link-pdf {
@@ -1539,6 +1385,8 @@ option.hiddenStructure {
 .link-table {
     background: transparent url(&dtml-xurl;/table.png) 0 50% no-repeat;
     padding: 2px 0 2px 20px;}
+
+/* @end Common file types icon */
 
 /* TinyMCE image alignment classes */
 .image-left {
@@ -1579,6 +1427,7 @@ option.hiddenStructure {
     margin-top: 1em;
     width: 65%;
 }
+/* @end media-single styles */
 
 /* portal-column styles */
 #portal-column-content {
@@ -1733,6 +1582,8 @@ tinyMCE editor or the presentation_view */
     display: block;
 }
 
+/* @end TinyMCE Fixes */
+
 /* Editing Form fixes */
 /* #5267 display form fields for translated items */
 form[name="edit_form"] > table > tbody > tr {
@@ -1767,14 +1618,12 @@ form[name="edit_form"] table {
     top: 0;
     z-index: 1001;
 }
-
 .message_wrap {
     text-align: left;
 }
 .message_wrap p {
     margin-bottom: 0.2em;
 }
-
 #outdated, .message_body {
     width: 960px;
     margin: 0 auto;
@@ -1783,12 +1632,10 @@ form[name="edit_form"] table {
     font-size: 1.7em;
     color: &dtml-headingColor;;
 }
-
 #outdated h3,  .message_wrap h3 {
     border: 0;
     margin: 0;
 }
-
 #outdated li {
     float: left;
     background: url('&dtml-xurl;/browsers.png') no-repeat;
@@ -1797,40 +1644,35 @@ form[name="edit_form"] table {
     overflow: hidden;
     margin-left: 25px;
 }
-
 #outdated li a {
     width: 100%;
     height: 100%;
     display: block;
     padding-top: 45px;
 }
-
 #outdated_text {
     width: 30%;
     float: left;
     border-right: 1px dotted lightGrey;
     padding-right: 3em;
 }
-
 #outdated_ff {
     background-position: -200px 0 !important;
 }
 #outdated_ie {
     background-position: -50px 0 !important;
 }
-
 #outdated_chrome {
     background-position: -150px 0 !important;
 }
-
 #outdated_safari {
     background-position: -100px 0 !important;
 }
-
 .cms-browsers-links ul li {
     display: list-item;
     list-style-type: none;
 }
+/* @end outdated and cookie policy objects */
 
 
 /* #5533 new style collection style tweaks */
@@ -1844,12 +1686,10 @@ form[name="edit_form"] table {
 .queryresults {
     float: none !important;
 }
-
 input.queryvalue {
     width: 200px !important;
     padding: 6px 0;
 }
-
 .multipleSelectionWidget dd {
     width: 620px !important;
     height: 350px;
@@ -1859,22 +1699,19 @@ input.queryvalue {
     -webkit-column-count: 3;
     column-count: 3;
 }
-
 .multipleSelectionWidget dt {
     display: block !important;
     padding: 6px 2px;
 }
-
 .multipleSelectionWidget label {
     width: 195px;
     margin-left: 5px;
     float: left;
 }
-
-
 .ArchetypesQueryWidget .criteria {
     margin: 0 0 0.5em 0 !important;
 }
+/* @end #5533 new style collection style tweaks */
 
 /* #5455 subfolder navigation styling */
 #subfolders_listing {
@@ -1902,13 +1739,11 @@ a#subfolders_more_a, .more_dropdown_a {
     background: url("&dtml-xurl;/accordion_down.png") no-repeat scroll 95% 50% transparent;
     padding-right: 2.5em;
 }
-
 #subfolders_listing #subfolders_more_a:hover, #subfolders_listing .moreHover, .more_dropdown_a .moreHover {
     background: url("&dtml-xurl;/accordion_down.png") no-repeat scroll 95% 50% #FFF !important;
     position: relative;
     z-index: 1010;
 }
-
 #subfolders_listing .moreHover {
     background: none repeat scroll 0 0 #FFFFFF;
     -moz-border-bottom-colors: none;
@@ -1919,12 +1754,10 @@ a#subfolders_more_a, .more_dropdown_a {
     border: 1px solid #666666;
     border-bottom: medium none;
 }
-
 #subfolders_listing ul a {
     min-width: 140px;
     display: block;
 }
-
 #subfolders_listing ul {
     position: absolute;
     background-color: #FFFFFF;
@@ -1935,10 +1768,10 @@ a#subfolders_more_a, .more_dropdown_a {
     left: -3000px;
     list-style: none;
 }
-
 #subfolders_listing > li:hover ul {
     left: 0;
 }
+/* @end #5455 subfolder navigation styling */
 
 .arrowUp {
     width: 0;
@@ -1973,7 +1806,6 @@ a#subfolders_more_a, .more_dropdown_a {
     -o-box-shadow: 0px 2px 2px #333;
     box-shadow: 0px 2px 2px #333;
 }
-
 /* customize form.css rule in order to remove center alignment */
 body.template-login_form #content,
 .pb-ajax .login-form  {
@@ -1993,6 +1825,7 @@ body.template-login_form #content,
 #popup_login_form .login-forgotten-password {
     margin-left: 6.5em;
 }
+/* @end 9485 login popup */
 
 /* #10182 pagination style */
 .pagination .current:before {
@@ -2009,10 +1842,10 @@ body.template-login_form #content,
 .page:after {
     clear: both;
 }
-
 .spinner {
     text-align: center;
 }
+/* @end #10182 pagination style */
 
 /* #17702 Make diff tool look more familiar to users */
 .fieldDiff .delete, #diff-table .diff_sub {
@@ -2026,13 +1859,13 @@ body.template-login_form #content,
     text-decoration: underline;
     background-color: transparent;
 }
+/* @end #17702 Make diff tool look more familiar to users */
 
 .tagInsert, .tagDelete {
     display: none;
 }
 
 /* EUNIS navigation proposal, see #16978 */
-
 @media screen {
     /* #71710 add a margin for eunis tabbed menu needed after move to a colored background */
     #portal-column-content .tabbedmenu {
@@ -2095,6 +1928,7 @@ body.template-login_form #content,
         padding: 10px;
     }
 }
+/* @end EUNIS navigation proposal, see #16978 */
 
 .qrbox {
     display: none;
@@ -2118,6 +1952,7 @@ a.downloading img {
     right: 0;
     z-index: 9999;
 }
+/* @end download.pdf extra clicking prevention styles */
 
 /* eeareadabilitychecker stats */
 #stats td {
@@ -2197,6 +2032,7 @@ div#original_chart_div {
 div.eea-pdf-overlay {
     z-index: 1031;
 }
+/* @end download.pdf download.epub export actions */
 
 /* do not show copyright info on soer briefings */
 .fiche-copyright {
@@ -2221,8 +2057,9 @@ div.eea-pdf-overlay {
     max-width: 970px;
     padding: 0;
 }
+/* @end #20319 cookie policy viewlet styling */
 
-
+/* template fixes */
 .template-collection-pdf-body h4.figureHeading {
     margin: 0 0 1.5em 0;
 }
@@ -2232,7 +2069,7 @@ div.eea-pdf-overlay {
 }
 
 .template-soer2015_frontpage #content {
-    margin: 1em 0em 2em 0em;
+    margin: 1em 0 2em 0;
 }
 
 .template-soer2015_frontpage #region-content {
@@ -2243,17 +2080,17 @@ div.eea-pdf-overlay {
     margin: 2em;
 }
 
-.showOnPrint {
-    display: none;
-}
 .eea-dates {
     margin: 1em 1em 1em 0;
 }
 
+/* tinymce class to hide or show content when printing */
+.showOnPrint {
+    display: none;
+}
 .mceContentBody .showOnPrint {
     display: block;
 }
-
 .mceContentBody .showOnPrint:before {
     content: "Image visible only within pdf download";
     background-color: #ffb;
@@ -2264,6 +2101,7 @@ div.eea-pdf-overlay {
     background-color: #ffb;
     border-bottom: 3px solid black;
 }
+/* @end tinymce class to hide or show content when printing */
 
 /* custom css fix for hiding warning message for anonymous users when  visualization is not published */
 .userrole-anonymous .metadata ~ .warningMessage {
@@ -2292,19 +2130,7 @@ table.invisible {
 .figures-download-links > li {
     display: list-item;
 }
-
-/* 88420 remove entire section after car app is updated */
-@media screen and (min-width:0\0) {
-    /* avoid section-page going over next line for ie10 */
-    .section-description {
-        padding-right: 3em !important;
-        flex-basis: 76% !important;
-    }
-    .section-pages {
-        flex-basis: 19% !important;
-    }
-}
-/* end custom fixes to check */
+/* @end custom fixes to check */
 
 /* </dtml-let> */
 /* </dtml-with> */
