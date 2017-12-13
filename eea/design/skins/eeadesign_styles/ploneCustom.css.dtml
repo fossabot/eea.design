@@ -2274,6 +2274,38 @@ div.eea-pdf-overlay {
 table.invisible {
     visibility: visible;
 }
+
+/* custom fixes to check */
+.faceted-operator {
+    color: #FFF;
+    margin-top: -35px;
+    margin-right: 1em;
+}
+
+#content .faceted-operator a {
+    background-color: white;
+    padding: 0.1em 0.4em;
+    border-radius: 5px;
+    color: #205c90;
+}
+
+.figures-download-links > li {
+    display: list-item;
+}
+
+/* 88420 remove entire section after car app is updated */
+@media screen and (min-width:0\0) {
+    /* avoid section-page going over next line for ie10 */
+    .section-description {
+        padding-right: 3em !important;
+        flex-basis: 76% !important;
+    }
+    .section-pages {
+        flex-basis: 19% !important;
+    }
+}
+/* end custom fixes to check */
+
 /* </dtml-let> */
 /* </dtml-with> */
 

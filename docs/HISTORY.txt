@@ -3,6 +3,8 @@ Changelog
 
 18.4.dev0 - (unreleased)
 ------------------------
+* Change: updated styles and javascripts with changes from custom
+  [ichim-david refs #90180]
 
 18.3 - (2017-12-12)
 -------------------
