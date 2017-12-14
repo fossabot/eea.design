@@ -2,9 +2,9 @@
 (function($, window, document, undef) {
     "use strict";
     var notSupportedBrowsers = [
-        {browser : 'MSIE', version : 8, os: 'Any' },
-        {browser: 'Chrome', version: 12, os: 'Any' },
-        {browser: 'Firefox', version: 4, os: 'Any' }
+        {browser : 'MSIE', version : 9, os: 'Any' },
+        {browser: 'Chrome', version: 47, os: 'Any' },
+        {browser: 'Firefox', version: 40, os: 'Any' }
     ];
 
     function displayMessage(obj) {

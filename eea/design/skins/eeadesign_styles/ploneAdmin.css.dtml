@@ -84,6 +84,29 @@ div.managePortletsLink:hover {
     float:left;
 }
 
+dl.actionMenu #assessmentpart {
+    display: none !important;
+}
+
+.userrole-manager dl.actionMenu #assessmentpart {
+    display: block !important;
+}
+
+/* #72857 fixed font size for "Dashboard" listing "Add new ..." */
+#edit-bar #dashboard {
+    font-size: 100%;
+}
+
+/* progressbar-viewlet */
+.progressbar-viewlet {
+    border-radius: 0;
+    background-color: &dtml-lightBackgroundColor;;
+}
+.frontpage .progressbar-viewlet {
+    margin-bottom: 1em;
+}
+/* @end progressbar-viewlet */
+
 /* </dtml-let> */
 /* </dtml-with>
 ** YOUR CSS RULES STOP HERE
