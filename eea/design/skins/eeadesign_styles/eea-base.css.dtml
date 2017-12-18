@@ -642,6 +642,10 @@ div.overlay a:hover {
 
 /* @end @group Core content type sprites */
 
+.photoAlbumEntry {
+    width: 125px;
+}
+
 /* END OF BASE.CSS RULES */
 /* </dtml-let> */
 /* </dtml-with> */

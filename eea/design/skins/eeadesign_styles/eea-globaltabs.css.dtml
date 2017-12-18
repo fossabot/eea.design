@@ -110,6 +110,22 @@
 /*#chooselang li a:hover {*/
 /*}*/
 
+/* 72862 tweak placement of globalnav panels */
+#secondary-globalnav-tips .panel {
+    top: 46px !important;
+}
+#secondary-globalnav-tips .panel-top {
+    display: none;
+}
+
+#tip-article-language {
+    width: 400px;
+}
+#tip-article-language .panel-top {
+    float: right;
+}
+/* @end 72862 tweak placement of globalnav panels */
+
 #portal-globalnav a:hover,
 #portal-globalnav .selected a {
     background: transparent;

@@ -107,6 +107,23 @@ dl.actionMenu #assessmentpart {
 }
 /* @end progressbar-viewlet */
 
+/* #17702 Make diff tool look more familiar to users */
+.fieldDiff .delete, #diff-table .diff_sub {
+    color: red;
+    text-decoration: line-through;
+    background-color: transparent;
+}
+
+.fieldDiff .insert, #diff-table .diff_add {
+    color: green;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+.tagInsert, .tagDelete {
+    display: none;
+}
+/* @end #17702 Make diff tool look more familiar to users */
 /* </dtml-let> */
 /* </dtml-with>
 ** YOUR CSS RULES STOP HERE

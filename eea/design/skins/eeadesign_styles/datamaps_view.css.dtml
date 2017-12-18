@@ -1,0 +1,33 @@
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
+/* used by datamaps_view set on SITE/data-and-maps */
+.shortcut-light {
+    background: &dtml-lightBackgroundColor;;
+    margin-bottom: 1em;
+    text-align: center;
+}
+#organisations-content {
+    background: url("&dtml-xurl;/portal_depiction/organisation/image_thumb") no-repeat 12px 10px &dtml-lightBackgroundColor;;
+    padding: 25px 20px 50px 90px;
+    text-align: left;
+}
+#semantic-content {
+    background: url("&dtml-xurl;/molecule.png") no-repeat 20px 22px transparent; /* TODO: to sprite */
+    padding: 25px 20px 35px 80px;
+    text-align: left;
+}
+#faceted-text-search input[type="text"] {
+    font-size: 16px;
+    padding: 5px;
+    min-width: 70%;
+    max-width: 77%;
+}
+#content .featured p:last-child {
+    margin-bottom: 0;
+}
+/* @end used by datamaps_view set on SITE/data-and-maps */
+
+/* </dtml-let> */
+/* </dtml-with> */

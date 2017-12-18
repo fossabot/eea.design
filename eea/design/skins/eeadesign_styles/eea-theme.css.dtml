@@ -1,0 +1,741 @@
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
+/* portal-header area */
+#header-holder {
+    width: 100%;
+    clear: both;
+    display: block;
+    position: relative;
+}
+#header-holder .navbar {
+    box-shadow: 0 1px 10px #005078;
+    background-color: #FFF;
+    border: 0;
+    margin-bottom: 17px;
+}
+
+#portal-top {
+    background-color: #FFFFFF;
+}
+
+#cross-site-top {
+    background-color: &dtml-corporateBlue;;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* siteactions cross_site_top */
+/* use font awesome unicode icons */
+/* daviz -edit sets eea-icon color to #000 */
+#portal-siteactions #siteaction-chooselang .eea-icon {
+    color: #FFF;
+}
+
+#portal-externalsites {
+    float: left;
+    margin-left: 0.5em;
+}
+
+#portal-externalsites li,
+#portal-siteactions li {
+    display: inline;
+    padding: 0 5px;
+}
+
+#portal-externalsites li a,
+#portal-siteactions li a {
+    color: #FFF;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+#siteaction-contactus {
+    font-weight: bold;
+}
+
+/* @end siteactions cross_site_top */
+#cross-site-top .panel .portlet-subscribtion {
+    margin: 0;
+}
+#cross-site-top .panel .portlet-subscribtion .portletFooter {
+    margin-bottom: 0;
+}
+#cross-site-top .panel .portlet,
+#cross-site-top .panel .portletHeader {
+    background: transparent;
+}
+#tip-siteaction-chooselang,
+#tip-siteaction-chooselang-menu {
+    width: 145px;
+}
+#tip-siteaction-chooselang li,
+#tip-siteaction-chooselang-menu li {
+    display: list-item;
+    margin: 0;
+    text-align: left;
+}
+#tip-siteaction-subscriptions,
+#tip-siteaction-subscriptions-menu {
+    width: 240px;
+}
+#tip-siteaction-contactus,
+#tip-siteaction-contactus-menu {
+    font-size: 125%;
+    width: 420px;
+}
+#tip-externalsites-networks, #tip-externalsites-etcssites {
+    width: 400px;
+    left: 0 !important;
+}
+.networkSites dt {
+    background: none !important;
+}
+/* Networks panel EU partners links */
+.moreLink {
+    border: 0 !important;
+    display: inline-block;
+    padding-left: 20px;
+    height: 18px;
+    font-size: 11px;
+    line-height: 1.6;
+    position: relative;
+}
+
+.moreLink:before {
+    content: "\f138";
+    font-family: FontAwesome;
+    font-size: 16px;
+    color: gray;
+    position: absolute;
+    margin-left: -18px;
+    top: -3px;
+}
+/* End links */
+
+/* Site-wide action menu - font size, contact, index, sitemap etc */
+#portal-externalsites,
+#portal-siteactions {
+    margin: 4px 0 4px 0;
+    float: right;
+    padding: 0 10px 0 0;
+    clear: none;
+}
+#portal-siteactions > #siteaction-networks, #portal-siteactions > #siteaction-search {
+    display: none;
+}
+
+/* subscription cross_site_top panel content icons */
+.portlet-subscription .eea-icon-lg {
+    line-height: 0.75em;
+    color: #596EA0;
+    width: 20px;
+}
+.portlet-subscription .eea-icon-twitter-square {
+    color: #1da1f2;
+}
+.portlet-subscription .eea-icon-rss-square {
+    color: #ED8628;
+}
+.portlet-subscription .eea-icon-youtube-square {
+    color: #DB2B28;
+}
+/* @end subscription cross_site_top panel content icons */
+
+#portal-header {
+    display: block;
+    clear: both;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 90px;
+    z-index: initial;
+}
+
+.mini-header #portal-header {
+    height: 100%;
+}
+
+#printLogo {
+    padding: 0.9em 0 0 0.5em;
+    display: block;
+    width: auto;
+    height: 55px;
+}
+.portal-logo {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+
+}
+
+.portal-logo a {
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Searchbox style and positioning */
+#portal-searchbox {
+    float: right;
+    clear: right;
+    margin: 20px 0 0 0;
+    font-size: 1.2em;
+    width: 350px;
+}
+#portal-searchbox form {
+    padding: 0;
+    margin-bottom: 0;
+}
+#portal-searchbox .gsc-clear-button {
+    display: none;
+}
+
+#portal-searchbox .gsc-control-cse {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+}
+
+.panel #portal-searchbox {
+    float: none;
+    clear: both;
+    margin: 1em;
+    width: 400px;
+    overflow: hidden;
+}
+
+#portal-searchbox a {
+    color: &dtml-linkColor;;
+    border: none;
+    font-size: 85%;
+}
+
+#portal-searchbox .searchButton,
+#portal-searchbox input.gsc-search-button {
+    background: &dtml-corporateBlue; none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 12px;
+    font-style: normal;
+    position: relative;
+    width: 80px;
+    margin-left: -5px;
+}
+
+#portal-searchbox input, .searchField,
+#content .searchField
+{
+    height: 30px;
+    padding: 0;
+    font-family: &dtml-fontFamily;;
+    font-style: italic;
+    border: none;
+    margin: 0;
+}
+
+#portal-searchbox input.gsc-search-button {
+    height: 30px;
+    width: 70px;
+    border-radius: 0;
+}
+#portal-searchbox input.gsc-input {
+    border: 1px solid gray;
+    padding: 0 0.5em;
+    background: url("//www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png") 5px center no-repeat rgb(255, 255, 255) !important;
+}
+#portal-searchbox input.gsc-input:focus {
+    background: #FFF none !important;
+}
+#portal-searchbox td.gsc-input {
+    padding: 0;
+}
+
+#searchbox_terminology input[type="text"],
+.searchField {
+    width: 80%;
+}
+
+#searchbox_terminology input:focus,
+#portal-searchbox input:focus,
+.searchField:focus {
+    outline-color: transparent;
+}
+
+#portal-searchbox .searchButton:focus {
+    background-color: &dtml-corporateOrange;;
+}
+
+#portal-searchbox .gsc-cursor-current-page {
+    color: #FFF;
+}
+
+#portal-searchbox .gsc-results-wrapper-overlay {
+    height: 96%;
+    top: 2%;
+    width: 90%;
+    left: 5%;
+
+}
+#search_glossary_link, #search_advanced_link {
+    font-size: 11px;
+}
+
+#search_glossary_link:hover, #search_advanced_link:hover {
+    text-decoration: none;
+}
+/* @end Searchbox style and positioning */
+/* @end portal-header area */
+
+/* breadcrumbs found below global-nav*/
+#portal-breadcrumbs {
+    /* The path bar, including breadcrumbs and add to favorites */
+    line-height: 1.4;
+    margin: 3px 0 0 0;
+    position: relative;
+    clear: both;
+}
+.fullwidth #portal-breadcrumbs.plone-breadcrumb .container {
+    margin: 0;
+}
+.breadcrumbSeparator {
+    font-size: 120%;
+}
+/* @end breadcrumbs */
+
+/* #23500 allow the control panel widget to be placed outside of their context
+    by having overflow visible for screen with size larger than 1024px
+*/
+#visual-portal-wrapper {
+    margin: 0 auto;
+    padding: 0;
+    display: block;
+    clear: both;
+    position: relative;
+    overflow: visible;
+}
+
+@media screen {
+    #portal-columns {
+        padding-top: 1em;
+        min-width: 1024px;
+    }
+}
+#region-content {
+    position: relative;
+}
+#content-core {
+    clear:both;
+}
+
+/* portal-column styles */
+#portal-column-content {
+    min-width: 635px;
+}
+
+.flowplayer a,
+.documentContent ul li a,
+.documentContent td a {
+    display: inline;
+    text-decoration: none !important;
+}
+
+.visualPadding {
+    padding: 0 1em 1em 1em;
+}
+#portal-column-two .visualPadding {
+    padding: 0 1em 1em 0;
+}
+
+#portal-column-two {
+    min-width: 350px;
+}
+
+
+/* Language viewlet */
+.documentActions li, .languageCodes li {
+    display: inline-block !important;
+    list-style: none none;
+    margin: 0;
+    padding: 0;
+}
+.languageCodes {
+    display: block;
+}
+#languageCodes {
+    max-width: 80%;
+}
+#article-language {
+    margin-top: -40px;
+    background: url("&dtml-xurl;/sprite-eeaimages.png") no-repeat scroll -430px -35px transparent;
+    padding-left: 35px;
+    position: absolute;
+    right: 1.5em;
+}
+.width-full #article-language {
+    min-width: 180px;
+}
+/* @end Language viewlet */
+
+/* download.pdf download.epub export actions */
+/* download.pdf extra clicking prevention styles */
+a.downloading {
+    background: transparent url(&dtml-xurl;/icon-downloading.gif) no-repeat center center;
+}
+
+a.downloading img {
+    visibility: hidden;
+}
+
+.downloading-lock::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    z-index: 9999;
+}
+/* @end download.pdf extra clicking prevention styles */
+
+#region-content .documentExportActions {
+    float:right;
+    margin: 0 0 1em 1em;
+}
+#region-content .documentExportActions ul, .documentExportActions ul {
+    list-style: none;
+    padding: 0;
+    margin: 1em -0.15em 0 0;
+}
+
+#region-content .documentExportActions li, .documentExportActions li {
+    display: inline;
+}
+
+.eea-footer-right .link-pdf,
+.eea-footer-right .link-epub,
+#region-content .documentExportActions .link-pdf,
+#region-content .documentExportActions .link-epub,
+.documentExportActions .link-pdf,
+.documentExportActions .link-epub {
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+#content .eea-footer-right a.download-pdf,
+#content .eea-footer-right a.download-epub {
+    border-bottom: none !important;
+}
+
+#content .documentExportActions a {
+    border-bottom: none !important;
+    text-align: center;
+}
+
+.documentExportActions .export-action-title {
+    display: block;
+}
+
+.documentExportActions .eea-icon::before {
+    margin: 0 0.15em;
+}
+
+/* 69065 clear content that follows .documentExportActions */
+.eea-available-version,
+#plone-document-byline + .portalMessage,
+#plone-document-byline + div {
+    clear: both;
+}
+
+#content .documentByLine {
+    max-width: 80%;
+    text-align: left;
+}
+
+.portaltype-fiche .link-presentation {
+    display: none;
+}
+
+.eea-epub-download,
+.eea-pdf-download {
+    font-size: 150%;
+}
+
+div.eea-pdf-overlay {
+    z-index: 1031;
+}
+/* @end download.pdf download.epub export actions */
+
+/* documentByLine */
+.documentByLine {
+    font-size: &dtml-fontSmallSize;;
+    font-weight: normal;
+    color: &dtml-discreetColor;;
+    margin: 0 0 0.5em 0;
+}
+.documentByLine .portalType, .listHead {
+    font-weight: bold;
+}
+.documentByLineAuthor:nth-child(2) span:after,
+.documentByLineAuthor a:after, .documentByLineContributor a:after {
+    content: ',';
+}
+.documentByLineAuthor:nth-child(2) a:after,
+.documentByLineAuthor:last-child a:after, .documentByLineContributor:last-child a:after {
+    content: '';
+}
+
+/* @end documentByLine */
+
+#viewlet-below-content {
+    clear: both;
+}
+/* relatedItems */
+#relatedItems  {
+    margin: 0 0 0 0;
+    clear: both;
+    overflow: hidden;
+}
+/* #19315 fix floating issues */
+#relatedItems  h3 {
+    clear: both;
+}
+/* @end relatedItems */
+
+/* #10182 pagination style */
+.pagination .current:before {
+    content: "[";
+}
+.pagination .current:after {
+    content: "]";
+}
+.page:before,
+.page:after {
+    display: table;
+    content: " ";
+}
+.page:after {
+    clear: both;
+}
+.spinner {
+    text-align: center;
+}
+/* @end #10182 pagination style */
+
+.contentActions {
+    clear: both;
+}
+/*.width-full .content-header {
+    background-color: white;
+}*/
+
+/* 70523 set callout to a base of 12px in order to normalize googlechart notes size  */
+#content .callout {
+    font-size: 12px;
+}
+
+/*.template-facetednavigation_view #socialmedia-viewlet,*/
+/*.template-facetednavigation_view #relatedItems {*/
+/*padding: 0 &dtml-padding-base; &dtml-padding-base;;*/
+/*background-color: white;*/
+/*}*/
+
+/* Useful deviations from regular style on elements */
+/* List classes without markers */
+ul.visualNoMarker,
+ol.visualNoMarker {
+    list-style: none none;
+    margin: 0.5em 0 0 0;
+    line-height: 1em;
+}
+
+
+/* Common file types icon */
+.link-plain {
+    background-image: none;
+    padding: 0;
+}
+
+.link-parent {
+    display: block;
+    background: transparent url(&dtml-xurl;/arrowUp.gif) 4px 5px no-repeat;
+    padding: 1px 0 10px 16px;
+    font-size: &dtml-fontSmallSize;;
+    text-decoration: none;
+}
+
+.link-external {
+    background: transparent url(&dtml-xurl;/link_icon.gif) 3px 1px no-repeat;
+    padding: 1px 0 1px 19px;
+}
+
+/* Links with differently colored link underlines - only for content */
+#content span.link-external  {
+    background: none;
+    padding: 0;
+}
+
+.link-feed, .link-rss, .link-rdf, .link-xml {
+    background: transparent url(&dtml-xurl;/rss.gif) 0 1px no-repeat;
+    padding: 1px 0 1px 18px;
+}
+
+.link-comment {
+    background: transparent url(&dtml-xurl;/discussionitem_icon.gif) center left no-repeat;
+    padding: 1px 0 1px 16px !important; /* value:  */
+}
+
+.link-anchor {
+    color: &dtml-discreetColor;;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.link-pdf {
+    background: transparent url(&dtml-xurl;/pdf.png) 0 50% no-repeat;
+    padding: 2px 0 2px 16px;
+}
+.link-xlb, .link-xls, .link-xlt, .link-csv, .link-tsv {
+    background: transparent url(&dtml-xurl;/xls.png) 0 50% no-repeat;
+    padding: 2px 0 2px 20px;}
+.link-json {
+    background: transparent url(&dtml-xurl;/script_code.png) 0 50% no-repeat;
+    padding: 2px 0 2px 20px;}
+.link-exhibit {
+    background: transparent url(&dtml-xurl;/script_code_red.png) 0 50% no-repeat;
+    padding: 2px 0 2px 20px;}
+.link-table {
+    background: transparent url(&dtml-xurl;/table.png) 0 50% no-repeat;
+    padding: 2px 0 2px 20px;}
+
+/* @end Common file types icon */
+
+/* TinyMCE image alignment classes */
+.image-left {
+    float: left;
+    clear: both;
+    margin:  2em 1em 0.5em 0;
+    border: 0;
+}
+.image-inline {
+    float: none;
+}
+.image-right {
+    float: right;
+    clear: both;
+    margin: 0.5em;
+    border: 0;
+}
+/* @end TinyMCE image alignment classes */
+
+/* tinymce class to hide or show content when printing */
+.showOnPrint {
+    display: none;
+}
+.mceContentBody .showOnPrint {
+    display: block;
+}
+/* @end tinymce class to hide or show content when printing */
+
+/* custom css fixes and overrides give links or detailed fix information */
+
+/* eeareadabilitychecker stats */
+#stats td {
+    padding-right: 1em;
+}
+
+/* Override jquery.ui style */
+.ui-widget-content a {
+    color: &dtml-linkColor;;
+}
+
+#print-warning,
+.frontpage .progressbar-viewlet,
+.template-datamaps_view .progressbar-viewlet
+{
+    display: none;
+}
+
+/* custom css fix for hiding warning message for anonymous users when  visualization is not published */
+.userrole-anonymous .metadata ~ .warningMessage {
+    display: none;
+}
+
+/* do not show copyright info on soer briefings */
+.fiche-copyright {
+    display: none;
+}
+
+/* #81310 table should be visible overriding bootstrap invisible class */
+table.invisible {
+    visibility: visible;
+}
+
+.template-collection-pdf-body h4.figureHeading {
+    margin: 0 0 1.5em 0;
+}
+
+.portaltype-assessment #parent-fieldname-description {
+    display: none;
+}
+
+/* eea.googlecharts chart.js uses this */
+div#original_chart_div {
+    overflow: hidden;
+}
+/* #50513 hide global filter for document register
+* so that users cannot remove it.
+* https://www.eea.europa.eu/about-us/documents/administrativedocuments facet entry
+*/
+#c4_option_c4_public-administrative-document {
+    display: none !important;
+}
+
+/* #70675 show reply to comment button */
+.reply-to-comment-button {
+    display: inline !important;
+}
+
+/* remove borders on image gallery from eea.jquery */
+#galleryView {
+    border: none;
+}
+
+.figures-download-links > li {
+    display: list-item;
+}
+
+/* #5454; we have required spans where we don't need the background image */
+.no-bg:after {
+    background-image: none !important;
+    content: "" !important;
+}
+
+.qrbox {
+    display: none;
+}
+
+/* 5455 fix publicationMessage link color
+* older version portlet https://www.eea.europa.eu//publications/term-report-2016
+*/
+#content dl.publicationMessage a {
+    border: 0;
+    color: &dtml-linkColor;;
+}
+dl a:hover, dd a:hover, dt a:hover {
+    color: &dtml-linkUnderlineHoverColor; !important;
+}
+/* @end custom css fixes and overrides */
+
+
+/* </dtml-let> */
+/* </dtml-with> */
