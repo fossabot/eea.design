@@ -4,6 +4,17 @@
         i18n_domain="eea">
 
     <genericsetup:upgradeSteps
+      source="18.3"
+      destination="18.4"
+      profile="eea.design:default">
+      <genericsetup:upgradeDepends
+        title="Import all steps from eea.design profile upgrade 18.4"
+        description="Added css and js reorganization"
+        import_profile="eea.design:upgrade184"
+      />
+    </genericsetup:upgradeSteps>
+
+    <genericsetup:upgradeSteps
         source="17.6"
         destination="18.3"
         profile="eea.design:default">
