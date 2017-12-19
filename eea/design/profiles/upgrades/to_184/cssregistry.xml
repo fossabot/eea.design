@@ -5,4 +5,27 @@
              expression="python:python: object.restrictedTraverse('@@plone_interface_info').provides('eea.design.browser.interfaces.ISubFoldersListing')"
              insert-after="++resource++eea.uberlisting.css/uberlisting_view.css" />
 
+  <stylesheet id="eea-faceted-custom.css" bundle="default"
+    expression=""
+    insert-after="++resource++eea.facetednavigation.widgets.alphabets.view.css" />
+
+  <stylesheet id="eea-theme.css" bundle="default"
+    expression=""
+    insert-before="ploneCustom.css" />
+
+  <stylesheet id="datamaps_view.css" bundle="default"
+    expression=""
+    insert-before="dataservice_style.css" />
+
+  <stylesheet id="anon.css" bundle="default"
+    expression="python: here.restrictedTraverse('@@plone_portal_state').anonymous()"
+    insert-before="authoring.css" />
+  <stylesheet id="outdated.css" bundle="default"
+    expression="python: here.restrictedTraverse('@@plone_portal_state').anonymous()"
+    insert-after="anon.css" />
+
+  <stylesheet id="edit.css" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.URL0"
+    insert-after="eea.geotags.css" />
+
 </object>
