@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<object name="portal_js">
+
+  <!--?faceted navigation -->
+  <stylesheet id="++resource++jquery.tagcloud.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="createversion.js" />
+  <stylesheet id="++resource++jquery.jstree.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="createversion.js" />
+  <stylesheet id="++resource++jquery.select2uislider.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="createversion.js" />
+  <stylesheet id="++resource++eea.faceted-navigation.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.text.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.tal.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.tagscloud.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.sorting.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.select.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.resultsperpage.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.resultsfilter.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.range.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.radio.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.portlet.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.path.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.etag.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.debug.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.daterange.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.date.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.criteria.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.checkbox.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.autocomplete.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.alphabets.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.path.tree.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.faceted-navigation-independent.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <stylesheet id="++resource++eea.faceted-navigation-expand.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+  <!--? /faceted navigation -->
+
+  <stylesheet id="++resource++select2/select2.min.js" bundle="faceted-view"
+    expression="" authenticated="True"
+    insert-after="createversion.js" />
+
+  <stylesheet id="++resource++gismap_relations.js" bundle="faceted-view"
+    expression="" authenticated="True"
+    insert-after="createversion.js" />
+
+  <stylesheet id="jq.applyanchor.js" bundle="faceted-view"
+    expression="" authenticated="True"
+    insert-after="createversion.js" />
+
+  <stylesheet id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" bundle="faceted-view"
+    expression="" authenticated="True"
+    insert-after="createversion.js" />
+
+  <stylesheet id="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" bundle="faceted-view"
+    expression="" authenticated="True"
+    insert-after="createversion.js" />
+
+  <stylesheet id="++resource++plone.formwidget.contenttree/contenttree.js" bundle="faceted-view"
+    expression="" authenticated="True"
+    insert-after="createversion.js" />
+
+  <stylesheet id="jquery.lazy.min.js" bundle="faceted-view"
+    expression="" authenticated="True"
+    insert-after="createversion.js" />
+
+  <stylesheet id="jquery.lazy.plugins.min.js" bundle="faceted-view"
+    expression="" authenticated="True"
+    insert-after="createversion.js" />
+
+  <stylesheet id="lazy_load.js" bundle="faceted-view"
+    expression="" authenticated="True"
+    insert-after="createversion.js" />
+
+</object>
