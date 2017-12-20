@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<object name="portal_js">
+<object name="portal_javascripts">
 
   <!--?faceted navigation -->
   <stylesheet id="++resource++jquery.tagcloud.js" bundle="faceted-view"
@@ -104,39 +104,39 @@
     insert-after="++resource++jquery.select2uislider.js" />
   <!--? /faceted navigation -->
 
-  <stylesheet id="++resource++select2/select2.min.js" bundle="faceted-view"
+  <stylesheet id="++resource++select2/select2.min.js" bundle="default"
     expression="" authenticated="True"
     insert-after="createversion.js" />
 
-  <stylesheet id="++resource++gismap_relations.js" bundle="faceted-view"
+  <stylesheet id="++resource++gismap_relations.js" bundle="default"
     expression="" authenticated="True"
     insert-after="createversion.js" />
 
-  <stylesheet id="jq.applyanchor.js" bundle="faceted-view"
+  <stylesheet id="jq.applyanchor.js" bundle="default"
     expression="" authenticated="True"
     insert-after="createversion.js" />
 
-  <stylesheet id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" bundle="faceted-view"
+  <stylesheet id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" bundle="default"
     expression="" authenticated="True"
     insert-after="createversion.js" />
 
-  <stylesheet id="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" bundle="faceted-view"
+  <stylesheet id="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" bundle="default"
     expression="" authenticated="True"
     insert-after="createversion.js" />
 
-  <stylesheet id="++resource++plone.formwidget.contenttree/contenttree.js" bundle="faceted-view"
+  <stylesheet id="++resource++plone.formwidget.contenttree/contenttree.js" bundle="default"
     expression="" authenticated="True"
     insert-after="createversion.js" />
 
-  <stylesheet id="jquery.lazy.min.js" bundle="faceted-view"
+  <stylesheet id="jquery.lazy.min.js" bundle="default"
     expression="" authenticated="True"
     insert-after="createversion.js" />
 
-  <stylesheet id="jquery.lazy.plugins.min.js" bundle="faceted-view"
+  <stylesheet id="jquery.lazy.plugins.min.js" bundle="default"
     expression="" authenticated="True"
     insert-after="createversion.js" />
 
-  <stylesheet id="lazy_load.js" bundle="faceted-view"
+  <stylesheet id="lazy_load.js" bundle="default"
     expression="" authenticated="True"
     insert-after="createversion.js" />
 
