@@ -3,7 +3,6 @@ jQuery(document).ready(function($) {
     'use strict';
     var $viewlet_below_content = $("#viewlet-below-content");
     var $content = $("#content");
-    var context_url = window.context_url || $("base").attr('href');
     var $content_core = $("#content-core");
     var $column_area = $(".column-area");
     var $body = $("body");
@@ -15,7 +14,6 @@ jQuery(document).ready(function($) {
     var $socialmedia = $("#socialmedia-viewlet");
     $related_items.appendTo($column_area);
     $socialmedia.appendTo($column_area);
-    var underscore = window._;
     var appendTo = function(context, target) {
         if (context.length) {
             context.appendTo(target);
@@ -138,11 +136,9 @@ jQuery(document).ready(function($) {
                     $(el).load(function(idx){
                         var el = idx.target;
                         var src = el.src;
-                        if (src.indexOf('embed-chart') !== -1) {
+                        if (src.indexOf('embed-chart') !== -1 || src.indexOf('embed-dashboard') !== -1) {
                             $(el).contents().find('html').addClass('portaltype-fiche section-airs');
-                            var correctHeight = $(el).contents().find('.googlechart_dashboard').css('height').replace('px', '');
-                            $(el).attr("height", correctHeight);
-                            $(el).attr("width", "100%");
+                            el.width = "100%";
                         }
                     });
                 });
@@ -533,20 +529,7 @@ jQuery(document).ready(function($) {
         }());
     }
     if (scroll_analytics_enabled) {
-        $("#content-core").screentimeAnalytics();
-    }
-
-    // Frontpage topics automatic height adjustment for
-    if ($(window).width() < 769 && $(window).width() > 480) {
-        var ul = $('.portlet-megatopic ul');
-        var heights = [];
-        if (ul.length) {
-            ul.each(function(index,item){ heights.push($(item).height()); });
-            var x = heights.reduce(function(a, b) {
-                return Math.max(a, b);
-            });
-            ul.height(x);
-        }
+        $content_core.screentimeAnalytics();
     }
 });
 

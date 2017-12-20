@@ -167,6 +167,10 @@ th a, th a:link, th a:visited {
     border-bottom: 1px solid #DDD;
 }
 
+.sum {
+    font-weight: bold;
+}
+
 /* Sortable table columns */
 .sortable, .listing {
     border: 1px solid #b6b6b6;
@@ -223,6 +227,34 @@ th a, th a:link, th a:visited {
     background-color: #ececec;
 }
 
+
+/* drop down panels for portal siteactions */
+.panel {
+    display: none;
+    z-index: 600;
+    background: transparent;
+    border: 0;
+}
+.panel-top {
+    margin: auto auto;
+    background: transparent url(&dtml-xurl;/panel_arrow.png);
+    width: 50px;
+    height: 25px;
+    position: relative;
+    top: 2px;
+}
+
+.panel-content {
+    background: white;
+    color: black;
+    clear: both;
+    padding: 10px;
+}
+
+.panel .portletFooter {
+    margin-top: 1em;
+}
+/* @end drop down panels for portal siteactions */
 
 /* Styles which apply only in central content area */
 
@@ -496,18 +528,6 @@ span.figure-left {
     display: none;
 }
 
-.eea-rounded-corners {
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -o-border-radius: 3px;
-}
-
-.eea-horizontal-list li {
-    float: left;
-    margin: 0 0.5em 0 0;
-}
-
 .eea-no-list-style {
     list-style: none none;
     margin: 1em 0;
@@ -532,6 +552,22 @@ span.figure-left {
 .byline-separator:before {
     white-space: pre;
     content: " — ";
+}
+
+.is-eea-hidden {
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    display: none !important;
+}
+
+.shadow {
+    -webkit-box-shadow: 1px 1px 5px #afafaf;
+    -moz-box-shadow: 1px 1px 5px #afafaf;
+    -ms-box-shadow: 1px 1px 5px #afafaf;
+    -o-box-shadow: 1px 1px 5px #afafaf;
+    box-shadow: 1px 1px 5px #afafaf;
 }
 
 /* padding to daviz tooltip */
