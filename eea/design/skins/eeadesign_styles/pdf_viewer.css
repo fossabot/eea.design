@@ -47,12 +47,6 @@ canvas {
   transition: width 200ms;
 }
 
-@keyframes progressIndeterminate {
-  0% { left: 0; }
-  50% { left: 100%; }
-  100% { left: 100%; }
-}
-
 #content .pdfjs #loadingBar .progress.indeterminate {
   background-color: #999;
   transition: none;
@@ -63,7 +57,6 @@ canvas {
   top: 0;
   left: 0;
   height: 100%;
-  /*width: 5rem;*/
 
   background-image: linear-gradient(to right, #999 0%, #fff 50%, #999 100%);
   background-size: 100% 100%;
@@ -136,6 +129,10 @@ canvas {
 
 #content .pdfjs .pdfViewer .page {
     margin-left: 0;
+}
+
+#content .pdfjs #overlayContainer {
+    position: relative;
 }
 
 /* Fullscreen */
@@ -833,19 +830,19 @@ html[dir='rtl'] .pdfjs #toolbarContainer,
     transition: width 200ms
 }
 @-webkit-keyframes progressIndeterminate {
-    .pdfjs 0% {
-        left: -142px
+    0% {
+        left: -142px;
     }
-    .pdfjs 100% {
-        left: 0
+    100% {
+        left: 0;
     }
 }
 @keyframes progressIndeterminate {
-    .pdfjs 0% {
-        left: -142px
+    0% {
+        left: -142px;
     }
-    .pdfjs 100% {
-        left: 0
+    100% {
+        left: 0;
     }
 }
 .pdfjs #loadingBar .progress.indeterminate {
@@ -859,7 +856,7 @@ html[dir='rtl'] .pdfjs #toolbarContainer,
     left: 0;
     height: 100%;
     width: calc(100% + 150px);
-    /*background: repeating-linear-gradient(135deg, #bbb 0, #999 5px, #999 45px, #ddd 55px, #ddd 95px, #bbb 100px);*/
+    background: repeating-linear-gradient(135deg, #bbb 0, #999 5px, #999 45px, #ddd 55px, #ddd 95px, #bbb 100px);
     -webkit-animation: progressIndeterminate 950ms linear infinite;
     animation: progressIndeterminate 950ms linear infinite
 }
