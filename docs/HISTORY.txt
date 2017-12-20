@@ -1,10 +1,12 @@
 Changelog
 =========
 
-18.4.dev0 - (unreleased)
+18.4 - (2017-12-20)
 ------------------------
-* Change: updated styles and javascripts with changes from custom
-  [ichim-david refs #90180]
+* Feature: Added pdf viewer for the 'File' content type
+  [petchesi-iulian refs #89523]
+* Upgrade step: Added upgrade step in order to load the pdf viewer dependencies
+  [petchesi-iulian refs #89523]
 
 18.3 - (2017-12-12)
 -------------------
