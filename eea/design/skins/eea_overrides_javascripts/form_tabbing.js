@@ -1,4 +1,3 @@
-/* jslint:disable */
 /*
  * This is the code for the tabbed forms. It assumes the following markup:
  *

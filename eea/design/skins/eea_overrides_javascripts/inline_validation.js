@@ -1,4 +1,3 @@
-/* jslint:disable */
 /*
 Validate form fields when they lose focus.
 */
