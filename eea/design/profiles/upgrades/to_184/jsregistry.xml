@@ -113,31 +113,24 @@
     insert-after="createversion.js" />
 
   <stylesheet id="jq.applyanchor.js" bundle="default"
-    expression="" authenticated="True"
-    insert-after="createversion.js" />
+    expression="" insert-after="createversion.js" />
 
   <stylesheet id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" bundle="default"
-    expression="" authenticated="True"
-    insert-after="createversion.js" />
+    expression="" insert-after="global_searchbox.js" />
 
   <stylesheet id="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" bundle="default"
-    expression="" authenticated="True"
-    insert-after="createversion.js" />
+    expression="" insert-after="global_searchbox.js" />
 
   <stylesheet id="++resource++plone.formwidget.contenttree/contenttree.js" bundle="default"
-    expression="" authenticated="True"
-    insert-after="createversion.js" />
+    expression="" insert-after="global_searchbox.js" />
 
   <stylesheet id="jquery.lazy.min.js" bundle="default"
-    expression="" authenticated="True"
-    insert-after="createversion.js" />
+    expression="" insert-after="global_searchbox.js" />
 
   <stylesheet id="jquery.lazy.plugins.min.js" bundle="default"
-    expression="" authenticated="True"
-    insert-after="createversion.js" />
+    expression="" insert-after="global_searchbox.js" />
 
   <stylesheet id="lazy_load.js" bundle="default"
-    expression="" authenticated="True"
-    insert-after="createversion.js" />
+    expression="" insert-after="global_searchbox.js" />
 
 </object>
