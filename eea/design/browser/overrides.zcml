@@ -48,4 +48,12 @@
         class=".overrides.EEAEventsRenderer"
         layer="eea.design.browser.interfaces.IEEACommonLayer"
         />
+
+  <browser:viewletManager
+    name="plone.resourceregistries.styles"
+    provides="Products.ResourceRegistries.interfaces.IHtmlHeadStyles"
+    template="templates/styles_viewlet_override.pt"
+    layer=".interfaces.IEEACommonLayer"
+    permission="zope2.View"
+  />
 </configure>

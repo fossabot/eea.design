@@ -1,0 +1,343 @@
+#visual-portal-wrapper,div.row {
+    display: block;
+    position: relative;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font: 75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #e8f0fb;
+}
+
+#cross-site-top {
+    overflow: hidden;
+    background-color: #069;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#globalnav-holder {
+    background-color: #069;
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+#portal-header,#visual-portal-wrapper {
+    min-width: 995px;
+    max-width: 1024px;
+}
+
+#visual-portal-wrapper {
+    margin: 0 auto;
+    padding: 0;
+    clear: both;
+    overflow: visible;
+}
+
+#portal-column-content {
+    padding: 0 1.5em 1.5em;
+    min-width: 635px;
+}
+
+div.row {
+    float: left;
+    width: 100%;
+}
+
+#footer-wrapper {
+    background-color: #069;
+    margin: 2em 0;
+    padding: 2em 1em;
+    clear: both;
+    border-top: 8px solid #FFF;
+}
+
+.hiddenStructure {
+    display: block !important;
+    background: transparent none;
+    border: none;
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    margin: -1px 0 0 -1px;
+    width: 1px;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+div.position-0 {
+    margin-left: -100%;
+}
+
+div.width-full {
+    width: 100%;
+}
+
+div.row {
+    float: left;
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+div.cell {
+    position: relative;
+    float: left;
+    left: 100%;
+}
+
+.panel {
+    display: none;
+    z-index: 600;
+    background: transparent;
+    border: 0;
+}
+
+#portal-externalsites, #portal-siteactions {
+    margin: 4px 0 4px 0;
+    float: right;
+    padding: 0 10px 0 0;
+    clear: none;
+}
+
+#portal-externalsites {
+    float: left;
+    margin-left: 0.5em;
+}
+
+#portal-externalsites li, #portal-siteactions li {
+    display: inline;
+    padding: 0 5px;
+}
+
+#portal-externalsites li a, #portal-siteactions li a {
+    color: #FFF;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+#portal-siteactions, #portal-externalsites {
+    display: block;
+}
+
+.eea-slide-tooltips, #portal-logo-link-header, .navbar-toggle, .hiddenElem, .site-description, #print-warning, #portal-globalnav #portaltab-more, #portal-globalnav #portaltab-eeahome, #portal-searchbox .gsc-branding {
+    display: none;
+}
+
+#header-holder .navbar {
+    box-shadow: 0 1px 10px #005078;
+    background-color: #FFF;
+    border: 0;
+    margin-bottom: 17px;
+}
+
+#portal-header {
+    display: block;
+    clear: both;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 90px;
+    z-index: initial;
+}
+
+.portal-logo {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+}
+
+.portal-logo a {
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+#printLogo {
+    padding: 0.9em 0 0 0.5em;
+    display: block;
+    width: auto;
+    height: 55px;
+}
+
+#portal-searchbox {
+    float: right;
+    clear: right;
+    margin: 20px 0 0 0;
+    font-size: 1.2em;
+    width: 350px;
+    text-align: left;
+}
+
+#portal-searchbox .gsc-control-cse {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+}
+
+#portal-searchbox .gsc-clear-button {
+    display: none;
+}
+
+#portal-searchbox form {
+    padding: 0;
+    white-space: nowrap;
+    margin-bottom: 0;
+}
+
+#portal-searchbox .gsc-search-button {
+    margin-left: -5px;
+}
+
+#portal-searchbox input.gsc-input {
+    border: 1px solid #BBB;
+    padding: 3px 6px;
+    width: 99%;
+    font-size: 16px;
+}
+
+#portal-globalnav {
+    clear: both;
+    display: flex;
+    font-size: 105%;
+    height: 50px;
+    list-style: none;
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 0;
+    position: relative;
+}
+
+#portal-globalnav > li, #secondary-portaltabs > li {
+    margin-bottom: 0;
+    height: 50px;
+    display: flex;
+    box-sizing: border-box;
+}
+
+#portal-globalnav > li > a, #secondary-portaltabs > li > a {
+    display: flex;
+    align-items: center;
+}
+
+#portal-globalnav > li > a {
+    font-weight: bold;
+    color: white;
+    padding: 1em 0.8em;
+}
+
+#portaltab-media {
+    margin: 0 0 0 auto;
+}
+
+#portaltab-europe {
+    width: 212px;
+    font-size: 75%;
+    vertical-align: top;
+    padding-right: 92px;
+    background: url(https://www.eea.europa.eu/eu-flag.png) no-repeat 122px -3px;
+}
+
+#portaltab-europe a {
+    font-weight: normal !important;
+}
+
+li#secondary-portaltabs-container {
+    display: none;
+}
+
+#megatopics-area {
+    font-size: 0.9em;
+    margin-bottom: 1.5em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column-area, .right-column-area {
+    width: 58.5%;
+    margin: 0 0;
+    padding: 0;
+    float: left;
+}
+
+.right-column-area {
+    width: 39%;
+    padding: 0 0 0 1em;
+    float: right;
+}
+
+.frontpage #highlights-area {
+    padding: 0;
+    overflow: hidden;
+}
+
+#highlights-area {
+    background-color: #ffffff;
+    padding: 1.5em;
+}
+
+.featured {
+    background: #ffffff;
+}
+
+.featured, .portlet {
+    margin-bottom: 1em;
+    padding: 1.5em;
+}
+
+#portal-colophon {
+    margin: 0 0 2em 0;
+    padding: 0.5em 1em 1em 1em;
+    text-align: center;
+    clear: both;
+}
+
+.colophonWrapper {
+    text-align: left;
+    margin: 0 auto;
+}
+
+.colophon-left {
+    float: left;
+    width: 215px;
+}
+
+.colophon-middle {
+    margin-top: -17px;
+    text-align: center;
+}
+
+.colophon-right {
+    float: right;
+    width: 215px;
+}
+
+.colophon-right span {
+    float: left;
+    width: 155px;
+}
+
+.colophon-right img {
+    float: right;
+    width: 50px;
+}
