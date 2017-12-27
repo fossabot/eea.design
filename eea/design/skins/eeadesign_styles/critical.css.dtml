@@ -1,65 +1,7 @@
-#visual-portal-wrapper,div.row {
-    display: block;
-    position: relative;
+#visual-portal-wrapper,div.row{display:block;position:relative}html{font-size:16px}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb}#cross-site-top{overflow:hidden; background-color:#069;margin:0;padding:0;width:100%;overflow: hidden;}#globalnav-holder{background-color:#069;width:100%;display:block;clear:both}#portal-header,#visual-portal-wrapper{min-width:995px;max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}div.row{float:left;width:100%}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
+* :link, :visited {
+    text-decoration: none;
 }
-
-html {
-    font-size: 16px;
-}
-
-body {
-    font: 75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    background-color: #e8f0fb;
-}
-
-#cross-site-top {
-    overflow: hidden;
-    background-color: #069;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-#globalnav-holder {
-    background-color: #069;
-    width: 100%;
-    display: block;
-    clear: both;
-}
-
-#portal-header,#visual-portal-wrapper {
-    min-width: 995px;
-    max-width: 1024px;
-}
-
-#visual-portal-wrapper {
-    margin: 0 auto;
-    padding: 0;
-    clear: both;
-    overflow: visible;
-}
-
-#portal-column-content {
-    padding: 0 1.5em 1.5em;
-    min-width: 635px;
-}
-
-div.row {
-    float: left;
-    width: 100%;
-}
-
-#footer-wrapper {
-    background-color: #069;
-    margin: 2em 0;
-    padding: 2em 1em;
-    clear: both;
-    border-top: 8px solid #FFF;
-}
-
 .hiddenStructure {
     display: block !important;
     background: transparent none;
@@ -75,10 +17,31 @@ div.row {
     float: right !important;
 }
 
+a {
+    color: #427597;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #006699;
+    font-weight: bold;
+    font-family: 'Open Sans', Verdana, Helvetica, Arial, sans-serif;
+}
+p {
+    font-family: 'Open Sans', Verdana, Helvetica, Arial, sans-serif;
+    margin: 0 0 0.75em 0;
+    line-height: 1.5em;
+}
+
+select {
+    border: 1px solid #cccccc;
+    color: #333333;
+    vertical-align: top;
+    background: white;
+}
+
 .pull-left {
     float: left !important;
 }
-
 div.position-0 {
     margin-left: -100%;
 }
@@ -86,20 +49,17 @@ div.position-0 {
 div.width-full {
     width: 100%;
 }
-
 div.row {
     float: left;
     width: 100%;
     display: block;
     position: relative;
 }
-
 div.cell {
     position: relative;
     float: left;
     left: 100%;
 }
-
 .panel {
     display: none;
     z-index: 600;
@@ -107,34 +67,32 @@ div.cell {
     border: 0;
 }
 
+
 #portal-externalsites, #portal-siteactions {
     margin: 4px 0 4px 0;
     float: right;
     padding: 0 10px 0 0;
     clear: none;
 }
-
 #portal-externalsites {
     float: left;
     margin-left: 0.5em;
 }
-
 #portal-externalsites li, #portal-siteactions li {
     display: inline;
     padding: 0 5px;
 }
-
 #portal-externalsites li a, #portal-siteactions li a {
     color: #FFF;
     font-size: 11px;
     cursor: pointer;
 }
-
 #portal-siteactions, #portal-externalsites {
     display: block;
+
 }
 
-.eea-slide-tooltips, #portal-logo-link-header, .navbar-toggle, .hiddenElem, .site-description, #print-warning, #portal-globalnav #portaltab-more, #portal-globalnav #portaltab-eeahome, #portal-searchbox .gsc-branding {
+.eea-slide-tooltips, #portal-logo-link-header, .navbar-toggle, .hiddenElem, .site-description, #print-warning, #portal-globalnav #portaltab-more, #portal-globalnav #portaltab-eeahome, #portal-searchbox .gsc-branding  {
     display: none;
 }
 
@@ -144,7 +102,6 @@ div.cell {
     border: 0;
     margin-bottom: 17px;
 }
-
 #portal-header {
     display: block;
     clear: both;
@@ -154,7 +111,6 @@ div.cell {
     height: 90px;
     z-index: initial;
 }
-
 .portal-logo {
     border: 0;
     margin: 0;
@@ -162,7 +118,6 @@ div.cell {
     float: left;
     position: relative;
 }
-
 .portal-logo a {
     display: block;
     text-decoration: none;
@@ -172,14 +127,12 @@ div.cell {
     padding: 0;
     cursor: pointer;
 }
-
 #printLogo {
     padding: 0.9em 0 0 0.5em;
     display: block;
     width: auto;
     height: 55px;
 }
-
 #portal-searchbox {
     float: right;
     clear: right;
@@ -188,13 +141,11 @@ div.cell {
     width: 350px;
     text-align: left;
 }
-
 #portal-searchbox .gsc-control-cse {
     background-color: transparent;
     padding: 0;
     border: 0;
 }
-
 #portal-searchbox .gsc-clear-button {
     display: none;
 }
@@ -204,12 +155,12 @@ div.cell {
     white-space: nowrap;
     margin-bottom: 0;
 }
-
 #portal-searchbox .gsc-search-button {
     margin-left: -5px;
 }
 
 #portal-searchbox input.gsc-input {
+
     border: 1px solid #BBB;
     padding: 3px 6px;
     width: 99%;
@@ -239,17 +190,14 @@ div.cell {
     display: flex;
     align-items: center;
 }
-
 #portal-globalnav > li > a {
     font-weight: bold;
     color: white;
     padding: 1em 0.8em;
 }
-
 #portaltab-media {
     margin: 0 0 0 auto;
 }
-
 #portaltab-europe {
     width: 212px;
     font-size: 75%;
@@ -257,13 +205,16 @@ div.cell {
     padding-right: 92px;
     background: url(https://www.eea.europa.eu/eu-flag.png) no-repeat 122px -3px;
 }
-
 #portaltab-europe a {
     font-weight: normal !important;
 }
-
 li#secondary-portaltabs-container {
     display: none;
+}
+
+.portalMessage {
+    background-color: #f3f3f3;
+    padding: 1em;
 }
 
 #megatopics-area {
@@ -272,6 +223,24 @@ li#secondary-portaltabs-container {
     display: flex;
     flex-wrap: wrap;
 }
+#megatopics-area .portlet, #megatopics-area dd {
+    margin: 0;
+    padding: 0;
+}
+
+.portlet-megatopic {
+    display: flex;
+    flex: 1;
+}
+.portlet, .portletWrapper .featured {
+    background: #ffffff;
+}
+
+.portlet-megatopic ul {
+      padding-top: 20px;
+      height: auto;
+  }
+
 
 .column-area, .right-column-area {
     width: 58.5%;
@@ -299,10 +268,114 @@ li#secondary-portaltabs-container {
 .featured {
     background: #ffffff;
 }
-
 .featured, .portlet {
     margin-bottom: 1em;
     padding: 1.5em;
+}
+.figure-left {
+    float: left;
+}
+
+.eea-tabs-panels {
+    border-top: 0;
+    background-color: #ffffff;
+    padding: 1.5em;
+    clear: both;
+}
+
+#news-header {
+    height: 35px;
+    clear: both;
+    display: block;
+    margin: 14px 0 5px 0;
+}
+#news-header h2 {
+    border: none;
+    font-size: 160%;
+    font-weight: normal;
+    margin: 0 6px 0 1em;
+    padding: 0;
+}
+#articles-area h2 {
+    padding-top: 0;
+    line-height: 1em;
+    border-bottom: 0;
+    font-weight: normal;
+    margin-top: 0;
+}
+
+#topic-selector {
+    position: absolute;
+    margin-top: 2.8em;
+    left: 0;
+    margin-left: 8em;
+}
+.filter-topic {
+    float: left;
+    text-align: left;
+    width: 81%;
+    padding-top: 6px;
+    margin-top: 0;
+}
+.gallery-layout-selection {
+    float: right;
+    position: relative;
+    top: 5px;
+    list-style: none;
+    margin-bottom: 10px;
+    width: 65px;
+    display: inline;
+}
+.eea-tabs {
+    padding: 0 10px 0 0;
+    margin: 0;
+    font-size: 12px;
+    list-style: none none;
+    background-color: #006699;
+    border: 1px solid #ececec;
+    border-bottom: 0;
+}
+.eea-tabs:before, .eea-tabs:after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+
+.eea-tabs > li {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.eea-tabs > li > a {
+    max-width: 195px;
+    position: relative;
+    line-height: 2.5;
+    display: block;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000000;
+    padding: 8px;
+}
+.tileImage {
+    float: left;
+    margin: 1em 1em 1em 0;
+}
+
+.archives {
+    float: right;
+    margin: 1.5em 25px 15px 15px;
+    position: relative;
+    top: 8px;
+    line-height: 1em;
+}
+
+#eea-mobile-shortcut.shortcut-default, #enquiry-service-shortcut.shortcut-default {
+    padding: 25px 21px;
+}
+.shortcut-default {
+    text-align: left;
+    padding: 1.5em;
+    background: #ffffff;
+    margin-bottom: 1em;
 }
 
 #portal-colophon {
@@ -313,6 +386,7 @@ li#secondary-portaltabs-container {
 }
 
 .colophonWrapper {
+
     text-align: left;
     margin: 0 auto;
 }
@@ -321,23 +395,20 @@ li#secondary-portaltabs-container {
     float: left;
     width: 215px;
 }
-
 .colophon-middle {
     margin-top: -17px;
     text-align: center;
 }
-
 .colophon-right {
     float: right;
     width: 215px;
 }
-
 .colophon-right span {
     float: left;
     width: 155px;
 }
-
 .colophon-right img {
     float: right;
     width: 50px;
 }
+
