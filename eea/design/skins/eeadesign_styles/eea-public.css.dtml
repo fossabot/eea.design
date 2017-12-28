@@ -175,7 +175,10 @@ span.languageCodes a.translated,
 form[name="users_search"] input.context {
     display: block !important;
 }
-
+#contentActionMenus li {
+    display: inline-block;
+    margin-bottom: 0;
+}
 #contentActionMenus .actionMenuContent ul {
     margin:0px !important;
 }

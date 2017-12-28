@@ -1,6 +1,20 @@
-#visual-portal-wrapper,div.row{display:block;position:relative}html{font-size:16px}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb}#cross-site-top{overflow:hidden; background-color:#069;margin:0;padding:0;width:100%;overflow: hidden;}#globalnav-holder{background-color:#069;width:100%;display:block;clear:both}#portal-header,#visual-portal-wrapper{min-width:995px;max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}div.row{float:left;width:100%}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
+.eea-slide-tooltips, #portal-logo-link-header, .navbar-toggle, .hiddenElem, .site-description, #print-warning, #portal-globalnav #portaltab-more, #portal-globalnav #portaltab-eeahome, #portal-searchbox .gsc-branding  {
+    display: none;
+}
+#visual-portal-wrapper,div.row{display:block;position:relative}html{font-size:16px}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb}#cross-site-top{background-color:#069;margin:0;padding:0;width:100%;}#globalnav-holder{background-color:#069;width:100%;display:block;clear:both}#portal-header,#visual-portal-wrapper{min-width:995px;max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}div.row{float:left;width:100%}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
 * :link, :visited {
     text-decoration: none;
+}
+.clearfix:after, .container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after {
+    clear: both;
+}
+.clearfix:before, .clearfix:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after {
+    content: " ";
+    display: table;
+}
+.visualClear {
+    display: block;
+    clear: both;
 }
 .hiddenStructure {
     display: block !important;
@@ -67,6 +81,26 @@ div.cell {
     border: 0;
 }
 
+#portal-personaltools-wrapper {
+    margin-right: 1em;
+    min-height: 10px;
+    float: right;
+    font-size: 110%;
+}
+#portal-personaltools {
+    background-color: #009966;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+    line-height: 1.6em;
+    list-style: none;
+    padding: 0.3em 0.5em 0.5em !important;
+    text-align: right;
+    margin: 0;
+}
+.actionMenuContent {
+    display: none;
+}
 
 #portal-externalsites, #portal-siteactions {
     margin: 4px 0 4px 0;
@@ -92,9 +126,6 @@ div.cell {
 
 }
 
-.eea-slide-tooltips, #portal-logo-link-header, .navbar-toggle, .hiddenElem, .site-description, #print-warning, #portal-globalnav #portaltab-more, #portal-globalnav #portaltab-eeahome, #portal-searchbox .gsc-branding  {
-    display: none;
-}
 
 #header-holder .navbar {
     box-shadow: 0 1px 10px #005078;
