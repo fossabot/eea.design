@@ -2,65 +2,16 @@
 /* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
-#globalnav-holder {
-    background-color: &dtml-corporateBlue;;
-    width: 100%;
-    display: block;
-    clear: both;
-}
 
 /* @group Navigation/search customizes public.css */
 .mini-header #globalnav-holder {
     border-top: 5px solid #FFF;
 }
 
-#portal-globalnav {
-    background: none;
-    clear: both;
-    display: flex;
-    font-size: 105%;
-    height: 50px;
-    list-style: none;
-    margin: 0 auto;
-    max-width: 1024px;
-    padding: 0;
-    width: 100%;
-    position: relative;
-}
-
-
-#portal-globalnav > li,
-#secondary-portaltabs > li {
-    margin-bottom: 0;
-    height: 50px;
-    display: flex;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 #portal-globalnav li a  {
-    background: transparent;
     position: relative;
-    border-right: 0;
-    min-width: 0;
-    padding: inherit;
-}
-#portal-globalnav li > a {
-    color: white;
-    padding: 1em 0.8em;
 }
 
-#portal-globalnav li > a {
-    font-weight:bold;
-}
-
-#portal-globalnav > li > a,
-#secondary-portaltabs > li > a
-{
-    display: flex;
-    align-items: center;
-}
 
 #secondary-portaltabs-container {
     display: none;
@@ -155,21 +106,10 @@
     overflow: visible;
 }
 
-#portaltab-media {
-    margin: 0 0 0 auto;
-}
-
 #secondary-portaltabs .eea-icon:before {
     margin: 0;
 }
 
-#portaltab-europe {
-    width: 212px;
-    font-size: 75%;
-    vertical-align: top;
-    padding-right: 92px;
-    background: url("&dtml-xurl;/eu-flag.png") no-repeat 122px -3px;
-}
 
 #portaltab-europe a {
     font-weight: normal !important;

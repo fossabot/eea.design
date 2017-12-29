@@ -1,7 +1,10 @@
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 .eea-slide-tooltips, #portal-logo-link-header, .navbar-toggle, .hiddenElem, .site-description, #print-warning, #portal-globalnav #portaltab-more, #portal-globalnav #portaltab-eeahome, #portal-searchbox .gsc-branding  {
     display: none;
 }
-#visual-portal-wrapper,div.row{display:block;position:relative}html{font-size:16px}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb}#cross-site-top{background-color:#069;margin:0;padding:0;width:100%;}#globalnav-holder{background-color:#069;width:100%;display:block;clear:both}#portal-header,#visual-portal-wrapper{min-width:995px;max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}div.row{float:left;width:100%}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
+#visual-portal-wrapper,div.row{display:block;position:relative}html{font-size:16px !important;}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb !important;}#cross-site-top{background-color:#069;margin:0;padding:0;width:100%;}#globalnav-holder{background-color:#069;width:100%;display:block;clear:both}#portal-header,#visual-portal-wrapper{min-width:995px;max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}div.row{float:left;width:100%}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
 * :link, :visited {
     text-decoration: none;
 }
@@ -36,9 +39,7 @@
     float: right !important;
 }
 
-a {
-    color: #427597;
-}
+a { color: &dtml-linkColor;; }
 
 h1, h2, h3, h4, h5, h6 {
     color: #006699;
@@ -61,25 +62,26 @@ select {
 .pull-left {
     float: left !important;
 }
-div.position-0 {
+.position-0 {
     margin-left: -100%;
 }
 
-div.width-full {
+.width-full {
     width: 100%;
 }
-div.row {
+.row {
     float: left;
     width: 100%;
     display: block;
     position: relative;
+    margin: 0 !important;
 }
-div.cell {
+.cell {
     position: relative;
     float: left;
     left: 100%;
 }
-div.width-3\3A 4 {
+.width-3\3A 4 {
     width: 58.5%;
 }
 #portal-column-two {
@@ -88,10 +90,10 @@ div.width-3\3A 4 {
 #portal-column-two .portlet {
     margin: 0 0 1em 0;
 }
-div.position-3\3a 4 {
+.position-3\3a 4 {
     margin-left: -35.5%;
 }
-div.width-1\3A 4 {
+.width-1\3A 4 {
     width: 35.5%;
 }
 .panel {
@@ -158,6 +160,18 @@ div.width-1\3A 4 {
     border: 0;
     margin-bottom: 17px;
 }
+@media screen and (min-width: 768px) {
+    #header-holder .navbar-header {
+        float: none !important;
+    }
+    #header-holder .container-fluid {
+        padding: 0;
+    }
+    #header-holder .navbar-fixed-top {
+    position: relative;
+    }
+}
+    
 #portal-header {
     display: block;
     clear: both;
@@ -224,13 +238,11 @@ div.width-1\3A 4 {
 }
 
 .plone-breadcrumb {
+    background-color: #e6e4e4;
     margin-top: -17px;
     margin-bottom: 17px;
-}
-
-.plone-breadcrumb {
-    background-color: #e6e4e4;
     font-size: 100%;
+    box-shadow: 0 2px 10px #ccc;
 }
 .plone-breadcrumb .container {
     max-width: 1024px;
@@ -267,7 +279,6 @@ div.width-1\3A 4 {
     margin-bottom: 0;
     height: 50px;
     display: flex;
-    box-sizing: border-box;
 }
 
 #portal-globalnav > li > a, #secondary-portaltabs > li > a {
@@ -287,7 +298,7 @@ div.width-1\3A 4 {
     font-size: 75%;
     vertical-align: top;
     padding-right: 92px;
-    background: url(https://www.eea.europa.eu/eu-flag.png) no-repeat 122px -3px;
+    background: url("&dtml-xurl;/eu-flag.png") no-repeat 122px -3px;
 }
 #portaltab-europe a {
     font-weight: normal !important;
@@ -332,11 +343,18 @@ li#secondary-portaltabs-container {
     position: relative;
     overflow: visible;
 }
+#portal-columns {
+    padding-top: 1em;
+    min-width: 1024px;
+}
+
+/* @group Content Area */
 #region-content {
     padding: 1.5em;
-    background-color: #ffffff;
+    background-color: &dtml-lightBackgroundColor;;
     margin: 0 -1.5em;
 }
+/* @end Content Area */
 
 .column-area, .right-column-area {
     width: 58.5%;
@@ -370,6 +388,18 @@ li#secondary-portaltabs-container {
 }
 .figure-left {
     float: left;
+}
+
+#article-language {
+    margin-top: -40px;
+    padding-left: 35px;
+    position: absolute;
+    right: 1.5em;
+    display: block;
+}
+.documentExportActions {
+    float: right;
+    margin: 0 0 1em 1em;
 }
 
 .eea-tabs-panels {
@@ -508,3 +538,5 @@ li#secondary-portaltabs-container {
     width: 50px;
 }
 
+/* </dtml-let> */
+/* </dtml-with> */

@@ -196,11 +196,6 @@ select {
 
 /* @group Content Area */
 
-#content {
-    font-size: inherit;
-    margin: 0;
-}
-
 .userrole-anonymous .documentFirstHeading {
     padding-right: 7em; /* to avoid overlapping with language switcher which appears only for anonymous users */
 }

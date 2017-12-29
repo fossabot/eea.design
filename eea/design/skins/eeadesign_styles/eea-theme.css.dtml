@@ -2,54 +2,13 @@
 /* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
+
 /* portal-header area */
-#header-holder {
-    width: 100%;
-    clear: both;
-    display: block;
-    position: relative;
-}
-#header-holder .navbar {
-    box-shadow: 0 1px 10px #005078;
-    background-color: #FFF;
-    border: 0;
-    margin-bottom: 17px;
-}
-
-#portal-top {
-    background-color: #FFFFFF;
-}
-
-#cross-site-top {
-    background-color: &dtml-corporateBlue;;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
 /* siteactions cross_site_top */
 /* use font awesome unicode icons */
 /* daviz -edit sets eea-icon color to #000 */
 #portal-siteactions #siteaction-chooselang .eea-icon {
     color: #FFF;
-}
-
-#portal-externalsites {
-    float: left;
-    margin-left: 0.5em;
-}
-
-#portal-externalsites li,
-#portal-siteactions li {
-    display: inline;
-    padding: 0 5px;
-}
-
-#portal-externalsites li a,
-#portal-siteactions li a {
-    color: #FFF;
-    font-size: 11px;
-    cursor: pointer;
 }
 
 #siteaction-contactus {
@@ -116,13 +75,6 @@
 /* End links */
 
 /* Site-wide action menu - font size, contact, index, sitemap etc */
-#portal-externalsites,
-#portal-siteactions {
-    margin: 4px 0 4px 0;
-    float: right;
-    padding: 0 10px 0 0;
-    clear: none;
-}
 #portal-siteactions > #siteaction-networks, #portal-siteactions > #siteaction-search {
     display: none;
 }
@@ -299,7 +251,6 @@
 #portal-breadcrumbs {
     /* The path bar, including breadcrumbs and add to favorites */
     line-height: 1.4;
-    margin: 3px 0 0 0;
     position: relative;
     clear: both;
 }
@@ -323,12 +274,6 @@
     overflow: visible;
 }
 
-@media screen {
-    #portal-columns {
-        padding-top: 1em;
-        min-width: 1024px;
-    }
-}
 #region-content {
     position: relative;
 }
@@ -337,9 +282,6 @@
 }
 
 /* portal-column styles */
-#portal-column-content {
-    min-width: 635px;
-}
 
 .flowplayer a,
 .documentContent ul li a,
@@ -355,11 +297,6 @@
     padding: 0 1em 1em 0;
 }
 
-#portal-column-two {
-    min-width: 350px;
-}
-
-
 /* Language viewlet */
 .documentActions li, .languageCodes li {
     display: inline-block !important;
@@ -374,11 +311,7 @@
     max-width: 80%;
 }
 #article-language {
-    margin-top: -40px;
     background: url("&dtml-xurl;/sprite-eeaimages.png") no-repeat scroll -430px -35px transparent;
-    padding-left: 35px;
-    position: absolute;
-    right: 1.5em;
 }
 .width-full #article-language {
     min-width: 180px;
@@ -406,10 +339,6 @@ a.downloading img {
 }
 /* @end download.pdf extra clicking prevention styles */
 
-#region-content .documentExportActions {
-    float:right;
-    margin: 0 0 1em 1em;
-}
 #region-content .documentExportActions ul, .documentExportActions ul {
     list-style: none;
     padding: 0;
