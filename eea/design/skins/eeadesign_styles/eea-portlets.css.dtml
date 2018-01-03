@@ -177,14 +177,9 @@ dd.portletFooter a {
     text-decoration: none;
 }
 
-.portlet a:visited, #content .portlet a{
-    color:&dtml-linkColor;;
-}
-
-dd.portletItem a:visited,
-dd.portletFooter a:visited {
-    color: &dtml-linkColor;;
-}
+/*.portlet a:visited, .portlet a{*/
+    /*color:&dtml-linkColor;;*/
+/*}*/
 
 #portal-column-two .portletHeader a,
 #portal-column-two .portletHeader a:link,
@@ -244,9 +239,6 @@ dd.portletItem .navTreeItem a {
     font-weight: bold;
 }
 
-.navTreeItem a:hover,
-dd.portletItem .navTreeItem a:hover {
-}
 
 li.navTreeCurrentItem {
     display: block;

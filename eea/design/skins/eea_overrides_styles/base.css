@@ -1,29 +1,5 @@
 /* @group Content Area */
 
-/* Content list styles */
-#content ul,
-.portletStaticText ul {
-    list-style-type: disc;
-    margin-left: 2em;
-}
-
-#content ol,
-dl.portlet ol,
-.portletStaticText ol {
-    list-style-type: decimal;
-    margin-left: 2em;
-}
-
-#content li,
-dl.portlet li,
-.portletStaticText li {
-    margin-bottom: 0.25em;
-    line-height: 1.5em;
-    display: list-item;
-}
-
-
-
 /* Editor styles */
 #content .discreet,
 #sidebar .discreet,
@@ -59,14 +35,14 @@ dl.portlet li,
 }
 
 /* Content layout styles */
-#content div.documentByLine {
+#content .documentByLine {
     font-size: 85%;
     display: block;
     color: #666;
 }
 
-#content img.tileImage,
-#content div.newsImageContainer {
+#content .tileImage,
+#content .newsImageContainer {
     float: right;
     margin: 0 1em 0.5em 1em;
 }
@@ -687,35 +663,34 @@ dl.toc dd ol {
 
 /* @group Album view classes */
 .photoAlbumEntry {
+    border: 0px;
+    background: transparent none;
     float: left;
-    position:relative;
-    overflow: hidden;
-    height: 185px;
-    width: 143px;
-    margin: 0em;
-    padding: 0px 6px 0px 9px;
-    text-align: center;
-    background-image: url('polaroid-single.png');
-    background-repeat: no-repeat;
+    height: 125px;
+    width: 125px;
+    margin: 0 3px 7px 3px;
+    padding: 0;
+    box-shadow: 0 1px 2px #CCCCCC;
+    z-index: 3;
 }
 .photoAlbumEntry img {
-    border: 1px solid #ccc;
     display: block;
     margin: 0 auto;
 }
 .photoAlbumEntryWrapper {
-    /*display: block;*/
-    height: 130px;
-    width: 128px;
-    margin-bottom: 7px;
+    display: block;
+    background: white;
+    max-height: 71px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 .photoAlbumEntry a {
     display: block;
-    text-decoration: none;
-    font-size: 90%;
-    height: 169px;
-    width: 130px;
-    margin: 16px auto 0px;
+    font-size: 85%;
+    height: 128px;
+    width: 100%;
+    margin: 10px 0;
 }
 .photoAlbumFolder {
     background-image: url('polaroid-multi.png');
@@ -732,41 +707,20 @@ dl.toc dd ol {
 
 
 /* @group Invisibles */
-
-.hiddenStructure {
-    display: block;
-    background: transparent;
-    background-image: none; /* safari bug */
-    border: none;
-    height: 0.1em;
-    overflow: hidden;
-    padding: 0;
-    margin: -0.1em 0 0 -0.1em;
-    width: 1px;
-}
-/* ensures hidden elements don't take up space */
-/* .ie6 is set on <html> by Modernizr library */
-.ie6 .hiddenStructure,
-.ie7 .hiddenStructure {
-    position: absolute;
-}
-
 #content .visualNoMarker {
     list-style:none;
     margin-left: 0;
 }
-
 .visualClear {
     clear: both;
 }
-
 /* @end */
 
 
 /* @group Accessibility elements, applied by JS */
 
-body.largeText { font-size: 125%; }
-body.smallText { font-size: 85%; }
+.largeText { font-size: 125%; }
+.smallText { font-size: 85%; }
 
 /* @end */
 
@@ -775,7 +729,7 @@ body.smallText { font-size: 85%; }
 
 /* styling for overlays (popups) */
 
-div.overlay {
+.overlay {
     width: auto;
     height: auto;
     /* initially overlay is hidden */

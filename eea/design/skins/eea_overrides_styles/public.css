@@ -9,13 +9,6 @@
  * +++++++++++++++++++++++++++++++
  */
 
-
-/* workflow state color "published". Other definitions in member.css */
-.state-published {
-    color: #436976 !important;
-}
-
-
 /* @group Basics */
 
 
@@ -60,13 +53,6 @@ h2, h3, h4, h5, h6 {
 
 h2 a, h3 a, h4 a {
     border-bottom: none !important;
-}
-
-p {
-}
-
-a:link, a:visited {
-    color: #205c90;
 }
 
 a:focus img {
@@ -368,27 +354,6 @@ dl.portlet {
     margin-bottom: 1em;
 }
 
-#content ul,
-#content ol {
-}
-
-#content a:link,
-dl.portlet a:link {
-    color: #205c90;
-    border-bottom: 0.1em solid #ccc;
-}
-
-#content a:visited,
-dl.portlet a:visited {
-    color: #427597;
-    border-bottom: 0.1em solid #ccc;
-}
-
-#content a:hover,
-dl.portlet a:hover {
-    color: #75ad0a !important;
- /* This one gets an !important because it should always activate in the content area, even when state coloring is active */
-}
 
 #content a:target {
     background-color: #ffb;

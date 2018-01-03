@@ -261,7 +261,8 @@
 
   #portal-externalsites, #portal-siteactions,
   #secondary-portaltabs,
-  #portal-searchbox {
+  #portal-searchbox,
+  .LSBox {
     float: none; }
 
   #portal-externalsites li, #portal-siteactions li {
@@ -308,6 +309,12 @@
       margin: 0; }
     #portal-searchbox .searchButton {
       display: none; }
+
+  .LSBox {
+    padding-right: 0; }
+    .LSBox .searchSection {
+      left: 0;
+      background-color: #006699; }
 
   #portal-searchbox {
     display: block !important;
@@ -553,20 +560,19 @@
   .right-column-area {
     width: 41%; } }
 @media screen and (min-width: 768px) {
-  #header-holder .container-fluid {
-    padding: 0; }
-  #header-holder .navbar-header {
-    float: none; }
-  #header-holder .navbar-fixed-top {
-    position: relative; }
-
   #secondary-portaltabs .eea-accordion-panels,
   #portal-logo-link-header {
     display: none; }
 
   /* move the search icon inside the input of the searchfield */
+  #portal-searchbox .searchField {
+    border: 1px solid gray;
+    padding-left: 2em; }
   #portal-searchbox .eea-icon {
     margin-right: -2em; }
+
+  .mini-header #portal-searchbox .searchSection {
+    display: none; }
 
   .navbar-toggle {
     display: none; }

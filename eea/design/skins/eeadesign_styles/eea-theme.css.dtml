@@ -49,9 +49,6 @@
     width: 400px;
     left: 0 !important;
 }
-.networkSites dt {
-    background: none !important;
-}
 /* Networks panel EU partners links */
 .moreLink {
     border: 0 !important;
@@ -587,7 +584,6 @@ ol.visualNoMarker {
     color: &dtml-linkColor;;
 }
 
-#print-warning,
 .frontpage .progressbar-viewlet,
 .template-datamaps_view .progressbar-viewlet
 {

@@ -204,47 +204,6 @@
     margin-left: 22px !important;
 }
 
-/* standard search button inside any of the portal columns*/
-
-#portal-columns input[type="submit"],
-.standardButton,
-.qq-upload-button,
-.searchButton,
-input.plonebutton,
-input.context,
-input.destructive,
-input.standalone {
-    color:#fff !important;
-    background-color: &dtml-corporateBlue;;
-    background-image: none;
-    font: bold 12px &dtml-fontFamily;;
-    padding: 7px 11px;
-    position: relative;
-    display: inline-block;
-    text-shadow: 0 1px 1px #000;
-    border: 1px solid #346F83;
-}
-
-
-
-#portal-columns input[type="submit"]:hover,
-.standardButton:hover,
-#content a.standardButton:hover,
-.qq-upload-button:hover,
-.searchButton:hover,
-input.context:hover,
-input.destructive:hover,
-input.standalone:hover {
-    background-color:&dtml-corporateOrange;;
-    color: #FFFFFF !important;
-    cursor:pointer;
-    border-color: #999999;
-    text-shadow: none;
-}
-
-.standardButton a, .standardButton a:hover, .standardButton a:visited {
-    color: #FFFFFF !important;
-}
 
 .faceted-top-widgets .faceted-widget .widget-fieldset form .faceted-textwidget-place-all label,
 .faceted-top-widgets .faceted-widget .widget-fieldset form .faceted-textwidget-place-current label,

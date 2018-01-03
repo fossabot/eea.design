@@ -51,16 +51,6 @@ sup, sub {
 }
 
 /* Accessibility and visual enhancement elements */
-.hiddenStructure {
-    display: block !important;    /*  prefix with important since many times specificity will override this display setting */
-    background: transparent none; /* safari bug */
-    border: none;
-    height: 1px;
-    overflow: hidden;
-    padding: 0;
-    margin: -1px 0 0 -1px;
-    width: 1px;
-}
 
 option.hiddenStructure {
     display: none;
@@ -267,12 +257,6 @@ th a, th a:link, th a:visited {
 
 
 /* drop down panels for portal siteactions */
-.panel {
-    display: none;
-    z-index: 600;
-    background: transparent;
-    border: 0;
-}
 .panel-top {
     margin: auto auto;
     background: transparent url(&dtml-xurl;/panel_arrow.png);
@@ -787,17 +771,6 @@ span.figure-left {
 
 /* folder_tabs_view and folder_accordion_view styling
  * as well as generic tabs and accordion styling */
-#visual-portal-wrapper .eea-tabs {
-    padding: 0 10px 0 0;
-    margin: 0;
-    font-size: 12px;
-    line-height: normal!important;;
-    list-style: none none;
-    background-color: &dtml-corporateBlue;;
-    border: 1px solid &dtml-mediumBackgroundColor;;
-    border-bottom: 0;
-}
-
 #whatsnew-gallery {
     position: relative;
 }
@@ -1092,6 +1065,43 @@ span.figure-left {
     margin-left: 1em;
 }
 /* @end Batch selector */
+
+/* standard search button inside any of the portal columns*/
+
+#portal-columns input[type="submit"],
+.standardButton,
+.qq-upload-button,
+.searchButton,
+.plonebutton,
+.context,
+.destructive,
+.standalone {
+    color:#fff !important;
+    background: &dtml-corporateBlue; none;
+    font: bold 12px &dtml-fontFamily;;
+    padding: 7px 11px;
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 1px 1px #000;
+    border: 1px solid #346F83;
+}
+
+#portal-columns input[type="submit"]:hover,
+.standardButton:hover,
+.qq-upload-button:hover,
+.searchButton:hover,
+.context:hover,
+.destructive:hover,
+.standalone:hover {
+    background-color:&dtml-corporateOrange;;
+    color: #FFFFFF !important;
+    cursor:pointer;
+    border-color: #999999;
+    text-shadow: none;
+}
+.standardButton a, .standardButton a:hover, .standardButton a:visited {
+    color: #FFFFFF !important;
+}
 
 /* </dtml-let> */
 /* </dtml-with> */

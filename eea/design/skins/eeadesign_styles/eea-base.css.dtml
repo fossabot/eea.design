@@ -90,14 +90,12 @@ hr {
     padding-bottom: 5px;
 }
 
-#region-content ul, ul {
+ul {
     margin: 0 0 0 1.5em;
-    list-style-image: url(&dtml-xurl;/bullet.gif);
-    list-style-type: square;
-    list-style-position: inside;
+    list-style: square inside url(&dtml-xurl;/bullet.gif);
 }
 
-#region-content ol, ol {
+ol {
     line-height: 1.5em;
     margin: 0.5em 0 0 2.5em;
     list-style-image: none;
@@ -205,21 +203,21 @@ select {
     word-wrap: break-word; /* #87691 avoid link span over the content area */
 }
 
-#content a:link,
-dl.portlet a:link {
-    color: &dtml-linkColor;;
-    border-bottom: 0;
-}
+/*#content a:link,*/
+/*dl.portlet a:link {*/
+    /*color: &dtml-linkColor;;*/
+    /*border-bottom: 0;*/
+/*}*/
 
-#content a:visited,
-dl.portlet a:visited {
-    color: &dtml-linkVisitedColor;;
-    border-bottom: 0;
-}
+/*#content a:visited,*/
+/*dl.portlet a:visited {*/
+    /*color: &dtml-linkVisitedColor;;*/
+    /*border-bottom: 0;*/
+/*}*/
 
-#content a:hover, dl.portlet a:hover {
-    color: #8E004D !important;
-}
+/*#content a:hover, .portlet a:hover {*/
+    /*color: #8E004D;*/
+/*}*/
 
 #content span.link-external a {
     background: transparent url(&dtml-xurl;/link_icon.gif) 0px 1px no-repeat;
@@ -419,34 +417,11 @@ dl.toc dd {
 /* @end @group Table of Contents */
 
 /* @group Album view classes */
-.photoAlbumEntry {
-    border: 0px;
-    background-color: transparent;
-    background-image: none;
-    float: left;
-    height: 125px;
-    width: 128px;
-    margin: 0 3px 7px 3px;
-    padding: 0px;
-    box-shadow: 0px 1px 2px #CCCCCC;
-    z-index: 3;
-}
 
 .photoAlbumEntry img {
     max-height: 71px;
-    border: 0;
 }
 
-.photoAlbumEntryWrapper {
-    display: block;
-    background: white;
-    max-height: 71px;
-    height: 100%;
-    width: 100%;
-    margin-bottom: 0;
-    overflow: hidden;
-    border: 0;
-}
 
 a.video-fancybox .photoAlbumEntryWrapper {
     position: relative;
@@ -636,10 +611,6 @@ div.overlay a:hover {
 }
 
 /* @end @group Core content type sprites */
-
-.photoAlbumEntry {
-    width: 125px;
-}
 
 /* END OF BASE.CSS RULES */
 /* </dtml-let> */

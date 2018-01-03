@@ -67,10 +67,10 @@ p {
     line-height: 1.5em;
 }
 
-a:link { color: &dtml-linkColor;; }
-a:visited { color: &dtml-linkVisitedColor;; }
-a:hover { color: &dtml-linkHoverColor;; }
-a:active { color: &dtml-linkActiveColor;; }
+/*a:link { color: &dtml-linkColor;; }*/
+/*a:visited { color: &dtml-linkVisitedColor;; }*/
+/*a:hover { color: &dtml-linkHoverColor;; }*/
+/*a:active { color: &dtml-linkActiveColor;; }*/
 
 /* @end Basics */
 
