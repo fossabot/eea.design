@@ -1,13 +1,22 @@
 /* <dtml-with base_properties> (do not remove this :) */
 /* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
-.eea-slide-tooltips, #portal-logo-link-header, .navbar-toggle, .hiddenElem, .site-description, #print-warning, #portal-globalnav #portaltab-more, #portal-globalnav #portaltab-eeahome, #portal-searchbox .gsc-branding  {
-    display: none;
-}
-#visual-portal-wrapper,div.row{display:block;position:relative}html{font-size:16px !important;}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb !important;}#cross-site-top{background-color:#069;margin:0;padding:0;width:100%;}#globalnav-holder{background-color:#069;width:100%;display:block;clear:both}#portal-header,#visual-portal-wrapper{min-width:995px;max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}div.row{float:left;width:100%}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
+
 * :link, :visited {
     text-decoration: none;
 }
+
+* { margin: 0; padding: 0; }
+* :link,:visited { text-decoration:none }
+* ul,ol { list-style:none; }
+* li { display: inline; }
+* h1,h2,h3,h4,h5,h6,pre,code { font-size:1em; }
+* a img,:link img,:visited img { border:none }
+a { outline: none; }
+table { border-spacing: 0; }
+img { vertical-align: text-bottom; }
+iframe { border-width: 0; border-style:none; }
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -35,6 +44,11 @@
     width: 1px;
 }
 
+.eea-slide-tooltips, #portal-logo-link-header, .navbar-toggle, .hiddenElem, .site-description, #print-warning, #portal-globalnav #portaltab-more, #portal-globalnav #portaltab-eeahome, #portal-searchbox .gsc-branding  {
+    display: none;
+}
+#visual-portal-wrapper,div.row{display:block;position:relative}html{font-size:16px !important;}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb !important;}#cross-site-top{background-color:#069;margin:0;padding:0;width:100%;}#globalnav-holder{background-color:#069;width:100%;display:block;clear:both}#portal-header,#visual-portal-wrapper{max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}div.row{float:left;width:100%}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
+
 .pull-right {
     float: right !important;
 }
@@ -58,6 +72,12 @@ p {
     line-height: 1.5em;
 }
 
+ul {
+    margin: 0 0 0 1.5em;
+    list-style: square inside;
+    color: #346f83;
+}
+
 select {
     border: 1px solid #cccccc;
     color: #333333;
@@ -68,6 +88,10 @@ select {
 .pull-left {
     float: left !important;
 }
+.list-items > li {
+    display: list-item;
+}
+
 .position-0 {
     margin-left: -100%;
 }
@@ -140,7 +164,7 @@ select {
     float: left;
     margin-left: 0.5em;
 }
-#portal-externalsites li, #portal-siteactions li {
+#portal-externalsites > li, #portal-siteactions > li {
     display: inline;
     padding: 0 5px;
 }
@@ -207,7 +231,7 @@ select {
     padding: 0.9em 0 0 0.5em;
     display: block;
     width: auto;
-    height: 55px;
+    height: 71px;
 }
 #portal-searchbox {
     float: right;
@@ -338,8 +362,8 @@ li#secondary-portaltabs-container {
 }
 
 .portlet-megatopic ul {
-      padding-top: 20px;
       height: auto;
+    margin: 1.5em;
   }
 #visual-portal-wrapper {
     margin: 0 auto;
@@ -351,7 +375,6 @@ li#secondary-portaltabs-container {
 }
 #portal-columns {
     padding-top: 1em;
-    min-width: 1024px;
 }
 
 /* @group Content Area */
@@ -359,6 +382,13 @@ li#secondary-portaltabs-container {
     padding: 1.5em;
     background-color: &dtml-lightBackgroundColor;;
     margin: 0 -1.5em;
+}
+.template-datamaps_view #region-content,
+.template-dc_view #region-content,
+.frontpage .width-full,
+.frontpage #region-content {
+    background-color: transparent;
+    padding: 0;
 }
 /* @end Content Area */
 
@@ -409,9 +439,8 @@ li#secondary-portaltabs-container {
 }
 
 .eea-tabs-panels {
-    border-top: 0;
-    background-color: #ffffff;
-    padding: 1.5em;
+    background-color: &dtml-lightBackgroundColor;;
+    padding: &dtml-padding-base;;
     clear: both;
 }
 .eea-tabs-panel {
@@ -496,6 +525,8 @@ li#secondary-portaltabs-container {
 .tileImage {
     float: left;
     margin: 1em 1em 1em 0;
+    /*min-width: 128px;*/
+    /*min-height: 72px;*/
 }
 
 .archives {

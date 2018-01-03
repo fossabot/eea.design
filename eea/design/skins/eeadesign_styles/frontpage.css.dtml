@@ -155,13 +155,6 @@ a.archives {
     padding: 1em;
 }
 
-#megatopics-area {
-    font-size: 0.9em;
-    margin-bottom: 1.5em;
-    display: flex;
-    flex-wrap: wrap;
-}
-
 #megatopics-area .portletHeader {
     background: none repeat scroll 0 0 white;
     height: 30px;
@@ -174,30 +167,8 @@ a.archives {
     line-height: 1.2;
 }
 
-.portlet-megatopic {
-    display: flex;
-    flex: 1;
-}
-#megatopics-area .portlet,
-#megatopics-area dd {
-    margin: 0;
-    padding: 0;
-}
-
-#megatopics-area ul {
-    margin-bottom: 2px;
-}
-
 .portlet-megatopic img {
     height: 150px;
-}
-.portlet-megatopic ul {
-    padding-top: 20px;
-    height: auto;
-}
-
-.portlet-megatopic ul li:last-child {
-    padding-bottom: 15px;
 }
 
 /* Frontpage news and articles
@@ -206,19 +177,8 @@ a.archives {
     padding-right: 1em;
 }
 
-
-#news-header h2 {
-    border:none;
-    font-size: 160%;
-    font-weight:normal;
-    margin: 6px;
-    padding: 0;
-}
 #below-topics-area #news-header {
     margin-bottom: 0;
-}
-#below-topics-area #news-header h2 {
-    margin: 0 6px 0 1em;
 }
 #below-topics-area #topic-selector {
     margin-top: 0.5em;
@@ -231,13 +191,6 @@ a.archives {
 }
 .site-SITE #below-topics-area .eea-tabs-panels {
     padding: 1.5em;
-}
-
-#news-header {
-  height: 35px;
-  clear: both;
-  display: block;
-    margin:14px 0 5px 0;
 }
 
 /* style for featured boxes */

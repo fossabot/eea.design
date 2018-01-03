@@ -857,11 +857,6 @@ span.figure-left {
     display: block;
 }
 
-.eea-tabs-panels {
-    border-top: 0;
-    background-color: &dtml-lightBackgroundColor;;
-    padding: &dtml-padding-base;;
-}
 
 .eea-accordion-panels {
     border: 1px solid #DDD;

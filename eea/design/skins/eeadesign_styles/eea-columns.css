@@ -1,12 +1,5 @@
 /* columns.css slider-definitions modification */
 div.width-3\3A 4 { width: 58.5%; }
-.template-datamaps_view #region-content,
-.template-dc_view #region-content,
-.frontpage .width-full,
-.frontpage #region-content {
-    background-color: transparent;
-    padding: 0;
-}
 div.position-1\3A 4 { margin-left: -79.875%; }
 div.width-1\3A 4 { width: 35.5%; } /* .width-1:4 */
 

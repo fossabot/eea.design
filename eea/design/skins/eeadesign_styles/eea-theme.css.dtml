@@ -93,43 +93,8 @@
 }
 /* @end subscription cross_site_top panel content icons */
 
-#portal-header {
-    display: block;
-    clear: both;
-    position: relative;
-    margin: 0 auto;
-    overflow: hidden;
-    height: 90px;
-    z-index: initial;
-}
-
 .mini-header #portal-header {
     height: 100%;
-}
-
-#printLogo {
-    padding: 0.9em 0 0 0.5em;
-    display: block;
-    width: auto;
-    height: 55px;
-}
-.portal-logo {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    float: left;
-    position: relative;
-
-}
-
-.portal-logo a {
-    display: block;
-    text-decoration: none;
-    overflow: hidden;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
 }
 
 /* Searchbox style and positioning */
@@ -281,10 +246,8 @@
 /* portal-column styles */
 
 .flowplayer a,
-.documentContent ul li a,
-.documentContent td a {
+.documentContent {
     display: inline;
-    text-decoration: none !important;
 }
 
 .visualPadding {

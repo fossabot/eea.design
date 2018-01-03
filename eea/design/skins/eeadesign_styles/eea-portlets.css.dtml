@@ -169,13 +169,6 @@ dl.portlet ul.navTree .navTreeCurrentItem {
 .portletItem a {
     display: block;
 }
-dd.portletItem a,
-dd.portletFooter a {
-    border-bottom: none;
-}
-.portlet a, dl.portlet a {
-    text-decoration: none;
-}
 
 /*.portlet a:visited, .portlet a{*/
     /*color:&dtml-linkColor;;*/

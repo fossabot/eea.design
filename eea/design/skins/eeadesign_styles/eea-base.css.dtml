@@ -90,10 +90,6 @@ hr {
     padding-bottom: 5px;
 }
 
-ul {
-    margin: 0 0 0 1.5em;
-    list-style: square inside url(&dtml-xurl;/bullet.gif);
-}
 
 ol {
     line-height: 1.5em;
