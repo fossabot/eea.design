@@ -98,17 +98,6 @@
 }
 
 /* Searchbox style and positioning */
-#portal-searchbox {
-    float: right;
-    clear: right;
-    margin: 20px 0 0 0;
-    font-size: 1.2em;
-    width: 350px;
-}
-#portal-searchbox form {
-    padding: 0;
-    margin-bottom: 0;
-}
 #portal-searchbox .gsc-clear-button {
     display: none;
 }
@@ -133,55 +122,15 @@
     font-size: 85%;
 }
 
-#portal-searchbox .searchButton,
-#portal-searchbox input.gsc-search-button {
-    background: &dtml-corporateBlue; none;
-    color: #FFFFFF;
-    cursor: pointer;
-    font-size: 12px;
-    font-style: normal;
-    position: relative;
-    width: 80px;
-    margin-left: -5px;
-}
-
-#portal-searchbox input, .searchField,
-#content .searchField
-{
-    height: 30px;
-    padding: 0;
-    font-family: &dtml-fontFamily;;
-    font-style: italic;
-    border: none;
-    margin: 0;
-}
-
-#portal-searchbox input.gsc-search-button {
-    height: 30px;
-    width: 70px;
-    border-radius: 0;
-}
-#portal-searchbox input.gsc-input {
-    border: 1px solid gray;
+#portal-searchbox .gsc-input {
     padding: 0 0.5em;
     background: url("//www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png") 5px center no-repeat rgb(255, 255, 255) !important;
 }
-#portal-searchbox input.gsc-input:focus {
+#portal-searchbox .gsc-input:focus {
     background: #FFF none !important;
 }
-#portal-searchbox td.gsc-input {
+#portal-searchbox .gsc-input {
     padding: 0;
-}
-
-#searchbox_terminology input[type="text"],
-.searchField {
-    width: 80%;
-}
-
-#searchbox_terminology input:focus,
-#portal-searchbox input:focus,
-.searchField:focus {
-    outline-color: transparent;
 }
 
 #portal-searchbox .searchButton:focus {
@@ -618,9 +567,6 @@ div#original_chart_div {
 #content dl.publicationMessage a {
     border: 0;
     color: &dtml-linkColor;;
-}
-dl a:hover, dd a:hover, dt a:hover {
-    color: &dtml-linkUnderlineHoverColor; !important;
 }
 /* @end custom css fixes and overrides */
 

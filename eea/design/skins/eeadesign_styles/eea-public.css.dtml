@@ -33,7 +33,6 @@ h2 {
     font-size: 150%;
     margin: 0.83em 0;
     border-bottom: 1px solid &dtml-mediumBackgroundColor;;
-    color: &dtml-corporateBlueTwo;;
     padding-bottom: 0.25em;
 }
 h3 {
@@ -162,8 +161,12 @@ form[name="users_search"] input.context {
     display: block !important;
 }
 #contentActionMenus li {
-    display: inline-block;
+    display: inline;
     margin-bottom: 0;
+}
+
+#contentActionMenus > li {
+    display: inline-block;
 }
 #contentActionMenus .actionMenuContent ul {
     margin:0px !important;

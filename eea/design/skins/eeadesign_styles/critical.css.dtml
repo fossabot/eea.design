@@ -2,25 +2,21 @@
 /* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
-* :link, :visited {
-    text-decoration: none;
-}
-
-* { margin: 0; padding: 0; }
-* :link,:visited { text-decoration:none }
-* ul,ol { list-style:none; }
-* li { display: inline; }
-* h1,h2,h3,h4,h5,h6,pre,code { font-size:1em; }
-* a img,:link img,:visited img { border:none }
-a { outline: none; }
-table { border-spacing: 0; }
-img { vertical-align: text-bottom; }
-iframe { border-width: 0; border-style:none; }
-
-* {
+* { margin: 0; padding: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+:link,:visited { text-decoration:none }
+ul,ol { list-style:none; }
+
+h1,h2,h3,h4,h5,h6,pre,code { font-size:1em; }
+a img,:link img,:visited img { border:none }
+a { outline: none; }
+table { border-spacing: 0; }
+img { vertical-align: text-bottom; }
+iframe {
+    border: 0 none;
 }
 .clearfix:after, .container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after {
     clear: both;
@@ -75,7 +71,18 @@ p {
 ul {
     margin: 0 0 0 1.5em;
     list-style: square inside;
-    color: #346f83;
+    /*color: #346f83;*/
+}
+.navTree {
+    list-style: none none;
+}
+
+.contentViews > li {
+    display: inline;
+}
+
+.list-inline > li {
+    display: inline;
 }
 
 select {
@@ -139,36 +146,41 @@ select {
     float: right;
     font-size: 110%;
 }
+
 #portal-personaltools {
-    background-color: #009966;
-    border: none;
-    border-radius: 0;
+    background-color: &dtml-corporateGreen;;
     color: #fff;
     line-height: 1.6em;
     list-style: none;
-    padding: 0.3em 0.5em 0.5em !important;
+    padding: 0.3em 0.5em 0.5em;
     text-align: right;
     margin: 0;
+    float: right;
+    position: relative;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    font-size: 80%;
 }
-.actionMenuContent {
-    display: none;
+.deactivated .actionMenuContent {
+    display: none;    
 }
 
 #portal-externalsites, #portal-siteactions {
     margin: 4px 0 4px 0;
     float: right;
     padding: 0 10px 0 0;
-    clear: none;
 }
 #portal-externalsites {
     float: left;
     margin-left: 0.5em;
 }
-#portal-externalsites > li, #portal-siteactions > li {
+.eea-siteaction {
     display: inline;
     padding: 0 5px;
+    margin-right: 0.5em;
 }
-#portal-externalsites a, #portal-siteactions a {
+.eea-siteaction > a {
     color: #FFF;
     font-size: 11px;
     cursor: pointer;
@@ -257,10 +269,9 @@ select {
 }
 #portal-searchbox .gsc-search-button {
     margin-left: -5px;
+    cursor: pointer;
 }
-
 #portal-searchbox input.gsc-input {
-
     border: 1px solid #BBB;
     padding: 3px 6px;
     width: 99%;

@@ -39,7 +39,7 @@
                                 <p>
                                     <strong i18n:translate="">For the public:</strong>
                                 </p>
-                                <ul>
+                                <ul class="list-inline">
                                     <li>
                                         <p>
                                             <a target="_self"
@@ -56,7 +56,7 @@
                                     For media and journalists:
                                 </strong>
                                 <br/>
-                                <ul>
+                                <ul class="list-inline">
                                     <li>
                                         <p>
                                             <a target="_self"

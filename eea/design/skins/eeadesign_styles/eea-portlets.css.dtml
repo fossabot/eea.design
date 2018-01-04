@@ -17,11 +17,6 @@ dl.portlet {
     font-size: 100%;
 }
 
-dl.portlet dt,
-div.portletAssignments div.portletHeader {
-    background: transparent;
-}
-
 /* #16720; shrink the font-size of portlet headers */
 .portletAssignments .portletHeader,
 .portletAssignments .portlet_visible .portletHeader,
@@ -29,16 +24,10 @@ div.portletAssignments div.portletHeader {
     font-size: 140%;
 }
 
-dl.portlet dt a:link,
-dl.portlet dt a:visited,
-dl.portlet dt a:hover {
-    display: inline; /* ichimdav rule for calendar */
-}
-
 dl.portlet dd.portletItem,
 dl.portlet dd.portletFooter,
 dl.portletError dd {
-    padding: 0em;
+    padding: 0;
 }
 
 div.managePortletsLink,
@@ -63,18 +52,6 @@ dl.portlet ul.navTree li a {
 
 dl.portlet ul.navTreeLevel0 > li:first-child > a {
   border-top: 0; /* no top border on the first link of the navigation menu */
-}
-
-
-dl.portlet ul.navTreeLevel0 > .navTreeItem {
-    padding: 0;
-    border-bottom: 0;
-}
-
-dl.portlet ul.navTree .navTreeCurrentItem {
-    background-color: transparent;
-    margin: 0;
-    border-left: 0;
 }
 
 .navTreeItemInPath > ul.navTreeLevel0 li > a {
@@ -128,13 +105,13 @@ dl.portlet ul.navTree .navTreeCurrentItem {
     padding: 0 0 0 0;
 }
 
-.portletHeader, dl.portlet dt.portletHeader {
-    font-weight:normal !important;
+.portletHeader {
     font: normal 160% &dtml-fontFamily;;
     color: &dtml-corporateBlue;;
     line-height: 1.4;
-    margin: 0;
-    padding: 0 0 0.5em 0;
+    padding: 0;
+    font-size: 16px;
+    margin: 5px 0;
 }
 
 #firstHeader {
@@ -174,20 +151,6 @@ dl.portlet ul.navTree .navTreeCurrentItem {
     /*color:&dtml-linkColor;;*/
 /*}*/
 
-#portal-column-two .portletHeader a,
-#portal-column-two .portletHeader a:link,
-#portal-column-two .portletHeader a:visited,
-#portal-column-two .portletHeader a:active,
-#portal-column-two .portletHeader a:hover,
-#portal-column-one .portletHeader a,
-#portal-column-one .portletHeader a:link,
-#portal-column-one .portletHeader a:visited,
-#portal-column-one .portletHeader a:active,
-#portal-column-one .portletHeader a:hover  {
-    color: &dtml-linkHeadingColor;;
-    text-decoration: none;
-}
-
 #content img {
     vertical-align: middle;
     /* don't allow images to be bigger than
@@ -206,10 +169,6 @@ dl.portlet ul.navTree .navTreeCurrentItem {
     list-style: none none;
     line-height: 1em;
     background: #FFFFFF;
-}
-
-.navTree {
-    list-style: none none;
 }
 
 .navTree li {
@@ -422,14 +381,6 @@ dt.portletItem a, #content dt.portletItem a {
 
 .portlet-subscription dd, .portlet-subscription dd div {
     margin-bottom: 0.5em;
-}
-
-dl.portletNavigationTree dt.portletHeader {
-  padding: 0;
-  font-size: 16px;
-  margin: 5px 0;
-  background-color: transparent;
-  font-weight: bold !important;
 }
 
 dl.portletNavigationTree dt.portletSubMenuHeader {

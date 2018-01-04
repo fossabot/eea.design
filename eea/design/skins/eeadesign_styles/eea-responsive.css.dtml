@@ -565,9 +565,6 @@
     display: none; }
 
   /* move the search icon inside the input of the searchfield */
-  #portal-searchbox .searchField {
-    border: 1px solid gray;
-    padding-left: 2em; }
   #portal-searchbox .eea-icon {
     margin-right: -2em; }
 

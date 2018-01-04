@@ -552,6 +552,11 @@ div.overlay a:hover {
     background: no-repeat transparent 0px -1728px url(&dtml-xurl;/contenttypes-sprite.png);
 }
 
+/* avoid double icon for portal navigation collection link */
+#portal-column-two .contenttype-collection {
+    background: none;
+}
+
 /* These should only appear in the add menu */
 .icons-on #plone-contentmenu-factories .contenttype-file {
     background: no-repeat transparent 0px -431px url(&dtml-xurl;/contenttypes-sprite.png);
