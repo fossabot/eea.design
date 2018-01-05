@@ -6878,7 +6878,7 @@ PDFJS.imageResourcesPath = PDFJS.imageResourcesPath === undefined ? '' : PDFJS.i
 PDFJS.disableWorker = PDFJS.disableWorker === undefined ? false : PDFJS.disableWorker;
 PDFJS.workerSrc = PDFJS.workerSrc === undefined ? null : PDFJS.workerSrc;
 PDFJS.workerPort = PDFJS.workerPort === undefined ? null : PDFJS.workerPort;
-PDFJS.disableRange = PDFJS.disableRange === undefined ? false : PDFJS.disableRange;
+PDFJS.disableRange = true;
 PDFJS.disableStream = PDFJS.disableStream === undefined ? false : PDFJS.disableStream;
 PDFJS.disableAutoFetch = PDFJS.disableAutoFetch === undefined ? false : PDFJS.disableAutoFetch;
 PDFJS.pdfBug = PDFJS.pdfBug === undefined ? false : PDFJS.pdfBug;
@@ -12962,12 +12962,6 @@ var PDFViewerApplication = {
     }
     PDFJS.disableTextLayer = value;
    }),
-   Preferences.get('disableRange').then(function resolved(value) {
-    if (PDFJS.disableRange === true) {
-     return;
-    }
-    PDFJS.disableRange = value;
-   }),
    Preferences.get('disableStream').then(function resolved(value) {
     if (PDFJS.disableStream === true) {
      return;
@@ -13747,9 +13741,6 @@ function webViewerInitialized() {
   var hashParams = parseQueryString(hash);
   if ('disableworker' in hashParams) {
    PDFJS.disableWorker = hashParams['disableworker'] === 'true';
-  }
-  if ('disablerange' in hashParams) {
-   PDFJS.disableRange = hashParams['disablerange'] === 'true';
   }
   if ('disablestream' in hashParams) {
    PDFJS.disableStream = hashParams['disablestream'] === 'true';
