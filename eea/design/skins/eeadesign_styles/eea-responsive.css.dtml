@@ -556,10 +556,7 @@
   .template-soer2015_frontpage .eea-icon:before {
     margin: 0 .2em; }
   .template-soer2015_frontpage #portlet-followus {
-    margin: 2em; }
-
-  #portlet-followus dd {
-    padding-right: 0.7em; } }
+    margin: 2em; } }
 @media screen and (width: 768px) {
   .right-column-area {
     width: 41%; } }

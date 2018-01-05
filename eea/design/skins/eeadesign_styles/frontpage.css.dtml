@@ -253,7 +253,7 @@ a.archives {
 
 #portlet-followus dd {
   display: inline-block;
-  padding-right: 0.5em;
+  width: 44px;
   margin: 0 0 2px 0;
 }
 
