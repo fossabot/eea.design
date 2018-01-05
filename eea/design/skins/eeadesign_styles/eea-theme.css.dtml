@@ -79,16 +79,19 @@
 /* subscription cross_site_top panel content icons */
 .portlet-subscription .eea-icon-lg {
     line-height: 0.75em;
-    color: #596EA0;
     width: 20px;
 }
-.portlet-subscription .eea-icon-twitter-square {
+
+.eea-icon-facebook-square {
+    color: #596EA0;
+}
+.eea-icon-twitter-square {
     color: #1da1f2;
 }
-.portlet-subscription .eea-icon-rss-square {
+.eea-icon-rss-square {
     color: #ED8628;
 }
-.portlet-subscription .eea-icon-youtube-square {
+.eea-icon-youtube-square {
     color: #DB2B28;
 }
 /* @end subscription cross_site_top panel content icons */

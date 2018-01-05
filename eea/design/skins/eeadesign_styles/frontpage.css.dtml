@@ -234,78 +234,32 @@ a.archives {
 
 /* style for shortcuts buttons */
 
-#facebook,
-#youtube,
-#twitter,
-#twitter-link,
-#facebook-link,
-#youtube-link,
-#rss-link,
-#email-link,
-a.active-list,
-a.list-layout,
-a.album-layout,
-a.active-album,
-a.list-layout:hover,
-a.album-layout:hover {
-  background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat scroll top right;
-}
-
-/* Styles which can be used on any area */
-#portlet-followus dd a:hover {
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-     -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-      -moz-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-       -ms-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-        -o-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-}
-/* END Styles which can be used on any area */
+/*#facebook,*/
+/*#youtube,*/
+/*#twitter,*/
+/*#twitter-link,*/
+/*#facebook-link,*/
+/*#youtube-link,*/
+/*#rss-link,*/
+/*#email-link,*/
+/*a.active-list,*/
+/*a.list-layout,*/
+/*a.album-layout,*/
+/*a.active-album,*/
+/*a.list-layout:hover,*/
+/*a.album-layout:hover {*/
+  /*background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat scroll top right;*/
+/*}*/
 
 #portlet-followus dd {
   display: inline-block;
-  padding-right: 1em;
+  padding-right: 0.5em;
   margin: 0 0 2px 0;
-}
-
-#twitter-link,
-#facebook-link,
-#youtube-link,
-#rss-link,
-#email-link{
-  width: 33px;
-  height: 32px;
-  display: block;
-}
-
-#content #twitter-link, #content #facebook-link, #content #youtube-link {
-    background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat;
-    padding: 0px;
-}
-
- #twitter-link {
-    background-position: 0 -180px !important;
-}
-
- #facebook-link {
-    background-position: 0 -147px !important;
-}
-
-#youtube-link {
-    background-position: 0 -213px !important;
-}
-
-#rss-link {
-    background-position: 0 -246px !important;
-}
-
-#email-link {
-    background: url("&dtml-xurl;/email_32.png") no-repeat center center transparent; /* TODO: to sprite */
 }
 
 .shortcut-default {
     text-align: left;
     padding: 1.5em;
-    /*background: &dtml-lightBackgroundColor;;*/
     background: &dtml-whiteBackgroundColor;;
     margin-bottom: 1em;
 }

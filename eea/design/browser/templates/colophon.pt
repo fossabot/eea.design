@@ -23,6 +23,45 @@
             </tal:address>
         </div>
 
+        <div  class="colophon-middle">
+            <p class="discreet colophon-links">
+                <tal:comments i18n:translate="">engineered by</tal:comments><br />
+                <a href="http://www.eea.europa.eu/help/contact-info"
+                         i18n:translate=""
+                         tal:attributes="href string:${local_site}/help/contact-info">EEA Web Team</a>
+            </p>
+
+            <p class="discreet colophon-links">
+                <a rel="license"
+                   href="http://creativecommons.org/licenses/by/2.5/dk/deed.en_GB"
+                   title="Creative Commons Attribution License"
+                         i18n:attributes="title">
+                    <img alt="Creative Commons Attribution License"
+                             i18n:attributes="alt"
+                         style="border-width: 0pt;"
+                         width="80" height="15"
+                             tal:attributes="src string:${portal_url}/creativecommons-by-2.5-dk-80x15.png"/>
+                </a>
+
+                <a href="/login_form"
+                         tal:attributes="href string:${portal_url}/login_form"
+                   title="CMS login"
+                         i18n:attributes="title"><strong i18n:translate="">CMS login</strong></a>
+                <a href="https://github.com/eea/eea.docker.kgs/releases"
+                   title="Software updates history"
+                         i18n:attributes="title"
+                         i18n:translate="">Software updates history</a>
+                <a href="/code"
+                         tal:attributes="href string:${portal_state/portal_url}/code"
+                   title="Code for developers"
+                         i18n:attributes="title"
+                         i18n:translate="">Code for developers</a>
+                <a href="@@invalidate_cache"
+                   rel="nofollow" title="Refresh this page"
+                         i18n:attributes="title"
+                         i18n:translate="">Refresh this page</a>
+            </p>
+        </div>
         <tal:c5>
         <div class="colophon-right colophon-links">
             <span>
@@ -44,45 +83,6 @@
 
         </tal:c5>
         
-    </div>
-    <div  class="colophon-middle">
-       <p class="discreet colophon-links">
-            <tal:comments i18n:translate="">engineered by</tal:comments><br />
-            <a href="http://www.eea.europa.eu/help/contact-info" 
-               i18n:translate="" 
-               tal:attributes="href string:${local_site}/help/contact-info">EEA Web Team</a>
-       </p>
-
-        <p class="discreet colophon-links">
-                    <a rel="license"
-                        href="http://creativecommons.org/licenses/by/2.5/dk/deed.en_GB"
-                        title="Creative Commons Attribution License"
-                        i18n:attributes="title">
-                    <img alt="Creative Commons Attribution License"
-                        i18n:attributes="alt"
-                        style="border-width: 0pt;"
-                        width="80" height="15"
-                        tal:attributes="src string:${portal_url}/creativecommons-by-2.5-dk-80x15.png"/>
-                    </a>
-
-                    <a href="/login_form"
-                        tal:attributes="href string:${portal_url}/login_form" 
-                        title="CMS login"
-                        i18n:attributes="title"><strong i18n:translate="">CMS login</strong></a>
-                    <a href="https://github.com/eea/eea.docker.kgs/releases" 
-                        title="Software updates history"
-                        i18n:attributes="title"
-                        i18n:translate="">Software updates history</a>
-                    <a href="/code" 
-                        tal:attributes="href string:${portal_state/portal_url}/code" 
-                        title="Code for developers"
-                        i18n:attributes="title"
-                        i18n:translate="">Code for developers</a>
-                    <a href="@@invalidate_cache"
-                      rel="nofollow" title="Refresh this page"
-                      i18n:attributes="title"
-                      i18n:translate="">Refresh this page</a>
-        </p>
     </div>
     </tal:condition>
 </div>

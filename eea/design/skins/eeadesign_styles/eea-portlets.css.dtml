@@ -111,7 +111,7 @@ dl.portlet ul.navTreeLevel0 > li:first-child > a {
     line-height: 1.4;
     padding: 0;
     font-size: 16px;
-    margin: 5px 0;
+    margin: 0 0 1em 0;
 }
 
 #firstHeader {

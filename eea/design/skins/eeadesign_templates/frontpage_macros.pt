@@ -86,7 +86,9 @@
     <ul class="gallery-layout-selection"
             tal:define="active_list python:' active-list' if not hide_listing else '';
                     active_album python:' active-album' if not hide_album else '';">
-        <li><a href="#" tal:attributes="class string:list-layout${active_list}"></a></li>
+        <li><a href="#" tal:attributes="class string:list-layout${active_list}">
+            <span class="eea-icon eea-icon-"></span>
+        </a></li>
         <li><a href="#" tal:attributes="class string:album-layout${active_album}"></a></li>
     </ul>
 </metal:filter_topic>

@@ -542,8 +542,12 @@
   .colophon-right {
     margin-top: 1em; }
 
+  .colophonWrapper {
+    display: block; }
+
   .colophon-middle {
-    margin-top: 0; }
+    display: block;
+    margin: 1em; }
 
   .template-soer2015_frontpage .eea-row {
     margin-left: 0; }

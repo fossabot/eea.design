@@ -87,13 +87,13 @@
         </ul>
     </div>
     <div tal:attributes="class string:controls${small_factor}">
-        <a  href="#" id="prev-promo"></a>
-        <a  href="#" id="next-promo"></a>
+        <a  href="#" id="prev-promo"><span class="eea-icon eea-icon-lg eea-icon-chevron-left"></span></a>
+        <a  href="#" id="next-promo"><span class="eea-icon eea-icon-lg eea-icon-chevron-right"></span></a>
         <a  href="#"
             id="play-pause"
             title="Pause/Play slideshow"
             i18n:attributes="title"
-            class="promo-gallery-pause"
+            class="promo-gallery-pause eea-icon eea-icon-lg"
             aria-pressed="true"
             role="button"
             ></a>

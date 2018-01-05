@@ -399,46 +399,45 @@ span.figure-left {
     padding: 10px 25px;
 }
 
-#keyfacts-slider .slidePortlet .slideButton {
+.slideButton {
     position: absolute;
     top: 40%;
     margin: 4px;
-    padding: 10px 2px;
-    width: 17px;
+    width: 13px;
     height: 17px;
-    background: transparent url(&dtml-xurl;/accordion_left.png) no-repeat scroll center center;
     cursor: pointer;
+    font-family: FontAwesome;
+    font-size: 125%;
+    color: #cd7;
 }
 
-#keyfacts-slider .slidePortlet .slideButton.next {
+.next {
     right: 0;
-    background: transparent url(&dtml-xurl;/accordion_right.png) no-repeat scroll center center;
 }
 
-#keyfacts-slider .slidePortlet .slideButton.play {
+.next:before {
+    content: "\f054";
+}
+
+.prev:before {
+    content: "\f053";
+}
+
+.play {
     position: absolute;
     right: 0;
     top: 8px;
     margin-right: 10px;
     padding: 5px;
     border: 0;
-    background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat scroll -446px -216px;
 }
 
-#keyfacts-slider .slidePortlet .slideButton.play.pause {
-    background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat scroll -454px -191px;
+.play:before {
+    content: "\f04b";
 }
 
-#keyfacts-slider .slidePortlet a.moreLink {
-    background: none;
-    padding-left: 0;
-    text-decoration: underline;
-    color: white !important;
-    font-size: 100%;
-}
-
-#keyfacts-slider .slidePortlet a.moreLink:hover {
-    text-decoration: none;
+.pause:before {
+    content: "\f04c";
 }
 
 #keyfacts-slider .slidePortlet .portletHeader {
@@ -451,7 +450,8 @@ span.figure-left {
 #keyfacts-slider a,
 #keyfacts-slider a:hover,
 #keyfacts-slider a:visited {
-    color: #FFF !important; /* important because of content a:hover */
+    color: #FFF; /* important because of content a:hover */
+    text-decoration: underline;
 }
 #keyfacts-slider .keyfactsImgContainer {
     overflow: hidden;
