@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div metal:fill-slot="main" id="content-core">
+<div metal:fill-slot="body" id="content">
     <h1 class="hiddenStructure" tal:content="context/Title">EEA Home page</h1>
     <tal:main-macro metal:define-macro="main">
         <div id="highlights-block"

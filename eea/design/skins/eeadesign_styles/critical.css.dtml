@@ -49,7 +49,8 @@ iframe {
     float: right !important;
 }
 
-a { color: &dtml-linkColor;; }
+a { color: &dtml-linkColor;;
+    cursor: pointer}
 a:hover {
     color: &dtml-linkHoverColor;;
 }
@@ -90,7 +91,7 @@ select {
 .list-items > li {
     display: list-item;
 }
-.documentContent li:before,
+.content-core li:before,
 .list-items li:before {
     content: "\25AA";
     color: #346f83;

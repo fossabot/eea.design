@@ -408,7 +408,7 @@ span.figure-left {
     cursor: pointer;
     font-family: FontAwesome;
     font-size: 125%;
-    color: #cd7;
+    color: #9cb43c;
 }
 
 .next {

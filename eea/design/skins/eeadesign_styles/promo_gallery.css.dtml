@@ -278,5 +278,9 @@
     position: relative;
 }
 
+.controls .eea-icon, .controls-sm .eea-icon {
+    color: #9cb43c;
+}
+
 /* </dtml-let> */
 /* </dtml-with> */
