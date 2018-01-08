@@ -12,7 +12,7 @@
     background-image: none;
 }
 
-#portal-breadcrumbs.plone-breadcrumb .container {
+.plone-breadcrumb .container {
     max-width: 100%;
     width: 80%;
 }

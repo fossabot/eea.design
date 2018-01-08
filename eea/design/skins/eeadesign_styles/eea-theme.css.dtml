@@ -162,15 +162,6 @@
 /* @end portal-header area */
 
 /* breadcrumbs found below global-nav*/
-#portal-breadcrumbs {
-    /* The path bar, including breadcrumbs and add to favorites */
-    line-height: 1.4;
-    position: relative;
-    clear: both;
-}
-.fullwidth #portal-breadcrumbs.plone-breadcrumb .container {
-    margin: 0;
-}
 .breadcrumbSeparator {
     font-size: 120%;
 }
@@ -179,15 +170,6 @@
 /* #23500 allow the control panel widget to be placed outside of their context
     by having overflow visible for screen with size larger than 1024px
 */
-#visual-portal-wrapper {
-    margin: 0 auto;
-    padding: 0;
-    display: block;
-    clear: both;
-    position: relative;
-    overflow: visible;
-}
-
 #region-content {
     position: relative;
 }
@@ -543,11 +525,6 @@ div#original_chart_div {
 /* #70675 show reply to comment button */
 .reply-to-comment-button {
     display: inline !important;
-}
-
-/* remove borders on image gallery from eea.jquery */
-#galleryView {
-    border: none;
 }
 
 .figures-download-links > li {

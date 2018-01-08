@@ -63,10 +63,6 @@
     clear:both;
 }
 */
-#content-core p,
-#content-core li {
-    font-size: 115%;
-}
 
 /* stop inheriting bigger size for nested lists */
 #content-core li li {
@@ -94,7 +90,7 @@ hr {
 ol {
     line-height: 1.5em;
     margin: 0.5em 0 0 2.5em;
-    list-style-image: none;
+    list-style: decimal none;
 }
 
 #content-core ul {
@@ -322,15 +318,6 @@ div.listingBar a {
 /* @end @group Data tables */
 
 /* @group Status messages */
-dl.portalMessage {
-    background-color: &dtml-lightBackgroundColor;;
-}
-
-dl.portalMessage dt,
-dl.warning dt {
-    background-color: transparent;
-}
-
 dl.error dt {
     color: white;
 }

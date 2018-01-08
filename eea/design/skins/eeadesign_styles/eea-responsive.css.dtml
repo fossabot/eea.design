@@ -113,11 +113,11 @@
   #content #languageCodes {
     max-width: 60%; } }
 @media screen and (max-width: 767px) {
-  #eea-above-columns #portal-breadcrumbs.plone-breadcrumb {
+  #eea-above-columns .plone-breadcrumb {
     margin-top: 0;
     margin-bottom: 0; }
 
-  #eea-above-columns #portal-breadcrumbs.plone-breadcrumb ol {
+  #eea-above-columns .plone-breadcrumb ol {
     line-height: 2.5em; }
 
   #portal-personaltools-wrapper,
@@ -672,9 +672,6 @@
 
   #siteaction-networks-menu .siteaction-title {
     display: inline-block; } }
-@media screen and (min-width: 769px) {
-  #portal-column-content {
-    padding: 0 1.5em 1.5em; } }
 @media screen and (min-width: 961px) {
   #visual-portal-wrapper, #portal-header {
     min-width: 995px;
@@ -683,10 +680,7 @@
   #portal-header.eea-miniheader-element {
     height: 100%;
     font-size: 115%;
-    margin: 2em 0; }
-
-  #portal-column-content {
-    padding: 0 1.5em 1.5em; } }
+    margin: 2em 0; } }
 @media screen and (max-width: 1023px) {
   .mini-header #tip-externalsites-networks .networkSites,
   .mini-header #portal-globalnav #portaltab-eeahome {
@@ -723,9 +717,6 @@
 @media screen and (min-width: 1024px) {
   .mini-header #visual-portal-wrapper {
     overflow: hidden; }
-
-  #region-content {
-    margin: 0 -1.5em; }
 
   #portal-globaltab {
     font-size: 120%; } }

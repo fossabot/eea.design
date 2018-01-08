@@ -43,7 +43,7 @@ iframe {
 .eea-slide-tooltips, #portal-logo-link-header, .navbar-toggle, .hiddenElem, .site-description, #print-warning, #portal-globalnav #portaltab-more, #portal-globalnav #portaltab-eeahome, #portal-searchbox .gsc-branding  {
     display: none;
 }
-#visual-portal-wrapper,div.row{display:block;position:relative}html{font-size:16px !important;}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb !important;}#cross-site-top{background-color:#069;margin:0;padding:0;width:100%;}#globalnav-holder{background-color:#069;width:100%;display:block;clear:both}#portal-header,#visual-portal-wrapper{max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}div.row{float:left;width:100%}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
+html{font-size:16px !important;}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb !important;}#cross-site-top{background-color:#069;margin:0;padding:0;width:100%;}#globalnav-holder{background-color:#069;width:100%;display:block;clear:both}#portal-header,#visual-portal-wrapper{max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
 
 .pull-right {
     float: right !important;
@@ -64,7 +64,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans', Verdana, Helvetica, Arial, sans-serif;
 }
 p {
-    font-family: 'Open Sans', Verdana, Helvetica, Arial, sans-serif;
     margin: 0 0 0.75em 0;
     line-height: 1.5em;
 }
@@ -99,6 +98,15 @@ select {
     padding-right: 0.75em;
     vertical-align: top;
 }
+.content-core .gallery li:before,
+.content-core ol li:before,
+.tabbedmenu li:before,
+.eea-tabs li:before
+ {
+    content: "";
+    display: none;
+}
+
 
 .contentViews li {
     display: inline;
@@ -124,7 +132,7 @@ select {
     width: 100%;
     display: block;
     position: relative;
-    margin: 0 !important;
+    /*margin: 0 !important;*/
 }
 .cell {
     position: relative;
@@ -389,14 +397,14 @@ li#secondary-portaltabs-container {
       height: auto;
     margin: 1.5em;
   }
-#visual-portal-wrapper {
-    margin: 0 auto;
-    padding: 0;
-    display: block;
-    clear: both;
-    position: relative;
-    overflow: visible;
-}
+/*#visual-portal-wrapper {*/
+    /*margin: 0 auto;*/
+    /*padding: 0;*/
+    /*display: block;*/
+    /*clear: both;*/
+    /*position: relative;*/
+    /*overflow: visible;*/
+/*}*/
 #portal-columns {
     padding-top: 1em;
 }
@@ -405,7 +413,12 @@ li#secondary-portaltabs-container {
 #region-content {
     padding: 1.5em;
     background-color: &dtml-lightBackgroundColor;;
-    margin: 0 -1.5em;
+}
+
+@media screen and (min-width: 1024px) {
+    #region-content {
+        margin: 0 -1.5em;
+    }
 }
 .template-datamaps_view #region-content,
 .template-dc_view #region-content,
@@ -413,6 +426,11 @@ li#secondary-portaltabs-container {
 .frontpage #region-content {
     background-color: transparent;
     padding: 0;
+}
+
+.content-core p,
+.content-core li {
+    font-size: 115%;
 }
 /* @end Content Area */
 
@@ -532,19 +550,27 @@ li#secondary-portaltabs-container {
     clear: both;
 }
 
-.eea-tabs > li {
+#whatsnew-gallery .eea-tabs > li {
     float: left;
+}
+#visual-portal-wrapper .eea-tabs.two-rows > li > a {
+    line-height: 2.5;
+}
+.eea-tabs > li {
     margin: 0;
     padding: 0;
 }
 .eea-tabs > li > a {
     max-width: 195px;
     position: relative;
-    /*line-height: 2.5;*/
     display: block;
     color: #fff;
     text-shadow: 1px 1px 1px #000000;
     padding: 8px;
+}
+
+.eea-tabs.two-rows > li > a {
+    line-height: 1.35;
 }
 .tileImage {
     float: left;

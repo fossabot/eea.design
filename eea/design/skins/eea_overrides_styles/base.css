@@ -196,23 +196,6 @@ div.listingBar a:hover {
 /* @end */
 
 /* @group Status messages */
-
-dl.portalMessage,
-div.attention,
-div.caution,
-div.danger,
-div.error,
-div.hint,
-div.important,
-div.note,
-div.tip,
-div.warning {
-    margin: 1em 0;
-    font-size: 80%;
-    border: 1px solid #996;
-    background-color: #ffffe3;
-    clear:both;
-}
 dl.portalMessage a,
 #content dl.portalMessage a,
 div.attention a,
@@ -238,7 +221,6 @@ div.warning a,
 }
 dl.portalMessage dt,
 div > .admonition-title {
-    background-color: #996;
     font-weight: bold;
     float: left;
     margin: 0 0.5em 0 0;
@@ -672,6 +654,8 @@ dl.toc dd ol {
     padding: 0;
     box-shadow: 0 1px 2px #CCCCCC;
     z-index: 3;
+    position: relative;
+    overflow: hidden;
 }
 .photoAlbumEntry img {
     display: block;
