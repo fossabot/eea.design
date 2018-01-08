@@ -83,13 +83,15 @@
 
 <metal:filter_topic metal:define-macro="filter-topic">
     <p class="filter-topic" i18n:translate="">Filtered by</p>
-    <ul class="gallery-layout-selection"
+    <ul class="gallery-layout-selection list-inline"
             tal:define="active_list python:' active-list' if not hide_listing else '';
                     active_album python:' active-album' if not hide_album else '';">
-        <li><a href="#" tal:attributes="class string:list-layout${active_list}">
-            <span class="eea-icon eea-icon-"></span>
-        </a></li>
-        <li><a href="#" tal:attributes="class string:album-layout${active_album}"></a></li>
+        <li tal:attributes="class string:list-layout${active_list}">
+            <span class="eea-icon eea-icon-marginless eea-icon-th-list eea-icon-lg"></span>
+        </li>
+        <li tal:attributes="class string:album-layout${active_album}">
+            <span class="eea-icon eea-icon-marginless eea-icon-th eea-icon-lg"></span>
+        </li>
     </ul>
 </metal:filter_topic>
 

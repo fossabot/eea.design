@@ -123,22 +123,15 @@ a.archives {
 .frontpage #portal-columns {
     padding: 0 !important;
 }
-#content ul.gallery-layout-selection  {
-  float: right;
-  position: relative;
-  top: 5px;
-  list-style: none;
-  margin-bottom: 10px;
-  width: 65px;
-  display: inline;
-}
-#content .gallery-layout-selection li {
+.gallery-layout-selection  {
+    float: right;
+    position: relative;
+    top: 5px;
+    list-style: none;
+    margin-bottom: 10px;
+    width: 65px;
     display: inline;
-}
-
-#content .gallery-layout-selection a {
-    border-bottom: 0;
-    display: inline-block;
+    text-align: right;
 }
 
 .featured-highlight-title {
@@ -293,30 +286,14 @@ a.archives {
     height: 60px;
 }
 
-
-
-a.list-layout,
-a.album-layout {
-  display: inline-block;
-  height: 17px;
-  margin-right: 10px;
-  width: 20px;
+.album-layout, .list-layout {
+    color: #888;
+    cursor: pointer;
 }
-
-a.album-layout {
-    background-position: -427px -162px;
-}
-
-a.active-album, a.album-layout:hover {
-  background-position: -427px -145px;
-}
-
-a.list-layout {
-  background-position: -448px -162px;
-}
-
-a.active-list, a.list-layout:hover {
-  background-position: -448px -145px;
+.active-album, .album-layout:hover,
+.active-list, .list-layout:hover
+{
+    color: #cd7;
 }
 
 .filter-topic {

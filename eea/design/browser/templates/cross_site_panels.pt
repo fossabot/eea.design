@@ -122,7 +122,7 @@
                 </div>
                 <div class="panel-content shadow">
                     <tal:languages define="languages here/@@translatedSites">
-                    <ul id="chooselang">
+                    <ul id="chooselang" class="list-items">
                         <tal:language repeat="lang languages">
                         <li><a href=""
                                 tal:define="url lang/url;

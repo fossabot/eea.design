@@ -70,20 +70,12 @@ p {
 
 ul {
     margin: 0 0 0 1.5em;
-    list-style: square inside;
-    /*color: #346f83;*/
 }
+
 .navTree {
     list-style: none none;
 }
 
-.contentViews > li {
-    display: inline;
-}
-
-.list-inline > li {
-    display: inline;
-}
 
 select {
     border: 1px solid #cccccc;
@@ -97,6 +89,26 @@ select {
 }
 .list-items > li {
     display: list-item;
+}
+.documentContent li:before,
+.list-items li:before {
+    content: "\25AA";
+    color: #346f83;
+    font-size: 75%;
+    padding-right: 0.75em;
+    vertical-align: top;
+}
+
+.contentViews li {
+    display: inline;
+}
+
+.list-inline li {
+    display: inline;
+}
+
+.list-inline li:before {
+    content: " ";
 }
 
 .position-0 {
