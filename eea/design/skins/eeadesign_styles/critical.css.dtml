@@ -210,6 +210,29 @@ select {
     display: block;
 
 }
+
+.navbar-collapse {
+    overflow-x: visible;
+    overflow-y: auto;
+    border-top: 1px solid transparent;
+    width: 100%;
+    max-height: 300px;
+}
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    margin-right: 15px;
+    padding: 9px 10px;
+    margin-top: 1em;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 #header-holder {
     width: 100%;
     clear: both;
@@ -223,6 +246,51 @@ select {
     border: 0;
     margin-bottom: 17px;
 }
+
+@media screen and (max-width: 767px) {
+    #portal-logo-link-header, .navbar-toggle {
+        display: block;
+    }
+    .collapse {
+        display: none;
+    }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+    .navbar-toggle .icon-bar {
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 1px;
+        background: #888;
+    }
+    .navbar-fixed-top{
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        z-index: 1030;
+        min-height: 50px;
+    }
+    .navbar-collapse {
+        background-color: #006699;
+        padding: 0 15px;
+    }
+    .navbar-toggle .icon-bar + .icon-bar {
+        margin-top: 4px;
+    }
+    .collapse.in {
+        display: block;
+    }
+}
 @media screen and (min-width: 768px) {
     #header-holder .navbar-header {
         float: none !important;
@@ -230,8 +298,15 @@ select {
     #header-holder .container-fluid {
         padding: 0;
     }
-    #header-holder .navbar-fixed-top {
-    position: relative;
+    .navbar-collapse {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    #portal-searchbox .gsc-search-button {
+        margin-left: -5px;
+        cursor: pointer;
     }
 }
     
@@ -287,10 +362,6 @@ select {
     padding: 0;
     white-space: nowrap;
     margin-bottom: 0;
-}
-#portal-searchbox .gsc-search-button {
-    margin-left: -5px;
-    cursor: pointer;
 }
 #portal-searchbox input.gsc-input {
     border: 1px solid #BBB;

@@ -7,14 +7,6 @@
     background-color: #ddd;
     border: 0.3em solid #ddd;
 }
-#edit-bar {
-    background-color: #75ad0a;
-    border: 0.25em solid #75ad0a;
-    font-size: 80%;
-    min-height: 2em;
-    margin-bottom: 1em;
-    padding-top: 0.05em;
-}
 #content-views {
     float: left;
     background-color: #75ad0a;
