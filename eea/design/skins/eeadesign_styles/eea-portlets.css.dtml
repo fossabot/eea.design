@@ -106,7 +106,8 @@ dl.portlet ul.navTreeLevel0 > li:first-child > a {
 }
 
 .portletHeader {
-    font-size:160%;
+    font-size: 160%;
+    font-weight: normal;
     color: &dtml-corporateBlue;;
     line-height: 1.4;
     padding: 0;

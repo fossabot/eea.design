@@ -179,8 +179,7 @@
 
 /* portal-column styles */
 
-.flowplayer a,
-.documentContent {
+.flowplayer a {
     display: inline;
 }
 

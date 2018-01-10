@@ -7,10 +7,6 @@
     background-color: #ddd;
     border: 0.3em solid #ddd;
 }
-#content-views {
-    float: left;
-    background-color: #75ad0a;
-}
 /* fix shift on content views list under ie6 */
 /* .ie6 is set on <html> by Modernizr library */
 .ie6 ul#content-views{
@@ -25,8 +21,6 @@
 #content ul.formTabs,
 #content-core ul.formTabs {
     display: block;
-    border-style: solid solid none solid;
-    margin-left: 0;
     border-top-right-radius: 0.5em;
     border-top-left-radius: 0.5em;
     -webkit-border-top-right-radius: 0.5em;
