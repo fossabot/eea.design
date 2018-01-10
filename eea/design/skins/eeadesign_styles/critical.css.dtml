@@ -18,6 +18,11 @@ img { vertical-align: text-bottom; }
 iframe {
     border: 0 none;
 }
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
 .clearfix:after, .container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after {
     clear: both;
 }

@@ -2,6 +2,14 @@
 <object name="portal_javascripts">
 
   <!--?faceted navigation -->
+
+  <javascript id="++resource++eea.faceted-navigation-independent.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <javascript id="++resource++eea.faceted-navigation-expand.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
   <javascript id="++resource++jquery.tagcloud.js" bundle="faceted-view"
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="createversion.js" />
@@ -11,9 +19,6 @@
   <javascript id="++resource++jquery.select2uislider.js" bundle="faceted-view"
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="createversion.js" />
-  <javascript id="++resource++eea.faceted-navigation.js" bundle="faceted-view"
-    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
-    insert-after="++resource++jquery.select2uislider.js" />
 
   <javascript id="++resource++eea.facetednavigation.widgets.text.view.js" bundle="faceted-view"
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
@@ -95,13 +100,10 @@
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="++resource++jquery.select2uislider.js" />
 
-  <javascript id="++resource++eea.faceted-navigation-independent.js" bundle="faceted-view"
+  <javascript id="++resource++eea.faceted-navigation.js" bundle="faceted-view"
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="++resource++jquery.select2uislider.js" />
 
-  <javascript id="++resource++eea.faceted-navigation-expand.js" bundle="faceted-view"
-    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
-    insert-after="++resource++jquery.select2uislider.js" />
   <!--? /faceted navigation -->
 
   <javascript id="++resource++select2/select2.min.js" bundle="default"
@@ -113,24 +115,25 @@
     insert-after="createversion.js" />
 
   <javascript id="jq.applyanchor.js" bundle="default"
+    authenticated="True"
     expression="" insert-after="createversion.js" />
 
   <javascript id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" bundle="default"
     expression="" insert-after="global_searchbox.js" />
 
   <javascript id="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" bundle="default"
-    expression="" insert-after="global_searchbox.js" />
+    expression="" insert-after="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" />
 
   <javascript id="++resource++plone.formwidget.contenttree/contenttree.js" bundle="default"
-    expression="" insert-after="global_searchbox.js" />
+    expression="" insert-after="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" />
 
   <javascript id="jquery.lazy.min.js" bundle="default"
     expression="" insert-after="global_searchbox.js" />
 
   <javascript id="jquery.lazy.plugins.min.js" bundle="default"
-    expression="" insert-after="global_searchbox.js" />
+    expression="" insert-after="jquery.lazy.min.js" />
 
   <javascript id="lazy_load.js" bundle="default"
-    expression="" insert-after="global_searchbox.js" />
+    expression="" insert-after="jquery.lazy.plugins.min.js" />
 
 </object>

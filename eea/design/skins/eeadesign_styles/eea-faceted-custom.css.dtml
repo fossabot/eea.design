@@ -67,6 +67,7 @@
 
 #faceted-form .widget-fieldset legend {
     background-color: &dtml-corporateGreen;;
+    width: 100%;
     color: #ffffff;
     padding: 5px 10px;
     font-size: 16px;
