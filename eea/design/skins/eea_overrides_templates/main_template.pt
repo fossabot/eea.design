@@ -61,9 +61,6 @@
       involved in developing, adopting, implementing and evaluating environmental
       policy, and also the general public" />
     <link href="https://plus.google.com/104345627234408209119" rel="publisher" />
-    <!--?<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>-->
-    <!--?<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>-->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext,latin" rel="stylesheet" type="text/css" />
     <tal:block define="sentry_dsn context/@@sentry_dsn" condition="sentry_dsn">
         <script src="https://cdn.ravenjs.com/3.17.0/raven.min.js"
             crossorigin="anonymous"></script>
@@ -76,15 +73,16 @@
     <meta tal:condition="python: wf_state in ['visible']" name="robots" content="noarchive" />
 
     <tal:notajax tal:condition="python:not ajax_load or ajax_include_head">
-        <!--?<div tal:replace="structure provider:plone.htmlhead" />-->
-
-        <tal:styles replace="structure provider:plone.resourceregistries.styles" />
+        <div tal:replace="structure provider:plone.htmlhead" />
+        <link tal:replace="structure provider:plone.htmlhead.links" />
 
         <tal:comment replace="nothing">
             Various slots where you can insert elements in the header from a template.
         </tal:comment>
 
-       <metal:headslot define-slot="head_slot"
+        <metal:topslot define-slot="top_slot" />
+
+        <metal:headslot define-slot="head_slot"
             tal:define="charset site_properties/default_charset|string:utf-8">
             <tal:anonymousNoBorder condition="isAnon|nothing">
                 <metal:noborder  tal:define="dummy python:request.set('disable_border',1)" />
@@ -94,7 +92,6 @@
             </metal:baseslot>
         </metal:headslot>
 
-
         <metal:styleslot define-slot="style_slot" />
 
         <metal:pagedesign use-macro="context/page_design_macros/macros/pagedesign" />
@@ -102,23 +99,26 @@
         <tal:comment replace="nothing"> This is deprecated, please use style_slot instead. </tal:comment>
         <metal:cssslot define-slot="css_slot" />
 
+        <script type="text/javascript">
+            WebFontConfig = {
+                google: { families: ['Open Sans:400:latin,latin-ext,700:latin,latin-ext' ] }
+            };
+            (function() {
+                var wf = document.createElement('script');
+                wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                        '://ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+            })(); </script>
 
+        <metal:javascriptslot define-slot="javascript_head_slot" />
 
         <meta name="generator" content="Plone - http://plone.org" />
     </tal:notajax>
 
     <script type="text/javascript" tal:content="string: context_url='${context/absolute_url}';">
-    </script>
-    <script type="text/javascript">
-        (function(){var documentIsReady=!1;function documentReadyHandler(fn){if(!documentIsReady){documentIsReady=!0;if(document.addEventListener){document.removeEventListener("DOMContentLoaded",function(){documentReadyHandler(fn)},!1)}
-        else if(document.attachEvent){if(document.readyState=="complete"){document.detachEvent("onreadystatechange",function(){documentReadyHandler(fn)})}}
-            fn()}}
-            function documentReady(fn){if(document.addEventListener){document.addEventListener("DOMContentLoaded",function(){documentReadyHandler(fn)},!1);window.addEventListener("load",function(){documentReadyHandler(fn)},!1)}else if(document.attachEvent){document.attachEvent("onreadystatechange",function(){documentReadyHandler(fn)});window.attachEvent("onload",function(){documentReadyHandler(fn)});var toplevel=!1;try{toplevel=window.frameElement==null}catch(e){}
-                if(document.documentElement.doScroll&&toplevel){doScrollCheck(function(){documentReadyHandler(fn)})}}}
-            function doScrollCheck(fn){if(documentIsReady){return}
-                try{document.documentElement.doScroll("left")}catch(error){window.setTimeout(function(){doScrollCheck(fn)},1);return}
-                fn()}
-            window.$pb={documentReady:documentReady}})();window.jQuery=function(selector,context){return new jQuery.fn.init(selector,context)};window.jQuery.fn=window.jQuery.prototype={init:function(selector,context){return this}};jQuery.fn.init.prototype=window.jQuery.fn;window.jQuery.fn.ready=window.$pb.documentReady
     </script>
 </head>
 
@@ -249,7 +249,7 @@
                                     <div tal:replace="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
                                 </div>
 
-                                <div id="content-core">
+                                <div id="content-core" class="content-core">
                                     <metal:text define-slot="content-core" tal:content="nothing">
                                         <tal:comment replace="nothing">
                                             text body page
@@ -329,10 +329,6 @@
         <div tal:replace="structure provider:plone.portalfooter" />
     </tal:not4Print>
 </metal:block>
-
-<tal:scripts replace="structure provider:plone.resourceregistries.scripts" />
-<metal:topslot define-slot="top_slot" />
-<metal:javascriptslot define-slot="javascript_head_slot" />
 
 </body>
 

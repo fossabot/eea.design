@@ -203,8 +203,9 @@
 #languageCodes {
     max-width: 80%;
 }
-#article-language {
-    background: url("&dtml-xurl;/sprite-eeaimages.png") no-repeat scroll -430px -35px transparent;
+#article-language .eea-icon {
+    line-height: 0.75em;
+    color: #888;
 }
 .width-full #article-language {
     min-width: 180px;

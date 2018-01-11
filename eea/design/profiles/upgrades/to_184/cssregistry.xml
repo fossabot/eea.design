@@ -13,20 +13,13 @@
   <stylesheet id="livesearch.css" bundle="default"
     expression="" remove="True" />
 
-
   <stylesheet id="critical.css" bundle="default"
     expression="" rendering="inline"
     insert-before="base.css" />
 
-
  <stylesheet id="subfolder_listing.css" bundle="default"
              expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.design.browser.interfaces.ISubFoldersListing')"
              insert-after="++resource++eea.uberlisting.css/uberlisting_view.css" />
-
-
-  <stylesheet id="eea-theme.css" bundle="default"
-    expression=""
-    insert-before="ploneCustom.css" />
 
   <stylesheet id="datamaps_view.css" bundle="default"
     expression="python: '/data-and-maps' in request.URL0 or getattr(object, 'portal_type', None) in ['Data', 'EEAFigure']"
@@ -38,6 +31,33 @@
   <stylesheet id="outdated.css" bundle="default"
     expression=""
     insert-after="anon.css" />
+
+  <stylesheet id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.css" bundle="default" expression=""
+    position-after="outdated.css" />
+
+  <stylesheet id="++resource++plone.formwidget.contenttree/contenttree.css" bundle="default"
+    expression=""
+    position-after="++resource++plone.formwidget.autocomplete/jquery.autocomplete.css" />
+
+  <stylesheet id="++resource++eea.glossary/main.css" bundle="default"
+    expression=""
+    position-after="++resource++plone.formwidget.contenttree/contenttree.css" />
+
+  <stylesheet id="eea-theme.css" bundle="default"
+    expression=""
+    position-after="++resource++eea.glossary/main.css" />
+
+  <stylesheet id="bootstrap_fixes.css" bundle="default"
+    expression=""
+    position-after="eea-theme.css" />
+
+  <stylesheet id="eea-responsive.css" bundle="default"
+    expression=""
+    position-after="bootstrap_fixes.css" />
+
+  <stylesheet id="ploneCustom.css" bundle="default"
+    expression=""
+    position-after="eea-responsive.css" />
 
   <stylesheet id="edit.css" bundle="default"
     expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.URL0"
@@ -136,6 +156,7 @@
   <stylesheet id="eea-faceted-custom.css" bundle="faceted-view"
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="++resource++eea.facetednavigation.widgets.alphabets.view.css" />
+
 
 
 </object>

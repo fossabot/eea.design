@@ -82,19 +82,20 @@
     overflow: hidden;
 }
 
-.widget-fieldset ul li input {
+.widget-fieldset input {
     vertical-align: middle;
     margin-top: 2px;
 }
 
-.widget-fieldset ul li label {
+.widget-fieldset label {
     font-size: 11px;
     line-height: 15px;
     padding-left: 5px;
     padding-bottom: 5px;
+    font-weight: normal;
 }
 
-.widget-fieldset ul li span {
+.widget-fieldset li span {
     padding-left: 3px;
     color: &dtml-tabBackgroundColor;;
 }
