@@ -21,11 +21,8 @@
 #faceted-portal-status-message {
     width: 75% !important; /* 80% default is too large for our buttons which end up collapsed with default value */
 }
-#faceted-form .faceted-widget {
-    padding-bottom: 0.5em;
-}
 
-#faceted-right-column .faceted-widget {
+.faceted-right-column .faceted-widget {
     margin-bottom: 1em;
 }
 

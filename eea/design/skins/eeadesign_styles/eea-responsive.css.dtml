@@ -376,7 +376,7 @@
     width: 100%;
     overflow: auto; }
 
-  .right-area-js {
+  .faceted-form .right-area-js {
     margin-right: 0; }
 
   .left-area-js {

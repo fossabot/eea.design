@@ -15,7 +15,7 @@
         <div id="highlights-block"
                 tal:define="global frontpage_view context/@@frontpage_highlights;
                 main_site python: True if language == 'en' else False;">
-            <div id="main-content">
+            <div id="main-content" class="content-core">
                 <div class="visualClear"><!-- &nbsp; --></div>
 
                 <div id="eea-intro-message" class="portalMessage visualNoMargins" tal:condition="main_site">

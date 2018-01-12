@@ -79,10 +79,6 @@
     top: 0;
     margin-top: 0.8em;
 }
-a.archives {
-    color: #869936;
-    border-bottom: 1px solid #869936;
-}
 
 /* Frontpage main content
 ******************************************************************************/
@@ -122,16 +118,6 @@ a.archives {
 
 .frontpage #portal-columns {
     padding: 0 !important;
-}
-.gallery-layout-selection  {
-    float: right;
-    position: relative;
-    top: 5px;
-    list-style: none;
-    margin-bottom: 10px;
-    width: 65px;
-    display: inline;
-    text-align: right;
 }
 
 .featured-highlight-title {
@@ -299,7 +285,6 @@ a.archives {
 .filter-topic {
     float: left;
     text-align: left;
-    width: 83%;
     padding-top: 6px;
 }
 /* </dtml-let> */
