@@ -10,17 +10,6 @@
     <metal:content-core fill-slot="content-core">
         <metal:block define-macro="content-core"
                      tal:define="content_type context/get_content_type|context/Format">
-            <p>
-                <metal:field use-macro="python:context.widget('file', mode='view')">
-                File
-                </metal:field>
-            </p>
-
-            <div tal:condition="python: content_type.startswith('text') and context.get_size() > 0">
-                <h2 i18n:translate="heading_file_contents">File contents</h2>
-                <pre tal:content="context/get_data|context/data|nothing">
-                </pre>
-            </div>
             <div class="pdfjs">
                 <div id="outerContainer">
                   <div id="sidebarContainer">
@@ -314,6 +303,18 @@
             
                 </div> <!-- outerContainer -->
                 <div id="printContainer"></div>
+            </div>
+
+            <p>
+                <metal:field use-macro="python:context.widget('file', mode='view')">
+                File
+                </metal:field>
+            </p>
+
+            <div tal:condition="python: content_type.startswith('text') and context.get_size() > 0">
+                <h2 i18n:translate="heading_file_contents">File contents</h2>
+                <pre tal:content="context/get_data|context/data|nothing">
+                </pre>
             </div>
         </metal:block>
     </metal:content-core>

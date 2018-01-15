@@ -127,7 +127,8 @@ canvas {
   left: 0;
   right: 0;
   z-index: 100;
-  height: 700px;
+  height: 900px;
+  background-color: hsla(0, 0%, 0%, .1);
 }
 
 #content .pdfjs .thumbnailSelectionRing {
@@ -141,6 +142,12 @@ canvas {
 
 #content .pdfjs .thumbnailSelectionRing {
     margin-bottom: 11%;
+    width: 100% !important;
+}
+
+#content .pdfjs .thumbnailImage {
+    max-width: none;
+    border: none;
 }
 
 #content .pdfjs .pdfViewer .page {
@@ -209,7 +216,7 @@ canvas {
 }
 
 #content .pdfjs #outerContainer {
-    margin-bottom: 5em;
+    margin-bottom: 3em;
 }
 
 #content .pdfjs option{
@@ -228,6 +235,33 @@ canvas {
 
 #portal-column-content {
   width: 100%;
+}
+
+#content .pdfjs .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
+    margin: 1px auto -8px auto;
+}
+
+#content .pdfjs .pdfPresentationMode:-moz-full-screen .pdfViewer .page {
+    margin: 1px auto -8px auto;
+}
+
+#region-content {
+    padding: 0;
+}
+
+@media (max-width: 840px) {
+    html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#sidebarContainer {
+        top: 0;
+    }
+    html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#mainContainer {
+        left: 200px;
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .pdfjs #pageNumber {
+    width: 12%;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -252,11 +286,16 @@ canvas {
  }
 
  #pageNumber {
-    width: 50%;
+    width: 12%;
  }
 
- #viewerContainer {
-   border-right: 2px solid black;
+ #content .pdfjs #viewerContainer {
+     border: none;
+ }
+ 
+ #content .pdfjs #outerContainer {
+     border: 2px solid #00446a;
+     border-top: none;
  }
 }
 
@@ -282,12 +321,21 @@ canvas {
   }
 
   #pageNumber {
-    width: 50%;
+    width: 20%;
   }
 
   #viewerContainer {
     border-right: 2px solid black;
     height: 450px;
+  }
+
+  #content .pdfjs #viewerContainer {
+    border: none;
+  }
+ 
+  #content .pdfjs #outerContainer {
+    border: 2px solid #00446a;
+    border-top: none;
   }
 }
 
@@ -346,9 +394,10 @@ canvas {
     #content .pdfjs #viewerContainer,
     #content .pdfjs .page,
     #content .pdfjs .page canvas {
-        position: static;
+        position: relative;
         padding: 0;
         margin: 0;
+        width: 100% !important;
     }
 
     #content .pdfjs .page {
@@ -395,9 +444,30 @@ canvas {
     #content .pdfjs #printContainer img {
         display: block;
     }
-}
+    
+    #content .pdfjs .pdfViewer .page {
+        margin-right: 0;
+        margin-left: 3%;
+        width: 100% !important;
+    }
 
-/* NEW STUFF  */
+    #content .pdfjs .pdfViewer .page .canvasWrapper {
+        width: 100% !important;
+    }
+
+    #content .pdfjs .pdfViewer .page .textLayer {
+        width: 100% !important;
+    }
+
+    body #portal-column-content {
+        min-width: 800px;
+        width: 100%;
+    }
+    
+    body {
+        min-width: 12cm !important;
+    }
+}
 
 .pdfjs .textLayer {
     position: absolute;

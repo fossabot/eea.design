@@ -16536,7 +16536,7 @@ var PDFPageView = function PDFPageViewClosure() {
    target.style.width = target.parentNode.style.width = div.style.width = Math.floor(width) + 'px';
    target.style.height = target.parentNode.style.height = div.style.height = Math.floor(height) + 'px';
    // in some cases the canvases aren't loaded yet so we need to add a delay, it doesn't have a visual impact 
-   setTimeout(function(){}, 1000);
+   // setTimeout(function(){}, 1000);
    var relativeRotation = this.viewport.rotation - this.paintedViewportMap.get(target).rotation;
    var absRotation = Math.abs(relativeRotation);
    var scaleX = 1, scaleY = 1;
@@ -19457,7 +19457,12 @@ var resizeInterval = null;
 var resizeHandler = function(){
   if (window.PDFViewerApplication.downloadComplete === true) {
     if ($('#sidebarContainer').css('visibility') === "visible") {
-      $('#mainContainer').css('width', '80%');
+      if(window.innerWidth < 840) {
+        $('#mainContainer').css('width', '70%');
+      }
+      else {
+        $('#mainContainer').css('width', '80%');
+      }
     }
     else {
       $('#mainContainer').css('width', '100%');
@@ -19482,7 +19487,12 @@ jQuery(document).ready(function($) {
       $('#mainContainer').css('width', '100%');
     }
     else {
-      $('#mainContainer').css('width', '80%');
+      if(window.innerWidth < 840) {
+        $('#mainContainer').css('width', '70%');
+      }
+      else {
+        $('#mainContainer').css('width', '80%');
+      }
     }
   });
   resizeInterval = setInterval(resizeHandler, 1000);
