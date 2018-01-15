@@ -265,6 +265,18 @@ div.managePortletsLink, a.managePortletsFallback {
     border: 0;
 }
 
+/*#document-action-sendto a,*/
+/*#delicious a */
+.action-items a {
+    height: 0;
+    padding-bottom: 1%;
+}
+
+#document-action-rdf a {
+    height: 0;
+    padding-bottom: 40%;
+}
+
 /* @end previously in public.css not found in stock plone */
 /* </dtml-let> */
 /* </dtml-with> */
