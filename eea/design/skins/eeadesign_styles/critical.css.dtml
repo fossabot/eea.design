@@ -453,6 +453,7 @@ li#secondary-portaltabs-container {
 .portalMessage {
     background-color: #f3f3f3;
     padding: 1em;
+    clear:both;
 }
 
 #megatopics-area {
