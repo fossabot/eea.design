@@ -57,6 +57,26 @@ html{font-size:16px !important;}body{font:75% 'Open Sans',Verdana,Helvetica,Aria
 .pull-right {
     float: right !important;
 }
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.col-md-5, .col-md-6, .col-sm-6 {
+    float: left;
+    position: relative;
+    padding: 0 15px;
+}
+@media (min-width: 768px) {
+    .col-sm-6 {
+        width: 50%;
+    }
+}
+@media (min-width: 992px) {
+    .col-md-5 {
+        width: 41.66666667%;
+    }
+}
+
 
 a { color: &dtml-linkColor;;
     cursor: pointer}
@@ -206,14 +226,16 @@ select {
     float: left;
     margin-left: 0.5em;
 }
-.eea-siteaction {
+#cross-site-top .eea-siteaction {
     display: inline;
     padding: 0 5px;
     margin-right: 0.5em;
 }
+#cross-site-top .eea-siteaction {
+    font-size: 11px;
+}
 .eea-siteaction > a {
     color: #FFF;
-    font-size: 11px;
     cursor: pointer;
 }
 #portal-siteactions, #portal-externalsites {
@@ -226,7 +248,7 @@ select {
     overflow-y: auto;
     border-top: 1px solid transparent;
     width: 100%;
-    max-height: 300px;
+    max-height: 325px;
 }
 
 .navbar-toggle {
