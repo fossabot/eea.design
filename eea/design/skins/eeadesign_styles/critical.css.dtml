@@ -131,6 +131,7 @@ select {
 .content-core ol li:before,
 .tabbedmenu li:before,
 .eea-tabs li:before,
+.chart-tabs li:before,
 .faceted-form li:before
  {
     content: "";
@@ -258,8 +259,7 @@ select {
     padding: 9px 10px;
     margin-top: 1em;
     margin-bottom: 8px;
-    background-color: transparent;
-    background-image: none;
+    background: transparent none;
     border: 1px solid #ddd;
     border-radius: 4px;
     cursor: pointer;
@@ -276,7 +276,6 @@ select {
     box-shadow: 0 1px 10px #005078;
     background-color: #FFF;
     border: 0;
-    margin-bottom: 17px;
 }
 
 @media screen and (max-width: 767px) {
@@ -404,8 +403,6 @@ select {
 
 .plone-breadcrumb {
     background-color: #e6e4e4;
-    margin-top: -17px;
-    margin-bottom: 17px;
     font-size: 100%;
     box-shadow: 0 2px 10px #ccc;
 }
