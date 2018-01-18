@@ -132,6 +132,7 @@ select {
 .tabbedmenu li:before,
 .eea-tabs li:before,
 .chart-tabs li:before,
+.formTabs li:before,
 .faceted-form li:before
  {
     content: "";
