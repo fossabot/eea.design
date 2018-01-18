@@ -137,6 +137,8 @@ select {
 .content-core ol li:before,
 .tabbedmenu li:before,
 .eea-tabs li:before,
+.chart-tabs li:before,
+.formTabs li:before,
 .faceted-form li:before
  {
     content: "";

@@ -517,9 +517,6 @@
   #region-content {
     padding: 0.5em; }
 
-  #portal-columns {
-    padding-top: 0; }
-
   /* START #89398 GIS Map Applications get a slimmer mobile view */
   .template-gis_view .content-header,
   .template-gis_view .plone-breadcrumb,
