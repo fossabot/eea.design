@@ -84,13 +84,15 @@
     margin-top: 2px;
 }
 
-.widget-fieldset label {
+.widget-fieldset ul li label {
+    font-weight: normal;
     font-size: 11px;
     line-height: 15px;
     padding-left: 5px;
     padding-bottom: 5px;
-    font-weight: normal;
 }
+
+
 
 .widget-fieldset li span {
     padding-left: 3px;

@@ -239,6 +239,13 @@ a.downloading img {
     margin: 1em -0.15em 0 0;
 }
 
+#region-content ul,
+#chooselang ul {
+    list-style-image: url(//www.eea.europa.eu/bullet.gif);
+    list-style-type: square;
+    list-style-position: inside;
+}
+
 #region-content .documentExportActions li, .documentExportActions li {
     display: inline;
 }

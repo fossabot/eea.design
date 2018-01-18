@@ -7,8 +7,9 @@
         </tal:wcondcomment>
         <tal:rendering-link condition="python: rendering == 'link'">
             <link rel="style"
+		    tal:define="cssmedia style/media"
                      tal:attributes="href style/src;
-                            media style/media;
+                            media python: cssmedia if cssmedia != 'print' else '';
                             rel string:preload;
                             as string:style;
                             title style/title"
