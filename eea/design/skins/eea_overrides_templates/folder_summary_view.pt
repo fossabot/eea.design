@@ -23,7 +23,8 @@
                        tal:attributes="href item_url;
                                        title item_title_or_id;
                                        class string:tileImage ${item_css_class}">
-                        <img tal:attributes="src string:${item_absolute_url}/image_thumb;
+                        <img class="lazy"
+                             tal:attributes="src string:${item_absolute_url}/image_thumb;
                                              title item_title_or_id;
                                              alt item_title_or_id" />
                     </a>
