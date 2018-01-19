@@ -423,7 +423,7 @@ canvas {
 
     body[data-pdfjsprinting] #content .pdfjs #printContainer {
         display: block;
-        margin-left: 4%;
+        /*margin-left: 4%;*/
     }
 
     #content .pdfjs #printContainer {
