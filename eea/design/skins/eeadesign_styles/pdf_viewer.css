@@ -423,6 +423,7 @@ canvas {
 
     body[data-pdfjsprinting] #content .pdfjs #printContainer {
         display: block;
+        margin-left: 4%;
     }
 
     #content .pdfjs #printContainer {
@@ -466,6 +467,14 @@ canvas {
     
     body {
         min-width: 12cm !important;
+    }
+
+    #content .documentFirstHeading {
+        display: none;
+    }
+
+    #content-core > p {
+        display: none;
     }
 }
 
