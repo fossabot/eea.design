@@ -240,10 +240,8 @@ a.downloading img {
 }
 
 #region-content ul,
-#chooselang ul {
-    list-style-image: url(//www.eea.europa.eu/bullet.gif);
-    list-style-type: square;
-    list-style-position: inside;
+#chooselang {
+    list-style: square inside url(//www.eea.europa.eu/bullet.gif);
 }
 
 #region-content .documentExportActions li, .documentExportActions li {

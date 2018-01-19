@@ -27,10 +27,10 @@ label {
     font-weight: bold;
 }
 
-.clearfix:after, .container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after {
+.clearfix::after, .container::after, .container-fluid::after, .row::after, .form-horizontal .form-group::after, .nav::after, .navbar::after, .navbar-header::after, .navbar-collapse::after {
     clear: both;
 }
-.clearfix:before, .clearfix:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after {
+.clearfix::before, .clearfix::after, .container::before, .container::after, .container-fluid::before, .container-fluid::after, .row::before, .row::after, .form-horizontal .form-group::before, .form-horizontal .form-group::after, .nav::before, .nav::after, .navbar::before, .navbar::after, .navbar-header::before, .navbar-header::after, .navbar-collapse::before, .navbar-collapse::after {
     content: " ";
     display: table;
 }
@@ -125,21 +125,21 @@ select {
 }
 
 /* disable for now as there are font-size issues 
-.content-core li:before,
-.list-items li:before {
+.content-core li::before,
+.list-items li::before {
     content: "\25AA";
     color: #346f83;
     font-size: 75%;
     padding-right: 0.75em;
     vertical-align: top;
 }
-.content-core .gallery li:before,
-.content-core ol li:before,
-.tabbedmenu li:before,
-.eea-tabs li:before,
-.chart-tabs li:before,
-.formTabs li:before,
-.faceted-form li:before
+.content-core .gallery li::before,
+.content-core ol li::before,
+.tabbedmenu li::before,
+.eea-tabs li::before,
+.chart-tabs li::before,
+.formTabs li::before,
+.faceted-form li::before
  {
     content: "";
     display: none;
@@ -155,7 +155,7 @@ select {
     display: inline;
 }
 
-.list-inline li:before {
+.list-inline li::before {
     content: " ";
 }
 
@@ -419,6 +419,7 @@ select {
     max-width: 1024px;
     width: 100%;
     margin: auto;
+    padding: 0;
 }
 .plone-breadcrumb  li {
     font-weight: 400;
@@ -653,7 +654,7 @@ li#secondary-portaltabs-container {
     border: 1px solid &dtml-mediumBackgroundColor;;
     border-bottom: 0;
 }
-.eea-tabs:before, .eea-tabs:after {
+.eea-tabs::before, .eea-tabs::after {
     display: table;
     content: " ";
     clear: both;

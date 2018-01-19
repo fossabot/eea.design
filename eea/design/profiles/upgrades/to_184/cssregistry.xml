@@ -15,6 +15,7 @@
 
   <stylesheet id="critical.css" bundle="default"
     expression="" rendering="inline"
+    media="all"
     insert-before="base.css" />
 
  <stylesheet id="subfolder_listing.css" bundle="default"
@@ -45,6 +46,7 @@
 
   <stylesheet id="eea-theme.css" bundle="default"
     expression=""
+    media="all"
     position-after="++resource++eea.glossary/main.css" />
 
   <stylesheet id="bootstrap_fixes.css" bundle="default"
