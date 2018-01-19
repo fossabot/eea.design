@@ -7,6 +7,10 @@
   <stylesheet id="reset.css" bundle="default"
     expression="" remove="True" />
 
+  <stylesheet id="++resource++jquery.css" bundle="default"
+    expression="" remove="True" />
+  
+
   <stylesheet id="++resource++jquery.select2uislider.css" bundle="default"
     expression="" remove="True" />
 
