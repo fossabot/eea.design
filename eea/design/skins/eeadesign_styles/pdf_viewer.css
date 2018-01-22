@@ -373,8 +373,13 @@ canvas {
 /* Print modifications */
 
 @media print {
+    html {
+        width: 100%;
+    }
+
     body {
         background: transparent none;
+        width: 100%;
      }
 
     #content .pdfjs #sidebarContainer,
@@ -403,7 +408,7 @@ canvas {
     #content .pdfjs .page {
         float: left;
         display: none;
-        border: 0;
+        border: none;
         box-shadow: none;
         background-clip: content-box;
         background-color: white;
@@ -423,29 +428,48 @@ canvas {
 
     body[data-pdfjsprinting] #content .pdfjs #printContainer {
         display: block;
-        /*margin-left: 4%;*/
     }
 
     #content .pdfjs #printContainer {
-        height: 100%;
+        height: 60%;
+        width: 93% !important;
     }
 
     #content .pdfjs #printContainer>div {
         position: relative;
         top: 0;
         left: 0;
-        width: 850px;
-        height: 700px;
-        overflow: visible;
+        height: 60%;
+        width: 100% !important;
+        overflow: hidden;
         page-break-after: always;
         page-break-inside: avoid;
+        margin-left: 3.8%;
+        margin-right: 2%;
     }
     
     #content .pdfjs #printContainer canvas,
     #content .pdfjs #printContainer img {
         display: block;
+        height: 60% !important;
+        width: 100% !important;
+        padding-top: 7.5%;
     }
-    
+
+    #mainContainer, #viewerContainer, .page, .page canvas {
+        position: static;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Rules for browsers that support mozPrintCallback */
+    body[data-mozPrintCallback] #outerContainer {
+        display: none;
+    }
+    body[data-mozPrintCallback] #printContainer {
+        display: block;
+    }
+
     #content .pdfjs .pdfViewer .page {
         margin-right: 0;
         margin-left: 3%;
