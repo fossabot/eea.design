@@ -3,6 +3,8 @@ Changelog
 
 18.4.dev0 - (unreleased)
 ------------------------
+* Update raven.js version
+  [valipod refs #91552]
 * Change: updated styles and javascripts with changes from custom
   [ichim-david refs #90180]
 
