@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
 
+
+  <javascript id="++resource++eea.dataservice.view.js" remove="True" />
+  <javascript id="jquery.highlightsearchterms.js" remove="True" />
+  <javascript id="livesearch.js" remove="True" />
+
+
   <!--?faceted navigation -->
 
   <javascript id="++resource++eea.faceted-navigation-independent.js" bundle="faceted-view"
@@ -135,5 +141,25 @@
 
   <javascript id="lazy_load.js" bundle="default"
     expression="" insert-after="jquery.lazy.plugins.min.js" />
+
+  <!-- edit javascripts -->
+  <javascript id="formUnload.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+              position-after="eea-rememberstate.js" />
+
+  <javascript id="formsubmithelpers.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+              position-after="formUnload.js" />
+
+  <javascript id="formsubmithelpers.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+              position-after="formUnload.js" />
+
+  <javascript id="swfobject.js" bundle="default"
+              expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.mediacentre.interfaces.IVideo')"
+              position-after="++resource++jquery.flashembed.js" />
+
+
+
 
 </object>
