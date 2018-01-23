@@ -123,6 +123,12 @@
                     </p>
                     <div class="visualClear" style="padding-bottom:1.0em;"><!-- --></div>
 
+                    <metal:jsslot fill-slot="javascript_head_slot">
+                      <script type="text/javascript"
+                        tal:content="string:jQuery(document).ready(function(evt){
+                                jQuery(Faceted.Events).trigger(Faceted.Events.LAZY_LOAD, {msg: 'Enabling Lazy Loading'});
+                        });"></script>
+                    </metal:jsslot>
                 </div>
 
              <metal:empty metal:define-slot="no_items_in_listing">
