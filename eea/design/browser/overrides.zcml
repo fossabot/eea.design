@@ -56,4 +56,12 @@
     layer=".interfaces.IEEACommonLayer"
     permission="zope2.View"
   />
+    <browser:viewlet
+        name="plone.resourceregistries"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        template="templates/resourceregistries.pt"
+        layer=".interfaces.IEEACommonLayer"
+        permission="zope2.View"
+        />
+
 </configure>

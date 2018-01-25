@@ -109,7 +109,6 @@
                 s.parentNode.insertBefore(wf, s);
             })(); </script>
 
-        <metal:javascriptslot define-slot="javascript_head_slot" />
 
         <meta name="generator" content="Plone - http://plone.org" />
     </tal:notajax>
@@ -326,16 +325,19 @@
     </tal:not4Print>
 </metal:block>
 
+    <tal:scripts replace="structure provider:plone.resourceregistries.scripts" />
+    <metal:javascriptslot define-slot="javascript_head_slot" />
+
+    <tal:4ContentCoreOnly tal:condition="python: content_core_only">
+
+        <metal:content_core_only use-macro="context/content_core_only/macros/content_core_only">
+            Get the global cache headers located in global_cache_settings.
+        </metal:content_core_only>
+    </tal:4ContentCoreOnly>
 </body>
 
 </html>
 
 </tal:not4ContentCoreOnly>
 
-<tal:4ContentCoreOnly tal:condition="python: content_core_only">
-
-    <metal:content_core_only use-macro="context/content_core_only/macros/content_core_only">
-        Get the global cache headers located in global_cache_settings.
-    </metal:content_core_only>
-</tal:4ContentCoreOnly>
 </metal:page>
