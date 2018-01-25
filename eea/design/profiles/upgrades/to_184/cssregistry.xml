@@ -82,6 +82,11 @@
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="++resource++eea.sparql.css" />
 
+
+ <stylesheet id="++resource++eea.faceted-navigation.css" bundle="faceted-view"
+             expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+             insert-after="++resource++jquery.select2uislider.css" />
+
   <stylesheet id="++resource++eea.facetednavigation.widgets.text.view.css" bundle="faceted-view"
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="++resource++eea.faceted-navigation.css" />
