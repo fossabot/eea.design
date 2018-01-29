@@ -496,6 +496,12 @@ jQuery(document).ready(function($) {
         $('#header-holder').find('.navbar').addClass('hideShadow');
     }
 
+    // 91577 show and hide mobile menu
+    $(".navbar-toggle").click(function(ev) {
+        $(ev.target).toggleClass('collapsed');
+        $(".navbar-collapse").toggleClass('in');
+    });
+
     var scroll_analytics_enabled = $body.hasClass("scroll-analytics");
 
     // track print attempt with google analytics
