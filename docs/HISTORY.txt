@@ -1,12 +1,19 @@
 Changelog
 =========
 
-18.4 - (2017-12-20)
+18.5 - (2018-01-29)
 ------------------------
 * Feature: Added pdf viewer for the 'File' content type
   [petchesi-iulian refs #89523]
 * Upgrade step: Added upgrade step in order to load the pdf viewer dependencies
   [petchesi-iulian refs #89523]
+
+18.4 - (2017-12-20)
+------------------------
+* Update raven.js version
+  [valipod refs #91552]
+* Change: updated styles and javascripts with changes from custom
+  [ichim-david refs #90180]
 
 18.3 - (2017-12-12)
 -------------------

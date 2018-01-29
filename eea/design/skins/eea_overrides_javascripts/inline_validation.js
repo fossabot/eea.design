@@ -2,7 +2,7 @@
 Validate form fields when they lose focus.
 */
 
-/*jslint white:false, onevar:true, undef:true, nomen:true, eqeqeq:true, plusplus:true, bitwise:true, regexp:true, newcap:true, immed:true, strict:false, browser:true */
+/*jslint white:false, undef:true, nomen:true, eqeqeq:true, plusplus:true, bitwise:true, regexp:true, newcap:true, immed:true, strict:false, browser:true */
 /*global jQuery:false, document:false, window:false, location:false */
 
 jQuery(function ($) {
@@ -39,7 +39,7 @@ jQuery(function ($) {
 
         // if value is an Array, it will be send as value[]=value1&value[]=value2 by $.post
         // turn it into something that will be useable or value will be omitted from the request
-        params = $.param({uid: uid, fname: fname, value: value}, traditional = true);
+        var params = $.param({uid: uid, fname: fname, value: value}, true);  // traditional == true
 
         if ($field && uid && fname) {
             $.post($('base').attr('href') + '/at_validate_field', params, function (data) {

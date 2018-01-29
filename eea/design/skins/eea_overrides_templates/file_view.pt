@@ -176,7 +176,7 @@
                         </div>
                         <div id="loadingBar">
                           <div class="loading-details">
-                            <span> Downloading: </span>
+                            <span i18n:translate=""> Downloading: </span>
                             <metal:field use-macro="python:context.widget('file', mode='view')">
                               File
                             </metal:field>
