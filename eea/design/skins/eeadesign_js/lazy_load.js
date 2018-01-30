@@ -17,8 +17,6 @@ function enableLazy(element) {
     element.attr('src', '/www/lazyload_loader.gif');
 }
 
-
-
 // Faceted Lazy Load
 Faceted.Events.LAZY_LOAD = 'FACETED-LAZY-LOAD';
 Faceted.LoadLazy = {
@@ -31,30 +29,29 @@ Faceted.LoadLazy = {
                     var lazy_elements = children.find('.lazy');
 
                     jQuery(lazy_elements).each(function(){
-                        if (elementIsVisibleInViewport(this) === false) {
-                            var element = jQuery(this);
-                            var source = element.attr('src');
+                        var element = jQuery(this);
+                        var source = element.attr('src');
 
-                            if (source.indexOf('lazyload_loader') === -1) {
-                                element.attr('data-src', source);
-                                element.attr('src', '/www/lazyload_loader.gif');
-                                loaded_once = true;
-                            }
-                            else {
-                                loaded_once = false;
-                            }
+                        if (source.indexOf('lazyload_loader') === -1) {
+                            element.attr('data-src', source);
+                            element.attr('src', '/www/lazyload_loader.gif');
+                            loaded_once = true;
+                        }
+                        else {
+                            loaded_once = false;
                         }
                     });
 
                     if (loaded_once) {
+                        jQuery(lazy_elements).parent().css('width', '20%');
                         jQuery(lazy_elements).lazy({
                             scrollDirection: 'both',
                             effect: 'fadeIn',
                             effectTime: 1000,
-                            threshold: 200,
+                            threshold: 100,
                             combined: true,
-                            delay: 5000,
-                            visibleOnly: false,
+                            delay: 3000,
+                            visibleOnly: true,
                             onError: function(element) {
                                 console.log('error loading ' + element.data('src'));
                             }
@@ -63,15 +60,19 @@ Faceted.LoadLazy = {
                 }
             });
         }
-        else {
-            // Clean-up event
-            jQuery(Faceted.Events).unbind(Faceted.Events.LAZY_LOAD);
-        }
     }
 }
 
+function cleanupFacetedLazy() {
+    if (Faceted.Events.LAZY_LOAD && jQuery('#faceted-results').length === 0) {
+        jQuery(Faceted.Events).unbind(Faceted.Events.LAZY_LOAD);
+    }
+}
 
 jQuery(document).ready(function($) {
+    // Check if the faceted event needs to be cleaned up
+    cleanupFacetedLazy();
+
     var lazyElements = [];
 
     $('#content img').each(function(){
@@ -101,19 +102,19 @@ jQuery(document).ready(function($) {
         });
     }
 
-    // $('.lazy').lazy({
-    //     scrollDirection: 'both',
-    //     effect: 'fadeIn',
-    //     effectTime: 1000,
-    //     threshold: 0,
-    //     combined: true,
-    //     delay: 2500000,
-    //     // delay: 5000,
-    //     visibleOnly: false,
-    //     onError: function(element) {
-    //         console.log('error loading ' + element.data('src'));
-    //     }
-    // });
+    $('.lazy').lazy({
+        scrollDirection: 'both',
+        effect: 'fadeIn',
+        effectTime: 1000,
+        threshold: 100,
+        combined: true,
+        // delay: 2500000,
+        delay: 3000,
+        visibleOnly: false,
+        onError: function(element) {
+            console.log('error loading ' + element.data('src'));
+        }
+    });
     
     var isIe = function detectIE() {
         var ua = window.navigator.userAgent;
