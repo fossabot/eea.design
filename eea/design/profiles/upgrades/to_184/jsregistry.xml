@@ -4,6 +4,7 @@
 
   <javascript id="++resource++eea.dataservice.view.js" remove="True" />
   <javascript id="jquery.highlightsearchterms.js" remove="True" />
+  <javascript id="accesibility.js" remove="True" />
   <javascript id="livesearch.js" remove="True" />
   <javascript id="eea-fitcontainer.js" remove="True" />
   <javascript id="bootstrap.js" remove="True" />
@@ -113,6 +114,29 @@
     insert-after="++resource++jquery.select2uislider.js" />
 
   <!--?  end faceted navigation -->
+
+  <!--?  authenticated js -->
+
+  <javascript id="collective.js.jqueryui.custom.min.js" bundle="default"
+    expression="" authenticated="True"
+    insert-before="calendar_formfield.js" />
+
+  <javascript id="kss-bbb.js" bundle="default"
+    expression="" authenticated="True"
+    insert-after="collective.js.jqueryui.custom.min.js" />
+
+  <javascript id="++resource++plone.app.jquerytools.overlayhelpers.js" bundle="default"
+    expression="" authenticated="True"
+    insert-after="kss-bbb.js" />
+
+  <javascript id="++resource++plone.app.jquerytools.dateinput.js" bundle="default"
+    expression="" authenticated="True"
+    insert-after="++resource++plone.app.jquerytools.overlayhelpers.js" />
+
+  <javascript id="++resource++plone.app.jquerytools.form.js" bundle="default"
+    expression="" authenticated="True"
+    insert-after="++resource++plone.app.jquerytools.dateinput.js" />
+
 
 
   <javascript id="++resource++gismap_relations.js" bundle="default"
