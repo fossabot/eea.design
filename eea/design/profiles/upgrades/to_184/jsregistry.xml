@@ -199,5 +199,36 @@
               authenticated="False"
               position-after="eea-rememberstate.js" />
 
+  <javascript id="++resource++plone.app.jquerytools.overlayhelpers.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'portal_progress' in request.ACTUAL_URL"
+              authenticated="False"
+              position-after="pdf.print.js" />
+
+  <javascript id="eea.controlpanel.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'eea.controlpanel.html' in request.ACTUAL_URL"
+              authenticated="False"
+              position-after="++resource++plone.app.jquerytools.overlayhelpers.js" />
+
+  <javascript id="++resource++select2/select2.min.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.URL0"
+              authenticated="False"
+              position-after="eea-rememberstate.js" />
+
+
+  <javascript id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'dexterity_types' in request.URL0"
+              authenticated="False"
+              position-after="++resource++eea.glossary/jquery.glossarize.js" />
+
+  <javascript id="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'dexterity_types' in request.URL0"
+              authenticated="False"
+              position-after="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" />
+
+  <javascript id="++resource++plone.formwidget.contenttree/contenttree.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'dexterity_types' in request.URL0"
+              authenticated="False"
+              position-after="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" />
+
 
 </object>
