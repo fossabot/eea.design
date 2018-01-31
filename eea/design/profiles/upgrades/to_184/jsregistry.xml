@@ -125,13 +125,13 @@
     expression="" authenticated="True"
     insert-after="collective.js.jqueryui.custom.min.js" />
 
-  <javascript id="++resource++plone.app.jquerytools.overlayhelpers.js" bundle="default"
+  <javascript id="popupforms.js" bundle="default"
     expression="" authenticated="True"
     insert-after="kss-bbb.js" />
 
   <javascript id="++resource++plone.app.jquerytools.dateinput.js" bundle="default"
     expression="" authenticated="True"
-    insert-after="++resource++plone.app.jquerytools.overlayhelpers.js" />
+    insert-after="popupforms.js" />
 
   <javascript id="++resource++plone.app.jquerytools.form.js" bundle="default"
     expression="" authenticated="True"
