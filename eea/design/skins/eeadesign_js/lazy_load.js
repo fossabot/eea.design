@@ -141,26 +141,17 @@ jQuery(document).ready(function($) {
 
     var forceImageLoad = function (images) {
         $(images).each(function (){
+            var image = $(this);
+
             if(!$(this).attr('data-src')) {
                 var image_src = $(this).attr('src');
                 $(this).attr('data-src', image_src);
-                $(this).attr('src', '/www/lazyload_loader.gif');
             }
-            $(this).lazy(
-            {
-                event: "lazyload",
-                effect: "show",
-                effectspeed: 0
-            }).trigger("lazyload");
-        });
 
-        // $(images).lazy(
-        // {
-        //     event: "lazyload",
-        //     effect: "show",
-        //     effectspeed: 0
-        // }).trigger("lazyload");
-        // setTimeout(function(){}, 1000);
+            var image_source = image.attr('data-src');
+            image.attr('src', image_source);
+            // setTimeout(function(){}, 100);
+        });
     };
 
     var forceDavizLoad = function () {
@@ -171,7 +162,7 @@ jQuery(document).ready(function($) {
                     if (jQuery(elem).hasClass('isChart')){
                         var $elem = jQuery(elem);
                         var vhash = elem.id.split('_')[2];
-                        eval('gl_charts[\'googlechart_view_' + vhash + '\'] = drawChart(jQuery(elem).data(\'settings\'), jQuery(elem).data(\'other_options\')).chart;');
+                        eval('gl_charts[\'googlechart_view_' + vhash + '\'] = window.drawChart(jQuery(elem).data(\'settings\'), jQuery(elem).data(\'other_options\')).chart;');
                     }
                     else{
                         window.drawDashboardEmbed(jQuery(elem).data('settings'));
@@ -179,6 +170,7 @@ jQuery(document).ready(function($) {
                     jQuery(elem).trigger('eea.embed.loaded');
                 }
             }
+            setTimeout(function(){}, 1000);
         });
     };
 
