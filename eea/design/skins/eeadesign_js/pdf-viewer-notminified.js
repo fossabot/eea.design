@@ -29,6 +29,7 @@
 */
 
 /*jshint browser: true, devel: true, es5: true, globalstrict: true */
+
 'use strict';
 
 document.webL10n = (function(window, document, undefined) {
@@ -2692,7 +2693,25 @@ function addLinkAttributes(link, params) {
   link.rel = rel;
  }
 }
+var HEADER_FILENAME = '';
 function getFilenameFromUrl(url) {
+  // First check filename from header
+  var request = new XMLHttpRequest();
+  var splitted_url = window.location.href.split('/');
+  splitted_url.pop();
+  var request_url = splitted_url.join('/') + '/at_view/file';
+  request.open('GET', request_url, true);
+  request.send(null);
+  request.onreadystatechange = function () {
+    if (request.readyState === 4) {
+      HEADER_FILENAME = request.getResponseHeader('Filename');
+    }
+  };
+
+ if (HEADER_FILENAME !== '') {
+  return HEADER_FILENAME;
+ }
+
  var anchor = url.indexOf('#');
  var query = url.indexOf('?');
  var end = Math.min(anchor > 0 ? anchor : url.length, query > 0 ? query : url.length);
@@ -6859,7 +6878,7 @@ PDFJS.imageResourcesPath = PDFJS.imageResourcesPath === undefined ? '' : PDFJS.i
 PDFJS.disableWorker = PDFJS.disableWorker === undefined ? false : PDFJS.disableWorker;
 PDFJS.workerSrc = PDFJS.workerSrc === undefined ? null : PDFJS.workerSrc;
 PDFJS.workerPort = PDFJS.workerPort === undefined ? null : PDFJS.workerPort;
-PDFJS.disableRange = PDFJS.disableRange === undefined ? false : PDFJS.disableRange;
+PDFJS.disableRange = true;
 PDFJS.disableStream = PDFJS.disableStream === undefined ? false : PDFJS.disableStream;
 PDFJS.disableAutoFetch = PDFJS.disableAutoFetch === undefined ? false : PDFJS.disableAutoFetch;
 PDFJS.pdfBug = PDFJS.pdfBug === undefined ? false : PDFJS.pdfBug;
@@ -11878,7 +11897,25 @@ function getVisibleElements(scrollEl, views, sortByVisibility) {
 function noContextMenuHandler(e) {
  e.preventDefault();
 }
+var HEADER_FILENAME = '';
 function getPDFFileNameFromURL(url, defaultFilename) {
+  // First check filename from header
+  var request = new XMLHttpRequest();
+  var splitted_url = window.location.href.split('/');
+  splitted_url.pop();
+  var request_url = splitted_url.join('/') + '/at_view/file';
+  request.open('GET', request_url, true);
+  request.send(null);
+  request.onreadystatechange = function () {
+    if (request.readyState === 4) {
+      HEADER_FILENAME = request.getResponseHeader('Filename');
+    }
+  };
+
+ if (HEADER_FILENAME !== '') {
+  defaultFilename = HEADER_FILENAME;
+ }
+
  if (typeof defaultFilename === 'undefined' || defaultFilename == "") {
   defaultFilename = 'document.pdf';
  }
@@ -12925,12 +12962,6 @@ var PDFViewerApplication = {
     }
     PDFJS.disableTextLayer = value;
    }),
-   Preferences.get('disableRange').then(function resolved(value) {
-    if (PDFJS.disableRange === true) {
-     return;
-    }
-    PDFJS.disableRange = value;
-   }),
    Preferences.get('disableStream').then(function resolved(value) {
     if (PDFJS.disableStream === true) {
      return;
@@ -13149,7 +13180,7 @@ var PDFViewerApplication = {
     title = url;
    }
   }
-  this.setTitle(title);
+  // this.setTitle(title);
  },
  setTitle: function pdfViewSetTitle(title) {
   if (this.isViewerEmbedded) {
@@ -13602,7 +13633,6 @@ var PDFViewerApplication = {
   eventBus.on('namedaction', webViewerNamedAction);
   eventBus.on('presentationmodechanged', webViewerPresentationModeChanged);
   eventBus.on('presentationmode', webViewerPresentationMode);
-  eventBus.on('openfile', webViewerOpenFile);
   eventBus.on('print', webViewerPrint);
   eventBus.on('download', webViewerDownload);
   eventBus.on('firstpage', webViewerFirstPage);
@@ -13702,8 +13732,6 @@ function webViewerInitialized() {
  fileInput.oncontextmenu = noContextMenuHandler;
  document.body.appendChild(fileInput);
  if (!window.File || !window.FileReader || !window.FileList || !window.Blob) {
-  appConfig.toolbar.openFile.setAttribute('hidden', 'true');
-  appConfig.secondaryToolbar.openFileButton.setAttribute('hidden', 'true');
  } else {
   fileInput.value = null;
  }
@@ -13713,9 +13741,6 @@ function webViewerInitialized() {
   var hashParams = parseQueryString(hash);
   if ('disableworker' in hashParams) {
    PDFJS.disableWorker = hashParams['disableworker'] === 'true';
-  }
-  if ('disablerange' in hashParams) {
-   PDFJS.disableRange = hashParams['disablerange'] === 'true';
   }
   if ('disablestream' in hashParams) {
    PDFJS.disableStream = hashParams['disablestream'] === 'true';
@@ -13796,14 +13821,14 @@ webViewerOpenFileViaURL = function webViewerOpenFileViaURL(file) {
   PDFViewerApplication.setTitleUsingUrl(file);
   var xhr = new XMLHttpRequest();
   xhr.onload = function () {
-   PDFViewerApplication.open(new Uint8Array(xhr.response));
+  PDFViewerApplication.open(new Uint8Array(xhr.response));
   };
   try {
-   xhr.open('GET', file);
-   xhr.responseType = 'arraybuffer';
-   xhr.send();
+  xhr.open('GET', file);
+  xhr.responseType = 'arraybuffer';
+  xhr.send();
   } catch (e) {
-   PDFViewerApplication.error(mozL10n.get('loading_error', null, 'An error occurred while loading the PDF.'), e);
+  PDFViewerApplication.error(mozL10n.get('loading_error', null, 'An error occurred while loading the PDF.'), e);
   }
   return;
  }
@@ -13900,8 +13925,8 @@ function webViewerUpdateViewarea(e) {
   });
  }
  var href = PDFViewerApplication.pdfLinkService.getAnchorUrl(location.pdfOpenParams);
- PDFViewerApplication.appConfig.toolbar.viewBookmark.href = href;
- PDFViewerApplication.appConfig.secondaryToolbar.viewBookmarkButton.href = href;
+//  PDFViewerApplication.appConfig.toolbar.viewBookmark.href = href;
+//  PDFViewerApplication.appConfig.secondaryToolbar.viewBookmarkButton.href = href;
  PDFViewerApplication.pdfHistory.updateCurrentBookmark(location.pdfOpenParams, location.pageNumber);
  var currentPage = PDFViewerApplication.pdfViewer.getPageView(PDFViewerApplication.page - 1);
  var loading = currentPage.renderingState !== RenderingStates.FINISHED;
@@ -13945,18 +13970,18 @@ webViewerFileInputChange = function webViewerFileInputChange(e) {
  }
  PDFViewerApplication.setTitleUsingUrl(file.name);
  var appConfig = PDFViewerApplication.appConfig;
- appConfig.toolbar.viewBookmark.setAttribute('hidden', 'true');
- appConfig.secondaryToolbar.viewBookmarkButton.setAttribute('hidden', 'true');
+//  appConfig.toolbar.viewBookmark.setAttribute('hidden', 'true');
+//  appConfig.secondaryToolbar.viewBookmarkButton.setAttribute('hidden', 'true');
  appConfig.toolbar.download.setAttribute('hidden', 'true');
  appConfig.secondaryToolbar.downloadButton.setAttribute('hidden', 'true');
 };
 function webViewerPresentationMode() {
  PDFViewerApplication.requestPresentationMode();
 }
-function webViewerOpenFile() {
- var openFileInputName = PDFViewerApplication.appConfig.openFileInputName;
- document.getElementById(openFileInputName).click();
-}
+// function webViewerOpenFile() {
+//  var openFileInputName = PDFViewerApplication.appConfig.openFileInputName;
+//  document.getElementById(openFileInputName).click();
+// }
 function webViewerPrint() {
  window.print();
 }
@@ -16511,7 +16536,7 @@ var PDFPageView = function PDFPageViewClosure() {
    target.style.width = target.parentNode.style.width = div.style.width = Math.floor(width) + 'px';
    target.style.height = target.parentNode.style.height = div.style.height = Math.floor(height) + 'px';
    // in some cases the canvases aren't loaded yet so we need to add a delay, it doesn't have a visual impact 
-   setTimeout(function(){}, 1000);
+   // setTimeout(function(){}, 1000);
    var relativeRotation = this.viewport.rotation - this.paintedViewportMap.get(target).rotation;
    var absRotation = Math.abs(relativeRotation);
    var scaleX = 1, scaleY = 1;
@@ -18597,11 +18622,6 @@ var SecondaryToolbar = function SecondaryToolbarClosure() {
     close: true
    },
    {
-    element: options.openFileButton,
-    eventName: 'openfile',
-    close: true
-   },
-   {
     element: options.printButton,
     eventName: 'print',
     close: true
@@ -18609,11 +18629,6 @@ var SecondaryToolbar = function SecondaryToolbarClosure() {
    {
     element: options.downloadButton,
     eventName: 'download',
-    close: true
-   },
-   {
-    element: options.viewBookmarkButton,
-    eventName: null,
     close: true
    },
    {
@@ -19125,9 +19140,6 @@ var Toolbar = function ToolbarClosure() {
    items.presentationModeButton.addEventListener('click', function (e) {
     eventBus.dispatch('presentationmode');
    });
-   items.openFile.addEventListener('click', function (e) {
-    eventBus.dispatch('openfile');
-   });
    items.print.addEventListener('click', function (e) {
     eventBus.dispatch('print');
    });
@@ -19347,21 +19359,17 @@ function getViewerConfiguration() {
    zoomIn: document.getElementById('zoomIn'),
    zoomOut: document.getElementById('zoomOut'),
    viewFind: document.getElementById('viewFind'),
-   openFile: document.getElementById('openFile'),
    print: document.getElementById('print'),
    presentationModeButton: document.getElementById('presentationMode'),
    download: document.getElementById('download'),
-   viewBookmark: document.getElementById('viewBookmark')
   },
   secondaryToolbar: {
    toolbar: document.getElementById('secondaryToolbar'),
    toggleButton: document.getElementById('secondaryToolbarToggle'),
    toolbarButtonContainer: document.getElementById('secondaryToolbarButtonContainer'),
    presentationModeButton: document.getElementById('secondaryPresentationMode'),
-   openFileButton: document.getElementById('secondaryOpenFile'),
    printButton: document.getElementById('secondaryPrint'),
    downloadButton: document.getElementById('secondaryDownload'),
-   viewBookmarkButton: document.getElementById('secondaryViewBookmark'),
    firstPageButton: document.getElementById('firstPage'),
    lastPageButton: document.getElementById('lastPage'),
    pageRotateCwButton: document.getElementById('pageRotateCw'),
@@ -19449,7 +19457,12 @@ var resizeInterval = null;
 var resizeHandler = function(){
   if (window.PDFViewerApplication.downloadComplete === true) {
     if ($('#sidebarContainer').css('visibility') === "visible") {
-      $('#mainContainer').css('width', '80%');
+      if(window.innerWidth < 840) {
+        $('#mainContainer').css('width', '70%');
+      }
+      else {
+        $('#mainContainer').css('width', '80%');
+      }
     }
     else {
       $('#mainContainer').css('width', '100%');
@@ -19474,7 +19487,12 @@ jQuery(document).ready(function($) {
       $('#mainContainer').css('width', '100%');
     }
     else {
-      $('#mainContainer').css('width', '80%');
+      if(window.innerWidth < 840) {
+        $('#mainContainer').css('width', '70%');
+      }
+      else {
+        $('#mainContainer').css('width', '80%');
+      }
     }
   });
   resizeInterval = setInterval(resizeHandler, 1000);

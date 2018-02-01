@@ -20,7 +20,8 @@ filename = context.getFilename()
 req = context.REQUEST
 resp = req.RESPONSE
 
-resp.headers['content-type'] = 'application/pdf'
-resp.headers['content-disposition'] = 'inline; filename="%s"' % filename
+resp.setHeader('Filename', filename)
+resp.setHeader('Content-Type', 'application/pdf')
+resp.setHeader('Content-Disposition', 'inline; filename="%s"' % filename)
 
 return file

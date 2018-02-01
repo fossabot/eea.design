@@ -65,15 +65,19 @@ canvas {
   animation: progressIndeterminate 2s linear infinite;
 }
 
-#errorWrapper {
-  background: none repeat scroll 0 0 #FF5555;
-  color: black;
-  left: 0;
-  right: 0;
+#content .pdfjs #loadingBar .loading-details {
+    position: absolute;
+    top: 500%;
+    right: 0;
+    left: 3%;
+    bottom: 0;
+    font-size: 16px;
+}
+
+#content .pdfjs #errorWrapper {
   top: 3.2rem;
-  z-index: 1000;
-  padding: 0.3rem;
-  font-size: 0.8em;
+  z-index: 9999;
+  font-size: 15px;
 }
 
 #errorMessageLeft {
@@ -92,6 +96,18 @@ canvas {
   width: 98%;
 }
 
+#content .pdfjs #errorWrapper button {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: hsla(0, 0%, 100%, .8);
+    background-image: url(pdf_images/texture.png), linear-gradient(hsla(0, 0%, 32%, .99), hsla(0, 0%, 27%, .95));
+}
+
+#content .pdfjs #errorWrapper #errorShowLess, 
+#content .pdfjs #errorWrapper #errorShowMore {
+    margin-left: 10px;
+}
+
 .page {
   margin-left: 12%;
 }
@@ -102,16 +118,17 @@ canvas {
 
 #content .pdfjs #viewerContainer {
   position: relative;
-  border: 2px solid black;
-  border-right: none;
+  border: 2px solid #00446a;
+  border-top: none;
   overflow: auto;
   width: 100%;
   top: 0;
   bottom: 4rem;
   left: 0;
   right: 0;
-  z-index: 9999;
-  height: 700px;
+  z-index: 100;
+  height: 900px;
+  background-color: hsla(0, 0%, 0%, .1);
 }
 
 #content .pdfjs .thumbnailSelectionRing {
@@ -125,6 +142,12 @@ canvas {
 
 #content .pdfjs .thumbnailSelectionRing {
     margin-bottom: 11%;
+    width: 100% !important;
+}
+
+#content .pdfjs .thumbnailImage {
+    max-width: none;
+    border: none;
 }
 
 #content .pdfjs .pdfViewer .page {
@@ -132,7 +155,8 @@ canvas {
 }
 
 #content .pdfjs #overlayContainer {
-    position: relative;
+    top: 4%;
+    left: 0;
 }
 
 /* Fullscreen */
@@ -185,6 +209,25 @@ canvas {
     -ms-user-select: none
 }
 
+#content .pdfjs #sidebarContent {
+    border: 2px solid #00446a;
+    border-right: none;
+    border-top: none;
+}
+
+#content .pdfjs #outerContainer {
+    margin-bottom: 3em;
+}
+
+#content .pdfjs option{
+    color: hsla(0, 0%, 100%, .8);
+}
+
+#content .pdfjs .pdfViewer .page {
+    border-left: none;
+    margin-left: 3%;
+}
+
 /* Hide second column and expand pdf width */
 #portal-column-two {
   display: none;
@@ -192,6 +235,34 @@ canvas {
 
 #portal-column-content {
   width: 100%;
+}
+
+#content .pdfjs .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
+    margin: 1px auto -8px auto;
+}
+
+#content .pdfjs .pdfPresentationMode:-moz-full-screen .pdfViewer .page {
+    margin: 1px auto -8px auto;
+}
+
+#region-content {
+    padding: 0;
+    background-color: transparent;
+}
+
+@media (max-width: 840px) {
+    html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#sidebarContainer {
+        top: 0;
+    }
+    html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#mainContainer {
+        left: 200px;
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .pdfjs #pageNumber {
+    width: 12%;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -216,11 +287,16 @@ canvas {
  }
 
  #pageNumber {
-    width: 50%;
+    width: 12%;
  }
 
- #viewerContainer {
-   border-right: 2px solid black;
+ #content .pdfjs #viewerContainer {
+     border: none;
+ }
+ 
+ #content .pdfjs #outerContainer {
+     border: 2px solid #00446a;
+     border-top: none;
  }
 }
 
@@ -246,12 +322,21 @@ canvas {
   }
 
   #pageNumber {
-    width: 50%;
+    width: 20%;
   }
 
   #viewerContainer {
     border-right: 2px solid black;
     height: 450px;
+  }
+
+  #content .pdfjs #viewerContainer {
+    border: none;
+  }
+ 
+  #content .pdfjs #outerContainer {
+    border: 2px solid #00446a;
+    border-top: none;
   }
 }
 
@@ -289,8 +374,13 @@ canvas {
 /* Print modifications */
 
 @media print {
+    html {
+        width: 100%;
+    }
+
     body {
         background: transparent none;
+        width: 100%;
      }
 
     #content .pdfjs #sidebarContainer,
@@ -310,15 +400,16 @@ canvas {
     #content .pdfjs #viewerContainer,
     #content .pdfjs .page,
     #content .pdfjs .page canvas {
-        position: static;
+        position: relative;
         padding: 0;
         margin: 0;
+        width: 100% !important;
     }
 
     #content .pdfjs .page {
         float: left;
         display: none;
-        border: 0;
+        border: none;
         box-shadow: none;
         background-clip: content-box;
         background-color: white;
@@ -341,27 +432,76 @@ canvas {
     }
 
     #content .pdfjs #printContainer {
-        height: 100%;
+        height: 60%;
+        width: 93% !important;
     }
 
     #content .pdfjs #printContainer>div {
         position: relative;
         top: 0;
         left: 0;
-        width: 850px;
-        height: 700px;
-        overflow: visible;
+        height: 60%;
+        width: 100% !important;
+        overflow: hidden;
         page-break-after: always;
         page-break-inside: avoid;
+        margin-left: 3.8%;
+        margin-right: 2%;
     }
     
     #content .pdfjs #printContainer canvas,
     #content .pdfjs #printContainer img {
         display: block;
+        height: 60% !important;
+        width: 100% !important;
+        padding-top: 7.5%;
+    }
+
+    #mainContainer, #viewerContainer, .page, .page canvas {
+        position: static;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Rules for browsers that support mozPrintCallback */
+    body[data-mozPrintCallback] #outerContainer {
+        display: none;
+    }
+    body[data-mozPrintCallback] #printContainer {
+        display: block;
+    }
+
+    #content .pdfjs .pdfViewer .page {
+        margin-right: 0;
+        margin-left: 3%;
+        width: 100% !important;
+    }
+
+    #content .pdfjs .pdfViewer .page .canvasWrapper {
+        width: 100% !important;
+    }
+
+    #content .pdfjs .pdfViewer .page .textLayer {
+        width: 100% !important;
+    }
+
+    body #portal-column-content {
+        min-width: 800px;
+        width: 100%;
+    }
+    
+    body {
+        min-width: 12cm !important;
+    }
+
+    #content .documentFirstHeading {
+        display: none;
+    }
+
+    #content-core > p {
+        display: none;
     }
 }
-
-/* NEW STUFF  */
 
 .pdfjs .textLayer {
     position: absolute;
@@ -1320,33 +1460,9 @@ html[dir='rtl'] .pdfjs .toolbarButton.pageDown::before {
 .pdfjs .secondaryToolbarButton.print::before {
     content: url(pdf_images/toolbarButton-print.png)
 }
-.pdfjs .toolbarButton.openFile::before,
-.pdfjs .secondaryToolbarButton.openFile::before {
-    content: url(pdf_images/toolbarButton-openFile.png)
-}
 .pdfjs .toolbarButton.download::before,
 .pdfjs .secondaryToolbarButton.download::before {
     content: url(pdf_images/toolbarButton-download.png)
-}
-.pdfjs .toolbarButton.bookmark,
-.pdfjs .secondaryToolbarButton.bookmark {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    outline: 0;
-    padding-top: 4px;
-    text-decoration: none
-}
-.pdfjs .secondaryToolbarButton.bookmark {
-    padding-top: 5px
-}
-.pdfjs .bookmark[href='#'] {
-    opacity: .5;
-    pointer-events: none
-}
-.pdfjs .toolbarButton.bookmark::before,
-.pdfjs .secondaryToolbarButton.bookmark::before {
-    content: url(pdf_images/toolbarButton-bookmark.png)
 }
 .pdfjs #viewThumbnail.toolbarButton::before {
     content: url(pdf_images/toolbarButton-viewThumbnail.png)
@@ -1396,12 +1512,6 @@ html[dir="ltr"] .pdfjs .secondaryToolbarButton {
 html[dir="rtl"] .pdfjs .secondaryToolbarButton {
     padding-right: 24px;
     text-align: right
-}
-html[dir="ltr"] .pdfjs .secondaryToolbarButton.bookmark {
-    padding-left: 27px
-}
-html[dir="rtl"] .pdfjs .secondaryToolbarButton.bookmark {
-    padding-right: 27px
 }
 html[dir="ltr"] .pdfjs .secondaryToolbarButton>span {
     padding-right: 4px
@@ -2000,17 +2110,9 @@ html[dir='rtl'] .pdfjs #documentPropertiesOverlay .row>* {
     .pdfjs .secondaryToolbarButton.print::before {
         content: url(pdf_images/toolbarButton-print@2x.png)
     }
-    .pdfjs .toolbarButton.openFile::before,
-    .pdfjs .secondaryToolbarButton.openFile::before {
-        content: url(pdf_images/toolbarButton-openFile@2x.png)
-    }
     .pdfjs .toolbarButton.download::before,
     .pdfjs .secondaryToolbarButton.download::before {
         content: url(pdf_images/toolbarButton-download@2x.png)
-    }
-    .pdfjs .toolbarButton.bookmark::before,
-    .pdfjs .secondaryToolbarButton.bookmark::before {
-        content: url(pdf_images/toolbarButton-bookmark@2x.png)
     }
     .pdfjs #viewThumbnail.toolbarButton::before {
         content: url(pdf_images/toolbarButton-viewThumbnail@2x.png)
