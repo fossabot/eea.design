@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
 
-
+  <!--? removed js -->
   <javascript id="++resource++eea.dataservice.view.js" remove="True" />
   <javascript id="jquery.highlightsearchterms.js" remove="True" />
   <javascript id="accesibility.js" remove="True" />
   <javascript id="livesearch.js" remove="True" />
   <javascript id="eea-fitcontainer.js" remove="True" />
   <javascript id="bootstrap.js" remove="True" />
+  <!--? end removed js -->
 
 
   <!--? faceted navigation -->
-
   <javascript id="++resource++eea.faceted-navigation-independent.js" bundle="faceted-view"
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="++resource++jquery.select2uislider.js" />
@@ -112,11 +112,19 @@
   <javascript id="++resource++eea.faceted-navigation.js" bundle="faceted-view"
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="++resource++jquery.select2uislider.js" />
-
   <!--?  end faceted navigation -->
 
-  <!--?  authenticated js -->
+  <!--?  no condition js -->
+  <javascript id="++resource++plone.app.jquerytools.form.js" bundle="default"
+    expression="" authenticated="False"
+    insert-after="++resource++plone.app.jquerytools.tooltip.js" />
 
+  <javascript id="++resource++plone.app.jquerytools.overlayhelpers.js" bundle="default"
+    expression="" authenticated="false"
+    insert-after="++resource++plone.app.jquerytools.form.js" />
+  <!--?  end no condition js -->
+
+  <!--?  authenticated js -->
   <javascript id="collective.js.jqueryui.custom.min.js" bundle="default"
     expression="" authenticated="True"
     insert-before="calendar_formfield.js" />
@@ -133,12 +141,6 @@
     expression="" authenticated="True"
     insert-after="popupforms.js" />
 
-  <javascript id="++resource++plone.app.jquerytools.form.js" bundle="default"
-    expression="" authenticated="True"
-    insert-after="++resource++plone.app.jquerytools.dateinput.js" />
-
-
-
   <javascript id="++resource++gismap_relations.js" bundle="default"
     expression="" authenticated="True"
     insert-after="createversion.js" />
@@ -147,12 +149,8 @@
     authenticated="True"
     expression="" insert-after="createversion.js" />
 
-  <javascript id="++resource++select2/select2.min.js" bundle="default"
-              expression="" authenticated="True"
-              position-after="createversion.js" />
-
   <javascript id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" bundle="default"
-    expression="" authenticated="True" position-after="++resource++select2/select2.min.js" />
+    expression="" authenticated="True" position-after="++resource++eea.glossary/jquery.glossarize.js" />
 
   <javascript id="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" bundle="default"
     expression="" authenticated="True" position-after="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" />
@@ -168,6 +166,7 @@
 
   <javascript id="lazy_load.js" bundle="default"
     expression="" insert-after="jquery.lazy.plugins.min.js" />
+  <!--?  end authenticated js -->
 
   <!-- edit javascripts -->
   <javascript id="formUnload.js" bundle="default"
@@ -180,6 +179,14 @@
               authenticated="False"
               position-after="formUnload.js" />
 
+  <javascript id="++resource++select2/select2.min.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+    authenticated="False"
+    insert-after="formsubmithelpers.js" />
+
+  <!-- end edit javascripts -->
+
+  <!-- conditioned javascripts -->
   <javascript id="swfobject.js" bundle="default"
               expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.mediacentre.interfaces.IVideo')"
               position-after="++resource++jquery.flashembed.js" />
@@ -199,7 +206,7 @@
               authenticated="False"
               position-after="eea-rememberstate.js" />
 
-  <javascript id="++resource++plone.app.jquerytools.overlayhelpers.js" bundle="default"
+  <javascript id="++resource++jquery.masonry.js" bundle="default"
               expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'portal_progress' in request.ACTUAL_URL"
               authenticated="False"
               position-after="pdf.print.js" />
@@ -207,12 +214,7 @@
   <javascript id="eea.controlpanel.js" bundle="default"
               expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'eea.controlpanel.html' in request.ACTUAL_URL"
               authenticated="False"
-              position-after="++resource++plone.app.jquerytools.overlayhelpers.js" />
-
-  <javascript id="++resource++select2/select2.min.js" bundle="default"
-              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.URL0"
-              authenticated="False"
-              position-after="eea-rememberstate.js" />
+              position-after="++resource++eea.reports.js" />
 
 
   <javascript id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" bundle="default"
@@ -229,6 +231,6 @@
               expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'dexterity_types' in request.URL0"
               authenticated="False"
               position-after="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" />
-
+  <!-- end conditioned javascripts -->
 
 </object>
