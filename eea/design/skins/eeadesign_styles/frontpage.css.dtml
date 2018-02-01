@@ -195,7 +195,6 @@ a.archives {
 
 .portlet-megatopic img {
     height: 150px;
-    width: 100%;
 }
 .portlet-megatopic ul {
     padding-top: 20px;
