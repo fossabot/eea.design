@@ -16,6 +16,11 @@
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="++resource++jquery.select2uislider.js" />
 
+  <javascript id="++resource++plone.app.jquerytools.dateinput.js" bundle="default"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    authenticated="False"
+    insert-after="++resource++eea.faceted-navigation-independent.js" />
+
   <javascript id="++resource++eea.faceted-navigation-expand.js" bundle="faceted-view"
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="++resource++jquery.select2uislider.js" />
@@ -137,9 +142,6 @@
     expression="" authenticated="True"
     insert-after="kss-bbb.js" />
 
-  <javascript id="++resource++plone.app.jquerytools.dateinput.js" bundle="default"
-    expression="" authenticated="True"
-    insert-after="popupforms.js" />
 
   <javascript id="++resource++gismap_relations.js" bundle="default"
     expression="" authenticated="True"
@@ -183,6 +185,24 @@
     expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
     authenticated="False"
     insert-after="formsubmithelpers.js" />
+
+  <javascript id="inline_validation.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+    authenticated="False"
+    insert-after="formsubmithelpers.js" />
+
+  <javascript id="patch_keyword_widget.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+    authenticated="False"
+    insert-after="formsubmithelpers.js" />
+
+  <javascript id="unlockOnFormUnload.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+    authenticated="False"
+    insert-after="formsubmithelpers.js" />
+
+
+
 
   <!-- end edit javascripts -->
 
