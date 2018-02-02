@@ -251,6 +251,15 @@
               expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'dexterity_types' in request.URL0"
               authenticated="False"
               position-after="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" />
-  <!-- end conditioned javascripts -->
 
+  <javascript id="++resource++jquery.annotator.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotator_settings').is_enabled()"
+    authenticated="False"
+    position-after="++resource++search.js" />
+
+  <javascript id="++resource++eea.annotator.view.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotator_settings').is_enabled()"
+    authenticated="False"
+    position-after="++resource++jquery.annotator.js" />
+  <!-- end conditioned javascripts -->
 </object>
