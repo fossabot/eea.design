@@ -181,6 +181,11 @@
               authenticated="False"
               position-after="formUnload.js" />
 
+  <javascript id="form_tabbing.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+    authenticated="False"
+    position-after="formsubmithelpers.js" />
+
   <javascript id="++resource++select2/select2.min.js" bundle="default"
     expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
     authenticated="False"
@@ -211,9 +216,14 @@
               expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.mediacentre.interfaces.IVideo')"
               position-after="++resource++jquery.flashembed.js" />
 
+  <javascript id="modernizr.js" bundle="default"
+    expression="python: 'search' in request.ACTUAL_URL"
+    insert-after="eea-rememberstate.js"
+  />
+
   <javascript id="++resource++search.js" bundle="default"
               expression="python: 'search' in request.ACTUAL_URL"
-              insert-after="eea-rememberstate.js"
+              insert-after="modernizr.js"
               />
 
   <javascript id="dragdropreorder.js" bundle="default"
@@ -253,13 +263,23 @@
               position-after="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" />
 
   <javascript id="++resource++jquery.annotator.js" bundle="default"
-    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotator_settings').is_enabled()"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled()"
     authenticated="False"
     position-after="++resource++search.js" />
 
   <javascript id="++resource++eea.annotator.view.js" bundle="default"
-    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotator_settings').is_enabled()"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled()"
     authenticated="False"
     position-after="++resource++jquery.annotator.js" />
+
+  <javascript id="++resource++jquery.galleryview.js" bundle="default"
+    expression="python: context.portal_type in ['EyewitnessStory'] or context.layout == 'gallery_view'"
+    authenticated="False"
+    position-after="++resource++search.js" />
+
+  <javascript id="eea-galleryview.js" bundle="default"
+    expression="python: context.portal_type in ['EyewitnessStory'] or context.layout == 'gallery_view'"
+    authenticated="False"
+    position-after="++resource++jquery.galleryview.js" />
   <!-- end conditioned javascripts -->
 </object>
