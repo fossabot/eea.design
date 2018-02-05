@@ -19342,6 +19342,13 @@ var pdfjsWebApp;
  __webpack_require__(9);
 }
 function getViewerConfiguration() {
+ if ($('body').hasClass('portaltype-report')) {
+  var paths = window.location.pathname.split('/');
+  var last_path = paths[paths.length - 1];
+
+  DEFAULT_URL= './' + last_path + '/viewfile';
+ }
+
  return {
   appContainer: document.body,
   mainContainer: document.getElementById('viewerContainer'),

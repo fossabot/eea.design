@@ -1,6 +1,12 @@
 Changelog
 =========
 
+18.6 - (2018-02-06)
+------------------------
+* Upgrade step: Added upgrade step in order to load the pdf viewer for 'Report'
+  portal type
+  [petchesi-iulian refs #90589]
+
 18.5 - (2018-01-29)
 ------------------------
 * Feature: Added pdf viewer for the 'File' content type
