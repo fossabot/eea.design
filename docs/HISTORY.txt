@@ -3,6 +3,8 @@ Changelog
 
 18.6 - (2018-02-08)
 ------------------------
+* Change: Hide breadcrumbs for mobiles.
+  [demarant refs #92756]
 * Change: Hide pdf viewer for mobiles.
   [demarant refs #92756]
 
