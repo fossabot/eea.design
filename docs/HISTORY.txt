@@ -1,6 +1,12 @@
 Changelog
 =========
 
+18.6 - (2018-02-08)
+------------------------
+* Bug fix: Don't load the pdf viewer for files with mimetypes different than
+  the one for pdfs
+  [petchesi-iulian refs #92742]
+
 18.5 - (2018-01-29)
 ------------------------
 * Feature: Added pdf viewer for the 'File' content type
