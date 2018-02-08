@@ -10,7 +10,7 @@
     <metal:content-core fill-slot="content-core">
         <metal:block define-macro="content-core"
                      tal:define="content_type context/get_content_type|context/Format">
-            <div class="pdfjs">
+            <div class="pdfjs" tal:condition="python: context.portal_type in ['File', 'Report'] and context.restrictedTraverse('check_pdf')() is 1">
                 <div id="outerContainer">
                   <div id="sidebarContainer">
                     <div id="toolbarSidebar">

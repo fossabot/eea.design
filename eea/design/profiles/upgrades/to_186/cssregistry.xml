@@ -4,5 +4,5 @@
         id="pdf_viewer.css" rel="stylesheet" rendering="link"
         cacheable="true" compression="safe" cookable="true"
         conditionalcomment="" media="all"
-        expression="python: context.portal_type in ['File', 'Report']" />
+        expression="python: context.portal_type in ['File', 'Report'] and context.restrictedTraverse('check_pdf')() is 1" />
 </object>
