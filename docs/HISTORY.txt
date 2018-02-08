@@ -6,6 +6,10 @@ Changelog
 * Bug fix: Don't load the pdf viewer for files with mimetypes different than
   the one for pdfs
   [petchesi-iulian refs #92742]
+* Change: Hide breadcrumbs for mobiles.
+  [demarant refs #92756]
+* Change: Hide pdf viewer for mobiles.
+  [demarant refs #92756]
 
 18.5 - (2018-01-29)
 ------------------------
@@ -86,7 +90,6 @@ Changelog
 
 18.0 - (2017-11-07)
 -------------------
->>>>>>> develop
 * Bug fix: fixed issues reported by Jenkins
   [alecghica refs #88692]
 * Feature: Implement different Sentry DSN for production, staging and devel
