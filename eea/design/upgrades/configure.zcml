@@ -11,7 +11,7 @@
         <genericsetup:upgradeDepends
             title="Import all steps from eea.design profile upgrade 18.7"
             description="Modified the conditions for the pdf viewer resources"
-            import_profile="eea.design:upgrade186"
+            import_profile="eea.design:upgrade187"
         />
 
     </genericsetup:upgradeSteps>
