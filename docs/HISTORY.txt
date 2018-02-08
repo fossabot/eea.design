@@ -3,6 +3,9 @@ Changelog
 
 18.7 - (2018-02-08)
 -------------------
+* Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
+  available for eea.design
+  [petchesi-iulian refs #92742]
 * Change: Bump version in order to merge to master
   [petchesi-iulian refs #92742]
 * Bug fix: Don't load the pdf viewer for files with mimetypes different than
