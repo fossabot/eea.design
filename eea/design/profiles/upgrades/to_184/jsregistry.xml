@@ -263,12 +263,12 @@
               position-after="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" />
 
   <javascript id="++resource++jquery.annotator.js" bundle="default"
-    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled()"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled() or 'daviz-edit.html' in request.URL0"
     authenticated="False"
     position-after="++resource++search.js" />
 
   <javascript id="++resource++eea.annotator.view.js" bundle="default"
-    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled()"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled() or 'daviz-edit.html' in request.URL0"
     authenticated="False"
     position-after="++resource++jquery.annotator.js" />
 
