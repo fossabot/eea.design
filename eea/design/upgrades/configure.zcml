@@ -13,6 +13,7 @@
             description="Enable lazy load js"
             import_profile="eea.design:upgrade188"
         />
+    </genericsetup:upgradeSteps>
 
     <genericsetup:upgradeSteps
         source="18.4"
