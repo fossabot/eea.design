@@ -4,14 +4,25 @@
         i18n_domain="eea">
 
     <genericsetup:upgradeSteps
-        source="18.4"
-        destination="18.6"
+        source="18.7"
+        destination="18.8"
         profile="eea.design:default">
 
         <genericsetup:upgradeDepends
-            title="Import all steps from eea.design profile upgrade 18.6"
+            title="Import all steps from eea.design profile upgrade 18.8"
             description="Enable lazy load js"
-            import_profile="eea.design:upgrade186"
+            import_profile="eea.design:upgrade188"
+        />
+
+    <genericsetup:upgradeSteps
+        source="18.4"
+        destination="18.7"
+        profile="eea.design:default">
+
+        <genericsetup:upgradeDepends
+            title="Import all steps from eea.design profile upgrade 18.7"
+            description="Modified the conditions for the pdf viewer resources"
+            import_profile="eea.design:upgrade187"
         />
 
     </genericsetup:upgradeSteps>
