@@ -7,6 +7,4 @@
 ##
 file = context.getFile()
 
-if file.getContentType() not in ['application/pdf']:
-    return 0
-return 1
+return file.getContentType() in ['application/pdf']
