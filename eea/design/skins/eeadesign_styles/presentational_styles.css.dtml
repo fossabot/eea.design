@@ -264,5 +264,15 @@ pre {
    width: 50%;
 }
 
+#globalstatusmessage dt {
+    color: #006699;
+    font-size: 1.5em;
+}
+
+#globalstatusmessage dd {
+    display: block;
+    clear: both;
+}
+
 /* </dtml-let> */
 /* </dtml-with> */
