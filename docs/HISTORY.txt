@@ -1,6 +1,11 @@
 Changelog
 =========
 
+18.8 - (2018-02-14)
+-------------------
+* Change: Custom theme for ftw.globalstatusmessage
+  [avoinea refs #92245]
+
 18.7 - (2018-02-08)
 -------------------
 * Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button

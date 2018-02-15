@@ -275,6 +275,7 @@ iframe[src*="video"] {
 
 
 /* Hide all the elements that are irrelevant for printing */
+.eea-annotator,
 #content-core ul.formTabs,
 .standardButton,
 .googlechart_filters,
@@ -349,7 +350,8 @@ input.context,
 #topic-selector,
 .filter-topic,
 .gallery-layout-selection,
-#socialmedia-viewlet
+#socialmedia-viewlet,
+#globalstatusmessage
 {
     /* Hides all the elements irrelevant for printing */
     display: none !important;
