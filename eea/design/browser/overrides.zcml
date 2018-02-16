@@ -45,6 +45,14 @@
   />
 
   <browser:page
+    name="rules-controlpanel"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".overrides.EEAContentRulesControlPanel"
+    permission="cmf.ManagePortal"
+    template="templates/contentrules_controlpanel.pt"
+  />
+
+  <browser:page
     name="configuration_registry"
     for="*"
     class="plone.app.registry.browser.records.RecordsControlPanel"
