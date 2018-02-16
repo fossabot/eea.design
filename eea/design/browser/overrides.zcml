@@ -44,6 +44,13 @@
     template="templates/caching_controlpanel.pt"
   />
 
+  <browser:page
+    name="configuration_registry"
+    for="*"
+    class="plone.app.registry.browser.records.RecordsControlPanel"
+    permission="cmf.ManagePortal"
+    template="templates/records.pt"
+  />
 
     <!-- #28222 override manage-job-queue to have a bigger timeout
          on refresh -->
