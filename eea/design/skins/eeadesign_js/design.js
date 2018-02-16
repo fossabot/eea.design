@@ -497,6 +497,7 @@ jQuery(document).ready(function($) {
     }
 
     $('#globalstatusmessage').each(function(idx, el) {
+        $(el).find("dl:not([class*='eea-icon'])").addClass("eea-icon eea-icon-magic");
         $(el).fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
     });
 

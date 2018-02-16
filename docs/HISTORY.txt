@@ -1,11 +1,22 @@
 Changelog
 =========
 
-18.8 - (2018-02-14)
+19.0 - (2018-02-19)
 -------------------
 * Upgrade step: Added upgrade step in order to load the pdf viewer for 'Report'
   portal type
   [petchesi-iulian refs #90589]
+
+18.9 - (2018-02-16)
+-------------------
+* Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
+  available for eea.design, the upgrade enables the lazy loading javascript
+  [petchesi-iulian refs #88420]
+* Feature: Implemented lazy loading fixes
+  [petchesi-iulian refs #88420]
+
+18.8 - (2018-02-14)
+-------------------
 * Change: Custom theme for ftw.globalstatusmessage
   [avoinea refs #92245]
 
