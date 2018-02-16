@@ -28,6 +28,14 @@
           />
     </configure>
 
+  <browser:page
+    name="discussion-settings"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class="plone.app.discussion.browser.controlpanel.DiscussionSettingsControlPanel"
+    permission="cmf.ManagePortal"
+    template="templates/controlpanel.pt"
+  />
+
     <!-- #28222 override manage-job-queue to have a bigger timeout
          on refresh -->
      <configure package="plone.app.async">
