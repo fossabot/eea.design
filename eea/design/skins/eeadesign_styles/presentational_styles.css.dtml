@@ -264,5 +264,34 @@ pre {
    width: 50%;
 }
 
+#globalstatusmessage {
+    margin: 0 -1.5em;
+}
+
+#globalstatusmessage dl {
+    display: block;
+    font-size: 80%;
+    font-family: 'Open Sans', Verdana, Helvetica, Arial, sans-serif;
+    border: none;
+}
+
+#globalstatusmessage .eea-icon::before {
+    font-size: 3em;
+    padding-left: 1.3em;
+    color: #006699;
+    line-height: inherit;
+    margin-right: 0;
+}
+
+#globalstatusmessage dt {
+    color: #006699;
+    font-size: 150%;
+}
+
+#globalstatusmessage dd {
+    display: block;
+    clear: both;
+}
+
 /* </dtml-let> */
 /* </dtml-with> */
