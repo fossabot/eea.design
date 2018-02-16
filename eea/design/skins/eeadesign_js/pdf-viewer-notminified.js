@@ -11662,7 +11662,7 @@ var PDFBug = (function PDFBugClosure() {
 
 var pdfjsLib = __webpack_require__(1);
 var CSS_UNITS = 96.0 / 72.0;
-var DEFAULT_SCALE_VALUE = 'page-width';
+var DEFAULT_SCALE_VALUE = 'page-fit';
 var DEFAULT_SCALE = 1.0;
 var DEFAULT_SCALE_DELTA = 1.1;
 var MIN_SCALE = 0.25;
@@ -11901,9 +11901,18 @@ var HEADER_FILENAME = '';
 function getPDFFileNameFromURL(url, defaultFilename) {
   // First check filename from header
   var request = new XMLHttpRequest();
-  var splitted_url = window.location.href.split('/');
-  splitted_url.pop();
-  var request_url = splitted_url.join('/') + '/at_view/file';
+
+  if ($('body').hasClass('portaltype-report')) {
+    var paths = window.location.pathname.split('/');
+    var last_path = paths[paths.length - 1];
+    var request_url = './' + last_path + '/viewfile';
+  }
+  else {
+    var splitted_url = window.location.href.split('/');
+    splitted_url.pop();
+    var request_url = splitted_url.join('/') + '/at_view/file';
+  }
+
   request.open('GET', request_url, true);
   request.send(null);
   request.onreadystatechange = function () {
@@ -12916,6 +12925,9 @@ var PDFViewerApplication = {
  initialize: function pdfViewInitialize(appConfig) {
   var self = this;
   var PDFJS = pdfjsLib.PDFJS;
+  if ($('body').hasClass('portaltype-report')) {
+   this.isViewerEmbedded = true;
+  }
   Preferences.initialize();
   this.preferences = Preferences;
   configure(PDFJS);
@@ -19463,18 +19475,21 @@ function webViewerLoad() {
 var resizeInterval = null;
 var resizeHandler = function(){
   if (window.PDFViewerApplication.downloadComplete === true) {
-    if ($('#sidebarContainer').css('visibility') === "visible") {
-      if(window.innerWidth < 840) {
-        $('#mainContainer').css('width', '70%');
-      }
-      else {
-        $('#mainContainer').css('width', '80%');
-      }
+
+    if (!$('body').hasClass('portaltype-report')) {
+        if ($('#sidebarContainer').css('visibility') === "visible") {
+          if(window.innerWidth < 840) {
+            $('#mainContainer').css('width', '70%');
+          }
+          else {
+            $('#mainContainer').css('width', '80%');
+          }
+        }
+        else {
+          $('#mainContainer').css('width', '100%');
+        }
+        clearInterval(resizeInterval);
     }
-    else {
-      $('#mainContainer').css('width', '100%');
-    }
-    clearInterval(resizeInterval);
   }
 }
 
@@ -19490,16 +19505,18 @@ jQuery(document).ready(function($) {
   }
 
   $('#sidebarToggle').click(function() {
-    if ($('#sidebarContainer').css('visibility') === "visible") {
-      $('#mainContainer').css('width', '100%');
-    }
-    else {
-      if(window.innerWidth < 840) {
-        $('#mainContainer').css('width', '70%');
-      }
-      else {
-        $('#mainContainer').css('width', '80%');
-      }
+    if (!$('body').hasClass('portaltype-report')) {
+        if ($('#sidebarContainer').css('visibility') === "visible") {
+          $('#mainContainer').css('width', '100%');
+        }
+        else {
+          if(window.innerWidth < 840) {
+            $('#mainContainer').css('width', '70%');
+          }
+          else {
+            $('#mainContainer').css('width', '80%');
+          }
+        }
     }
   });
   resizeInterval = setInterval(resizeHandler, 1000);
