@@ -5,13 +5,13 @@
 
     <genericsetup:upgradeSteps
         source="18.7"
-        destination="18.8"
+        destination="18.9"
         profile="eea.design:default">
 
         <genericsetup:upgradeDepends
-            title="Import all steps from eea.design profile upgrade 18.8"
+            title="Import all steps from eea.design profile upgrade 18.9"
             description="Enable lazy load js"
-            import_profile="eea.design:upgrade188"
+            import_profile="eea.design:upgrade189"
         />
     </genericsetup:upgradeSteps>
 
