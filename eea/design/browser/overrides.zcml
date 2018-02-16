@@ -36,6 +36,15 @@
     template="templates/controlpanel.pt"
   />
 
+  <browser:page
+    name="caching-controlpanel"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class="plone.app.caching.browser.controlpanel.ControlPanel"
+    permission="cmf.ManagePortal"
+    template="templates/caching_controlpanel.pt"
+  />
+
+
     <!-- #28222 override manage-job-queue to have a bigger timeout
          on refresh -->
      <configure package="plone.app.async">
