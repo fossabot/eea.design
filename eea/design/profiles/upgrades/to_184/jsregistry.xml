@@ -186,11 +186,6 @@
               authenticated="False"
               position-after="formUnload.js" />
 
-  <javascript id="form_tabbing.js" bundle="default"
-    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
-    authenticated="False"
-    position-after="formsubmithelpers.js" />
-
   <javascript id="++resource++select2/select2.min.js" bundle="default"
     expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
     authenticated="False"
