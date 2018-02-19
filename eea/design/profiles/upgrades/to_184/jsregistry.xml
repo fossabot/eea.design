@@ -171,6 +171,11 @@
   <!--?  end authenticated js -->
 
   <!-- edit javascripts -->
+  <javascript id="edit_fixes.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+    authenticated="False"
+    insert-after="++resource++eea.forms.edit.js" />
+
   <javascript id="formUnload.js" bundle="default"
               expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
               authenticated="False"
