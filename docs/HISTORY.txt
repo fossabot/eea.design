@@ -1,13 +1,13 @@
 Changelog
 =========
 
-18.9 - (2018-02-16)
+18.9 - (2018-02-19)
 -------------------
 * Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
   available for eea.design, the upgrade enables the lazy loading javascript
-  [petchesi-iulian refs #88420]
+  [petchesi-iulian refs #88420, #91575]
 * Feature: Implemented lazy loading fixes
-  [petchesi-iulian refs #88420]
+  [petchesi-iulian refs #88420, #91575]
 
 18.8 - (2018-02-14)
 -------------------
