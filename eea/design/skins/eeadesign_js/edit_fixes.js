@@ -30,6 +30,7 @@ jQuery(document).ready(function($) {
             advanced_buttons = removeSave(advanced_buttons);
             data.theme_advanced_buttons1 = advanced_buttons.join(",");
             textarea.attr('data-mce-config', JSON.stringify(data));
+            textarea.addClass('mce_editable');
             window.initTinyMCE(document);
         });
         return true;
