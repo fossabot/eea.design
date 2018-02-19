@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
         var textarea = jQuery('.richTextWidget textarea', form);
         var name = textarea.attr('id');
 
-        var action = form.length ? form.action : '';
+        var action = form.length ? form.attr('action') : '';
         action = action.split('@@')[0] + '@@tinymce-jsonconfiguration';
 
         jQuery.getJSON(action, {field: name}, function(data){
