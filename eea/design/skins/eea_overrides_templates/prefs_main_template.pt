@@ -17,6 +17,7 @@
     </metal:override>
 
     <metal:override fill-slot="content">
+	<script tal:attributes="src string:${portal_url}/overlay_fallback.js" type="text/javascript"></script>
         <metal:slot define-slot="prefs_configlet_wrapper">
           <metal:slot define-slot="prefs_configlet_content">
 
