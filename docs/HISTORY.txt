@@ -3,6 +3,9 @@ Changelog
 
 19.0 - (unreleased)
 -------------------
+* Bug fix: Fixed 'cannot convert undefined or null to object' error caused
+  by lazy loading
+  [petchesi-iulian refs #91575]
 * Change: Changed the image dimensions for faceted lazy loading
   [petchesi-iulian refs #91575]
 * Change: Persist eea-responsive.js from portal_skins/custom
