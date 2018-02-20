@@ -43,7 +43,17 @@ Faceted.LoadLazy = {
                     });
 
                     if (loaded_once) {
-                        jQuery(lazy_elements).parent().css('width', '20%');
+                        jQuery(lazy_elements).parent().css('text-align', 'center');
+
+                        var windowWidth = jQuery(window).width();
+                        if (windowWidth <= 767 || windowWidth > 930) {
+                            jQuery(lazy_elements).parent().css('width', '15%');
+                        }
+
+                        if (windowWidth <= 480 || (windowWidth > 767 && windowWidth <= 930)) {
+                            jQuery(lazy_elements).parent().css('width', '20%');
+                        }
+
                         jQuery(lazy_elements).lazy({
                             scrollDirection: 'both',
                             effect: 'fadeIn',

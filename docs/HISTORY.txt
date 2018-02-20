@@ -3,6 +3,8 @@ Changelog
 
 19.0 - (unreleased)
 -------------------
+* Change: Changed the image dimensions for faceted lazy loading
+  [petchesi-iulian refs #91575]
 * Change: Persist eea-responsive.js from portal_skins/custom
   [avoinea refs #92868]
 
