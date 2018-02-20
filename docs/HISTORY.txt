@@ -1,6 +1,11 @@
 Changelog
 =========
 
+19.0 - (unreleased)
+-------------------
+* Change: Persist eea-responsive.js from portal_skins/custom
+  [avoinea refs #92868]
+
 18.9 - (2018-02-19)
 -------------------
 * Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
