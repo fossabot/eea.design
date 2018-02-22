@@ -27,6 +27,12 @@ label {
     font-weight: bold;
 }
 
+legend {
+    display: block;
+    margin-bottom: 17px;
+    color: #333333;
+}
+
 .clearfix::after, .container::after, .container-fluid::after, .row::after, .form-horizontal .form-group::after, .nav::after, .navbar::after, .navbar-header::after, .navbar-collapse::after {
     clear: both;
 }
