@@ -147,9 +147,6 @@ form[name="users_search"] input.context {
     margin-bottom: 0;
 }
 
-#contentActionMenus > li {
-    display: inline-block;
-}
 #contentActionMenus .actionMenuContent ul {
     margin:0px !important;
 }
@@ -193,12 +190,6 @@ div.managePortletsLink, a.managePortletsFallback {
 }
 .plone-breadcrumb a {
     color: #086ca3;
-}
-.plone-breadcrumb #breadcrumbs-home .eea-icon {
-    font-size: 1.5em;
-    position: relative;
-    top: 2px;
-    color: #666;
 }
 .plone-breadcrumb .breadcrumbSeparator,
 .plone-breadcrumb #breadcrumbs-you-are-here{

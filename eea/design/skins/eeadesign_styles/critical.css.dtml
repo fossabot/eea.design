@@ -669,6 +669,7 @@ li#secondary-portaltabs-container {
 .eea-tabs > li {
     margin: 0;
     padding: 0;
+    display: inline-block;
 }
 .eea-tabs > li > a {
     max-width: 195px;
