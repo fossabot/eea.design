@@ -19,8 +19,8 @@
     text-align: left;
 }
 #faceted-text-search input[type="text"] {
-    font-size: 16px;
-    padding: 5px;
+    font-size: 14pt;
+    padding: 3px;
     min-width: 70%;
     max-width: 77%;
 }
