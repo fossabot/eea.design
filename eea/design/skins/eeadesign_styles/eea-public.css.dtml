@@ -194,12 +194,6 @@ div.managePortletsLink, a.managePortletsFallback {
 .plone-breadcrumb a {
     color: #086ca3;
 }
-.plone-breadcrumb #breadcrumbs-home .eea-icon {
-    font-size: 1.5em;
-    position: relative;
-    top: 2px;
-    color: #666;
-}
 .plone-breadcrumb .breadcrumbSeparator,
 .plone-breadcrumb #breadcrumbs-you-are-here{
     display: none;
