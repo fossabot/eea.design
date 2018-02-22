@@ -147,9 +147,6 @@ form[name="users_search"] input.context {
     margin-bottom: 0;
 }
 
-#contentActionMenus > li {
-    display: inline-block;
-}
 #contentActionMenus .actionMenuContent ul {
     margin:0px !important;
 }
