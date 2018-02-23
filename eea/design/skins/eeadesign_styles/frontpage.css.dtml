@@ -109,6 +109,10 @@
     font-weight:normal;
 }
 
+#browse-by-organisation {
+    margin-top: 0.83em;
+}
+
 
 .frontpage #highlights-block,
 .frontpage #highlights-area {
