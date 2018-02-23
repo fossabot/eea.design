@@ -17,6 +17,18 @@
   <stylesheet id="livesearch.css" bundle="default"
     expression="" remove="True" />
 
+  <stylesheet id="IEFixes.css" bundle="default"
+    expression="" remove="True" />
+
+  <stylesheet id="IE7Fixes.css " bundle="default"
+    expression="" remove="True" />
+
+  <stylesheet id="IE8Fixes.css " bundle="default"
+    expression="" remove="True" />
+
+  <stylesheet id="IE9Fixes.css " bundle="default"
+    expression="" remove="True" />
+
   <stylesheet id="critical.css" bundle="default"
     expression="" rendering="inline"
     media="all"
