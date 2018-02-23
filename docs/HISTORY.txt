@@ -3,6 +3,9 @@ Changelog
 
 19.0 - (unreleased)
 -------------------
+* Bug fix: Modified z-index of the pdf toolbar so that it doesn't overlap
+  with other elements
+  [petchesi-iulian refs #92661]
 * Bug fix: Fixed 'cannot convert undefined or null to object' error caused
   by lazy loading
   [petchesi-iulian refs #91575]

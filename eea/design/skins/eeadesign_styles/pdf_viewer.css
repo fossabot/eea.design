@@ -228,6 +228,14 @@ canvas {
     margin-left: 3%;
 }
 
+#content .pdfjs .toolbar {
+    z-index: 899;
+}
+
+#content .pdfjs #overlayContainer {
+    z-index: 898;
+}
+
 /* Hide second column and expand pdf width */
 #portal-column-two {
   display: none;
