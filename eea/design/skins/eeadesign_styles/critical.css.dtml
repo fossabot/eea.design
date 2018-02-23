@@ -550,6 +550,13 @@ li#secondary-portaltabs-container {
 .content-core li {
     font-size: 115%;
 }
+.content-core ul {
+    margin-left: 1.5em;
+}
+.content-core dt {
+    font-weight: bold;
+    margin-bottom: 0;
+}
 /* @end Content Area */
 
 .column-area, .right-column-area {
