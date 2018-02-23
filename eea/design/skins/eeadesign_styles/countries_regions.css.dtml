@@ -28,6 +28,7 @@
 
 .eea-list-columns li {
     display: list-item;
+    margin-bottom: 0.25em;
 }
 
 .eea-list-last-columns {
