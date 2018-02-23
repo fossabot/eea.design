@@ -246,25 +246,9 @@ div.warning > .last {
 dl.warning {
     border-color: #d80;
 }
-dl.warning > dt,
-.warning > .admonition-title {
-    background-color: #d80;
-}
 
 dl.error {
     border-color: red;
-}
-dl.error > dt,
-.error > .admonition-title {
-    background-color: #d00;
-}
-.warning > dd,
-.warning > .last {
-    background-color: #fd7;
-}
-.error > dd,
-.error > .last {
-    background-color: #fdc;
 }
 
 /* Additional specificity for when status is shown inside #content */
@@ -335,7 +319,6 @@ dl.collapsible dd.collapsibleContent > dl {
 dl.expandedInlineCollapsible dt.collapsibleHeader,
 dl.expandedBlockCollapsible dt.collapsibleHeader {
     padding: 0 0.5em 0 2em;
-    background: White url(treeExpanded.png) no-repeat 0.5em 50%;
     cursor: pointer;
 }
 
@@ -352,7 +335,6 @@ dl.collapsedBlockCollapsible dt.collapsibleHeader {
     padding: 0 0.5em 0 2em;
     line-height: 1.2em;
     cursor: pointer;
-    background: White url(treeCollapsed.png) no-repeat 0.5em 50%;
 }
 dl.collapsedInlineCollapsible dd.collapsibleContent,
 dl.collapsedBlockCollapsible dd.collapsibleContent {
@@ -894,77 +876,6 @@ a.historyComparePrevious span {
 
 /* @group Core content type sprites */
 
-/* Generated using http://spritegen.website-performance.org, with the following
-   parameters:
-   - Build direction: Vertical
-   - Horizontal offset: (doesn't matter, but can't be 0)
-   - Vertical offset: 200px
-   - Compress image with OptiPNG: yes
-   - Class prefix: contenttype-
-   - Display width and height: no
-  Then, add 4 px to the background-position to line up the icons to text.
-
-.contenttype-document_icon { background-position: 0 0;  }
-.contenttype-event_icon { background-position: 0 -216px;  }
-.contenttype-file_icon { background-position: 0 -432px;  }
-.contenttype-folder_icon { background-position: 0 -648px;  }
-.contenttype-image_icon { background-position: 0 -864px;  }
-.contenttype-link_icon { background-position: 0 -1080px;  }
-.contenttype-newsitem_icon { background-position: 0 -1296px;  }
-.contenttype-site_icon { background-position: 0 -1512px;  }
-.contenttype-topic_icon { background-position: 0 -1728px;  }
-
-*/
-
-.icons-on .contenttype-document {
-    background: no-repeat transparent 0px 4px url(contenttypes-sprite.png);
-}
-.icons-on .contenttype-event {
-    background: no-repeat transparent 0px -212px url(contenttypes-sprite.png);
-}
-.icons-on .contenttype-folder {
-    background: no-repeat transparent 0px -644px url(contenttypes-sprite.png);
-}
-.icons-on .contenttype-link {
-    background: no-repeat transparent 0px -1076px url(contenttypes-sprite.png);
-}
-.icons-on .contenttype-news-item {
-    background: no-repeat transparent 0px -1292px url(contenttypes-sprite.png);
-}
-.icons-on .contenttype-plone-site {
-    background: no-repeat transparent 0px -1508px url(contenttypes-sprite.png);
-}
-.icons-on .contenttype-collection {
-    background: no-repeat transparent 0px -1724px url(contenttypes-sprite.png);
-}
-.icons-on .contenttype-topic {
-    background: no-repeat transparent 0px -1724px url(contenttypes-sprite.png);
-}
-
-/* These should only appear in the add menu */
-.icons-on #plone-contentmenu-factories .contenttype-file {
-    background: no-repeat transparent 0px -428px url(contenttypes-sprite.png);
-}
-.icons-on #plone-contentmenu-factories .contenttype-image {
-    background: no-repeat transparent 0px -860px url(contenttypes-sprite.png);
-}
-
-.icons-on .contenttype-document,
-.icons-on .contenttype-event,
-.icons-on .contenttype-folder,
-.icons-on .contenttype-link,
-.icons-on .contenttype-news-item,
-.icons-on .contenttype-plone-site,
-.icons-on .contenttype-collection,
-.icons-on .contenttype-topic,
-.icons-on #plone-contentmenu-factories .contenttype-file,
-.icons-on #plone-contentmenu-factories .contenttype-image {
-    line-height: 2em;
-    display: inline-block;
-    *display: block;
-    padding-left: 20px !important;
-}
-
 /* @end */
 
 
@@ -976,11 +887,6 @@ a.historyComparePrevious span {
     height: 14em;
     width: 100%;
 }
-/* IE7: fixes super-wide div for JavaScript Tag selector */
-/* .ie7 is set on <html> by Modernizr library */
-.ie7 div.optionsBox {
-    width: 50%;
-}
 .optionsBox LABEL {
     padding: 2px 0 0 0;
     display: block;
@@ -990,11 +896,6 @@ a.historyComparePrevious span {
 .optionsBox input{
     vertical-align: middle;
     margin: 1px 4px 4px 6px;
-}
-/* IE7: fixes super-wide div for JavaScript Tag selector */
-/* .ie7 is set on <html> by Modernizr library */
-.ie7 .optionsBox input {
-    margin: 0px;
 }
 .optionsBox LABEL.checked {
     background-color: #EEEEEE;
