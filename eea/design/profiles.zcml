@@ -195,8 +195,8 @@
 
   <genericsetup:registerProfile
     name="upgrade184"
-    title="EEA Design upgrade profile for v18.4"
-    directory="profiles/upgrades/to_184"
-    description='EEA Design upgrade profile for v18.4'
+    title="EEA Design upgrade profile for v19.0"
+    directory="profiles/upgrades/to_190"
+    description='EEA Design upgrade profile for v19.0'
     provides="Products.GenericSetup.interfaces.EXTENSION" />
 </configure>
