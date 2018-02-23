@@ -634,7 +634,7 @@ li#secondary-portaltabs-container {
     border: none;
     font-size: 160%;
     font-weight: normal;
-    margin: 0 6px 0 1em;
+    margin: 6px;
     padding: 0;
 }
 #articles-area h2 {
@@ -642,6 +642,8 @@ li#secondary-portaltabs-container {
     line-height: 1em;
     border-bottom: 0;
     font-weight: normal;
+}
+#semantic-data-service {
     margin-top: 0;
 }
 
