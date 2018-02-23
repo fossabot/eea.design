@@ -1,13 +1,20 @@
 /* jslint:disable */
 /*global jQuery, window, document, Faceted */
 
-const elementIsVisibleInViewport = (el, partiallyVisible = true) => {
-  const { top, left, bottom, right } = el.getBoundingClientRect();
-  return partiallyVisible
-    ? ((top > 0 && top < window.innerHeight) || (bottom > 0 && bottom < window.innerHeight)) &&
-      ((left > 0 && left < window.innerWidth) || (right > 0 && right < window.innerWidth))
-    : top >= 0 && left >= 0 && bottom <= window.innerHeight && right <= window.innerWidth;
-};
+function isElementInViewport (el) {
+    // Detect if element is in viewport
+    if (typeof jQuery === "function" && el instanceof jQuery) {
+        el = el[0];
+    }
+
+    var rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || jQuery(window).height()) &&
+        rect.right <= (window.innerWidth || jQuery(window).width())
+    );
+}
 
 function enableLazy(element) {
     var source = element.attr('src');
@@ -43,7 +50,17 @@ Faceted.LoadLazy = {
                     });
 
                     if (loaded_once) {
-                        jQuery(lazy_elements).parent().css('width', '20%');
+                        jQuery(lazy_elements).parent().css('text-align', 'center');
+
+                        var windowWidth = jQuery(window).width();
+                        if (windowWidth <= 767 || windowWidth > 930) {
+                            jQuery(lazy_elements).parent().css('width', '15%');
+                        }
+
+                        if (windowWidth <= 480 || (windowWidth > 767 && windowWidth <= 930)) {
+                            jQuery(lazy_elements).parent().css('width', '20%');
+                        }
+
                         jQuery(lazy_elements).lazy({
                             scrollDirection: 'both',
                             effect: 'fadeIn',
@@ -76,21 +93,21 @@ jQuery(document).ready(function($) {
     var lazyElements = [];
 
     $('#content img').each(function(){
-        if (elementIsVisibleInViewport(this) === false) {
+        if (isElementInViewport(this) === false) {
             enableLazy($(this));
             lazyElements.push($(this));
         }
     });
 
     $('#portal-column-two img').each(function(){
-        if (elementIsVisibleInViewport(this) === false) {
+        if (isElementInViewport(this) === false) {
             enableLazy($(this));
             lazyElements.push($(this));
         }
     });
 
     $('#content iframe').each(function(){
-        if (elementIsVisibleInViewport(this) === false) {
+        if (isElementInViewport(this) === false) {
             enableLazy($(this));
             lazyElements.push($(this));
         }
@@ -114,7 +131,8 @@ jQuery(document).ready(function($) {
             console.log('error loading ' + element.data('src'));
         }
     });
-    
+
+    // Internet explorer detection
     var isIe = function detectIE() {
         var ua = window.navigator.userAgent;
         var msie = ua.indexOf('MSIE ');
@@ -139,19 +157,23 @@ jQuery(document).ready(function($) {
         return false;
     };
 
+    var count = 0;
     var forceImageLoad = function (images) {
-        $(images).each(function (){
-            var image = $(this);
+        count++;
+        if (count > 1) {
+            $(images).each(function (){
+                var image = $(this);
 
-            if(!$(this).attr('data-src')) {
-                var image_src = $(this).attr('src');
-                $(this).attr('data-src', image_src);
-            }
+                if(!$(this).attr('data-src')) {
+                    var image_src = $(this).attr('src');
+                    $(this).attr('data-src', image_src);
+                }
 
-            var image_source = image.attr('data-src');
-            image.attr('src', image_source);
-            // setTimeout(function(){}, 100);
-        });
+                var image_source = image.attr('data-src');
+                image.attr('src', image_source);
+                // setTimeout(function(){}, 100);
+            });
+        }
     };
 
     var forceDavizLoad = function () {

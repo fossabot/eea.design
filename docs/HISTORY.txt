@@ -1,6 +1,19 @@
 Changelog
 =========
 
+19.0 - (2018-02-23)
+-------------------
+* Bug fix: Modified z-index of the pdf toolbar so that it doesn't overlap
+  with other elements
+  [petchesi-iulian refs #92661]
+* Bug fix: Fixed 'cannot convert undefined or null to object' error caused
+  by lazy loading
+  [petchesi-iulian refs #91575]
+* Change: Changed the image dimensions for faceted lazy loading
+  [petchesi-iulian refs #91575]
+* Change: Persist eea-responsive.js from portal_skins/custom
+  [avoinea refs #92868]
+
 18.9 - (2018-02-19)
 -------------------
 * Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
