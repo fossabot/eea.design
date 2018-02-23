@@ -1,7 +1,7 @@
 Changelog
 =========
 
-19.0 - (unreleased)
+19.0 - (2018-02-23)
 -------------------
 * Bug fix: Modified z-index of the pdf toolbar so that it doesn't overlap
   with other elements
