@@ -23,6 +23,16 @@ jQuery(document).ready(function($) {
     var doc = document.documentElement;
     var $secondary_portaltabs = $("#secondary-portaltabs");
 
+    var throttle = window.underscore ? window.underscore.throttle : function (t, e) {
+        var n;
+        return function () {
+            var i, o = this, r = arguments;
+            n || (i = function () {
+                n = null, t.apply(o, r)
+            }, n = window.setTimeout(i, e))
+        }
+    };
+
     //var $tabbed_menu = $(".tabbedmenu");
     //var tabbed_menu_found = $tabbed_menu.length;
     // #27215 disable accordion transform of the tabbed menu, since it's a server side transform
@@ -403,10 +413,8 @@ jQuery(document).ready(function($) {
         multiple_touch = e.touches.length > 1;
     }
 
-    if (underscore && underscore.throttle) {
-        var lazyTouchMove = _.throttle(TouchMove, 90);
-        $(window).bind("touchmove", lazyTouchMove);
-    }
+    var lazyTouchMove = throttle(TouchMove, 90);
+    $(window).bind("touchmove", lazyTouchMove);
 
     var $document = $(document);
     var win_height = window.innerHeight;
@@ -458,9 +466,7 @@ jQuery(document).ready(function($) {
         lastScrollTop = st;
     }
 
-    if (underscore && underscore.throttle) {
-        var lazyNavScroll = _.throttle(navScroll, 100);
-        $(window).scroll(lazyNavScroll);
-    }
+    var lazyNavScroll = throttle(navScroll, 100);
+    $(window).scroll(lazyNavScroll);
 
 });
