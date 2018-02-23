@@ -261,7 +261,6 @@ select {
 .navbar-collapse {
     overflow-x: visible;
     overflow-y: auto;
-    border-top: 1px solid transparent;
     width: 100%;
     max-height: 325px;
 }
@@ -413,6 +412,7 @@ select {
     padding: 3px 6px;
     width: 99%;
     font-size: 16px;
+    font-style: italic;
 }
 
 .plone-breadcrumb {
@@ -549,6 +549,16 @@ li#secondary-portaltabs-container {
 .content-core p,
 .content-core li {
     font-size: 115%;
+}
+.content-core ul {
+    margin-left: 1.5em;
+}
+.content-core dt {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+#content .featured p:last-child {
+    margin-bottom: 0;
 }
 /* @end Content Area */
 
@@ -715,7 +725,7 @@ li#secondary-portaltabs-container {
 }
 
 #portal-colophon {
-    margin: 0 0 2em 0;
+    margin: 0;
     padding: 0.5em 1em 1em 1em;
     text-align: center;
     clear: both;
