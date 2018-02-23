@@ -195,22 +195,6 @@ select {
     word-wrap: break-word; /* #87691 avoid link span over the content area */
 }
 
-/*#content a:link,*/
-/*dl.portlet a:link {*/
-    /*color: &dtml-linkColor;;*/
-    /*border-bottom: 0;*/
-/*}*/
-
-/*#content a:visited,*/
-/*dl.portlet a:visited {*/
-    /*color: &dtml-linkVisitedColor;;*/
-    /*border-bottom: 0;*/
-/*}*/
-
-/*#content a:hover, .portlet a:hover {*/
-    /*color: #8E004D;*/
-/*}*/
-
 #content span.link-external a {
     background: transparent url(&dtml-xurl;/link_icon.gif) 0px 1px no-repeat;
     padding: 2px 0px 1px 16px;
@@ -429,6 +413,7 @@ a.video-fancybox .photoAlbumEntryWrapper {
     width: 100%;
     padding: 0 5px;
     font-weight: bold;
+    text-align: center;
 }
 /* our additional photoAlbumEntry styles */
 .photoAlbumEntry:hover {
@@ -493,28 +478,6 @@ div.overlay a:hover {
 /* @end @group Accessibility elements, applied by JS */
 
 /* @group Core content type sprites */
-
-/* Generated using http://spritegen.website-performance.org, with the following
-   parameters:
-   - Build direction: Vertical
-   - Horizontal offset: (doesn't matter, but can't be 0)
-   - Vertical offset: 200px
-   - Compress image with OptiPNG: yes
-   - Class prefix: contenttype-
-   - Display width and height: no
-  Then, add 4 px to the background-position to line up the icons to text.
-
-.contenttype-document_icon { background-position: 0 0;  }
-.contenttype-event_icon { background-position: 0 -216px;  }
-.contenttype-file_icon { background-position: 0 -432px;  }
-.contenttype-folder_icon { background-position: 0 -648px;  }
-.contenttype-image_icon { background-position: 0 -864px;  }
-.contenttype-link_icon { background-position: 0 -1080px;  }
-.contenttype-newsitem_icon { background-position: 0 -1296px;  }
-.contenttype-site_icon { background-position: 0 -1512px;  }
-.contenttype-topic_icon { background-position: 0 -1728px;  }
-
-*/
 
 .icons-on .contenttype-document {
     background: no-repeat transparent 0px 2px url(&dtml-xurl;/contenttypes-sprite.png);
