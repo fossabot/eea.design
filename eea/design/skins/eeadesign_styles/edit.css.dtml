@@ -104,7 +104,9 @@ body .ploneSkin .mce_formatPreview a {
     width: 100% !important;
     min-height: 400px;
 }
-
+.ploneSkin table.mceLayout {
+    width: 100% !important;
+}
 .ploneSkin table.mceLayout td.mceToolbar {
     height: 85px;
 }

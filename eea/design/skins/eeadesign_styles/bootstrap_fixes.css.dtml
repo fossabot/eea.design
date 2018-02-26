@@ -114,6 +114,6 @@ input.removecriteria {
 
 /* ++resource++jquery.annotator.css  */
 .erratum-quote {
-    max-height: 3em !important; /* annotator tool inline-comments right column panel clips text as original value is 12px */
+    max-height: 3em; /* annotator tool inline-comments right column panel clips text as original value is 12px */
 }
 /* </dtml-with> */
