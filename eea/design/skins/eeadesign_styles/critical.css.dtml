@@ -291,6 +291,7 @@ select {
     box-shadow: 0 1px 10px #005078;
     background-color: #FFF;
     border: 0;
+    margin-bottom: 17px;
 }
 
 @media screen and (max-width: 767px) {
@@ -351,8 +352,11 @@ select {
     }
 
     #portal-searchbox .gsc-search-button {
-        margin-left: -5px;
         cursor: pointer;
+        height: 30px;
+        width: 70px;
+        border-radius: 0;
+        font: bold 12px 'Open Sans';
     }
 }
     
@@ -410,11 +414,10 @@ select {
     margin-bottom: 0;
 }
 #portal-searchbox input.gsc-input {
-    border: 1px solid #BBB;
+    border: 1px solid gray;
     padding: 3px 6px;
-    width: 99%;
-    font-size: 16px;
-    font-style: italic;
+    width: 100%;
+    font: italic 16px 'Open Sans', Verdana, Helvetica, Arial, sans-serif;
 }
 
 .plone-breadcrumb {
