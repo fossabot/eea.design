@@ -25,60 +25,63 @@ function enableLazy(element) {
 }
 
 // Faceted Lazy Load
-Faceted.Events.LAZY_LOAD = 'FACETED-LAZY-LOAD';
-Faceted.LoadLazy = {
-    initialize: function () {
-        if(jQuery('#faceted-results').length) {
-            var loaded_once = false;
-            jQuery(Faceted.Events).bind(Faceted.Events.LAZY_LOAD, function(evt, data){
-                var children = jQuery('#faceted-results').children();
-                if (children.length > 1) {
-                    var lazy_elements = children.find('.lazy');
+if (Faceted) {
+	Faceted.Events.LAZY_LOAD = 'FACETED-LAZY-LOAD';
+	Faceted.LoadLazy = {
+	    initialize: function () {
+		if(jQuery('#faceted-results').length) {
+		    var loaded_once = false;
+		    jQuery(Faceted.Events).bind(Faceted.Events.LAZY_LOAD, function(evt, data){
+			var children = jQuery('#faceted-results').children();
+			if (children.length > 1) {
+			    var lazy_elements = children.find('.lazy');
 
-                    jQuery(lazy_elements).each(function(){
-                        var element = jQuery(this);
-                        var source = element.attr('src');
+			    jQuery(lazy_elements).each(function(){
+				var element = jQuery(this);
+				var source = element.attr('src');
 
-                        if (source.indexOf('lazyload_loader') === -1) {
-                            element.attr('data-src', source);
-                            element.attr('src', '/www/lazyload_loader.gif');
-                            loaded_once = true;
-                        }
-                        else {
-                            loaded_once = false;
-                        }
-                    });
+				if (source.indexOf('lazyload_loader') === -1) {
+				    element.attr('data-src', source);
+				    element.attr('src', '/www/lazyload_loader.gif');
+				    loaded_once = true;
+				}
+				else {
+				    loaded_once = false;
+				}
+			    });
 
-                    if (loaded_once) {
-                        jQuery(lazy_elements).parent().css('text-align', 'center');
+			    if (loaded_once) {
+				jQuery(lazy_elements).parent().css('text-align', 'center');
 
-                        var windowWidth = jQuery(window).width();
-                        if (windowWidth <= 767 || windowWidth > 930) {
-                            jQuery(lazy_elements).parent().css('width', '15%');
-                        }
+				var windowWidth = jQuery(window).width();
+				if (windowWidth <= 767 || windowWidth > 930) {
+				    jQuery(lazy_elements).parent().css('width', '15%');
+				}
 
-                        if (windowWidth <= 480 || (windowWidth > 767 && windowWidth <= 930)) {
-                            jQuery(lazy_elements).parent().css('width', '20%');
-                        }
+				if (windowWidth <= 480 || (windowWidth > 767 && windowWidth <= 930)) {
+				    jQuery(lazy_elements).parent().css('width', '20%');
+				}
 
-                        jQuery(lazy_elements).lazy({
-                            scrollDirection: 'both',
-                            effect: 'fadeIn',
-                            effectTime: 1000,
-                            threshold: 100,
-                            combined: true,
-                            delay: 3000,
-                            visibleOnly: true,
-                            onError: function(element) {
-                                console.log('error loading ' + element.data('src'));
-                            }
-                        });
-                    }
-                }
-            });
-        }
-    }
-};
+				jQuery(lazy_elements).lazy({
+				    scrollDirection: 'both',
+				    effect: 'fadeIn',
+				    effectTime: 1000,
+				    threshold: 100,
+				    combined: true,
+				    delay: 3000,
+				    visibleOnly: true,
+				    onError: function(element) {
+					console.log('error loading ' + element.data('src'));
+				    }
+				});
+			    }
+			}
+		    });
+		}
+	    }
+	};
+
+}
 
 function cleanupFacetedLazy() {
     if (Faceted.Events.LAZY_LOAD && jQuery('#faceted-results').length === 0) {
@@ -88,7 +91,9 @@ function cleanupFacetedLazy() {
 
 jQuery(document).ready(function($) {
     // Check if the faceted event needs to be cleaned up
-    cleanupFacetedLazy();
+    if (Faceted) {
+        cleanupFacetedLazy();
+    }
 
     var lazyElements = [];
 
