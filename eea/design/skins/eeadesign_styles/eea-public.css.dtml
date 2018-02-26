@@ -196,6 +196,31 @@ div.managePortletsLink, a.managePortletsFallback {
     display: none;
 }
 
+/*#document-action-sendto a,*/
+/*#delicious a, */
+/*.action-items a {*/
+/*    height: 0;*/
+/*    padding-bottom: 1%;*/
+/*}*/
+
+/*#document-action-rdf a {*/
+/*    height: 0;*/
+/*    padding-bottom: 40%;*/
+/*}*/
+
+.action-items {
+    max-width: 40%;
+}
+
+#content .action-items li img[src*="lazyload_loader.gif"] {
+    max-width: 8%;
+}
+
+#content .action-items li img {
+    max-width: 100%;
+}
+
+
 /* @end previously in public.css not found in stock plone */
 /* </dtml-let> */
 /* </dtml-with> */

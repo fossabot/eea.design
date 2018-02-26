@@ -119,7 +119,7 @@ jQuery(document).ready(function($) {
             var $fiche_body = $(".fiche-body");
             var $table = $fiche_body.find('table').eq(0);
             var $fiche_summary = $(".fiche-summary");
-            
+
             if (!$body.hasClass('section-airs subsection-2016')) {
                 // hide fiche-summary in case the contents of keyfact is empty
                 if (!$fiche_summary.find('.keyFact').find('div').text().trim()) {
@@ -127,7 +127,7 @@ jQuery(document).ready(function($) {
                 }
             } else if ($table.length) {
                 $table.insertBefore($fiche_summary);
-            } 
+            }
 
             // hide googlecharts bottom images
             if ($body.hasClass('body-print')) {
@@ -495,6 +495,11 @@ jQuery(document).ready(function($) {
     if ($('#eea-above-columns').find('#portal-breadcrumbs').length) {
         $('#header-holder').find('.navbar').addClass('hideShadow');
     }
+
+    $('#globalstatusmessage').each(function(idx, el) {
+        $(el).find("dl:not([class*='eea-icon'])").addClass("eea-icon eea-icon-magic");
+        $(el).fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+    });
 
     var scroll_analytics_enabled = $body.hasClass("scroll-analytics");
 
