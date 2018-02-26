@@ -25,7 +25,7 @@ function enableLazy(element) {
 }
 
 // Faceted Lazy Load
-if (Faceted) {
+if (window.Faceted) {
 	Faceted.Events.LAZY_LOAD = 'FACETED-LAZY-LOAD';
 	Faceted.LoadLazy = {
 	    initialize: function () {
@@ -91,7 +91,7 @@ function cleanupFacetedLazy() {
 
 jQuery(document).ready(function($) {
     // Check if the faceted event needs to be cleaned up
-    if (Faceted) {
+    if (window.Faceted) {
         cleanupFacetedLazy();
     }
 
