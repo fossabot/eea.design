@@ -126,7 +126,9 @@
                     <metal:jsslot fill-slot="javascript_head_slot">
                       <script type="text/javascript"
                         tal:content="string:jQuery(document).ready(function(evt){
-                                jQuery(Faceted.Events).trigger(Faceted.Events.LAZY_LOAD, {msg: 'Enabling Lazy Loading'});
+                              if (window.Faceted) {
+                                  jQuery(Faceted.Events).trigger(Faceted.Events.LAZY_LOAD, {msg: 'Enabling Lazy Loading'});
+                              }
                         });"></script>
                     </metal:jsslot>
                 </div>
