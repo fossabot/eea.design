@@ -23,7 +23,8 @@
                        tal:attributes="href item_url;
                                        title item_title_or_id;
                                        class string:tileImage ${item_css_class}">
-                        <img tal:attributes="src string:${item_absolute_url}/image_thumb;
+                        <img class="lazy"
+                             tal:attributes="src string:${item_absolute_url}/image_thumb;
                                              title item_title_or_id;
                                              alt item_title_or_id" />
                     </a>
@@ -122,6 +123,12 @@
                     </p>
                     <div class="visualClear" style="padding-bottom:1.0em;"><!-- --></div>
 
+                    <metal:jsslot fill-slot="javascript_head_slot">
+                      <script type="text/javascript"
+                        tal:content="string:jQuery(document).ready(function(evt){
+                                jQuery(Faceted.Events).trigger(Faceted.Events.LAZY_LOAD, {msg: 'Enabling Lazy Loading'});
+                        });"></script>
+                    </metal:jsslot>
                 </div>
 
              <metal:empty metal:define-slot="no_items_in_listing">
