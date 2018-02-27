@@ -294,6 +294,10 @@ select {
     margin-bottom: 17px;
 }
 
+#eea-above-columns {
+    margin-top: -17px;
+}
+
 @media screen and (max-width: 767px) {
     #portal-logo-link-header, .navbar-toggle {
         display: block;
