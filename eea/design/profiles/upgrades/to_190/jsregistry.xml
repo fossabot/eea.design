@@ -8,11 +8,13 @@
   <javascript id="livesearch.js" remove="True" />
   <javascript id="eea-fitcontainer.js" remove="True" />
   <javascript id="bootstrap.js" remove="True" />
+  <javascript id="collective.js.jqueryui.custom.min.js" remove="True" />
+
   <!--? end removed js -->
 
 
   <!--? faceted navigation -->
-  <javascript id="collective.js.jqueryui.custom.min.js" bundle="default"
+  <javascript id="collective.js.jqueryui.custom.min.eea.js" bundle="default"
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0" 
     insert-before="++resource++jquery.select2uislider.js" />
   <javascript id="++resource++eea.faceted-navigation-independent.js" bundle="faceted-view"
