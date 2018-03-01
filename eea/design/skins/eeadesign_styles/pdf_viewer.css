@@ -118,7 +118,7 @@ canvas {
 
 #content .pdfjs #viewerContainer {
   position: relative;
-  border: 2px solid #00446a;
+  border: none;
   border-top: none;
   overflow: auto;
   width: 100%;
@@ -210,7 +210,7 @@ canvas {
 }
 
 #content .pdfjs #sidebarContent {
-    border: 2px solid #00446a;
+    border: none;
     border-right: none;
     border-top: none;
 }
@@ -229,11 +229,12 @@ canvas {
 }
 
 #content .pdfjs .toolbar {
-    z-index: 899;
+    z-index: 599;
 }
 
 #content .pdfjs #overlayContainer {
-    z-index: 898;
+    z-index: 598;
+    background-color: #006699;
 }
 
 /* Hide second column and expand pdf width */
@@ -258,12 +259,34 @@ canvas {
     background-color: transparent;
 }
 
+html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#mainContainer {
+    width: 80% !important;
+}
+
+html[dir='ltr'] #content .pdfjs #outerContainer>#mainContainer {
+    width: 100% !important;
+}
+
+#content .pdfjs #toolbarContainer,
+#content .pdfjs #toolbarSidebar,
+#content .pdfjs .findbar,
+#content .pdfjs .dropdownToolbarButton>select>option,
+#content .pdfjs #overlayContainer>.container>.dialog,
+#content .pdfjs .secondaryToolbar {
+    background-color: #006699;
+    background-image: none;
+}
+
 @media (max-width: 840px) {
     html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#sidebarContainer {
         top: 0;
     }
     html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#mainContainer {
         left: 200px;
+    }
+
+    #content .pdfjs #sidebarContent {
+      background-color: hsla(0, 0%, 0%, .1);
     }
 }
 
@@ -303,7 +326,7 @@ canvas {
  }
  
  #content .pdfjs #outerContainer {
-     border: 2px solid #00446a;
+     border: none;
      border-top: none;
  }
 }
@@ -343,7 +366,7 @@ canvas {
   }
  
   #content .pdfjs #outerContainer {
-    border: 2px solid #00446a;
+    border: none;
     border-top: none;
   }
 }
