@@ -84,6 +84,10 @@
 #edit-bar, .actionMenuContent, #portal-personaltools, #portal-personaltools dd {
     background-color: &dtml-corporateGreen;;
 }
+
+.panel .actionMenuContent {
+    background-color: #FFF;
+}
 /* @end group Pulldown menus @parent Editing */
 
 /* @end group Editing */
