@@ -180,6 +180,14 @@
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="++resource++eea.facetednavigation.widgets.alphabets.view.css" />
 
-
+    <stylesheet id="++resource++jquery.annotator.css" bundle="default"
+                expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled() or 'daviz-edit.html' in request.URL0"
+                insert-after="++resource++select2/select2.css" />
+    <stylesheet id="++resource++eea.annotator.view.css" bundle="default"
+                expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled() or 'daviz-edit.html' in request.URL0"
+                insert-after="++resource++jquery.annotator.css" />
+    <stylesheet id="++resource++eea.annotator.edit.css" bundle="default"
+                expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled() or 'daviz-edit.html' in request.URL0"
+                insert-after="++resource++eea.annotator.view.css" />
 
 </object>
