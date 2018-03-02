@@ -60,22 +60,6 @@
     expression=""
     position-after="++resource++plone.formwidget.contenttree/contenttree.css" />
 
-  <stylesheet id="eea-theme.css" bundle="default"
-    expression=""
-    media="all"
-    position-after="++resource++eea.glossary/main.css" />
-
-  <stylesheet id="bootstrap_fixes.css" bundle="default"
-    expression=""
-    position-after="eea-theme.css" />
-
-  <stylesheet id="eea-responsive.css" bundle="default"
-    expression=""
-    position-after="bootstrap_fixes.css" />
-
-  <stylesheet id="ploneCustom.css" bundle="default"
-    expression=""
-    position-after="eea-responsive.css" />
 
   <stylesheet id="edit.css" bundle="default"
     expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.URL0"
@@ -170,7 +154,6 @@
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="++resource++eea.facetednavigation.widgets.autocomplete.view.css" />
 
-
   <stylesheet id="eea-faceted-custom.css" bundle="faceted-view"
     expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
     insert-after="++resource++eea.facetednavigation.widgets.alphabets.view.css" />
@@ -184,5 +167,23 @@
     <stylesheet id="++resource++eea.annotator.edit.css" bundle="default"
                 expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled() or 'daviz-edit.html' in request.URL0"
                 insert-after="++resource++eea.annotator.view.css" />
+
+  <!--? last bundle with the theme and overrides -->
+  <stylesheet id="eea-theme.css" bundle="default"
+    expression=""
+    media="all"
+    position-after="pdf_viewer.css" />
+
+  <stylesheet id="bootstrap_fixes.css" bundle="default"
+    expression=""
+    position-after="eea-theme.css" />
+
+  <stylesheet id="eea-responsive.css" bundle="default"
+    expression=""
+    position-after="bootstrap_fixes.css" />
+
+  <stylesheet id="ploneCustom.css" bundle="default"
+    expression=""
+    position-after="eea-responsive.css" />
 
 </object>
