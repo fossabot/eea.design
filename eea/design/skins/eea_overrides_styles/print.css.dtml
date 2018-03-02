@@ -22,6 +22,7 @@ body {
     font-size: 9pt;
     min-width: 10cm;
     width: auto;
+    background-color: white !important;
 }
 
 #portal-visual-wrapper {
@@ -33,6 +34,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     border: none;
     font-family: &dtml-headingFontFamily;;
+    color: #000;
     width: auto;
     page-break-inside: avoid;
     page-break-after: avoid;
@@ -43,6 +45,9 @@ h1, h2, h3, h4, h5, h6 {
 #portal-column-content {
     width: 100%;
     padding: 0 !important;
+}
+.cell {
+    left: 0;
 }
 
 ul, ol, dl {
@@ -322,6 +327,7 @@ body.frontpage .portlet-promotions,
 #relatedItems .eea-tabs,
 .managePortletsLink,
 #portal-colophon,
+#footer-wrapper,
 #kss-spinner,
 #review-history,
 #content-history,
