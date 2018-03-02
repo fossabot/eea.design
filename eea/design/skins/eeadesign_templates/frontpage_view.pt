@@ -18,7 +18,7 @@
             <div id="main-content" class="content-core">
                 <div class="visualClear"><!-- &nbsp; --></div>
 
-                <div id="eea-intro-message" class="portalMessage visualNoMargins" tal:condition="main_site">
+                <div id="eea-intro-message" class="portalMessage" tal:condition="main_site">
                         <span class="discreet" i18n:translate="">The European Environment Agency provides sound, independent information on the environment for those involved in developing, adopting, implementing and evaluating environmental policy, and also the general public. In close collaboration with
                             <a href="about-us/countries-and-eionet" class="link-plain" i18n:name="url" i18n:translate="">the European Environmental Information and Observation Network (Eionet)</a> and its 33 member countries, the EEA gathers data and produces assessments on a wide range of topics related to the environment.
                             <a tal:attributes="href string:$portal_url/about-us" i18n:name="learn" i18n:translate="">Learn more</a>

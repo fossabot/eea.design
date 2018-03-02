@@ -136,6 +136,7 @@
 /* 72171 impact */
 #eea-intro-message {
     padding: 1em;
+    margin: 1.5em 0 0 0;
 }
 
 #megatopics-area .portletHeader {
