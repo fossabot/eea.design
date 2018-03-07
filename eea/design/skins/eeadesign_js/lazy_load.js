@@ -1,32 +1,5 @@
 /* jslint:disable */
 /*global jQuery, window, document, Faceted */
-var w_inner_height = window.innerHeight;
-var w_inner_width = window.innerWidth;
-var $window = jQuery(window);
-var window_height = $window.height();
-var window_width = $window.width();
-function isElementInViewport (el) {
-    // Detect if element is in viewport
-    if (el instanceof jQuery) {
-        el = el[0];
-    }
-
-    var rect = el.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= ( w_inner_height || window_height ) &&
-        rect.right <= ( w_inner_width || window_width )
-    );
-}
-
-function enableLazy(element) {
-    var source = element.src;
-    var classes = element.className.length ? element.className + ' ' : '';
-    element.setAttribute('data-src', source);
-    element.className =  classes + 'lazy';
-    element.src = '';
-}
 
 function cleanupFacetedLazy() {
     if (Faceted.Events.LAZY_LOAD && jQuery('#faceted-results').length === 0) {
@@ -93,22 +66,6 @@ jQuery(document).ready(function($) {
         cleanupFacetedLazy();
     }
 
-    var lazyElements = [];
-
-    $('img').each(function(){
-        if (isElementInViewport(this) === false) {
-            enableLazy(this);
-            lazyElements.push(this);
-        }
-    });
-
-    // $('#portal-column-two img').each(function(){
-    //     if (isElementInViewport(this) === false) {
-    //         enableLazy(this);
-    //         lazyElements.push(this);
-    //     }
-    // });
-
     $('#content').find('iframe').each(function() {
         if (isElementInViewport(this) === false) {
             enableLazy(this);
@@ -126,8 +83,8 @@ jQuery(document).ready(function($) {
         scrollDirection: 'both',
         effect: 'fadeIn',
         effectTime: 1000,
-        threshold: 10,
-        visibleOnly: false,
+        threshold: 100,
+        visibleOnly: true,
         onError: function(element) {
             console.log('error loading ' + element.data('src'));
         }
