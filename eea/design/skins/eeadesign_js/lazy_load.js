@@ -1,24 +1,31 @@
 /* jslint:disable */
 /*global jQuery, window, document, Faceted */
-
-function isElementInViewport(el) {
+var w_inner_height = window.innerHeight;
+var w_inner_width = window.innerWidth;
+var $window = jQuery(window);
+var window_height = $window.height();
+var window_width = $window.width();
+function isElementInViewport (el) {
     // Detect if element is in viewport
-    if (typeof jQuery === "function" && el instanceof jQuery) {
+    if (el instanceof jQuery) {
         el = el[0];
     }
 
     var rect = el.getBoundingClientRect();
     return (
-    rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || jQuery(window).height()) && rect.right <= (window.innerWidth || jQuery(window).width()));
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= ( w_inner_height || window_height ) &&
+        rect.right <= ( w_inner_width || window_width )
+    );
 }
 
 function enableLazy(element) {
-
-    var source = element.attr('src');
-    var classes = element.attr('class') ? element.attr('class') + ' ' : '';
-    element.attr('data-src', source);
-    element.attr('class', classes + 'lazy');
-    element.attr('src', '');
+    var source = element.src;
+    var classes = element.className.length ? element.className + ' ' : '';
+    element.setAttribute('data-src', source);
+    element.className =  classes + 'lazy';
+    element.src = '';
 }
 
 function cleanupFacetedLazy() {
@@ -33,15 +40,16 @@ jQuery(document).ready(function($) {
     if (window.Faceted) {
         Faceted.Events.LAZY_LOAD = 'FACETED-LAZY-LOAD';
         Faceted.LoadLazy = {
-            initialize: function() {
-                if (jQuery('#faceted-results').length) {
-                    var loaded_once = false;
-                    jQuery(Faceted.Events).bind(Faceted.Events.LAZY_LOAD, function(evt, data) {
+            initialize: function () {
+                if(jQuery('#faceted-results').length) {
+                    var loaded_once;
+                    jQuery(Faceted.Events).bind(Faceted.Events.LAZY_LOAD, function(evt, data){
                         var children = jQuery('#faceted-results').children();
                         if (children.length > 1) {
                             var lazy_elements = children.find('.lazy');
+                            var lazy_elements_parents = lazy_elements.parent();
 
-                            jQuery(lazy_elements).each(function() {
+                            lazy_elements.each(function(){
                                 var element = jQuery(this);
                                 var source = element.attr('src');
 
@@ -55,18 +63,18 @@ jQuery(document).ready(function($) {
                             });
 
                             if (loaded_once) {
-                                jQuery(lazy_elements).parent().css('text-align', 'center');
+                                lazy_elements_parents.css('text-align', 'center');
 
-                                var windowWidth = jQuery(window).width();
+                                var windowWidth = window_width;
                                 if (windowWidth <= 767 || windowWidth > 930) {
-                                    jQuery(lazy_elements).parent().css('width', '15%');
+                                    lazy_elements_parents.css('width', '15%');
                                 }
 
                                 if (windowWidth <= 480 || (windowWidth > 767 && windowWidth <= 930)) {
-                                    jQuery(lazy_elements).parent().css('width', '20%');
+                                    lazy_elements_parents.css('width', '20%');
                                 }
 
-                                jQuery(lazy_elements).lazy({
+                                lazy_elements.lazy({
                                     scrollDirection: 'both',
                                     effect: 'fadeIn',
                                     effectTime: 1000,
@@ -87,29 +95,29 @@ jQuery(document).ready(function($) {
 
     var lazyElements = [];
 
-    $('#content').find('img').each(function() {
+    $('img').each(function(){
         if (isElementInViewport(this) === false) {
-            enableLazy($(this));
-            lazyElements.push($(this));
+            enableLazy(this);
+            lazyElements.push(this);
         }
     });
 
-    $('#portal-column-two').find('img').each(function() {
-        if (isElementInViewport(this) === false) {
-            enableLazy($(this));
-            lazyElements.push($(this));
-        }
-    });
+    // $('#portal-column-two img').each(function(){
+    //     if (isElementInViewport(this) === false) {
+    //         enableLazy(this);
+    //         lazyElements.push(this);
+    //     }
+    // });
 
     $('#content').find('iframe').each(function() {
         if (isElementInViewport(this) === false) {
-            enableLazy($(this));
-            lazyElements.push($(this));
+            enableLazy(this);
+            lazyElements.push(this);
         }
     });
 
-    if (jQuery('#faceted-results').length) {
-        jQuery('#faceted-results').bind('DOMSubtreeModified', function(event) {
+    if(jQuery('#faceted-results').length) {
+        jQuery('#faceted-results').bind('DOMSubtreeModified',function() {
             Faceted.LoadLazy.initialize();
         });
     }
@@ -176,8 +184,11 @@ jQuery(document).ready(function($) {
                     jQuery(elem).removeClass('not_visible');
                     if (jQuery(elem).hasClass('isChart')) {
                         var vhash = elem.id.split('_')[2];
-                        eval('gl_charts[\'googlechart_view_' + vhash + '\'] = window.drawChart(jQuery(elem).data(\'settings\'), jQuery(elem).data(\'other_options\')).chart;');
-                    } else {
+                        if (window.gl_charts) {
+                            window.gl_charts['googlechart_view_' + vhash] = window.drawChart(jQuery(elem).data('settings'), jQuery(elem).data('other_options')).chart;
+                        }
+                    }
+                    else{
                         window.drawDashboardEmbed(jQuery(elem).data('settings'));
                     }
                     jQuery(elem).trigger('eea.embed.loaded');
