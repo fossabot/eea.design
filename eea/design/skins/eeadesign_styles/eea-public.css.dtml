@@ -146,6 +146,11 @@ form[name="users_search"] input.context {
     display: inline;
     margin-bottom: 0;
 }
+/* 91590 chrome has a bug where the tab lists acted as block instead of inline */
+#contentActionMenus > li {
+    float: right;
+    display: inline-block;
+}
 
 #contentActionMenus .actionMenuContent ul {
     margin:0px !important;
