@@ -15,6 +15,10 @@
 
 
   <!--?  no condition js -->
+  <javascript id="lazy_load_init.js" bundle="default"
+    expression="" authenticated="False" inline="True"
+    insert-before="++resource++plone.app.jquery.js" />
+
   <javascript id="++resource++plone.app.jquerytools.form.js" bundle="default"
     expression="" authenticated="False"
     insert-after="++resource++plone.app.jquerytools.tooltip.js" />
