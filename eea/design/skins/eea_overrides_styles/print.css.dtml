@@ -38,13 +38,36 @@ h1, h2, h3, h4, h5, h6 {
     width: auto;
     page-break-inside: avoid;
     page-break-after: avoid;
+    line-height: 1.38;
 
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+.content-core p,
+.content-core li {
+    font-size: 100%;
 }
 
 /* #19880 set 100% width for column-content instead of width auto with important */
 #portal-column-content {
     width: 100%;
     padding: 0 !important;
+}
+
+#region-content {
+    padding: 0;
 }
 .cell {
     left: 0;

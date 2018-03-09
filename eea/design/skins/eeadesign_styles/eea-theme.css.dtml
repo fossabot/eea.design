@@ -3,6 +3,18 @@
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
 
+/* no horisontal lines allowed, only used as spacer, separation is done with headings or bg colors */
+hr {
+    border: none 0;
+    border-top: 1px solid white;/*invisible border*/
+    height: 0px;
+    margin: 0.5em 0 1em 0;
+}
+
+.eea-dates {
+    margin: 1em 1em 1em 0;
+}
+
 /* portal-header area */
 /* siteactions cross_site_top */
 /* use font awesome unicode icons */
