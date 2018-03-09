@@ -26,6 +26,15 @@
   <javascript id="++resource++plone.app.jquerytools.overlayhelpers.js" bundle="default"
     expression="" authenticated="false"
     insert-after="++resource++plone.app.jquerytools.form.js" />
+
+  <javascript id="++resource++plone.app.jquerytools.overlayhelpers.js" bundle="default"
+    expression="" authenticated="false"
+    insert-after="++resource++plone.app.jquerytools.form.js" />
+
+  <javascript id="++resource++eea.socialmedia.javascripts/socialite.js" bundle="default"
+    expression="" authenticated="false"
+    insert-after="whatsnew_gallery.js" />
+
   <!--?  end no condition js -->
 
   <!--?  authenticated js -->
