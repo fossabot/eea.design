@@ -1,3 +1,4 @@
+/* jslint:disable */
 /* collective.js.jqueryui: jquery.ui.core.min.js */
 
 /*! jQuery UI - v1.10.2 - 2013-03-14

@@ -1,7 +1,6 @@
 var w_inner_height = window.innerHeight;
 var w_inner_width = window.innerWidth;
 
-
 function isElementInViewport (el) {
     // Detect if element is in viewport
     var rect = el.getBoundingClientRect();
@@ -21,11 +20,11 @@ function enableLazy(element) {
     element.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=';
 }
 
-lazyElements = [];
+window.lazyElements = [];
 var imgs = document.querySelectorAll('img');
-Array.prototype.forEach.call(imgs, function(el, i){
+Array.prototype.forEach.call(imgs, function(el){
         if (isElementInViewport(el) === false) {
             enableLazy(el);
-            lazyElements.push(el)ș
+            window.lazyElements.push(el);
         }
 });

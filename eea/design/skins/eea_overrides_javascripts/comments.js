@@ -1,3 +1,4 @@
+/* jslint:disable */
 /******************************************************************************
  *
  * jQuery functions for the plone.app.discussion comment viewlet and form.
@@ -173,7 +174,7 @@
                 width: '60%',
 		subtype: 'ajax',
 		filter: '#content>*'
-		})
+		});
 
         /**********************************************************************
          * Delete a comment and its answers.

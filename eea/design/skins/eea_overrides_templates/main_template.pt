@@ -278,7 +278,7 @@
 
             <tal:not4AjaxLoad  tal:condition="not:ajax_load">
                 <tal:not4Print tal:condition="python:not isPrint">
-                    <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" />
+                    <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent"></div>
                 </tal:not4Print>
             </tal:not4AjaxLoad>
         </div>

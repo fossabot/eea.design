@@ -99,7 +99,6 @@
        i18n:translate="">
        Site Setup
     </a>
-<h1>David</h1>
     <h1 class="documentFirstHeading" i18n:translate="heading_registry">Configuration registry</h1>
 
     <p class="documentDescription" i18n:translate="description_registry">
