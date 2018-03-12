@@ -12,7 +12,7 @@
     z-index: 4;
     position: absolute;
     bottom: 0;
-    left: 0px;
+    left: 0;
     width: 100%;
     color: white;
     margin: 0 0px;
@@ -92,8 +92,8 @@
 
 #promo-gallery-content li, #promo-gallery-content-sm li {
 	overflow:hidden;
-	padding:0px;
-	margin:0px;
+	padding:0;
+	margin:0;
 	height:100%;
 	width:100%;
 	float:left;
@@ -233,7 +233,7 @@
 }
 
 #promo-navigator-sm li img {
-    padding: 6px 6px 0px 8px;
+    padding: 6px 6px 0 8px;
     height: 38px;
     width: 75%;
 }
@@ -255,21 +255,12 @@
     height: 25px;
 }
 
-.promo-gallery-play,
-.promo-gallery-pause,
-#prev-promo,
-#next-promo {
-  background: transparent url("&dtml-xurl;/sprite-eeaimages.png") no-repeat scroll top right;
+.promo-gallery-play:before {
+    content: "\f04b";
 }
 
-.promo-gallery-play {
-    background-position: -446px -215px;
-    padding-left: 25px;
-}
-
-.promo-gallery-pause {
-    background-position: -454px -190px;
-    padding-left: 16px;
+.promo-gallery-pause:before {
+    content: "\f04c";
 }
 
 #prev-promo, #next-promo {
@@ -279,20 +270,16 @@
     width: 16px;
 }
 
-#prev-promo {
-    background-position: left -370px;
-}
-
-#next-promo {
-    background-position: left -345px;
-}
-
 .controls, .controls-sm {
     background: &dtml-lightBackgroundColor;;
     clear: both;
     height: 25px;
-    padding: 15px 0px 0px 20px;
+    padding: 15px 0 0 20px;
     position: relative;
+}
+
+.controls .eea-icon, .controls-sm .eea-icon {
+    color: #9cb43c;
 }
 
 /* </dtml-let> */

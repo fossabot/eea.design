@@ -9,16 +9,16 @@
 </head>
 <body>
 
-<div metal:fill-slot="main" id="content-core">
+<div metal:fill-slot="body" id="content">
     <h1 class="hiddenStructure" tal:content="context/Title">EEA Home page</h1>
     <tal:main-macro metal:define-macro="main">
         <div id="highlights-block"
                 tal:define="global frontpage_view context/@@frontpage_highlights;
                 main_site python: True if language == 'en' else False;">
-            <div id="main-content">
+            <div id="main-content" class="content-core">
                 <div class="visualClear"><!-- &nbsp; --></div>
 
-                <div id="eea-intro-message" class="portalMessage visualNoMargins" tal:condition="main_site">
+                <div id="eea-intro-message" class="portalMessage" tal:condition="main_site">
                         <span class="discreet" i18n:translate="">The European Environment Agency provides sound, independent information on the environment for those involved in developing, adopting, implementing and evaluating environmental policy, and also the general public. In close collaboration with
                             <a href="about-us/countries-and-eionet" class="link-plain" i18n:name="url" i18n:translate="">the European Environmental Information and Observation Network (Eionet)</a> and its 33 member countries, the EEA gathers data and produces assessments on a wide range of topics related to the environment.
                             <a tal:attributes="href string:$portal_url/about-us" i18n:name="learn" i18n:translate="">Learn more</a>
@@ -29,14 +29,14 @@
                 <div id="megatopics-area" tal:condition="main_site">
                     <div class="portlet-megatopic">
                         <div class="portlet promo-nav-portlet" id="air-and-climate-megatopic">
-                            <div class="portletItem">
+                            <div>
                                 <img title="Air and climate" alt="Air and climate"
                                   width="254" height="150" i18n:attributes="title alt"
                                   tal:attributes="src string:$portal_url/SITE/themes/air/theme_image/image_mini" />
                                 <div class="portletHeader" i18n:translate="">
                                     Air and climate
                                 </div>
-                                <ul class="">
+                                <ul class="list-items">
                                     <li><a href="/themes/air" i18n:translate="">Air pollution</a></li>
                                     <li><a href="/themes/climate-change-adaptation" i18n:translate="">Climate change adaptation</a></li>
                                     <li><a href="themes/climate" i18n:translate="">Climate change mitigation</a></li>
@@ -46,14 +46,14 @@
                     </div>
                     <div class="portlet-megatopic">
                         <div class="portlet promo-nav-portlet" id="nature-megatopic">
-                            <div class="portletItem">
+                            <div>
                                 <img title="Nature" alt="Visit our biodiversity website"
                                   width="254" height="150" i18n:attributes="title alt"
                                   tal:attributes="src string:$portal_url/SITE/themes/biodiversity/theme_image/image_mini" />
                                 <div class="portletHeader" i18n:translate="">
                                     Nature
                                 </div>
-                                <ul class="">
+                                <ul class="list-items">
                                     <li><a href="/themes/biodiversity" i18n:translate="">Biodiversity — Ecosystems</a></li>
                                     <li><a href="/themes/landuse" i18n:translate="">Land use</a></li>
                                     <li><a href="/themes/soil" i18n:translate="">Soil</a></li>
@@ -64,14 +64,14 @@
                     </div>
                     <div class="portlet-megatopic">
                         <div class="portlet promo-nav-portlet" id="sustainability-megatopic">
-                            <div class="portletItem">
+                            <div>
                                 <img title="Sustainability and well-being" alt="Sustainability and well-being"
                                   width="254" height="150" i18n:attributes="title alt"
                                   tal:attributes="src string:$portal_url/SITE/themes/human/theme_image/image_mini" />
                                 <div class="portletHeader" style="font-size:142%;" i18n:translate="">
                                     Sustainability and well-being
                                 </div>
-                                <ul class="">
+                                <ul class="list-items">
                                     <li><a href="/themes/human" i18n:translate="">Environment and health</a></li>
                                     <li><a href="/themes/policy" i18n:translate="">Policy instruments</a></li>
                                     <li><a href="/themes/waste" i18n:translate="">Resource efficiency and waste</a></li>
@@ -82,14 +82,14 @@
                     </div>
                     <div class="portlet-megatopic">
                         <div class="portlet promo-nav-portlet" id="economic-sectors-megatopic">
-                            <div class="portletItem">
+                            <div>
                                 <img title="Economic sectors" alt="Economic sectors"
                                   width="254" height="150" i18n:attributes="title alt"
                                   tal:attributes="src string:$portal_url/SITE/themes/energy/theme_image/image_mini" />
                                 <div class="portletHeader" i18n:translate="">
                                     Economic sectors
                                 </div>
-                                <ul class="">
+                                <ul class="list-items">
                                     <li><a href="/themes/agriculture" i18n:translate="">Agriculture</a></li>
                                     <li><a href="/themes/energy" i18n:translate="">Energy</a></li>
                                     <li><a href="/themes/industry" i18n:translate="">Industry</a></li>

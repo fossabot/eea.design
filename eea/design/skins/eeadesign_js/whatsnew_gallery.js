@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
         el.load(address, params, function(html) {
             var album = el.find(".gallery-album");
             var listing = el.find(".gallery-listing");
-            var layout = layout_selection || el.parent().find(".gallery-layout-selection li a")[0];
+            var layout = layout_selection || el.parent().find(".gallery-layout-selection li")[0];
             if (html.length > 1) {
                 if (layout && layout.className === "list-layout active-list") {
                     el.find('.gallery-album').addClass("hiddenStructure");
@@ -47,7 +47,7 @@ jQuery(document).ready(function($) {
         news = news[0] !== undefined ? news[0] :news;
 
         var gallery_ajax = $(".gallery-ajax", news);
-        var layout_selection = $('.gallery-layout-selection li a', news)[0];
+        var layout_selection = $('.gallery-layout-selection li', news)[0];
         var params = sel_value ? "topic" +  "=" + sel_value : undefined;
         params = params ? params + '&tabname=' + cur_tab_val : 'tabname=' + cur_tab_val;
         eea_gal.gallery_load(gallery_ajax, address, params, layout_selection);
@@ -131,15 +131,14 @@ jQuery(document).ready(function($) {
         });
 
     // selection of folder_summary_view or atct_album_view
-    var layout_links = $(".gallery-layout-selection li a");
+    var layout_links = $(".gallery-layout-selection li");
     layout_links.click(function(e) {
         var $this = $(this);
-        var $parent = $this.parent();
         var $ajax = $this.closest("ul").next();
         var $hidden_gallery = $ajax.find(".hiddenStructure");
         var listing = $ajax.find('.gallery-listing');
         var album = $ajax.find('.gallery-album');
-        var next = $parent.siblings().find("a");
+        var $next = $this.siblings();
         var link_class = $this[0].className;
         var highlight = $this.closest("div")[0].id;
         if (link_class === "list-layout active-list" || link_class === "album-layout active-album") {
@@ -154,7 +153,7 @@ jQuery(document).ready(function($) {
             listing.slideDown("slow");
             $hidden_gallery.removeClass("hiddenStructure");
             $this.toggleClass("active-list");
-            next.toggleClass("active-album");
+            $next.toggleClass("active-album");
             SubCookieUtil.set(eea_gal.gallery_page, highlight, "active-list", cookie_expires);
         }
         else {
@@ -162,7 +161,7 @@ jQuery(document).ready(function($) {
             album.slideDown("slow");
             $hidden_gallery.removeClass("hiddenStructure");
             $this.toggleClass("active-album");
-            next.toggleClass("active-list");
+            $next.toggleClass("active-list");
             SubCookieUtil.set(eea_gal.gallery_page, highlight, "active-album", cookie_expires);
         }
 
@@ -176,7 +175,7 @@ jQuery(document).ready(function($) {
         if (gallery_cookies !== null) {
             eea_gal.gallery.find('.eea-tabs-panel').each(function() {
                 var $this = $(this);
-                var layouts = $this.find(".gallery-layout-selection li a");
+                var layouts = $this.find(".gallery-layout-selection li");
                 var $hidden_gallery = $this.find(".hiddenStructure");
                 var link_listing = layouts.first();
                 var link_album = layouts.last();

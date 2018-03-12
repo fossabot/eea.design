@@ -27,22 +27,12 @@
 /* @group Pulldown menus @parent Editing */
 
 /* @group Personal Tools pulldown @parent Pulldown menus */
-#portal-personaltools {
-    background-color: &dtml-corporateGreen;;
-    border:none;
-    border-radius: 0;
-    color: #fff;
-    line-height: 1.6em;
-    list-style: none;
-    padding: 0.3em 0.5em 0.5em !important; /* important because right now authoring is bellow public */
-    text-align: right;
-}
 
 #portal-personaltools dd {
     margin-top: 6px;
 }
 #portal-personaltools li a, #portal-personaltools a:hover {
-    color: #FFFFFF !important;
+    color: #FFFFFF;
 }
 #portal-personaltools-wrapper {
     margin-right: 1em;
@@ -93,6 +83,10 @@
 
 #edit-bar, .actionMenuContent, #portal-personaltools, #portal-personaltools dd {
     background-color: &dtml-corporateGreen;;
+}
+
+.panel .actionMenuContent {
+    background-color: #FFF;
 }
 /* @end group Pulldown menus @parent Editing */
 

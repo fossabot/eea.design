@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<object name="portal_css">
+
+  <stylesheet id="bootstrap.css" bundle="default"
+    expression="" remove="True" />
+
+  <stylesheet id="reset.css" bundle="default"
+    expression="" remove="True" />
+
+  <stylesheet id="++resource++jquery.css" bundle="default"
+    expression="" remove="True" />
+  
+
+  <stylesheet id="++resource++jquery.select2uislider.css" bundle="default"
+    expression="" remove="True" />
+
+  <stylesheet id="livesearch.css" bundle="default"
+    expression="" remove="True" />
+
+  <stylesheet id="IEFixes.css" bundle="default"
+    expression="" remove="True" />
+
+  <stylesheet id="IE7Fixes.css " bundle="default"
+    expression="" remove="True" />
+
+  <stylesheet id="IE8Fixes.css " bundle="default"
+    expression="" remove="True" />
+
+  <stylesheet id="IE9Fixes.css " bundle="default"
+    expression="" remove="True" />
+
+  <stylesheet id="critical.css" bundle="default"
+    expression="" rendering="inline"
+    media="all"
+    insert-before="base.css" />
+
+ <stylesheet id="subfolder_listing.css" bundle="default"
+             expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.design.browser.interfaces.ISubFoldersListing')"
+             insert-after="++resource++eea.uberlisting.css/uberlisting_view.css" />
+
+  <stylesheet id="datamaps_view.css" bundle="default"
+    expression="python: '/data-and-maps' in request.URL0 or getattr(object, 'portal_type', None) in ['Data', 'EEAFigure']"
+    insert-before="dataservice_style.css" />
+
+  <stylesheet id="anon.css" bundle="default"
+    expression=""
+    insert-before="authoring.css" />
+  <stylesheet id="outdated.css" bundle="default"
+    expression=""
+    insert-after="anon.css" />
+
+  <stylesheet id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.css" bundle="default" expression=""
+    position-after="outdated.css" />
+
+  <stylesheet id="++resource++plone.formwidget.contenttree/contenttree.css" bundle="default"
+    expression=""
+    position-after="++resource++plone.formwidget.autocomplete/jquery.autocomplete.css" />
+
+  <stylesheet id="++resource++eea.glossary/main.css" bundle="default"
+    expression=""
+    position-after="++resource++plone.formwidget.contenttree/contenttree.css" />
+
+
+  <stylesheet id="edit.css" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.URL0"
+    insert-after="eea.geotags.css" />
+
+  <stylesheet id="++resource++select2/select2.css" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.URL0"
+    insert-after="edit.css" />
+
+
+
+
+  <!--?faceted navigation -->
+
+  <stylesheet id="++resource++jquery.select2uislider.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.sparql.css" />
+
+
+ <stylesheet id="++resource++eea.faceted-navigation.css" bundle="faceted-view"
+             expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+             insert-after="++resource++jquery.select2uislider.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.text.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.faceted-navigation.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.tal.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.text.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.tagscloud.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.tal.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.sorting.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.tagscloud.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.select.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.sorting.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.resultsperpage.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.select.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.resultsfilter.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.resultsperpage.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.range.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.resultsfilter.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.radio.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.range.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.portlet.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.radio.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.path.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.portlet.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.etag.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.path.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.debug.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.etag.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.daterange.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.debug.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.date.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.daterange.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.criteria.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.date.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.checkbox.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.criteria.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.autocomplete.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.checkbox.view.css" />
+
+  <stylesheet id="++resource++eea.facetednavigation.widgets.alphabets.view.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.autocomplete.view.css" />
+
+  <stylesheet id="eea-faceted-custom.css" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.alphabets.view.css" />
+
+    <stylesheet id="++resource++jquery.annotator.css" bundle="default"
+                expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled() or 'daviz-edit.html' in request.URL0"
+                insert-after="++resource++select2/select2.css" />
+    <stylesheet id="++resource++eea.annotator.view.css" bundle="default"
+                expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled() or 'daviz-edit.html' in request.URL0"
+                insert-after="++resource++jquery.annotator.css" />
+    <stylesheet id="++resource++eea.annotator.edit.css" bundle="default"
+                expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled() or 'daviz-edit.html' in request.URL0"
+                insert-after="++resource++eea.annotator.view.css" />
+
+  <!--? last bundle with the theme and overrides -->
+  <stylesheet id="eea-theme.css" bundle="default"
+    expression=""
+    media="all"
+    position-after="pdf_viewer.css" />
+
+  <stylesheet id="bootstrap_fixes.css" bundle="default"
+    expression=""
+    position-after="eea-theme.css" />
+
+  <stylesheet id="eea-responsive.css" bundle="default"
+    expression=""
+    position-after="bootstrap_fixes.css" />
+
+  <stylesheet id="ploneCustom.css" bundle="default"
+    expression=""
+    position-after="eea-responsive.css" />
+
+</object>

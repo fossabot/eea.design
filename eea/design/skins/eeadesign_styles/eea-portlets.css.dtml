@@ -17,11 +17,6 @@ dl.portlet {
     font-size: 100%;
 }
 
-dl.portlet dt,
-div.portletAssignments div.portletHeader {
-    background: transparent;
-}
-
 /* #16720; shrink the font-size of portlet headers */
 .portletAssignments .portletHeader,
 .portletAssignments .portlet_visible .portletHeader,
@@ -29,16 +24,10 @@ div.portletAssignments div.portletHeader {
     font-size: 140%;
 }
 
-dl.portlet dt a:link,
-dl.portlet dt a:visited,
-dl.portlet dt a:hover {
-    display: inline; /* ichimdav rule for calendar */
-}
-
 dl.portlet dd.portletItem,
 dl.portlet dd.portletFooter,
 dl.portletError dd {
-    padding: 0em;
+    padding: 0;
 }
 
 div.managePortletsLink,
@@ -63,18 +52,6 @@ dl.portlet ul.navTree li a {
 
 dl.portlet ul.navTreeLevel0 > li:first-child > a {
   border-top: 0; /* no top border on the first link of the navigation menu */
-}
-
-
-dl.portlet ul.navTreeLevel0 > .navTreeItem {
-    padding: 0;
-    border-bottom: 0;
-}
-
-dl.portlet ul.navTree .navTreeCurrentItem {
-    background-color: transparent;
-    margin: 0;
-    border-left: 0;
 }
 
 .navTreeItemInPath > ul.navTreeLevel0 li > a {
@@ -128,19 +105,20 @@ dl.portlet ul.navTree .navTreeCurrentItem {
     padding: 0 0 0 0;
 }
 
-.portletHeader, dl.portlet dt.portletHeader {
-    font-weight:normal !important;
-    font: normal 160% &dtml-fontFamily;;
+.portletHeader {
+    font-size: 160%;
+    font-weight: normal;
     color: &dtml-corporateBlue;;
     line-height: 1.4;
-    margin: 0;
-    padding: 0 0 0.5em 0;
+    padding: 0;
+    margin: 0 0 1em 0;
 }
 
 #firstHeader {
-   margin-top: 0;
+   margin: 0 0 5px 0;
    line-height: 1.2;
    font-size: 1.6em;
+    font-weight: bold;
 }
 
 .portletFooter {
@@ -169,36 +147,10 @@ dl.portlet ul.navTree .navTreeCurrentItem {
 .portletItem a {
     display: block;
 }
-dd.portletItem a,
-dd.portletFooter a {
-    border-bottom: none;
-}
-.portlet a, dl.portlet a {
-    text-decoration: none;
-}
 
-.portlet a:visited, #content .portlet a{
-    color:&dtml-linkColor;;
-}
-
-dd.portletItem a:visited,
-dd.portletFooter a:visited {
-    color: &dtml-linkColor;;
-}
-
-#portal-column-two .portletHeader a,
-#portal-column-two .portletHeader a:link,
-#portal-column-two .portletHeader a:visited,
-#portal-column-two .portletHeader a:active,
-#portal-column-two .portletHeader a:hover,
-#portal-column-one .portletHeader a,
-#portal-column-one .portletHeader a:link,
-#portal-column-one .portletHeader a:visited,
-#portal-column-one .portletHeader a:active,
-#portal-column-one .portletHeader a:hover  {
-    color: &dtml-linkHeadingColor;;
-    text-decoration: none;
-}
+/*.portlet a:visited, .portlet a{*/
+    /*color:&dtml-linkColor;;*/
+/*}*/
 
 #content img {
     vertical-align: middle;
@@ -218,10 +170,6 @@ dd.portletFooter a:visited {
     list-style: none none;
     line-height: 1em;
     background: #FFFFFF;
-}
-
-.navTree {
-    list-style: none none;
 }
 
 .navTree li {
@@ -244,9 +192,6 @@ dd.portletItem .navTreeItem a {
     font-weight: bold;
 }
 
-.navTreeItem a:hover,
-dd.portletItem .navTreeItem a:hover {
-}
 
 li.navTreeCurrentItem {
     display: block;
@@ -437,14 +382,6 @@ dt.portletItem a, #content dt.portletItem a {
 
 .portlet-subscription dd, .portlet-subscription dd div {
     margin-bottom: 0.5em;
-}
-
-dl.portletNavigationTree dt.portletHeader {
-  padding: 0;
-  font-size: 16px;
-  margin: 5px 0;
-  background-color: transparent;
-  font-weight: bold !important;
 }
 
 dl.portletNavigationTree dt.portletSubMenuHeader {
