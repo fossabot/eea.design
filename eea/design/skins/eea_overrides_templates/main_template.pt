@@ -313,8 +313,39 @@
     <tal:not4Print tal:condition="python:not isPrint">
         <div tal:replace="structure provider:plone.portalfooter" />
     </tal:not4Print>
-</metal:block>
 
+    <!--? 91577 add lazy_load_init.js inline due to products.resourceregistry bug with inline javascript -->
+    <script type="text/javascript">
+        var w_inner_height = window.innerHeight;
+        var w_inner_width = window.innerWidth;
+        function isElementInViewport (el) {
+            // Detect if element is in viewport
+            var rect = el.getBoundingClientRect();
+            return (
+                    rect.top > 0 &&
+                    rect.left > 0 &&
+                    rect.bottom <= w_inner_height &&
+                    rect.right <=  w_inner_width
+            );
+        }
+
+        function enableLazy(element) {
+            var source = element.src;
+            var classes = element.className.length ? element.className + ' ' : '';
+            element.setAttribute('data-src', source);
+            element.className =  classes + 'lazy';
+            element.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=';
+        }
+
+        lazyElements = [];
+        var imgs = document.querySelectorAll('img');
+        Array.prototype.forEach.call(imgs, function(el, i){
+            if (isElementInViewport(el) === false) {
+                enableLazy(el);
+                lazyElements.push(el);
+            }
+        });
+    </script>
     <tal:scripts replace="structure provider:plone.resourceregistries.scripts" />
     <metal:javascriptslot define-slot="javascript_head_slot" />
 
@@ -324,6 +355,7 @@
             Get the global cache headers located in global_cache_settings.
         </metal:content_core_only>
     </tal:4ContentCoreOnly>
+</metal:block>
 </body>
 
 </html>
