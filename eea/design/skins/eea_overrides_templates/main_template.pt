@@ -98,7 +98,7 @@
 
     <meta name="generator" content="Plone - http://plone.org" />
 
-    <script type="text/javascript" tal:content="structure: context/ready.min.js">
+    <script type="text/javascript" tal:content="structure context/ready.min.js">
         </script>
 
         <script type="text/javascript" tal:content="string: context_url='${context/absolute_url}';">
@@ -318,7 +318,7 @@
         due to products.resourceregistry bug with inline javascript where
         on anonymous there was a caching status AssertionError
     </tal:comment>
-    <script type="text/javascript" tal:content="structure: context/lazy_load_init.js">
+    <script type="text/javascript" tal:content="structure context/lazy_load_init.js">
     </script>
     <tal:scripts replace="structure provider:plone.resourceregistries.scripts" />
     <metal:javascriptslot define-slot="javascript_head_slot" />
