@@ -1,0 +1,75 @@
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
+/* outdated and cookie policy objects */
+/* #4669 display outdated browser message */
+#outdated_wrap, .message_wrap {
+    background-color: #F3F3F3;
+    width: 100%;
+    border-top: solid 1px #778899;
+    border-bottom: solid 1px #778899;
+    text-align: center;
+    padding:5px 0 5px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1001;
+}
+.message_wrap {
+    text-align: left;
+}
+.message_wrap p {
+    margin-bottom: 0.2em;
+}
+#outdated, .message_body {
+    width: 960px;
+    margin: 0 auto;
+}
+.message_images .eea-icon {
+    font-size: 1.7em;
+    color: &dtml-headingColor;;
+}
+#outdated h3,  .message_wrap h3 {
+    border: 0;
+    margin: 0;
+}
+#outdated li {
+    float: left;
+    background: url('&dtml-xurl;/browsers.png') no-repeat;
+    width: 50px;
+    height: 71px;
+    overflow: hidden;
+    margin-left: 25px;
+}
+#outdated li a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding-top: 45px;
+}
+#outdated_text {
+    width: 30%;
+    float: left;
+    border-right: 1px dotted lightGrey;
+    padding-right: 3em;
+}
+#outdated_ff {
+    background-position: -200px 0 !important;
+}
+#outdated_ie {
+    background-position: -50px 0 !important;
+}
+#outdated_chrome {
+    background-position: -150px 0 !important;
+}
+#outdated_safari {
+    background-position: -100px 0 !important;
+}
+.cms-browsers-links ul li {
+    display: list-item;
+    list-style-type: none;
+}
+/* @end outdated and cookie policy objects */
+
+/* </dtml-let> */
+/* </dtml-with> */

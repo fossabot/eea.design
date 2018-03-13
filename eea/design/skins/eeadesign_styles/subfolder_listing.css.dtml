@@ -1,0 +1,66 @@
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
+/* #5455 subfolder navigation styling */
+#subfolders_listing {
+    font-weight: bold;
+    margin: -1em 0 0 -0.5em !important;
+    padding: 0;
+    min-height: 37px;
+    height: 3.5em;
+}
+#subfolders_listing > li {
+    float: left;
+    padding: 0.5em 0;
+    position: relative;
+    margin: 5px 0;
+    min-width: 60px;
+}
+#subfolders_listing a {
+    padding: 0.8em;
+}
+#subfolders_listing a:hover {
+    color: #8e004d;
+    text-decoration: underline;
+}
+a#subfolders_more_a, .more_dropdown_a {
+    background: url("&dtml-xurl;/accordion_down.png") no-repeat scroll 95% 50% transparent;
+    padding-right: 2.5em;
+}
+#subfolders_listing #subfolders_more_a:hover, #subfolders_listing .moreHover, .more_dropdown_a .moreHover {
+    background: url("&dtml-xurl;/accordion_down.png") no-repeat scroll 95% 50% #FFF !important;
+    position: relative;
+    z-index: 1010;
+}
+#subfolders_listing .moreHover {
+    background: none repeat scroll 0 0 #FFFFFF;
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border: 1px solid #666666;
+    border-bottom: medium none;
+}
+#subfolders_listing ul a {
+    min-width: 140px;
+    display: block;
+}
+#subfolders_listing ul {
+    position: absolute;
+    background-color: #FFFFFF;
+    border: 1px solid #666;
+    margin: 8px 0;
+    padding: 0;
+    z-index: 1005;
+    left: -3000px;
+    list-style: none;
+}
+#subfolders_listing > li:hover ul {
+    left: 0;
+}
+/* @end #5455 subfolder navigation styling */
+
+/* </dtml-let> */
+/* </dtml-with> */

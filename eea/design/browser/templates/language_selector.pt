@@ -11,6 +11,7 @@
 
         <tal:anonLanguageCodes tal:condition="python:data and isAnon">
             <div id="article-language">
+                <span class="eea-icon eea-icon-globe eea-icon-lg"></span>
                 <a href="#" i18n:translate="">Change language</a>
             </div>
 

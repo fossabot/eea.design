@@ -1,10 +1,6 @@
 /* <dtml-with base_properties> (do not remove this :) */
 /* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
 
-html {
-    font-size: 16px;
-}
-
 body {
     line-height: normal;
 }
@@ -40,11 +36,6 @@ label {
     display: inline;
 }
 
-/* #13825 remove margin-left from our styles set by twitter bootstrap */
-div.row {
-    margin-left: 0;
-    margin-right: 0;
-}
 
 /* #27501 needed because bootstrap navbar has an z-index of 1030 which hides the jquery ui dialog
    for related items.
@@ -83,9 +74,6 @@ blockquote {
 /* faceted count widget with long terms fall below the inputs
 * with display: inline block set from bootstrap
 */
-.widget-fieldset ul li label {
-    display: inline;
-}
 
 /* ==== ploneCustom.css ==== */
 #visual-portal-wrapper .eea-tabs.two-rows > li > a {
@@ -125,7 +113,7 @@ input.removecriteria {
 }
 
 /* ++resource++jquery.annotator.css  */
-.erratum-quote {
+.annotator-erratum .erratum-quote {
     max-height: 3em; /* annotator tool inline-comments right column panel clips text as original value is 12px */
 }
 /* </dtml-with> */

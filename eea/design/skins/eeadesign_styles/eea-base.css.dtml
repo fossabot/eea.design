@@ -63,10 +63,6 @@
     clear:both;
 }
 */
-#content-core p,
-#content-core li {
-    font-size: 115%;
-}
 
 /* stop inheriting bigger size for nested lists */
 #content-core li li {
@@ -78,29 +74,16 @@ img {
     vertical-align: middle;
 }
 
-/* no horisontal lines allowed, only used as spacer, separation is done with headings or bg colors */
-hr {
-    border: none 0;
-    border-top: 1px solid white;/*invisible border*/
-    height: 0px;
-    margin: 0.5em 0 1em 0;
-}
 
 #content-core h3 {
     padding-bottom: 5px;
 }
 
-#region-content ul, ul {
-    margin: 0 0 0 1.5em;
-    list-style-image: url(&dtml-xurl;/bullet.gif);
-    list-style-type: square;
-    list-style-position: inside;
-}
 
-#region-content ol, ol {
+ol {
     line-height: 1.5em;
     margin: 0.5em 0 0 2.5em;
-    list-style-image: none;
+    list-style: decimal none;
 }
 
 #content-core ul {
@@ -196,11 +179,6 @@ select {
 
 /* @group Content Area */
 
-#content {
-    font-size: inherit;
-    margin: 0;
-}
-
 .userrole-anonymous .documentFirstHeading {
     padding-right: 7em; /* to avoid overlapping with language switcher which appears only for anonymous users */
 }
@@ -208,22 +186,6 @@ select {
 #content p a:link {
     border-bottom: 1px solid #CCCCCC;
     word-wrap: break-word; /* #87691 avoid link span over the content area */
-}
-
-#content a:link,
-dl.portlet a:link {
-    color: &dtml-linkColor;;
-    border-bottom: 0;
-}
-
-#content a:visited,
-dl.portlet a:visited {
-    color: &dtml-linkVisitedColor;;
-    border-bottom: 0;
-}
-
-#content a:hover, dl.portlet a:hover {
-    color: #8E004D !important;
 }
 
 #content span.link-external a {
@@ -333,15 +295,6 @@ div.listingBar a {
 /* @end @group Data tables */
 
 /* @group Status messages */
-dl.portalMessage {
-    background-color: &dtml-lightBackgroundColor;;
-}
-
-dl.portalMessage dt,
-dl.warning dt {
-    background-color: transparent;
-}
-
 dl.error dt {
     color: white;
 }
@@ -424,34 +377,11 @@ dl.toc dd {
 /* @end @group Table of Contents */
 
 /* @group Album view classes */
-.photoAlbumEntry {
-    border: 0px;
-    background-color: transparent;
-    background-image: none;
-    float: left;
-    height: 125px;
-    width: 128px;
-    margin: 0 3px 7px 3px;
-    padding: 0px;
-    box-shadow: 0px 1px 2px #CCCCCC;
-    z-index: 3;
-}
 
 .photoAlbumEntry img {
     max-height: 71px;
-    border: 0;
 }
 
-.photoAlbumEntryWrapper {
-    display: block;
-    background: white;
-    max-height: 71px;
-    height: 100%;
-    width: 100%;
-    margin-bottom: 0;
-    overflow: hidden;
-    border: 0;
-}
 
 a.video-fancybox .photoAlbumEntryWrapper {
     position: relative;
@@ -476,6 +406,7 @@ a.video-fancybox .photoAlbumEntryWrapper {
     width: 100%;
     padding: 0 5px;
     font-weight: bold;
+    text-align: center;
 }
 /* our additional photoAlbumEntry styles */
 .photoAlbumEntry:hover {
@@ -541,28 +472,6 @@ div.overlay a:hover {
 
 /* @group Core content type sprites */
 
-/* Generated using http://spritegen.website-performance.org, with the following
-   parameters:
-   - Build direction: Vertical
-   - Horizontal offset: (doesn't matter, but can't be 0)
-   - Vertical offset: 200px
-   - Compress image with OptiPNG: yes
-   - Class prefix: contenttype-
-   - Display width and height: no
-  Then, add 4 px to the background-position to line up the icons to text.
-
-.contenttype-document_icon { background-position: 0 0;  }
-.contenttype-event_icon { background-position: 0 -216px;  }
-.contenttype-file_icon { background-position: 0 -432px;  }
-.contenttype-folder_icon { background-position: 0 -648px;  }
-.contenttype-image_icon { background-position: 0 -864px;  }
-.contenttype-link_icon { background-position: 0 -1080px;  }
-.contenttype-newsitem_icon { background-position: 0 -1296px;  }
-.contenttype-site_icon { background-position: 0 -1512px;  }
-.contenttype-topic_icon { background-position: 0 -1728px;  }
-
-*/
-
 .icons-on .contenttype-document {
     background: no-repeat transparent 0px 2px url(&dtml-xurl;/contenttypes-sprite.png);
 }
@@ -584,6 +493,11 @@ div.overlay a:hover {
 }
 .icons-on .contenttype-topic, .icons-on .contenttype-collection {
     background: no-repeat transparent 0px -1728px url(&dtml-xurl;/contenttypes-sprite.png);
+}
+
+/* avoid double icon for portal navigation collection link */
+#portal-column-two .contenttype-collection {
+    background: none;
 }
 
 /* These should only appear in the add menu */

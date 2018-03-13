@@ -31,13 +31,13 @@ IGNORE THIS WILL BE REPLACED BY SOER 2015
                                      <dd class="portletItem" tal:repeat="item items">
                                        <span>
                                           <a href="" title="Read more of the key fact"
-                                             class="moreLink link-plain"
+                                             class="link-plain"
                                                   tal:attributes="href item/parent_url;title item/parent_title;"
                                                   i18n:attributes="title"
                                                   i18n:translate="" tal:content="item/parent_title">more</a>:&nbsp;
                                           <span tal:replace="structure item/text"></span>
                                           <a href="" title="Read more of the key fact"
-                                             class="moreLink link-plain"
+                                             class="link-plain"
                                                   tal:attributes="href item/parent_url;title item/parent_title;"
                                                   i18n:attributes="title"
                                                   i18n:translate="">more</a>

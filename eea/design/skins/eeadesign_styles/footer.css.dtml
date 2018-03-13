@@ -41,45 +41,6 @@
     text-decoration: underline;
 }
 
-#portal-colophon {
-    float: none;
-    margin: 0 0 2em 0;
-    padding: 0.5em 1em 1em 1em;
-    text-align: center;
-    clear:both;
-}
-
-#portal-colophon .colophonWrapper {
-    border-collapse: collapse;
-    border-spacing: 0;
-    text-align: left;
-    margin: 0 auto;
-}
-
-.colophon-left {
-    float: left;
-    width: 215px;
-}
-
-.colophon-middle {
-    margin-top:-17px;
-    text-align: center;
-}
-
-.colophon-right {
-    float: right;
-    width: 215px;
-}
-
-.colophon-right span {
-    float: left;
-    width: 155px;
-}
-
-.colophon-right img {
-    float: right;
-    width: 50px;
-}
 
 .colophon-links a, .colophon-links a:visited {
     display: inline;

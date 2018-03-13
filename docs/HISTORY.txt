@@ -1,5 +1,20 @@
 Changelog
 =========
+19.1 - (unreleased)
+-------------------
+* Change: ploneCustom.css is now empty to be used for quickfixes, the logic
+  that was there is now moved to eea-theme.css. See cleanup of js and css from
+  to_190 profile
+  [ichim-david refs #91590]
+* Change: removed bootstrap.css and js, we only needed it for navigation hiding
+  for which the needed css was copied to our theme
+  [ichim-david refs #91590]
+* Feature: move js to bottom and optimize portal_javascript resources for less
+  initial load js bundle size
+  [ichim-david refs #91577]
+* Feature: inlined critical css while also cleaning up some of the overrides
+  from plonetheme.sunburst
+  [ichim-david refs #91590]
 
 19.0 - (2018-02-23)
 -------------------

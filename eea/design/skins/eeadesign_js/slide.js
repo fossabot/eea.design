@@ -1,3 +1,10 @@
+/* EXTERNAL DEPENDENCIES: eea.tabs.js */
+
+/* client side pagination
+ * eg: http://www.eea.europa.eu/code/design-elements#toc-66
+ * used in relatedItems tabs
+ * http://www.eea.europa.eu/publications/eu-2010-biodiversity-baseline
+ */
 (function($) {
     // These regexps are stolen from match_special_links.js
     // http://domain/LL/....

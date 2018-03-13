@@ -1,0 +1,236 @@
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+/*getattr(object, 'portal_type', None)*/
+
+/*
+** demarant: Specific faceted navigation style for certain site sections
+*/
+.faceted-textwidget-place-all, .faceted-textwidget-place-current {
+    margin-top: 1em; /* give search inputs some top margin making them easier to touch */
+}
+
+.ui-widget {
+    font-family: &dtml-fontFamily;;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-size: 12px;
+    padding: 3px;
+}
+#faceted-portal-status-message {
+    width: 75% !important; /* 80% default is too large for our buttons which end up collapsed with default value */
+}
+
+.faceted-right-column .faceted-widget {
+    margin-bottom: 1em;
+}
+
+#faceted-form .faceted-widget fieldset {
+    border-style: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+#faceted-form .faceted-widget,
+#faceted-edit-widgets {
+    background-color: &dtml-lightBackgroundColor;;
+    overflow: hidden;
+}
+
+.faceted-operator {
+    color: #FFF;
+    margin-top: -35px;
+    margin-right: 1em;
+}
+
+#content .faceted-operator a {
+    background-color: white;
+    padding: 0.1em 0.4em;
+    border-radius: 5px;
+    color: #205c90;
+}
+/* 71710 faceted title widget fixes */
+.faceted-widget fieldset {
+    margin: 1em;
+}
+.faceted-widget .ui-widget-header {
+    margin: -1em -1em 1em -1em;
+}
+
+.faceted-portlet-widget .ui-widget-header {
+    margin: -1em -1em 0;
+}
+
+#faceted-form .widget-fieldset legend {
+    background-color: &dtml-corporateGreen;;
+    width: 100%;
+    color: #ffffff;
+    padding: 5px 10px;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: normal;
+}
+
+#faceted-form .widget-fieldset form,
+#faceted-form .faceted-criteria-hide-show,
+#faceted-form .faceted-criteria-reset {
+    padding-top: 1em;
+    overflow: hidden;
+}
+
+.widget-fieldset input {
+    vertical-align: middle;
+    margin-top: 2px;
+}
+
+.widget-fieldset ul li label {
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 15px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+
+
+.widget-fieldset li span {
+    padding-left: 3px;
+    color: &dtml-tabBackgroundColor;;
+}
+
+.faceted-checkboxes-widget fieldset form ul,
+.faceted-radio-widget fieldset form ul {
+    margin: 0 0 0 5px !important;
+}
+
+#tag-cloud {
+    background-color: &dtml-lightBackgroundColor;;
+}
+
+#tag-cloud .portletFooter {
+    margin: 0 1em 1em 0;
+}
+
+/* Style for faceted used in section-publications */
+.faceted_letter_selected {
+    background: transparent !important;
+    font-weight: bold;
+}
+
+.faceted_letter,
+.faceted_letter:hover {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+#faceted-form .tags-cloud li {
+    color: &dtml-linkColor; !important;
+}
+
+#faceted-form .tags-cloud li:hover {
+    background-color: &dtml-corporateOrange; !important;
+    color: white !important;
+}
+
+.ui-accordion .ui-state-default,
+.ui-accordion .ui-state-active {
+    margin: 0 !important;
+    background-color: &dtml-corporateOrange;;
+}
+
+.ui-accordion .ui-accordion-content {
+    padding: 0 !important;
+}
+
+#center-and-left-area {
+    clear: both !important;
+}
+
+/* c13 = the search box */
+
+.faceted-tagscloud-widget,
+.faceted-tagscloud-widget .widget-fieldset,
+.faceted-criteria-widget,
+.faceted-criteria-widget .widget-fieldset {
+    height: auto !important;
+}
+
+#faceted-top-column fieldset {
+    width: 50%;
+}
+
+.faceted-widget input[type="text"] {
+    min-width: 70%;
+    max-width: 78.5%;
+    font-size: 16px;
+    padding: 6px;
+    background: &dtml-greyBackgroundColor;;
+    display: inline-block;
+}
+
+.faceted-text-widget input[type="text"],
+.faceted-text-widget .searchButton {
+    display: block;
+    float: left;
+}
+.faceted-textwidget-place-all {
+    clear: left;
+}
+#faceted-form .ui-helper-reset {
+    margin: 0;
+}
+
+.faceted-top-widgets .faceted-widget,
+.faceted-center-widgets .faceted-widget {
+    background-color: &dtml-lightBackgroundColor;;
+    min-height: 110px;
+}
+
+.faceted-top-widgets .faceted-widget .faceted-textwidget-place-all,
+.faceted-top-widgets .faceted-widget .faceted-textwidget-place-current,
+.faceted-center-widgets .faceted-widget .faceted-textwidget-place-all,
+.faceted-center-widgets .faceted-widget .faceted-textwidget-place-current {
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+}
+
+.faceted-resultsperpage-widget select {
+    padding: 3px;
+    width: 50px;
+}
+
+.faceted-criteria dd {
+    margin-left: 22px !important;
+}
+
+
+.faceted-top-widgets .faceted-widget .widget-fieldset form .faceted-textwidget-place-all label,
+.faceted-top-widgets .faceted-widget .widget-fieldset form .faceted-textwidget-place-current label,
+.faceted-center-widgets .faceted-widget .widget-fieldset form .faceted-textwidget-place-all label,
+.faceted-center-widgets .faceted-widget .widget-fieldset form .faceted-textwidget-place-current label{
+    display: inline;
+    float: none;
+    font-size: 11px;
+    line-height: 13px;
+    padding-bottom: 0;
+    width: 120px;
+}
+
+.faceted-results {
+    padding: 0;
+}
+
+.faceted-results {
+    background-color: &dtml-lightBackgroundColor;;
+    padding: 0 1em 1em;
+    margin-bottom: 0;
+}
+.faceted-results .photoAlbumEntry {
+    width: 123px;
+}
+/* @end of specific faceted navigation style */
+
+/* </dtml-let> */
+/* </dtml-with> */
