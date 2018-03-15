@@ -253,6 +253,11 @@ html[dir='ltr'] #content .presentation-mode .pdfjs .findbar {
     left: 37px;
 }
 
+#content #sidebarContainer .pdfjs .outlineItem>a:hover,
+#conetnt #sidebarContainer .pdfjs .outlineItem>a {
+    color: #337ab7;
+}
+
 /* PRESENTATION MODE */
 .pdfjs .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
     margin-bottom: 100%;
