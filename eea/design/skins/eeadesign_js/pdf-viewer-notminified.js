@@ -15903,6 +15903,7 @@ var PDFFindBar = function PDFFindBarClosure() {
    }
    this.findField.select();
    this.findField.focus();
+   this.findController.active = true; // Set controller to active
   },
   close: function PDFFindBar_close() {
    if (!this.opened) {
@@ -16904,14 +16905,16 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
    this._addFullscreenChangeListeners();
    this._setSwitchInProgress();
    this._notifyStateChange();
-   if (this.container.requestFullscreen) {
-    this.container.requestFullscreen();
-   } else if (this.container.mozRequestFullScreen) {
-    this.container.mozRequestFullScreen();
-   } else if (this.container.webkitRequestFullscreen) {
-    this.container.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-   } else if (this.container.msRequestFullscreen) {
-    this.container.msRequestFullscreen();
+  // debugger;
+
+   if (this.container.parentElement.parentElement.requestFullscreen) {
+    this.container.parentElement.parentElement.requestFullscreen();
+   } else if (this.container.parentElement.parentElement.mozRequestFullScreen) {
+    this.container.parentElement.parentElement.mozRequestFullScreen();
+   } else if (this.container.parentElement.parentElement.webkitRequestFullscreen) {
+    this.container.parentElement.parentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+   } else if (this.container.parentElement.parentElement.msRequestFullscreen) {
+    this.container.parentElement.parentElement.msRequestFullscreen();
    } else {
     return false;
    }
@@ -16993,33 +16996,36 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
    this.active = true;
    this._resetSwitchInProgress();
    this._notifyStateChange();
-   this.container.classList.add(ACTIVE_SELECTOR);
+   this.container.parentElement.parentElement.classList.add(ACTIVE_SELECTOR);
    setTimeout(function enterPresentationModeTimeout() {
     this.pdfViewer.currentPageNumber = this.args.page;
-    this.pdfViewer.currentScaleValue = 'page-fit';
+    this.pdfViewer.currentScaleValue = 'auto';
    }.bind(this), 0);
    this._addWindowListeners();
    this._showControls();
    this.contextMenuOpen = false;
-   this.container.setAttribute('contextmenu', 'viewerContextMenu');
+   this.container.parentElement.parentElement.setAttribute('contextmenu', 'viewerContextMenu');
    window.getSelection().removeAllRanges();
+   $(this.container).parents('.report-pdf').addClass('presentation-mode');
   },
   _exit: function PDFPresentationMode_exit() {
    var page = this.pdfViewer.currentPageNumber;
-   this.container.classList.remove(ACTIVE_SELECTOR);
+   this.container.parentElement.parentElement.classList.remove(ACTIVE_SELECTOR);
    setTimeout(function exitPresentationModeTimeout() {
     this.active = false;
     this._removeFullscreenChangeListeners();
     this._notifyStateChange();
-    this.pdfViewer.currentScaleValue = this.args.previousScale;
+    // this.pdfViewer.currentScaleValue = this.args.previousScale;
+    this.pdfViewer.currentScaleValue = 'page-width';
     this.pdfViewer.currentPageNumber = page;
     this.args = null;
    }.bind(this), 0);
    this._removeWindowListeners();
    this._hideControls();
    this._resetMouseScrollState();
-   this.container.removeAttribute('contextmenu');
+   this.container.parentElement.parentElement.removeAttribute('contextmenu');
    this.contextMenuOpen = false;
+   $(this.container).parents('.report-pdf').removeClass('presentation-mode');
   },
   _mouseDown: function PDFPresentationMode_mouseDown(evt) {
    if (this.contextMenuOpen) {
@@ -17031,7 +17037,7 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
     var isInternalLink = evt.target.href && evt.target.classList.contains('internalLink');
     if (!isInternalLink) {
      evt.preventDefault();
-     this.pdfViewer.currentPageNumber += evt.shiftKey ? -1 : 1;
+    // this.pdfViewer.currentPageNumber += evt.shiftKey ? -1 : 1;
     }
    }
   },
@@ -17042,10 +17048,10 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
    if (this.controlsTimeout) {
     clearTimeout(this.controlsTimeout);
    } else {
-    this.container.classList.add(CONTROLS_SELECTOR);
+    this.container.parentElement.parentElement.classList.add(CONTROLS_SELECTOR);
    }
    this.controlsTimeout = setTimeout(function showControlsTimeout() {
-    this.container.classList.remove(CONTROLS_SELECTOR);
+    this.container.parentElement.parentElement.classList.remove(CONTROLS_SELECTOR);
     delete this.controlsTimeout;
    }.bind(this), DELAY_BEFORE_HIDING_CONTROLS);
   },
@@ -17054,7 +17060,7 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
     return;
    }
    clearTimeout(this.controlsTimeout);
-   this.container.classList.remove(CONTROLS_SELECTOR);
+   this.container.parentElement.parentElement.classList.remove(CONTROLS_SELECTOR);
    delete this.controlsTimeout;
   },
   _resetMouseScrollState: function PDFPresentationMode_resetMouseScrollState() {
@@ -18562,12 +18568,14 @@ var PDFViewer = function pdfViewer() {
    });
   },
   createTextLayerBuilder: function (textLayerDiv, pageIndex, viewport, enhanceTextSelection) {
+    // debugger;
    return new TextLayerBuilder({
     textLayerDiv: textLayerDiv,
     eventBus: this.eventBus,
     pageIndex: pageIndex,
     viewport: viewport,
-    findController: this.isInPresentationMode ? null : this.findController,
+    // findController: this.isInPresentationMode ? null : this.findController,
+    findController: !this.findController ? null : this.findController,
     enhanceTextSelection: this.isInPresentationMode ? false : enhanceTextSelection
    });
   },

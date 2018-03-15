@@ -159,56 +159,6 @@ canvas {
     left: 0;
 }
 
-/* Fullscreen */
-#content .pdfjs #viewerContainer.pdfPresentationMode:-webkit-full-screen {
-    top: 0;
-    border-top: 2px solid transparent;
-    background-color: #000;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    cursor: none;
-    -webkit-user-select: none
-}
-
-#content .pdfjs #viewerContainer.pdfPresentationMode:-moz-full-screen {
-    top: 0;
-    border-top: 2px solid transparent;
-    background-color: #000;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    cursor: none;
-    -moz-user-select: none
-}
-
-#content .pdfjs #viewerContainer.pdfPresentationMode:-ms-fullscreen {
-    top: 0 !important;
-    border-top: 2px solid transparent;
-    width: 100%;
-    height: 100%;
-    overflow: hidden !important;
-    cursor: none;
-    -ms-user-select: none
-}
-
-#content .pdfjs #viewerContainer.pdfPresentationMode:-ms-fullscreen::-ms-backdrop {
-    background-color: #000
-}
-
-#content .pdfjs #viewerContainer.pdfPresentationMode:fullscreen {
-    top: 0;
-    border-top: 2px solid transparent;
-    background-color: #000;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    cursor: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none
-}
-
 #content .pdfjs #sidebarContent {
     border: none;
     border-right: none;
@@ -276,6 +226,134 @@ html[dir='ltr'] #content .pdfjs #outerContainer>#mainContainer {
     background-color: #006699;
     background-image: none;
 }
+
+#content .pdfjs #print {
+    display: none;
+}
+
+#content .presentation-mode .pdfjs .dropdownToolbarButton select #pageAutoOption,
+#content .pdfjs .dropdownToolbarButton>select>option {
+    display: none;
+}
+
+#content .pdfjs .dropdownToolbarButton select #pageWidthOption,
+#content .presentation-mode .pdfjs #thumbnailView > a,
+#content .presentation-mode .pdfjs #outlineView .outlineItem a,
+#content .presentation-mode .pdfjs .dropdownToolbarButton select #pageAutoOption {
+    display: block;
+}
+
+/* PRESENTATION MODE */
+.pdfjs .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
+    margin-bottom: 100%;
+    border: 0;
+}
+.pdfjs .pdfPresentationMode:-moz-full-screen .pdfViewer .page {
+    margin-bottom: 100%;
+    border: 0;
+}
+.pdfjs .pdfPresentationMode:-ms-fullscreen .pdfViewer .page {
+    margin-bottom: 100% !important;
+    border: 0;
+}
+.pdfjs .pdfPresentationMode:fullscreen .pdfViewer .page {
+    margin-bottom: 100%;
+    border: 0;
+}
+
+#content .presentation-mode #mainContainer,
+#content .presentation-mode .pdfjs #outerContainer.pdfPresentationMode #viewerContainer{
+    height: 100%;
+}
+
+#content #outerContainer.pdfPresentationMode {
+    margin-bottom: 0;
+}
+
+#content #outerContainer.pdfPresentationMode #toolbarViewerMiddle {
+    width: 35%;
+}
+
+#content .pdfjs #outerContainer.pdfPresentationMode:-webkit-full-screen {
+    top: 0;
+    border-top: 2px solid transparent;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: none;
+    -webkit-user-select: none
+}
+
+#content .pdfjs #outerContainer.pdfPresentationMode:-moz-full-screen {
+    top: 0;
+    border-top: 2px solid transparent;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: none;
+    -moz-user-select: none
+}
+
+#content .pdfjs #outerContainer.pdfPresentationMode:-ms-fullscreen {
+    top: 0 !important;
+    border-top: 2px solid transparent;
+    width: 100%;
+    height: 100%;
+    overflow: hidden !important;
+    cursor: none;
+    -ms-user-select: none
+}
+
+#content .pdfjs #outerContainer.pdfPresentationMode:-ms-fullscreen::-ms-backdrop {
+    background-color: white;
+}
+
+#content .pdfjs #outerContainer.pdfPresentationMode:fullscreen {
+    top: 0;
+    border-top: 2px solid transparent;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none
+}
+
+.pdfjs .pdfPresentationMode:-webkit-full-screen a:not(.internalLink) {
+    display: none;
+}
+.pdfjs .pdfPresentationMode:-moz-full-screen a:not(.internalLink) {
+    display: none;
+}
+.pdfjs .pdfPresentationMode:-ms-fullscreen a:not(.internalLink) {
+    display: none !important;
+}
+.pdfjs .pdfPresentationMode:fullscreen a:not(.internalLink) {
+    display: none;
+}
+.pdfjs .pdfPresentationMode:-webkit-full-screen .textLayer>div {
+    cursor: none;
+}
+.pdfjs .pdfPresentationMode:-moz-full-screen .textLayer>div {
+    cursor: none;
+}
+.pdfjs .pdfPresentationMode:-ms-fullscreen .textLayer>div {
+    cursor: none;
+}
+.pdfjs .pdfPresentationMode:fullscreen .textLayer>div {
+    cursor: none;
+}
+.pdfjs .pdfPresentationMode.pdfPresentationModeControls>*,
+.pdfjs .pdfPresentationMode.pdfPresentationModeControls .textLayer>div {
+    cursor: default;
+}
+
+/* PRESENTATION MODE ENDS*/
+
 
 @media (max-width: 840px) {
     html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#sidebarContainer {
