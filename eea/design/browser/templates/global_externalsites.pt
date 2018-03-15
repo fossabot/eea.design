@@ -1,7 +1,7 @@
 <metal:external metal:define-macro="external_sites"
                 i18n:domain="eea">
     <ul id="portal-externalsites">
-        <li id="externalsites-networks">
+        <li id="externalsites-networks" class="eea-siteaction">
             <a href="#" i18n:translate="">Networks</a>
         </li>
     </ul>

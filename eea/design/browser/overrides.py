@@ -1,6 +1,7 @@
 """ IEEACommonLayer specific overrides
 """
-
+from plone.app.contentrules.browser.controlpanel import \
+    ContentRulesControlPanel
 from plone.app.portlets.portlets.events import Renderer as EventsRenderer
 from plone.memoize.instance import memoize
 from plone.memoize.compress import xhtml_compress
@@ -49,3 +50,9 @@ class EEAEventsRenderer(EventsRenderer):
         for item in location:
             l_list.append(item)
         return ', '.join(l_list)
+
+
+class EEAContentRulesControlPanel(ContentRulesControlPanel):
+    """
+    """
+    template = ViewPageTemplateFile('templates/contentrules_controlpanel.pt')

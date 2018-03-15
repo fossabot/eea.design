@@ -41,6 +41,34 @@ sup, sub {
 .visualNoMargins {
     margin: 0 !important;
 }
+
+.overflow_hidden {
+    overflow: hidden;
+}
+
+.hiddenElem {
+    display: none !important;
+}
+
+/* Accessibility and visual enhancement elements */
+
+option.hiddenStructure {
+    display: none;
+}
+.contentViews .hiddenStructure,
+.contentActions .hiddenStructure {
+    position: absolute;
+    top: -200px;
+    left: -200px;
+}
+
+.inline-block {
+    display: inline-block;
+}
+#content .inline-block li {
+    display: inline-block;
+    margin-right: 1em;
+}
 /*
 ** Watermark style
 ** for content that is not published
@@ -229,12 +257,6 @@ th a, th a:link, th a:visited {
 
 
 /* drop down panels for portal siteactions */
-.panel {
-    display: none;
-    z-index: 600;
-    background: transparent;
-    border: 0;
-}
 .panel-top {
     margin: auto auto;
     background: transparent url(&dtml-xurl;/panel_arrow.png);
@@ -377,46 +399,45 @@ span.figure-left {
     padding: 10px 25px;
 }
 
-#keyfacts-slider .slidePortlet .slideButton {
+.slideButton {
     position: absolute;
     top: 40%;
     margin: 4px;
-    padding: 10px 2px;
-    width: 17px;
+    width: 13px;
     height: 17px;
-    background: transparent url(&dtml-xurl;/accordion_left.png) no-repeat scroll center center;
     cursor: pointer;
+    font-family: FontAwesome;
+    font-size: 125%;
+    color: #9cb43c;
 }
 
-#keyfacts-slider .slidePortlet .slideButton.next {
+.next {
     right: 0;
-    background: transparent url(&dtml-xurl;/accordion_right.png) no-repeat scroll center center;
 }
 
-#keyfacts-slider .slidePortlet .slideButton.play {
+.slideButton.next:before {
+    content: "\f054";
+}
+
+.slideButton.prev:before {
+    content: "\f053";
+}
+
+.play {
     position: absolute;
     right: 0;
     top: 8px;
     margin-right: 10px;
     padding: 5px;
     border: 0;
-    background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat scroll -446px -216px;
 }
 
-#keyfacts-slider .slidePortlet .slideButton.play.pause {
-    background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat scroll -454px -191px;
+.play:before {
+    content: "\f04b";
 }
 
-#keyfacts-slider .slidePortlet a.moreLink {
-    background: none;
-    padding-left: 0;
-    text-decoration: underline;
-    color: white !important;
-    font-size: 100%;
-}
-
-#keyfacts-slider .slidePortlet a.moreLink:hover {
-    text-decoration: none;
+.pause:before {
+    content: "\f04c";
 }
 
 #keyfacts-slider .slidePortlet .portletHeader {
@@ -429,7 +450,8 @@ span.figure-left {
 #keyfacts-slider a,
 #keyfacts-slider a:hover,
 #keyfacts-slider a:visited {
-    color: #FFF !important; /* important because of content a:hover */
+    color: #FFF; /* important because of content a:hover */
+    text-decoration: underline;
 }
 #keyfacts-slider .keyfactsImgContainer {
     overflow: hidden;
@@ -628,6 +650,430 @@ span.figure-left {
 }
 .snippet, .ribbon-example {
     overflow: hidden;
+}
+
+
+/* Flexible tooltips */
+.eea-tooltip-markup {
+    display: none;
+    z-index: 1032;
+}
+.eea-tooltip-markup .tooltip-box-br {
+    background: transparent url(&dtml-xurl;/++resource++tools/x-green-bottom-right.png) no-repeat right bottom;
+    position:relative;
+    max-height:1000px;
+    min-height:50px;
+    min-width:100px;
+    width:250px;
+    padding-bottom:3px;
+}
+
+.eea-tooltip-markup .tooltip-box-tl {
+    background: transparent url(&dtml-xurl;/++resource++tools/x-green-top-left.png) no-repeat left top;
+    position:relative;
+    left:-30px;
+    top:-20px;
+    margin-right:-19px;
+    max-height:1000px;
+    min-height:50px;
+    min-width:100px;
+    width: 269px;
+}
+
+.eea-tooltip-markup .tooltip-box-rcontent {
+    background: transparent url(&dtml-xurl;/++resource++tools/x-green-arrow-left.png) no-repeat left center;
+    position: relative;
+    top: 11px;
+    padding:2em 1em 2em 3em;
+    text-align:justify;
+    font-size: 12px;
+    color:#ffffff;
+}
+
+.eea-tooltip-markup .tooltip-box-lcontent {
+    background: transparent url(&dtml-xurl;/++resource++tools/x-green-arrow-right.png) no-repeat right center;
+    position: relative;
+    top: 11px;
+    right: -31px;
+    padding:2em 3.5em 2em 1em;
+    text-align:justify;
+    font-size: 12px;
+    color:#ffffff;
+}
+
+.eea-tooltip-markup .tooltip-box-bcontent {
+    background: transparent url(&dtml-xurl;/++resource++tools/x-green-arrow-top.png) no-repeat center top;
+    color:#FFFFFF;
+    font-size:12px;
+    left:10px;
+    padding:2.5em 1.5em 1em 2.5em;
+    position:relative;
+    text-align:justify;
+    top:-2px;
+}
+
+.eea-tooltip-markup .tooltip-box-tcontent {
+    background: transparent url(&dtml-xurl;/++resource++tools/x-green-arrow-bottom.png) no-repeat center bottom;
+    bottom:-22px;
+    color:#FFFFFF;
+    font-size:12px;
+    left:10px;
+    padding:0.5em 1.5em 2.5em 2.5em;
+    position:relative;
+    white-space: pre-line;
+    text-align:justify;
+}
+/* @end Flexible tooltips */
+
+
+.arrowUp {
+    width: 0;
+    height: 0;
+    border-left: 10px solid rgba(255, 255, 255, 0);
+    border-right: 10px solid rgba(255, 255, 255, 0);
+    border-bottom: 10px solid #FFF;
+    display: block;
+    position: relative;
+    top: -5px;
+    left: 50%;
+}
+
+/* Inflexible tooltips */
+.eea-tooltip-markup-top,
+.eea-tooltip-markup-bottom,
+.eea-tooltip-markup-left,
+.eea-tooltip-markup-right {
+    display: none;
+    font-size: 12px;
+    height: 70px;
+    width: 160px;
+    padding: 25px;
+    color: white;
+    text-align: left;
+    text-decoration: none;
+}
+.eea-tooltip-markup-top {
+    background: transparent url(&dtml-xurl;/++resource++tools/green_arrow_top.png);
+}
+.eea-tooltip-markup-bottom {
+    background: transparent url(&dtml-xurl;/++resource++tools/green_arrow_bottom.png);
+    margin-top: 15px;
+}
+.eea-tooltip-markup-left {
+    background: transparent url(&dtml-xurl;/++resource++tools/green_arrow_left.png);
+    padding-right: 45px;
+}
+.eea-tooltip-markup-right {
+    background: transparent url(&dtml-xurl;/++resource++tools/green_arrow_right.png);
+    padding-left: 45px;
+}
+/* @end Inflexible tooltips */
+
+/* folder_tabs_view and folder_accordion_view styling
+ * as well as generic tabs and accordion styling */
+#whatsnew-gallery {
+    position: relative;
+}
+
+#topic-selector {
+    position: absolute;
+    margin-top: 2em;
+    left: 0;
+    margin-left: 8em;
+}
+
+.eea-tabs .current:after,
+.eea-tabs a:hover:after {
+    top: 99%;
+    left: 50%;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border: 13px solid transparent;
+    border-top-color: #006699;
+    margin-left: -10px;
+}
+#visual-portal-wrapper .eea-tabs > li > a:hover,
+#visual-portal-wrapper .eea-tabs > li > a:target {
+    text-decoration: none;
+    color: &dtml-lightBackgroundColor; !important;
+    background-color: transparent;
+}
+.eea-tabs > li > .current,
+.eea-tabs > li > .current:hover {
+    cursor: default;
+    color: &dtml-lightBackgroundColor;;
+    text-decoration: none;
+}
+
+/* Clear floated elements */
+.eea-tabs:before,
+.eea-tabs:after {
+    display: table;
+    content: " ";
+}
+.eea-tabs:after {
+    clear: both;
+}
+
+.eea-tabs-panel {
+    overflow: auto;
+}
+
+.eea-tabs-panel .listingBar {
+    margin: 0 0 1em 0;
+    padding: 0 1em;
+}
+
+.eea-tabs-panel .portalMessage {
+    margin-top: 0;
+    position: relative;
+    top: 10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+.eea-accordion-panels {
+    border: 1px solid #DDD;
+    border-top: 0;
+    padding: 10px;
+}
+
+/* eea accordion styles */
+.eea-accordion-panels {
+    padding: 0;
+}
+
+.eea-accordion-panel .pane {
+    padding: 10px;
+    overflow: hidden;
+}
+.eea-accordion-title, .eea-accordion-panel > h2 {
+    background: #E2E2E2 none;
+    border: 1px solid #E0E0E0;
+    margin: 0;
+    font-size: 115%;
+    color: #00446A;
+    line-height: 3em;
+    padding: 0 0.5em;
+    font-weight: bold;
+}
+.eea-accordion-title-manual-icons {
+    text-shadow: none;
+    padding: 0 1em;
+    margin: 2px 0 0 0; /* #19875; 2px is needed because of a visual bug where the floated icons are not moved to the margin */
+    line-height: 3em;
+    cursor: pointer;
+}
+
+.eea-accordion-panel > h2 .eea-icon-right:before,
+.eea-accordion-title > .eea-icon-right:before {
+    content: "&dtml-eea-icon-chevron-left;";
+}
+
+.eea-accordion-panel h2:hover > .eea-icon-right:before,
+.eea-accordion-panel .current > .eea-icon-right:before {
+    content: "&dtml-eea-icon-chevron-down;";
+}
+
+.eea-accordion-title:hover, .eea-accordion-panel > h2:hover {
+    cursor: pointer;
+    background-color: #F0F0F0;
+}
+
+.eea-accordion-title.current,
+.eea-accordion-panel > h2.current {
+    background-color: #F0F0F0;
+}
+
+.eea-accordion-title a,
+.eea-accordion-panel > h2 a {
+    color: #00446A !important;
+}
+/* #77943 avoid having the text too large that the accordion icon
+ * goes below next title */
+.eea-accordion-panel > h2 a {
+    max-width: 92%;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+/* @end folder_tabs_view and folder_accordion_view styling */
+/* tileItem used in related and eea-tabs listings */
+.tileItem {
+    border-bottom: &dtml-borderWidth; dotted &dtml-globalBorderColor;;
+    padding-top: 0.5em;
+}
+.tileHeadline {
+    border: none;
+    font-size: 110%;
+    font-weight: bold;
+    background: none;
+    margin:0;
+    padding-left:0;
+}
+#relatedItems .tileHeadline {
+    font-size: 130%;
+    margin: 0.6em 0;
+}
+
+.tileContent {
+    display: table-cell;
+}
+
+.tileImage, #content a.tileImage {
+    float: left;
+    margin: 1em 1em 1em 0;
+    border: 1px solid &dtml-globalBorderColor;;
+}
+
+.gallery-listing .tileItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.tileFooter {
+    clear: both;
+    display: block;
+}
+/* @end tileItem used in related and eea-tabs listings */
+
+
+/* EUNIS navigation proposal, see #16978 */
+@media screen {
+    /* #71710 add a margin for eunis tabbed menu needed after move to a colored background */
+    #portal-column-content .tabbedmenu {
+        margin-top: &dtml-padding-base;;
+    }
+    .tabbedmenu ul {
+        padding: 0 10px 0 0!important;
+        margin: 0!important;
+        font-size: 12px;
+        line-height: normal!important;
+        list-style-image: none!important;
+        list-style-type: none!important;
+        background-color: &dtml-corporateBlue;;
+    }
+    .tabbedmenu ul > li {
+        float: left;
+        margin: 0!important;
+        padding: 0!important;
+    }
+    /* Clear floated elements */
+    .tabbedmenu ul:before,
+    .tabbedmenu ul:after {
+        display: table;
+        content: " ";
+    }
+    .tabbedmenu ul:after {
+        clear: both;
+    }
+    .tabbedmenu ul > li a {
+        display: block;
+        color: #fff!important;
+        text-shadow: 1px 1px 1px #000000;
+        text-decoration: none;
+        white-space: nowrap;
+        padding: 8px 8px;
+    }
+    .tabbedmenu.two-rows ul > li a {
+        height: 50px;
+        white-space: normal;
+        max-width: 150px;
+    }
+    .tabbedmenu ul > li a:hover {
+        color: &dtml-corporateBlueTwo;!important;
+        text-decoration: none;
+        text-shadow: 1px 1px 1px #FFFFFF;
+        background-color: &dtml-greyBackgroundColor;;
+    }
+    .tabbedmenu ul > li a.current,
+    .tabbedmenu ul > li a.current:hover {
+        cursor: default;
+        color: &dtml-corporateBlueTwo;!important;
+        text-decoration: none;
+        text-shadow: 1px 1px 1px #FFFFFF;
+        background-color: &dtml-greyBackgroundColor;;
+    }
+    .border-tabbedmenu,
+    .tabbedmenu-panel {
+        border: 1px solid #DDD;
+        border-top: 0;
+        padding: 10px;
+    }
+}
+/* @end EUNIS navigation proposal, see #16978 */
+
+/* Batch selector */
+.listingBar {
+    background-color: &dtml-globalBackgroundColor;;
+    padding: 0.5em 1em;
+    text-align: center;
+    text-transform: &dtml-textTransform;;
+    vertical-align: top;
+    margin: 1em 0;
+    font-size: 11px !important;
+    clear: both;
+}
+
+.faceted-results .listingBar {
+    background-color: &dtml-lightBackgroundColor;;
+    margin-top: 0;
+}
+
+.listingBar .previous,
+.listingPrevious {
+    text-align: left;
+    float: left;
+    margin-right: 1em;
+}
+
+.listingBar .next,
+.listingNext {
+    text-align: right;
+    float: right;
+    margin-left: 1em;
+}
+/* @end Batch selector */
+
+/* standard search button inside any of the portal columns*/
+
+#portal-columns input[type="submit"],
+.standardButton,
+.qq-upload-button,
+.searchButton,
+.plonebutton,
+.context,
+.destructive,
+.standalone {
+    color:#fff !important;
+    background: &dtml-corporateBlue; none;
+    font: bold 12px &dtml-fontFamily;;
+    padding: 7px 11px;
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 1px 1px #000;
+    border: 1px solid #346F83;
+}
+
+#portal-columns input[type="submit"]:hover,
+.standardButton:hover,
+.qq-upload-button:hover,
+.searchButton:hover,
+.context:hover,
+.destructive:hover,
+.standalone:hover {
+    background-color:&dtml-corporateOrange;;
+    color: #FFFFFF !important;
+    cursor:pointer;
+    border-color: #999999;
+    text-shadow: none;
+}
+.standardButton a, .standardButton a:hover, .standardButton a:visited {
+    color: #FFFFFF !important;
 }
 
 /* </dtml-let> */

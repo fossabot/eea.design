@@ -1,0 +1,252 @@
+/* <dtml-with base_properties> (do not remove this :) */
+/* <dtml-let xurl="portal_url().replace('https://', 'http://').replace('http://', '//')"> */
+/* <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
+/* #5533 new style collection style tweaks */
+.queryindex, .addIndex, .queryoperator, .addOperator {
+    width: 105px !important;
+    padding: 5px;
+}
+.queryindex, .addIndex {
+    width: 150px !important;
+}
+.queryresults {
+    float: none !important;
+}
+input.queryvalue {
+    width: 200px !important;
+    padding: 6px 0;
+}
+.multipleSelectionWidget dd {
+    width: 620px !important;
+    height: 350px;
+    left: 0;
+    z-index: 600;
+    position: absolute;
+    -webkit-column-count: 3;
+    column-count: 3;
+}
+.multipleSelectionWidget dt {
+    display: block !important;
+    padding: 6px 2px;
+}
+.multipleSelectionWidget label {
+    width: 195px;
+    margin-left: 5px;
+    float: left;
+}
+.ArchetypesQueryWidget .criteria {
+    margin: 0 0 0.5em 0 !important;
+}
+/* @end #5533 new style collection style tweaks */
+
+/* The edit form elements */
+.field {
+    top: 0;
+    left: 0;
+    margin: 0 0 1em 0;
+}
+
+.field .field {
+    margin: 1em 0 0 0;
+}
+div.field.error {
+    padding: 1em 0 1.7em 0; /* 86620 move edit input within error field */
+}
+
+/* bootstrap also has a label class which is white while plone uses black */
+.label {
+    padding: 0;
+    font-size: inherit;
+    color: #000;
+    text-align: left;
+    white-space: inherit;
+}
+
+.fieldRequired {
+    background: url(&dtml-xurl;/required.gif) center left no-repeat;
+    padding: 0 0 0 8px;
+    color: &dtml-backgroundColor;;
+}
+
+.formHelp {
+    font-size: 90%;
+    color: &dtml-discreetColor;;
+    margin: 0 0 0.2em 0;
+    display: block;
+}
+
+.formHelp:hover {
+    color: &dtml-fontColor;;
+    cursor: default;
+}
+/* @end edit form elements */
+
+/* TinyMCE Fixes */
+/* Fix for TinyMCE width being larger than content area */
+.ploneSkin table, .ploneSkin tbody, .ploneSkin a, .ploneSkin img, .ploneSkin tr,
+.ploneSkin div, .ploneSkin td, .ploneSkin iframe, .ploneSkin span, .ploneSkin *,
+.ploneSkin .mceText {
+    white-space: normal !important;
+}
+/* #14814 enlarged mceListBox style links */
+body .ploneSkin .mce_formatPreview a {
+    font-size: 115%;
+}
+.mceContentBody  {
+    font-size: 80% !important;
+}
+
+/* #16661; override px based width from ui.css of tinymce */
+/* #18189 override inline style that gets applied when resizing browser window */
+.mceLayout,
+.ploneSkin iframe {
+    width: 100% !important;
+    min-height: 400px;
+}
+.ploneSkin table.mceLayout {
+    width: 100% !important;
+}
+.ploneSkin table.mceLayout td.mceToolbar {
+    height: 85px;
+}
+
+#davizvisualization-base-edit table.mceLayout, #gis_application-base-edit table.mceLayout {
+    width:100%!important;
+}
+
+/* #18086: Improvements to the tinymce fullscreen mode
+**  center editor since we have a fixed width layout
+*/
+.mceEditor.mceFullScreen {
+    background-color: #ececec !important; /* in order to override ui.css */
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 10;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.mceLayout.mceFullScreen {
+    margin: 0 auto;
+    background-color: #FFF;
+}
+
+/* #16661; fix text color for disabled tinymce inputs */
+input[disabled], #plonebrowser input[disabled] {
+    color: #6D6D6D !important;
+    text-shadow: none !important;
+}
+
+/* #18352 remove after fix is applied within Products.TinyMCE
+   fixes Chrome popup dialog zoom issue by setting a width to 100% */
+.plonepopup .mceMiddle span {
+    top:29px;
+    left:5px;
+    height:100%;
+    width:100%;
+    background:#FFF;
+}
+
+.ploneSkin .mceButton.mce_fullscreen {
+    width: 170px !important; /* 20461; enlarge fullscreen button since it contains description text */
+}
+.mce_fullscreen > .mceVoiceLabel {
+    position: relative;
+    top: -18px;
+    display: block !important;
+    font-size: 12px;
+    left: 21px;
+}
+
+/* #9499 give the style selector popup a minimum width */
+.ploneSkin .mceMenu {
+    min-width: 220px;
+}
+/* #18785 increased the site of the list box */
+.ploneSkin table.mceListBox .mceText {
+    min-width: 207px;
+}
+
+.mceContentBody .presentationBreak, .mceContentBody .pageBreak {
+    background-color: &dtml-corporateBlueBackgroundColor;;
+    border-bottom: 3px solid #000;
+    padding: 0.5em;
+    text-align: center;
+}
+
+/* #16879,#20255 highlight class only on TinyMCE edit */
+.mceContentBody .markPresentationalText,
+.mceContentBody .pageBreak,
+.mceContentBody .excludeFromPDF {
+    background-color: #ffb;
+}
+
+.mceContentBody .presentationBreak:before {
+    content: "Presentational Break for splitting a slide while keeping the same header";
+}
+
+.mceContentBody .pageBreak:before {
+    content: "Print Page Break used for breaking a page when printing";
+}
+
+.mceContentBody .excludeFromPDF:before,
+.mceContentBody .noPageBreak:before {
+    margin-right: .3em;
+    padding: .3em;
+    background-color: &dtml-corporateBlueBackgroundColor;;
+    font-family: 'FontAwesome';
+    content: "Excluded from PDF \f0a4";
+}
+
+.mceContentBody .noPageBreak {
+    background-color: &dtml-corporateBlueBackgroundColor;;
+}
+.mceContentBody .noPageBreak:before {
+    content: "No page break \f0a4";
+}
+
+/* #16916; hide the background images on view pages as they should only appear within the
+tinyMCE editor or the presentation_view */
+.presentation-images {
+    display: none;
+}
+.mceContentBody .presentation-images {
+    display: block;
+}
+
+/* @end TinyMCE Fixes */
+
+/* Editing Form fixes */
+/* #5267 display form fields for translated items */
+form[name="edit_form"] > table > tbody > tr {
+    display: table-row;
+    margin-left: 1em;
+}
+form[name="edit_form"] > table > tbody > tr > td {
+    display : inline-block;
+    margin-left : 1em;
+    width: 48.6% !important;
+}
+form[name="edit_form"] table {
+    display: table !important;
+}
+/* @end Editing Form fixes */
+
+/* tinymce class to hide or show content when printing */
+.mceContentBody .showOnPrint:before {
+    content: "Image visible only within pdf download";
+    background-color: #ffb;
+    border-bottom: 3px solid black;
+}
+.mceContentBody .showOnPrint + iframe:before {
+    content: "Iframe hidden within pdf download";
+    background-color: #ffb;
+    border-bottom: 3px solid black;
+}
+/* @end tinymce class to hide or show content when printing */
+
+/* </dtml-let> */
+/* </dtml-with> */

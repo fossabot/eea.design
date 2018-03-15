@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+
+  <!--? removed js -->
+  <javascript id="++resource++eea.dataservice.view.js" remove="True" />
+  <javascript id="jquery.highlightsearchterms.js" remove="True" />
+  <javascript id="accesibility.js" remove="True" />
+  <javascript id="livesearch.js" remove="True" />
+  <javascript id="eea-fitcontainer.js" remove="True" />
+  <javascript id="bootstrap.js" remove="True" />
+  <javascript id="collective.js.jqueryui.custom.min.js" remove="True" />
+
+  <!--? end removed js -->
+
+
+
+  <!--?  no condition js -->
+
+  <javascript id="++resource++plone.app.jquerytools.form.js" bundle="default"
+    expression="" authenticated="False"
+    insert-after="++resource++plone.app.jquerytools.tooltip.js" />
+
+  <javascript id="++resource++plone.app.jquerytools.overlayhelpers.js" bundle="default"
+    expression="" authenticated="false"
+    insert-after="++resource++plone.app.jquerytools.form.js" />
+
+  <javascript id="++resource++plone.app.jquerytools.overlayhelpers.js" bundle="default"
+    expression="" authenticated="false"
+    insert-after="++resource++plone.app.jquerytools.form.js" />
+
+  <javascript id="++resource++eea.socialmedia.javascripts/socialite.js" bundle="default"
+    expression="" authenticated="false"
+    insert-after="whatsnew_gallery.js" />
+
+  <!--?  end no condition js -->
+
+  <!--?  authenticated js -->
+
+  <javascript id="kss-bbb.js" bundle="default"
+    expression="" authenticated="True"
+    insert-after="calendar_formfield.js" />
+
+  <javascript id="popupforms.js" bundle="default"
+    expression="" authenticated="True"
+    insert-after="kss-bbb.js" />
+
+
+  <javascript id="++resource++gismap_relations.js" bundle="default"
+    expression="" authenticated="True"
+    insert-after="createversion.js" />
+
+  <javascript id="jq.applyanchor.js" bundle="default"
+    authenticated="True"
+    expression="" insert-after="createversion.js" />
+
+  <javascript id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" bundle="default"
+    expression="" authenticated="True" position-after="++resource++eea.glossary/jquery.glossarize.js" />
+
+  <javascript id="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" bundle="default"
+    expression="" authenticated="True" position-after="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" />
+
+  <javascript id="++resource++plone.formwidget.contenttree/contenttree.js" bundle="default" authenticated="True"
+    expression="" position-after="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" />
+
+  <javascript id="jquery.lazy.min.js" bundle="default"
+    expression="" insert-after="global_searchbox.js" />
+
+  <javascript id="jquery.lazy.plugins.min.js" bundle="default"
+    expression="" insert-after="jquery.lazy.min.js" />
+
+  <javascript id="lazy_load.js" bundle="default"
+    expression="" insert-after="jquery.lazy.plugins.min.js" />
+  <!--?  end authenticated js -->
+
+  <!-- edit javascripts -->
+  <javascript id="edit_fixes.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+    authenticated="False"
+    insert-after="++resource++eea.forms.edit.js" />
+
+  <javascript id="formUnload.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+              authenticated="False"
+              insert-after="eeatinymceutils.js" />
+
+  <javascript id="formsubmithelpers.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+              authenticated="False"
+              position-after="formUnload.js" />
+
+  <javascript id="++resource++select2/select2.min.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+    authenticated="False"
+    insert-after="formsubmithelpers.js" />
+
+  <javascript id="inline_validation.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+    authenticated="False"
+    insert-after="formsubmithelpers.js" />
+
+  <javascript id="patch_keyword_widget.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+    authenticated="False"
+    insert-after="formsubmithelpers.js" />
+
+  <javascript id="unlockOnFormUnload.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'edit' in request.ACTUAL_URL"
+    authenticated="False"
+    insert-after="formsubmithelpers.js" />
+
+
+
+
+  <!-- end edit javascripts -->
+
+  <!-- conditioned javascripts -->
+  <javascript id="swfobject.js" bundle="default"
+              expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.mediacentre.interfaces.IVideo')"
+              position-after="++resource++jquery.flashembed.js" />
+
+  <javascript id="modernizr.js" bundle="default"
+    expression="python: 'search' in request.ACTUAL_URL"
+    insert-after="eea-rememberstate.js"
+  />
+
+  <javascript id="++resource++search.js" bundle="default"
+              expression="python: 'search' in request.ACTUAL_URL"
+              insert-after="modernizr.js"
+              />
+
+  <javascript id="dragdropreorder.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'folder_contents' in request.ACTUAL_URL"
+              authenticated="False"
+              position-after="eea-rememberstate.js" />
+
+  <javascript id="spmdragdropreorder.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'manage-portlets' in request.ACTUAL_URL"
+              authenticated="False"
+              position-after="eea-rememberstate.js" />
+
+  <javascript id="++resource++jquery.masonry.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'portal_progress' in request.ACTUAL_URL"
+              authenticated="False"
+              position-after="pdf.print.js" />
+
+  <javascript id="eea.controlpanel.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'eea.controlpanel.html' in request.ACTUAL_URL"
+              authenticated="False"
+              position-after="++resource++eea.reports.js" />
+
+
+  <javascript id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'dexterity_types' in request.URL0"
+              authenticated="False"
+              position-after="++resource++eea.glossary/jquery.glossarize.js" />
+
+  <javascript id="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'dexterity_types' in request.URL0"
+              authenticated="False"
+              position-after="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" />
+
+  <javascript id="++resource++plone.formwidget.contenttree/contenttree.js" bundle="default"
+              expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and 'dexterity_types' in request.URL0"
+              authenticated="False"
+              position-after="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" />
+
+  <javascript id="++resource++jquery.annotator.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled() or 'daviz-edit.html' in request.URL0"
+    authenticated="False"
+    position-after="++resource++search.js" />
+
+  <javascript id="++resource++eea.annotator.view.js" bundle="default"
+    expression="python: (not here.restrictedTraverse('@@plone_portal_state').anonymous()) and here.restrictedTraverse('@@annotations_settings').is_enabled() or 'daviz-edit.html' in request.URL0"
+    authenticated="False"
+    position-after="++resource++jquery.annotator.js" />
+
+  <javascript id="++resource++jquery.galleryview.js" bundle="default"
+    expression="python: context.portal_type in ['EyewitnessStory'] or context.layout == 'gallery_view'"
+    authenticated="False"
+    position-after="++resource++search.js" />
+
+  <javascript id="eea-galleryview.js" bundle="default"
+    expression="python: context.portal_type in ['EyewitnessStory'] or context.layout == 'gallery_view'"
+    authenticated="False"
+    position-after="++resource++jquery.galleryview.js" />
+  <!-- end conditioned javascripts -->
+
+  <!--? faceted navigation -->
+  <javascript id="collective.js.jqueryui.custom.min.eea.js" bundle="default"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++gismap_relations.js" />
+
+  <javascript id="++resource++jquery.select2uislider.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="collective.js.jqueryui.custom.min.eea.js" />
+
+  <javascript id="++resource++jquery.tagcloud.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.select2uislider.js" />
+
+  <javascript id="++resource++jquery.jstree.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++jquery.tagcloud.js" />
+
+  <javascript id="++resource++plone.app.jquerytools.dateinput.js" bundle="default"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    authenticated="False"
+    insert-after="++resource++jquery.jstree.js" />
+
+  <javascript id="++resource++eea.faceted-navigation.js" bundle="faceted-view"
+              expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+              insert-after="++resource++plone.app.jquerytools.dateinput.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.text.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.faceted-navigation-expand.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.tal.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.text.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.tagscloud.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.tal.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.sorting.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.tagscloud.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.select.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.sorting.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.resultsperpage.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.select.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.resultsfilter.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.resultsperpage.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.range.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.resultsfilter.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.radio.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.range.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.portlet.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.radio.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.path.tree.js" bundle="faceted-view"
+              expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+              insert-after="++resource++eea.facetednavigation.widgets.portlet.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.path.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.path.tree.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.etag.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.path.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.debug.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.etag.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.daterange.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.debug.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.date.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.daterange.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.criteria.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.date.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.checkbox.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.criteria.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.autocomplete.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.checkbox.view.js" />
+
+  <javascript id="++resource++eea.facetednavigation.widgets.alphabets.view.js" bundle="faceted-view"
+    expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+    insert-after="++resource++eea.facetednavigation.widgets.autocomplete.view.js" />
+
+  <javascript id="++resource++eea.faceted-navigation-independent.js" bundle="faceted-view"
+              expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+              insert-after="++resource++eea.facetednavigation.widgets.alphabets.view.js" />
+
+  <javascript id="++resource++eea.faceted-navigation-expand.js" bundle="faceted-view"
+              expression="python: object.restrictedTraverse('@@plone_interface_info').provides('eea.facetednavigation.subtypes.interfaces.IFacetedNavigable') or  'edit' in request.URL0"
+              insert-after="++resource++eea.faceted-navigation-independent.js" />
+  <!--?  end faceted navigation -->
+</object>

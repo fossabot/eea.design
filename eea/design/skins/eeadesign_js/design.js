@@ -245,28 +245,6 @@ jQuery(document).ready(function($) {
     // #17633 add eea-icon class to the plone message classes
     $(".attention, .caution, .danger, .error, .hint, .important, .note, .tip, .warning").addClass('eea-icon');
 
-    // #20389 - time counter to remind editors save their work
-    // Delay can be overriten like this (value in miliseconds): $.timeoutDialog({delay: 900000});
-
-    $(document).ajaxComplete(function(event, xhr, settings) {
-        var url = settings.url.split('/');
-        var method = url[url.length - 1];
-        var reset_methods = ['@@googlechart.googledashboard.edit',
-            '@@googlechart.googledashboards.edit',
-            '@@googlechart.savepngchart',
-            '@@googlechart.setthumb',
-            '@@daviz.properties.edit'];
-        if (reset_methods.indexOf(method) > -1) {
-            $.timeoutDialog.reset();
-        }
-    });
-
-    try {
-        $.timeoutDialog({delay: 900000}); // set to be triggered after 15 minutes
-    }
-    catch (err) {
-        // window.console.log(err);
-    }
 
     // #5454 remove background for required fields that have the red square
     $(".required:contains('■')").addClass('no-bg');
@@ -281,18 +259,6 @@ jQuery(document).ready(function($) {
     if (r.test(url_path_name)) {
         $body.addClass('fullscreen');
         $('#icon-full_screen').parent().remove();
-    }
-
-    // 5267 display form fields for translated items
-    var edit_bar = $("#edit-bar");
-    var edit_translate = function() {
-        var translating = $content.find('form').find('.hiddenStructure').text().indexOf('Translating');
-        if (translating !== -1) {
-            edit_bar.closest('#portal-column-content')[0].className = "cell width-full position-0";
-        }
-    };
-    if (edit_bar) {
-        edit_translate();
     }
 
     // #4157 move the non embedded links out of the enumeration of the embedded
@@ -495,6 +461,12 @@ jQuery(document).ready(function($) {
     if ($('#eea-above-columns').find('#portal-breadcrumbs').length) {
         $('#header-holder').find('.navbar').addClass('hideShadow');
     }
+
+    // 91577 show and hide mobile menu
+    $(".navbar-toggle").click(function(ev) {
+        $(ev.target).toggleClass('collapsed');
+        $(".navbar-collapse").toggleClass('in');
+    });
 
     $('#globalstatusmessage').each(function(idx, el) {
         $(el).find("dl:not([class*='eea-icon'])").addClass("eea-icon eea-icon-magic");

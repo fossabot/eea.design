@@ -36,7 +36,7 @@
             navItemsSelector: '.navigator-wrap-inner li',
             navOuterSelector: '.navigator-wrapper',
             isPreloaded: true,
-            easing: 'easeInOutQuad',
+            easing: 'swing',
             pauseOnHover: false,
             galleryControls: "#play-pause",
             galleryPlay: "promo-gallery-play",
@@ -214,7 +214,7 @@
 
             this.navigatorInner.stop().animate((0,eval)('({' + this.navigratorStep[0] + ':-' + this.settings.startItem * this.navigratorStep[1] + '})'), {
                 duration: 500,
-                easing: 'easeInOutQuad'
+                easing: 'swing'
             });
         },
         setNavActive: function(index, item) {

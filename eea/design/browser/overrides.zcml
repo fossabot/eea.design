@@ -28,6 +28,38 @@
           />
     </configure>
 
+  <browser:page
+    name="discussion-settings"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class="plone.app.discussion.browser.controlpanel.DiscussionSettingsControlPanel"
+    permission="cmf.ManagePortal"
+    template="templates/controlpanel.pt"
+  />
+
+  <browser:page
+    name="caching-controlpanel"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class="plone.app.caching.browser.controlpanel.ControlPanel"
+    permission="cmf.ManagePortal"
+    template="templates/caching_controlpanel.pt"
+  />
+
+  <browser:page
+    name="rules-controlpanel"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".overrides.EEAContentRulesControlPanel"
+    permission="cmf.ManagePortal"
+    template="templates/contentrules_controlpanel.pt"
+  />
+
+  <browser:page
+    name="configuration_registry"
+    for="*"
+    class="plone.app.registry.browser.records.RecordsControlPanel"
+    permission="cmf.ManagePortal"
+    template="templates/records.pt"
+  />
+
     <!-- #28222 override manage-job-queue to have a bigger timeout
          on refresh -->
      <configure package="plone.app.async">
@@ -48,4 +80,20 @@
         class=".overrides.EEAEventsRenderer"
         layer="eea.design.browser.interfaces.IEEACommonLayer"
         />
+
+  <browser:viewletManager
+    name="plone.resourceregistries.styles"
+    provides="Products.ResourceRegistries.interfaces.IHtmlHeadStyles"
+    template="templates/styles_viewlet_override.pt"
+    layer=".interfaces.IEEACommonLayer"
+    permission="zope2.View"
+  />
+    <browser:viewlet
+        name="plone.resourceregistries"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        template="templates/resourceregistries.pt"
+        layer=".interfaces.IEEACommonLayer"
+        permission="zope2.View"
+        />
+
 </configure>

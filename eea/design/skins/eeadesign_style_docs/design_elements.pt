@@ -56,7 +56,7 @@ developers, UX/UI experts.
         You need to enter an image scale after the image src otherwise the gallery
         will load the full-resolution images which could dramatically slow the page
     </p>
-    <ul id="galleryView">
+    <ul id="galleryView" class="galleryView">
         <li>
             <span class="panel-overlay" i18n:translate="">Overlay text goes here</span>
             <img src="monkey-with-makeup/image_large" />
@@ -65,6 +65,7 @@ developers, UX/UI experts.
     </ul>
     <pre tal:content="string:
         &lt;ul id=&quot;galleryView&quot;&gt;
+            &lt;li&gt; class=&quot;galleryView;&gt;
             &lt;li&gt;
                 &lt;span class=&quot;panel-overlay&quot;&gt;Overlay text goes here&lt;/span&gt;
                 &lt;img src=&quot;mr-monkey/image_large&quot; /&gt;
@@ -75,7 +76,7 @@ developers, UX/UI experts.
 
     <p i18n:translate="">
         You can now use more than you galleryView on the page if needed by using the
-        galleryView class.
+        gallery class.
         Also you can disable the filmstrip by assigning the <strong>js-noFilmstrip</strong> class to the gallery
         as you can see in the example below.
     </p>

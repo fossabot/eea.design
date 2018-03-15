@@ -61,55 +61,50 @@
       involved in developing, adopting, implementing and evaluating environmental
       policy, and also the general public" />
     <link href="https://plus.google.com/104345627234408209119" rel="publisher" />
-    <!--?<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>-->
-    <!--?<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>-->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext,latin" rel="stylesheet" type="text/css" />
-    <tal:block define="sentry_dsn context/@@sentry_dsn" condition="sentry_dsn">
-        <script src="https://cdn.ravenjs.com/3.22.1/raven.min.js"
-            crossorigin="anonymous"></script>
-    </tal:block>
+
+<tal:comment replace="nothing">
+        Prevent public draft content to be indexed and cached by search engines.
+</tal:comment>
+<meta tal:condition="python: wf_state in ['visible']" name="robots" content="noindex" />
+<meta tal:condition="python: wf_state in ['visible']" name="robots" content="noarchive" />
+
+<tal:notajax tal:condition="python:not ajax_load or ajax_include_head">
+    <div tal:replace="structure provider:plone.htmlhead" />
 
     <tal:comment replace="nothing">
-            Prevent public draft content to be indexed and cached by search engines.
+        Various slots where you can insert elements in the header from a template.
     </tal:comment>
-    <meta tal:condition="python: wf_state in ['visible']" name="robots" content="noindex" />
-    <meta tal:condition="python: wf_state in ['visible']" name="robots" content="noarchive" />
 
-    <tal:notajax tal:condition="python:not ajax_load or ajax_include_head">
-        <div tal:replace="structure provider:plone.htmlhead" />
-        <link tal:replace="structure provider:plone.htmlhead.links" />
+    <metal:topslot define-slot="top_slot" />
 
-        <tal:comment replace="nothing">
-            Various slots where you can insert elements in the header from a template.
-        </tal:comment>
+    <metal:headslot define-slot="head_slot"
+        tal:define="charset site_properties/default_charset|string:utf-8">
+        <tal:anonymousNoBorder condition="isAnon|nothing">
+            <metal:noborder  tal:define="dummy python:request.set('disable_border',1)" />
+        </tal:anonymousNoBorder>
+        <metal:baseslot define-slot="base">
+            <base tal:attributes="href plone_view/renderBase" /><!--[if lt IE 7]></base><![endif]-->
+        </metal:baseslot>
+    </metal:headslot>
 
-        <metal:topslot define-slot="top_slot" />
+    <metal:styleslot define-slot="style_slot" />
 
-        <metal:headslot define-slot="head_slot"
-            tal:define="charset site_properties/default_charset|string:utf-8">
-            <tal:anonymousNoBorder condition="isAnon|nothing">
-                <metal:noborder  tal:define="dummy python:request.set('disable_border',1)" />
-            </tal:anonymousNoBorder>
-            <metal:baseslot define-slot="base">
-                <base tal:attributes="href plone_view/renderBase" /><!--[if lt IE 7]></base><![endif]-->
-            </metal:baseslot>
-        </metal:headslot>
+    <metal:pagedesign use-macro="context/page_design_macros/macros/pagedesign" />
 
-        <metal:styleslot define-slot="style_slot" />
+    <tal:comment replace="nothing"> This is deprecated, please use style_slot instead. </tal:comment>
+    <metal:cssslot define-slot="css_slot" />
 
-        <metal:pagedesign use-macro="context/page_design_macros/macros/pagedesign" />
 
-        <tal:comment replace="nothing"> This is deprecated, please use style_slot instead. </tal:comment>
-        <metal:cssslot define-slot="css_slot" />
 
-        <metal:javascriptslot define-slot="javascript_head_slot" />
+    <meta name="generator" content="Plone - http://plone.org" />
 
-        <meta name="generator" content="Plone - http://plone.org" />
+    <script type="text/javascript" tal:content="structure context/ready.min.js">
+        </script>
+
+        <script type="text/javascript" tal:content="string: context_url='${context/absolute_url}';">
+        </script>
     </tal:notajax>
-
-    <script type="text/javascript" tal:content="string: context_url='${context/absolute_url}';">
-    </script>
-
+    <link tal:replace="structure provider:plone.htmlhead.links" />
 </head>
 
 <body tal:define="isRTL portal_state/is_rtl;
@@ -126,8 +121,7 @@
                   frontpage python: ' frontpage' if ('frontpage_view' or 'localfrontpage_view') in body_class else '';
                   sunburst_view python:context.restrictedTraverse('@@sunburstview')"
       tal:attributes="class python:body_class + ' ' + language + frontpage;
-                      dir python:isRTL and 'rtl' or 'ltr';
-                      data-sentry-dsn context/@@sentry_dsn">
+                      dir python:isRTL and 'rtl' or 'ltr';">
 
     <div id="print-warning" i18n:domain="eea">
         <p i18n:translate="">
@@ -197,7 +191,7 @@
                     <metal:slot define-slot="body">
                         <div id="content"  class="documentContent panels"
                                             tal:define="content_class python:wf_state and ('documentContent panels wf-state-' + str(wf_state)) or 'documentContent panels';
-                                                        content_class python: content_class + ' archived-content' if is_expired else content_class;"
+                                                    content_class python: content_class + ' archived-content' if is_expired else content_class;"
                                             tal:attributes="class python:content_class">
 
                             <metal:header define-slot="header" tal:content="nothing">
@@ -239,7 +233,7 @@
                                     <div tal:replace="structure provider:plone.abovecontentbody" tal:condition="not:ajax_load" />
                                 </div>
 
-                                <div id="content-core">
+                                <div id="content-core" class="content-core">
                                     <metal:text define-slot="content-core" tal:content="nothing">
                                         <tal:comment replace="nothing">
                                             text body page
@@ -283,7 +277,7 @@
 
             <tal:not4AjaxLoad  tal:condition="not:ajax_load">
                 <tal:not4Print tal:condition="python:not isPrint">
-                    <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" />
+                    <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent"></div>
                 </tal:not4Print>
             </tal:not4AjaxLoad>
         </div>
@@ -318,16 +312,29 @@
     <tal:not4Print tal:condition="python:not isPrint">
         <div tal:replace="structure provider:plone.portalfooter" />
     </tal:not4Print>
+
+    <tal:comment tal:replace="nothing">
+        91577 add lazy_load_init.js inline instead of portal_javascripts
+        due to products.resourceregistry bug with inline javascript where
+        on anonymous there was a caching status AssertionError
+    </tal:comment>
+    <script type="text/javascript" tal:content="structure context/lazy_load_init.js">
+    </script>
+    <tal:scripts replace="structure provider:plone.resourceregistries.scripts" />
+    <metal:javascriptslot define-slot="javascript_head_slot" />
+
+    <tal:4ContentCoreOnly tal:condition="python: content_core_only">
+
+        <metal:content_core_only use-macro="context/content_core_only/macros/content_core_only">
+            Get the global cache headers located in global_cache_settings.
+        </metal:content_core_only>
+    </tal:4ContentCoreOnly>
 </metal:block>
 </body>
+
 </html>
 
 </tal:not4ContentCoreOnly>
 
-<tal:4ContentCoreOnly tal:condition="python: content_core_only">
-
-    <metal:content_core_only use-macro="context/content_core_only/macros/content_core_only">
-        Get the global cache headers located in global_cache_settings.
-    </metal:content_core_only>
-</tal:4ContentCoreOnly>
 </metal:page>
+

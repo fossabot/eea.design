@@ -11,11 +11,6 @@
 
 
 /* This div sneaks in a padding for IE it seems. */
-html {
-    /*background: url("header.png") top left repeat-x;*/
-
-}
-
 #main-content {
     margin-top: 5px;
 }
@@ -84,10 +79,6 @@ html {
     top: 0;
     margin-top: 0.8em;
 }
-a.archives {
-    color: #869936;
-    border-bottom: 1px solid #869936;
-}
 
 /* Frontpage main content
 ******************************************************************************/
@@ -118,6 +109,10 @@ a.archives {
     font-weight:normal;
 }
 
+#browse-by-organisation {
+    margin-top: 0.83em;
+}
+
 
 .frontpage #highlights-block,
 .frontpage #highlights-area {
@@ -127,23 +122,6 @@ a.archives {
 
 .frontpage #portal-columns {
     padding: 0 !important;
-}
-#content ul.gallery-layout-selection  {
-  float: right;
-  position: relative;
-  top: 5px;
-  list-style: none;
-  margin-bottom: 10px;
-  width: 65px;
-  display: inline;
-}
-#content .gallery-layout-selection li {
-    display: inline;
-}
-
-#content .gallery-layout-selection a {
-    border-bottom: 0;
-    display: inline-block;
 }
 
 .featured-highlight-title {
@@ -158,13 +136,7 @@ a.archives {
 /* 72171 impact */
 #eea-intro-message {
     padding: 1em;
-}
-
-#megatopics-area {
-    font-size: 0.9em;
-    margin-bottom: 1.5em;
-    display: flex;
-    flex-wrap: wrap;
+    margin: 1.5em 0 0 0;
 }
 
 #megatopics-area .portletHeader {
@@ -179,30 +151,8 @@ a.archives {
     line-height: 1.2;
 }
 
-.portlet-megatopic {
-    display: flex;
-    flex: 1;
-}
-#megatopics-area .portlet,
-#megatopics-area dd {
-    margin: 0;
-    padding: 0;
-}
-
-#megatopics-area ul {
-    margin-bottom: 2px;
-}
-
 .portlet-megatopic img {
     height: 150px;
-}
-.portlet-megatopic ul {
-    padding-top: 20px;
-    height: auto;
-}
-
-.portlet-megatopic ul li:last-child {
-    padding-bottom: 15px;
 }
 
 /* Frontpage news and articles
@@ -211,19 +161,8 @@ a.archives {
     padding-right: 1em;
 }
 
-
-#news-header h2 {
-    border:none;
-    font-size: 160%;
-    font-weight:normal;
-    margin: 6px;
-    padding: 0;
-}
 #below-topics-area #news-header {
     margin-bottom: 0;
-}
-#below-topics-area #news-header h2 {
-    margin: 0 6px 0 1em;
 }
 #below-topics-area #topic-selector {
     margin-top: 0.5em;
@@ -236,13 +175,6 @@ a.archives {
 }
 .site-SITE #below-topics-area .eea-tabs-panels {
     padding: 1.5em;
-}
-
-#news-header {
-  height: 35px;
-  clear: both;
-  display: block;
-    margin:14px 0 5px 0;
 }
 
 /* style for featured boxes */
@@ -286,78 +218,32 @@ a.archives {
 
 /* style for shortcuts buttons */
 
-#facebook,
-#youtube,
-#twitter,
-#twitter-link,
-#facebook-link,
-#youtube-link,
-#rss-link,
-#email-link,
-a.active-list,
-a.list-layout,
-a.album-layout,
-a.active-album,
-a.list-layout:hover,
-a.album-layout:hover {
-  background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat scroll top right;
-}
-
-/* Styles which can be used on any area */
-#portlet-followus dd a:hover {
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-     -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-      -moz-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-       -ms-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-        -o-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-}
-/* END Styles which can be used on any area */
+/*#facebook,*/
+/*#youtube,*/
+/*#twitter,*/
+/*#twitter-link,*/
+/*#facebook-link,*/
+/*#youtube-link,*/
+/*#rss-link,*/
+/*#email-link,*/
+/*a.active-list,*/
+/*a.list-layout,*/
+/*a.album-layout,*/
+/*a.active-album,*/
+/*a.list-layout:hover,*/
+/*a.album-layout:hover {*/
+  /*background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat scroll top right;*/
+/*}*/
 
 #portlet-followus dd {
   display: inline-block;
-  padding-right: 1em;
+  width: 44px;
   margin: 0 0 2px 0;
-}
-
-#twitter-link,
-#facebook-link,
-#youtube-link,
-#rss-link,
-#email-link{
-  width: 33px;
-  height: 32px;
-  display: block;
-}
-
-#content #twitter-link, #content #facebook-link, #content #youtube-link {
-    background: transparent url('&dtml-xurl;/sprite-eeaimages.png') no-repeat;
-    padding: 0px;
-}
-
- #twitter-link {
-    background-position: 0 -180px !important;
-}
-
- #facebook-link {
-    background-position: 0 -147px !important;
-}
-
-#youtube-link {
-    background-position: 0 -213px !important;
-}
-
-#rss-link {
-    background-position: 0 -246px !important;
-}
-
-#email-link {
-    background: url("&dtml-xurl;/email_32.png") no-repeat center center transparent; /* TODO: to sprite */
 }
 
 .shortcut-default {
     text-align: left;
     padding: 1.5em;
-    /*background: &dtml-lightBackgroundColor;;*/
     background: &dtml-whiteBackgroundColor;;
     margin-bottom: 1em;
 }
@@ -391,36 +277,20 @@ a.album-layout:hover {
     height: 60px;
 }
 
-
-
-a.list-layout,
-a.album-layout {
-  display: inline-block;
-  height: 17px;
-  margin-right: 10px;
-  width: 20px;
+.album-layout, .list-layout {
+    color: #888;
+    cursor: pointer;
+    margin-right: 10px;
 }
-
-a.album-layout {
-    background-position: -427px -162px;
-}
-
-a.active-album, a.album-layout:hover {
-  background-position: -427px -145px;
-}
-
-a.list-layout {
-  background-position: -448px -162px;
-}
-
-a.active-list, a.list-layout:hover {
-  background-position: -448px -145px;
+.active-album, .album-layout:hover,
+.active-list, .list-layout:hover
+{
+    color: #cd7;
 }
 
 .filter-topic {
     float: left;
     text-align: left;
-    width: 83%;
     padding-top: 6px;
 }
 /* </dtml-let> */

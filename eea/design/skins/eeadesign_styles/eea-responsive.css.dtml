@@ -257,7 +257,8 @@
 
   #portal-externalsites, #portal-siteactions,
   #secondary-portaltabs,
-  #portal-searchbox {
+  #portal-searchbox,
+  .LSBox {
     float: none; }
 
   #portal-externalsites li, #portal-siteactions li {
@@ -304,6 +305,12 @@
       margin: 0; }
     #portal-searchbox .searchButton {
       display: none; }
+
+  .LSBox {
+    padding-right: 0; }
+    .LSBox .searchSection {
+      left: 0;
+      background-color: #006699; }
 
   #portal-searchbox {
     display: block !important;
@@ -365,7 +372,7 @@
     width: 100%;
     overflow: auto; }
 
-  .right-area-js {
+  .faceted-form .right-area-js {
     margin-right: 0; }
 
   .left-area-js {
@@ -506,9 +513,6 @@
   #region-content {
     padding: 0.5em; }
 
-  #portal-columns {
-    padding-top: 0; }
-
   /* START #89398 GIS Map Applications get a slimmer mobile view */
   .template-gis_view .content-header,
   .template-gis_view .plone-breadcrumb,
@@ -531,8 +535,12 @@
   .colophon-right {
     margin-top: 1em; }
 
+  .colophonWrapper {
+    display: block; }
+
   .colophon-middle {
-    margin-top: 0; }
+    display: block;
+    margin: 1em; }
 
   .template-soer2015_frontpage .eea-row {
     margin-left: 0; }
@@ -541,21 +549,11 @@
   .template-soer2015_frontpage .eea-icon:before {
     margin: 0 .2em; }
   .template-soer2015_frontpage #portlet-followus {
-    margin: 2em; }
-
-  #portlet-followus dd {
-    padding-right: 0.7em; } }
+    margin: 2em; } }
 @media screen and (width: 768px) {
   .right-column-area {
     width: 41%; } }
 @media screen and (min-width: 768px) {
-  #header-holder .container-fluid {
-    padding: 0; }
-  #header-holder .navbar-header {
-    float: none; }
-  #header-holder .navbar-fixed-top {
-    position: relative; }
-
   #secondary-portaltabs .eea-accordion-panels,
   #portal-logo-link-header {
     display: none; }
@@ -563,6 +561,9 @@
   /* move the search icon inside the input of the searchfield */
   #portal-searchbox .eea-icon {
     margin-right: -2em; }
+
+  .mini-header #portal-searchbox .searchSection {
+    display: none; }
 
   .navbar-toggle {
     display: none; }
@@ -664,9 +665,6 @@
 
   #siteaction-networks-menu .siteaction-title {
     display: inline-block; } }
-@media screen and (min-width: 769px) {
-  #portal-column-content {
-    padding: 0 1.5em 1.5em; } }
 @media screen and (min-width: 961px) {
   #visual-portal-wrapper, #portal-header {
     min-width: 995px;
@@ -675,10 +673,8 @@
   #portal-header.eea-miniheader-element {
     height: 100%;
     font-size: 115%;
-    margin: 2em 0; }
-
-  #portal-column-content {
-    padding: 0 1.5em 1.5em; } }
+    margin: 2em 0;
+    clear: none; } }
 @media screen and (max-width: 1023px) {
   .mini-header #tip-externalsites-networks .networkSites,
   .mini-header #portal-globalnav #portaltab-eeahome {
@@ -715,9 +711,6 @@
 @media screen and (min-width: 1024px) {
   .mini-header #visual-portal-wrapper {
     overflow: hidden; }
-
-  #region-content {
-    margin: 0 -1.5em; }
 
   #portal-globaltab {
     font-size: 120%; } }

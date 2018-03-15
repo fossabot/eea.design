@@ -19,6 +19,6 @@
     </a>
 </h2>
 
-<h3 class="site-description" i18n:translate="">
+<h3 class="site-description" i18n:translate="" tal:replace="nothing">
     Sound and independent information<br /> on the environment
 </h3>
