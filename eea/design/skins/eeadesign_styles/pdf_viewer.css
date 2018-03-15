@@ -254,7 +254,7 @@ html[dir='ltr'] #content .presentation-mode .pdfjs .findbar {
 }
 
 #content #sidebarContainer .pdfjs .outlineItem>a:hover,
-#conetnt #sidebarContainer .pdfjs .outlineItem>a {
+#content #sidebarContainer .pdfjs .outlineItem>a {
     color: #337ab7;
 }
 
