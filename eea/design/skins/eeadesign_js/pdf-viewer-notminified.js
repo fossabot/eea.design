@@ -17036,7 +17036,7 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
    if (evt.button === 0) {
     var isInternalLink = evt.target.href && evt.target.classList.contains('internalLink');
     if (!isInternalLink) {
-     evt.preventDefault();
+    //  evt.preventDefault();
     // this.pdfViewer.currentPageNumber += evt.shiftKey ? -1 : 1;
     }
    }

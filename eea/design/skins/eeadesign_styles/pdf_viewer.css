@@ -231,16 +231,26 @@ html[dir='ltr'] #content .pdfjs #outerContainer>#mainContainer {
     display: none;
 }
 
-#content .presentation-mode .pdfjs .dropdownToolbarButton select #pageAutoOption,
+#content .pdfjs .dropdownToolbarButton,
 #content .pdfjs .dropdownToolbarButton>select>option {
     display: none;
 }
 
-#content .pdfjs .dropdownToolbarButton select #pageWidthOption,
+
+#content #outerContainer.pdfPresentationMode #thumbnailView > a,
+#content #outerContainer.pdfPresentationMode #outlineView .outlineItem a,
+#content #outerContainer.pdfPresentationMode .dropdownToolbarButton,
+#content #outerContainer.pdfPresentationMode .dropdownToolbarButton>select>option,
 #content .presentation-mode .pdfjs #thumbnailView > a,
 #content .presentation-mode .pdfjs #outlineView .outlineItem a,
-#content .presentation-mode .pdfjs .dropdownToolbarButton select #pageAutoOption {
+#content .presentation-mode .pdfjs .dropdownToolbarButton,
+#content .presentation-mode .pdfjs .dropdownToolbarButton>select>option {
     display: block;
+}
+
+html[dir='ltr'] #content .presentation-mode .pdfjs .findbar {
+    float: left;
+    left: 37px;
 }
 
 /* PRESENTATION MODE */
@@ -262,6 +272,7 @@ html[dir='ltr'] #content .pdfjs #outerContainer>#mainContainer {
 }
 
 #content .presentation-mode #mainContainer,
+#content .pdfjs #outerContainer.pdfPresentationMode #viewerContainer,
 #content .presentation-mode .pdfjs #outerContainer.pdfPresentationMode #viewerContainer{
     height: 100%;
 }
@@ -353,7 +364,15 @@ html[dir='ltr'] #content .pdfjs #outerContainer>#mainContainer {
 }
 
 /* PRESENTATION MODE ENDS*/
+@media (max-width: 980px) {
+    #content .pdfjs .sidebarOpen #presentationMode {
+        display: block;
+    }
 
+    #content .pdfjs .sidebarOpen #secondaryPresentationMode {
+        display: none;
+    }
+}
 
 @media (max-width: 840px) {
     html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#sidebarContainer {
