@@ -34,12 +34,6 @@
 #portal-personaltools li a, #portal-personaltools a:hover {
     color: #FFFFFF;
 }
-#portal-personaltools-wrapper {
-    margin-right: 1em;
-    min-height: 10px;
-    float: right;
-    font-size: 110%;
-}
 .mini-header #portal-personaltools-wrapper {
     visibility: hidden;
 }
