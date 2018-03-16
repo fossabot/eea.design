@@ -253,8 +253,8 @@ html[dir='ltr'] #content .presentation-mode .pdfjs .findbar {
     left: 37px;
 }
 
-#content #sidebarContainer .pdfjs .outlineItem>a:hover,
-#content #sidebarContainer .pdfjs .outlineItem>a {
+#content .pdfjs .outlineItem>a:hover,
+#content .pdfjs .outlineItem>a {
     color: #337ab7;
 }
 

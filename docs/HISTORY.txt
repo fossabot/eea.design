@@ -2,6 +2,13 @@ Changelog
 =========
 19.1 - (unreleased)
 -------------------
+* Feature: Enabled the pdf viewer functionalities in the fullscreen view mode,
+  removed zoom options, removed pdf viewer print button, modified pdf
+  full/normal view styling
+  [petchesi-iulian refs #90589]
+* Upgrade step: Added upgrade step in order to load the pdf viewer for 'Report'
+  portal type
+  [petchesi-iulian refs #90589]
 * Change: ploneCustom.css is now empty to be used for quickfixes, the logic
   that was there is now moved to eea-theme.css. See cleanup of js and css from
   to_190 profile
@@ -15,16 +22,6 @@ Changelog
 * Feature: inlined critical css while also cleaning up some of the overrides
   from plonetheme.sunburst
   [ichim-david refs #91590]
-
-19.1 - (2018-03-01)
--------------------
-* Feature: Enabled the pdf viewer functionalities in the fullscreen view mode,
-  removed zoom options, removed pdf viewer print button, modified pdf
-  full/normal view styling
-  [petchesi-iulian refs #90589]
-* Upgrade step: Added upgrade step in order to load the pdf viewer for 'Report'
-  portal type
-  [petchesi-iulian refs #90589]
 
 19.0 - (2018-02-23)
 -------------------
