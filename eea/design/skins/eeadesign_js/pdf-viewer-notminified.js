@@ -16549,8 +16549,13 @@ var PDFPageView = function PDFPageViewClosure() {
    target.style.width = target.parentNode.style.width = div.style.width = Math.floor(width) + 'px';
    target.style.height = target.parentNode.style.height = div.style.height = Math.floor(height) + 'px';
    // in some cases the canvases aren't loaded yet so we need to add a delay, it doesn't have a visual impact 
-   // setTimeout(function(){}, 1000);
-   var relativeRotation = this.viewport.rotation - this.paintedViewportMap.get(target).rotation;
+   if (this.paintedViewportMap.has(target)) {
+     var relativeRotation = this.viewport.rotation - this.paintedViewportMap.get(target).rotation;
+   }
+   else {
+     var relativeRotation = 0;
+   }
+
    var absRotation = Math.abs(relativeRotation);
    var scaleX = 1, scaleY = 1;
    if (absRotation === 90 || absRotation === 270) {
@@ -16905,7 +16910,6 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
    this._addFullscreenChangeListeners();
    this._setSwitchInProgress();
    this._notifyStateChange();
-  // debugger;
 
    if (this.container.parentElement.parentElement.requestFullscreen) {
     this.container.parentElement.parentElement.requestFullscreen();
@@ -18568,7 +18572,6 @@ var PDFViewer = function pdfViewer() {
    });
   },
   createTextLayerBuilder: function (textLayerDiv, pageIndex, viewport, enhanceTextSelection) {
-    // debugger;
    return new TextLayerBuilder({
     textLayerDiv: textLayerDiv,
     eventBus: this.eventBus,

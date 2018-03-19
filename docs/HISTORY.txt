@@ -2,6 +2,8 @@ Changelog
 =========
 19.1 - (unreleased)
 -------------------
+* Bug fix: Added pdf rotation error fallback
+  [petchesi-iulian refs #90589]
 * Feature: Enabled the pdf viewer functionalities in the fullscreen view mode,
   removed zoom options, removed pdf viewer print button, modified pdf
   full/normal view styling
