@@ -99,7 +99,7 @@ legend {
     display: none !important;
 }
 
-html{font-size:16px !important;}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb !important;}#cross-site-top{background-color:#069;margin:0;padding:0;}#globalnav-holder{background-color:#069;width:100%;display:block;clear:both;order: 2;}#portal-header,#visual-portal-wrapper{max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
+html{font-size:16px !important;}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb !important;}#cross-site-top{background-color:#069;margin:0;padding:0;}#globalnav-holder{background-color:#069;width:100%;display:block;overflow:hidden;order: 2;}#portal-header,#visual-portal-wrapper{max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
 
 .pull-right {
     float: right !important;
@@ -256,14 +256,10 @@ select {
     background-color: &dtml-corporateGreen;;
     color: #fff;
     line-height: 1.6em;
-    list-style: none;
     padding: 0.3em 0.5em 0.5em;
-    text-align: right;
     margin: 0;
     position: relative;
     z-index: 3;
-    top: 0;
-    right: 0;
     font-size: 80%;
 }
 .deactivated .actionMenuContent {
@@ -280,6 +276,7 @@ select {
 #cross-site-top {
     display: flex;
     flex-grow: 1;
+    min-width: 80%;
 }
 #cross-site-top .eea-siteaction {
     display: inline;
@@ -384,9 +381,6 @@ select {
     }
 }
 @media screen and (min-width: 768px) {
-    #header-holder .navbar-header {
-        float: none !important;
-    }
     #header-holder .container-fluid {
         padding: 0;
     }
@@ -425,6 +419,7 @@ select {
 
 #portal-header .hiddenStructure {
     order: 2;
+    width: 100%;
 }
 .portal-logo {
     border: 0;
@@ -447,6 +442,9 @@ select {
     display: block;
     width: auto;
     height: 71px;
+}
+#portal-header .hiddenStructure {
+    order: 3;
 }
 #portal-searchbox {
     margin: 20px 0 0 0;
@@ -611,6 +609,14 @@ li#secondary-portaltabs-container {
 .content-core p,
 .content-core li {
     font-size: 115%;
+}
+.content-core li, .portlet li, .portletStaticText li {
+    margin-bottom: 0.25em;
+    line-height: 1.5em;
+    display: list-item;
+}
+.documentContent li a {
+    display: inline;
 }
 .content-core ul {
     margin-left: 1.5em;
