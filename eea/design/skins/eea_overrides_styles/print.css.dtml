@@ -71,6 +71,7 @@ h3 {
 }
 .cell {
     left: 0;
+    float: none;
 }
 
 ul, ol, dl {
