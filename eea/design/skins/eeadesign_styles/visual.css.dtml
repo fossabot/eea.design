@@ -1045,6 +1045,7 @@ span.figure-left {
 .standardButton,
 .qq-upload-button,
 .searchButton,
+.faceted-text-widget .searchButton,
 .plonebutton,
 .context,
 .destructive,
