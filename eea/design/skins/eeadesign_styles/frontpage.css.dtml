@@ -83,24 +83,10 @@
 /* Frontpage main content
 ******************************************************************************/
 
-.column-area, .right-column-area {
-    width: 58.5%;
-    margin: 0 0;
-    padding: 0;
-    float: left;
-}
-
 #highlights-area {
     background-color: &dtml-lightBackgroundColor;;
     padding: &dtml-padding-base;;
 }
-
-.right-column-area {
-    width: 39%;
-    padding: 0 0 0 1em;
-    float: right;
-}
-
 
 #articles-area h2 {
     padding-top: 0;
@@ -112,7 +98,6 @@
 #browse-by-organisation {
     margin-top: 0.83em;
 }
-
 
 .frontpage #highlights-block,
 .frontpage #highlights-area {

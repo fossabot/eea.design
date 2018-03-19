@@ -99,7 +99,7 @@ legend {
     display: none !important;
 }
 
-html{font-size:16px !important;}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb !important;}#cross-site-top{background-color:#069;margin:0;padding:0;width:100%;}#globalnav-holder{background-color:#069;width:100%;display:block;clear:both}#portal-header,#visual-portal-wrapper{max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
+html{font-size:16px !important;}body{font:75% 'Open Sans',Verdana,Helvetica,Arial,sans-serif;color:#333;margin:0;padding:0;background-color:#e8f0fb !important;}#cross-site-top{background-color:#069;margin:0;padding:0;}#globalnav-holder{background-color:#069;width:100%;display:block;overflow:hidden;order: 2;}#portal-header,#visual-portal-wrapper{max-width:1024px}#visual-portal-wrapper{margin:0 auto;padding:0;clear:both;overflow:visible}#portal-column-content{padding:0 1.5em 1.5em;min-width: 635px;}#footer-wrapper{background-color:#069;margin:2em 0;padding:2em 1em;clear:both;border-top:8px solid #FFF}
 
 .pull-right {
     float: right !important;
@@ -246,25 +246,19 @@ select {
 }
 
 #portal-personaltools-wrapper {
-    margin-right: 1em;
     min-height: 10px;
-    float: right;
     font-size: 110%;
+    order: 2;
 }
 
 #portal-personaltools {
     background-color: &dtml-corporateGreen;;
     color: #fff;
     line-height: 1.6em;
-    list-style: none;
     padding: 0.3em 0.5em 0.5em;
-    text-align: right;
     margin: 0;
-    float: right;
-    position: relative;
     z-index: 3;
-    top: 0;
-    right: 0;
+    position: relative;
     font-size: 80%;
 }
 .deactivated .actionMenuContent {
@@ -273,12 +267,15 @@ select {
 
 #portal-externalsites, #portal-siteactions {
     margin: 4px 0 4px 0;
-    float: right;
     padding: 0 10px 0 0;
 }
 #portal-externalsites {
-    float: left;
     margin-left: 0.5em;
+}
+#cross-site-top {
+    display: flex;
+    flex-grow: 1;
+    min-width: 80%;
 }
 #cross-site-top .eea-siteaction {
     display: inline;
@@ -291,6 +288,9 @@ select {
 .eea-siteaction > a {
     color: #FFF;
     cursor: pointer;
+}
+#portal-siteactions {
+    margin-left: auto;
 }
 #portal-siteactions, #portal-externalsites {
     display: block;
@@ -380,9 +380,6 @@ select {
     }
 }
 @media screen and (min-width: 768px) {
-    #header-holder .navbar-header {
-        float: none !important;
-    }
     #header-holder .container-fluid {
         padding: 0;
     }
@@ -401,22 +398,29 @@ select {
         font: bold 12px 'Open Sans';
     }
 }
-    
+
+#portal-top {
+    display: flex;
+    flex-wrap: wrap;
+}
 #portal-header {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     clear: both;
     position: relative;
     margin: 0 auto;
     overflow: hidden;
     height: 90px;
     z-index: initial;
+    order: 2;
+    width: 100%;
 }
 .portal-logo {
     border: 0;
     margin: 0;
     padding: 0;
-    float: left;
     position: relative;
+    order: 1;
 }
 .portal-logo a {
     display: block;
@@ -433,13 +437,15 @@ select {
     width: auto;
     height: 71px;
 }
+#portal-header .hiddenStructure {
+    order: 3;
+}
 #portal-searchbox {
-    float: right;
-    clear: right;
     margin: 20px 0 0 0;
     font-size: 1.2em;
     width: 350px;
     text-align: left;
+    order: 3;
 }
 #portal-searchbox .gsc-control-cse {
     background-color: transparent;
@@ -598,6 +604,14 @@ li#secondary-portaltabs-container {
 .content-core li {
     font-size: 115%;
 }
+.content-core li, .portlet li, .portletStaticText li {
+    margin-bottom: 0.25em;
+    line-height: 1.5em;
+    display: list-item;
+}
+.documentContent li a {
+    display: inline;
+}
 .content-core ul {
     margin-left: 1.5em;
 }
@@ -613,18 +627,21 @@ li#secondary-portaltabs-container {
     margin-bottom: 0;
 }
 /* @end Content Area */
-
+#main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 .column-area, .right-column-area {
     width: 58.5%;
+    flex-basis: 58.5%;
     margin: 0 0;
     padding: 0;
-    float: left;
 }
 
 .right-column-area {
     width: 39%;
-    padding: 0 0 0 1em;
-    float: right;
+    flex-basis: 37.5%;
 }
 
 .frontpage #highlights-area {
