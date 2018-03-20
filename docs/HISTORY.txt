@@ -1,9 +1,13 @@
 Changelog
 =========
-19.1 - (2018-03-20)
+
+19.2 - (2018-03-20)
 -------------------
-* change: pdf fixes after css and js cleanup
+* Change: pdf fixes after css and js cleanup
   [ichim-david refs #91577]
+
+19.1 - (2018-03-13)
+-------------------
 * Change: ploneCustom.css is now empty to be used for quickfixes, the logic
   that was there is now moved to eea-theme.css. See cleanup of js and css from
   to_190 profile
