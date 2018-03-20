@@ -2,6 +2,8 @@ Changelog
 =========
 19.1 - (unreleased)
 -------------------
+* Bug fix: Exit fullscreen on button click
+  [petchesi-iulian refs #90589]
 * Bug fix: Added pdf rotation error fallback
   [petchesi-iulian refs #90589]
 * Feature: Enabled the pdf viewer functionalities in the fullscreen view mode,

@@ -12521,7 +12521,14 @@ var PDFLinkService = function PDFLinkServiceClosure() {
    var destinationPromise;
    if (typeof dest === 'string') {
     destString = dest;
-    destinationPromise = this.pdfDocument.getDestination(dest);
+    if (typeof destString != 'undefined' && destString) {
+        if (window.location.hash !== "#" + destString) {
+            destinationPromise = this.pdfDocument.getDestination(dest);
+        }
+        else {
+            return
+        }
+    }
    } else {
     destinationPromise = Promise.resolve(dest);
    }
@@ -13198,7 +13205,8 @@ var PDFViewerApplication = {
   if (this.isViewerEmbedded) {
    return;
   }
-  document.title = title;
+  // Removed due to Refs #90589
+  //document.title = title;
  },
  close: function pdfViewClose() {
   var errorWrapper = this.appConfig.errorWrapper.container;
@@ -16904,7 +16912,20 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
  }
  PDFPresentationMode.prototype = {
   request: function PDFPresentationMode_request() {
-   if (this.switchInProgress || this.active || !this.viewer.hasChildNodes()) {
+   if (this.active) {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        }
+       this._exit();
+       return false;
+   }
+   if (this.switchInProgress || !this.viewer.hasChildNodes()) {
     return false;
    }
    this._addFullscreenChangeListeners();
