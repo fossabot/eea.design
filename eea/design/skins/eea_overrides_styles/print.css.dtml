@@ -92,7 +92,9 @@ pre {
     overflow: auto;
     padding: 1em;
 }
-
+#content, #region-content {
+   height: auto !important; /* 91577 avoid empty page after pdf.cover or pdf.disclaimer which has height 100% */
+}
 #content table {
     width: 100% !important; /* 28694 prevent tables from being larger than 100% */
 }
