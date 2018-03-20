@@ -59,6 +59,10 @@
                          tal:attributes="href string:${portal_url}/login_form"
                    title="CMS login"
                          i18n:attributes="title"><strong i18n:translate="">CMS login</strong></a>
+                <a href="/usage"
+                         tal:attributes="href string:${portal_url}/usage"
+                   title="Site statistics"
+                   i18n:attributes="title" i18n:translate="">Site usage</a>
                 <a href="https://github.com/eea/eea.docker.kgs/releases"
                    title="Software updates history"
                          i18n:attributes="title"
