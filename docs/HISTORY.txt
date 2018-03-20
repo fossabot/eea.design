@@ -3,6 +3,8 @@ Changelog
 
 19.2 - (2018-03-20)
 -------------------
+* Feature: Add EEA KGS version and uptime info within Site footer
+  [avoinea refs #93946]
 * Change: pdf fixes after css and js cleanup
   [ichim-david refs #91577]
 

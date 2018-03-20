@@ -17,7 +17,7 @@
                         1050 Copenhagen K<br/>
                         Denmark
                     </tal:block>
-                    <br/> 
+                    <br/>
                     <tal:block i18n:translate="">Phone:</tal:block> +45 3336 7100
                 </tal:c1>
             </tal:address>
@@ -25,10 +25,22 @@
 
         <div  class="colophon-middle">
             <p class="discreet colophon-links">
-                <tal:comments i18n:translate="">engineered by</tal:comments><br />
+                <tal:comments i18n:translate="">Engineered by:</tal:comments>
                 <a href="http://www.eea.europa.eu/help/contact-info"
                          i18n:translate=""
                          tal:attributes="href string:${local_site}/help/contact-info">EEA Web Team</a>
+            </p>
+
+            <p class="discreet colophon-links">
+                <tal:version i18n:translate="" tal:condition="not:view/external">Software version:</tal:version>
+                <tal:version i18n:translate="" tal:condition="view/external">Template version:</tal:version>
+                <a tal:attributes="href view/release" tal:content="string:EEA Plone KGS ${view/version}">EEA KGS VERSION</a>
+            </p>
+
+            <p class="discreet colophon-links">
+                <tal:uptime i18n:translate="" tal:condition="not:view/external">Software updated:</tal:uptime>
+                <tal:uptime i18n:translate="" tal:condition="view/external">Template updated:</tal:uptime>
+                <tal:uptime tal:replace="view/uptime">Uptime</tal:uptime>
             </p>
 
             <p class="discreet colophon-links">
@@ -69,20 +81,20 @@
                     The European Environment Agency (EEA) is an agency of the European Union.
                 </tal:block>
                 <br/>
-                <a href="http://www.eea.europa.eu/legal" 
+                <a href="http://www.eea.europa.eu/legal"
                    tal:attributes="href string:${local_site}/legal/"
                    i18n:translate="">Legal notice</a>
             </span>
              <img tal:attributes="src string:${portal_url}/eu-flag.gif"
                   width="50" height="37" alt="EU flag" title="European Union Flag"
                   i18n:attributes="alt;title" />
-            <br />  
+            <br />
         </div>
 
         <div class="footer-clear">&nbsp;</div>
 
         </tal:c5>
-        
+
     </div>
     </tal:condition>
 </div>
