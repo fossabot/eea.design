@@ -249,6 +249,7 @@
     <browser:viewlet
         name="plone.colophon"
         manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        class=".viewlets.ColophonViewlet"
         template="templates/colophon.pt"
         layer=".interfaces.IEEACommonLayer"
         permission="zope2.View"

@@ -25,9 +25,11 @@
 .faceted-right-column .faceted-widget {
     margin-bottom: 1em;
 }
+
 #faceted-form .faceted-widget {
     padding-bottom: 0.5em;
 }
+
 #faceted-form .faceted-widget fieldset {
     border-style: none !important;
     margin: 0;
