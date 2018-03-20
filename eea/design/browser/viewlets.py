@@ -1,11 +1,14 @@
 """ Custom viewlets
 """
+import os
 from cgi import escape
+from datetime import datetime
 from Acquisition import aq_parent, aq_base, aq_inner
 from Products.CMFCore.utils import _checkPermission
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from eea.cache import cache
 from eea.versions.interfaces import IGetVersions
 from eea.versions.controlpanel.utils import get_version_prefix
 from eea.design.browser.interfaces import ISubFoldersListing
@@ -197,6 +200,42 @@ class FooterPortletsViewlet(common.ViewletBase):
         self.canManagePortlets = mt.checkPermission(
             'Portlets: Manage portlets', self.context)
 
+class ColophonViewlet(common.ViewletBase):
+    """ Footer colophon
+    """
+
+    @cache(lambda *args: "uptime", lifetime=86400)
+    def uptime(self):
+        """ Plone up-time
+        """
+        root = self.context.getPhysicalRoot()
+        cpanel = getattr(root, "Control_Panel", None)
+        process_start = getattr(cpanel, "process_start", "")
+        try:
+            uptime = datetime.fromtimestamp(process_start)
+        except Exception:
+            return ""
+        else:
+            return uptime.strftime("%d %B %Y %H:%M")
+
+    @cache(lambda *args: "version", lifetime=86400)
+    def version(self):
+        """ Get KGS version
+        """
+        return os.environ.get("EEA_KGS_VERSION", "")
+
+    @cache(lambda *args: "release", lifetime=86400)
+    def release(self):
+        """ Release URL
+        """
+        return "https://github.com/eea/eea.docker.kgs/releases/tag/%s" % (
+            self.version(),
+        )
+
+    def external(self):
+        """ External service template
+        """
+        return "getFooter" in getattr(self.request, 'URL', "")
 
 class SearchViewlet(links.SearchViewlet):
     """A custom version of the links-search viewlet
