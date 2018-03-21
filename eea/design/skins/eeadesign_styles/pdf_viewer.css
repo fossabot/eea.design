@@ -248,8 +248,13 @@ html[dir='ltr'] #content .pdfjs #outerContainer>#mainContainer {
     display: block;
 }
 
+html[dir='ltr'] #content .pdfjs .pdfPresentationMode .findbar,
 html[dir='ltr'] #content .presentation-mode .pdfjs .findbar {
     float: left;
+    left: 37px;
+}
+
+html[dir='ltr'] #content .pdfjs .findbar {
     left: 37px;
 }
 
@@ -276,10 +281,12 @@ html[dir='ltr'] #content .presentation-mode .pdfjs .findbar {
     border: 0;
 }
 
-#content .presentation-mode #mainContainer,
-#content .pdfjs #outerContainer.pdfPresentationMode #viewerContainer,
-#content .presentation-mode .pdfjs #outerContainer.pdfPresentationMode #viewerContainer{
+#content .pdfPresentationMode #mainContainer {
     height: 100%;
+}
+
+#content .pdfjs #outerContainer.pdfPresentationMode #viewerContainer {
+    height: 97%;
 }
 
 #content #outerContainer.pdfPresentationMode {
@@ -367,6 +374,69 @@ html[dir='ltr'] #content .presentation-mode .pdfjs .findbar {
 .pdfjs .pdfPresentationMode.pdfPresentationModeControls .textLayer>div {
     cursor: default;
 }
+
+#content .pdfjs #sidebarContainer {
+    width: 20%;
+}
+
+#content .pdfjs #toolbarSidebar {
+    width: 100%;
+}
+
+#content .pdfjs #sidebarContent {
+    width: 100%;
+}
+
+#content .pdfjs #outlineView {
+    padding-right: 0;
+    padding-left: 4px;
+}
+
+#content .pdfjs #outlineView,
+#content .pdfjs #attachmentsView {
+    width: 96%;
+}
+
+html[dir='ltr'] #content .pdfjs .outlineWithDeepNesting>.outlineItem,
+html[dir='ltr'] #content .pdfjs .outlineItem>.outlineItems {
+    margin-left: 0;
+}
+
+html[dir='ltr'] #content .pdfjs .outlineItem>a {
+    padding-left: 0;
+}
+
+#content .pdfjs .outlineItem>a,
+#content .pdfjs .attachmentsItem>button {
+    font-size: 11px;
+}
+
+#content .pdfjs #thumbnailView {
+    padding: 10px 0 0;
+}
+
+html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#mainContainer {
+    left: 20%;
+    width: 80% !important;
+}
+
+html[dir='ltr'] #content .pdfjs #outerContainer>#mainContainer {
+    width: 100% !important;
+}
+
+html #content .pdfjs #outerContainer .dropdownToolbarButton {
+    width: 70%;
+}
+
+html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
+    min-width: 60px !important;
+    width: 50%;
+}
+
+#content .pdfjs .toolbarButtonSpacer {
+    width: 1px;
+}
+
 
 /* PRESENTATION MODE ENDS*/
 @media (max-width: 980px) {
