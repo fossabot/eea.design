@@ -35,7 +35,7 @@
     color: #FFFFFF;
 }
 .mini-header #portal-personaltools-wrapper {
-    visibility: hidden;
+    display: none !important;
 }
 
 #portal-personaltools #user-name {

@@ -114,7 +114,7 @@ html{font-size:16px !important;}body{font:75% 'Open Sans',Verdana,Helvetica,Aria
     padding: 0 15px;
 }
 .col-md-5, .col-md-6, .col-sm-6 {
-    float: left;
+    /*float: left;*/
     position: relative;
     padding: 0 15px;
 }
@@ -196,28 +196,24 @@ select {
 }
 */
 
-
 .contentViews li {
     display: inline;
 }
 
 .list-inline li {
-    display: inline;
+    display: inline !important;
 }
 
 .list-inline li::before {
     content: " ";
 }
 
-.position-0 {
-    margin-left: -100%;
-}
 
 .width-full {
     width: 100%;
 }
 .row {
-    float: left;
+    /*float: left;*/
     width: 100%;
     display: block;
     position: relative;
@@ -225,8 +221,8 @@ select {
 }
 .cell {
     position: relative;
-    float: left;
-    left: 100%;
+    /*float: left;*/
+    /*left: 100%;*/
 }
 .width-3\3A 4 {
     width: 58.5%;
@@ -237,9 +233,9 @@ select {
 #portal-column-two .portlet {
     margin: 0 0 1em 0;
 }
-.position-3\3a 4 {
-    margin-left: -35.5%;
-}
+/*.position-3\3a 4 {*/
+    /*margin-left: -35.5%;*/
+/*}*/
 .width-1\3A 4 {
     width: 35.5%;
 }
@@ -405,6 +401,13 @@ select {
     }
 }
 
+
+@media screen and (min-width: 769px) {
+    #visual-column-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}
 #portal-top {
     display: flex;
     flex-wrap: wrap;
@@ -421,6 +424,10 @@ select {
     width: 100%;
     order: 2;
 }
+#portal-header.eea-miniheader-element {
+    display: block;
+}
+
 
 #portal-header .hiddenStructure {
     order: 2;
@@ -471,6 +478,7 @@ select {
     padding: 0;
     white-space: nowrap;
     margin-bottom: 0;
+    min-width: 350px;
 }
 #portal-searchbox input.gsc-input {
     border: 1px solid gray;
@@ -752,6 +760,7 @@ li#secondary-portaltabs-container {
     background-color: &dtml-corporateBlue;;
     border: 1px solid &dtml-mediumBackgroundColor;;
     border-bottom: 0;
+    display: flex;
 }
 .eea-tabs::before, .eea-tabs::after {
     display: table;
@@ -759,9 +768,9 @@ li#secondary-portaltabs-container {
     clear: both;
 }
 
-#whatsnew-gallery .eea-tabs > li {
-    float: left;
-}
+/*#whatsnew-gallery .eea-tabs > li {*/
+    /*float: left;*/
+/*}*/
 #visual-portal-wrapper .eea-tabs.two-rows > li > a {
     line-height: 2.5;
 }

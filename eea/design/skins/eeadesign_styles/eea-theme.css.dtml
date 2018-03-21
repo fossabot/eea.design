@@ -87,6 +87,10 @@ hr {
 #portal-siteactions > #siteaction-networks, #portal-siteactions > #siteaction-search {
     display: none;
 }
+.mini-header .container {
+    display: flex;
+    justify-content: space-between;
+}
 
 /* subscription cross_site_top panel content icons */
 .portlet-subscription .eea-icon-lg {
@@ -110,6 +114,10 @@ hr {
 
 .mini-header #portal-header {
     height: 100%;
+}
+#portal-header.eea-miniheader-element {
+    display: block;
+    margin: 2em auto;
 }
 
 /* Searchbox style and positioning */
