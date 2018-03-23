@@ -73,7 +73,8 @@
 
   #megatopics-area {
     display: block;
-    flex-wrap: nowrap; }
+    flex-wrap: nowrap;
+    width: 100%; }
 
   .portlet-megatopic img {
     width: 100%; }
@@ -357,6 +358,7 @@
   .right-column-area {
     float: none;
     width: 100%;
+    flex-basis: 100%;
     padding: 0 0 1em 0;
     margin-bottom: 1em; }
 
@@ -461,7 +463,8 @@
 @media screen and (min-width: 481px) and (max-width: 768px) {
   #megatopics-area {
     display: block;
-    flex-wrap: nowrap; }
+    flex-wrap: nowrap;
+    width: 100%; }
 
   .portlet-megatopic img {
     width: 100%;
@@ -556,7 +559,8 @@
     margin: 2em; } }
 @media screen and (width: 768px) {
   .right-column-area {
-    width: 41%; } }
+    width: 41%;
+    flex-basis: 41%; } }
 @media screen and (min-width: 768px) {
   #secondary-portaltabs .eea-accordion-panels,
   #portal-logo-link-header {
@@ -625,9 +629,11 @@
 
   .template-soer2015_frontpage .column-area {
     padding-left: 0;
-    width: 61%; }
+    width: 61%;
+    flex-basis: 61%; }
   .template-soer2015_frontpage .right-column-area {
-    width: 39%; }
+    width: 39%;
+    flex-basis: 39%; }
 
   #visual-portal-wrapper .eea-tabs.eea-tabs-soer > li {
     width: 20%;
