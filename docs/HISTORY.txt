@@ -1,6 +1,13 @@
 Changelog
 =========
 
+19.3 - (unreleased)
+-------------------
+* Bug fix: disabled lazy loading of iframe content until we better test it.
+  Within eea.googlecharts some code was trying to read the src which was
+  modified by the lazy loading
+  [ichim-david refs #94351]
+
 19.2 - (2018-03-20)
 -------------------
 * Feature: Add EEA KGS version and uptime info within Site footer
