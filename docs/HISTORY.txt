@@ -1,6 +1,7 @@
 Changelog
 =========
-19.1 - (unreleased)
+
+19.3 - (2018-03-21)
 -------------------
 * Bug fix: Exit fullscreen on button click
   [petchesi-iulian refs #90589]
@@ -13,6 +14,16 @@ Changelog
 * Upgrade step: Added upgrade step in order to load the pdf viewer for 'Report'
   portal type
   [petchesi-iulian refs #90589]
+
+19.2 - (2018-03-20)
+-------------------
+* Feature: Add EEA KGS version and uptime info within Site footer
+  [avoinea refs #93946]
+* Change: pdf fixes after css and js cleanup
+  [ichim-david refs #91577]
+
+19.1 - (2018-03-13)
+-------------------
 * Change: ploneCustom.css is now empty to be used for quickfixes, the logic
   that was there is now moved to eea-theme.css. See cleanup of js and css from
   to_190 profile

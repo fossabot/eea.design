@@ -5,12 +5,12 @@
 
     <genericsetup:upgradeSteps
       source="19.0"
-      destination="19.1"
+      destination="19.3"
       profile="eea.design:default">
         <genericsetup:upgradeDepends
-            title="Import all steps from eea.design profile upgrade 19.1"
+            title="Import all steps from eea.design profile upgrade 19.3"
             description="Enable pdf viewer for reports"
-            import_profile="eea.design:upgrade191"
+            import_profile="eea.design:upgrade193"
         />
     </genericsetup:upgradeSteps>
 
