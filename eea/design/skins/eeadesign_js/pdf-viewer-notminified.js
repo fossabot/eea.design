@@ -2708,14 +2708,14 @@ function getFilenameFromUrl(url) {
     }
   };
 
- if (HEADER_FILENAME !== '') {
-  return HEADER_FILENAME;
- }
+  if (HEADER_FILENAME !== '') {
+    return HEADER_FILENAME;
+  }
 
- var anchor = url.indexOf('#');
- var query = url.indexOf('?');
- var end = Math.min(anchor > 0 ? anchor : url.length, query > 0 ? query : url.length);
- return url.substring(url.lastIndexOf('/', end) + 1, end);
+  var anchor = url.indexOf('#');
+  var query = url.indexOf('?');
+  var end = Math.min(anchor > 0 ? anchor : url.length, query > 0 ? query : url.length);
+  return url.substring(url.lastIndexOf('/', end) + 1, end);
 }
 function getDefaultSetting(id) {
  var globalSettings = sharedUtil.globalScope.PDFJS;
@@ -3992,7 +3992,15 @@ var PDFWorker = function PDFWorkerClosure() {
    return getDefaultSetting('workerSrc');
   }
   if (pdfjsFilePath) {
-   return pdfjsFilePath.replace(/\.js$/i, '.worker.js');
+    if (pdfjsFilePath.indexOf('ploneScript') !== -1) {
+      var splitted_path = pdfjsFilePath.split('/');
+      splitted_path.pop();
+      splitted_path.push('pdf.min.worker.js');
+      return splitted_path.join('/');
+    }
+    else {
+      return pdfjsFilePath.replace(/\.js$/i, '.worker.js');
+    }
   }
   error('No PDFJS.workerSrc specified');
  }
@@ -11905,7 +11913,13 @@ function getPDFFileNameFromURL(url, defaultFilename) {
   if ($('body').hasClass('portaltype-report')) {
     var paths = window.location.pathname.split('/');
     var last_path = paths[paths.length - 1];
-    var request_url = './' + last_path + '/viewfile';
+    if (last_path === "") {
+      last_path = "./";
+    }
+    else {
+      last_path = "./" + last_path;
+    }
+    var request_url = last_path + '/viewfile';
   }
   else {
     var splitted_url = window.location.href.split('/');
