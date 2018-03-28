@@ -454,7 +454,7 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
         top: 0;
     }
     html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#mainContainer {
-        left: 200px;
+        left: 20%;
     }
 
     #content .pdfjs #sidebarContent {
