@@ -316,7 +316,7 @@ canvas {
     display: none;
 }
 .pdfjs .pdfPresentationMode:-ms-fullscreen a:not(.internalLink) {
-    display: none !important;
+    display: none;
 }
 .pdfjs .pdfPresentationMode:fullscreen a:not(.internalLink) {
     display: none;
@@ -829,31 +829,31 @@ canvas {
     cursor: none;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none
+    -ms-user-select: none;
 }
 .pdfjs .pdfPresentationMode:-webkit-full-screen a:not(.internalLink) {
-    display: none
+    display: none;
 }
 .pdfjs .pdfPresentationMode:-moz-full-screen a:not(.internalLink) {
-    display: none
+    display: none;
 }
 .pdfjs .pdfPresentationMode:-ms-fullscreen a:not(.internalLink) {
-    display: none !important
+    display: none;
 }
 .pdfjs .pdfPresentationMode:fullscreen a:not(.internalLink) {
-    display: none
+    display: none;
 }
 .pdfjs .pdfPresentationMode:-webkit-full-screen .textLayer>div {
-    cursor: none
+    cursor: none;
 }
 .pdfjs .pdfPresentationMode:-moz-full-screen .textLayer>div {
-    cursor: none
+    cursor: none;
 }
 .pdfjs .pdfPresentationMode:-ms-fullscreen .textLayer>div {
-    cursor: none
+    cursor: none;
 }
 .pdfjs .pdfPresentationMode:fullscreen .textLayer>div {
-    cursor: none
+    cursor: none;
 }
 .pdfjs .pdfPresentationMode.pdfPresentationModeControls>*,
 .pdfjs .pdfPresentationMode.pdfPresentationModeControls .textLayer>div {
