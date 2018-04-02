@@ -17,8 +17,9 @@ from plone.app.layout.viewlets import common, content
 from plone.app.layout.viewlets.content import DocumentBylineViewlet as \
     BaseBelowContentTitleViewlet
 from plone.memoize.instance import memoize
+from zope.component.hooks import getSite
 from zope.annotation.interfaces import IAnnotations
-from zope.component import getMultiAdapter
+from zope.component import getMultiAdapter, queryAdapter
 
 
 class LogoViewlet(common.LogoViewlet):
@@ -208,21 +209,30 @@ class ColophonViewlet(common.ViewletBase):
     def uptime(self):
         """ Plone up-time
         """
-        root = self.context.getPhysicalRoot()
-        cpanel = getattr(root, "Control_Panel", None)
-        process_start = getattr(cpanel, "process_start", "")
-        try:
-            uptime = datetime.fromtimestamp(process_start)
-        except Exception:
-            return ""
+        anno = queryAdapter(getSite(), IAnnotations)
+        versions = anno.get("EEA_KGS_VERSION", {})
+        if len(versions.values()):
+            uptime = versions.values()[-1]
         else:
-            return uptime.strftime("%d %B %Y %H:%M")
+            uptime = datetime.now()
+        return uptime.strftime("%d %B %Y %H:%M")
 
     @cache(lambda *args: "version", lifetime=86400)
     def version(self):
         """ Get KGS version
         """
         return os.environ.get("EEA_KGS_VERSION", "")
+
+
+    @cache(lambda *args: "previous", lifetime=86400)
+    def previous(self):
+        """ Get previous KGS version
+        """
+        anno = queryAdapter(getSite(), IAnnotations)
+        versions = anno.get("EEA_KGS_VERSION", {})
+        if len(versions.keys()) > 1:
+            return versions.keys()[-2]
+        return ""
 
     @cache(lambda *args: "release", lifetime=86400)
     def release(self):
