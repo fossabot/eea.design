@@ -29,43 +29,46 @@ canvas {
   }
 }
 
-#content .pdfjs #loadingBar {
+.pdfjs #loadingBar {
   position: relative;
   height: .6rem;
   background-color: #333;
   border-bottom: 1px solid #333;
   margin-top: 5rem;
+  width: 100%;
 }
 
-#content .pdfjs #loadingBar .progress {
+.pdfjs #loadingBar .progress {
   position: absolute;
   left: 0;
   width: 0;
+  top: 0;
   height: 100%;
   background-color: #ddd;
   overflow: hidden;
   transition: width 200ms;
 }
 
-#content .pdfjs #loadingBar .progress.indeterminate {
+.pdfjs #loadingBar .progress.indeterminate {
   background-color: #999;
   transition: none;
+  -webkit-transition: none;
 }
 
-#content .pdfjs #loadingBar .progress.indeterminate .glimmer {
+.pdfjs #loadingBar .progress.indeterminate .glimmer {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-
   background-image: linear-gradient(to right, #999 0%, #fff 50%, #999 100%);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-
+  width: calc(100% + 150px);
+  background: repeating-linear-gradient(135deg, #bbb 0, #999 5px, #999 45px, #ddd 55px, #ddd 95px, #bbb 100px);
   animation: progressIndeterminate 2s linear infinite;
 }
 
-#content .pdfjs #loadingBar .loading-details {
+.pdfjs #loadingBar .loading-details {
     position: absolute;
     top: 500%;
     right: 0;
@@ -74,51 +77,37 @@ canvas {
     font-size: 16px;
 }
 
-#content .pdfjs #errorWrapper {
+.pdfjs #errorWrapper {
   top: 3.2rem;
   z-index: 9999;
   font-size: 15px;
+  background: none repeat scroll 0 0 #f55;
+  color: white;
+  left: 0;
+  right: 0;
+  position: absolute;
+  padding: 3px;
 }
 
-#errorMessageLeft {
-  float: left;
-}
-
-#errorMessageRight {
-  float: right;
-}
-
-#errorMoreInfo {
-  background-color: #FFFFFF;
-  color: black;
-  padding: 0.3rem;
-  margin: 0.3rem;
-  width: 98%;
-}
-
-#content .pdfjs #errorWrapper button {
+.pdfjs #errorWrapper button {
     border: 1px solid transparent;
     border-radius: 2px;
     color: hsla(0, 0%, 100%, .8);
     background-image: url(pdf_images/texture.png), linear-gradient(hsla(0, 0%, 32%, .99), hsla(0, 0%, 27%, .95));
 }
 
-#content .pdfjs #errorWrapper #errorShowLess, 
-#content .pdfjs #errorWrapper #errorShowMore {
+.pdfjs #errorWrapper #errorShowLess, 
+.pdfjs #errorWrapper #errorShowMore {
     margin-left: 10px;
-}
-
-.page {
-  margin-left: 12%;
 }
 
 #content .pdfjs #mainContainer {
   position: relative;
 }
 
-#content .pdfjs #viewerContainer {
+.pdfjs #viewerContainer {
   position: relative;
-  border: 2px solid #00446a;
+  border: none;
   border-top: none;
   overflow: auto;
   width: 100%;
@@ -129,111 +118,72 @@ canvas {
   z-index: 100;
   height: 900px;
   background-color: hsla(0, 0%, 0%, .1);
+  outline: 0;
+  box-shadow: inset 1px 0 0 hsla(0, 0%, 100%, .05);
 }
 
-#content .pdfjs .thumbnailSelectionRing {
-    margin-bottom: 11%;
-}
-
-#content .pdfjs #thumbnailView {
+.pdfjs #thumbnailView {
     position: relative;
     min-width: 100%;
+    width: 120px;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    padding: 10px 0 0;
+    -webkit-overflow-scrolling: touch;
 }
 
-#content .pdfjs .thumbnailSelectionRing {
+.pdfjs .thumbnailSelectionRing {
     margin-bottom: 11%;
     width: 100% !important;
+    height: 100% !important;
 }
 
 #content .pdfjs .thumbnailImage {
     max-width: none;
     border: none;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+    opacity: .8;
+    z-index: 99;
+    background-color: white;
+    background-clip: content-box;
 }
 
-#content .pdfjs .pdfViewer .page {
-    margin-left: 0;
-}
-
-#content .pdfjs #overlayContainer {
+.pdfjs #overlayContainer {
+    display: table;
     top: 4%;
     left: 0;
-}
-
-/* Fullscreen */
-#content .pdfjs #viewerContainer.pdfPresentationMode:-webkit-full-screen {
-    top: 0;
-    border-top: 2px solid transparent;
-    background-color: #000;
+    z-index: 598;
+    background-color: #006699;
+    position: absolute;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    cursor: none;
-    -webkit-user-select: none
 }
 
-#content .pdfjs #viewerContainer.pdfPresentationMode:-moz-full-screen {
-    top: 0;
-    border-top: 2px solid transparent;
-    background-color: #000;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    cursor: none;
-    -moz-user-select: none
-}
-
-#content .pdfjs #viewerContainer.pdfPresentationMode:-ms-fullscreen {
-    top: 0 !important;
-    border-top: 2px solid transparent;
-    width: 100%;
-    height: 100%;
-    overflow: hidden !important;
-    cursor: none;
-    -ms-user-select: none
-}
-
-#content .pdfjs #viewerContainer.pdfPresentationMode:-ms-fullscreen::-ms-backdrop {
-    background-color: #000
-}
-
-#content .pdfjs #viewerContainer.pdfPresentationMode:fullscreen {
-    top: 0;
-    border-top: 2px solid transparent;
-    background-color: #000;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    cursor: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none
-}
-
-#content .pdfjs #sidebarContent {
-    border: 2px solid #00446a;
+.pdfjs #sidebarContent {
+    border: none;
     border-right: none;
     border-top: none;
+    width: 100%;
+    top: 32px;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    background-color: hsla(0, 0%, 0%, .1);
+    box-shadow: inset -1px 0 0 hsla(0, 0%, 0%, .25)
 }
 
-#content .pdfjs #outerContainer {
+.pdfjs #outerContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
     margin-bottom: 3em;
 }
 
 #content .pdfjs option{
     color: hsla(0, 0%, 100%, .8);
-}
-
-#content .pdfjs .pdfViewer .page {
-    border-left: none;
-    margin-left: 3%;
-}
-
-#content .pdfjs .toolbar {
-    z-index: 899;
-}
-
-#content .pdfjs #overlayContainer {
-    z-index: 898;
 }
 
 /* Hide second column and expand pdf width */
@@ -245,142 +195,224 @@ canvas {
   width: 100%;
 }
 
-#content .pdfjs .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
-    margin: 1px auto -8px auto;
-}
-
-#content .pdfjs .pdfPresentationMode:-moz-full-screen .pdfViewer .page {
-    margin: 1px auto -8px auto;
-}
-
 #region-content {
     padding: 0;
     background-color: transparent;
 }
 
+.pdfjs .toolbar #toolbarContainer,
+.pdfjs .pdfPresentationMode .dropdownToolbarButton>select>option,
+#content .pdfjs #overlayContainer>.container>.dialog,
+#content .pdfjs .secondaryToolbar {
+    background-color: #006699;
+    background-image: none;
+}
+
+.pdfjs #print {
+    display: none;
+}
+
+.pdfjs .dropdownToolbarButton,
+.pdfjs .dropdownToolbarButton>select>option {
+    display: none;
+}
+
+#outerContainer.pdfPresentationMode #thumbnailView > a,
+#outerContainer.pdfPresentationMode #outlineView .outlineItem a,
+#outerContainer.pdfPresentationMode .dropdownToolbarButton,
+#outerContainer.pdfPresentationMode .dropdownToolbarButton>select>option {
+    display: block;
+}
+
+.pdfjs .pdfPresentationMode .findbar {
+    float: left;
+}
+
+.pdfjs #mainContainer .findbar {
+    left: 37px;
+    background-color: #006699;
+    background-image: none;
+}
+
+.pdfjs .sidebarOpen .outlineItem>a:hover,
+.pdfjs .sidebarOpen .outlineItem>a {
+    color: #337ab7;
+}
+
+.pdfjs .splitToolbarButton .pageUp {
+    margin-top: 0;
+}
+
+.pdfjs .splitToolbarButton .zoomOut {
+    margin-top: 0;
+}
+
+/* PRESENTATION MODE */
+.pdfPresentationMode #mainContainer {
+    height: 100%;
+}
+
+.pdfjs .pdfPresentationMode #viewerContainer {
+    height: 97%;
+}
+
+#outerContainer.pdfPresentationMode {
+    margin-bottom: 0;
+}
+
+.pdfPresentationMode #toolbarViewerMiddle {
+    width: 35%;
+}
+
+.pdfjs .pdfPresentationMode:-webkit-full-screen {
+    top: 0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: none;
+    -webkit-user-select: none
+}
+
+.pdfjs .pdfPresentationMode:-moz-full-screen {
+    top: 0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: none;
+    -moz-user-select: none
+}
+
+.pdfjs .pdfPresentationMode:-ms-fullscreen {
+    top: 0 !important;
+    width: 100%;
+    height: 100%;
+    overflow: hidden !important;
+    cursor: none;
+    -ms-user-select: none
+}
+
+.pdfjs .pdfPresentationMode:-ms-fullscreen::-ms-backdrop {
+    background-color: white;
+}
+
+.pdfjs .pdfPresentationMode:fullscreen {
+    top: 0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none
+}
+
+.pdfjs .pdfPresentationMode:-webkit-full-screen a:not(.internalLink) {
+    display: none;
+}
+.pdfjs .pdfPresentationMode:-moz-full-screen a:not(.internalLink) {
+    display: none;
+}
+.pdfjs .pdfPresentationMode:-ms-fullscreen a:not(.internalLink) {
+    display: none !important;
+}
+.pdfjs .pdfPresentationMode:fullscreen a:not(.internalLink) {
+    display: none;
+}
+.pdfjs .pdfPresentationMode:-webkit-full-screen .textLayer>div {
+    cursor: none;
+}
+.pdfjs .pdfPresentationMode:-moz-full-screen .textLayer>div {
+    cursor: none;
+}
+.pdfjs .pdfPresentationMode:-ms-fullscreen .textLayer>div {
+    cursor: none;
+}
+.pdfjs .pdfPresentationMode:fullscreen .textLayer>div {
+    cursor: none;
+}
+.pdfjs .pdfPresentationMode.pdfPresentationModeControls>*,
+.pdfjs .pdfPresentationMode.pdfPresentationModeControls .textLayer>div {
+    cursor: default;
+}
+
+.pdfjs .sidebarOpen #sidebarContainer {
+    width: 20%;
+}
+
+.pdfjs #toolbarSidebar {
+    width: 100%;
+    height: 32px;
+    background-color: #006699;
+    background-image: none;
+}
+
+.pdfjs .sidebarOpen #outlineView {
+    padding-right: 0;
+    padding-left: 4px;
+}
+
+.pdfjs .sidebarOpen #outlineView,
+.pdfjs .sidebarOpen #attachmentsView {
+    width: 96%;
+}
+
+.pdfjs .sidebarOpen .outlineWithDeepNesting>.outlineItem,
+.pdfjs .sidebarOpen .outlineItem>.outlineItems {
+    margin-left: 0;
+}
+
+.pdfjs .sidebarOpen .outlineItem>a {
+    padding-left: 0;
+}
+
+.pdfjs .sidebarOpen .outlineItem>a,
+.pdfjs .sidebarOpen .attachmentsItem>button {
+    font-size: 11px;
+}
+
+#content .pdfjs #outerContainer.sidebarOpen>#mainContainer {
+    left: 20%;
+    width: 80% !important;
+}
+
+.pdfjs #outerContainer>#mainContainer {
+    width: 100% !important;
+}
+
+.pdfjs .sidebarOpen .dropdownToolbarButton {
+    min-width: 60px !important;
+    width: 50%;
+}
+
+.pdfjs .toolbar .toolbarButtonSpacer {
+    width: 1px;
+}
+
+/* PRESENTATION MODE ENDS*/
+@media (max-width: 980px) {
+    .pdfjs .sidebarOpen #presentationMode {
+        display: block;
+    }
+
+    .pdfjs .sidebarOpen #secondaryPresentationMode {
+        display: none;
+    }
+}
+
 @media (max-width: 840px) {
-    html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#sidebarContainer {
+    .pdfjs .sidebarOpen > #sidebarContainer {
         top: 0;
     }
-    html[dir='ltr'] #content .pdfjs #outerContainer.sidebarOpen>#mainContainer {
-        left: 200px;
+
+    .pdfjs .sidebarOpen #sidebarContent {
+      background-color: hsla(0, 0%, 0%, .1);
     }
-}
-
-@media screen and (min-width: 640px) and (max-width: 768px) {
-  .pdfjs #pageNumber {
-    width: 12%;
-  }
-}
-
-@media screen and (min-width: 481px) and (max-width: 768px) {
- .toolbarButton.pageUp {
-    display: none; 
- }
-
- .toolbarButton.pageDown {
-    display: none;
- }
-
- .toolbarButton.zoomOut {
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 20%;
- }
-
- .toolbarButton.zoomIn {
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 20%;
- }
-
- #pageNumber {
-    width: 12%;
- }
-
- #content .pdfjs #viewerContainer {
-     border: none;
- }
- 
- #content .pdfjs #outerContainer {
-     border: 2px solid #00446a;
-     border-top: none;
- }
-}
-
-@media screen and (max-width: 480px) {
-  .toolbarButton.pageUp {
-    display: none; 
-  }
-
-  .toolbarButton.pageDown {
-    display: none;
-  }
-
-  .toolbarButton.zoomOut {
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 20%;
-  }
-
-  .toolbarButton.zoomIn {
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 20%;
-  }
-
-  #pageNumber {
-    width: 20%;
-  }
-
-  #viewerContainer {
-    border-right: 2px solid black;
-    height: 450px;
-  }
-
-  #content .pdfjs #viewerContainer {
-    border: none;
-  }
- 
-  #content .pdfjs #outerContainer {
-    border: 2px solid #00446a;
-    border-top: none;
-  }
-}
-
-@media screen and (max-width: 321px) {
-  .toolbarButton.pageUp {
-    display: none; 
-  }
-
-  .toolbarButton.pageDown {
-    display: none;
-  }
-
-  .toolbarButton.zoomOut {
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 18%;
-  }
-
-  .toolbarButton.zoomIn {
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 18%;
-  }
-
-  #pageNumber {
-    width: 50%;
-  }
-
-  #viewerContainer {
-    border-right: 2px solid black;
-    height: 350px;
-  }
 }
 
 /* Print modifications */
-
 @media print {
     html {
         width: 100%;
@@ -695,7 +727,9 @@ canvas {
     border: 9px solid transparent;
     background-clip: content-box;
     border-image: url(pdf_images/shadow.png) 9 9 repeat;
-    background-color: white
+    background-color: white;
+    border-left: none;
+    margin-left: 3%;
 }
 .pdfjs .pdfViewer.removePageBorders .page {
     margin: 0 auto 10px auto;
@@ -722,19 +756,19 @@ canvas {
     background: url('pdf_images/loading-icon.gif') center no-repeat
 }
 .pdfjs .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
-    margin-bottom: 100%;
+    margin: 1px auto -8px auto;
     border: 0
 }
 .pdfjs .pdfPresentationMode:-moz-full-screen .pdfViewer .page {
-    margin-bottom: 100%;
+    margin: 1px auto -8px auto;
     border: 0
 }
 .pdfjs .pdfPresentationMode:-ms-fullscreen .pdfViewer .page {
-    margin-bottom: 100% !important;
+    margin: 1px auto -8px auto;
     border: 0
 }
 .pdfjs .pdfPresentationMode:fullscreen .pdfViewer .page {
-    margin-bottom: 100%;
+    margin: 1px auto -8px auto;
     border: 0
 }
 .pdfjs * {
@@ -825,11 +859,6 @@ canvas {
 .pdfjs .pdfPresentationMode.pdfPresentationModeControls .textLayer>div {
     cursor: default
 }
-.pdfjs #outerContainer {
-    width: 100%;
-    height: 100%;
-    position: relative
-}
 .pdfjs #sidebarContainer {
     position: absolute;
     top: 0;
@@ -841,25 +870,17 @@ canvas {
     transition-duration: 200ms;
     transition-timing-function: ease
 }
-html[dir='ltr'] .pdfjs #sidebarContainer {
+.pdfjs #sidebarContainer {
     -webkit-transition-property: left;
     transition-property: left;
     left: -200px
-}
-html[dir='rtl'] .pdfjs #sidebarContainer {
-    -webkit-transition-property: right;
-    transition-property: right;
-    right: -200px
 }
 .pdfjs #outerContainer.sidebarMoving>#sidebarContainer,
 .pdfjs #outerContainer.sidebarOpen>#sidebarContainer {
     visibility: visible
 }
-html[dir='ltr'] .pdfjs #outerContainer.sidebarOpen>#sidebarContainer {
+.pdfjs #outerContainer.sidebarOpen>#sidebarContainer {
     left: 0
-}
-html[dir='rtl'] .pdfjs #outerContainer.sidebarOpen>#sidebarContainer {
-    right: 0
 }
 .pdfjs #mainContainer {
     position: absolute;
@@ -873,70 +894,23 @@ html[dir='rtl'] .pdfjs #outerContainer.sidebarOpen>#sidebarContainer {
     transition-duration: 200ms;
     transition-timing-function: ease
 }
-html[dir='ltr'] .pdfjs #outerContainer.sidebarOpen>#mainContainer {
+.pdfjs #outerContainer.sidebarOpen>#mainContainer {
     -webkit-transition-property: left;
     transition-property: left;
     left: 200px
-}
-html[dir='rtl'] .pdfjs #outerContainer.sidebarOpen>#mainContainer {
-    -webkit-transition-property: right;
-    transition-property: right;
-    right: 200px
-}
-.pdfjs #sidebarContent {
-    top: 32px;
-    bottom: 0;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    position: absolute;
-    width: 200px;
-    background-color: hsla(0, 0%, 0%, .1)
-}
-html[dir='ltr'] .pdfjs #sidebarContent {
-    left: 0;
-    box-shadow: inset -1px 0 0 hsla(0, 0%, 0%, .25)
-}
-html[dir='rtl'] .pdfjs #sidebarContent {
-    right: 0;
-    box-shadow: inset 1px 0 0 hsla(0, 0%, 0%, .25)
-}
-.pdfjs #viewerContainer {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    position: absolute;
-    top: 32px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    outline: 0
-}
-html[dir='ltr'] .pdfjs #viewerContainer {
-    box-shadow: inset 1px 0 0 hsla(0, 0%, 100%, .05)
-}
-html[dir='rtl'] .pdfjs #viewerContainer {
-    box-shadow: inset -1px 0 0 hsla(0, 0%, 100%, .05)
 }
 .pdfjs .toolbar {
     position: relative;
     left: 0;
     right: 0;
-    z-index: 9999;
+    z-index: 599;
     cursor: default
 }
 .pdfjs #toolbarContainer {
     width: 100%
 }
 .pdfjs #toolbarSidebar {
-    width: 200px;
-    height: 32px;
-    background-color: #424242;
-    background-image: url(pdf_images/texture.png), linear-gradient(hsla(0, 0%, 30%, .99), hsla(0, 0%, 25%, .95))
-}
-html[dir='ltr'] .pdfjs #toolbarSidebar {
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25), inset 0 -1px 0 hsla(0, 0%, 100%, .05), 0 1px 0 hsla(0, 0%, 0%, .15), 0 0 1px hsla(0, 0%, 0%, .1)
-}
-html[dir='rtl'] .pdfjs #toolbarSidebar {
-    box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.25), inset 0 1px 0 hsla(0, 0%, 100%, .05), 0 1px 0 hsla(0, 0%, 0%, .15), 0 0 1px hsla(0, 0%, 0%, .1)
 }
 .pdfjs #toolbarContainer,
 .pdfjs .findbar,
@@ -946,36 +920,17 @@ html[dir='rtl'] .pdfjs #toolbarSidebar {
     background-color: #474747;
     background-image: url(pdf_images/texture.png), linear-gradient(hsla(0, 0%, 32%, .99), hsla(0, 0%, 27%, .95))
 }
-html[dir='ltr'] .pdfjs #toolbarContainer,
+.pdfjs #toolbarContainer,
 .pdfjs .findbar,
 .pdfjs .secondaryToolbar {
     box-shadow: inset 1px 0 0 hsla(0, 0%, 100%, .08), inset 0 1px 1px hsla(0, 0%, 0%, .15), inset 0 -1px 0 hsla(0, 0%, 100%, .05), 0 1px 0 hsla(0, 0%, 0%, .15), 0 1px 1px hsla(0, 0%, 0%, .1)
 }
-html[dir='rtl'] .pdfjs #toolbarContainer,
 .pdfjs .findbar,
 .pdfjs .secondaryToolbar {
     box-shadow: inset -1px 0 0 hsla(0, 0%, 100%, .08), inset 0 1px 1px hsla(0, 0%, 0%, .15), inset 0 -1px 0 hsla(0, 0%, 100%, .05), 0 1px 0 hsla(0, 0%, 0%, .15), 0 1px 1px hsla(0, 0%, 0%, .1)
 }
 .pdfjs #toolbarViewer {
     height: 32px
-}
-.pdfjs #loadingBar {
-    position: relative;
-    width: 100%;
-    height: 4px;
-    background-color: #333;
-    border-bottom: 1px solid #333
-}
-.pdfjs #loadingBar .progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: #ddd;
-    overflow: hidden;
-    -webkit-transition: width 200ms;
-    transition: width 200ms
 }
 @-webkit-keyframes progressIndeterminate {
     0% {
@@ -993,21 +948,6 @@ html[dir='rtl'] .pdfjs #toolbarContainer,
         left: 0;
     }
 }
-.pdfjs #loadingBar .progress.indeterminate {
-    background-color: #999;
-    -webkit-transition: none;
-    transition: none
-}
-.pdfjs #loadingBar .progress.indeterminate .glimmer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: calc(100% + 150px);
-    background: repeating-linear-gradient(135deg, #bbb 0, #999 5px, #999 45px, #ddd 55px, #ddd 95px, #bbb 100px);
-    -webkit-animation: progressIndeterminate 950ms linear infinite;
-    animation: progressIndeterminate 950ms linear infinite
-}
 .pdfjs .findbar,
 .pdfjs .secondaryToolbar {
     top: 32px;
@@ -1023,12 +963,6 @@ html[dir='rtl'] .pdfjs #toolbarContainer,
     text-align: left;
     cursor: default
 }
-html[dir='ltr'] .pdfjs .findbar {
-    left: 68px
-}
-html[dir='rtl'] .pdfjs .findbar {
-    right: 68px
-}
 .pdfjs .findbar label {
     -webkit-user-select: none;
     -moz-user-select: none
@@ -1038,19 +972,13 @@ html[dir='rtl'] .pdfjs .findbar {
     background-repeat: no-repeat;
     background-position: right
 }
-html[dir='rtl'] .pdfjs #findInput[data-status="pending"] {
-    background-position: left
-}
 .pdfjs .secondaryToolbar {
     padding: 6px;
     height: auto;
     z-index: 30000
 }
-html[dir='ltr'] .pdfjs .secondaryToolbar {
+.pdfjs .secondaryToolbar {
     right: 4px
-}
-html[dir='rtl'] .pdfjs .secondaryToolbar {
-    left: 4px
 }
 .pdfjs #secondaryToolbarButtonContainer {
     max-width: 200px;
@@ -1087,23 +1015,21 @@ html[dir='rtl'] .pdfjs .secondaryToolbar {
     border-bottom-color: hsla(0, 0%, 0%, .5);
     border-width: 9px
 }
-html[dir='ltr'] .pdfjs .doorHanger:after,
-html[dir='rtl'] .pdfjs .doorHangerRight:after {
+.pdfjs .doorHanger:after {
     left: 13px;
     margin-left: -8px
 }
-html[dir='ltr'] .pdfjs .doorHanger:before,
-html[dir='rtl'] .pdfjs .doorHangerRight:before {
+.pdfjs .doorHanger:before {
     left: 13px;
     margin-left: -9px
 }
-html[dir='rtl'] .pdfjs .doorHanger:after,
-html[dir='ltr'] .pdfjs .doorHangerRight:after {
+
+.pdfjs .doorHangerRight:after {
     right: 13px;
     margin-right: -8px
 }
-html[dir='rtl'] .pdfjs .doorHanger:before,
-html[dir='ltr'] .pdfjs .doorHangerRight:before {
+
+.pdfjs .doorHangerRight:before {
     right: 13px;
     margin-right: -9px
 }
@@ -1125,43 +1051,26 @@ html[dir='ltr'] .pdfjs .doorHangerRight:before {
     left: 50%;
     transform: translateX(-50%)
 }
-html[dir='ltr'] .pdfjs #toolbarViewerLeft,
-html[dir='rtl'] .pdfjs #toolbarViewerRight {
+.pdfjs #toolbarViewerLeft {
     float: left
 }
-html[dir='ltr'] .pdfjs #toolbarViewerRight,
-html[dir='rtl'] .pdfjs #toolbarViewerLeft {
+.pdfjs #toolbarViewerRight {
     float: right
 }
-html[dir='ltr'] .pdfjs #toolbarViewerLeft>*,
-html[dir='ltr'] .pdfjs #toolbarViewerMiddle>*,
-html[dir='ltr'] .pdfjs #toolbarViewerRight>*,
-html[dir='ltr'] .pdfjs .findbar>* {
+.pdfjs #toolbarViewerLeft>*,
+.pdfjs #toolbarViewerMiddle>*,
+.pdfjs #toolbarViewerRight>*,
+.pdfjs .findbar>* {
     position: relative;
     float: left
 }
-html[dir='rtl'] .pdfjs #toolbarViewerLeft>*,
-html[dir='rtl'] .pdfjs #toolbarViewerMiddle>*,
-html[dir='rtl'] .pdfjs #toolbarViewerRight>*,
-html[dir='rtl'] .pdfjs .findbar>* {
-    position: relative;
-    float: right
-}
-html[dir='ltr'] .pdfjs .splitToolbarButton {
+.pdfjs .splitToolbarButton {
     margin: 3px 2px 4px 0;
     display: inline-block
 }
-html[dir='rtl'] .pdfjs .splitToolbarButton {
-    margin: 3px 0 4px 2px;
-    display: inline-block
-}
-html[dir='ltr'] .pdfjs .splitToolbarButton>.toolbarButton {
+.pdfjs .splitToolbarButton>.toolbarButton {
     border-radius: 0;
     float: left
-}
-html[dir='rtl'] .pdfjs .splitToolbarButton>.toolbarButton {
-    border-radius: 0;
-    float: right
 }
 .pdfjs .toolbarButton,
 .pdfjs .secondaryToolbarButton,
@@ -1219,8 +1128,7 @@ html[dir='rtl'] .pdfjs .splitToolbarButton>.toolbarButton {
 .pdfjs .splitToolbarButton>.toolbarButton {
     position: relative
 }
-html[dir='ltr'] .pdfjs .splitToolbarButton>.toolbarButton:first-child,
-html[dir='rtl'] .pdfjs .splitToolbarButton>.toolbarButton:last-child {
+.pdfjs .splitToolbarButton>.toolbarButton:first-childn {
     position: relative;
     margin: 0;
     margin-right: -1px;
@@ -1228,8 +1136,7 @@ html[dir='rtl'] .pdfjs .splitToolbarButton>.toolbarButton:last-child {
     border-bottom-left-radius: 2px;
     border-right-color: transparent
 }
-html[dir='ltr'] .pdfjs .splitToolbarButton>.toolbarButton:last-child,
-html[dir='rtl'] .pdfjs .splitToolbarButton>.toolbarButton:first-child {
+.pdfjs .splitToolbarButton>.toolbarButton:last-child {
     position: relative;
     margin: 0;
     margin-left: -1px;
@@ -1246,11 +1153,8 @@ html[dir='rtl'] .pdfjs .splitToolbarButton>.toolbarButton:first-child {
     display: inline-block;
     margin: 5px 0
 }
-html[dir='ltr'] .pdfjs .splitToolbarButtonSeparator {
+.pdfjs .splitToolbarButtonSeparator {
     float: left
-}
-html[dir='rtl'] .pdfjs .splitToolbarButtonSeparator {
-    float: right
 }
 .pdfjs .splitToolbarButton:hover>.splitToolbarButtonSeparator,
 .pdfjs .splitToolbarButton.toggled>.splitToolbarButtonSeparator {
@@ -1286,15 +1190,10 @@ html[dir='rtl'] .pdfjs .splitToolbarButtonSeparator {
     transition-duration: 150ms;
     transition-timing-function: ease
 }
-html[dir='ltr'] .pdfjs .toolbarButton,
-html[dir='ltr'] .pdfjs .overlayButton,
-html[dir='ltr'] .pdfjs .dropdownToolbarButton {
+.pdfjs .toolbarButton,
+.pdfjs .overlayButton,
+.pdfjs .dropdownToolbarButton {
     margin: 3px 2px 4px 0
-}
-html[dir='rtl'] .pdfjs .toolbarButton,
-html[dir='rtl'] .pdfjs .overlayButton,
-html[dir='rtl'] .pdfjs .dropdownToolbarButton {
-    margin: 3px 0 4px 2px
 }
 .pdfjs .toolbarButton:hover,
 .pdfjs .toolbarButton:focus,
@@ -1352,11 +1251,8 @@ html[dir='rtl'] .pdfjs .dropdownToolbarButton {
     overflow: hidden;
     background: url(pdf_images/toolbarButton-menuArrows.png) no-repeat
 }
-html[dir='ltr'] .pdfjs .dropdownToolbarButton {
+.pdfjs .dropdownToolbarButton {
     background-position: 95%
-}
-html[dir='rtl'] .pdfjs .dropdownToolbarButton {
-    background-position: 5%
 }
 .pdfjs .dropdownToolbarButton>select {
     min-width: 140px;
@@ -1376,16 +1272,12 @@ html[dir='rtl'] .pdfjs .dropdownToolbarButton {
 .pdfjs #pageWidthOption {
     border-bottom: 1px rgba(255, 255, 255, .5) solid
 }
-html[dir='ltr'] .pdfjs .splitToolbarButton:first-child,
-html[dir='ltr'] .pdfjs .toolbarButton:first-child,
-html[dir='rtl'] .pdfjs .splitToolbarButton:last-child,
-html[dir='rtl'] .pdfjs .toolbarButton:last-child {
+.pdfjs .splitToolbarButton:first-child,
+.pdfjs .toolbarButton:first-child {
     margin-left: 4px
 }
-html[dir='ltr'] .pdfjs .splitToolbarButton:last-child,
-html[dir='ltr'] .pdfjs .toolbarButton:last-child,
-html[dir='rtl'] .pdfjs .splitToolbarButton:first-child,
-html[dir='rtl'] .pdfjs .toolbarButton:first-child {
+.pdfjs .splitToolbarButton:last-child,
+.pdfjs .toolbarButton:last-child {
     margin-right: 4px
 }
 .pdfjs .toolbarButtonSpacer {
@@ -1393,17 +1285,12 @@ html[dir='rtl'] .pdfjs .toolbarButton:first-child {
     display: inline-block;
     height: 1px
 }
-html[dir='ltr'] .pdfjs #findPrevious {
-    margin-left: 3px
+.pdfjs #findPrevious {
+    margin-left: 3px;
+    margin-top: 0;
 }
-html[dir='ltr'] .pdfjs #findNext {
+.pdfjs #findNext {
     margin-right: 3px
-}
-html[dir='rtl'] .pdfjs #findPrevious {
-    margin-right: 3px
-}
-html[dir='rtl'] .pdfjs #findNext {
-    margin-left: 3px
 }
 .pdfjs .toolbarButton::before,
 .pdfjs .secondaryToolbarButton::before {
@@ -1412,47 +1299,26 @@ html[dir='rtl'] .pdfjs #findNext {
     top: 4px;
     left: 7px
 }
-html[dir="ltr"] .pdfjs .secondaryToolbarButton::before {
+.pdfjs .secondaryToolbarButton::before {
     left: 4px
 }
-html[dir="rtl"] .pdfjs .secondaryToolbarButton::before {
-    right: 4px
-}
-html[dir='ltr'] .pdfjs .toolbarButton#sidebarToggle::before {
+.pdfjs .toolbarButton#sidebarToggle::before {
     content: url(pdf_images/toolbarButton-sidebarToggle.png)
 }
-html[dir='rtl'] .pdfjs .toolbarButton#sidebarToggle::before {
-    content: url(pdf_images/toolbarButton-sidebarToggle-rtl.png)
-}
-html[dir='ltr'] .pdfjs .toolbarButton#secondaryToolbarToggle::before {
+.pdfjs .toolbarButton#secondaryToolbarToggle::before {
     content: url(pdf_images/toolbarButton-secondaryToolbarToggle.png)
 }
-html[dir='rtl'] .pdfjs .toolbarButton#secondaryToolbarToggle::before {
-    content: url(pdf_images/toolbarButton-secondaryToolbarToggle-rtl.png)
-}
-html[dir='ltr'] .pdfjs .toolbarButton.findPrevious::before {
+.pdfjs .toolbarButton.findPrevious::before {
     content: url(pdf_images/findbarButton-previous.png)
 }
-html[dir='rtl'] .pdfjs .toolbarButton.findPrevious::before {
-    content: url(pdf_images/findbarButton-previous-rtl.png)
-}
-html[dir='ltr'] .pdfjs .toolbarButton.findNext::before {
+.pdfjs .toolbarButton.findNext::before {
     content: url(pdf_images/findbarButton-next.png)
 }
-html[dir='rtl'] .pdfjs .toolbarButton.findNext::before {
-    content: url(pdf_images/findbarButton-next-rtl.png)
-}
-html[dir='ltr'] .pdfjs .toolbarButton.pageUp::before {
+.pdfjs .toolbarButton.pageUp::before {
     content: url(pdf_images/toolbarButton-pageUp.png)
 }
-html[dir='rtl'] .pdfjs .toolbarButton.pageUp::before {
-    content: url(pdf_images/toolbarButton-pageUp-rtl.png)
-}
-html[dir='ltr'] .pdfjs .toolbarButton.pageDown::before {
+.pdfjs .toolbarButton.pageDown::before {
     content: url(pdf_images/toolbarButton-pageDown.png)
-}
-html[dir='rtl'] .pdfjs .toolbarButton.pageDown::before {
-    content: url(pdf_images/toolbarButton-pageDown-rtl.png)
 }
 .pdfjs .toolbarButton.zoomOut::before {
     content: url(pdf_images/toolbarButton-zoomOut.png)
@@ -1475,11 +1341,8 @@ html[dir='rtl'] .pdfjs .toolbarButton.pageDown::before {
 .pdfjs #viewThumbnail.toolbarButton::before {
     content: url(pdf_images/toolbarButton-viewThumbnail.png)
 }
-html[dir="ltr"] .pdfjs #viewOutline.toolbarButton::before {
+.pdfjs #viewOutline.toolbarButton::before {
     content: url(pdf_images/toolbarButton-viewOutline.png)
-}
-html[dir="rtl"] .pdfjs #viewOutline.toolbarButton::before {
-    content: url(pdf_images/toolbarButton-viewOutline-rtl.png)
 }
 .pdfjs #viewAttachments.toolbarButton::before {
     content: url(pdf_images/toolbarButton-viewAttachments.png)
@@ -1497,11 +1360,8 @@ html[dir="rtl"] .pdfjs #viewOutline.toolbarButton::before {
     width: 9px;
     border-radius: 50%
 }
-html[dir='ltr'] .pdfjs .toolbarButton.pdfSidebarNotification::after {
+.pdfjs .toolbarButton.pdfSidebarNotification::after {
     left: 17px
-}
-html[dir='rtl'] .pdfjs .toolbarButton.pdfSidebarNotification::after {
-    right: 17px
 }
 .pdfjs .secondaryToolbarButton {
     position: relative;
@@ -1513,19 +1373,12 @@ html[dir='rtl'] .pdfjs .toolbarButton.pdfSidebarNotification::after {
     min-width: 100%;
     white-space: normal
 }
-html[dir="ltr"] .pdfjs .secondaryToolbarButton {
+.pdfjs .secondaryToolbarButton {
     padding-left: 24px;
     text-align: left
 }
-html[dir="rtl"] .pdfjs .secondaryToolbarButton {
-    padding-right: 24px;
-    text-align: right
-}
-html[dir="ltr"] .pdfjs .secondaryToolbarButton>span {
+.pdfjs .secondaryToolbarButton>span {
     padding-right: 4px
-}
-html[dir="rtl"] .pdfjs .secondaryToolbarButton>span {
-    padding-left: 4px
 }
 .pdfjs .secondaryToolbarButton.firstPage::before {
     content: url(pdf_images/secondaryToolbarButton-firstPage.png)
@@ -1553,11 +1406,8 @@ html[dir="rtl"] .pdfjs .secondaryToolbarButton>span {
     background-color: hsla(0, 0%, 0%, .5);
     box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .08)
 }
-html[dir='ltr'] .pdfjs .verticalToolbarSeparator {
+.pdfjs .verticalToolbarSeparator {
     margin-left: 2px
-}
-html[dir='rtl'] .pdfjs .verticalToolbarSeparator {
-    margin-right: 2px
 }
 .pdfjs .horizontalToolbarSeparator {
     display: block;
@@ -1628,15 +1478,6 @@ html[dir='rtl'] .pdfjs .verticalToolbarSeparator {
     -moz-user-select: none;
     cursor: default
 }
-.pdfjs #thumbnailView {
-    position: absolute;
-    width: 120px;
-    top: 0;
-    bottom: 0;
-    padding: 10px 40px 0;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch
-}
 .pdfjs .thumbnail {
     float: left;
     margin-bottom: 5px
@@ -1650,14 +1491,6 @@ html[dir='rtl'] .pdfjs .verticalToolbarSeparator {
 .pdfjs .thumbnail:not([data-loaded]) {
     border: 1px dashed rgba(255, 255, 255, 0.5);
     margin: -1px -1px 4px -1px
-}
-.pdfjs .thumbnailImage {
-    border: 1px solid transparent;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
-    opacity: .8;
-    z-index: 99;
-    background-color: white;
-    background-clip: content-box
 }
 .pdfjs .thumbnailSelectionRing {
     border-radius: 2px;
@@ -1703,13 +1536,9 @@ html[dir='rtl'] .pdfjs .verticalToolbarSeparator {
 .pdfjs #attachmentsView {
     padding: 3px 4px 0
 }
-html[dir='ltr'] .pdfjs .outlineWithDeepNesting>.outlineItem,
-html[dir='ltr'] .pdfjs .outlineItem>.outlineItems {
+.pdfjs .outlineWithDeepNesting>.outlineItem,
+.pdfjs .outlineItem>.outlineItems {
     margin-left: 20px
-}
-html[dir='rtl'] .pdfjs .outlineWithDeepNesting>.outlineItem,
-html[dir='rtl'] .pdfjs .outlineItem>.outlineItems {
-    margin-right: 20px
 }
 .pdfjs .outlineItem>a,
 .pdfjs .attachmentsItem>button {
@@ -1732,19 +1561,12 @@ html[dir='rtl'] .pdfjs .outlineItem>.outlineItems {
     cursor: pointer;
     width: 100%
 }
-html[dir='ltr'] .pdfjs .outlineItem>a {
+.pdfjs .outlineItem>a {
     padding: 2px 0 5px 4px
 }
-html[dir='ltr'] .pdfjs .attachmentsItem>button {
+.pdfjs .attachmentsItem>button {
     padding: 2px 0 3px 7px;
     text-align: left
-}
-html[dir='rtl'] .pdfjs .outlineItem>a {
-    padding: 2px 4px 5px 0
-}
-html[dir='rtl'] .pdfjs .attachmentsItem>button {
-    padding: 2px 7px 3px 0;
-    text-align: right
 }
 .pdfjs .outlineItemToggler {
     position: relative;
@@ -1757,27 +1579,21 @@ html[dir='rtl'] .pdfjs .attachmentsItem>button {
     display: inline-block;
     position: absolute
 }
-html[dir='ltr'] .pdfjs .outlineItemToggler.outlineItemsHidden::before {
+.pdfjs .outlineItemToggler.outlineItemsHidden::before {
     content: url(pdf_images/treeitem-collapsed.png)
 }
-html[dir='rtl'] .pdfjs .outlineItemToggler.outlineItemsHidden::before {
-    content: url(pdf_images/treeitem-collapsed-rtl.png)
-}
+
 .pdfjs .outlineItemToggler.outlineItemsHidden ~ .outlineItems {
     display: none
 }
-html[dir='ltr'] .pdfjs .outlineItemToggler {
+.pdfjs .outlineItemToggler {
     float: left
 }
-html[dir='rtl'] .pdfjs .outlineItemToggler {
-    float: right
-}
-html[dir='ltr'] .pdfjs .outlineItemToggler::before {
+
+.pdfjs .outlineItemToggler::before {
     right: 4px
 }
-html[dir='rtl'] .pdfjs .outlineItemToggler::before {
-    left: 4px
-}
+
 .pdfjs .outlineItemToggler:hover,
 .pdfjs .outlineItemToggler:hover+a,
 .pdfjs .outlineItemToggler:hover ~ .outlineItems,
@@ -1809,16 +1625,6 @@ html[dir='rtl'] .pdfjs .outlineItemToggler::before {
 .pdfjs::-moz-selection {
     background: rgba(0, 0, 255, 0.3)
 }
-.pdfjs #errorWrapper {
-    background: none repeat scroll 0 0 #f55;
-    color: white;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: 1000;
-    padding: 3px;
-    font-size: .8em
-}
 .pdfjs .loadingInProgress #errorWrapper {
     top: 37px
 }
@@ -1839,14 +1645,6 @@ html[dir='rtl'] .pdfjs .outlineItemToggler::before {
     width: auto;
     margin: 3px 4px 2px 4px !important;
     padding: 2px 6px 3px 6px
-}
-.pdfjs #overlayContainer {
-    display: table;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: hsla(0, 0%, 0%, .2);
-    z-index: 40000
 }
 .pdfjs #overlayContainer>* {
     overflow: auto;
@@ -1907,11 +1705,8 @@ html[dir='rtl'] .pdfjs .outlineItemToggler::before {
 .pdfjs #documentPropertiesOverlay .row>* {
     min-width: 100px
 }
-html[dir='ltr'] .pdfjs #documentPropertiesOverlay .row>* {
+.pdfjs #documentPropertiesOverlay .row>* {
     text-align: left
-}
-html[dir='rtl'] .pdfjs #documentPropertiesOverlay .row>* {
-    text-align: right
 }
 .pdfjs #documentPropertiesOverlay .row>span {
     width: 125px;
@@ -2049,16 +1844,13 @@ html[dir='rtl'] .pdfjs #documentPropertiesOverlay .row>* {
         transform: scale(0.5);
         top: -4px
     }
-    html[dir='ltr'] .pdfjs .toolbarButton::before,
-    html[dir='rtl'] .pdfjs .toolbarButton::before {
+    .pdfjs .toolbarButton::before {
         left: -1px
     }
-    html[dir='ltr'] .pdfjs .secondaryToolbarButton::before {
+    .pdfjs .secondaryToolbarButton::before {
         left: -2px
     }
-    html[dir='rtl'] .pdfjs .secondaryToolbarButton::before {
-        left: 186px
-    }
+
     .pdfjs .toolbarField.pageNumber.visiblePageIsLoading,
     .pdfjs #findInput[data-status="pending"] {
         background-image: url(pdf_images/loading-small@2x.png);
@@ -2068,42 +1860,30 @@ html[dir='rtl'] .pdfjs #documentPropertiesOverlay .row>* {
         background: url(pdf_images/toolbarButton-menuArrows@2x.png) no-repeat;
         background-size: 7px 16px
     }
-    html[dir='ltr'] .pdfjs .toolbarButton#sidebarToggle::before {
+    .pdfjs .toolbarButton#sidebarToggle::before {
         content: url(pdf_images/toolbarButton-sidebarToggle@2x.png)
     }
-    html[dir='rtl'] .pdfjs .toolbarButton#sidebarToggle::before {
-        content: url(pdf_images/toolbarButton-sidebarToggle-rtl@2x.png)
-    }
-    html[dir='ltr'] .pdfjs .toolbarButton#secondaryToolbarToggle::before {
+
+    .pdfjs .toolbarButton#secondaryToolbarToggle::before {
         content: url(pdf_images/toolbarButton-secondaryToolbarToggle@2x.png)
     }
-    html[dir='rtl'] .pdfjs .toolbarButton#secondaryToolbarToggle::before {
-        content: url(pdf_images/toolbarButton-secondaryToolbarToggle-rtl@2x.png)
-    }
-    html[dir='ltr'] .pdfjs .toolbarButton.findPrevious::before {
+
+    .pdfjs .toolbarButton.findPrevious::before {
         content: url(pdf_images/findbarButton-previous@2x.png)
     }
-    html[dir='rtl'] .pdfjs .toolbarButton.findPrevious::before {
-        content: url(pdf_images/findbarButton-previous-rtl@2x.png)
-    }
-    html[dir='ltr'] .pdfjs .toolbarButton.findNext::before {
+
+    .pdfjs .toolbarButton.findNext::before {
         content: url(pdf_images/findbarButton-next@2x.png)
     }
-    html[dir='rtl'] .pdfjs .toolbarButton.findNext::before {
-        content: url(pdf_images/findbarButton-next-rtl@2x.png)
-    }
-    html[dir='ltr'] .pdfjs .toolbarButton.pageUp::before {
+
+    .pdfjs .toolbarButton.pageUp::before {
         content: url(pdf_images/toolbarButton-pageUp@2x.png)
     }
-    html[dir='rtl'] .pdfjs .toolbarButton.pageUp::before {
-        content: url(pdf_images/toolbarButton-pageUp-rtl@2x.png)
-    }
-    html[dir='ltr'] .pdfjs .toolbarButton.pageDown::before {
+
+    .pdfjs .toolbarButton.pageDown::before {
         content: url(pdf_images/toolbarButton-pageDown@2x.png)
     }
-    html[dir='rtl'] .pdfjs .toolbarButton.pageDown::before {
-        content: url(pdf_images/toolbarButton-pageDown-rtl@2x.png)
-    }
+
     .pdfjs .toolbarButton.zoomIn::before {
         content: url(pdf_images/toolbarButton-zoomIn@2x.png)
     }
@@ -2125,11 +1905,8 @@ html[dir='rtl'] .pdfjs #documentPropertiesOverlay .row>* {
     .pdfjs #viewThumbnail.toolbarButton::before {
         content: url(pdf_images/toolbarButton-viewThumbnail@2x.png)
     }
-    html[dir="ltr"] .pdfjs #viewOutline.toolbarButton::before {
+    .pdfjs #viewOutline.toolbarButton::before {
         content: url(pdf_images/toolbarButton-viewOutline@2x.png)
-    }
-    html[dir="rtl"] .pdfjs #viewOutline.toolbarButton::before {
-        content: url(pdf_images/toolbarButton-viewOutline-rtl@2x.png)
     }
     .pdfjs #viewAttachments.toolbarButton::before {
         content: url(pdf_images/toolbarButton-viewAttachments@2x.png)
@@ -2161,17 +1938,11 @@ html[dir='rtl'] .pdfjs #documentPropertiesOverlay .row>* {
         top: -1px;
         content: url(pdf_images/treeitem-expanded@2x.png)
     }
-    html[dir='ltr'] .pdfjs .outlineItemToggler.outlineItemsHidden::before {
+    .pdfjs .outlineItemToggler.outlineItemsHidden::before {
         content: url(pdf_images/treeitem-collapsed@2x.png)
     }
-    html[dir='rtl'] .pdfjs .outlineItemToggler.outlineItemsHidden::before {
-        content: url(pdf_images/treeitem-collapsed-rtl@2x.png)
-    }
-    html[dir='ltr'] .pdfjs .outlineItemToggler::before {
+    .pdfjs .outlineItemToggler::before {
         right: 0
-    }
-    html[dir='rtl'] .pdfjs .outlineItemToggler::before {
-        left: 0
     }
 }
 @media print {
@@ -2289,11 +2060,8 @@ html[dir='rtl'] .pdfjs #documentPropertiesOverlay .row>* {
         top: 32px;
         background-color: hsla(0, 0%, 0%, .7)
     }
-    html[dir='ltr'] .pdfjs #outerContainer.sidebarOpen>#mainContainer {
+    .pdfjs #outerContainer.sidebarOpen>#mainContainer {
         left: 0
-    }
-    html[dir='rtl'] .pdfjs #outerContainer.sidebarOpen>#mainContainer {
-        right: 0
     }
     .pdfjs #outerContainer .hiddenLargeView,
     .pdfjs #outerContainer .hiddenMediumView {

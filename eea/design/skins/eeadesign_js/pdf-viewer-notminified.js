@@ -2708,14 +2708,14 @@ function getFilenameFromUrl(url) {
     }
   };
 
- if (HEADER_FILENAME !== '') {
-  return HEADER_FILENAME;
- }
+  if (HEADER_FILENAME !== '') {
+    return HEADER_FILENAME;
+  }
 
- var anchor = url.indexOf('#');
- var query = url.indexOf('?');
- var end = Math.min(anchor > 0 ? anchor : url.length, query > 0 ? query : url.length);
- return url.substring(url.lastIndexOf('/', end) + 1, end);
+  var anchor = url.indexOf('#');
+  var query = url.indexOf('?');
+  var end = Math.min(anchor > 0 ? anchor : url.length, query > 0 ? query : url.length);
+  return url.substring(url.lastIndexOf('/', end) + 1, end);
 }
 function getDefaultSetting(id) {
  var globalSettings = sharedUtil.globalScope.PDFJS;
@@ -3992,7 +3992,15 @@ var PDFWorker = function PDFWorkerClosure() {
    return getDefaultSetting('workerSrc');
   }
   if (pdfjsFilePath) {
-   return pdfjsFilePath.replace(/\.js$/i, '.worker.js');
+    if (pdfjsFilePath.indexOf('ploneScript') !== -1) {
+      var splitted_path = pdfjsFilePath.split('/');
+      splitted_path.pop();
+      splitted_path.push('pdf.min.worker.js');
+      return splitted_path.join('/');
+    }
+    else {
+      return pdfjsFilePath.replace(/\.js$/i, '.worker.js');
+    }
   }
   error('No PDFJS.workerSrc specified');
  }
@@ -11901,9 +11909,24 @@ var HEADER_FILENAME = '';
 function getPDFFileNameFromURL(url, defaultFilename) {
   // First check filename from header
   var request = new XMLHttpRequest();
-  var splitted_url = window.location.href.split('/');
-  splitted_url.pop();
-  var request_url = splitted_url.join('/') + '/at_view/file';
+
+  if ($('body').hasClass('portaltype-report')) {
+    var paths = window.location.pathname.split('/');
+    var last_path = paths[paths.length - 1];
+    if (last_path === "") {
+      last_path = "./";
+    }
+    else {
+      last_path = "./" + last_path;
+    }
+    var request_url = last_path + '/viewfile';
+  }
+  else {
+    var splitted_url = window.location.href.split('/');
+    splitted_url.pop();
+    var request_url = splitted_url.join('/') + '/at_view/file';
+  }
+
   request.open('GET', request_url, true);
   request.send(null);
   request.onreadystatechange = function () {
@@ -12512,7 +12535,14 @@ var PDFLinkService = function PDFLinkServiceClosure() {
    var destinationPromise;
    if (typeof dest === 'string') {
     destString = dest;
-    destinationPromise = this.pdfDocument.getDestination(dest);
+    if (typeof destString != 'undefined' && destString) {
+        if (window.location.hash !== "#" + destString) {
+            destinationPromise = this.pdfDocument.getDestination(dest);
+        }
+        else {
+            return
+        }
+    }
    } else {
     destinationPromise = Promise.resolve(dest);
    }
@@ -12916,6 +12946,9 @@ var PDFViewerApplication = {
  initialize: function pdfViewInitialize(appConfig) {
   var self = this;
   var PDFJS = pdfjsLib.PDFJS;
+  if ($('body').hasClass('portaltype-report')) {
+   this.isViewerEmbedded = true;
+  }
   Preferences.initialize();
   this.preferences = Preferences;
   configure(PDFJS);
@@ -13186,7 +13219,8 @@ var PDFViewerApplication = {
   if (this.isViewerEmbedded) {
    return;
   }
-  document.title = title;
+  // Removed due to Refs #90589
+  //document.title = title;
  },
  close: function pdfViewClose() {
   var errorWrapper = this.appConfig.errorWrapper.container;
@@ -15891,6 +15925,7 @@ var PDFFindBar = function PDFFindBarClosure() {
    }
    this.findField.select();
    this.findField.focus();
+   this.findController.active = true; // Set controller to active
   },
   close: function PDFFindBar_close() {
    if (!this.opened) {
@@ -16536,8 +16571,13 @@ var PDFPageView = function PDFPageViewClosure() {
    target.style.width = target.parentNode.style.width = div.style.width = Math.floor(width) + 'px';
    target.style.height = target.parentNode.style.height = div.style.height = Math.floor(height) + 'px';
    // in some cases the canvases aren't loaded yet so we need to add a delay, it doesn't have a visual impact 
-   // setTimeout(function(){}, 1000);
-   var relativeRotation = this.viewport.rotation - this.paintedViewportMap.get(target).rotation;
+   if (this.paintedViewportMap.has(target)) {
+     var relativeRotation = this.viewport.rotation - this.paintedViewportMap.get(target).rotation;
+   }
+   else {
+     var relativeRotation = 0;
+   }
+
    var absRotation = Math.abs(relativeRotation);
    var scaleX = 1, scaleY = 1;
    if (absRotation === 90 || absRotation === 270) {
@@ -16886,20 +16926,34 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
  }
  PDFPresentationMode.prototype = {
   request: function PDFPresentationMode_request() {
-   if (this.switchInProgress || this.active || !this.viewer.hasChildNodes()) {
+   if (this.active) {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        }
+       this._exit();
+       return false;
+   }
+   if (this.switchInProgress || !this.viewer.hasChildNodes()) {
     return false;
    }
    this._addFullscreenChangeListeners();
    this._setSwitchInProgress();
    this._notifyStateChange();
-   if (this.container.requestFullscreen) {
-    this.container.requestFullscreen();
-   } else if (this.container.mozRequestFullScreen) {
-    this.container.mozRequestFullScreen();
-   } else if (this.container.webkitRequestFullscreen) {
-    this.container.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-   } else if (this.container.msRequestFullscreen) {
-    this.container.msRequestFullscreen();
+
+   if (this.container.parentElement.parentElement.requestFullscreen) {
+    this.container.parentElement.parentElement.requestFullscreen();
+   } else if (this.container.parentElement.parentElement.mozRequestFullScreen) {
+    this.container.parentElement.parentElement.mozRequestFullScreen();
+   } else if (this.container.parentElement.parentElement.webkitRequestFullscreen) {
+    this.container.parentElement.parentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+   } else if (this.container.parentElement.parentElement.msRequestFullscreen) {
+    this.container.parentElement.parentElement.msRequestFullscreen();
    } else {
     return false;
    }
@@ -16981,33 +17035,36 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
    this.active = true;
    this._resetSwitchInProgress();
    this._notifyStateChange();
-   this.container.classList.add(ACTIVE_SELECTOR);
+   this.container.parentElement.parentElement.classList.add(ACTIVE_SELECTOR);
    setTimeout(function enterPresentationModeTimeout() {
     this.pdfViewer.currentPageNumber = this.args.page;
-    this.pdfViewer.currentScaleValue = 'page-fit';
+    this.pdfViewer.currentScaleValue = 'auto';
    }.bind(this), 0);
    this._addWindowListeners();
    this._showControls();
    this.contextMenuOpen = false;
-   this.container.setAttribute('contextmenu', 'viewerContextMenu');
+   this.container.parentElement.parentElement.setAttribute('contextmenu', 'viewerContextMenu');
    window.getSelection().removeAllRanges();
+   $(this.container).parents('.report-pdf').addClass('presentation-mode');
   },
   _exit: function PDFPresentationMode_exit() {
    var page = this.pdfViewer.currentPageNumber;
-   this.container.classList.remove(ACTIVE_SELECTOR);
+   this.container.parentElement.parentElement.classList.remove(ACTIVE_SELECTOR);
    setTimeout(function exitPresentationModeTimeout() {
     this.active = false;
     this._removeFullscreenChangeListeners();
     this._notifyStateChange();
-    this.pdfViewer.currentScaleValue = this.args.previousScale;
+    // this.pdfViewer.currentScaleValue = this.args.previousScale;
+    this.pdfViewer.currentScaleValue = 'page-width';
     this.pdfViewer.currentPageNumber = page;
     this.args = null;
    }.bind(this), 0);
    this._removeWindowListeners();
    this._hideControls();
    this._resetMouseScrollState();
-   this.container.removeAttribute('contextmenu');
+   this.container.parentElement.parentElement.removeAttribute('contextmenu');
    this.contextMenuOpen = false;
+   $(this.container).parents('.report-pdf').removeClass('presentation-mode');
   },
   _mouseDown: function PDFPresentationMode_mouseDown(evt) {
    if (this.contextMenuOpen) {
@@ -17018,8 +17075,8 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
    if (evt.button === 0) {
     var isInternalLink = evt.target.href && evt.target.classList.contains('internalLink');
     if (!isInternalLink) {
-     evt.preventDefault();
-     this.pdfViewer.currentPageNumber += evt.shiftKey ? -1 : 1;
+    //  evt.preventDefault();
+    // this.pdfViewer.currentPageNumber += evt.shiftKey ? -1 : 1;
     }
    }
   },
@@ -17030,10 +17087,10 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
    if (this.controlsTimeout) {
     clearTimeout(this.controlsTimeout);
    } else {
-    this.container.classList.add(CONTROLS_SELECTOR);
+    this.container.parentElement.parentElement.classList.add(CONTROLS_SELECTOR);
    }
    this.controlsTimeout = setTimeout(function showControlsTimeout() {
-    this.container.classList.remove(CONTROLS_SELECTOR);
+    this.container.parentElement.parentElement.classList.remove(CONTROLS_SELECTOR);
     delete this.controlsTimeout;
    }.bind(this), DELAY_BEFORE_HIDING_CONTROLS);
   },
@@ -17042,7 +17099,7 @@ var PDFPresentationMode = function PDFPresentationModeClosure() {
     return;
    }
    clearTimeout(this.controlsTimeout);
-   this.container.classList.remove(CONTROLS_SELECTOR);
+   this.container.parentElement.parentElement.classList.remove(CONTROLS_SELECTOR);
    delete this.controlsTimeout;
   },
   _resetMouseScrollState: function PDFPresentationMode_resetMouseScrollState() {
@@ -18555,7 +18612,8 @@ var PDFViewer = function pdfViewer() {
     eventBus: this.eventBus,
     pageIndex: pageIndex,
     viewport: viewport,
-    findController: this.isInPresentationMode ? null : this.findController,
+    // findController: this.isInPresentationMode ? null : this.findController,
+    findController: !this.findController ? null : this.findController,
     enhanceTextSelection: this.isInPresentationMode ? false : enhanceTextSelection
    });
   },
@@ -19342,6 +19400,13 @@ var pdfjsWebApp;
  __webpack_require__(9);
 }
 function getViewerConfiguration() {
+ if ($('body').hasClass('portaltype-report')) {
+  var paths = window.location.pathname.split('/');
+  var last_path = paths[paths.length - 1];
+
+  DEFAULT_URL= './' + last_path + '/viewfile';
+ }
+
  return {
   appContainer: document.body,
   mainContainer: document.getElementById('viewerContainer'),
@@ -19456,18 +19521,10 @@ function webViewerLoad() {
 var resizeInterval = null;
 var resizeHandler = function(){
   if (window.PDFViewerApplication.downloadComplete === true) {
-    if ($('#sidebarContainer').css('visibility') === "visible") {
-      if(window.innerWidth < 840) {
-        $('#mainContainer').css('width', '70%');
-      }
-      else {
-        $('#mainContainer').css('width', '80%');
-      }
-    }
-    else {
-      $('#mainContainer').css('width', '100%');
-    }
     clearInterval(resizeInterval);
+    if (!window.PDFViewerApplication.pdfSidebar.isOpen) {
+      window.PDFViewerApplication.pdfSidebar.toggle()
+    }
   }
 }
 
@@ -19481,20 +19538,6 @@ jQuery(document).ready(function($) {
       webViewerLoad();
     };
   }
-
-  $('#sidebarToggle').click(function() {
-    if ($('#sidebarContainer').css('visibility') === "visible") {
-      $('#mainContainer').css('width', '100%');
-    }
-    else {
-      if(window.innerWidth < 840) {
-        $('#mainContainer').css('width', '70%');
-      }
-      else {
-        $('#mainContainer').css('width', '80%');
-      }
-    }
-  });
   resizeInterval = setInterval(resizeHandler, 1000);
 });
 /***/ })

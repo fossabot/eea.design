@@ -3,6 +3,17 @@ Changelog
 
 19.3 - (2018-04-02)
 -------------------
+* Bug fix: Exit fullscreen on button click
+  [petchesi-iulian refs #90589]
+* Bug fix: Added pdf rotation error fallback
+  [petchesi-iulian refs #90589]
+* Feature: Enabled the pdf viewer functionalities in the fullscreen view mode,
+  removed zoom options, removed pdf viewer print button, modified pdf
+  full/normal view styling
+  [petchesi-iulian refs #90589]
+* Upgrade step: Added upgrade step in order to load the pdf viewer for 'Report'
+  portal type
+  [petchesi-iulian refs #90589]
 * Pre-upgrade step: Add EEA_KGS_VERSION Site annotation (optional)
   [avoinea refs #94179]
 * Feature: Improved upgrade info in footer
