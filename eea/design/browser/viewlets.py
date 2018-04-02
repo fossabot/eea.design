@@ -228,9 +228,7 @@ class ColophonViewlet(common.ViewletBase):
     def release(self):
         """ Release URL
         """
-        return "https://github.com/eea/eea.docker.kgs/releases/tag/%s" % (
-            self.version(),
-        )
+        return "https://github.com/eea/eea.docker.kgs/releases"
 
     def external(self):
         """ External service template
