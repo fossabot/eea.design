@@ -29,43 +29,46 @@ canvas {
   }
 }
 
-#content .pdfjs #loadingBar {
+.pdfjs #loadingBar {
   position: relative;
   height: .6rem;
   background-color: #333;
   border-bottom: 1px solid #333;
   margin-top: 5rem;
+  width: 100%;
 }
 
-#content .pdfjs #loadingBar .progress {
+.pdfjs #loadingBar .progress {
   position: absolute;
   left: 0;
   width: 0;
+  top: 0;
   height: 100%;
   background-color: #ddd;
   overflow: hidden;
   transition: width 200ms;
 }
 
-#content .pdfjs #loadingBar .progress.indeterminate {
+.pdfjs #loadingBar .progress.indeterminate {
   background-color: #999;
   transition: none;
+  -webkit-transition: none;
 }
 
-#content .pdfjs #loadingBar .progress.indeterminate .glimmer {
+.pdfjs #loadingBar .progress.indeterminate .glimmer {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-
   background-image: linear-gradient(to right, #999 0%, #fff 50%, #999 100%);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-
+  width: calc(100% + 150px);
+  background: repeating-linear-gradient(135deg, #bbb 0, #999 5px, #999 45px, #ddd 55px, #ddd 95px, #bbb 100px);
   animation: progressIndeterminate 2s linear infinite;
 }
 
-#content .pdfjs #loadingBar .loading-details {
+.pdfjs #loadingBar .loading-details {
     position: absolute;
     top: 500%;
     right: 0;
@@ -74,49 +77,35 @@ canvas {
     font-size: 16px;
 }
 
-#content .pdfjs #errorWrapper {
+.pdfjs #errorWrapper {
   top: 3.2rem;
   z-index: 9999;
   font-size: 15px;
+  background: none repeat scroll 0 0 #f55;
+  color: white;
+  left: 0;
+  right: 0;
+  position: absolute;
+  padding: 3px;
 }
 
-#errorMessageLeft {
-  float: left;
-}
-
-#errorMessageRight {
-  float: right;
-}
-
-#errorMoreInfo {
-  background-color: #FFFFFF;
-  color: black;
-  padding: 0.3rem;
-  margin: 0.3rem;
-  width: 98%;
-}
-
-#content .pdfjs #errorWrapper button {
+.pdfjs #errorWrapper button {
     border: 1px solid transparent;
     border-radius: 2px;
     color: hsla(0, 0%, 100%, .8);
     background-image: url(pdf_images/texture.png), linear-gradient(hsla(0, 0%, 32%, .99), hsla(0, 0%, 27%, .95));
 }
 
-#content .pdfjs #errorWrapper #errorShowLess, 
-#content .pdfjs #errorWrapper #errorShowMore {
+.pdfjs #errorWrapper #errorShowLess, 
+.pdfjs #errorWrapper #errorShowMore {
     margin-left: 10px;
-}
-
-.page {
-  margin-left: 12%;
 }
 
 #content .pdfjs #mainContainer {
   position: relative;
 }
 
-#content .pdfjs #viewerContainer {
+.pdfjs #viewerContainer {
   position: relative;
   border: none;
   border-top: none;
@@ -129,62 +118,72 @@ canvas {
   z-index: 100;
   height: 900px;
   background-color: hsla(0, 0%, 0%, .1);
+  outline: 0;
+  box-shadow: inset 1px 0 0 hsla(0, 0%, 100%, .05);
 }
 
-#content .pdfjs .thumbnailSelectionRing {
-    margin-bottom: 11%;
-}
-
-#content .pdfjs #thumbnailView {
+.pdfjs #thumbnailView {
     position: relative;
     min-width: 100%;
+    width: 120px;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    padding: 10px 0 0;
+    -webkit-overflow-scrolling: touch;
 }
 
-#content .pdfjs .thumbnailSelectionRing {
+.pdfjs .thumbnailSelectionRing {
     margin-bottom: 11%;
     width: 100% !important;
+    height: 100% !important;
 }
 
 #content .pdfjs .thumbnailImage {
     max-width: none;
     border: none;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+    opacity: .8;
+    z-index: 99;
+    background-color: white;
+    background-clip: content-box;
 }
 
-#content .pdfjs .pdfViewer .page {
-    margin-left: 0;
-}
-
-#content .pdfjs #overlayContainer {
+.pdfjs #overlayContainer {
+    display: table;
     top: 4%;
     left: 0;
+    z-index: 598;
+    background-color: #006699;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
-#content .pdfjs #sidebarContent {
+.pdfjs #sidebarContent {
     border: none;
     border-right: none;
     border-top: none;
+    width: 100%;
+    top: 32px;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    background-color: hsla(0, 0%, 0%, .1);
+    box-shadow: inset -1px 0 0 hsla(0, 0%, 0%, .25)
 }
 
-#content .pdfjs #outerContainer {
+.pdfjs #outerContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
     margin-bottom: 3em;
 }
 
 #content .pdfjs option{
     color: hsla(0, 0%, 100%, .8);
-}
-
-#content .pdfjs .pdfViewer .page {
-    border-left: none;
-    margin-left: 3%;
-}
-
-#content .pdfjs .toolbar {
-    z-index: 599;
-}
-
-#content .pdfjs #overlayContainer {
-    z-index: 598;
-    background-color: #006699;
 }
 
 /* Hide second column and expand pdf width */
@@ -196,110 +195,77 @@ canvas {
   width: 100%;
 }
 
-#content .pdfjs .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
-    margin: 1px auto -8px auto;
-}
-
-#content .pdfjs .pdfPresentationMode:-moz-full-screen .pdfViewer .page {
-    margin: 1px auto -8px auto;
-}
-
 #region-content {
     padding: 0;
     background-color: transparent;
 }
 
-#content .pdfjs #outerContainer.sidebarOpen>#mainContainer {
-    width: 80% !important;
-}
-
-#content .pdfjs #outerContainer>#mainContainer {
-    width: 100% !important;
-}
-
-#content .pdfjs #toolbarContainer,
-#content .pdfjs #toolbarSidebar,
-#content .pdfjs .findbar,
-#content .pdfjs .dropdownToolbarButton>select>option,
+.pdfjs .toolbar #toolbarContainer,
+.pdfjs .pdfPresentationMode .dropdownToolbarButton>select>option,
 #content .pdfjs #overlayContainer>.container>.dialog,
 #content .pdfjs .secondaryToolbar {
     background-color: #006699;
     background-image: none;
 }
 
-#content .pdfjs #print {
+.pdfjs #print {
     display: none;
 }
 
-#content .pdfjs .dropdownToolbarButton,
-#content .pdfjs .dropdownToolbarButton>select>option {
+.pdfjs .dropdownToolbarButton,
+.pdfjs .dropdownToolbarButton>select>option {
     display: none;
 }
 
-
-#content #outerContainer.pdfPresentationMode #thumbnailView > a,
-#content #outerContainer.pdfPresentationMode #outlineView .outlineItem a,
-#content #outerContainer.pdfPresentationMode .dropdownToolbarButton,
-#content #outerContainer.pdfPresentationMode .dropdownToolbarButton>select>option,
-#content .presentation-mode .pdfjs #thumbnailView > a,
-#content .presentation-mode .pdfjs #outlineView .outlineItem a,
-#content .presentation-mode .pdfjs .dropdownToolbarButton,
-#content .presentation-mode .pdfjs .dropdownToolbarButton>select>option {
+#outerContainer.pdfPresentationMode #thumbnailView > a,
+#outerContainer.pdfPresentationMode #outlineView .outlineItem a,
+#outerContainer.pdfPresentationMode .dropdownToolbarButton,
+#outerContainer.pdfPresentationMode .dropdownToolbarButton>select>option {
     display: block;
 }
 
-#content .pdfjs .pdfPresentationMode .findbar,
-#content .presentation-mode .pdfjs .findbar {
+.pdfjs .pdfPresentationMode .findbar {
     float: left;
-    left: 37px;
 }
 
-#content .pdfjs .findbar {
+.pdfjs #mainContainer .findbar {
     left: 37px;
+    background-color: #006699;
+    background-image: none;
 }
 
-#content .pdfjs .outlineItem>a:hover,
-#content .pdfjs .outlineItem>a {
+.pdfjs .sidebarOpen .outlineItem>a:hover,
+.pdfjs .sidebarOpen .outlineItem>a {
     color: #337ab7;
 }
 
-/* PRESENTATION MODE */
-.pdfjs .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
-    margin-bottom: 100%;
-    border: 0;
-}
-.pdfjs .pdfPresentationMode:-moz-full-screen .pdfViewer .page {
-    margin-bottom: 100%;
-    border: 0;
-}
-.pdfjs .pdfPresentationMode:-ms-fullscreen .pdfViewer .page {
-    margin-bottom: 100% !important;
-    border: 0;
-}
-.pdfjs .pdfPresentationMode:fullscreen .pdfViewer .page {
-    margin-bottom: 100%;
-    border: 0;
+.pdfjs .splitToolbarButton .pageUp {
+    margin-top: 0;
 }
 
-#content .pdfPresentationMode #mainContainer {
+.pdfjs .splitToolbarButton .zoomOut {
+    margin-top: 0;
+}
+
+/* PRESENTATION MODE */
+.pdfPresentationMode #mainContainer {
     height: 100%;
 }
 
-#content .pdfjs #outerContainer.pdfPresentationMode #viewerContainer {
+.pdfjs .pdfPresentationMode #viewerContainer {
     height: 97%;
 }
 
-#content #outerContainer.pdfPresentationMode {
+#outerContainer.pdfPresentationMode {
     margin-bottom: 0;
 }
 
-#content #outerContainer.pdfPresentationMode #toolbarViewerMiddle {
+.pdfPresentationMode #toolbarViewerMiddle {
     width: 35%;
 }
 
-#content .pdfjs #outerContainer.pdfPresentationMode:-webkit-full-screen {
+.pdfjs .pdfPresentationMode:-webkit-full-screen {
     top: 0;
-    border-top: 2px solid transparent;
     background-color: white;
     width: 100%;
     height: 100%;
@@ -308,9 +274,8 @@ canvas {
     -webkit-user-select: none
 }
 
-#content .pdfjs #outerContainer.pdfPresentationMode:-moz-full-screen {
+.pdfjs .pdfPresentationMode:-moz-full-screen {
     top: 0;
-    border-top: 2px solid transparent;
     background-color: white;
     width: 100%;
     height: 100%;
@@ -319,9 +284,8 @@ canvas {
     -moz-user-select: none
 }
 
-#content .pdfjs #outerContainer.pdfPresentationMode:-ms-fullscreen {
+.pdfjs .pdfPresentationMode:-ms-fullscreen {
     top: 0 !important;
-    border-top: 2px solid transparent;
     width: 100%;
     height: 100%;
     overflow: hidden !important;
@@ -329,13 +293,12 @@ canvas {
     -ms-user-select: none
 }
 
-#content .pdfjs #outerContainer.pdfPresentationMode:-ms-fullscreen::-ms-backdrop {
+.pdfjs .pdfPresentationMode:-ms-fullscreen::-ms-backdrop {
     background-color: white;
 }
 
-#content .pdfjs #outerContainer.pdfPresentationMode:fullscreen {
+.pdfjs .pdfPresentationMode:fullscreen {
     top: 0;
-    border-top: 2px solid transparent;
     background-color: white;
     width: 100%;
     height: 100%;
@@ -375,44 +338,39 @@ canvas {
     cursor: default;
 }
 
-#content .pdfjs #sidebarContainer {
+.pdfjs .sidebarOpen #sidebarContainer {
     width: 20%;
 }
 
-#content .pdfjs #toolbarSidebar {
+.pdfjs #toolbarSidebar {
     width: 100%;
+    height: 32px;
+    background-color: #006699;
+    background-image: none;
 }
 
-#content .pdfjs #sidebarContent {
-    width: 100%;
-}
-
-#content .pdfjs #outlineView {
+.pdfjs .sidebarOpen #outlineView {
     padding-right: 0;
     padding-left: 4px;
 }
 
-#content .pdfjs #outlineView,
-#content .pdfjs #attachmentsView {
+.pdfjs .sidebarOpen #outlineView,
+.pdfjs .sidebarOpen #attachmentsView {
     width: 96%;
 }
 
-#content .pdfjs .outlineWithDeepNesting>.outlineItem,
-#content .pdfjs .outlineItem>.outlineItems {
+.pdfjs .sidebarOpen .outlineWithDeepNesting>.outlineItem,
+.pdfjs .sidebarOpen .outlineItem>.outlineItems {
     margin-left: 0;
 }
 
-html[dir='ltr'] #content .pdfjs .outlineItem>a {
+.pdfjs .sidebarOpen .outlineItem>a {
     padding-left: 0;
 }
 
-#content .pdfjs .outlineItem>a,
-#content .pdfjs .attachmentsItem>button {
+.pdfjs .sidebarOpen .outlineItem>a,
+.pdfjs .sidebarOpen .attachmentsItem>button {
     font-size: 11px;
-}
-
-#content .pdfjs #thumbnailView {
-    padding: 10px 0 0;
 }
 
 #content .pdfjs #outerContainer.sidebarOpen>#mainContainer {
@@ -420,162 +378,41 @@ html[dir='ltr'] #content .pdfjs .outlineItem>a {
     width: 80% !important;
 }
 
-#content .pdfjs #outerContainer>#mainContainer {
+.pdfjs #outerContainer>#mainContainer {
     width: 100% !important;
 }
 
-html #content .pdfjs #outerContainer .dropdownToolbarButton {
-    width: 70%;
-}
-
-html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
+.pdfjs .sidebarOpen .dropdownToolbarButton {
     min-width: 60px !important;
     width: 50%;
 }
 
-#content .pdfjs .toolbarButtonSpacer {
+.pdfjs .toolbar .toolbarButtonSpacer {
     width: 1px;
 }
 
-
 /* PRESENTATION MODE ENDS*/
 @media (max-width: 980px) {
-    #content .pdfjs .sidebarOpen #presentationMode {
+    .pdfjs .sidebarOpen #presentationMode {
         display: block;
     }
 
-    #content .pdfjs .sidebarOpen #secondaryPresentationMode {
+    .pdfjs .sidebarOpen #secondaryPresentationMode {
         display: none;
     }
 }
 
 @media (max-width: 840px) {
-    #content .pdfjs #outerContainer.sidebarOpen>#sidebarContainer {
+    .pdfjs .sidebarOpen > #sidebarContainer {
         top: 0;
     }
-    #content .pdfjs #outerContainer.sidebarOpen>#mainContainer {
-        left: 20%;
-    }
 
-    #content .pdfjs #sidebarContent {
+    .pdfjs .sidebarOpen #sidebarContent {
       background-color: hsla(0, 0%, 0%, .1);
     }
 }
 
-@media screen and (min-width: 640px) and (max-width: 768px) {
-  .pdfjs #pageNumber {
-    width: 12%;
-  }
-}
-
-@media screen and (min-width: 481px) and (max-width: 768px) {
- .toolbarButton.pageUp {
-    display: none; 
- }
-
- .toolbarButton.pageDown {
-    display: none;
- }
-
- .toolbarButton.zoomOut {
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 20%;
- }
-
- .toolbarButton.zoomIn {
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 20%;
- }
-
- #pageNumber {
-    width: 12%;
- }
-
- #content .pdfjs #viewerContainer {
-     border: none;
- }
- 
- #content .pdfjs #outerContainer {
-     border: none;
-     border-top: none;
- }
-}
-
-@media screen and (max-width: 480px) {
-  .toolbarButton.pageUp {
-    display: none; 
-  }
-
-  .toolbarButton.pageDown {
-    display: none;
-  }
-
-  .toolbarButton.zoomOut {
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 20%;
-  }
-
-  .toolbarButton.zoomIn {
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 20%;
-  }
-
-  #pageNumber {
-    width: 20%;
-  }
-
-  #viewerContainer {
-    border-right: 2px solid black;
-    height: 450px;
-  }
-
-  #content .pdfjs #viewerContainer {
-    border: none;
-  }
- 
-  #content .pdfjs #outerContainer {
-    border: none;
-    border-top: none;
-  }
-}
-
-@media screen and (max-width: 321px) {
-  .toolbarButton.pageUp {
-    display: none; 
-  }
-
-  .toolbarButton.pageDown {
-    display: none;
-  }
-
-  .toolbarButton.zoomOut {
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 18%;
-  }
-
-  .toolbarButton.zoomIn {
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 18%;
-  }
-
-  #pageNumber {
-    width: 50%;
-  }
-
-  #viewerContainer {
-    border-right: 2px solid black;
-    height: 350px;
-  }
-}
-
 /* Print modifications */
-
 @media print {
     html {
         width: 100%;
@@ -890,7 +727,9 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
     border: 9px solid transparent;
     background-clip: content-box;
     border-image: url(pdf_images/shadow.png) 9 9 repeat;
-    background-color: white
+    background-color: white;
+    border-left: none;
+    margin-left: 3%;
 }
 .pdfjs .pdfViewer.removePageBorders .page {
     margin: 0 auto 10px auto;
@@ -917,19 +756,19 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
     background: url('pdf_images/loading-icon.gif') center no-repeat
 }
 .pdfjs .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
-    margin-bottom: 100%;
+    margin: 1px auto -8px auto;
     border: 0
 }
 .pdfjs .pdfPresentationMode:-moz-full-screen .pdfViewer .page {
-    margin-bottom: 100%;
+    margin: 1px auto -8px auto;
     border: 0
 }
 .pdfjs .pdfPresentationMode:-ms-fullscreen .pdfViewer .page {
-    margin-bottom: 100% !important;
+    margin: 1px auto -8px auto;
     border: 0
 }
 .pdfjs .pdfPresentationMode:fullscreen .pdfViewer .page {
-    margin-bottom: 100%;
+    margin: 1px auto -8px auto;
     border: 0
 }
 .pdfjs * {
@@ -1020,11 +859,6 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
 .pdfjs .pdfPresentationMode.pdfPresentationModeControls .textLayer>div {
     cursor: default
 }
-.pdfjs #outerContainer {
-    width: 100%;
-    height: 100%;
-    position: relative
-}
 .pdfjs #sidebarContainer {
     position: absolute;
     top: 0;
@@ -1065,47 +899,15 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
     transition-property: left;
     left: 200px
 }
-.pdfjs #sidebarContent {
-    top: 32px;
-    bottom: 0;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    position: absolute;
-    width: 200px;
-    background-color: hsla(0, 0%, 0%, .1)
-}
-.pdfjs #sidebarContent {
-    left: 0;
-    box-shadow: inset -1px 0 0 hsla(0, 0%, 0%, .25)
-}
-.pdfjs #viewerContainer {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    position: absolute;
-    top: 32px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    outline: 0
-}
-.pdfjs #viewerContainer {
-    box-shadow: inset 1px 0 0 hsla(0, 0%, 100%, .05)
-}
 .pdfjs .toolbar {
     position: relative;
     left: 0;
     right: 0;
-    z-index: 9999;
+    z-index: 599;
     cursor: default
 }
 .pdfjs #toolbarContainer {
     width: 100%
-}
-.pdfjs #toolbarSidebar {
-    width: 200px;
-    height: 32px;
-    background-color: #424242;
-    background-image: url(pdf_images/texture.png), linear-gradient(hsla(0, 0%, 30%, .99), hsla(0, 0%, 25%, .95))
 }
 .pdfjs #toolbarSidebar {
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25), inset 0 -1px 0 hsla(0, 0%, 100%, .05), 0 1px 0 hsla(0, 0%, 0%, .15), 0 0 1px hsla(0, 0%, 0%, .1)
@@ -1130,24 +932,6 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
 .pdfjs #toolbarViewer {
     height: 32px
 }
-.pdfjs #loadingBar {
-    position: relative;
-    width: 100%;
-    height: 4px;
-    background-color: #333;
-    border-bottom: 1px solid #333
-}
-.pdfjs #loadingBar .progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: #ddd;
-    overflow: hidden;
-    -webkit-transition: width 200ms;
-    transition: width 200ms
-}
 @-webkit-keyframes progressIndeterminate {
     0% {
         left: -142px;
@@ -1164,21 +948,6 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
         left: 0;
     }
 }
-.pdfjs #loadingBar .progress.indeterminate {
-    background-color: #999;
-    -webkit-transition: none;
-    transition: none
-}
-.pdfjs #loadingBar .progress.indeterminate .glimmer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: calc(100% + 150px);
-    background: repeating-linear-gradient(135deg, #bbb 0, #999 5px, #999 45px, #ddd 55px, #ddd 95px, #bbb 100px);
-    -webkit-animation: progressIndeterminate 950ms linear infinite;
-    animation: progressIndeterminate 950ms linear infinite
-}
 .pdfjs .findbar,
 .pdfjs .secondaryToolbar {
     top: 32px;
@@ -1193,9 +962,6 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
     line-height: 14px;
     text-align: left;
     cursor: default
-}
-.pdfjs .findbar {
-    left: 68px
 }
 .pdfjs .findbar label {
     -webkit-user-select: none;
@@ -1520,7 +1286,8 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
     height: 1px
 }
 .pdfjs #findPrevious {
-    margin-left: 3px
+    margin-left: 3px;
+    margin-top: 0;
 }
 .pdfjs #findNext {
     margin-right: 3px
@@ -1711,15 +1478,6 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
     -moz-user-select: none;
     cursor: default
 }
-.pdfjs #thumbnailView {
-    position: absolute;
-    width: 120px;
-    top: 0;
-    bottom: 0;
-    padding: 10px 40px 0;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch
-}
 .pdfjs .thumbnail {
     float: left;
     margin-bottom: 5px
@@ -1733,14 +1491,6 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
 .pdfjs .thumbnail:not([data-loaded]) {
     border: 1px dashed rgba(255, 255, 255, 0.5);
     margin: -1px -1px 4px -1px
-}
-.pdfjs .thumbnailImage {
-    border: 1px solid transparent;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
-    opacity: .8;
-    z-index: 99;
-    background-color: white;
-    background-clip: content-box
 }
 .pdfjs .thumbnailSelectionRing {
     border-radius: 2px;
@@ -1875,16 +1625,6 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
 .pdfjs::-moz-selection {
     background: rgba(0, 0, 255, 0.3)
 }
-.pdfjs #errorWrapper {
-    background: none repeat scroll 0 0 #f55;
-    color: white;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: 1000;
-    padding: 3px;
-    font-size: .8em
-}
 .pdfjs .loadingInProgress #errorWrapper {
     top: 37px
 }
@@ -1905,14 +1645,6 @@ html #content .pdfjs #outerContainer.sidebarOpen .dropdownToolbarButton {
     width: auto;
     margin: 3px 4px 2px 4px !important;
     padding: 2px 6px 3px 6px
-}
-.pdfjs #overlayContainer {
-    display: table;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: hsla(0, 0%, 0%, .2);
-    z-index: 40000
 }
 .pdfjs #overlayContainer>* {
     overflow: auto;
