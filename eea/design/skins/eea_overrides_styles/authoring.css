@@ -168,7 +168,6 @@ div.field span.required:after {
 }
 
 dl.actionMenu {
-    float: right;
     white-space: nowrap;
     position: relative;
     margin-left: 0.5em;
