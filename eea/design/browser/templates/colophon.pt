@@ -35,16 +35,17 @@
                 <tal:version i18n:translate="" tal:condition="not:view/external">Software version:</tal:version>
                 <tal:version i18n:translate="" tal:condition="view/external">Template version:</tal:version>
                 <strong>EEA Plone KGS</strong>
-                <a tal:attributes="href view/release" tal:content="${view/version}">EEA KGS VERSION</a>
+                <a tal:attributes="href view/release" tal:content="view/version">EEA KGS VERSION</a>
             </p>
 
             <p class="discreet colophon-links">
                 <tal:uptime i18n:translate="" tal:condition="not:view/external">Software updated on</tal:uptime>
                 <tal:uptime i18n:translate="" tal:condition="view/external">Template updated on</tal:uptime>
-                <strong tal:replace="view/uptime">Uptime</strong>>
+                <strong tal:replace="view/uptime">Uptime</strong>
                 <tal:previous tal:condition="view/previous" i18n:translate="">
                   from version
                   <strong i18n:name="previous" tal:content="view/previous">previous version</strong>
+                </tal:previous>
             </p>
 
             <p class="discreet colophon-links">
