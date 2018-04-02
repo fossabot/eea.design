@@ -1,15 +1,20 @@
 """ EEA Design
 """
 import os
-import Zope2
+import logging
+import transaction
 from datetime import datetime
+import Zope2
 from BTrees.OOBTree import OOBTree
 from zope.component import queryAdapter
 from zope.annotation.interfaces import IAnnotations
 from zope.i18nmessageid.message import MessageFactory
 
+
+logger = logging.getLogger("eea.design")
 EEAMessageFactory = MessageFactory('eea')
 EEANOTRANSLATIONMessageFactory = MessageFactory('eea.notranslation')
+
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""
