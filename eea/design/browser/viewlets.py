@@ -201,10 +201,10 @@ class FooterPortletsViewlet(common.ViewletBase):
         self.canManagePortlets = mt.checkPermission(
             'Portlets: Manage portlets', self.context)
 
+
 class ColophonViewlet(common.ViewletBase):
     """ Footer colophon
     """
-
     @cache(lambda *args: "uptime", lifetime=86400)
     def uptime(self):
         """ Plone up-time
@@ -221,8 +221,11 @@ class ColophonViewlet(common.ViewletBase):
     def version(self):
         """ Get KGS version
         """
+        anno = queryAdapter(getSite(), IAnnotations)
+        versions = anno.get("EEA_KGS_VERSION", {})
+        if len(versions.keys()):
+            return versions.keys()[-1]
         return os.environ.get("EEA_KGS_VERSION", "")
-
 
     @cache(lambda *args: "previous", lifetime=86400)
     def previous(self):
