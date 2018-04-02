@@ -1,8 +1,12 @@
 Changelog
 =========
 
-19.3 - (unreleased)
+19.3 - (2018-04-02)
 -------------------
+* Pre-upgrade step: Add EEA_KGS_VERSION Site annotation (optional)
+  [avoinea refs #94179]
+* Feature: Improved upgrade info in footer
+  [avoinea refs #94179]
 * Bug fix: disabled lazy loading of iframe content until we better test it.
   Within eea.googlecharts some code was trying to read the src which was
   modified by the lazy loading
