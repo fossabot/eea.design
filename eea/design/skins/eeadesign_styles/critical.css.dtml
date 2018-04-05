@@ -573,14 +573,9 @@ li#secondary-portaltabs-container {
 .portlet-megatopic {
     display: flex;
     white-space: nowrap;
-
-}
-
-@media screen and (max-width: 1023px) {
-   .portlet-megatopic {
     flex: 1;
 }
-}
+
 
 .portlet, .portletWrapper .featured {
     background: #ffffff;
