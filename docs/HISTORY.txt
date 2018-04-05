@@ -1,5 +1,9 @@
 Changelog
 =========
+19.4 - (unreleased)
+-------------------
+* Bug fix: fixed frontpage megatopics when viewing within IE11
+  [ichim-david refs #94440]
 
 19.3 - (2018-04-02)
 -------------------

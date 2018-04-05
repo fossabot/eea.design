@@ -73,7 +73,8 @@
 
   #megatopics-area {
     display: block;
-    flex-wrap: nowrap; }
+    flex-wrap: nowrap;
+    width: 100%; }
 
   .portlet-megatopic img {
     width: 100%; }
@@ -113,8 +114,12 @@
   #content #languageCodes {
     max-width: 60%; } }
 @media screen and (max-width: 767px) {
-  #eea-above-columns #portal-breadcrumbs {
-    display: none; }
+  #eea-above-columns .plone-breadcrumb {
+    margin-top: 0;
+    margin-bottom: 0; }
+
+  #eea-above-columns .plone-breadcrumb ol {
+    line-height: 2.5em; }
 
   #portal-personaltools-wrapper,
   .portal-logo,
@@ -353,6 +358,7 @@
   .right-column-area {
     float: none;
     width: 100%;
+    flex-basis: 100%;
     padding: 0 0 1em 0;
     margin-bottom: 1em; }
 
@@ -454,10 +460,11 @@
 
   #eea-above-columns {
     margin-top: 70px; } }
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 855px) {
   #megatopics-area {
     display: block;
-    flex-wrap: nowrap; }
+    flex-wrap: nowrap;
+    width: 100%; }
 
   .portlet-megatopic img {
     width: 100%;
@@ -552,7 +559,8 @@
     margin: 2em; } }
 @media screen and (width: 768px) {
   .right-column-area {
-    width: 41%; } }
+    width: 41%;
+    flex-basis: 41%; } }
 @media screen and (min-width: 768px) {
   #secondary-portaltabs .eea-accordion-panels,
   #portal-logo-link-header {
@@ -611,9 +619,6 @@
   .col-sm-6.bordered-left:before {
     left: -1%; }
 
-  .mini-header #portal-header {
-    height: 100%; }
-
   #portaltab-europe {
     padding-right: 95px;
     width: 195px;
@@ -624,9 +629,11 @@
 
   .template-soer2015_frontpage .column-area {
     padding-left: 0;
-    width: 61%; }
+    width: 61%;
+    flex-basis: 61%; }
   .template-soer2015_frontpage .right-column-area {
-    width: 39%; }
+    width: 39%;
+    flex-basis: 39%; }
 
   #visual-portal-wrapper .eea-tabs.eea-tabs-soer > li {
     width: 20%;
@@ -643,6 +650,10 @@
 
   .mini-header #portal-globalnav {
     font-size: 90%; }
+
+  .mini-header #portal-header {
+    height: 100%;
+    margin: 2em auto; }
 
   #portal-globalnav > li > a {
     padding: 1em 0.5em; }
@@ -673,7 +684,7 @@
   #portal-header.eea-miniheader-element {
     height: 100%;
     font-size: 115%;
-    margin: 2em 0;
+    margin: 2em auto;
     clear: none; } }
 @media screen and (max-width: 1023px) {
   .mini-header #tip-externalsites-networks .networkSites,
