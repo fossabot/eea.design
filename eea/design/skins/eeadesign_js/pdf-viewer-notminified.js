@@ -3468,7 +3468,9 @@ var Metadata = displayMetadata.Metadata;
 var getDefaultSetting = displayDOMUtils.getDefaultSetting;
 var DOMCanvasFactory = displayDOMUtils.DOMCanvasFactory;
 var DOMCMapReaderFactory = displayDOMUtils.DOMCMapReaderFactory;
-var DEFAULT_RANGE_CHUNK_SIZE = 65536;
+// var DEFAULT_RANGE_CHUNK_SIZE = 65536;
+//  GZIP TRANSFER ENCODING for chunks
+var DEFAULT_RANGE_CHUNK_SIZE = 1048576;
 var isWorkerDisabled = false;
 var workerSrc;
 var isPostMessageTransfersDisabled = false;
@@ -3505,6 +3507,7 @@ function getDocument(src, pdfDataRangeTransport, passwordCallback, progressCallb
  if (arguments.length > 1) {
   deprecated('getDocument is called with pdfDataRangeTransport, ' + 'passwordCallback or progressCallback argument');
  }
+// debugger;
  if (pdfDataRangeTransport) {
   if (!(pdfDataRangeTransport instanceof PDFDataRangeTransport)) {
    pdfDataRangeTransport = Object.create(pdfDataRangeTransport);
@@ -3595,6 +3598,7 @@ function _fetchDocument(worker, source, pdfDataRangeTransport, docId) {
  }
  source.disableAutoFetch = getDefaultSetting('disableAutoFetch');
  source.disableStream = getDefaultSetting('disableStream');
+// debugger;
  source.chunkedViewerLoading = !!pdfDataRangeTransport;
  if (pdfDataRangeTransport) {
   source.length = pdfDataRangeTransport.length;
@@ -3652,6 +3656,7 @@ var PDFDocumentLoadingTask = function PDFDocumentLoadingTaskClosure() {
 }();
 var PDFDataRangeTransport = function pdfDataRangeTransportClosure() {
  function PDFDataRangeTransport(length, initialData) {
+  // debugger;
   this.length = length;
   this.initialData = initialData;
   this._rangeListeners = [];
@@ -4244,6 +4249,7 @@ var WorkerTransport = function WorkerTransportClosure() {
  function WorkerTransport(messageHandler, loadingTask, pdfDataRangeTransport, CMapReaderFactory) {
   this.messageHandler = messageHandler;
   this.loadingTask = loadingTask;
+  // debugger;
   this.pdfDataRangeTransport = pdfDataRangeTransport;
   this.commonObjs = new PDFObjects();
   this.fontLoader = new FontLoader(loadingTask.docId);
@@ -4282,6 +4288,7 @@ var WorkerTransport = function WorkerTransportClosure() {
    waitOn.push(terminated);
    Promise.all(waitOn).then(function () {
     self.fontLoader.clear();
+    // debugger;
     if (self.pdfDataRangeTransport) {
      self.pdfDataRangeTransport.abort();
      self.pdfDataRangeTransport = null;
@@ -4298,6 +4305,7 @@ var WorkerTransport = function WorkerTransportClosure() {
    var messageHandler = this.messageHandler;
    var loadingTask = this.loadingTask;
    var pdfDataRangeTransport = this.pdfDataRangeTransport;
+  // debugger;
    if (pdfDataRangeTransport) {
     pdfDataRangeTransport.addRangeListener(function (begin, chunk) {
      messageHandler.send('OnDataRange', {
@@ -4448,6 +4456,7 @@ var WorkerTransport = function WorkerTransportClosure() {
     if (this.destroyed) {
      return;
     }
+    // debugger;
     var loadingTask = this.loadingTask;
     if (loadingTask.onProgress) {
      loadingTask.onProgress({
@@ -6886,9 +6895,15 @@ PDFJS.imageResourcesPath = PDFJS.imageResourcesPath === undefined ? '' : PDFJS.i
 PDFJS.disableWorker = PDFJS.disableWorker === undefined ? false : PDFJS.disableWorker;
 PDFJS.workerSrc = PDFJS.workerSrc === undefined ? null : PDFJS.workerSrc;
 PDFJS.workerPort = PDFJS.workerPort === undefined ? null : PDFJS.workerPort;
-PDFJS.disableRange = true;
+// PDFJS.disableRange = true;
+// PDFJS.disableRange = false;
+// debugger;
+PDFJS.disableRange === undefined ? false : PDFJS.disableRange;
 PDFJS.disableStream = PDFJS.disableStream === undefined ? false : PDFJS.disableStream;
 PDFJS.disableAutoFetch = PDFJS.disableAutoFetch === undefined ? false : PDFJS.disableAutoFetch;
+// PDFJS.disableAutoFetch = false;
+// PDFJS.disableStream = false;
+// debugger;
 PDFJS.pdfBug = PDFJS.pdfBug === undefined ? false : PDFJS.pdfBug;
 PDFJS.postMessageTransfers = PDFJS.postMessageTransfers === undefined ? true : PDFJS.postMessageTransfers;
 PDFJS.disableCreateObjectURL = PDFJS.disableCreateObjectURL === undefined ? false : PDFJS.disableCreateObjectURL;
@@ -10935,6 +10950,7 @@ exports.PDFJS = pdfjsDisplayGlobal.PDFJS;
 exports.build = pdfjsDisplayAPI.build;
 exports.version = pdfjsDisplayAPI.version;
 exports.getDocument = pdfjsDisplayAPI.getDocument;
+// debugger;
 exports.PDFDataRangeTransport = pdfjsDisplayAPI.PDFDataRangeTransport;
 exports.PDFWorker = pdfjsDisplayAPI.PDFWorker;
 exports.renderTextLayer = pdfjsDisplayTextLayer.renderTextLayer;
@@ -11913,6 +11929,10 @@ function getPDFFileNameFromURL(url, defaultFilename) {
   if ($('body').hasClass('portaltype-report')) {
     var paths = window.location.pathname.split('/');
     var last_path = paths[paths.length - 1];
+
+    if (last_path === "view") {
+      last_path = paths[paths.length -2];
+    }
     if (last_path === "") {
       last_path = "./";
     }
@@ -12995,6 +13015,12 @@ var PDFViewerApplication = {
     }
     PDFJS.disableTextLayer = value;
    }),
+   Preferences.get('disableRange').then(function resolved(value) {
+    if (PDFJS.disableRange === true) {
+     return;
+    }
+    PDFJS.disableRange = value;
+   }),
    Preferences.get('disableStream').then(function resolved(value) {
     if (PDFJS.disableStream === true) {
      return;
@@ -13290,6 +13316,7 @@ var PDFViewerApplication = {
    self.passwordPrompt.open();
   };
   loadingTask.onProgress = function getDocumentProgress(progressData) {
+    // debugger;
    self.progress(progressData.loaded / progressData.total);
   };
   loadingTask.onUnsupportedFeature = this.fallback.bind(this);
@@ -13775,6 +13802,9 @@ function webViewerInitialized() {
   var hashParams = parseQueryString(hash);
   if ('disableworker' in hashParams) {
    PDFJS.disableWorker = hashParams['disableworker'] === 'true';
+  }
+  if ('disablerange' in hashParams) {
+   PDFJS.disableRange = hashParams['disablerange'] === 'true';
   }
   if ('disablestream' in hashParams) {
    PDFJS.disableStream = hashParams['disablestream'] === 'true';
@@ -14766,8 +14796,8 @@ function getDefaultPreferences() {
    "enableWebGL": false,
    "pdfBugEnabled": false,
    "disableRange": false,
-   "disableStream": false,
-   "disableAutoFetch": false,
+   "disableStream": true,
+   "disableAutoFetch": true,
    "disableFontFace": false,
    "disableTextLayer": false,
    "useOnlyCssZoom": false,
@@ -19403,6 +19433,10 @@ function getViewerConfiguration() {
  if ($('body').hasClass('portaltype-report')) {
   var paths = window.location.pathname.split('/');
   var last_path = paths[paths.length - 1];
+
+  if (last_path === "view") {
+    last_path = paths[paths.length -2];
+  }
 
   DEFAULT_URL= './' + last_path + '/viewfile';
  }
