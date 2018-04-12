@@ -1,6 +1,6 @@
 Changelog
 =========
-19.4 - (unreleased)
+19.4 - (2018-04-12)
 -------------------
 * Feature: added skip_lazy class that can be added on images
   that we do not want to be lazy loaded since some js logic
