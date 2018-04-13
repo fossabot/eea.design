@@ -500,6 +500,10 @@ select {
     margin: 0;
 }
 
+.mini-header #globalnav-holder {
+   overflow: visible;
+}
+
 #portal-globalnav {
     clear: both;
     display: flex;
@@ -555,6 +559,10 @@ li#secondary-portaltabs-container {
     margin-bottom: 1.5em;
     display: flex;
     flex-wrap: wrap;
+    -ms-flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+
 }
 #megatopics-area .portlet, #megatopics-area dd {
     margin: 0;
@@ -564,8 +572,11 @@ li#secondary-portaltabs-container {
 
 .portlet-megatopic {
     display: flex;
+    white-space: nowrap;
     flex: 1;
 }
+
+
 .portlet, .portletWrapper .featured {
     background: #ffffff;
 }
@@ -573,6 +584,7 @@ li#secondary-portaltabs-container {
 .portlet-megatopic ul {
       height: auto;
     margin: 1.5em;
+    padding: 0;
   }
 /*#visual-portal-wrapper {*/
     /*margin: 0 auto;*/
