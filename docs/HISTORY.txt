@@ -1,5 +1,8 @@
 Changelog
 =========
+
+19.5-dev0 - (unreleased)
+---------------------
 19.4 - (2018-04-12)
 -------------------
 * Feature: added skip_lazy class that can be added on images
@@ -3190,4 +3193,3 @@ Changelog
 0.1 - (2009-11-10)
 ------------------
 * Initial release
-
