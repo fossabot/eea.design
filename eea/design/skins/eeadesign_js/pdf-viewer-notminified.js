@@ -3468,9 +3468,7 @@ var Metadata = displayMetadata.Metadata;
 var getDefaultSetting = displayDOMUtils.getDefaultSetting;
 var DOMCanvasFactory = displayDOMUtils.DOMCanvasFactory;
 var DOMCMapReaderFactory = displayDOMUtils.DOMCMapReaderFactory;
-// var DEFAULT_RANGE_CHUNK_SIZE = 65536;
-//  GZIP TRANSFER ENCODING for chunks
-var DEFAULT_RANGE_CHUNK_SIZE = 1048576;
+var DEFAULT_RANGE_CHUNK_SIZE = 65536;
 var isWorkerDisabled = false;
 var workerSrc;
 var isPostMessageTransfersDisabled = false;
@@ -3507,7 +3505,6 @@ function getDocument(src, pdfDataRangeTransport, passwordCallback, progressCallb
  if (arguments.length > 1) {
   deprecated('getDocument is called with pdfDataRangeTransport, ' + 'passwordCallback or progressCallback argument');
  }
-// debugger;
  if (pdfDataRangeTransport) {
   if (!(pdfDataRangeTransport instanceof PDFDataRangeTransport)) {
    pdfDataRangeTransport = Object.create(pdfDataRangeTransport);
@@ -3598,7 +3595,6 @@ function _fetchDocument(worker, source, pdfDataRangeTransport, docId) {
  }
  source.disableAutoFetch = getDefaultSetting('disableAutoFetch');
  source.disableStream = getDefaultSetting('disableStream');
-// debugger;
  source.chunkedViewerLoading = !!pdfDataRangeTransport;
  if (pdfDataRangeTransport) {
   source.length = pdfDataRangeTransport.length;
@@ -3656,7 +3652,6 @@ var PDFDocumentLoadingTask = function PDFDocumentLoadingTaskClosure() {
 }();
 var PDFDataRangeTransport = function pdfDataRangeTransportClosure() {
  function PDFDataRangeTransport(length, initialData) {
-  // debugger;
   this.length = length;
   this.initialData = initialData;
   this._rangeListeners = [];
@@ -4249,7 +4244,6 @@ var WorkerTransport = function WorkerTransportClosure() {
  function WorkerTransport(messageHandler, loadingTask, pdfDataRangeTransport, CMapReaderFactory) {
   this.messageHandler = messageHandler;
   this.loadingTask = loadingTask;
-  // debugger;
   this.pdfDataRangeTransport = pdfDataRangeTransport;
   this.commonObjs = new PDFObjects();
   this.fontLoader = new FontLoader(loadingTask.docId);
@@ -4288,7 +4282,6 @@ var WorkerTransport = function WorkerTransportClosure() {
    waitOn.push(terminated);
    Promise.all(waitOn).then(function () {
     self.fontLoader.clear();
-    // debugger;
     if (self.pdfDataRangeTransport) {
      self.pdfDataRangeTransport.abort();
      self.pdfDataRangeTransport = null;
@@ -4305,7 +4298,6 @@ var WorkerTransport = function WorkerTransportClosure() {
    var messageHandler = this.messageHandler;
    var loadingTask = this.loadingTask;
    var pdfDataRangeTransport = this.pdfDataRangeTransport;
-  // debugger;
    if (pdfDataRangeTransport) {
     pdfDataRangeTransport.addRangeListener(function (begin, chunk) {
      messageHandler.send('OnDataRange', {
@@ -4456,7 +4448,6 @@ var WorkerTransport = function WorkerTransportClosure() {
     if (this.destroyed) {
      return;
     }
-    // debugger;
     var loadingTask = this.loadingTask;
     if (loadingTask.onProgress) {
      loadingTask.onProgress({
@@ -6895,15 +6886,9 @@ PDFJS.imageResourcesPath = PDFJS.imageResourcesPath === undefined ? '' : PDFJS.i
 PDFJS.disableWorker = PDFJS.disableWorker === undefined ? false : PDFJS.disableWorker;
 PDFJS.workerSrc = PDFJS.workerSrc === undefined ? null : PDFJS.workerSrc;
 PDFJS.workerPort = PDFJS.workerPort === undefined ? null : PDFJS.workerPort;
-// PDFJS.disableRange = true;
-// PDFJS.disableRange = false;
-// debugger;
 PDFJS.disableRange === undefined ? false : PDFJS.disableRange;
 PDFJS.disableStream = PDFJS.disableStream === undefined ? false : PDFJS.disableStream;
 PDFJS.disableAutoFetch = PDFJS.disableAutoFetch === undefined ? false : PDFJS.disableAutoFetch;
-// PDFJS.disableAutoFetch = false;
-// PDFJS.disableStream = false;
-// debugger;
 PDFJS.pdfBug = PDFJS.pdfBug === undefined ? false : PDFJS.pdfBug;
 PDFJS.postMessageTransfers = PDFJS.postMessageTransfers === undefined ? true : PDFJS.postMessageTransfers;
 PDFJS.disableCreateObjectURL = PDFJS.disableCreateObjectURL === undefined ? false : PDFJS.disableCreateObjectURL;
@@ -10950,7 +10935,6 @@ exports.PDFJS = pdfjsDisplayGlobal.PDFJS;
 exports.build = pdfjsDisplayAPI.build;
 exports.version = pdfjsDisplayAPI.version;
 exports.getDocument = pdfjsDisplayAPI.getDocument;
-// debugger;
 exports.PDFDataRangeTransport = pdfjsDisplayAPI.PDFDataRangeTransport;
 exports.PDFWorker = pdfjsDisplayAPI.PDFWorker;
 exports.renderTextLayer = pdfjsDisplayTextLayer.renderTextLayer;
@@ -11947,18 +11931,16 @@ function getPDFFileNameFromURL(url, defaultFilename) {
     var request_url = splitted_url.join('/') + '/at_view/file';
   }
 
-  request.open('GET', request_url, true);
-  request.send(null);
+  request.open("HEAD", request_url);
   request.onreadystatechange = function () {
-    if (request.readyState === 4) {
+    if (request.status === 200) {
       HEADER_FILENAME = request.getResponseHeader('Filename');
     }
   };
-
- if (HEADER_FILENAME !== '') {
-  defaultFilename = HEADER_FILENAME;
- }
-
+  request.send(null);
+  if (HEADER_FILENAME !== '') {
+   defaultFilename = HEADER_FILENAME;
+  }
  if (typeof defaultFilename === 'undefined' || defaultFilename == "") {
   defaultFilename = 'document.pdf';
  }
@@ -13316,7 +13298,6 @@ var PDFViewerApplication = {
    self.passwordPrompt.open();
   };
   loadingTask.onProgress = function getDocumentProgress(progressData) {
-    // debugger;
    self.progress(progressData.loaded / progressData.total);
   };
   loadingTask.onUnsupportedFeature = this.fallback.bind(this);
