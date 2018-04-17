@@ -460,7 +460,7 @@
 
   #eea-above-columns {
     margin-top: 70px; } }
-@media screen and (min-width: 481px) and (max-width: 855px) {
+@media screen and (min-width: 481px) and (max-width: 860px) {
   #megatopics-area {
     display: block;
     flex-wrap: nowrap;

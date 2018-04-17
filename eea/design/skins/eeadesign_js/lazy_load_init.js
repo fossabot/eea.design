@@ -16,8 +16,10 @@ function enableLazy(element) {
     var source = element.src;
     var classes = element.className.length ? element.className + ' ' : '';
     element.setAttribute('data-src', source);
-    element.className =  classes + 'lazy';
-    element.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=';
+    if (classes.indexOf('skip_lazy') === -1) {
+        element.className =  classes + 'lazy';
+        element.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=';
+    }
 }
 
 window.lazyElements = [];

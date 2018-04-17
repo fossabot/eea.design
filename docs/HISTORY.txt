@@ -1,7 +1,14 @@
 Changelog
 =========
-19.4 - (unreleased)
+
+19.5-dev0 - (unreleased)
+---------------------
+19.4 - (2018-04-12)
 -------------------
+* Feature: added skip_lazy class that can be added on images
+  that we do not want to be lazy loaded since some js logic
+  might require to have images loaded
+  [ichim-david refs #94172]
 * Bug fix: fixed frontpage megatopics when viewing within IE11
   [ichim-david refs #94440]
 
@@ -3186,4 +3193,3 @@ Changelog
 0.1 - (2009-11-10)
 ------------------
 * Initial release
-
