@@ -2,7 +2,11 @@ Changelog
 =========
 
 19.5-dev0 - (unreleased)
----------------------
+-------------------
+* Change: Enabled range requests for pdf loading, disabled autofetch/stream and
+  requests cahing for pdf viewer
+  [petchesi-iulian refs #94520]
+
 19.4 - (2018-04-12)
 -------------------
 * Feature: added skip_lazy class that can be added on images
