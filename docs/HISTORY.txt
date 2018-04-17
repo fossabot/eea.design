@@ -6,6 +6,8 @@ Changelog
 * Change: Enabled range requests for pdf loading, disabled autofetch/stream and
   requests cahing for pdf viewer
   [petchesi-iulian refs #94520]
+* Change: added css fixes after Google changes done to inline search
+  [ichim-david refs #94825]
 
 19.4 - (2018-04-12)
 -------------------
