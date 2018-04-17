@@ -2,7 +2,10 @@ Changelog
 =========
 
 19.5-dev0 - (unreleased)
----------------------
+------------------------
+* Change: added css fixes after Google changes done to inline search
+  [ichim-david refs #94825]
+
 19.4 - (2018-04-12)
 -------------------
 * Feature: added skip_lazy class that can be added on images
