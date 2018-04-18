@@ -113,16 +113,6 @@ hr {
 }
 
 /* Searchbox style and positioning */
-#portal-searchbox .gsc-clear-button {
-    display: none;
-}
-
-#portal-searchbox .gsc-control-cse {
-    background-color: transparent;
-    padding: 0;
-    border: 0;
-}
-
 .panel #portal-searchbox {
     float: none;
     clear: both;
@@ -137,10 +127,6 @@ hr {
     font-size: 85%;
 }
 
-#portal-searchbox .gsc-input {
-    padding: 0 0.5em;
-    background: url("//www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png") 5px center no-repeat rgb(255, 255, 255) !important;
-}
 #portal-searchbox .gsc-input:focus {
     background: #FFF none !important;
 }

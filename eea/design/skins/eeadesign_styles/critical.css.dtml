@@ -396,7 +396,7 @@ select {
 
     #portal-searchbox .gsc-search-button {
         cursor: pointer;
-        height: 30px;
+        height: 32px;
         margin: 0;
         width: 70px;
         border-radius: 0;
@@ -454,7 +454,7 @@ select {
 }
 #portal-searchbox .gsc-control-cse {
     background-color: transparent;
-    padding: 0;
+    padding: 1px 0 0 0;
     border: 0;
 }
 #portal-searchbox .gsc-clear-button {
@@ -469,9 +469,25 @@ select {
 #portal-searchbox input.gsc-input {
     border: 1px solid gray;
     padding: 3px 6px;
-    height: 30px;
+    height: 30px !important;
     width: 100%;
+    vertical-align: top;
     font: italic 16px 'Open Sans', Verdana, Helvetica, Arial, sans-serif;
+}
+.gsc-search-box td {
+    padding: 0;
+}
+#portal-searchbox .gsib_b {
+    display: none;
+}
+#portal-searchbox .gsc-input-box {
+    height: 100%;
+}
+#portal-searchbox .gsc-tabsArea > div {
+    overflow: visible;
+}
+#portal-searchbox .gsc-cursor-current-page {
+    padding: 5px;
 }
 
 .plone-breadcrumb {
