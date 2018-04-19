@@ -3,6 +3,8 @@ Changelog
 
 19.5-dev0 - (2018-04-17)
 ------------------------
+* Bug fix: fixed css issues tracked by ticket especially on IE11
+  [ichim-david refs #94477]
 * Change: added css fixes after Google changes done to inline search
   [ichim-david refs #94825]
 
