@@ -66,15 +66,12 @@ jQuery(document).ready(function($) {
         cleanupFacetedLazy();
     }
 
-    // 94351 disable iframe lazy loading due to unexpected side effects of
-    // google charts iframes. To be enabled later after testing iframe specific
-    // code more
-    // $('#content').find('iframe').each(function() {
-    //     if (isElementInViewport(this) === false) {
-    //         enableLazy(this);
-    //         lazyElements.push(this);
-    //     }
-    // });
+   /* $('#content').find('iframe').each(function() {
+        if (isElementInViewport(this) === false) {
+            enableLazy(this);
+            lazyElements.push(this);
+        }
+    }); */
 
     if(jQuery('#faceted-results').length) {
         jQuery('#faceted-results').bind('DOMSubtreeModified',function() {
@@ -182,4 +179,6 @@ jQuery(document).ready(function($) {
             }
         });
     }
+   var $window = $(window);
+   $window.on('click', function(ev) { $window.scroll();});
 });
