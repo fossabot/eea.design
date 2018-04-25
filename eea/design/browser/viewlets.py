@@ -236,7 +236,7 @@ class ColophonViewlet(common.ViewletBase):
         """ Get previous KGS version
         """
         for version, uptime in self.versions:
-            if version == self.version:
+            if version == self.version():
                 continue
             return version
         return ""
