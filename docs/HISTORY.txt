@@ -1,12 +1,12 @@
 Changelog
 =========
 
-19.7-dev0 - (unreleased)
+19.7 - (2018-04-25)
 ---------------------
 * Bug fix: Fix upgrade info within EEA Site footer sorting
   [avoinea refs #94818]
 
-19.5-dev0 - (2018-04-17)
+19.5 - (2018-04-17)
 ------------------------
 * Bug fix: fixed css issues tracked by ticket especially on IE11
   [ichim-david refs #94477]
