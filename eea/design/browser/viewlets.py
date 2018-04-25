@@ -3,6 +3,7 @@
 import os
 from cgi import escape
 from datetime import datetime
+from distutils.version import LooseVersion
 from Acquisition import aq_parent, aq_base, aq_inner
 from Products.CMFCore.utils import _checkPermission
 from Products.CMFCore.utils import getToolByName
@@ -205,36 +206,39 @@ class FooterPortletsViewlet(common.ViewletBase):
 class ColophonViewlet(common.ViewletBase):
     """ Footer colophon
     """
+    @property
+    def versions(self):
+        """ Get versions
+        """
+        anno = queryAdapter(getSite(), IAnnotations)
+        versions = anno.get("EEA_KGS_VERSION", {})
+        for version in sorted(versions, key=LooseVersion, reverse=1):
+            yield version, versions[version]
+
     @cache(lambda *args: "uptime", lifetime=86400)
     def uptime(self):
         """ Plone up-time
         """
-        anno = queryAdapter(getSite(), IAnnotations)
-        versions = anno.get("EEA_KGS_VERSION", {})
-        if len(versions.values()):
-            uptime = versions.values()[-1]
-        else:
-            uptime = datetime.now()
-        return uptime.strftime("%d %B %Y %H:%M")
+        for version, uptime in self.versions:
+            return uptime.strftime("%d %B %Y %H:%M")
+        return datetime.now().strftime("%d %B %Y %H:%M")
 
     @cache(lambda *args: "version", lifetime=86400)
     def version(self):
         """ Get KGS version
         """
-        anno = queryAdapter(getSite(), IAnnotations)
-        versions = anno.get("EEA_KGS_VERSION", {})
-        if len(versions.keys()):
-            return versions.keys()[-1]
+        for version, uptime in self.versions:
+            return version
         return os.environ.get("EEA_KGS_VERSION", "")
 
     @cache(lambda *args: "previous", lifetime=86400)
     def previous(self):
         """ Get previous KGS version
         """
-        anno = queryAdapter(getSite(), IAnnotations)
-        versions = anno.get("EEA_KGS_VERSION", {})
-        if len(versions.keys()) > 1:
-            return versions.keys()[-2]
+        for version, uptime in self.versions:
+            if version == self.version:
+                continue
+            return version
         return ""
 
     @cache(lambda *args: "release", lifetime=86400)
