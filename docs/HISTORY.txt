@@ -1,6 +1,9 @@
 Changelog
 =========
 
+19.8-dev0 - (unreleased)
+---------------------
+
 19.7 - (2018-04-25)
 ---------------------
 * Bug fix: Fix upgrade info within EEA Site footer sorting
