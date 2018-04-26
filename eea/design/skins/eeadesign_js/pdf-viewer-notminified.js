@@ -11909,16 +11909,20 @@ var HEADER_FILENAME = '';
 function getPDFFileNameFromURL(url, defaultFilename) {
   // First check filename from header
   var request = new XMLHttpRequest();
+  var params = "?isFirstRequest"
 
   if ($('body').hasClass('portaltype-report')) {
     var paths = window.location.pathname.split('/');
-    var last_path = paths[paths.length - 1];
+    if (paths.includes("view")) {
+        var removeItem = "view";
 
-    if (last_path === "view") {
-      last_path = paths[paths.length -2];
+        paths = jQuery.grep(paths, function(value) {
+          return value != removeItem;
+        });
     }
+    var last_path = paths[paths.length - 1];
     if (last_path === "") {
-      last_path = "./";
+      last_path = ".";
     }
     else {
       last_path = "./" + last_path;
@@ -11930,14 +11934,13 @@ function getPDFFileNameFromURL(url, defaultFilename) {
     splitted_url.pop();
     var request_url = splitted_url.join('/') + '/at_view/file';
   }
-
-  request.open("HEAD", request_url);
+  request.open("GET", request_url + params);
   request.onreadystatechange = function () {
-    if (request.status === 200) {
+    if ([200, 204].includes(request.status)) {
       HEADER_FILENAME = request.getResponseHeader('Filename');
     }
   };
-  request.send(null);
+  request.send();
   if (HEADER_FILENAME !== '') {
    defaultFilename = HEADER_FILENAME;
   }
