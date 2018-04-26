@@ -5,12 +5,12 @@
 
     <genericsetup:upgradeSteps
       source="19.3"
-      destination="19.7"
+      destination="19.8"
       profile="eea.design:default">
         <genericsetup:upgradeDepends
-            title="Import all steps from eea.design profile upgrade 19.7"
+            title="Import all steps from eea.design profile upgrade 19.8"
             description="Display caching control in controlpanel"
-            import_profile="eea.design:upgrade197"
+            import_profile="eea.design:upgrade198"
         />
     </genericsetup:upgradeSteps>
 
