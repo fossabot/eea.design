@@ -30,7 +30,9 @@
 }
 
 /* needed for mini header siteaction icons */
-.eea-navsiteactions-active > a {
+.eea-navsiteactions-active > a,
+.eea-navsiteactions-active .eea-icon
+{
     color: &dtml-linkColor; !important;
     background-color: white !important;
     position: relative;

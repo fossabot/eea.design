@@ -290,7 +290,10 @@ select {
 #cross-site-top .eea-siteaction {
     font-size: 11px;
 }
-.eea-siteaction > a {
+.eea-siteaction > a,
+.eea-siteaction > a:hover,
+.eea-siteaction .eea-icon
+{
     color: #FFF;
     cursor: pointer;
 }
