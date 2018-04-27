@@ -36,6 +36,7 @@ canvas {
   border-bottom: 1px solid #333;
   margin-top: 5rem;
   width: 100%;
+  display: none;
 }
 
 .pdfjs #loadingBar .progress {

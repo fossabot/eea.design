@@ -13,7 +13,10 @@ req = context.REQUEST
 resp = req.RESPONSE
 
 resp.setHeader('Filename', filename)
-resp.setHeader('Content-Type', 'application/pdf')
 resp.setHeader('Content-Disposition', 'inline; filename="%s"' % filename)
 
+if 'isFirstRequest' in req.form.keys():
+    return resp
+
+resp.setHeader('Content-Type', 'application/pdf')
 return file
