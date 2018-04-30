@@ -1,6 +1,19 @@
 Changelog
 =========
 
+19.8 - (2018-04-30)
+---------------------
+* Upgrade step: Added upgrade step that re-enables the caching tooltip in the
+  controlpanel
+  [petchesi-iulian refs #90589]
+* Change: Modified the custom caching_controlpanel template in order to remove
+  the gzip option, changed the requests chunk sizes to 64kb, changed the request
+  from HEAD to GET for filename query
+  [petchesi-iulian refs #94520]
+* Change: Enabled range requests for pdf loading, disabled autofetch/stream and
+  requests cahing for pdf viewer
+  [petchesi-iulian refs #94520]
+
 19.7 - (2018-04-25)
 ---------------------
 * Bug fix: Fix upgrade info within EEA Site footer sorting

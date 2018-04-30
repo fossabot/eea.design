@@ -6886,7 +6886,7 @@ PDFJS.imageResourcesPath = PDFJS.imageResourcesPath === undefined ? '' : PDFJS.i
 PDFJS.disableWorker = PDFJS.disableWorker === undefined ? false : PDFJS.disableWorker;
 PDFJS.workerSrc = PDFJS.workerSrc === undefined ? null : PDFJS.workerSrc;
 PDFJS.workerPort = PDFJS.workerPort === undefined ? null : PDFJS.workerPort;
-PDFJS.disableRange = true;
+PDFJS.disableRange === undefined ? false : PDFJS.disableRange;
 PDFJS.disableStream = PDFJS.disableStream === undefined ? false : PDFJS.disableStream;
 PDFJS.disableAutoFetch = PDFJS.disableAutoFetch === undefined ? false : PDFJS.disableAutoFetch;
 PDFJS.pdfBug = PDFJS.pdfBug === undefined ? false : PDFJS.pdfBug;
@@ -11909,12 +11909,20 @@ var HEADER_FILENAME = '';
 function getPDFFileNameFromURL(url, defaultFilename) {
   // First check filename from header
   var request = new XMLHttpRequest();
+  var params = "?isFirstRequest"
 
   if ($('body').hasClass('portaltype-report')) {
     var paths = window.location.pathname.split('/');
+    if (paths.includes("view")) {
+        var removeItem = "view";
+
+        paths = jQuery.grep(paths, function(value) {
+          return value != removeItem;
+        });
+    }
     var last_path = paths[paths.length - 1];
     if (last_path === "") {
-      last_path = "./";
+      last_path = ".";
     }
     else {
       last_path = "./" + last_path;
@@ -11926,19 +11934,16 @@ function getPDFFileNameFromURL(url, defaultFilename) {
     splitted_url.pop();
     var request_url = splitted_url.join('/') + '/at_view/file';
   }
-
-  request.open('GET', request_url, true);
-  request.send(null);
+  request.open("GET", request_url + params);
   request.onreadystatechange = function () {
-    if (request.readyState === 4) {
+    if ([200, 204].includes(request.status)) {
       HEADER_FILENAME = request.getResponseHeader('Filename');
     }
   };
-
- if (HEADER_FILENAME !== '') {
-  defaultFilename = HEADER_FILENAME;
- }
-
+  request.send();
+  if (HEADER_FILENAME !== '') {
+   defaultFilename = HEADER_FILENAME;
+  }
  if (typeof defaultFilename === 'undefined' || defaultFilename == "") {
   defaultFilename = 'document.pdf';
  }
@@ -12995,6 +13000,12 @@ var PDFViewerApplication = {
     }
     PDFJS.disableTextLayer = value;
    }),
+   Preferences.get('disableRange').then(function resolved(value) {
+    if (PDFJS.disableRange === true) {
+     return;
+    }
+    PDFJS.disableRange = value;
+   }),
    Preferences.get('disableStream').then(function resolved(value) {
     if (PDFJS.disableStream === true) {
      return;
@@ -13775,6 +13786,9 @@ function webViewerInitialized() {
   var hashParams = parseQueryString(hash);
   if ('disableworker' in hashParams) {
    PDFJS.disableWorker = hashParams['disableworker'] === 'true';
+  }
+  if ('disablerange' in hashParams) {
+   PDFJS.disableRange = hashParams['disablerange'] === 'true';
   }
   if ('disablestream' in hashParams) {
    PDFJS.disableStream = hashParams['disablestream'] === 'true';
@@ -14766,8 +14780,8 @@ function getDefaultPreferences() {
    "enableWebGL": false,
    "pdfBugEnabled": false,
    "disableRange": false,
-   "disableStream": false,
-   "disableAutoFetch": false,
+   "disableStream": true,
+   "disableAutoFetch": true,
    "disableFontFace": false,
    "disableTextLayer": false,
    "useOnlyCssZoom": false,
@@ -19403,6 +19417,10 @@ function getViewerConfiguration() {
  if ($('body').hasClass('portaltype-report')) {
   var paths = window.location.pathname.split('/');
   var last_path = paths[paths.length - 1];
+
+  if (last_path === "view") {
+    last_path = paths[paths.length -2];
+  }
 
   DEFAULT_URL= './' + last_path + '/viewfile';
  }
