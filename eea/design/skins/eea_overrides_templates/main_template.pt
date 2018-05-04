@@ -53,6 +53,7 @@
     </metal:cache>
 
 <head>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- viewport meta needed for proper view on an ipad -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -325,12 +326,6 @@
     <tal:scripts replace="structure provider:plone.resourceregistries.scripts" />
     <metal:javascriptslot define-slot="javascript_head_slot" />
 
-    <tal:4ContentCoreOnly tal:condition="python: content_core_only">
-
-        <metal:content_core_only use-macro="context/content_core_only/macros/content_core_only">
-            Get the global cache headers located in global_cache_settings.
-        </metal:content_core_only>
-    </tal:4ContentCoreOnly>
 </metal:block>
 </body>
 
@@ -338,5 +333,10 @@
 
 </tal:not4ContentCoreOnly>
 
-</metal:page>
+<tal:4ContentCoreOnly tal:condition="python: content_core_only">
+  <metal:content_core_only use-macro="context/content_core_only/macros/content_core_only">
+    Get the global cache headers located in global_cache_settings.
+  </metal:content_core_only>
+</tal:4ContentCoreOnly>
 
+</metal:page>
