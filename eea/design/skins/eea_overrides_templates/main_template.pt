@@ -37,7 +37,7 @@
                         wf_state context_state/workflow_state|string:;
                         mini_header python:' mini-header' if context.restrictedTraverse('@@miniheader_content_types')() else False;">
 
-<tal:not4ContentCoreOnly tal:condition="python: not content_core_only">
+<tal:notContentCoreOnly tal:condition="python: not content_core_only">
 <tal:comment replace="nothing">xssDisable was added in order to fix the chrome issue from ticket #15231</tal:comment>
 
 <tal:doctype tal:replace="structure string:&lt;!DOCTYPE html&gt;" tal:condition="python: not isPrint"/>
@@ -331,12 +331,12 @@
 
 </html>
 
-</tal:not4ContentCoreOnly>
+</tal:notContentCoreOnly>
 
-<tal:4ContentCoreOnly tal:condition="python: content_core_only">
+<tal:contentCoreOnly tal:condition="python: content_core_only">
   <metal:content_core_only use-macro="context/content_core_only/macros/content_core_only">
     Get the global cache headers located in global_cache_settings.
   </metal:content_core_only>
-</tal:4ContentCoreOnly>
+</tal:contentCoreOnly>
 
 </metal:page>
