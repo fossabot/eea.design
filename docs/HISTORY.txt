@@ -1,6 +1,9 @@
 Changelog
 =========
 
+20.0-dev0 - (unreleased)
+---------------------
+
 19.9 - (2018-05-04)
 ---------------------
 * Bug fix: Fix main_template 'content_core_only' conditions that had as side-effect a white blank page on delete_confirmation and possible more actions
