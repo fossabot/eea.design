@@ -3,15 +3,17 @@
         local_site context/@@plone_portal_state/local_site"
          i18n:domain="eea">
     <script>
-        (function() {
-            var cx = '010617083146134556574:ymkqzb7sibw';
-            var gcse = document.createElement('script');
-            gcse.type = 'text/javascript';
-            gcse.async = true;
-            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(gcse, s);
-        })();
+        if(navigator.userAgent.indexOf("Speed Insights") == -1) {
+            (function() {
+                var cx = '010617083146134556574:ymkqzb7sibw';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        }
     </script>
     <div class="gcse-search">&nbsp;</div>
     <div class="eea-search-links">
