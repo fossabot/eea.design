@@ -4,7 +4,7 @@ import surf
 from Products.CMFCore.interfaces import IContentish
 from eea.rdfmarshaller.interfaces import ISurfResourceModifier, \
     ILinkedDataHomepage
-from zope.component import adapts
+from zope.component import adapts, queryMultiAdapter
 from zope.interface import implements
 
 
@@ -20,7 +20,13 @@ class HomeLatestNewsModifier(object):
     def run(self, resource, adapter, session, *args, **kwds):
         """ run """
         context = self.context
-        if not ILinkedDataHomepage.providedBy(context):
+        request = context.REQUEST
+        context_state = queryMultiAdapter((context, request),
+                                        name='plone_context_state')
+        isDefaultPage = context_state.is_default_page()
+        if not ILinkedDataHomepage.providedBy(context) and not isDefaultPage \
+                or isDefaultPage \
+                and not ILinkedDataHomepage.providedBy(context.aq_parent):
             return
         fview = context.restrictedTraverse('@@frontpage_highlights')
         ItemList = session.get_class(surf.ns.SCHEMA['ItemList'])
