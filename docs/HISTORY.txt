@@ -2,7 +2,9 @@ Changelog
 =========
 
 20.1-dev0 - (unreleased)
----------------------
+------------------------
+* Change: replaced the old public method to invalidate cache.
+  [alecghica refs #95020]
 
 20.0 - (2018-05-07)
 ---------------------

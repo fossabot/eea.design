@@ -35,15 +35,6 @@
      <property name="macro">portlet</property>
  </assignment>
 
- <assignment
-     manager="plone.rightcolumn"
-     category="context"
-     key="/SITE/"
-     type="portlets.Classic">
-     <property name="template">portlet_cache</property>
-     <property name="macro">portlet</property>
- </assignment>
-
   <assignment
      manager="plone.rightcolumn"
      category="context"
@@ -55,12 +46,6 @@
      category="context"
      key="/SITE/themes"
      type="portlets.FeaturedArticle" />
-
-  <assignment
-     manager="plone.rightcolumn"
-     category="context"
-     key="/SITE/"
-     type="portlets.CacheInvalidationLinks" />
 
  <assignment
      manager="plone.rightcolumn"
