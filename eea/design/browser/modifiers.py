@@ -3,8 +3,12 @@
 import surf
 from Products.CMFCore.interfaces import IContentish
 from Products.CMFCore.utils import getToolByName
-from eea.rdfmarshaller.interfaces import ISurfResourceModifier, \
-    ILinkedDataHomepage
+from eea.rdfmarshaller.interfaces import ISurfResourceModifier
+try:
+    from eea.rdfmarshaller.interfaces import ILinkedDataHomepage
+    has_linked_data = True
+except ImportError:
+    has_linked_data = False
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from zope.component import adapts
 from zope.interface import implements
@@ -22,6 +26,8 @@ class HomeLatestNewsModifier(object):
     def run(self, resource, adapter, session, *args, **kwds):
         """ JSON-LD export of latest news within our homepage """
         context = self.context
+        if not has_linked_data:
+            return
         if not INavigationRoot.providedBy(context) and \
                 not ILinkedDataHomepage.providedBy(context.aq_parent):
             return
