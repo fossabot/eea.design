@@ -1,7 +1,7 @@
 Changelog
 =========
 
-20.1-dev0 - (unreleased)
+20.1 - (2018-05-10)
 ------------------------
 * Feature: create a special handler for the ILinkedDataHomepage
   to present a carousel of "latest news"
