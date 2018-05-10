@@ -2,6 +2,7 @@
 """
 import surf
 from Products.CMFCore.interfaces import IContentish
+from Products.CMFCore.utils import getToolByName
 from eea.rdfmarshaller.interfaces import ISurfResourceModifier, \
     ILinkedDataHomepage
 from plone.app.layout.navigation.interfaces import INavigationRoot
@@ -19,7 +20,7 @@ class HomeLatestNewsModifier(object):
         self.context = context
 
     def run(self, resource, adapter, session, *args, **kwds):
-        """ run """
+        """ JSON-LD export of latest news within our homepage """
         context = self.context
         if not INavigationRoot.providedBy(context) and \
                 not ILinkedDataHomepage.providedBy(context.aq_parent):
@@ -28,7 +29,13 @@ class HomeLatestNewsModifier(object):
         ItemList = session.get_class(surf.ns.SCHEMA['ItemList'])
         ListElement = session.get_class(surf.ns.SCHEMA['ListItem'])
         ilist = ItemList("#itemList2")
-        products = fview.getAllProducts()
+
+        portal_properties = getToolByName(context, 'portal_properties')
+        fp = getattr(portal_properties, 'frontpage_properties')
+        # use news as latest news while keeping it flexible in case we want
+        # other products promoted as latest news
+        latest_category = fp.getProperty('getLatestNewsCategory', 'news')
+        products = fview.getLatest(latest_category)
         position = 0
         for brain in products:
             url = brain.getURL()

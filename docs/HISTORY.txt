@@ -3,6 +3,9 @@ Changelog
 
 20.1-dev0 - (unreleased)
 ------------------------
+* Feature: create a special handler for the ILinkedDataHomepage
+  to present a carousel of "latest news"
+  [ichim-david refs #94557]
 * Change: replaced the old public method to invalidate cache.
   [alecghica refs #95020]
 
