@@ -1,6 +1,14 @@
 Changelog
 =========
 
+20.1 - (2018-05-10)
+------------------------
+* Feature: create a special handler for the ILinkedDataHomepage
+  to present a carousel of "latest news"
+  [ichim-david refs #94557]
+* Change: replaced the old public method to invalidate cache.
+  [alecghica refs #95020]
+
 20.0 - (2018-05-07)
 ---------------------
 * Change: marked certain resources to be ignored by "PageSpeed Insights"

@@ -496,6 +496,8 @@
         permission="zope2.View"
         />
 
+  <subscriber factory=".modifiers.HomeLatestNewsModifier"
+    provides="eea.rdfmarshaller.interfaces.ISurfResourceModifier" />
 
 
 </configure>
