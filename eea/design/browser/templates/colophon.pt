@@ -76,7 +76,7 @@
                    title="Code for developers"
                          i18n:attributes="title"
                          i18n:translate="">Code for developers</a>
-                <a href="@@cache.invalidate.public"
+                <a href="@@cache.invalidate.footer"
                    rel="nofollow" title="Refresh this page"
                          i18n:attributes="title"
                          i18n:translate="">Refresh this page</a>
