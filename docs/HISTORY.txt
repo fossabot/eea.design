@@ -2,7 +2,10 @@ Changelog
 =========
 
 20.2-dev0 - (unreleased)
----------------------
+------------------------
+* Change: made the invalidate cache link from footer
+  available only for editors.
+  [alecghica refs #95020]
 
 20.1 - (2018-05-10)
 ------------------------
