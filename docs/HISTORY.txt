@@ -3,6 +3,8 @@ Changelog
 
 20.2-dev0 - (unreleased)
 ------------------------
+* Bug fix: Fixed PDF layout for charts within Indicators
+  [avoinea refs #95542]
 * Change: made the invalidate cache link from footer
   available only for editors.
   [alecghica refs #95020]
@@ -23,7 +25,7 @@ Changelog
 19.9 - (2018-05-04)
 ---------------------
 * Bug fix: Fix main_template 'content_core_only' conditions that had as
-  side-effect a white blank page on delete_confirmation and 
+  side-effect a white blank page on delete_confirmation and
   possible more actions
   [avoinea refs #94724]
 
