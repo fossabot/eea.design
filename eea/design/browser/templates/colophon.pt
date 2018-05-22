@@ -1,9 +1,13 @@
 <div id="portal-colophon" metal:define-macro="colophon"  i18n:domain="eea"
-     tal:define="portal_state context/@@plone_portal_state;">
+     tal:define="portal_state context/@@plone_portal_state;
+                 context_state context/@@plone_context_state">
     <tal:condition tal:define="isAnon portal_state/anonymous;
                portal_url portal_state/portal_url;
+               page_url context_state/view_url;
+               current_page_url context_state/current_page_url;
                local_site context/@@plone_portal_state/local_site;
                isViewTemplate context/@@plone_context_state/is_view_template">
+
     <div class="colophonWrapper">
         <div class="colophon-left">
             <tal:address>
@@ -78,6 +82,7 @@
                    i18n:translate="">Code for developers</a>
                 <a href="@@cache.invalidate.footer" rel="nofollow"
                    title="Refresh this page" i18n:attributes="title"
+                   tal:attributes="href string:${page_url}/cache.settings?redirect=${current_page_url}"
                    tal:condition="not:isAnon"
                    i18n:translate="">Refresh this page</a>
             </p>
