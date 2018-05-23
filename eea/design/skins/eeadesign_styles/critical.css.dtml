@@ -43,7 +43,7 @@
 * {margin: 0; padding: 0;}
 }
 
-* { 
+* {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -174,7 +174,7 @@ select {
     display: list-item;
 }
 
-/* disable for now as there are font-size issues 
+/* disable for now as there are font-size issues
 .content-core li::before,
 .list-items li::before {
     content: "\25AA";
@@ -209,28 +209,31 @@ select {
     content: " ";
 }
 
-.position-0 {
-    margin-left: -100%;
+@media screen {
+  .position-0 {
+      margin-left: -100%;
+  }
+
+  .width-full {
+      width: 100%;
+  }
+  .row {
+      float: left;
+      width: 100%;
+      display: block;
+      position: relative;
+      /*margin: 0 !important;*/
+  }
+  .cell {
+      position: relative;
+      float: left;
+      left: 100%;
+  }
+  .width-3\3A 4 {
+      width: 58.5%;
+  }
 }
 
-.width-full {
-    width: 100%;
-}
-.row {
-    float: left;
-    width: 100%;
-    display: block;
-    position: relative;
-    /*margin: 0 !important;*/
-}
-.cell {
-    position: relative;
-    float: left;
-    left: 100%;
-}
-.width-3\3A 4 {
-    width: 58.5%;
-}
 #portal-column-two {
     min-width: 350px;
 }
@@ -267,7 +270,7 @@ select {
     font-size: 80%;
 }
 .deactivated .actionMenuContent {
-    display: none;    
+    display: none;
 }
 
 #portal-externalsites, #portal-siteactions {
