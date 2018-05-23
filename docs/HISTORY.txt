@@ -1,7 +1,7 @@
 Changelog
 =========
 
-20.2-dev0 - (unreleased)
+20.2 - (2018-05-23)
 ------------------------
 * Bug fix: Fixed PDF layout for charts within Indicators
   [avoinea refs #95542]
