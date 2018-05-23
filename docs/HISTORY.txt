@@ -1,6 +1,9 @@
 Changelog
 =========
 
+20.3-dev0 - (unreleased)
+---------------------
+
 20.2 - (2018-05-23)
 ------------------------
 * Bug fix: Fixed PDF layout for charts within Indicators
