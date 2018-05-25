@@ -1,9 +1,14 @@
 Changelog
 =========
 
+20.3 - (2018-05-25)
+------------------------
+* Bug fix: fixed the PDF viewer rendering error in IE
+  [alecghica refs #95568]
+
 20.2 - (2018-05-23)
 ------------------------
-* Bug fix: Fixed PDF layout for charts within Indicators
+* Bug fix: fixed PDF layout for charts within Indicators
   [avoinea refs #95542]
 * Change: made the invalidate cache link from footer
   available only for editors.
