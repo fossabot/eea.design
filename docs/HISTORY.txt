@@ -3,6 +3,8 @@ Changelog
 
 20.4-dev0 - (unreleased)
 ---------------------
+* Bug fix: AttributeError: checkPermission
+  [avoinea]
 
 20.3 - (2018-05-25)
 ------------------------
