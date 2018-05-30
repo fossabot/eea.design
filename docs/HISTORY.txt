@@ -7,7 +7,7 @@ Changelog
   [avoinea]
 * Bug fix: fixed redirect param values
   [alecghica refs #95891]
-* Feature: merged fixes from custom
+* Feature: merged files from custom
   [alecghica refs #95891]
 
 20.3 - (2018-05-25)
