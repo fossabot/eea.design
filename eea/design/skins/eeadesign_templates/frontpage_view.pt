@@ -16,7 +16,7 @@
                 tal:define="global frontpage_view context/@@frontpage_highlights;
                 main_site python: True if language == 'en' else False;">
             <div id="main-content" class="content-core">
-                <div class="visualClear"><!-- &nbsp; --></div>
+                
 
                 <div id="eea-intro-message" class="portalMessage" tal:condition="main_site">
                         <span class="discreet" i18n:translate="">The European Environment Agency provides sound, independent information on the environment for those involved in developing, adopting, implementing and evaluating environmental policy, and also the general public. In close collaboration with
@@ -32,7 +32,7 @@
                             <div>
                                 <img title="Air and climate" alt="Air and climate"
                                   width="254" height="150" i18n:attributes="title alt"
-                                  tal:attributes="src string:$portal_url/SITE/themes/air/theme_image/image_mini" />
+                                  tal:attributes="src string:$portal_url/themes/air/theme_image/image_mini" />
                                 <div class="portletHeader" i18n:translate="">
                                     Air and climate
                                 </div>
@@ -49,7 +49,7 @@
                             <div>
                                 <img title="Nature" alt="Visit our biodiversity website"
                                   width="254" height="150" i18n:attributes="title alt"
-                                  tal:attributes="src string:$portal_url/SITE/themes/biodiversity/theme_image/image_mini" />
+                                  tal:attributes="src string:$portal_url/themes/biodiversity/theme_image/image_mini" />
                                 <div class="portletHeader" i18n:translate="">
                                     Nature
                                 </div>
@@ -67,7 +67,7 @@
                             <div>
                                 <img title="Sustainability and well-being" alt="Sustainability and well-being"
                                   width="254" height="150" i18n:attributes="title alt"
-                                  tal:attributes="src string:$portal_url/SITE/themes/human/theme_image/image_mini" />
+                                  tal:attributes="src string:$portal_url/themes/human/theme_image/image_mini" />
                                 <div class="portletHeader" style="font-size:142%;" i18n:translate="">
                                     Sustainability and well-being
                                 </div>
@@ -85,7 +85,7 @@
                             <div>
                                 <img title="Economic sectors" alt="Economic sectors"
                                   width="254" height="150" i18n:attributes="title alt"
-                                  tal:attributes="src string:$portal_url/SITE/themes/energy/theme_image/image_mini" />
+                                  tal:attributes="src string:$portal_url/themes/energy/theme_image/image_mini" />
                                 <div class="portletHeader" i18n:translate="">
                                     Economic sectors
                                 </div>
@@ -98,6 +98,7 @@
                             </div>
                         </div>
                     </div>
+                   
                 </div>
                 <!-- end mega_topics -->
 
@@ -221,9 +222,9 @@
                                 </div>
                             </div>
 
-                            <!-- div metal:use-macro="here/portlet_eea_events/macros/portlet">
+                            <div metal:use-macro="here/portlet_eea_events/macros/portlet">
                                  Events
-                            </div -->
+                            </div>
 
                             <div metal:use-macro="here/portlet_social_links/macros/portlet">
                                 Social links
@@ -231,6 +232,7 @@
                             <!-- end shortcuts divs -->
                         </div>
 
+                
             </div>
         </div>
 
