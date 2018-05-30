@@ -1,9 +1,12 @@
+<!-- in eea.design version 18.3 -->
+
 <tal:block tal:define="foo python:request.set('disable_plone.leftcolumn', 1);
         bar python:request.set('disable_plone.rightcolumn', 1);" />
 <!--?fullwidth python:request.set('body.fullwidth', 1);" />-->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
-      metal:use-macro="here/main_template/macros/master"
-      i18n:domain="eea">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+         metal:use-macro="here/main_template/macros/master"
+         i18n:domain="eea">
 
 <head>
 </head>
@@ -11,7 +14,7 @@
 <body>
 <div metal:fill-slot="main" class="collaborating-countries">
     <metal:main-macro define-macro="main">
-        <metal:title metal:fill-slot="content-title">
+        <metal:title fill-slot="content-title">
             <h1 class="documentFirstHeading">Countries</h1>
         </metal:title>
         <!--div class="countries-description">
@@ -33,167 +36,167 @@
                         <div class="visualClear">&nbsp;</div>
                         <ul class="eea-list-columns eea-three-columns">
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/austria">
+                                <a href="/countries-and-regions/austria">
                                     <span>Austria</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/belgium">
+                                <a href="/countries-and-regions/belgium">
                                     <span>Belgium</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/bulgaria">
+                                <a href="/countries-and-regions/bulgaria">
                                     <span>Bulgaria</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/croatia">
+                                <a href="/countries-and-regions/croatia">
                                     <span>Croatia</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/cyprus">
+                                <a href="/countries-and-regions/cyprus">
                                     <span>Cyprus</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/czech-republic">
+                                <a href="/countries-and-regions/czech-republic">
                                     <span>Czech Republic</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/denmark">
+                                <a href="/countries-and-regions/denmark">
                                     <span>Denmark</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/estonia">
+                                <a href="/countries-and-regions/estonia">
                                     <span>Estonia</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/finland">
+                                <a href="/countries-and-regions/finland">
                                     <span>Finland</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/france">
+                                <a href="/countries-and-regions/france">
                                     <span>France</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/germany">
+                                <a href="/countries-and-regions/germany">
                                     <span>Germany</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/greece">
+                                <a href="/countries-and-regions/greece">
                                     <span>Greece</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/hungary">
+                                <a href="/countries-and-regions/hungary">
                                     <span>Hungary</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/iceland">
+                                <a href="/countries-and-regions/iceland">
                                     <span>Iceland</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/ireland">
+                                <a href="/countries-and-regions/ireland">
                                     <span>Ireland</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/italy">
+                                <a href="/countries-and-regions/italy">
                                     <span>Italy</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/latvia">
+                                <a href="/countries-and-regions/latvia">
                                     <span>Latvia</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/liechtenstein">
+                                <a href="/countries-and-regions/liechtenstein">
                                     <span>Liechtenstein</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/lithuania">
+                                <a href="/countries-and-regions/lithuania">
                                     <span>Lithuania</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/luxembourg">
+                                <a href="/countries-and-regions/luxembourg">
                                     <span>Luxembourg</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/malta">
+                                <a href="/countries-and-regions/malta">
                                     <span>Malta</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/netherlands">
+                                <a href="/countries-and-regions/netherlands">
                                     <span>Netherlands</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/norway">
+                                <a href="/countries-and-regions/norway">
                                     <span>Norway</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/poland">
+                                <a href="/countries-and-regions/poland">
                                     <span>Poland</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/portugal">
+                                <a href="/countries-and-regions/portugal">
                                     <span>Portugal</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/romania">
+                                <a href="/countries-and-regions/romania">
                                     <span>Romania</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/slovakia">
+                                <a href="/countries-and-regions/slovakia">
                                     <span>Slovakia</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/slovenia">
+                                <a href="/countries-and-regions/slovenia">
                                     <span>Slovenia</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/spain">
+                                <a href="/countries-and-regions/spain">
                                     <span>Spain</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/sweden">
+                                <a href="/countries-and-regions/sweden">
                                     <span>Sweden</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/switzerland">
+                                <a href="/countries-and-regions/switzerland">
                                     <span>Switzerland</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/turkey">
+                                <a href="/countries-and-regions/turkey">
                                     <span>Turkey</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/united-kingdom">
+                                <a href="/countries-and-regions/united-kingdom">
                                     <span>United Kingdom</span>
                                 </a>
                             </li>
@@ -203,32 +206,32 @@
                             <h3 class="collaborating-countries-header">Collaborating countries</h3>
                             <ul class="eea-list-columns eea-list-last-columns">
                                 <li>
-                                    <a href="http://www.eea.europa.eu/countries-and-regions/albania">
+                                    <a href="/countries-and-regions/albania">
                                         <span>Albania</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://www.eea.europa.eu/countries-and-regions/bosnia-and-herzegovina">
+                                    <a href="/countries-and-regions/bosnia-and-herzegovina">
                                         <span>Bosnia and Herzegovina</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://www.eea.europa.eu/countries-and-regions/kosovo">
+                                    <a href="/countries-and-regions/kosovo">
                                         <span>Kosovo*</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://www.eea.europa.eu/countries-and-regions/fyr-macedonia">
+                                    <a href="/countries-and-regions/fyr-macedonia">
                                         <span>former Yugoslav Republic of Macedonia, the</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://www.eea.europa.eu/countries-and-regions/montenegro">
+                                    <a href="/countries-and-regions/montenegro">
                                         <span>Montenegro</span>
                                     </a>
                                 </li>
                             <li>
-                                <a href="http://www.eea.europa.eu/countries-and-regions/serbia">
+                                <a href="/countries-and-regions/serbia">
                                     <span>Serbia</span>
                                 </a>
                             </li>
