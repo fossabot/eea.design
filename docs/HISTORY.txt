@@ -6,7 +6,9 @@ Changelog
 * Bug fix: AttributeError: checkPermission
   [avoinea]
 * Bug fix: fixed redirect param values
-  [alecghica]
+  [alecghica refs #95891]
+* Feature: merged fixes from custom
+  [alecghica refs #95891]
 
 20.3 - (2018-05-25)
 ------------------------
