@@ -3,6 +3,8 @@ Changelog
 
 20.4-dev0 - (unreleased)
 ---------------------
+* Bug fix: send js tracebacks to Sentry
+  [avoinea refs #95646]
 * Bug fix: AttributeError: checkPermission
   [avoinea]
 * Bug fix: fixed redirect param values
