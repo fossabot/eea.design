@@ -113,6 +113,10 @@ hr {
 }
 
 /* Searchbox style and positioning */
+#portal-searchbox .gsc-clear-button {
+    display: none;
+}
+
 .panel #portal-searchbox {
     float: none;
     clear: both;
@@ -127,6 +131,10 @@ hr {
     font-size: 85%;
 }
 
+#portal-searchbox .gsc-input {
+    padding: 0 0.5em;
+    background: url("//www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png") 5px center no-repeat rgb(255, 255, 255) !important;
+}
 #portal-searchbox .gsc-input:focus {
     background: #FFF none !important;
 }
@@ -553,26 +561,6 @@ div#original_chart_div {
 }
 /* @end custom css fixes and overrides */
 
-/* #94477 ie11 fixes for megatopics on frontpage and /themes */
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    .template-themes_view #region-content {
-        margin: 0 -1.5em;
-    }
 
-    #megatopics-area .portlet {
-        overflow: hidden;
-    }
-
-    #top-news-area div.portletHeader, #megatopics-area .portletHeader {
-        font-size: 125% !important;
-    }
-
-    #portal-searchbox .gsc-search-button-v2 {
-        padding: 9px 27px 8px 27px;
-        margin: 0 0 0 -1px;
-        vertical-align: top;
-    }
-
-}
 /* </dtml-let> */
 /* </dtml-with> */
