@@ -1,7 +1,7 @@
 Changelog
 =========
 
-20.5-dev0 - (unreleased)
+20.5 - (2018-06-12)
 ---------------------
 * Change: Send JS tracebacks to own sentry
   [avoinea refs #95646]
