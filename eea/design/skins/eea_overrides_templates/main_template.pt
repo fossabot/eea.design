@@ -122,10 +122,10 @@
                   body_class python: body_class + mini_header if mini_header else body_class;
                   body_class python: body_class + ' expired-content' if is_expired else body_class;
                   frontpage python: ' frontpage' if ('frontpage_view' or 'localfrontpage_view') in body_class else '';
-                  sunburst_view python:context.restrictedTraverse('@@sunburstview')"
+                  sunburst_view python:context.restrictedTraverse('@@sunburstview');
+                  sentry_dsn nocall:context/@@sentry_dsn;"
       tal:attributes="class python:body_class + ' ' + language + frontpage;
                       dir python:isRTL and 'rtl' or 'ltr';
-                      sentry_dsn nocall:context/@@sentry_dsn;
                       data-sentry-env python:sentry_dsn.environment();
                       data-sentry-ver python:sentry_dsn.version();
                       data-sentry-dsn python:sentry_dsn()">
