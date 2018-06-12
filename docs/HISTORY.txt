@@ -1,6 +1,13 @@
 Changelog
 =========
 
+20.5 - (2018-06-12)
+---------------------
+* Feature: Support private SENTRY_DSN
+  [avoinea refs #95646]
+* Change: Send JS tracebacks to own sentry
+  [avoinea refs #95646]
+
 20.4 - (2018-06-04)
 ---------------------
 * Bug fix: send js tracebacks to Sentry

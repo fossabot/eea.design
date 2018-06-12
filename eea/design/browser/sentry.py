@@ -1,28 +1,57 @@
+""" Sentry
+"""
 import os
-from Products.Five import BrowserView
 import logging
+from urlparse import urlparse
+from eventlet.green import urllib2
+from contextlib import closing
+from Products.Five import BrowserView
+from eea.cache import cache
 
-log = logging.getLogger('SENTRY_DEBUG')
+logger = logging.getLogger("eea.design")
 
+RANCHER_METADATA = 'http://rancher-metadata/latest'
+TIMEOUT = 15
 
 class SentryDSN(BrowserView):
-    """ return sentry DSN env variable """
+    """ return sentry DSN env variable
+    """
+    _environment = None
+
+    @cache(lambda *args: "environment", lifetime=86400)
+    def environment(self):
+        """ Sentry environment
+        """
+        if not self._environment:
+            self._environment = os.environ.get('ENVIRONMENT',
+                                os.environ.get('SENTRY_ENVIRONMENT', ''))
+            if not self._environment:
+                url = RANCHER_METADATA + '/self/stack/environment_name'
+                try:
+                    with closing(urllib2.urlopen(url, timeout=TIMEOUT)) as con:
+                        self._environment = con.read()
+                except Exception as err:
+                    logger.exception(err)
+                    self._environment = 'devel'
+        return self._environment
+
+    @cache(lambda *args: "version", lifetime=86400)
+    def version(self):
+        """ KGS version
+        """
+        return os.environ.get("EEA_KGS_VERSION", "")
+
+    @cache(lambda *args: "version", lifetime=86400)
+    def dsn(self):
+        dsn = os.environ.get("SENTRY_DSN", "")
+        if not "@" in dsn:
+            return dsn
+
+        # Remove password from SENTRY_DSN
+        url = urlparse(dsn)
+        public = url._replace(netloc="{}@{}".format(
+            url.username, url.hostname))
+        return public.geturl()
 
     def __call__(self):
-        host = self.request._orig_env.get('HTTP_X_FORWARDED_HOST')
-        if not host:
-            # not behind varnish or no real request yet
-            if '.eea.europa.eu' in self.request._orig_env.get('HTTP_HOST'):
-                return os.environ.get('DEVEL_SENTRY_DSN')
-            else:
-                return None
-        if host in ['www.eea.europa.eu',
-                    'eea.europa.eu']:
-            return os.environ.get('PROD_SENTRY_DSN')
-        elif host in ['staging.eea.europa.eu']:
-            return os.environ.get('STAGING_SENTRY_DSN')
-        else:
-            # This should not happen, but if it does, we want to catch it
-            # so return the devel DSN
-            log.info('Unexpected hostname, default devel DSN used')
-            return os.environ.get('DEVEL_SENTRY_DSN')
+        return self.dsn()
