@@ -2,6 +2,7 @@
 """
 import os
 import logging
+from urlparse import urlparse
 from eventlet.green import urllib2
 from contextlib import closing
 from Products.Five import BrowserView
@@ -34,10 +35,23 @@ class SentryDSN(BrowserView):
                     self._environment = 'devel'
         return self._environment
 
+    @cache(lambda *args: "version", lifetime=86400)
     def version(self):
         """ KGS version
         """
         return os.environ.get("EEA_KGS_VERSION", "")
 
+    @cache(lambda *args: "version", lifetime=86400)
+    def dsn(self):
+        dsn = os.environ.get("SENTRY_DSN", "")
+        if not "@" in dsn:
+            return dsn
+
+        # Remove password from SENTRY_DSN
+        url = urlparse(dsn)
+        public = url._replace(netloc="{}@{}".format(
+            url.username, url.hostname))
+        return public.geturl()
+
     def __call__(self):
-        return os.environ.get("SENTRY_DSN", "")
+        return self.dsn()

@@ -404,7 +404,7 @@
         name="sentry_dsn"
         for="zope.interface.Interface"
         class=".sentry.SentryDSN"
-        allowed_attributes="environment version"
+        allowed_attributes="environment version dsn"
         permission="zope2.View"
         />
 

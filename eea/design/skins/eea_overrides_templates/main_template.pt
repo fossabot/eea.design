@@ -128,7 +128,7 @@
                       dir python:isRTL and 'rtl' or 'ltr';
                       data-sentry-env python:sentry_dsn.environment();
                       data-sentry-ver python:sentry_dsn.version();
-                      data-sentry-dsn python:sentry_dsn()">
+                      data-sentry-dsn python:sentry_dsn.dsn()">
 
     <div id="print-warning" i18n:domain="eea">
         <p i18n:translate="">
