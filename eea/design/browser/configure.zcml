@@ -402,8 +402,9 @@
 
     <browser:page
         name="sentry_dsn"
-        for="*"
+        for="zope.interface.Interface"
         class=".sentry.SentryDSN"
+        allowed_attributes="environment version"
         permission="zope2.View"
         />
 
