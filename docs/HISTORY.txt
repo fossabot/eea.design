@@ -1,6 +1,9 @@
 Changelog
 =========
 
+20.6-dev0 - (unreleased)
+---------------------
+
 20.5 - (2018-06-12)
 ---------------------
 * Feature: Support private SENTRY_DSN
