@@ -21,33 +21,28 @@
                     <ul class="social-buttons">
                     <li>
                     <a tal:attributes="href python:'https://facebook.com/sharer.php?u=' + pageUrl"
-                       rel="noopener" target="_blank" title="Share on Facebook">
+                       rel="noopener" target="_blank" title="Share on Facebook" i18n:attributes="title">
                             <span class="eea-icon eea-icon-facebook-square"><!-- --></span>
-                            <!-- span i18n:translate="">Facebook</span></a -->
                     </li>
                     <li>
                     <a tal:attributes="href python:'https://plus.google.com/share?url=' + pageUrl"
-                       rel="noopener" target="_blank" title="Share on Google+">
+                       rel="noopener" target="_blank" title="Share on Google+" i18n:attributes="title">
                             <span class="eea-icon eea-icon-google-plus-square"><!-- --></span>
-                            <!-- span i18n:translate="">Google+</span></a -->
                     </li>
                     <li>
                     <a tal:attributes="href python:'http://www.linkedin.com/shareArticle?mini=true&url=' + pageUrl + '&title=' + pageTitle + '&summary=' + pageSummary"
-                       rel="noopener" target="_blank" title="Share on LinkedIn">
+                       rel="noopener" target="_blank" title="Share on LinkedIn" i18n:attributes="title">
                             <span class="eea-icon eea-icon-linkedin-square"><!-- --></span>
-                            <!-- span i18n:translate="">LinkedIn</span></a -->
                     </li>
                     <li>
                     <a tal:attributes="href python:'http://pinterest.com/pin/create/button/?url=' + pageUrl + '&media=' + pageUrl + '/image_large' + '&description=' + pageTitle"
-                       rel="noopener" target="_blank" title="Share on Pinterest">
+                       rel="noopener" target="_blank" title="Share on Pinterest" i18n:attributes="title">
                             <span class="eea-icon eea-icon-pinterest"><!-- --></span>
-                            <!-- span i18n:translate="">Pinterest</span></a -->
                     </li>
                     <li>
                     <a tal:attributes="href python:'https://twitter.com/intent/tweet?url=' + pageUrl + '&text=' + pageTitle + '&via=EUEnvironment'"
-                       rel="noopener" target="_blank" title="Share on Twitter">
+                       rel="noopener" target="_blank" title="Share on Twitter" i18n:attributes="title">
                             <span class="eea-icon eea-icon-twitter-square"><!-- --></span>
-                            <!-- span i18n:translate="">Twitter</span></a -->
                     </li>
                     </ul>
                 </div>
