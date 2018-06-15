@@ -426,7 +426,7 @@ dd.portletFooter {
     margin: 0;
 }
 
-#document-action-sendto, #document-action-print, #document-action-full_screen, #document-action-twitter, #document-action-delicious, #document-action-facebook, #document-action-rdf , #document-action-rss2 {
+#document-action-sendto, #document-action-print, #document-action-full_screen, #document-action-twitter, #document-action-facebook, #document-action-rdf , #document-action-rss2 {
     display: block;
     float: left;
     margin: 0 5px 0 0;

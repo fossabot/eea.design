@@ -231,6 +231,14 @@
         />
 
     <browser:viewlet
+        name="eea.design.socialmedia"
+        class=".viewlets.SocialMediaViewlet"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        layer=".interfaces.IEEACommonLayer"
+        permission="zope2.View"
+        />
+
+    <browser:viewlet
         name="plone.app.i18n.locales.languageselector"
         class=".viewlets.LanguageSelectorViewlet"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"

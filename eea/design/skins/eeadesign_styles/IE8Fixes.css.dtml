@@ -326,7 +326,7 @@ dd.portletFooter {
 }
 
 #document-action-sendto, #document-action-print, #document-action-full_screen,
-#document-action-twitter, #document-action-delicious, #document-action-facebook,
+#document-action-twitter, #document-action-facebook,
 #document-action-rdf, #document-action-rss2 {
     display: block;
     float: left;

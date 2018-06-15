@@ -1039,7 +1039,7 @@ span.figure-left {
 }
 /* @end Batch selector */
 
-/* standard search button inside any of the portal columns*/
+/* standard search button inside any of the portal columns */
 
 #portal-columns input[type="submit"],
 .standardButton,
@@ -1075,6 +1075,42 @@ span.figure-left {
 }
 .standardButton a, .standardButton a:hover, .standardButton a:visited {
     color: #FFFFFF !important;
+}
+
+/* eea.design.socialmedia viewlet */
+
+.action-items {
+    text-align: right;
+    vertical-align: top;
+}
+
+ul.action-buttons > li {
+    padding-left: 5px;
+}
+
+#content .table-document-actions {
+    margin: 0px;
+    width: 100%;
+    display: table;
+}
+
+#socialmedia-viewlet {
+    margin-bottom: 2em;
+}
+
+#socialmedia-list {
+    font-size: 2.4em;
+}
+
+.social-buttons {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0px;
+}
+
+ul.social-buttons { 
+    margin-left: 0px;
 }
 
 /* </dtml-let> */

@@ -3,6 +3,10 @@ Changelog
 
 20.6-dev0 - (unreleased)
 ---------------------
+* Feature: created eea.design.socialmedia viewlet
+  [alecghica refs #95341]
+* Change: cleanup due to eea.socialmedia refactoring
+  [alecghica refs #95341]
 
 20.5 - (2018-06-12)
 ---------------------

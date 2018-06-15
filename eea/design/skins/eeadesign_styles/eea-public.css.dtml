@@ -201,18 +201,6 @@ div.managePortletsLink, a.managePortletsFallback {
     display: none;
 }
 
-/*#document-action-sendto a,*/
-/*#delicious a, */
-/*.action-items a {*/
-/*    height: 0;*/
-/*    padding-bottom: 1%;*/
-/*}*/
-
-/*#document-action-rdf a {*/
-/*    height: 0;*/
-/*    padding-bottom: 40%;*/
-/*}*/
-
 .action-items {
     max-width: 40%;
 }

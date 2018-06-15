@@ -49,13 +49,19 @@ class TitleViewlet(common.TitleViewlet):
 
 
 class DocumentActionsViewlet(content.DocumentActionsViewlet):
-    """A custom version of the document-actions viewlet
+    """ A custom version of the document-actions viewlet
     """
     render = ViewPageTemplateFile('templates/document_actions.pt')
 
 
+class SocialMediaViewlet(content.DocumentActionsViewlet):
+    """ A footer viewlet to contain social media icons
+    """
+    render = ViewPageTemplateFile('templates/socialmedia.pt')
+
+
 class DocumentBylineViewlet(content.DocumentBylineViewlet):
-    """A custom version of the document-byline viewlet
+    """ A custom version of the document-byline viewlet
     """
     render = ViewPageTemplateFile('templates/document_byline.pt')
 
