@@ -1,6 +1,13 @@
 Changelog
 =========
 
+20.6 - (2018-06-15)
+---------------------
+* Feature: created eea.design.socialmedia viewlet
+  [alecghica refs #95341]
+* Change: cleanup due to eea.socialmedia refactoring
+  [alecghica refs #95341]
+
 20.5 - (2018-06-12)
 ---------------------
 * Feature: Support private SENTRY_DSN

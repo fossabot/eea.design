@@ -3,125 +3,125 @@
            i18n_domain="eea">
 
     <genericsetup:registerProfile
-            name="default"
-            title="EEA Design"
-            directory="profiles/default"
-            description='Extension profile for EEA Design'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="default"
+        title="EEA Design"
+        directory="profiles/default"
+        description='Extension profile for EEA Design'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
 
     <genericsetup:registerProfile
-            name="uninstall"
-            title="EEA Design uninstall profile"
-            directory="profiles/uninstall"
-            description='Uninstall extension profile for the "eea.design" Plone theme.'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="uninstall"
+        title="EEA Design uninstall profile"
+        directory="profiles/uninstall"
+        description='Uninstall extension profile for the "eea.design" Plone theme.'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:importStep
-            name="eea.design.various"
-            title="EEA Design: Miscellaneous import steps"
-            description="Various import steps that are not handled by GS import/export handlers."
-            handler="eea.design.setuphandlers.setupVarious">
+          name="eea.design.various"
+          title="EEA Design: Miscellaneous import steps"
+          description="Various import steps that are not handled by GS import/export handlers."
+          handler="eea.design.setuphandlers.setupVarious">
         <depends name="skins"/>
     </genericsetup:importStep>
 
     <genericsetup:registerProfile
-            name="upgrade74"
-            title="EEA Design upgrade profile for v7.4"
-            directory="profiles/upgrade74"
-            description='Upgrade profile for EEA Design'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade74"
+        title="EEA Design upgrade profile for v7.4"
+        directory="profiles/upgrade74"
+        description='Upgrade profile for EEA Design'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade76"
-            title="EEA Design upgrade profile for v7.6"
-            directory="profiles/upgrade76"
-            description='Upgrade profile for EEA Design'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade76"
+        title="EEA Design upgrade profile for v7.6"
+        directory="profiles/upgrade76"
+        description='Upgrade profile for EEA Design'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade81"
-            title="EEA Design upgrade profile for v8.1"
-            directory="profiles/upgrade81"
-            description='Upgrade profile for EEA Design'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade81"
+        title="EEA Design upgrade profile for v8.1"
+        directory="profiles/upgrade81"
+        description='Upgrade profile for EEA Design'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade85"
-            title="EEA Design upgrade profile for v8.5"
-            directory="profiles/upgrade85"
-            description='Upgrade profile for EEA Design'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade85"
+        title="EEA Design upgrade profile for v8.5"
+        directory="profiles/upgrade85"
+        description='Upgrade profile for EEA Design'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade86"
-            title="EEA Design upgrade profile for v8.6"
-            directory="profiles/upgrades/to_86"
-            description='EEA Design upgrade profile for v8.6'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade86"
+        title="EEA Design upgrade profile for v8.6"
+        directory="profiles/upgrades/to_86"
+        description='EEA Design upgrade profile for v8.6'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade90"
-            title="EEA Design upgrade profile for v9.0"
-            directory="profiles/upgrades/to_90"
-            description='EEA Design upgrade profile for v9.0'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade90"
+        title="EEA Design upgrade profile for v9.0"
+        directory="profiles/upgrades/to_90"
+        description='EEA Design upgrade profile for v9.0'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade91"
-            title="EEA Design upgrade profile for v9.1"
-            directory="profiles/upgrades/to_91"
-            description='EEA Design upgrade profile for v9.1'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade91"
+        title="EEA Design upgrade profile for v9.1"
+        directory="profiles/upgrades/to_91"
+        description='EEA Design upgrade profile for v9.1'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade92"
-            title="EEA Design upgrade profile for v9.2"
-            directory="profiles/upgrades/to_92"
-            description='EEA Design upgrade profile for v9.2'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade92"
+        title="EEA Design upgrade profile for v9.2"
+        directory="profiles/upgrades/to_92"
+        description='EEA Design upgrade profile for v9.2'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade93"
-            title="EEA Design upgrade profile for v9.3"
-            directory="profiles/upgrades/to_93"
-            description='EEA Design upgrade profile for v9.3'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade93"
+        title="EEA Design upgrade profile for v9.3"
+        directory="profiles/upgrades/to_93"
+        description='EEA Design upgrade profile for v9.3'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade94"
-            title="EEA Design upgrade profile for v9.4"
-            directory="profiles/upgrades/to_94"
-            description='EEA Design upgrade profile for v9.4'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade94"
+        title="EEA Design upgrade profile for v9.4"
+        directory="profiles/upgrades/to_94"
+        description='EEA Design upgrade profile for v9.4'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade95"
-            title="EEA Design upgrade profile for v9.5"
-            directory="profiles/upgrades/to_95"
-            description='EEA Design upgrade profile for v9.5'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade95"
+        title="EEA Design upgrade profile for v9.5"
+        directory="profiles/upgrades/to_95"
+        description='EEA Design upgrade profile for v9.5'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade101"
-            title="EEA Design upgrade profile for v10.1"
-            directory="profiles/upgrades/to_101"
-            description='EEA Design upgrade profile for v10.1'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade101"
+        title="EEA Design upgrade profile for v10.1"
+        directory="profiles/upgrades/to_101"
+        description='EEA Design upgrade profile for v10.1'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade103"
-            title="EEA Design upgrade profile for v10.3"
-            directory="profiles/upgrades/to_103"
-            description='EEA Design upgrade profile for v10.3'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade103"
+        title="EEA Design upgrade profile for v10.3"
+        directory="profiles/upgrades/to_103"
+        description='EEA Design upgrade profile for v10.3'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-            name="upgrade111"
-            title="EEA Design upgrade profile for v11.1"
-            directory="profiles/upgrades/to_111"
-            description='EEA Design upgrade profile for v11.1'
-            provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade111"
+        title="EEA Design upgrade profile for v11.1"
+        directory="profiles/upgrades/to_111"
+        description='EEA Design upgrade profile for v11.1'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
         name="upgrade122"
@@ -180,58 +180,65 @@
         provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-      name="upgrade176"
-      title="EEA Design upgrade profile for v17.6"
-      directory="profiles/upgrades/to_176"
-      description='EEA Design upgrade profile for v17.6'
-      provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade176"
+        title="EEA Design upgrade profile for v17.6"
+        directory="profiles/upgrades/to_176"
+        description='EEA Design upgrade profile for v17.6'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-      name="upgrade183"
-      title="EEA Design upgrade profile for v18.3"
-      directory="profiles/upgrades/to_183"
-      description='EEA Design upgrade profile for v18.3'
-      provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade183"
+        title="EEA Design upgrade profile for v18.3"
+        directory="profiles/upgrades/to_183"
+        description='EEA Design upgrade profile for v18.3'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-      name="upgrade184"
-      title="EEA Design upgrade profile for v18.4"
-      directory="profiles/upgrades/to_184"
-      description='EEA Design upgrade profile for v18.4'
-      provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade184"
+        title="EEA Design upgrade profile for v18.4"
+        directory="profiles/upgrades/to_184"
+        description='EEA Design upgrade profile for v18.4'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-      name="upgrade187"
-      title="EEA Design upgrade profile for v18.7"
-      directory="profiles/upgrades/to_187"
-      description='EEA Design upgrade profile for v18.7'
-      provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade187"
+        title="EEA Design upgrade profile for v18.7"
+        directory="profiles/upgrades/to_187"
+        description='EEA Design upgrade profile for v18.7'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-      name="upgrade189"
-      title="EEA Design upgrade profile for v18.9"
-      directory="profiles/upgrades/to_189"
-      description='EEA Design upgrade profile for v18.9'
-      provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade189"
+        title="EEA Design upgrade profile for v18.9"
+        directory="profiles/upgrades/to_189"
+        description='EEA Design upgrade profile for v18.9'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-      name="upgrade190"
-      title="EEA Design upgrade profile for v19.0"
-      directory="profiles/upgrades/to_190"
-      description='EEA Design upgrade profile for v19.0'
-      provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade190"
+        title="EEA Design upgrade profile for v19.0"
+        directory="profiles/upgrades/to_190"
+        description='EEA Design upgrade profile for v19.0'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-      name="upgrade193"
-      title="EEA Design upgrade profile for v19.3"
-      directory="profiles/upgrades/to_193"
-      description='EEA Design upgrade profile for v19.3'
-      provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade193"
+        title="EEA Design upgrade profile for v19.3"
+        directory="profiles/upgrades/to_193"
+        description='EEA Design upgrade profile for v19.3'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 
     <genericsetup:registerProfile
-      name="upgrade198"
-      title="EEA Design upgrade profile for v19.8"
-      directory="profiles/upgrades/to_198"
-      description='EEA Design upgrade profile for v19.8'
-      provides="Products.GenericSetup.interfaces.EXTENSION" />
+        name="upgrade198"
+        title="EEA Design upgrade profile for v19.8"
+        directory="profiles/upgrades/to_198"
+        description='EEA Design upgrade profile for v19.8'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+    <genericsetup:registerProfile
+        name="upgrade199"
+        title="EEA Design upgrade profile for v19.9"
+        directory="profiles/upgrades/to_199"
+        description='EEA Design upgrade profile for v19.9'
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
 </configure>

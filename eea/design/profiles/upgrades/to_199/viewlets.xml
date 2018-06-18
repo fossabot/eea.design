@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object>
+    <order manager="plone.belowcontentbody" skinname="*">
+        <viewlet name="eea.design.socialmedia" insert-after="eea.temporal_coverage" />
+    </order>
+    <hidden manager="plone.belowcontentbod" skinname="*">
+        <viewlet name="eea.socialmedia" />
+    </hidden>
+</object>
