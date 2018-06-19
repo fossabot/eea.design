@@ -3,6 +3,8 @@ Changelog
 
 20.7-dev0 - (unreleased)
 ---------------------
+* Feature: updated eea.design.socialmedia viewlet
+  [alecghica refs #95341]
 
 20.6 - (2018-06-15)
 ---------------------
