@@ -1,6 +1,9 @@
 Changelog
 =========
 
+20.8-dev0 - (unreleased)
+---------------------
+
 20.7 - (2018-06-19)
 ---------------------
 * Feature: updated eea.design.socialmedia viewlet
