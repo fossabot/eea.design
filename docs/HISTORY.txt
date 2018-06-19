@@ -1,6 +1,11 @@
 Changelog
 =========
 
+20.7 - (2018-06-19)
+---------------------
+* Feature: updated eea.design.socialmedia viewlet
+  [alecghica refs #95341]
+
 20.6 - (2018-06-15)
 ---------------------
 * Feature: created eea.design.socialmedia viewlet
