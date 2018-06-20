@@ -497,12 +497,12 @@ developers, UX/UI experts.
     </a>
 
     <h2 i18n:translate="">Video pop-ups</h2>
-    <a href="http://www.eea.europa.eu/multimedia/electric-car"
+    <a href="https://www.eea.europa.eu/multimedia/electric-car"
        class="video-fancybox">
         <img src="resolveuid/63f587019bce79514be89ca476f7cf2f/image_wide" />
     </a>
     <pre tal:content="string:
-        &lt;a href=&quot;http://www.eea.europa.eu/multimedia/electric-car&quot; class=&quot;video-fancybox&quot;&gt;
+        &lt;a href=&quot;https://www.eea.europa.eu/multimedia/electric-car&quot; class=&quot;video-fancybox&quot;&gt;
             &lt;img src=&quot;https://www.eea.europa.eu/multimedia/electric-car/image_wide&quot; /&gt;
         &lt;/a&gt;
         ">

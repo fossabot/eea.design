@@ -15,13 +15,13 @@
                     <dd>
                         <ul class="eea-no-list-style">
                             <li id="externalsites-eionet">
-                                <a title="Eionet" i18n:attributes="title" accesskey="" href="http://www.eionet.europa.eu/" i18n:translate="">Eionet</a>
+                                <a title="Eionet" i18n:attributes="title" accesskey="" href="https://www.eionet.europa.eu/" i18n:translate="">Eionet</a>
                             </li>
                             <li id="externalsites-epanet">
                                 <a title="EPA network" i18n:attributes="title" accesskey="" href="http://epanet.pbe.eea.europa.eu/" i18n:translate="">Network of the Heads of Environment Protection Agencies (EPA network)</a>
                             </li>
                             <li id="seis-network">
-                                <a title="SEIS network" i18n:attributes="title" accesskey="" href="http://www.eea.europa.eu/about-us/what/shared-environmental-information-system" i18n:translate="">Shared Environmental Information System (SEIS)</a>
+                                <a title="SEIS network" i18n:attributes="title" accesskey="" href="https://www.eea.europa.eu/about-us/what/shared-environmental-information-system" i18n:translate="">Shared Environmental Information System (SEIS)</a>
                             </li>
                         </ul>
                     </dd>
@@ -29,8 +29,8 @@
                         <tal:block i18n:translate="">More networks</tal:block>
                     </dt>
                     <dd style="padding-bottom: 0.5em" class="portletFooter">
-                        <a class="moreLink" href="http://www.eea.europa.eu/about-us/key-partners" i18n:translate="">EU partners</a>&nbsp;&nbsp;
-                        <a class="moreLink" href="http://www.eea.europa.eu/about-us/international-cooperation" i18n:translate="">International cooperation</a>
+                        <a class="moreLink" href="https://www.eea.europa.eu/about-us/key-partners" i18n:translate="">EU partners</a>&nbsp;&nbsp;
+                        <a class="moreLink" href="https://www.eea.europa.eu/about-us/international-cooperation" i18n:translate="">International cooperation</a>
                     </dd>
                 </dl>
                 <dl tal:attributes="class python:'col-md-5 col-sm-6 bordered-left' if mini_header else ''">

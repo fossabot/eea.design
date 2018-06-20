@@ -1,7 +1,7 @@
 /* EXTERNAL DEPENDENCIES: ++resource++plone.app.jquerytools.js tabs */
 
 /* javascript accordions
- * eg: http://www.eea.europa.eu/code/design-elements#toc-14
+ * eg: https://www.eea.europa.eu/code/design-elements#toc-14
  * used in mobile view instead of tabs
  * */
 

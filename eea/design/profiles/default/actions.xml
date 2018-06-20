@@ -77,7 +77,7 @@
          <object name="etcssites" meta_type="CMF Action" i18n:domain="plone">
                <property name="title" i18n:translate="">European Topic Centres</property>
                <property name="description" i18n:translate=""></property>
-               <property name="url_expr">string:http://www.eionet.europa.eu/topics</property>
+               <property name="url_expr">string:https://www.eionet.europa.eu/topics</property>
                <property name="link_target"></property>
                <property name="icon_expr"></property>
                <property name="available_expr"></property>

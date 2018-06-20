@@ -4,7 +4,7 @@
 /* EXTERNAL DEPENDENCIES eea-accordion.js
  * responsive design transforms done to tabs and global header
  * and footer
- * eg:http://www.eea.europa.eu/code/design-elements#tab-first-tab
+ * eg:https://www.eea.europa.eu/code/design-elements#tab-first-tab
  * */
 
 // NOTE: this file is loaded by PLONE 3 sites as such avoid using
