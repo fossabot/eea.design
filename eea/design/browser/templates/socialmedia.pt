@@ -22,7 +22,7 @@
                     <li>
                     <a tal:attributes="href python:'https://www.blogger.com/blog-this.g?u=' + pageUrl + '&n=' + pageTitle + '&t=' + pageSummary"
                        rel="noopener" target="_blank" title="Share on Blogger" i18n:attributes="title">
-                            <span class="eea-icon eea-icon-blogger"><!-- --></span></a>
+                            <span class="eea-icon eea-icon-bold"><!-- --></span></a>
                     </li>
                     <li>
                     <a tal:attributes="href python:'https://facebook.com/sharer.php?u=' + pageUrl"
