@@ -5,6 +5,8 @@ Changelog
 ---------------------
 * Change: updated URLs pointing to eea.europa.eu with https://
   [alecghica refs #95849]
+* Feature: serve google open fonts via our servers
+  [alecghica refs #95849]
 
 20.7 - (2018-06-19)
 ---------------------
