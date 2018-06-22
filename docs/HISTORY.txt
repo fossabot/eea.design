@@ -1,6 +1,15 @@
 Changelog
 =========
 
+20.8 - (2018-06-20)
+---------------------
+* Change: updated URLs pointing to eea.europa.eu with https://
+  [alecghica refs #95849]
+* Feature: serve google open fonts via our servers
+  [alecghica refs #95849]
+* Change: documented the upgraded of Font Awesome from v4.4.0 to v4.7.0
+  [alecghica refs #95849]
+
 20.7 - (2018-06-19)
 ---------------------
 * Feature: updated eea.design.socialmedia viewlet

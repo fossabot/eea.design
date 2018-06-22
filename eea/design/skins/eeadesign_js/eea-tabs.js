@@ -1,9 +1,9 @@
 /* EXTERNAL DEPENDENCIES: ++resource++plone.app.jquerytools.js tabs */
 
 /* javascript tabs
- * eg: http://www.eea.europa.eu/code/design-elements#tab-first-tab
+ * eg: https://www.eea.europa.eu/code/design-elements#tab-first-tab
  * used in relatedItems tabs
- * http://www.eea.europa.eu/publications/eu-2010-biodiversity-baseline
+ * https://www.eea.europa.eu/publications/eu-2010-biodiversity-baseline
  * */
 
 jQuery(document).ready(function($) {

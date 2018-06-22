@@ -2,7 +2,7 @@
 /* This JS integrates the jQuery Tools Tooltips with the EEA site.
  * aka ++resource++plone.app.jquerytools.tooltip.js */
 /*
-* eg: http://www.eea.europa.eu/code/design-elements#toc-35
+* eg: https://www.eea.europa.eu/code/design-elements#toc-35
 * */
 jQuery(document).ready(function($) {
     if ($.fn.tooltip !== undefined) {
