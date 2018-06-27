@@ -1,7 +1,7 @@
 Changelog
 =========
 
-20.9-dev0 - (unreleased)
+20.9 - (2018-06-27)
 ---------------------
 * Bug fix: fixed image display in PDF export
   [alecghica refs #96589]
