@@ -3,6 +3,8 @@ Changelog
 
 20.9-dev0 - (unreleased)
 ---------------------
+* Bug fix: fixed image display in PDF export
+  [alecghica refs #96589]
 
 20.8 - (2018-06-20)
 ---------------------
