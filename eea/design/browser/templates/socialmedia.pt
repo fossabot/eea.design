@@ -15,9 +15,11 @@
                         <tr>
                             <td>
                 <div id="socialmedia-list"
-                     tal:define="pageUrl here/absolute_url;
-                                 pageTitle here/Title;
-                                 pageSummary here/Description">
+                     tal:define="std modules/Products.PythonScripts.standard;
+                                 url_quote nocall: std/url_quote;
+                                 pageUrl python:url_quote(context.absolute_url());
+                                 pageTitle python:url_quote(context.Title());
+                                 pageSummary python:url_quote(context.Description())">
                     <ul class="social-buttons">
                     <li>
                     <a tal:attributes="href python:'https://www.blogger.com/blog-this.g?u=' + pageUrl + '&n=' + pageTitle + '&t=' + pageSummary"

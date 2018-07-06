@@ -3,6 +3,8 @@ Changelog
 
 21.0-dev0 - (unreleased)
 ---------------------
+* Bug fix: added url escape on social media buttons
+  [alecghica refs #96991]
 
 20.9 - (2018-06-27)
 ---------------------
