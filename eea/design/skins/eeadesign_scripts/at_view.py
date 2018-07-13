@@ -13,16 +13,15 @@ else:
 req = context.REQUEST
 resp = req.RESPONSE
 
-checkPermission = getattr(field, 'checkPermission', lambda r, c: False)
+checkPermission = getattr(field, 'checkPermission', lambda r, c: True)
 if not checkPermission('r', context):
-    from zExceptions import Unauthorized
-    raise Unauthorized('Field %s requires %s permission' % (field, getattr(field, 'read_permission', None)))
+    from AccessControl import Unauthorized
+    raise Unauthorized(field)
 
-file = context.getFile()
-filename = context.getFilename()
-
+filename = context.getId()
 resp.setHeader('Filename', filename)
 resp.setHeader('Content-Type', 'application/pdf')
 resp.setHeader('Content-Disposition', 'inline; filename="%s"' % filename)
 
-return file
+ofile = field.getAccessor(context)
+return ofile()

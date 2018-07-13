@@ -3,6 +3,10 @@ Changelog
 
 21.1-dev0 - (unreleased)
 ---------------------
+* Bug fix: fixed at_view script errors:
+  "PDF viewer empty as anonymous, AttributeError: getFile" and
+  "You are not allowed to access 'Unauthorized' in this context"
+  [avoinea refs #96987]
 
 21.0 - (2018-07-06)
 ---------------------
