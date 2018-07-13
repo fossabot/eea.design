@@ -18,10 +18,11 @@ if not checkPermission('r', context):
     from AccessControl import Unauthorized
     raise Unauthorized(field)
 
-filename = context.getId()
-resp.setHeader('Filename', filename)
-resp.setHeader('Content-Type', 'application/pdf')
-resp.setHeader('Content-Disposition', 'inline; filename="%s"' % filename)
+if getattr(field, 'getAccessor', None):
+    filename = context.getId()
+    resp.setHeader('Filename', filename)
+    resp.setHeader('Content-Type', 'application/pdf')
+    resp.setHeader('Content-Disposition', 'inline; filename="%s"' % filename)
+    return field.getAccessor(context)()
 
-ofile = field.getAccessor(context)
-return ofile()
+return ""
