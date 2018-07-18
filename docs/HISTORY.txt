@@ -3,6 +3,8 @@ Changelog
 
 21.2-dev0 - (unreleased)
 ---------------------
+* Bug fix: NameError: <class 'exceptions.NameError'>
+  [avoinea refs #97224]
 
 21.1 - (2018-07-13)
 ---------------------
