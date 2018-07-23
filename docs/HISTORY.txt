@@ -1,6 +1,11 @@
 Changelog
 =========
 
+21.2 - (2018-07-18)
+---------------------
+* Bug fix: NameError: <class 'exceptions.NameError'>
+  [avoinea refs #97224]
+
 21.1 - (2018-07-13)
 ---------------------
 * Bug fix: fixed at_view script errors:

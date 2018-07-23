@@ -29,7 +29,7 @@
 
             <a style='text-align: right' href="#"
                tal:condition="nocall: here/asPDF|nothing"
-               tal:attributes="href string:${here_url}/asPDF/atct_topic_pdf_template/atct_topic_pdf"
+               tal:attributes="href string:${context/absolute_url}/asPDF/atct_topic_pdf_template/atct_topic_pdf"
                i18n:translate=""
                i18n:domain="eea">
                 Download PDF

@@ -249,7 +249,7 @@
                 If folder isn't public and user is anonymous, redirect to a standared message page
             </tal:comment>
             <tal:redirect tal:define="dummy python:
-                 request.RESPONSE.redirect(here_url + '/listing_not_available',
+                 request.RESPONSE.redirect(context.absolute_url() + '/listing_not_available',
                  status=404)" />
             <tal:comment tal:replace="nothing" i18n:translate="">
                 Since we cannot actually redirect and return 404, we'll embed
