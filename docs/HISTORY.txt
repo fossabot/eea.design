@@ -3,6 +3,8 @@ Changelog
 
 21.3-dev0 - (unreleased)
 ---------------------
+* Bug fix: TypeError: Cannot read property 'Title' of undefined
+  [szabozo0 refs #97097]
 
 21.2 - (2018-07-18)
 ---------------------
