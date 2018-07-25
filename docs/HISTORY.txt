@@ -1,7 +1,7 @@
 Changelog
 =========
 
-21.4-dev0 - (unreleased)
+21.4 - (2018-07-25)
 ---------------------
 * Bug fix: Cannot read property 'split' of undefined
   [avoinea refs #97383]
