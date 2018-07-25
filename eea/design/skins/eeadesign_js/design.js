@@ -317,7 +317,7 @@ jQuery(document).ready(function($) {
         return this.each(function() {
             self.find(settings.linkSelector).click(function() {
                 var context = $(this);
-                var oldCSS = context.attr('class');
+                var oldCSS = context.attr('class') || "";
                 settings.linkCSS = oldCSS.split(' ').slice(0, 2).join(' ') + settings.linkCSS;
                 context.removeClass();
                 context.addClass(settings.linkCSS);
