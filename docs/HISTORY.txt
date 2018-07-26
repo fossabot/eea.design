@@ -1,7 +1,7 @@
 Changelog
 =========
 
-21.5-dev0 - (unreleased)
+21.5 - (2018-07-26)
 ---------------------
 * Bug fix: TypeError: The object does not support the property or method "includes"
   [avoinea refs #97397]
