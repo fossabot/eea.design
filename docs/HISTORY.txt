@@ -1,6 +1,11 @@
 Changelog
 =========
 
+21.5 - (2018-07-26)
+---------------------
+* Bug fix: TypeError: The object does not support the property or method "includes"
+  [avoinea refs #97397]
+
 21.4 - (2018-07-25)
 ---------------------
 * Bug fix: Cannot read property 'split' of undefined
