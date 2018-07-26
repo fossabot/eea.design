@@ -834,7 +834,7 @@ document.webL10n = (function(window, document, undefined) {
       if (Object.keys(gL10nData).length > 0) {
         console.warn('#' + key + ' is undefined.');
       }
-      // === patch end === 
+      // === patch end ===
       if (!fallback) {
         return null;
       }
@@ -11913,7 +11913,7 @@ function getPDFFileNameFromURL(url, defaultFilename) {
 
   if ($('body').hasClass('portaltype-report')) {
     var paths = window.location.pathname.split('/');
-    if (paths.includes("view")) {
+    if (paths.indexOf("view") > -1) {
         var removeItem = "view";
 
         paths = jQuery.grep(paths, function(value) {
@@ -11936,7 +11936,7 @@ function getPDFFileNameFromURL(url, defaultFilename) {
   }
   request.open("GET", request_url + params);
   request.onreadystatechange = function () {
-    if ([200, 204].includes(request.status)) {
+    if ([200, 204].indexOf(request.status) > -1) {
       HEADER_FILENAME = request.getResponseHeader('Filename');
     }
   };
@@ -16588,7 +16588,7 @@ var PDFPageView = function PDFPageViewClosure() {
    var div = this.div;
    target.style.width = target.parentNode.style.width = div.style.width = Math.floor(width) + 'px';
    target.style.height = target.parentNode.style.height = div.style.height = Math.floor(height) + 'px';
-   // in some cases the canvases aren't loaded yet so we need to add a delay, it doesn't have a visual impact 
+   // in some cases the canvases aren't loaded yet so we need to add a delay, it doesn't have a visual impact
    if (this.paintedViewportMap.has(target)) {
      var relativeRotation = this.viewport.rotation - this.paintedViewportMap.get(target).rotation;
    }
