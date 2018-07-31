@@ -1,6 +1,14 @@
 Changelog
 =========
 
+21.6 - (2018-07-31)
+---------------------
+* Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
+  available for eea.design
+  [avoinea refs #97399]
+* Bug fix: EIONET users can't see comments from last year
+  [avoinea refs #97399]
+
 21.5 - (2018-07-26)
 ---------------------
 * Bug fix: TypeError: The object does not support the property or method "includes"

@@ -496,7 +496,7 @@
 
     <!-- Comments viewlet -->
     <browser:viewlet
-        name="plone.comments"
+        name="eea.plone.comments"
         for="Products.CMFCore.interfaces.IContentish"
         layer=".interfaces.IEEACommonLayer"
         manager="plone.app.layout.viewlets.interfaces.IBelowContent"
