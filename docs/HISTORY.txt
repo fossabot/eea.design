@@ -3,6 +3,8 @@ Changelog
 
 21.6-dev0 - (unreleased)
 ---------------------
+* Bug fix: EIONET users can't see comments from last year
+  [avoinea refs #97399]
 
 21.5 - (2018-07-26)
 ---------------------
