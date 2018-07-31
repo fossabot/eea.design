@@ -1,7 +1,7 @@
 Changelog
 =========
 
-21.6-dev0 - (unreleased)
+21.6 - (2018-07-31)
 ---------------------
 * Bug fix: EIONET users can't see comments from last year
   [avoinea refs #97399]
