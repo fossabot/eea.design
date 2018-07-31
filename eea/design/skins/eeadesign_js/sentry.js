@@ -2,7 +2,7 @@ $(function(){
     var sentry_dsn = $('body').data('sentry-dsn');
     var sentry_env = $('body').data('sentry-env');
     var sentry_ver = $('body').data('sentry-ver');
-    if (sentry_dsn !== undefined){
+    if (sentry_dsn){
         Raven.config(sentry_dsn, {
             logger: 'javascript',
             release: sentry_ver,

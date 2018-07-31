@@ -1,6 +1,13 @@
 Changelog
 =========
 
+21.7 - (2018-07-31)
+-------------------
+* Change: Upgrade raven.min.js to 3.26.4 from 3.22.1
+  [avoinea refs #97474]
+* Change: Serve raven.min.js from our server
+  [avoinea refs #97474]
+
 21.6 - (2018-07-31)
 ---------------------
 * Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
