@@ -1,6 +1,9 @@
 Changelog
 =========
 
+21.7-dev0 - (unreleased)
+---------------------
+
 21.6 - (2018-07-31)
 ---------------------
 * Upgrade step: within "Plone > Site setup > Add-ons" click on upgrade button
