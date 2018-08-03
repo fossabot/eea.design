@@ -3,6 +3,8 @@ Changelog
 
 21.8-dev0 - (unreleased)
 ---------------------
+* Change: fixed the usage of BeautifulSoup
+  [alecghica refs #96974]
 
 21.7 - (2018-07-31)
 -------------------

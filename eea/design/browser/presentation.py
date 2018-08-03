@@ -17,7 +17,7 @@ class EEAPresentationView(PresentationView):
             * convert img or iframe containing p tags to div
             * filter out paragraphs that have no classes
         """
-        soup = BeautifulSoup(self.body())
+        soup = BeautifulSoup(self.body(), 'lxml')
         out = []
         first = True
         headings = []
@@ -57,7 +57,7 @@ class EEAPresentationView(PresentationView):
                 continue
             out.append(elem.prettify())
 
-        out = BeautifulSoup(''.join(out))
+        out = BeautifulSoup(''.join(out), 'lxml')
 
         final_html = []
         slides = out.find_all('div', 'slide') # slide is the matching class
