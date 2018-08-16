@@ -31,7 +31,7 @@ eea.LockHandler = {
     _baseUrl: function() {
         var baseUrl, pieces;
 
-        baseUrl = $('base').attr('href');
+        baseUrl = $('body').attr('data-base-url');
         if (!baseUrl) {
             pieces = window.location.href.split('/');
             pieces.pop();
