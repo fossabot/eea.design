@@ -1,7 +1,7 @@
 Changelog
 =========
 
-21.8-dev0 - (unreleased)
+21.8 - (2018-08-17)
 ---------------------
 * Change: fixed the usage of BeautifulSoup
   [alecghica refs #96974]
