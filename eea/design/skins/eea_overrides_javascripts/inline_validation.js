@@ -2,7 +2,7 @@
 Validate form fields when they lose focus.
 */
 
-/*jslint white:false, onevar:true, undef:true, nomen:true, eqeqeq:true, plusplus:true, bitwise:true, regexp:true, newcap:true, immed:true, strict:false, browser:true */
+/*jslint white:false, onevar:false, undef:true, nomen:true, eqeqeq:true, plusplus:true, bitwise:true, regexp:true, newcap:true, immed:true, strict:false, browser:true */
 /*global jQuery:false, document:false, window:false, location:false */
 
 jQuery(function ($) {
@@ -42,7 +42,7 @@ jQuery(function ($) {
 
         // if value is an Array, it will be send as value[]=value1&value[]=value2 by $.post
         // turn it into something that will be useable or value will be omitted from the request
-        var params = $.param({uid: uid, fname: fname, value: value}, traditional = true);
+        var params = $.param({uid: uid, fname: fname, value: value}, true);
 
         if ($field && uid && fname) {
             url = $form.attr('action');
@@ -59,7 +59,7 @@ jQuery(function ($) {
                   // we get the html of the edit page back.
                   // It is best not to do anything then.
                   return;
-                };
+                }
                 render_error($field, data.errmsg);
             });
         }
