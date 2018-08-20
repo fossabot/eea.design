@@ -1,6 +1,6 @@
 /*
   Plone unlock handler; attaches an unlock handler to $('form.enableUnlockProtection')
-  
+
   provides global plone
 */
 
@@ -22,12 +22,12 @@ plone.UnlockHandler = {
             plone.UnlockHandler._refresher = setInterval(plone.UnlockHandler.refresh, 300000);
         }
     },
-    
+
     cleanup: function() {
         $(window).unbind('unload', plone.UnlockHandler.execute);
         clearInterval(plone.UnlockHandler._refresher);
     },
-    
+
     execute: function() {
         // this.submitting is set from the form unload handler
         // (formUnload.js) and signifies that we are in the
@@ -39,7 +39,7 @@ plone.UnlockHandler = {
             async: false
         });
     },
-    
+
     refresh: function() {
         if (plone.UnlockHandler.submitting) {return;}
         $.ajax({
@@ -58,7 +58,7 @@ plone.UnlockHandler = {
     _baseUrl: function() {
         var baseUrl, pieces;
 
-        baseUrl = $('body').attr('data-base-url');
+        baseUrl = $('body').data('base-url');
         if (!baseUrl) {
             pieces = window.location.href.split('/');
             pieces.pop();
