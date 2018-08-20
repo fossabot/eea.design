@@ -176,5 +176,4 @@ function scanforlinks() {
     scanforlinksinarea(contentarea);
 }
 
-window.registerPloneFunction(scanforlinks);
-
+jQuery(scanforlinks);

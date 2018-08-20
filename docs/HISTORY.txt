@@ -1,6 +1,19 @@
 Changelog
 =========
 
+21.8 - (2018-08-17)
+---------------------
+* Change: fixed the usage of BeautifulSoup
+  [alecghica refs #96974]
+* Change: cleanup overrides.zcml
+  [alecghica refs #97573]
+* Change: cleanup obsolete patches and overrides
+  [alecghica refs #97573]
+* Change: code updated for patches and overrides
+  [alecghica refs #97573]
+* Bug fix: fixed templates display title for Folder
+  [alecghica refs #97573]
+
 21.7 - (2018-07-31)
 -------------------
 * Change: Upgrade raven.min.js to 3.26.4 from 3.22.1

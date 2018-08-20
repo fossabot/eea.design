@@ -1,11 +1,10 @@
-<configure
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:browser="http://namespaces.zope.org/browser"
-    xmlns:plone="http://namespaces.plone.org/plone"
-    xmlns:zcml="http://namespaces.zope.org/zcml"
-    xmlns:five="http://namespaces.zope.org/five">
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:plone="http://namespaces.plone.org/plone"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+           xmlns:five="http://namespaces.zope.org/five">
 
-<include package="plone.app.portlets"  />
+    <include package="plone.app.portlets"  />
 
     <!-- EEA Sunburst special view -->
     <browser:page
@@ -17,52 +16,18 @@
         allowed_interface="plonetheme.sunburst.browser.interfaces.ISunburstView"
         />
 
-    <configure zcml:condition="installed plone.app.search">
-      <browser:page
-          name="search"
-          class="plone.app.search.browser.Search"
-          permission="zope2.View"
-          for="*"
-          layer="eea.design.browser.interfaces.IEEACommonLayer"
-          template="templates/search.pt"
-          />
-    </configure>
-
-  <browser:page
-    name="discussion-settings"
-    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-    class="plone.app.discussion.browser.controlpanel.DiscussionSettingsControlPanel"
-    permission="cmf.ManagePortal"
-    template="templates/controlpanel.pt"
-  />
-
-  <browser:page
-    name="caching-controlpanel"
-    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-    class="plone.app.caching.browser.controlpanel.ControlPanel"
-    permission="cmf.ManagePortal"
-    template="templates/caching_controlpanel.pt"
-  />
-
-  <browser:page
-    name="rules-controlpanel"
-    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-    class=".overrides.EEAContentRulesControlPanel"
-    permission="cmf.ManagePortal"
-    template="templates/contentrules_controlpanel.pt"
-  />
-
-  <browser:page
-    name="configuration_registry"
-    for="*"
-    class="plone.app.registry.browser.records.RecordsControlPanel"
-    permission="cmf.ManagePortal"
-    template="templates/records.pt"
-  />
+    <browser:page
+        name="search"
+        class="plone.app.search.browser.Search"
+        permission="zope2.View"
+        for="*"
+        layer="eea.design.browser.interfaces.IEEACommonLayer"
+        template="templates/search.pt"
+        />
 
     <!-- #28222 override manage-job-queue to have a bigger timeout
          on refresh -->
-     <configure package="plone.app.async">
+    <configure package="plone.app.async">
         <browser:page
             for="Products.CMFCore.interfaces.ISiteRoot"
             name="manage-job-queue"
@@ -81,13 +46,14 @@
         layer="eea.design.browser.interfaces.IEEACommonLayer"
         />
 
-  <browser:viewletManager
-    name="plone.resourceregistries.styles"
-    provides="Products.ResourceRegistries.interfaces.IHtmlHeadStyles"
-    template="templates/styles_viewlet_override.pt"
-    layer=".interfaces.IEEACommonLayer"
-    permission="zope2.View"
-  />
+    <browser:viewletManager
+        name="plone.resourceregistries.styles"
+        provides="Products.ResourceRegistries.interfaces.IHtmlHeadStyles"
+        template="templates/styles_viewlet_override.pt"
+        layer=".interfaces.IEEACommonLayer"
+        permission="zope2.View"
+        />
+
     <browser:viewlet
         name="plone.resourceregistries"
         manager="plone.app.layout.viewlets.interfaces.IHtmlHead"

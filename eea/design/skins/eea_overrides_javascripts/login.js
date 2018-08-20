@@ -86,4 +86,4 @@ function showEnableCookiesMessage() {
   showCookieMessage('enable_cookies_message');
 }
 // Call showEnableCookiesMessage after the page loads
-registerPloneFunction(showEnableCookiesMessage);
+jQuery(showEnableCookiesMessage);
