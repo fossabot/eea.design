@@ -1,8 +1,8 @@
 Changelog
 =========
 
-21.9 - (unreleased)
--------------------
+21.9-dev0 - (unreleased)
+---------------------
 * Bug fix: Don't try to load lazy images when it is disabled
   [szabozo0 refs #97516]
 
