@@ -1,6 +1,9 @@
 Changelog
 =========
 
+22.0-dev0 - (unreleased)
+---------------------
+
 21.9 - (2018-08-21)
 ---------------------
 * Bug fix: Don't try to load lazy images when it is disabled
