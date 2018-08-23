@@ -22,8 +22,7 @@
 			<br />
 			<strong i18n:translate="">Test links</strong>: 
 			<a href="https://www.eea.europa.eu" i18n:translate="">new EEA domain link</a>, 
-			<a href="https://www.eea.europa.eu/document.pdf" i18n:translate="">PDF on new EEA domain link</a>, 
-			<a href="https://reports.eea.eu.int/document.ppt" i18n:translate="">Presentation on old EEA domain</a>
+			<a href="https://www.eea.europa.eu/document.pdf" i18n:translate="">PDF on new EEA domain link</a>
 			</p>
 			<h3 i18n:translate="">Mix links examples</h3>
 			<p i18n:translate="">Icons based on file extension, on different external sites and protocols</p>
