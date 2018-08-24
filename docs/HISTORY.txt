@@ -1,6 +1,17 @@
 Changelog
 =========
 
+22.0 - (2018-08-23)
+---------------------
+* Bug fix: fixed mark external link for HTTPS
+  [alecghica refs #97535]
+* Bug fix: removed eea.eu.int checks and references
+  [alecghica refs #97535]
+* Bug fix: fixed how "mark external link" JS detect language over HTTPS
+  [alecghica refs #97535]
+* Bug fix: relative links are now marked with HTTPS instead of HTTP
+  [alecghica refs #97535]
+
 21.9 - (2018-08-21)
 ---------------------
 * Bug fix: Don't try to load lazy images when it is disabled
