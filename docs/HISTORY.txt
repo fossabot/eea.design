@@ -3,6 +3,8 @@ Changelog
 
 22.1-dev0 - (unreleased)
 ---------------------
+* Change: Get base-url from body data `base-url`
+  [avoinea refs #97843]
 
 22.0 - (2018-08-23)
 ---------------------
