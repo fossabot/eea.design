@@ -62,6 +62,7 @@ h3 {
 
 /* #19880 set 100% width for column-content instead of width auto with important */
 #portal-column-content {
+    min-width: 500px;
     width: 100%;
     padding: 0 !important;
 }
@@ -220,6 +221,7 @@ data-and-maps/indicators/emissions-of-ozone-precursors-version-2/assessment-4
 
 .googlechart_dashboard .googlechart-notes {
     font: 10px Verdana, Arial, Helvetica, sans-serif !important;
+    max-width: 100%;
 }
 
 .figure-chart-live {
