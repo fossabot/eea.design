@@ -458,4 +458,8 @@ dl.captioned {
     vertical-align: middle;
 }
 
+.eea-three-quarters {
+  width: 100%;
+}
+
 /* </dtml-with> */
