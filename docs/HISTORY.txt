@@ -1,6 +1,11 @@
 Changelog
 =========
 
+22.2 - (2018-08-30)
+---------------------
+* Bug fix: Fixed PDF generator with short title
+  [avoinea refs #97618]
+
 22.1 - (2018-08-27)
 ---------------------
 * Bug fix: Fix embeded charts width within PDF
