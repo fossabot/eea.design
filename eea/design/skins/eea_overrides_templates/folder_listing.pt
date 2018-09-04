@@ -243,7 +243,7 @@
     <div metal:use-macro="context/batch_macros/macros/navigation" />
       <tal:block
         define="context_wf_state context/review_state|python: context.portal_workflow.getInfoFor(context, 'review_state', '');
-                listing_not_available python: isAnon and context_wf_state != 'published'">
+                listing_not_available python: isAnon and context_wf_state not in ['published', '', None]">
         <tal:cond tal:condition="listing_not_available">
             <tal:comment tal:replace="nothing" i18n:translate="">
                 If folder isn't public and user is anonymous, redirect to a standared message page
@@ -276,4 +276,3 @@
 
 </body>
 </html>
-
