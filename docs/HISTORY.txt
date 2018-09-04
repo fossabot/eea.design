@@ -1,6 +1,11 @@
 Changelog
 =========
 
+22.3 - (2018-09-04)
+---------------------
+* Bug fix: Fix HTTP status code for items with no workflow assigned
+  [avoinea refs #98045]
+
 22.2 - (2018-08-30)
 ---------------------
 * Bug fix: Fixed PDF generator with short title
