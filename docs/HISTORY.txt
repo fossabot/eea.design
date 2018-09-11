@@ -3,6 +3,8 @@ Changelog
 
 22.4-dev0 - (unreleased)
 ---------------------
+* Change: Persist custom check_pdf
+  [avoinea]
 
 22.3 - (2018-09-04)
 ---------------------

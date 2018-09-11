@@ -5,6 +5,9 @@
 ##bind subpath=traverse_subpath
 ##title=Condition for checking if the file is a pdf before loading the viewer
 ##
+if context.portal_type not in ['File', 'Report']:
+    return False
+
 if hasattr(context, 'getFile'):
     file = context.getFile()
 else:
