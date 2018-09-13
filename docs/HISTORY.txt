@@ -3,6 +3,8 @@ Changelog
 
 22.4-dev0 - (unreleased)
 ---------------------
+* Change: Replaced EEA Google Custom Search with EEA Global Catalog Search
+  [avoinea refs #98369]
 * Change: Persist custom check_pdf
   [avoinea]
 

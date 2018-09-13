@@ -566,10 +566,6 @@
   #portal-logo-link-header {
     display: none; }
 
-  /* move the search icon inside the input of the searchfield */
-  #portal-searchbox .eea-icon {
-    margin-right: -2em; }
-
   .mini-header #portal-searchbox .searchSection {
     display: none; }
 

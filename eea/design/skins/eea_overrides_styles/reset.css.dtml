@@ -404,10 +404,11 @@ select {
     margin-bottom: 0;
 }
 #portal-searchbox input.gsc-input {
-    border: 1px solid #BBB;
+    border: none;
     padding: 3px 6px;
     width: 99%;
     font-size: 16px;
+    background: #fff;
 }
 
 .plone-breadcrumb {

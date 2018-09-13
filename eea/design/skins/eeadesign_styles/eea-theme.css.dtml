@@ -133,13 +133,13 @@ hr {
 
 #portal-searchbox .gsc-input {
     padding: 0 0.5em;
-    background: url("//www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png") 5px center no-repeat rgb(255, 255, 255) !important;
 }
 #portal-searchbox .gsc-input:focus {
     background: #FFF none !important;
 }
 #portal-searchbox .gsc-input {
     padding: 0;
+    border: 1px solid #BBB;
 }
 
 #portal-searchbox .searchButton:focus {
@@ -155,8 +155,31 @@ hr {
     top: 2%;
     width: 90%;
     left: 5%;
-
 }
+
+#portal-searchbox .gsc-search-box {
+    border-style: none;
+    border-width: 0;
+    border-spacing: 0 0;
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+.gsc-search-button-v2, .gsc-search-button-v2:hover, .gsc-search-button-v2:focus {
+    border-color: #006699;
+    background-color: #006699;
+    background-image: none;
+    filter: none;
+    border: none;
+    padding: 6px 27px;
+    text-align: center;
+    color: #fff;
+}
+
+td.gsc-search-button {
+    width: 1%;
+}
+
 #search_glossary_link, #search_advanced_link {
     font-size: 11px;
 }
