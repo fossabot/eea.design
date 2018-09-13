@@ -1,7 +1,7 @@
 Changelog
 =========
 
-22.4-dev0 - (unreleased)
+22.4 - (2018-09-13)
 ---------------------
 * Change: Replaced EEA Google Custom Search with EEA Global Catalog Search
   [avoinea refs #98369]
