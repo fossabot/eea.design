@@ -4,12 +4,13 @@
   action python:'http://search.apps.eea.europa.eu' if lang == 'en' else 'https://cse.google.com/cse';"
   i18n:domain="eea">
   <div class="gsc-control-cse gsc-control-cse-en gsc-control-wrapper-cse">
-    <form method="get" class="gsc-search-box gsc-search-box-tools" tal:attributes="action action">
+    <form method="get" id="gsc-form" class="gsc-search-box gsc-search-box-tools" tal:attributes="action action">
       <table class="gsc-search-box" cellspacing="0" cellpadding="0">
         <tr>
           <td class="gsc-input">
             <div class="gsc-input-box">
-              <input type="text" name="q" class="gsc-input" placeholder="Custom search" i18n:attributes="placeholder" />
+              <input type="text" id="gsc-input-query" name="q" class="gsc-input" placeholder="Custom search" i18n:attributes="placeholder" />
+              <input type="hidden" id="gsc-input-source" name="source" tal:condition="python:lang == 'en'" />
               <input type="hidden" name="cx" value="010617083146134556574:ymkqzb7sibw" tal:condition="python:lang != 'en'"/>
             </div>
           </td>
@@ -33,4 +34,40 @@
       class="pull-right"
       href="/help/glossary" i18n:translate="">A-Z Glossary</a>
   </div>
+  <script type="text/javascript" tal:condition="python: lang == 'en'">
+    var SearchAppTemplate = {
+     'query': {
+      'function_score': {
+        'query': {
+          'bool': {
+            'filter': {
+              'bool': {
+                'should': [{'term': {'language': 'en'}}]
+              }
+            },
+            'must': {
+              'bool': {
+                'must': [{
+                  'query_string': {
+                    'query': ""
+                  }
+                }]
+              }
+            }
+          }
+        }
+      }
+    }
+   };
+   document.querySelector('#gsc-input-query').addEventListener('change',function(){
+     SearchAppTemplate.query.function_score.query.bool.must.bool.must[0].query_string.query = this.value;
+     document.querySelector('#gsc-input-source').value = JSON.stringify(SearchAppTemplate);
+   });
+   document.querySelector('#gsc-form').addEventListener('submit', function(){
+     var inp = document.querySelector('#gsc-input-query');
+     var val = inp.value;
+     inp.placeholder = val;
+     inp.value = '';
+   });
+  </script>
 </div>
