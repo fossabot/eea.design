@@ -60,7 +60,7 @@
     }
    };
    document.querySelector('#gsc-input-query').addEventListener('change',function(){
-     SearchAppTemplate.query.function_score.query.bool.must.bool.must[0].query_string.query = this.value;
+     SearchAppTemplate.query.function_score.query.bool.must.bool.must[0].query_string.query = encodeURIComponent(this.value);
      document.querySelector('#gsc-input-source').value = JSON.stringify(SearchAppTemplate);
    });
    document.querySelector('#gsc-form').addEventListener('submit', function(){
