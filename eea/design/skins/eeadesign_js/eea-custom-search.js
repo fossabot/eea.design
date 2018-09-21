@@ -51,17 +51,17 @@ EEA.CustomSearch.prototype = {
 
     // Click outside search input
     document.addEventListener("click", function (e) {
-      self.close_all_lists(e.target);
+      self.close_all_lists(e);
     });
 
     // Form submit
     self.form.addEventListener('submit', function (e) {
-      self.form_submit();
+      self.on_submit(e);
     });
 
     // Input value changed
     self.context.addEventListener('change', function (e) {
-      self.input_changed(this.value);
+      self.on_change(e);
     });
 
     // Click and type within search input
@@ -70,13 +70,13 @@ EEA.CustomSearch.prototype = {
         clearTimeout(self.getting_tags);
       }
       self.getting_tags = setTimeout(function(){
-        self.input_input(self.context.value);
+        self.on_input(e);
       }, 300);
     });
 
     // Key press events
     self.context.addEventListener("keydown", function (e) {
-      self.input_keydown(e);
+      self.on_keydown(e);
     });
   },
 
@@ -95,7 +95,7 @@ EEA.CustomSearch.prototype = {
     self.context.parentNode.appendChild(self.autocomplete);
   },
 
-  input_input: function (val) {
+  on_input: function (e) {
     var self = this;
     if (!self.tags_url) {
       return;
@@ -105,40 +105,43 @@ EEA.CustomSearch.prototype = {
     xmlhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         self.tags = JSON.parse(this.responseText);
-        self.input_tags_ready(val);
+        self.on_tags_ready(self.context.value);
       }
     };
-    var url = self.tags_url + "?q=" + val;
+    var url = self.tags_url + "?q=" + self.context.value;
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
   },
 
-  input_tags_ready: function (val) {
+  on_tags_ready: function (e) {
     var self = this;
     var a, b, i;
     self.close_all_lists();
-    if (!val) {
+    if (!self.context.value) {
       return false;
     }
 
     self.focus = -1;
     var tag_on_click = function(e){
-      self.context.value = e.target.getAttribute("data-tag");
       self.close_all_lists();
+      self.context.value = e.target.getAttribute("data-tag");
+      self.on_change(e);
+      self.on_submit(e)
+      self.form.submit();
     };
 
     for (i = 0; i < self.tags.length; i++) {
       b = document.createElement("div");
       b.setAttribute("class", "autocomplete-item");
-      b.innerHTML = "<strong>" + self.tags[i].substr(0, val.length) + "</strong>";
-      b.innerHTML += self.tags[i].substr(val.length);
+      b.innerHTML = "<strong>" + self.tags[i].substr(0, self.context.value.length) + "</strong>";
+      b.innerHTML += self.tags[i].substr(self.context.value.length);
       b.setAttribute("data-tag", self.tags[i]);
       b.addEventListener("click", tag_on_click);
       self.autocomplete.appendChild(b);
     }
   },
 
-  input_keydown: function (e) {
+  on_keydown: function (e) {
     var self = this;
     var x = self.autocomplete.getElementsByTagName("div");
     if (e.keyCode == 40) {  // down
@@ -154,19 +157,19 @@ EEA.CustomSearch.prototype = {
     }
   },
 
-  input_changed: function (value) {
+  on_change: function (e) {
     var self = this;
-    self.template.query.function_score.query.bool.must.bool.must[0].query_string.query = encodeURIComponent(value);
+    self.template.query.function_score.query.bool.must.bool.must[0].query_string.query = encodeURIComponent(self.context.value);
     self.source.value = JSON.stringify(self.template);
   },
 
-  form_submit: function () {
+  on_submit: function (e) {
     var self = this;
     self.context.placeholder = self.context.value;
     self.context.value = '';
   },
 
-  close_all_lists: function (elmnt) {
+  close_all_lists: function (e) {
     var self = this;
     while (self.autocomplete.firstChild) {
       self.autocomplete.removeChild(self.autocomplete.firstChild);
