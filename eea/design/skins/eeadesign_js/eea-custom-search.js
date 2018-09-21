@@ -11,6 +11,7 @@ EEA.CustomSearch = function (context) {
   self.focus = -1;
   self.context = context;
   self.form = self.context.closest("form");
+  self.getting_tags = false;
   self.tags_url = self.form.getAttribute("data-tags-url");
   self.tags = [];
   self.template = {
@@ -65,7 +66,12 @@ EEA.CustomSearch.prototype = {
 
     // Click and type within search input
     self.context.addEventListener("input", function (e) {
-      self.input_input(self.context.value);
+      if(self.getting_tags){
+        clearTimeout(self.getting_tags);
+      }
+      self.getting_tags = setTimeout(function(){
+        self.input_input(self.context.value);
+      }, 300);
     });
 
     // Key press events
