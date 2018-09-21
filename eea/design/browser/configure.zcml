@@ -16,6 +16,12 @@
         permission="zope.Public" />
 
     <browser:page
+        for="zope.interface.Interface"
+        name="eea-custom-search.tags"
+        class=".search.Tags"
+        permission="zope.Public" />
+
+    <browser:page
         for="*"
         name="main_template"
         template="../skins/eea_overrides_templates/main_template.pt"
