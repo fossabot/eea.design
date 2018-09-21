@@ -120,17 +120,20 @@ EEA.CustomSearch.prototype = {
     if (!val) {
       return false;
     }
+
     self.focus = -1;
+    var tag_on_click = function(e){
+      self.context.value = e.target.getAttribute("data-tag");
+      self.close_all_lists();
+    };
+
     for (i = 0; i < self.tags.length; i++) {
       b = document.createElement("div");
       b.setAttribute("class", "autocomplete-item");
       b.innerHTML = "<strong>" + self.tags[i].substr(0, val.length) + "</strong>";
       b.innerHTML += self.tags[i].substr(val.length);
       b.setAttribute("data-tag", self.tags[i]);
-      b.addEventListener("click", function (e) {
-        self.context.value = this.getAttribute("data-tag");
-        self.close_all_lists();
-      });
+      b.addEventListener("click", tag_on_click);
       self.autocomplete.appendChild(b);
     }
   },
