@@ -126,7 +126,7 @@ EEA.CustomSearch.prototype = {
       self.close_all_lists();
       self.context.value = e.target.getAttribute("data-tag");
       self.on_change(e);
-      self.on_submit(e)
+      self.on_submit(e);
       self.form.submit();
     };
 
