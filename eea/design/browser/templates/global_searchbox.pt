@@ -4,37 +4,6 @@
   action python:'http://search.apps.eea.europa.eu' if lang == 'en' else 'https://cse.google.com/cse';
   tags string:${context/portal_url}/eea-custom-search.tags"
   i18n:domain="eea">
-  <style type="text/css">
-    #portal-searchbox .autocomplete-items {
-      position: absolute;
-      border: 1px solid #d4d4d4;
-      border-bottom: none;
-      border-top: none;
-      z-index: 9999;
-      top: 100%;
-      left: 0;
-      right: 0;
-   }
-   #portal-searchbox .autocomplete-items div {
-      padding: 10px;
-      cursor: pointer;
-      background-color: #fff;
-      border-bottom: 1px solid #d4d4d4;
-    }
-    #portal-searchbox .autocomplete-items div:hover {
-      background-color: #e9e9e9;
-    }
-    #portal-searchbox .autocomplete-active {
-      background-color: DodgerBlue !important;
-      color: #ffffff;
-    }
-    #portal-searchbox .gsc-input-box {
-      position: relative;
-    }
-    #portal-header {
-      overflow: inherit;
-    }
-  </style>
   <script tal:condition="python: lang == 'en'" tal:content="string:(function() {
           var gcse = document.createElement('script');
           gcse.type = 'text/javascript';
