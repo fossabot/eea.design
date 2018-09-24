@@ -1,62 +1,18 @@
 """ Redirect to glossary.eea.europa.eu
 """
 import json
+import logging
+from urllib import urlencode
+from eventlet.green import urllib2
+from contextlib import closing
+from eea.cache import cache
 from Products.Five.browser import BrowserView
 
+logger = logging.getLogger("eea.design")
 GLOSSARY = "http://glossary.{lang}.eea.europa.eu"
 SEARCH = "/terminology/sitesearch?term="
-
-DUMMY_TAGS = [
-    "Afghanistan","Albania","Algeria","Andorra",
-    "Angola","Anguilla","Antigua &amp; Barbuda",
-    "Argentina","Armenia","Aruba","Australia",
-    "Austria","Azerbaijan","Bahamas","Bahrain",
-    "Bangladesh","Barbados","Belarus","Belgium",
-    "Belize","Benin","Bermuda","Bhutan","Bolivia",
-    "Bosnia &amp; Herzegovina","Botswana","Brazil",
-    "British Virgin Islands","Brunei","Bulgaria",
-    "Burkina Faso","Burundi","Cambodia","Cameroon",
-    "Canada","Cape Verde","Cayman Islands",
-    "Central Arfrican Republic","Chad","Chile",
-    "China","Colombia","Congo","Cook Islands",
-    "Costa Rica","Cote D Ivoire","Croatia","Cuba",
-    "Curacao","Cyprus","Czech Republic","Denmark",
-    "Djibouti","Dominica","Dominican Republic",
-    "Ecuador","Egypt","El Salvador","Equatorial Guinea",
-    "Eritrea","Estonia","Ethiopia","Falkland Islands",
-    "Faroe Islands","Fiji","Finland","France",
-    "French Polynesia","French West Indies",
-    "Gabon","Gambia","Georgia","Germany","Ghana",
-    "Gibraltar","Greece","Greenland","Grenada","Guam",
-    "Guatemala","Guernsey","Guinea","Guinea Bissau",
-    "Guyana","Haiti","Honduras","Hong Kong","Hungary",
-    "Iceland","India","Indonesia","Iran","Iraq","Ireland",
-    "Isle of Man","Israel","Italy","Jamaica","Japan",
-    "Jersey","Jordan","Kazakhstan","Kenya","Kiribati",
-    "Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia",
-    "Lebanon","Lesotho","Liberia","Libya","Liechtenstein",
-    "Lithuania","Luxembourg","Macau","Macedonia",
-    "Madagascar","Malawi","Malaysia","Maldives","Mali",
-    "Malta","Marshall Islands","Mauritania","Mauritius",
-    "Mexico","Micronesia","Moldova","Monaco",
-    "Mongolia","Montenegro","Montserrat","Morocco",
-    "Mozambique","Myanmar","Namibia","Nauro","Nepal",
-    "Netherlands","Netherlands Antilles",
-    "New Caledonia","New Zealand","Nicaragua",
-    "Niger","Nigeria","North Korea","Norway",
-    "Oman","Pakistan","Palau","Palestine","Panama",
-    "Papua New Guinea","Paraguay","Peru",
-    "Philippines","Poland","Portugal",
-    "Puerto Rico","Qatar","Reunion","Romania",
-    "Russia","Rwanda","Saint Pierre &amp; Miquelon",
-    "Samoa","San Marino","Sao Tome and Principe",
-    "Saudi Arabia","Senegal","Serbia","Seychelles",
-    "Sierra Leone","Singapore","Slovakia","Slovenia",
-    "Solomon Islands","Somalia","South Africa",
-    "South Korea","South Sudan","Spain",
-    "Sri Lanka","St Kitts &amp; Nevis"
-]
-
+AUTOCOMPLETE = "http://search.apps.eea.europa.eu/tools/api"
+TIMEOUT = 3
 
 class Glossary(BrowserView):
     """ Glossary searcb
@@ -78,13 +34,58 @@ class Glossary(BrowserView):
         url += term
         self.request.response.redirect(url)
 
+
 class Tags(BrowserView):
     """ Get search auto-complete tags
     """
+    @cache(lambda *args, **kwargs: kwargs.get('q', ''), lifetime=86400)
+    def tags(self, q=''):
+        """ Get autocompletion tags
+        """
+        if not q:
+            return []
+
+        query = {
+            "size": 0,
+            "aggs": {
+                "autocomplete_full": {
+                    "terms": {
+                        "field": "autocomplete",
+                        "order": {
+                            "_count": "desc"
+                        },
+                        "include": "%s.*" % q
+                    }
+                },
+                "autocomplete_last": {
+                    "terms": {
+                        "field": "autocomplete",
+                        "order": {
+                            "_count": "desc"
+                        },
+                        "include": "%s.*" % q.split()[-1]
+                    }
+                }
+            }
+        }
+
+        url = "?".join((
+            AUTOCOMPLETE,
+            urlencode({"source": json.dumps(query)})
+        ))
+
+        try:
+            with closing(urllib2.urlopen(url, timeout=TIMEOUT)) as con:
+                res = json.loads(con.read())
+        except Exception as err:
+            logger.debug("%s - %s", url, err)
+            res = {}
+
+        return [doc.get('key') for doc in res.get("aggregations", {}).get(
+            "autocomplete_full", {}).get("buckets", [])]
+
     def __call__(self, **kwargs):
         if self.request:
             form = getattr(self.request, 'form', {})
             kwargs.update(form)
-        q = kwargs.get("q", "")
-
-        return json.dumps([x for x in DUMMY_TAGS if q in x.lower()])
+        return json.dumps(self.tags(q=kwargs.get("q", "")))

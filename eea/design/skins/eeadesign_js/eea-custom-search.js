@@ -123,10 +123,10 @@ EEA.CustomSearch.prototype = {
 
     self.focus = -1;
     var tag_on_click = function(e){
-      self.close_all_lists();
       self.context.value = e.target.getAttribute("data-tag");
       self.on_change(e);
       self.on_submit(e);
+      self.close_all_lists();
       self.form.submit();
     };
 
@@ -152,7 +152,7 @@ EEA.CustomSearch.prototype = {
       self.add_active(x);
     } else if (e.keyCode == 13) { // enter
       if (self.focus > -1) {
-        x[self.focus].click();
+        x[self.focus].click(e);
       }
     }
   },
@@ -165,8 +165,10 @@ EEA.CustomSearch.prototype = {
 
   on_submit: function (e) {
     var self = this;
-    self.context.placeholder = self.context.value;
-    self.context.value = '';
+    if(self.context.value){
+      self.context.placeholder = self.context.value;
+      self.context.value = '';
+    }
   },
 
   close_all_lists: function (e) {
