@@ -203,6 +203,7 @@ EEA.CustomSearch.prototype = {
   }
 };
 
-if (document.getElementById('gsc-input-query')) {
-  var cs = new EEA.CustomSearch(document.getElementById('gsc-input-query'));
+var gsc_cs, gsc_inputs = document.getElementsByClassName('gsc-input');
+for(i=0; i<gsc_inputs.length;i++) {
+  gsc_cs = new EEA.CustomSearch(gsc_inputs[i]);
 }

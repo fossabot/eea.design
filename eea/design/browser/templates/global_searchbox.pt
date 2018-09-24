@@ -14,12 +14,12 @@
       })();">
   </script>
   <div class="gsc-control-cse gsc-control-cse-en gsc-control-wrapper-cse">
-    <form method="get" id="gsc-form" class="gsc-search-box gsc-search-box-tools" tal:attributes="action action; data-tags-url tags" autocomplete="off">
+    <form method="get" class="gsc-search-box gsc-search-box-tools" tal:attributes="action action; data-tags-url tags" autocomplete="off">
       <table class="gsc-search-box" cellspacing="0" cellpadding="0">
         <tr>
           <td class="gsc-input">
             <div class="gsc-input-box">
-              <input type="text" id="gsc-input-query" name="q" class="gsc-input" placeholder="Custom search" i18n:attributes="placeholder" />
+              <input type="text" name="q" class="gsc-input" placeholder="Custom search" i18n:attributes="placeholder" />
               <input type="hidden" name="cx" value="010617083146134556574:ymkqzb7sibw" tal:condition="python:lang != 'en'"/>
             </div>
           </td>
@@ -36,11 +36,10 @@
     </form>
   </div>
   <div class="eea-search-links">
-    <a id="search_advanced_link" href="http://search.apps.eea.europa.eu" class="pull-left">
+    <a href="http://search.apps.eea.europa.eu" class="pull-left search_advanced_link">
       <span i18n:translate="">Search the catalogue</span>
     </a>
-    <a id="search_glossary_link"
-      class="pull-right"
+    <a class="pull-right search_glossary_link"
       href="/help/glossary" i18n:translate="">A-Z Glossary</a>
   </div>
 </div>
