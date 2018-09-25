@@ -1,6 +1,11 @@
 Changelog
 =========
 
+22.5 - (2018-09-25)
+---------------------
+* Bug fix: Fix EUNIS does not display correctly in IE
+  [avoinea refs #98476]
+
 22.4 - (2018-09-13)
 ---------------------
 * Feature: Custom search auto-complete
