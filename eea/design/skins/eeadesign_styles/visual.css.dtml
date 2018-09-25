@@ -943,66 +943,66 @@ span.figure-left {
 
 
 /* EUNIS navigation proposal, see #16978 */
-    /* #71710 add a margin for eunis tabbed menu needed after move to a colored background */
-    #portal-column-content .tabbedmenu {
-        margin-top: &dtml-padding-base;;
-    }
-    .tabbedmenu ul {
-        padding: 0 10px 0 0!important;
-        margin: 0!important;
-        font-size: 12px;
-        line-height: normal!important;
-        list-style-image: none!important;
-        list-style-type: none!important;
-        background-color: &dtml-corporateBlue;;
-    }
-    .tabbedmenu ul > li {
-        float: left;
-        margin: 0!important;
-        padding: 0!important;
-    }
-    /* Clear floated elements */
-    .tabbedmenu ul:before,
-    .tabbedmenu ul:after {
-        display: table;
-        content: " ";
-    }
-    .tabbedmenu ul:after {
-        clear: both;
-    }
-    .tabbedmenu ul > li a {
-        display: block;
-        color: #fff!important;
-        text-shadow: 1px 1px 1px #000000;
-        text-decoration: none;
-        white-space: nowrap;
-        padding: 8px 8px;
-    }
-    .tabbedmenu.two-rows ul > li a {
-        height: 50px;
-        white-space: normal;
-        max-width: 150px;
-    }
-    .tabbedmenu ul > li a:hover {
-        color: &dtml-corporateBlueTwo;!important;
-        text-decoration: none;
-        text-shadow: 1px 1px 1px #FFFFFF;
-        background-color: &dtml-greyBackgroundColor;;
-    }
-    .tabbedmenu ul > li a.current,
-    .tabbedmenu ul > li a.current:hover {
-        cursor: default;
-        color: &dtml-corporateBlueTwo;!important;
-        text-decoration: none;
-        text-shadow: 1px 1px 1px #FFFFFF;
-        background-color: &dtml-greyBackgroundColor;;
-    }
-    .border-tabbedmenu,
-    .tabbedmenu-panel {
-        border: 1px solid #DDD;
-        border-top: 0;
-        padding: 10px;
-    }
+/* #71710 add a margin for eunis tabbed menu needed after move to a colored background */
+#portal-column-content .tabbedmenu {
+    margin-top: &dtml-padding-base;;
+}
+.tabbedmenu ul {
+    padding: 0 10px 0 0!important;
+    margin: 0!important;
+    font-size: 12px;
+    line-height: normal!important;
+    list-style-image: none!important;
+    list-style-type: none!important;
+    background-color: &dtml-corporateBlue;;
+}
+.tabbedmenu ul > li {
+    float: left;
+    margin: 0!important;
+    padding: 0!important;
+}
+/* Clear floated elements */
+.tabbedmenu ul:before,
+.tabbedmenu ul:after {
+    display: table;
+    content: " ";
+}
+.tabbedmenu ul:after {
+    clear: both;
+}
+.tabbedmenu ul > li a {
+    display: block;
+    color: #fff!important;
+    text-shadow: 1px 1px 1px #000000;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 8px 8px;
+}
+.tabbedmenu.two-rows ul > li a {
+    height: 50px;
+    white-space: normal;
+    max-width: 150px;
+}
+.tabbedmenu ul > li a:hover {
+    color: &dtml-corporateBlueTwo;!important;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    background-color: &dtml-greyBackgroundColor;;
+}
+.tabbedmenu ul > li a.current,
+.tabbedmenu ul > li a.current:hover {
+    cursor: default;
+    color: &dtml-corporateBlueTwo;!important;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    background-color: &dtml-greyBackgroundColor;;
+}
+.border-tabbedmenu,
+.tabbedmenu-panel {
+    border: 1px solid #DDD;
+    border-top: 0;
+    padding: 10px;
+}
 /* @end EUNIS navigation proposal, see #16978 */
 
 /* Batch selector */
