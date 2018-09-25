@@ -1,6 +1,9 @@
 Changelog
 =========
 
+22.5-dev0 - (unreleased)
+---------------------
+
 22.4 - (2018-09-13)
 ---------------------
 * Feature: Custom search auto-complete
