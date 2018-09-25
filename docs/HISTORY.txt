@@ -1,7 +1,7 @@
 Changelog
 =========
 
-22.5-dev0 - (unreleased)
+22.5 - (2018-09-25)
 ---------------------
 * Bug fix: Fix EUNIS does not display correctly in IE
   [avoinea refs #98476]
