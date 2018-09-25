@@ -1,10 +1,11 @@
 <!-- THE SEARCHBOX DEFINITION -->
 <div id="portal-searchbox" metal:define-macro="quick_search" tal:define="
   lang here/Language|string:en;
-  action python:'http://search.apps.eea.europa.eu' if lang == 'en' else 'https://cse.google.com/cse';
+  is_en python:lang == 'en';
+  action python:'http://search.apps.eea.europa.eu' if is_en else 'https://cse.google.com/cse';
   tags string:${context/portal_url}/eea-custom-search.tags"
   i18n:domain="eea">
-  <script tal:condition="python: lang == 'en'" tal:content="string:(function() {
+  <script tal:condition="is_en" tal:content="string:(function() {
           var gcse = document.createElement('script');
           gcse.type = 'text/javascript';
           gcse.async = true;
@@ -19,8 +20,10 @@
         <tr>
           <td class="gsc-input">
             <div class="gsc-input-box">
-              <input type="text" name="q" class="gsc-input-query" placeholder="Custom search" i18n:attributes="placeholder" tal:attributes="data-tags-url tags" />
-              <input type="hidden" name="cx" value="010617083146134556574:ymkqzb7sibw" tal:condition="python:lang != 'en'"/>
+              <input type="text" name="q" class="gsc-input-query" tal:attributes="
+                placeholder python:'Search' if is_en else 'Google Custom Search';
+                data-tags-url tags" />
+              <input type="hidden" name="cx" value="010617083146134556574:ymkqzb7sibw" tal:condition="not:is_en"/>
             </div>
           </td>
           <td class="gsc-search-button">
@@ -36,7 +39,7 @@
     </form>
   </div>
   <div class="eea-search-links">
-    <a href="http://search.apps.eea.europa.eu" class="pull-left search_advanced_link">
+    <a href="http://search.apps.eea.europa.eu" class="pull-left search_advanced_link"  tal:condition="not:is_en">
       <span i18n:translate="">Search the catalogue</span>
     </a>
     <a class="pull-right search_glossary_link"
