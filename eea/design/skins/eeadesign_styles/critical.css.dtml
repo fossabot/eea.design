@@ -472,7 +472,7 @@ select {
     white-space: nowrap;
     margin-bottom: 0;
 }
-#portal-searchbox input.gsc-input {
+#portal-searchbox input.gsc-input-query {
     border: none;
     background: #fff;
     padding: 3px 6px;

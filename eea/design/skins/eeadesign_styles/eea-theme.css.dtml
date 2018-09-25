@@ -131,10 +131,10 @@ hr {
     font-size: 85%;
 }
 
-#portal-searchbox .gsc-input {
+#portal-searchbox .gsc-input-query {
     padding: 0 0.5em;
 }
-#portal-searchbox .gsc-input:focus {
+#portal-searchbox .gsc-input-query:focus {
     background: #FFF none !important;
 }
 #portal-searchbox .gsc-input {

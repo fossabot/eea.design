@@ -403,7 +403,7 @@ select {
     white-space: nowrap;
     margin-bottom: 0;
 }
-#portal-searchbox input.gsc-input {
+#portal-searchbox input.gsc-input-query {
     border: none;
     padding: 3px 6px;
     width: 99%;

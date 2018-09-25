@@ -19,7 +19,7 @@
         <tr>
           <td class="gsc-input">
             <div class="gsc-input-box">
-              <input type="text" name="q" class="gsc-input" placeholder="Custom search" i18n:attributes="placeholder" />
+              <input type="text" name="q" class="gsc-input-query" placeholder="Custom search" i18n:attributes="placeholder" />
               <input type="hidden" name="cx" value="010617083146134556574:ymkqzb7sibw" tal:condition="python:lang != 'en'"/>
             </div>
           </td>
