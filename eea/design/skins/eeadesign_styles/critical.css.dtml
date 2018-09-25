@@ -420,7 +420,7 @@ select {
     clear: both;
     position: relative;
     margin: 0 auto;
-    overflow: hidden;
+    overflow: inherit;
     height: 90px;
     z-index: initial;
     order: 2;
@@ -472,8 +472,9 @@ select {
     white-space: nowrap;
     margin-bottom: 0;
 }
-#portal-searchbox input.gsc-input {
-    border: 1px solid gray;
+#portal-searchbox input.gsc-input-query {
+    border: none;
+    background: #fff;
     padding: 3px 6px;
     height: 30px !important;
     width: 100%;
@@ -488,12 +489,43 @@ select {
 }
 #portal-searchbox .gsc-input-box {
     height: 100%;
+    position: relative;
 }
+
 #portal-searchbox .gsc-tabsArea > div {
     overflow: visible;
 }
+
 #portal-searchbox .gsc-cursor-current-page {
     padding: 5px;
+}
+
+#portal-searchbox .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 9999;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+#portal-searchbox .autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+    overflow: hidden;
+}
+
+#portal-searchbox .autocomplete-item:hover {
+    background-color: #e9e9e9;
+}
+
+#portal-searchbox .autocomplete-active {
+    background-color: DodgerBlue !important;
+    color: #ffffff;
 }
 
 .plone-breadcrumb {

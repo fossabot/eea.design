@@ -1,6 +1,15 @@
 Changelog
 =========
 
+22.4 - (2018-09-13)
+---------------------
+* Feature: Custom search auto-complete
+  [avoinea refs #98554]
+* Change: Replaced EEA Google Custom Search with EEA Global Catalog Search
+  [avoinea refs #98369]
+* Change: Persist custom check_pdf
+  [avoinea]
+
 22.3 - (2018-09-04)
 ---------------------
 * Bug fix: Fix HTTP status code for items with no workflow assigned
