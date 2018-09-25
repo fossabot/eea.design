@@ -943,7 +943,6 @@ span.figure-left {
 
 
 /* EUNIS navigation proposal, see #16978 */
-@media screen {
     /* #71710 add a margin for eunis tabbed menu needed after move to a colored background */
     #portal-column-content .tabbedmenu {
         margin-top: &dtml-padding-base;;
@@ -1004,7 +1003,6 @@ span.figure-left {
         border-top: 0;
         padding: 10px;
     }
-}
 /* @end EUNIS navigation proposal, see #16978 */
 
 /* Batch selector */
