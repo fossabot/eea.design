@@ -422,14 +422,15 @@ select {
     right: 0;
 }
 
-#portal-searchbox .autocomplete-items div {
+#portal-searchbox .autocomplete-item {
     padding: 10px;
     cursor: pointer;
     background-color: #fff;
     border-bottom: 1px solid #d4d4d4;
+    overflow: hidden;
 }
 
-#portal-searchbox .autocomplete-items div:hover {
+#portal-searchbox .autocomplete-item:hover {
     background-color: #e9e9e9;
 }
 
