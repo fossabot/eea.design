@@ -12,7 +12,7 @@ EEA.CustomSearch = function (context) {
   self.context = context;
   self.form = self.context.closest("form");
   self.getting_tags = false;
-  self.tags_url = self.form.getAttribute("data-tags-url");
+  self.tags_url = self.context.getAttribute("data-tags-url");
   self.tags = [];
   self.template = {
     'query': {
@@ -203,7 +203,9 @@ EEA.CustomSearch.prototype = {
   }
 };
 
-var gsc_cs, gsc_inputs = document.getElementsByClassName('gsc-input-query');
-for(i=0; i<gsc_inputs.length;i++) {
-  gsc_cs = new EEA.CustomSearch(gsc_inputs[i]);
-}
+window.addEventListener("load", function(event) {
+  var i, gsc_cs, gsc_inputs = document.getElementsByClassName('gsc-input-query');
+  for(i=0; i < gsc_inputs.length; i++) {
+    gsc_cs = new EEA.CustomSearch(gsc_inputs[i]);
+  }
+});
