@@ -1,3 +1,43 @@
+// IE9+ closest support
+
+if (!Element.prototype.matches) {
+  Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+}
+
+if (!Element.prototype.closest) {
+  Element.prototype.closest = function(s) {
+    var el = this;
+    if (!document.documentElement.contains(el)) {
+      return null;
+    }
+    do {
+      if (el.matches(s)) {
+        return el;
+      }
+      el = el.parentElement || el.parentNode;
+    } while (el !== null && el.nodeType === 1);
+    return null;
+  };
+}
+
+// CORS support https://www.html5rocks.com/en/tutorials/cors/
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+}
+
+// EEA Custom Search
 if (window.EEA === undefined) {
   var EEA = {
     who: "eea.design",
@@ -101,16 +141,24 @@ EEA.CustomSearch.prototype = {
       return;
     }
 
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        self.tags = JSON.parse(this.responseText);
-        self.on_tags_ready(self.context.value);
-      }
-    };
     var url = self.tags_url + "?q=" + self.context.value;
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
+    var xhr = createCORSRequest("GET", url);
+
+    if (!xhr){
+      // CORS not supported
+      return;
+    }
+
+    xhr.onload = function() {
+      self.tags = JSON.parse(this.responseText);
+      self.on_tags_ready(self.context.value);
+    };
+
+    xhr.onerror = function() {
+      return;
+    };
+
+    xhr.send();
   },
 
   on_tags_ready: function (e) {

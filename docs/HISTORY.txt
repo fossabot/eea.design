@@ -3,6 +3,8 @@ Changelog
 
 22.6-dev0 - (unreleased)
 ---------------------
+* Bug fix: Add CORS support for eea-custom-search.js
+  [avoinea refs #98922]
 
 22.5 - (2018-09-25)
 ---------------------
