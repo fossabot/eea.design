@@ -95,7 +95,6 @@ EEA.CustomSearch.prototype = {
     });
 
     self.autocomplete.addEventListener("mousemove", function(e) {
-      self.remove_active();
       self.add_active(e.target);
     });
 
