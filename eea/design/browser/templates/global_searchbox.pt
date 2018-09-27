@@ -1,7 +1,7 @@
 <!-- THE SEARCHBOX DEFINITION -->
 <div id="portal-searchbox" metal:define-macro="quick_search" tal:define="
   lang here/Language|string:en;
-  is_en python:lang == 'en';
+  is_en python:lang in ('en', '');
   search_google string:https://cse.google.com/cse;
   search_apps string:${context/portal_url}/eea-custom-search;
   action python:search_apps if is_en else search_google;
