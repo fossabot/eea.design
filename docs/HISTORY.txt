@@ -1,7 +1,7 @@
 Changelog
 =========
 
-22.6-dev0 - (unreleased)
+22.6 - (2018-09-27)
 ---------------------
 * Bug fix: Fix HTTPS Mixed-Content on search form
   [avoinea refs #98922]
