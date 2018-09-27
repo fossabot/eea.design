@@ -3,6 +3,8 @@ Changelog
 
 22.6 - (2018-09-27)
 ---------------------
+* Upgrade step: Cleanup portal_skins/custom and portal_view_customizations
+  [avoinea refs #98922]
 * Bug fix: Fix HTTPS Mixed-Content on search form
   [avoinea refs #98922]
 * Bug fix: Add CORS support for eea-custom-search.js
