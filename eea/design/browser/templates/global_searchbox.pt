@@ -1,8 +1,10 @@
 <!-- THE SEARCHBOX DEFINITION -->
 <div id="portal-searchbox" metal:define-macro="quick_search" tal:define="
   lang here/Language|string:en;
-  is_en python:lang == 'en';
-  action python:'http://search.apps.eea.europa.eu' if is_en else 'https://cse.google.com/cse';
+  is_en python:lang in ('en', '');
+  search_google string:https://cse.google.com/cse;
+  search_apps string:${context/portal_url}/eea-custom-search;
+  action python:search_apps if is_en else search_google;
   tags string:${context/portal_url}/eea-custom-search.tags"
   i18n:domain="eea">
   <script tal:condition="is_en" tal:content="string:(function() {

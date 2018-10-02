@@ -1,3 +1,43 @@
+// IE9+ closest support
+
+if (!Element.prototype.matches) {
+  Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+}
+
+if (!Element.prototype.closest) {
+  Element.prototype.closest = function(s) {
+    var el = this;
+    if (!document.documentElement.contains(el)) {
+      return null;
+    }
+    do {
+      if (el.matches(s)) {
+        return el;
+      }
+      el = el.parentElement || el.parentNode;
+    } while (el !== null && el.nodeType === 1);
+    return null;
+  };
+}
+
+// CORS support https://www.html5rocks.com/en/tutorials/cors/
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+}
+
+// EEA Custom Search
 if (window.EEA === undefined) {
   var EEA = {
     who: "eea.design",
@@ -8,7 +48,7 @@ if (window.EEA === undefined) {
 
 EEA.CustomSearch = function (context) {
   var self = this;
-  self.focus = -1;
+  self.focus = null;
   self.context = context;
   self.form = self.context.closest("form");
   self.getting_tags = false;
@@ -52,6 +92,10 @@ EEA.CustomSearch.prototype = {
     // Click outside search input
     document.addEventListener("click", function (e) {
       self.close_all_lists(e);
+    });
+
+    self.autocomplete.addEventListener("mousemove", function(e) {
+      self.add_active(e.target);
     });
 
     // Form submit
@@ -101,16 +145,24 @@ EEA.CustomSearch.prototype = {
       return;
     }
 
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        self.tags = JSON.parse(this.responseText);
-        self.on_tags_ready(self.context.value);
-      }
-    };
     var url = self.tags_url + "?q=" + self.context.value;
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
+    var xhr = createCORSRequest("GET", url);
+
+    if (!xhr){
+      // CORS not supported
+      return;
+    }
+
+    xhr.onload = function() {
+      self.tags = JSON.parse(this.responseText);
+      self.on_tags_ready(self.context.value);
+    };
+
+    xhr.onerror = function() {
+      return;
+    };
+
+    xhr.send();
   },
 
   on_tags_ready: function (e) {
@@ -121,7 +173,6 @@ EEA.CustomSearch.prototype = {
       return false;
     }
 
-    self.focus = -1;
     var tag_on_click = function(e){
       self.context.value = e.target.getAttribute("data-tag");
       self.on_change(e);
@@ -143,16 +194,27 @@ EEA.CustomSearch.prototype = {
 
   on_keydown: function (e) {
     var self = this;
-    var x = self.autocomplete.getElementsByTagName("div");
+    var i, x = self.autocomplete.getElementsByTagName("div");
+    var found = 0;
     if (e.keyCode == 40) {  // down
-      self.focus++;
-      self.add_active(x);
+      for (i = 0; i < x.length; i++) {
+        if(x[i].classList.contains('autocomplete-active')) {
+          found = i + 1;
+          break;
+        }
+      }
+      self.add_active(x[found]);
     } else if (e.keyCode == 38) { // up
-      self.focus--;
-      self.add_active(x);
+      for(i = 0; i < x.length; i++) {
+        if(x[i].classList.contains('autocomplete-active')) {
+          found = i - 1;
+          break;
+        }
+      }
+      self.add_active(x[found]);
     } else if (e.keyCode == 13) { // enter
-      if (self.focus > -1) {
-        x[self.focus].click(e);
+      if(self.focus){
+        self.focus.click();
       }
     }
   },
@@ -173,30 +235,27 @@ EEA.CustomSearch.prototype = {
 
   close_all_lists: function (e) {
     var self = this;
+    self.focus = null;
     while (self.autocomplete.firstChild) {
       self.autocomplete.removeChild(self.autocomplete.firstChild);
     }
   },
 
-  add_active: function (x) {
+  add_active: function (elem) {
     var self = this;
-    if (!x.length) {
+    if (!elem) {
       return false;
     }
 
-    self.remove_active(x);
-    if (self.focus >= x.length) {
-      self.focus = 0;
-    }
-
-    if (self.focus < 0) {
-      self.focus = (x.length - 1);
-    }
-
-    x[self.focus].classList.add("autocomplete-active");
+    self.remove_active();
+    self.focus = elem;
+    elem.classList.add("autocomplete-active");
   },
 
-  remove_active: function (x) {
+  remove_active: function () {
+    var self = this;
+    self.focus = null;
+    var x = self.autocomplete.getElementsByTagName("div");
     for (var i = 0; i < x.length; i++) {
       x[i].classList.remove("autocomplete-active");
     }
