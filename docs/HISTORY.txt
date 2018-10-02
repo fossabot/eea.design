@@ -1,6 +1,9 @@
 Changelog
 =========
 
+22.7-dev0 - (unreleased)
+---------------------
+
 22.6 - (2018-09-27)
 ---------------------
 * Upgrade step: Cleanup portal_skins/custom and portal_view_customizations
