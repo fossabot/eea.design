@@ -3,6 +3,8 @@ Changelog
 
 22.7-dev0 - (unreleased)
 ---------------------
+* Feature: Added support for Matomo analytics events
+  [avoinea refs #98857]
 
 22.6 - (2018-09-27)
 ---------------------

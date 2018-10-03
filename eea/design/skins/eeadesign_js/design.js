@@ -367,10 +367,22 @@ jQuery(document).ready(function($) {
             return check_file_type(url_tokens);
         }
         return txt_tokes_outcome;
+    }
 
+    function extract_portal_type() {
+      var ptype = $('body').attr('class').match('portaltype-[a-z-]*');
+      if (ptype) {
+        ptype = ptype[0].split('-');
+        ptype = ptype.length === 2 ? capitalize(ptype[1]) : capitalize(ptype[1]) + ' ' + capitalize(ptype[2]);
+      }
+      else {
+        ptype = 'Unknown';
+      }
+      return ptype;
     }
 
     var links = document.getElementsByTagName('a');
+    var portal_type = extract_portal_type();
 
     function match_download_links(links) {
         var list = [];
@@ -406,9 +418,13 @@ jQuery(document).ready(function($) {
             var text = el.textContent || el.innerText;
             var ftype = extract_file_type(el.href, text);
             var link = el.href;
-            if (ga) {
+            if (window.ga) {
                 ga('send', 'event', 'Downloads', link, ftype);
             }
+            if(window._paq) {
+              _paq.push(['trackEvent', 'Downloads', ftype, portal_type, 1]);
+            }
+
         };
         return el;
     }
@@ -485,6 +501,9 @@ jQuery(document).ready(function($) {
                     runOnce = true;
                     if (window.ga) {
                         window.ga('send', 'event', 'Print Action', window.location.host, window.location.href);
+                    }
+                    if(window._paq) {
+                      _paq.push(['trackEvent', 'Print', 'Read-100%', portal_type, 1]);
                     }
                 }
             };
