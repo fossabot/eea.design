@@ -1,4 +1,4 @@
-/*global jQuery window document ga setTimeout*/
+/*global jQuery window document ga _paq setTimeout*/
 jQuery(document).ready(function($) {
     'use strict';
     var $viewlet_below_content = $("#viewlet-below-content");
@@ -367,6 +367,11 @@ jQuery(document).ready(function($) {
             return check_file_type(url_tokens);
         }
         return txt_tokes_outcome;
+    }
+
+
+    function capitalize(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
     function extract_portal_type() {
