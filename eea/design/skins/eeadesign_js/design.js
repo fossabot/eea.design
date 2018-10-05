@@ -508,7 +508,7 @@ jQuery(document).ready(function($) {
                         window.ga('send', 'event', 'Print Action', window.location.host, window.location.href);
                     }
                     if(window._paq) {
-                      _paq.push(['trackEvent', 'Print', 'Read-100%', portal_type, 1]);
+                      _paq.push(['trackEvent', 'Reading', 'print', portal_type, 1]);
                     }
                 }
             };
