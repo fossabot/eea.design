@@ -5,6 +5,8 @@ Changelog
 ---------------------
 * Feature: Added support for Matomo analytics events
   [avoinea refs #98857]
+* Bug: Added description about fancybox in design_element.pt
+  [szabozo0 refs #98070]
 
 22.6 - (2018-09-27)
 ---------------------

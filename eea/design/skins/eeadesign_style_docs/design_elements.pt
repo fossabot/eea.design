@@ -491,6 +491,7 @@ developers, UX/UI experts.
         If the a-tag hrefs to an image, it will be displayed in the popup.
         Be careful though, if the URL does not end with an image extension,
         fancybox will hang.
+        If the URL doesn't end with an image extension, you can still force it to display the popup, by adding an extra class: fancybox.image
     </p>
     <a class="fancybox" href="http://farm3.static.flickr.com/2181/2168980899_1508c84aac.jpg">
         <img src="https://farm3.static.flickr.com/2181/2168980899_1508c84aac_t.jpg" />
