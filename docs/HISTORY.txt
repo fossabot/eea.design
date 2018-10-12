@@ -3,6 +3,8 @@ Changelog
 
 22.7 - (2018-10-03)
 ---------------------
+* Change: Persist custom main_template
+  [avoinea refs #98857]
 * Feature: Added support for Matomo analytics events
   [avoinea refs #98857]
 * Bug: Added description about fancybox in design_element.pt

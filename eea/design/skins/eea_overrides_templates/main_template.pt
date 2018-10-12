@@ -1,3 +1,4 @@
+
 <metal:page define-macro="master"
             tal:define="portal_state context/@@plone_portal_state;
                         context_state context/@@plone_context_state;
@@ -64,6 +65,7 @@
     <link href="https://plus.google.com/104345627234408209119" rel="publisher" />
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext,latin" rel="stylesheet" type="text/css" tal:condition="isPrint" />
 
+
 <tal:comment replace="nothing">
         Prevent public draft content to be indexed and cached by search engines.
 </tal:comment>
@@ -96,6 +98,8 @@
     <tal:comment replace="nothing"> This is deprecated, please use style_slot instead. </tal:comment>
     <metal:cssslot define-slot="css_slot" />
 
+
+
     <meta name="generator" content="Plone - http://plone.org" />
 
     <script type="text/javascript" tal:content="structure context/ready.min.js">
@@ -109,9 +113,9 @@
 
 <body tal:define="isRTL portal_state/is_rtl;
                   wf_state context_state/workflow_state|string:;
-                  is_expired context/isExpired;
-                  is_editable context_state/is_editable;
-                  sr python:plone_view.have_portlets('plone.rightcolumn', view) and not request.get('disable_plone.rightcolumn');
+                  is_expired context/isExpired|python:False;
+                  is_editable context_state/is_editable|python:False;
+                  sr python:plone_view.have_portlets('plone.rightcolumn', view);
                   body_class python:plone_view.bodyClass(template, view);
                   body_class python: body_class + ' body-print' if isPrint else body_class;
                   body_class python: body_class + ' fullwidth' if context.restrictedTraverse('@@fullwidth_content_types')() or request.get('body.fullwidth') else body_class;
@@ -328,6 +332,11 @@
             tal:content="structure context/lazy_load_init.js"
             tal:condition="python:not isPrint">
     </script>
+
+    <!-- Matomo noscript -->
+    <noscript><p><img src="https://matomo.eea.europa.eu/piwik.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Matomo Code -->
+
     <tal:scripts replace="structure provider:plone.resourceregistries.scripts" />
     <metal:javascriptslot define-slot="javascript_head_slot" />
 
