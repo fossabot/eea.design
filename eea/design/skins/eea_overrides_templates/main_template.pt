@@ -333,10 +333,6 @@
             tal:condition="python:not isPrint">
     </script>
 
-    <!-- Matomo noscript -->
-    <noscript><p><img src="https://matomo.eea.europa.eu/piwik.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-    <!-- End Matomo Code -->
-
     <tal:scripts replace="structure provider:plone.resourceregistries.scripts" />
     <metal:javascriptslot define-slot="javascript_head_slot" />
 
