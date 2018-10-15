@@ -1,4 +1,4 @@
-/*global jQuery window document ga _paq setTimeout*/
+/*global jQuery window document ga setTimeout*/
 
 // Matomo support
 var _paq = _paq || [];
