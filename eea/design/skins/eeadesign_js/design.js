@@ -1,4 +1,8 @@
 /*global jQuery window document ga _paq setTimeout*/
+
+// Matomo support
+var _paq = _paq || [];
+
 jQuery(document).ready(function($) {
     'use strict';
     var $viewlet_below_content = $("#viewlet-below-content");
@@ -426,10 +430,7 @@ jQuery(document).ready(function($) {
             if (window.ga) {
                 ga('send', 'event', 'Downloads', link, ftype);
             }
-            if(window._paq) {
-              _paq.push(['trackEvent', 'Downloads', ftype, portal_type, 1]);
-            }
-
+            _paq.push(['trackEvent', 'Downloads', ftype, portal_type, 1]);
         };
         return el;
     }
@@ -507,9 +508,7 @@ jQuery(document).ready(function($) {
                     if (window.ga) {
                         window.ga('send', 'event', 'Print Action', window.location.host, window.location.href);
                     }
-                    if(window._paq) {
-                      _paq.push(['trackEvent', 'Reading', 'print', portal_type, 1]);
-                    }
+                    _paq.push(['trackEvent', 'Reading', 'print', portal_type, 1]);
                 }
             };
             window.onafterprint = afterPrint; // Internet Explorer
