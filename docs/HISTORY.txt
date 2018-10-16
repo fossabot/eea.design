@@ -5,6 +5,8 @@ Changelog
 ---------------------
 * Change: Persist custom main_template
   [avoinea refs #98857]
+* Feature: Added support for Matomo downloads
+  [avoinea refs #98864]
 * Feature: Added support for Matomo analytics events
   [avoinea refs #98857]
 * Bug: Added description about fancybox in design_element.pt

@@ -115,14 +115,22 @@ function scanforlinksinarea(contentarea) {
 
 
             if (slashIdx > colonIdx + 2 && slashIdx < ext_idx0) {
-                extension = shortlinkval.substring(ext_idx0 + 1);
+                extension = shortlinkval.substring(ext_idx0 + 1).toLowerCase();
+                if(extension !== "htm") {
+                    link.classList.add("piwik_download");
+                }
                 // add class name = link-extension
                 // it can be styled as you prefer in your css
-                if (ext_idx0 > 0 &&
-                    link.getElementsByTagName('img').length === 0) {
-                    wrapNode(link, 'span', 'link-' + extension.toLowerCase());
+                if (ext_idx0 > 0 && link.getElementsByTagName('img').length === 0) {
+                    wrapNode(link, 'span', 'link-' + extension);
                 }
             }
+
+            // ADD CSS CLASS for Matomo
+            if (linkValLowCase.indexOf('at_download') > 0) {
+                link.classList.add("piwik_download");
+            }
+
             // ADD CSS CLASSES FOR SPECIAL PROTOCOLS
             // check if the link href is a relative link, or an absolute link to
             // the current host.
