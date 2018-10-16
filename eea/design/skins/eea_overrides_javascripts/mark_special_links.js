@@ -116,7 +116,7 @@ function scanforlinksinarea(contentarea) {
 
             if (slashIdx > colonIdx + 2 && slashIdx < ext_idx0) {
                 extension = shortlinkval.substring(ext_idx0 + 1).toLowerCase();
-                if(extension !== "htm") {
+                if(extension !== "htm" && extension !== "html") {
                     link.classList.add("piwik_download");
                 }
                 // add class name = link-extension
@@ -126,8 +126,15 @@ function scanforlinksinarea(contentarea) {
                 }
             }
 
-            // ADD CSS CLASS for Matomo
-            if (linkValLowCase.indexOf('at_download') > 0) {
+            // ADD CSS CLASS for Matomo download
+
+            // Archetype
+            if (linkValLowCase.lastIndexOf('at_download') > 0 || linkValLowCase.lastIndexOf('/download') > 0) {
+                link.classList.add("piwik_download");
+            }
+
+            // Event
+            if(linkValLowCase.lastIndexOf("vcs_view") > 0 || linkValLowCase.lastIndexOf("ics_view") > 0) {
                 link.classList.add("piwik_download");
             }
 
