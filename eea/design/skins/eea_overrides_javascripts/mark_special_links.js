@@ -116,7 +116,7 @@ function scanforlinksinarea(contentarea) {
 
             if (slashIdx > colonIdx + 2 && slashIdx < ext_idx0) {
                 extension = shortlinkval.substring(ext_idx0 + 1).toLowerCase();
-                if(extension !== "htm" && extension !== "html") {
+                if(extension !== "htm" && extension !== "html" && linkClass.indexOf("moreLink") === -1) {
                     link.classList.add("piwik_download");
                 }
                 // add class name = link-extension
