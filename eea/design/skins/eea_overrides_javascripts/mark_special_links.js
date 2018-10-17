@@ -133,6 +133,11 @@ function scanforlinksinarea(contentarea) {
                 link.classList.add("piwik_download");
             }
 
+            // RDF and RSS
+            if (linkValLowCase.lastIndexOf('/@@rdf') > 0 || linkValLowCase.lastIndexOf('/rss') > 0) {
+                link.classList.add("piwik_download");
+            }
+
             // Event
             if(linkValLowCase.lastIndexOf("vcs_view") > 0 || linkValLowCase.lastIndexOf("ics_view") > 0) {
                 link.classList.add("piwik_download");
