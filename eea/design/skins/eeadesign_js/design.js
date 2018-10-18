@@ -425,8 +425,8 @@ jQuery(document).ready(function($) {
     function add_downloads_tracking_code(idx, el) {
         el.onclick = function() {
             var text = el.textContent || el.innerText;
-            var ftype = extract_file_type(el.href, text);
-            var link = el.href;
+            var link = el.href || "download.pdf";
+            var ftype = extract_file_type(link, text);
             if (window.ga) {
                 ga('send', 'event', 'Downloads', link, ftype);
             }
@@ -436,6 +436,10 @@ jQuery(document).ready(function($) {
     }
 
     $.each(downloads_list, add_downloads_tracking_code);
+    var download_pdf = document.getElementById("download");
+    if(download_pdf) {
+        add_downloads_tracking_code(0, download_pdf);
+    }
 
     /* #26746 do now show the survey message for 1 year as we no longer need to show it */
     if (window.readCookie && !window.readCookie('survey_message')) {
