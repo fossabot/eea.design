@@ -58,6 +58,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- viewport meta needed for proper view on an ipad -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#069" />
 
     <meta name="description" content="Information on the environment for those
       involved in developing, adopting, implementing and evaluating environmental
