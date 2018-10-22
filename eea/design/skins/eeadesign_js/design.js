@@ -1,4 +1,8 @@
 /*global jQuery window document ga setTimeout*/
+
+// Matomo support
+var _paq = _paq || [];
+
 jQuery(document).ready(function($) {
     'use strict';
     var $viewlet_below_content = $("#viewlet-below-content");
@@ -367,10 +371,27 @@ jQuery(document).ready(function($) {
             return check_file_type(url_tokens);
         }
         return txt_tokes_outcome;
+    }
 
+
+    function capitalize(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    function extract_portal_type() {
+      var ptype = $('body').attr('class').match('portaltype-[a-z-]*');
+      if (ptype) {
+        ptype = ptype[0].split('-');
+        ptype = ptype.length === 2 ? capitalize(ptype[1]) : capitalize(ptype[1]) + ' ' + capitalize(ptype[2]);
+      }
+      else {
+        ptype = 'Unknown';
+      }
+      return ptype;
     }
 
     var links = document.getElementsByTagName('a');
+    var portal_type = extract_portal_type();
 
     function match_download_links(links) {
         var list = [];
@@ -404,16 +425,21 @@ jQuery(document).ready(function($) {
     function add_downloads_tracking_code(idx, el) {
         el.onclick = function() {
             var text = el.textContent || el.innerText;
-            var ftype = extract_file_type(el.href, text);
-            var link = el.href;
-            if (ga) {
+            var link = el.href || "download.pdf";
+            var ftype = extract_file_type(link, text);
+            if (window.ga) {
                 ga('send', 'event', 'Downloads', link, ftype);
             }
+            _paq.push(['trackEvent', 'Downloads', ftype, portal_type, 1]);
         };
         return el;
     }
 
     $.each(downloads_list, add_downloads_tracking_code);
+    var download_pdf = document.getElementById("download");
+    if(download_pdf) {
+        add_downloads_tracking_code(0, download_pdf);
+    }
 
     /* #26746 do now show the survey message for 1 year as we no longer need to show it */
     if (window.readCookie && !window.readCookie('survey_message')) {
@@ -486,6 +512,7 @@ jQuery(document).ready(function($) {
                     if (window.ga) {
                         window.ga('send', 'event', 'Print Action', window.location.host, window.location.href);
                     }
+                    _paq.push(['trackEvent', 'Reading', 'print', portal_type, 1]);
                 }
             };
             window.onafterprint = afterPrint; // Internet Explorer

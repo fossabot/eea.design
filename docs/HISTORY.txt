@@ -1,6 +1,17 @@
 Changelog
 =========
 
+22.7 - (2018-10-03)
+---------------------
+* Change: Persist custom main_template
+  [avoinea refs #98857]
+* Feature: Added support for Matomo downloads
+  [avoinea refs #98864]
+* Feature: Added support for Matomo analytics events
+  [avoinea refs #98857]
+* Bug: Added description about fancybox in design_element.pt
+  [szabozo0 refs #98070]
+
 22.6 - (2018-09-27)
 ---------------------
 * Upgrade step: Cleanup portal_skins/custom and portal_view_customizations
