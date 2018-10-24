@@ -1,6 +1,9 @@
 Changelog
 =========
 
+22.8-dev0 - (unreleased)
+---------------------
+
 22.7 - (2018-10-03)
 ---------------------
 * Change: Persist custom main_template
