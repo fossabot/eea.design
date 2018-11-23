@@ -1,6 +1,11 @@
 Changelog
 =========
 
+22.8 - (2018-11-23)
+---------------------
+* Bug fix: Fixed PDF header for Fiche content-type
+  [avoinea refs #100179]
+
 22.7 - (2018-10-03)
 ---------------------
 * Change: Persist custom main_template
