@@ -1,6 +1,9 @@
 Changelog
 =========
 
+22.9-dev0 - (unreleased)
+---------------------
+
 22.8 - (2018-11-23)
 ---------------------
 * Bug fix: Fixed PDF header for Fiche content-type
