@@ -3,6 +3,8 @@ Changelog
 
 22.8-dev0 - (unreleased)
 ---------------------
+* Bug fix: Fixed PDF header for Fiche content-type
+  [avoinea refs #100179]
 
 22.7 - (2018-10-03)
 ---------------------

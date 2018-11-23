@@ -459,7 +459,16 @@ dl.captioned {
 }
 
 .eea-three-quarters {
-  width: 100%;
+  width: 60%;
+}
+
+.pdf-fiche-title {
+    width: 100%;
+}
+
+.pdf-fiche-first-page {
+    display: table;
+    width: 100%;
 }
 
 /* </dtml-with> */
