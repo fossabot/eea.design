@@ -1,6 +1,9 @@
 Changelog
 =========
 
+23.0-dev0 - (unreleased)
+---------------------
+
 22.9-dev0 - (unreleased)
 ---------------------
 * Bug fix: fixed extract_portal_type call from design.js for non eea websites
