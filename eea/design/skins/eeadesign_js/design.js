@@ -379,8 +379,9 @@ jQuery(document).ready(function($) {
     }
 
     function extract_portal_type() {
-      var ptype = $('body').attr('class').match('portaltype-[a-z-]*');
+      var ptype = $('body').attr('class');
       if (ptype) {
+        ptype = ptype.match('portaltype-[a-z-]*');
         ptype = ptype[0].split('-');
         ptype = ptype.length === 2 ? capitalize(ptype[1]) : capitalize(ptype[1]) + ' ' + capitalize(ptype[2]);
       }

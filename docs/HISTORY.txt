@@ -1,6 +1,12 @@
 Changelog
 =========
 
+22.9-dev0 - (unreleased)
+---------------------
+* Bug fix: fixed extract_portal_type call from design.js for non eea websites
+  such as eunis
+  [ichim-david refs #100506]
+
 22.8 - (2018-11-23)
 ---------------------
 * Bug fix: Fixed PDF header for Fiche content-type
