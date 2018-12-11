@@ -1,6 +1,9 @@
 Changelog
 =========
 
+23.1-dev0 - (unreleased)
+---------------------
+
 23.0 - (2018-12-10)
 ---------------------
 * Change: Fix release 22.9 [avoinea]
