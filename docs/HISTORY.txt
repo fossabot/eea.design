@@ -1,7 +1,11 @@
 Changelog
 =========
 
-22.9-dev0 - (unreleased)
+23.0 - (2018-12-10)
+---------------------
+* Change: Fix release 22.9 [avoinea]
+
+22.9 - (2018-12-10)
 ---------------------
 * Bug fix: fixed extract_portal_type call from design.js for non eea websites
   such as eunis
