@@ -34,8 +34,9 @@ _paq.push(['trackPageView']);
 _paq.push(['enableLinkTracking']);
 (function() {
   var u="https://matomo.eea.europa.eu/";
+  var d=document, sid=d.getElementsByTagName('html')[0].getAttribute('data-siteid') || '3';
   _paq.push(['setTrackerUrl', u+'piwik.php']);
-  _paq.push(['setSiteId', '3']);
-  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+  _paq.push(['setSiteId', sid]);
+  var g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
   g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
 })();
