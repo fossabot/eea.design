@@ -34,7 +34,13 @@ _paq.push(['trackPageView']);
 _paq.push(['enableLinkTracking']);
 (function() {
   var u="https://matomo.eea.europa.eu/";
-  var d=document, sid=d.getElementsByTagName('html')[0].getAttribute('data-siteid') || '3';
+  var hn=window.location.host;
+  var sids={"www.eea.europa.eu":"3",
+            "semantic.eea.europa.eu":"34",
+            "eunis.eea.europa.eu":"35",
+            "community.eea.europa.eu":"36",
+            "search.apps.eea.europa.eu":"37"};
+  var d=document, sid=d.getElementsByTagName('html')[0].getAttribute('data-siteid') || sids[hn] || '3';
   _paq.push(['setTrackerUrl', u+'piwik.php']);
   _paq.push(['setSiteId', sid]);
   var g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
