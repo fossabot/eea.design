@@ -3,6 +3,12 @@ Changelog
 
 23.1-dev0 - (unreleased)
 ---------------------
+* Feature: added tracking of search.apps.eea.europa.eu with matomo analytics
+  [ichim-david refs #100780]
+* Feature: added tracking of semantic.eea.europa.eu with matomo analytics
+  [ichim-david refs #100762]
+* Feature: added tracking of eunis.eea.europa.eu with matomo analytics
+  [ichim-david refs #100758]
 * Change: read siteId matomo id from html data-siteid attribute if found on html tag.
   This way external sites can send the analytics to the right site id such as community
   [ichim-david refs #100763]
