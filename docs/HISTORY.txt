@@ -1,6 +1,9 @@
 Changelog
 =========
 
+23.2-dev0 - (unreleased)
+---------------------
+
 23.1 - (2018-12-17)
 ---------------------
 * Feature: added tracking of search.apps.eea.europa.eu with matomo analytics
