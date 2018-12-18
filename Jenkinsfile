@@ -10,7 +10,20 @@ pipeline {
     stage('Code') {
       steps {
         parallel(
-
+          
+          "SonarQube analysis": {
+             node(label: 'swarm'){
+	           script{    
+		         checkout scm
+                 // requires SonarQube Scanner 2.8+
+                 def scannerHome = tool 'SonarQubeScanner';
+                 withSonarQubeEnv('Sonarqube Dev') {
+                   sh "${scannerHome}/bin/sonar-scanner -Dsonar.sources=. -Dsonar.projectKey=$GIT_NAME"
+                 }
+	           }
+             }
+          }, 
+          
           "ZPT Lint": {
             node(label: 'docker') {
               sh '''docker run -i --rm --name="$BUILD_TAG-zptlint" -e GIT_BRANCH="$BRANCH_NAME" -e ADDONS="$GIT_NAME" -e DEVELOP="src/$GIT_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" eeacms/plone-test:4 zptlint'''
